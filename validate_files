@@ -101,7 +101,8 @@ def validate_graphs(
         boards_directory: Path,
         specification_file: Path,
         category_tree_file: Path,
-        interfaces_file: Path) -> int:
+        interfaces_file: Path,
+        pipeline_manager_build_directory: Path) -> int:
     """
     Validates the specification file and boards.
 
@@ -122,6 +123,9 @@ def validate_graphs(
         Path to the file with the category tree
     interfaces_file : Path
         Path to the file with available interfaces
+    pipeline_manager_build_directory : Path
+        Path where the sources for Pipeline Manager will be
+        stored and built
 
     Returns
     -------
@@ -134,14 +138,23 @@ def validate_graphs(
     )
     if status != 0:
         return status
+
+    pipeline_manager_build_directory.mkdir(parents=True, exist_ok=True)
+
+    build_prepare(pipeline_manager_build_directory)
+
     failed_boards = []
     for board_dir in boards_directory.glob('*'):
         board_name = board_dir.stem
         print(f'\n\nChecking {board_dir.stem}...\n\n', flush=True)
         board_file = board_dir / f"{board_name}.json"
-        status = validate(specification_file, board_file)
+        status = validate(
+            specification_file,
+            board_file,
+            workspace_directory=pipeline_manager_build_directory
+        )
         if status > 1:
-            failed_boards.append(board_path)
+            failed_boards.append(board_file)
     if failed_boards:
         print("Invalid graphs:", flush=True)
         for board in failed_boards:
@@ -177,12 +190,16 @@ if __name__ == '__main__':
         default=Path("./interfaces.txt"),
         type=Path
     )
+    parser.add_argument(
+        "--pipeline-manager-build-directory",
+        help="Path where Pipeline Manager files will be generated for build",
+        default=Path("./pm-build"),
+        type=Path
+    )
 
     args = parser.parse_args()
 
     args = {k: v for k, v in vars(args).items() if v is not None}
-
-    build_prepare()
 
     result = validate_graphs(**args)
     sys.exit(result)
