@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+
+# Copyright (c) 2022-2023 Antmicro <www.antmicro.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+"""
+A script for validating the specification and the boards.
+"""
+
+import sys
+import json
+import argparse
+from pathlib import Path
+import shutil
+
+from pipeline_manager.validator import validate
+from pipeline_manager.frontend_builder import build_prepare
+
+
+def check_categories_and_interfaces(
+        specification_file: Path,
+        category_tree_file: Path,
+        interfaces_file: Path) -> int:
+    """
+    Verifies categories and interfaces in the specification.
+
+    The components in the specification file should fall
+    only into categories specified in the ./category-tree.txt.
+
+    All interfaces should be lower case and match one of
+    the interfaces from ./interfaces.txt.
+
+    Parameters
+    ----------
+    specification_file: Path
+        Path to the specification file
+    category_tree_file: Path
+        Path to the tree of categories
+    interfaces_file: Path
+        Path to the list of available interfaces
+
+    Returns
+    -------
+    int :
+        0 if categories and interfaces are valid
+        Other value in case of an error.
+    """
+    # Set of possible category paths
+    category_chains = set()
+    # Set of possible interfaces
+    interface_types = set()
+
+    curr_path = []
+    with open(category_tree_file, 'r') as category_fd:
+        for line in category_fd:
+            line = line.rstrip()
+            nest_level = (len(line) - len(line.lstrip())) // 4
+            if nest_level + 1 > len(curr_path):
+                curr_path.append(line.strip())
+            else:
+                curr_path[nest_level] = line.strip()
+                curr_path[nest_level + 1:] = []
+            category_chains.add('/'.join(curr_path))
+    with open(interfaces_file, 'r') as interfaces_fd:
+        for line in interfaces_fd:
+            interface_types.add(line.strip())
+
+    with open(specification_file, 'r') as spec_fd:
+        spec = json.load(spec_fd)
+
+    status = 0
+    for node in spec["nodes"]:
+        if "category" in node and node["category"] not in category_chains:
+            print(
+                f'Category Error: Node "{node["name"]}" '
+                f'has invalid category "{node["category"]}"'
+            )
+            status = 1
+        for interface in node["interfaces"]:
+            if isinstance(interface["type"], list):
+                for itype in interface["type"]:
+                    if itype not in interface_types:
+                        print(
+                            f'Interface Error: Node "{node["name"]}" has '
+                            f'interface "{interface["name"]}" with '
+                            f'invalid subtype "{itype}"'
+                        )
+                        status = 1
+            elif interface["type"] not in interface_types:
+                print(
+                    f'Interface Error: Node "{node["name"]}" has '
+                    f'interface "{interface["name"]}" with invalid '
+                    f'type "{interface["type"]}"'
+                )
+                status = 1
+    return status
+
+
+def validate_graphs(
+        boards_directory: Path,
+        specification_file: Path,
+        category_tree_file: Path,
+        interfaces_file: Path) -> int:
+    """
+    Validates the specification file and boards.
+
+    Checks the correctness of categories and interfaces
+    in the specification.
+    Later, it validates the specification and dataflow
+    files using pipeline manager to check if they are
+    correct and compatible.
+
+    Parameters
+    ----------
+    boards_directory : Path
+        Path to the directory with boards to verify
+    specification_file : Path
+        Path to the JSON file with defined components
+        to validate and compare with the boards
+    category_tree_file : Path
+        Path to the file with the category tree
+    interfaces_file : Path
+        Path to the file with available interfaces
+
+    Returns
+    -------
+    int :
+        0 if categories and interfaces are valid
+        Other value in case of an error.
+    """
+    status = check_categories_and_interfaces(
+        specification_file, category_tree_file, interfaces_file
+    )
+    if status != 0:
+        return status
+    failed_boards = []
+    for board_dir in boards_directory.glob('*'):
+        board_name = board_dir.stem
+        print(f'\n\nChecking {board_dir.stem}...\n\n', flush=True)
+        board_file = board_dir / f"{board_name}.json"
+        status = validate(specification_file, board_file)
+        if status > 1:
+            failed_boards.append(board_path)
+    if failed_boards:
+        print("Invalid graphs:", flush=True)
+        for board in failed_boards:
+            print(board)
+    if failed_boards:
+        return 1
+    return 0
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--boards-directory",
+        help="Path to the directory with boards",
+        default=Path('./boards'),
+        type=Path
+    )
+    parser.add_argument(
+        "--specification-file",
+        help="Path to the specification file",
+        default=Path('./components-specification.json'),
+        type=Path
+    )
+    parser.add_argument(
+        "--category-tree-file",
+        help="Path to the tree-like file with categories of node types",
+        default=Path("./category-tree.txt"),
+        type=Path
+    )
+    parser.add_argument(
+        "--interfaces-file",
+        help="Path to the list of interfaces",
+        default=Path("./interfaces.txt"),
+        type=Path
+    )
+
+    args = parser.parse_args()
+
+    args = {k: v for k, v in vars(args).items() if v is not None}
+
+    build_prepare()
+
+    result = validate_graphs(**args)
+    sys.exit(result)
