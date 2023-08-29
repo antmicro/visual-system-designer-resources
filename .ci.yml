@@ -1,0 +1,17 @@
+stages:
+  - build
+  - deploy
+
+build:
+  image: python:3.11-bookworm
+  stage: build
+  tags: ['ace-x86_64']
+  script:
+    - ./.github/scripts/install-dependencies.sh
+    - ./validate_files
+  artifacts:
+    paths:
+      - deps.hashes
+  only:
+      - main
+      - merge_requests
