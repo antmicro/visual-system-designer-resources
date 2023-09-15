@@ -77,6 +77,8 @@ def check_categories_and_interfaces(
                 f'has invalid category "{node["category"]}"'
             )
             status = 1
+        if not "interfaces" in node:
+            continue
         for interface in node["interfaces"]:
             if isinstance(interface["type"], list):
                 for itype in interface["type"]:
