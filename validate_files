@@ -84,22 +84,23 @@ def check_categories_and_interfaces(
                 nname = node["category"]
             else:
                 nname = node["name"]
-            if isinstance(interface["type"], list):
-                for itype in interface["type"]:
-                    if itype not in interface_types:
-                        print(
-                            f'Interface Error: Node "{nname}" has '
-                            f'interface "{interface["name"]}" with '
-                            f'invalid subtype "{itype}"'
-                        )
-                        status = 1
-            elif interface["type"] not in interface_types:
-                print(
-                    f'Interface Error: Node "{nname}" has '
-                    f'interface "{interface["name"]}" with invalid '
-                    f'type "{interface["type"]}"'
-                )
-                status = 1
+            if "type" in interface:
+                if isinstance(interface["type"], list):
+                    for itype in interface["type"]:
+                        if itype not in interface_types:
+                            print(
+                                f'Interface Error: Node "{nname}" has '
+                                f'interface "{interface["name"]}" with '
+                                f'invalid subtype "{itype}"'
+                            )
+                            status = 1
+                elif interface["type"] not in interface_types:
+                    print(
+                        f'Interface Error: Node "{nname}" has '
+                        f'interface "{interface["name"]}" with invalid '
+                        f'type "{interface["type"]}"'
+                    )
+                    status = 1
     return status
 
 
