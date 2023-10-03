@@ -1,442 +1,468 @@
 {
     "graph": {
-        "id": "4010724384",
         "name": "EFR32BG22 Thunderboard Kit",
         "additionalData": {
             "renodepedia_link": "https://zephyr-dashboard.renode.io/renodepedia/boards/efr32bg22_brd4184a"
         },
+        "id": "9e0b050b-cae0-4ab2-b0c3-ba818483ad4b",
         "nodes": [
             {
-                "type": "2.4GHz Antenna",
-                "id": "212d85f6-c0ae-4bbc-8505-d8cc2125d86a",
+                "id": "59b05c7d-9122-4123-828a-e187fe716311",
                 "position": {
-                    "x": 1168,
-                    "y": 178
+                    "x": 500,
+                    "y": 500
                 },
                 "width": 200,
                 "twoColumn": true,
                 "interfaces": [
                     {
-                        "name": "RF",
-                        "id": "b92bfbd7-9e95-4162-8df5-ec9ac7e2c3eb",
+                        "name": "spi",
+                        "id": "e8a30e48-80d8-423c-af7d-4af3bafa520a",
                         "direction": "inout",
-                        "side": "right"
+                        "side": "right",
+                        "sidePosition": 0
                     }
                 ],
                 "properties": [],
-                "name": "2.4GHz Antenna"
+                "enabledInterfaceGroups": [],
+                "name": "ICM-20648",
+                "instanceName": "6-axis IMU"
             },
             {
-                "type": "USB Micro",
-                "id": "56d6bbf3-f5dd-423c-bc95-7768273fd262",
+                "id": "1e276f73-450e-4354-8f9d-28074f043b9f",
                 "position": {
-                    "x": 1166,
-                    "y": -56
+                    "x": 500,
+                    "y": 300
                 },
                 "width": 200,
                 "twoColumn": true,
                 "interfaces": [
                     {
-                        "name": "USB",
-                        "id": "2cc8cc3d-12fd-48f5-8e2a-d7715a3b00d9",
+                        "name": "spi",
+                        "id": "ccfb5877-ead9-4e0a-9b4c-46eb76b1685a",
                         "direction": "inout",
-                        "side": "right"
+                        "side": "right",
+                        "sidePosition": 0
                     }
                 ],
                 "properties": [],
-                "name": "USB Micro"
+                "enabledInterfaceGroups": [],
+                "name": "MX25R8035F_WLCSP",
+                "instanceName": "Flash memory"
             },
             {
-                "type": "J-Link Debugger",
-                "id": "4cae31f3-040b-4bf1-91ee-0f5223103b48",
+                "id": "450b5c84-c4e2-463e-9546-a07b0ab3d519",
                 "position": {
-                    "x": 1756,
-                    "y": -56
+                    "x": 500,
+                    "y": 1200
                 },
                 "width": 200,
                 "twoColumn": true,
                 "interfaces": [
                     {
-                        "name": "USB",
-                        "id": "ca419f1b-e1e6-487f-8448-c80414b54e60",
+                        "name": "i2c",
+                        "id": "cf5c8ab4-f80a-4f8a-8be3-a9394693fcaa",
                         "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "Serial",
-                        "id": "0a32e0cd-64b2-4108-8eff-e79d8916576c",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "SWD",
-                        "id": "f8613d26-da55-46a8-a2a4-348a871f38f6",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "PTI",
-                        "id": "fe5bb0b2-77cd-4e5f-95b2-11f998b135fa",
-                        "direction": "inout",
-                        "side": "left"
-                    }
-                ],
-                "properties": [],
-                "name": "J-Link Debugger"
-            },
-            {
-                "type": "Mini-Simplicity Connector",
-                "id": "f0ace687-455c-4e96-82d3-953c46c31435",
-                "position": {
-                    "x": 1878,
-                    "y": 360
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "Serial",
-                        "id": "23d46d55-7a85-485a-ac7d-c5b78b3b7b16",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "SWD",
-                        "id": "4b98c13e-93db-41d9-b8b4-a8cacdcd35fc",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "PTI",
-                        "id": "ee685289-6ffd-4994-ab08-21700b1c8e98",
-                        "direction": "inout",
-                        "side": "left"
-                    }
-                ],
-                "properties": [],
-                "name": "Mini-Simplicity Connector"
-            },
-            {
-                "type": "Reset Button",
-                "id": "b6de352f-fc97-4a82-8fe4-37c871c0052f",
-                "position": {
-                    "x": 1764,
-                    "y": 918
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "GPIO",
-                        "id": "57441566-e5a5-48ca-aae5-098f796e0a21",
-                        "direction": "output",
-                        "side": "left"
-                    }
-                ],
-                "name": "Button"
-            },
-            {
-                "type": "LED - Vishay VLMY1500-GS08",
-                "id": "c0fcec15-46dd-44ec-adc9-8fd7e7c9e6df",
-                "position": {
-                    "x": 1766,
-                    "y": 704
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "GPIO",
-                        "id": "0cf5d7e5-f06b-462f-9a70-c8c6f892709d",
-                        "direction": "inout",
-                        "side": "left"
+                        "side": "right",
+                        "sidePosition": 0
                     }
                 ],
                 "properties": [
                     {
-                        "name": "Address",
-                        "id": "0334d976-b007-47fc-ad12-2fe061f6ac62",
+                        "name": "address (i2c)",
+                        "id": "795b452e-9d67-4b57-95f2-a055f3b54300",
                         "value": "0x0"
                     }
                 ],
-                "name": "LED"
+                "enabledInterfaceGroups": [],
+                "name": "Si7210_SOT",
+                "instanceName": "Hall Effect Sensor"
             },
             {
-                "type": "Silicon Labs si7210",
-                "id": "0ec13975-1a84-4b3d-bca8-7b2043402a5a",
+                "id": "629ebf25-e899-4ef7-96dc-e9bef34d1eb4",
                 "position": {
-                    "x": 559,
-                    "y": 781
+                    "x": 500,
+                    "y": 1500
                 },
                 "width": 200,
                 "twoColumn": true,
                 "interfaces": [
                     {
                         "name": "i2c",
-                        "id": "0d5dd4e4-c55d-40b6-a5ec-8d300e39e3a0",
+                        "id": "a0c54d57-b9a3-4561-ba2a-b1a8b906445b",
                         "direction": "inout",
-                        "side": "right"
+                        "side": "right",
+                        "sidePosition": 0
                     }
                 ],
-                "properties": [],
-                "name": "Hall Effect Sensor"
+                "properties": [
+                    {
+                        "name": "address (i2c)",
+                        "id": "a7908a57-dfaa-471e-9f6e-bbd72576a070",
+                        "value": ""
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Si1133",
+                "instanceName": "UV and ambient light sensor"
             },
             {
-                "type": "SI1133",
-                "id": "e73c8e72-ca00-411d-94b4-f3a5383d6a8c",
+                "id": "ee81fcd9-1d20-4c83-9560-fbf7ed83312a",
                 "position": {
-                    "x": 558,
-                    "y": 992
+                    "x": 1300,
+                    "y": 500
                 },
                 "width": 200,
                 "twoColumn": true,
                 "interfaces": [
-                    {
-                        "name": "i2c",
-                        "id": "5b73ed83-9096-47d3-865b-d3f61eddcc5c",
-                        "direction": "inout",
-                        "side": "right"
-                    }
-                ],
-                "properties": [],
-                "name": "UV and ambient light sensor"
-            },
-            {
-                "type": "SI7021",
-                "id": "665e74c0-cb18-4e65-b233-b42dff032e10",
-                "position": {
-                    "x": 559,
-                    "y": 567
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "i2c",
-                        "id": "fe252b09-e700-48de-b043-e20b4d527ad6",
-                        "direction": "inout",
-                        "side": "right"
-                    }
-                ],
-                "properties": [],
-                "name": "Temperature sensor"
-            },
-            {
-                "type": "MX25R8035F Flash",
-                "id": "04a960b7-2930-44ce-80d4-b816a7508af3",
-                "position": {
-                    "x": 558,
-                    "y": 164
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "SPI",
-                        "id": "099d092c-05dd-4a96-95ce-fb18aac2c077",
-                        "direction": "inout",
-                        "side": "right"
-                    }
-                ],
-                "properties": [],
-                "name": "MX25R8035F Flash"
-            },
-            {
-                "type": "ICM-20648",
-                "id": "bba78cf0-5e93-4100-943d-2f1721626ec4",
-                "position": {
-                    "x": 560,
-                    "y": -56
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "SPI",
-                        "id": "2564f9b9-83f7-4ef1-b946-c3e8df24a27f",
-                        "direction": "inout",
-                        "side": "right"
-                    }
-                ],
-                "properties": [],
-                "name": "6-axis IMU"
-            },
-            {
-                "type": "efr32bg22",
-                "id": "55fd3f39-9f4d-4d90-8637-faae7179e128",
-                "position": {
-                    "x": 1113,
-                    "y": 360
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "flash0",
-                        "id": "018b0be8-2331-4487-9b4b-6ff6a9861c36",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "usart0",
-                        "id": "45460525-0a60-4c6c-ab2a-9cc2b1f43bc8",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "usart1",
-                        "id": "a851feb5-0099-4c12-9ed5-8cdd25f9c800",
-                        "direction": "inout",
-                        "side": "right"
-                    },
-                    {
-                        "name": "i2c0",
-                        "id": "c99bea22-0825-4b83-921a-ba9ba68790fc",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "i2c1",
-                        "id": "8ef3a062-5ba2-4a22-804c-6a1a44fc1767",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "gpioa",
-                        "id": "6e270259-ce4b-4527-a7e9-8fd5b7bba74f",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "gpiob",
-                        "id": "897496e8-600c-4c8e-baea-0766c899f8ca",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "gpioc",
-                        "id": "6209a6e3-fda4-4a71-a92e-61bbcf0029d3",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "gpiod",
-                        "id": "9055c1e7-f7d7-46ce-a861-267e65b152c1",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "gpiof",
-                        "id": "5f8b678d-5b7f-4107-ad15-a9f60dfb10d8",
-                        "direction": "inout",
-                        "side": "left"
-                    },
-                    {
-                        "name": "adc0",
-                        "id": "9d6e38f8-6db3-4e94-9ed8-422b6d3c0a08",
-                        "direction": "inout",
-                        "side": "left"
-                    },
                     {
                         "name": "rf",
-                        "id": "023513a8-e01c-4cef-aba6-5ad28a8ff96f",
+                        "id": "4bf31a73-bf6e-4a3c-8342-d04e972433f8",
                         "direction": "inout",
-                        "side": "right"
+                        "side": "left",
+                        "sidePosition": 0
                     },
                     {
                         "name": "swd",
-                        "id": "d37454d6-4a25-499e-8d9d-6a70e8103a38",
+                        "id": "4bafd471-f0c7-40ab-afb3-c4c047e27d5a",
                         "direction": "inout",
-                        "side": "right"
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "flash0",
+                        "id": "b9f4e5f6-c655-4756-9770-8a68461e7309",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "usart1",
+                        "id": "a5ed29f9-e1d7-4a24-8aab-9e5440bf54b9",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "i2c1",
+                        "id": "b92cf610-55b8-4af1-a0b1-d54eb1ec7abc",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "gpiob",
+                        "id": "e7d4c8f1-f36e-4eec-bd72-79f8b669705d",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 6
+                    },
+                    {
+                        "name": "gpiod",
+                        "id": "59ddd693-28ea-4efa-ad5a-3cd52a5792a0",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 3
+                    },
+                    {
+                        "name": "adc0",
+                        "id": "d35a7ce4-2203-4cee-8525-0aca999d53e8",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 4
+                    },
+                    {
+                        "name": "usart0",
+                        "id": "0d859300-22df-4f14-965a-53fb1fef4cbd",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 5
+                    },
+                    {
+                        "name": "i2c0",
+                        "id": "1b1b235c-279e-4d51-8e55-30902bd418b8",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 6
+                    },
+                    {
+                        "name": "gpioa",
+                        "id": "e6e873f1-00cb-4d2d-bde5-4faa82e3a2ff",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 5
+                    },
+                    {
+                        "name": "gpioc",
+                        "id": "7a19da44-2883-417a-9405-bd43e2f31607",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 3
+                    },
+                    {
+                        "name": "gpiof",
+                        "id": "15eb3999-87ec-4eb9-848a-95a5b19f2367",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 4
                     },
                     {
                         "name": "pti",
-                        "id": "8b732d68-60a8-4465-8fae-9ee98e60f08f",
-                        "direction": "output",
-                        "side": "right"
+                        "id": "143e8f6b-137b-4c48-ab68-c45b9e34da70",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 2
                     }
                 ],
                 "properties": [],
-                "name": "efr32bg22"
+                "enabledInterfaceGroups": [],
+                "name": "EFR32BG22_QFN-40",
+                "instanceName": "EFR32BG22_QFN-40"
+            },
+            {
+                "id": "147b3e3f-3f10-4ff2-87ff-4553f5b1fa46",
+                "position": {
+                    "x": 500,
+                    "y": 100
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "rf",
+                        "id": "d271250c-4ae1-4811-8052-aa2cd649ba81",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "2450AT18D0100E",
+                "instanceName": "2.4GHz Antenna"
+            },
+            {
+                "id": "4a6559c8-fa87-49d8-9324-b699b8ae4787",
+                "position": {
+                    "x": 1800,
+                    "y": 1200
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "fe34a1b7-0659-4493-a81d-35259f7128b2",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (gpio)",
+                        "id": "3547fb71-c581-4f97-80c2-95a44767030f",
+                        "value": "0x0"
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "LED_Y_0402_VLMY1500-GS08",
+                "instanceName": "LED_Y_0402_VLMY1500-GS08"
+            },
+            {
+                "id": "cacb9ec6-2b2f-4f8e-a6fa-4d6af1c59c17",
+                "position": {
+                    "x": 1800,
+                    "y": 1500
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "bdc4bf07-2676-46d8-b781-714f59773728",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Button",
+                "instanceName": "Button"
+            },
+            {
+                "id": "2c17569c-80ef-4b5e-ab07-5bf920b3b5a0",
+                "position": {
+                    "x": 500,
+                    "y": 900
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c",
+                        "id": "e910ef74-f777-40b4-b901-6213f9671975",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (i2c)",
+                        "id": "423ce01f-29a0-4d91-bd0c-b6d33ab8c0de",
+                        "value": ""
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Si7021",
+                "instanceName": "Temperature sensor"
+            },
+            {
+                "id": "9b7cfa15-626d-4152-9230-df98aeaf3ecc",
+                "position": {
+                    "x": 1300,
+                    "y": -100
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "usb",
+                        "id": "610842ee-1bb6-4ba8-a322-b7575945a48c",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "USB-Micro-B-10118194-0001LF",
+                "instanceName": "USB-Micro-B-10118194-0001LF"
+            },
+            {
+                "id": "8ed7c79b-c8de-4045-b12f-0720d16684ca",
+                "position": {
+                    "x": 1900,
+                    "y": 0
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "usb",
+                        "id": "979e96ce-b26f-4852-97f4-35b5e34f2cc2",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "serial",
+                        "id": "d65053d2-efd4-4d2e-b1e5-39611382a24e",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "swd",
+                        "id": "2ad88c95-71b8-4a91-b2ae-15669bd06185",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "pti",
+                        "id": "0fe92bd7-62f9-474c-a343-63f3624e02e3",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 3
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "EFM32GG12B410F1024_BGA",
+                "instanceName": "J-Link Debugger"
             }
         ],
         "connections": [
             {
-                "id": "5c291650-b4c9-401a-9f58-9f5312e9d309",
-                "from": "2cc8cc3d-12fd-48f5-8e2a-d7715a3b00d9",
-                "to": "ca419f1b-e1e6-487f-8448-c80414b54e60"
+                "id": "f0c8f3f5-73d3-4a5b-8ef8-c754e551cd20",
+                "from": "e8a30e48-80d8-423c-af7d-4af3bafa520a",
+                "to": "0d859300-22df-4f14-965a-53fb1fef4cbd"
             },
             {
-                "id": "1f994cfc-d100-4ef9-8fa3-29a68ee6dcbe",
-                "from": "fe252b09-e700-48de-b043-e20b4d527ad6",
-                "to": "c99bea22-0825-4b83-921a-ba9ba68790fc"
+                "id": "b6a3a6d9-9299-48de-a898-e618c0877f52",
+                "from": "ccfb5877-ead9-4e0a-9b4c-46eb76b1685a",
+                "to": "0d859300-22df-4f14-965a-53fb1fef4cbd"
             },
             {
-                "id": "ac4740cb-3744-4aea-9855-f3d3afc23d16",
-                "from": "0d5dd4e4-c55d-40b6-a5ec-8d300e39e3a0",
-                "to": "c99bea22-0825-4b83-921a-ba9ba68790fc"
+                "id": "09e17763-2708-4fd6-bb3d-929f5856730e",
+                "from": "e910ef74-f777-40b4-b901-6213f9671975",
+                "to": "1b1b235c-279e-4d51-8e55-30902bd418b8"
             },
             {
-                "id": "ceb81863-1abd-4ecb-8fc3-679b7a907f1b",
-                "from": "5b73ed83-9096-47d3-865b-d3f61eddcc5c",
-                "to": "c99bea22-0825-4b83-921a-ba9ba68790fc"
+                "id": "70c4a512-6a20-433f-af3b-7617795a659d",
+                "from": "cf5c8ab4-f80a-4f8a-8be3-a9394693fcaa",
+                "to": "1b1b235c-279e-4d51-8e55-30902bd418b8"
             },
             {
-                "id": "4fd9e27e-e5c0-4681-ba9d-faebca2046eb",
-                "from": "099d092c-05dd-4a96-95ce-fb18aac2c077",
-                "to": "45460525-0a60-4c6c-ab2a-9cc2b1f43bc8"
+                "id": "43f1c125-02a3-4489-9e72-5bb647842857",
+                "from": "a0c54d57-b9a3-4561-ba2a-b1a8b906445b",
+                "to": "1b1b235c-279e-4d51-8e55-30902bd418b8"
             },
             {
-                "id": "f945b30e-8c76-4370-a405-8077dadb85fe",
-                "from": "2564f9b9-83f7-4ef1-b946-c3e8df24a27f",
-                "to": "45460525-0a60-4c6c-ab2a-9cc2b1f43bc8"
+                "id": "6952a02f-fb88-4941-900e-6eb6bb22e86d",
+                "from": "610842ee-1bb6-4ba8-a322-b7575945a48c",
+                "to": "979e96ce-b26f-4852-97f4-35b5e34f2cc2"
             },
             {
-                "id": "a5c5cb5f-70b7-4432-b942-d32d0c7f87a5",
-                "from": "b92bfbd7-9e95-4162-8df5-ec9ac7e2c3eb",
-                "to": "023513a8-e01c-4cef-aba6-5ad28a8ff96f"
+                "id": "631801c9-51e3-4552-ac19-f4f378cfb47f",
+                "from": "d65053d2-efd4-4d2e-b1e5-39611382a24e",
+                "to": "a5ed29f9-e1d7-4a24-8aab-9e5440bf54b9",
+                "anchors": [
+                    {
+                        "x": 1778,
+                        "y": 124
+                    }
+                ]
             },
             {
-                "id": "4ddced7e-89db-4bc6-8673-2d4c298b3aa3",
-                "from": "0cf5d7e5-f06b-462f-9a70-c8c6f892709d",
-                "to": "897496e8-600c-4c8e-baea-0766c899f8ca"
+                "id": "3c9c36b6-8290-499e-b6a1-824e86efdc79",
+                "from": "2ad88c95-71b8-4a91-b2ae-15669bd06185",
+                "to": "4bafd471-f0c7-40ab-afb3-c4c047e27d5a"
             },
             {
-                "id": "0fec6abb-e679-4e73-902c-35d9559b9527",
-                "from": "57441566-e5a5-48ca-aae5-098f796e0a21",
-                "to": "897496e8-600c-4c8e-baea-0766c899f8ca"
+                "id": "bc5ebae6-c1bc-41f3-8f64-d7115c278604",
+                "from": "143e8f6b-137b-4c48-ab68-c45b9e34da70",
+                "to": "0fe92bd7-62f9-474c-a343-63f3624e02e3"
             },
             {
-                "id": "60c15060-014d-4074-bc7d-8ee798908237",
-                "from": "8b732d68-60a8-4465-8fae-9ee98e60f08f",
-                "to": "ee685289-6ffd-4994-ab08-21700b1c8e98"
+                "id": "ff32d56c-3243-4515-95c4-3339f7eb26b3",
+                "from": "fe34a1b7-0659-4493-a81d-35259f7128b2",
+                "to": "e7d4c8f1-f36e-4eec-bd72-79f8b669705d"
             },
             {
-                "id": "05569138-a819-4bd1-8cfb-c4dcc020043c",
-                "from": "8b732d68-60a8-4465-8fae-9ee98e60f08f",
-                "to": "fe5bb0b2-77cd-4e5f-95b2-11f998b135fa"
+                "id": "61b6f71a-cf48-413d-a38b-8e3f953a2ad4",
+                "from": "bdc4bf07-2676-46d8-b781-714f59773728",
+                "to": "e7d4c8f1-f36e-4eec-bd72-79f8b669705d"
             },
             {
-                "id": "98b0c1a8-9d55-4fa3-83d8-4f63559e4c6c",
-                "from": "a851feb5-0099-4c12-9ed5-8cdd25f9c800",
-                "to": "23d46d55-7a85-485a-ac7d-c5b78b3b7b16"
-            },
-            {
-                "id": "863723dd-5cdc-4cd7-afe2-c7204ec70b47",
-                "from": "a851feb5-0099-4c12-9ed5-8cdd25f9c800",
-                "to": "0a32e0cd-64b2-4108-8eff-e79d8916576c"
-            },
-            {
-                "id": "557be58a-971b-4778-ac14-c7063f12fda3",
-                "from": "d37454d6-4a25-499e-8d9d-6a70e8103a38",
-                "to": "4b98c13e-93db-41d9-b8b4-a8cacdcd35fc"
-            },
-            {
-                "id": "f12c751b-fd99-4a2f-9011-e5517f7bb06d",
-                "from": "d37454d6-4a25-499e-8d9d-6a70e8103a38",
-                "to": "f8613d26-da55-46a8-a2a4-348a871f38f6"
+                "id": "d88b2ea8-d34b-4a07-a1a6-a2c23436a879",
+                "from": "d271250c-4ae1-4811-8052-aa2cd649ba81",
+                "to": "4bf31a73-bf6e-4a3c-8342-d04e972433f8",
+                "anchors": [
+                    {
+                        "x": 1080,
+                        "y": 330
+                    }
+                ]
             }
         ]
     },
-    "version": "20230824.9"
+    "version": "20230830.11",
+    "metadata": {
+        "movementStep": 100,
+        "randomizedOffset": false
+    }
 }
