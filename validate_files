@@ -73,7 +73,7 @@ def check_categories_and_interfaces(
     for node in spec["nodes"]:
         if "category" in node and node["category"] not in category_chains:
             print(
-                f'Category Error: Node "{node["name"]}" '
+                f'Category Error: Node "{node}" '
                 f'has invalid category "{node["category"]}"'
             )
             status = 1
