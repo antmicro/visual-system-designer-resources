@@ -35,18 +35,6 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio",
-                    "type": "gpio"
-                }
-            ],
-            "name": "gpio-device"
-        },
-        {
-            "abstract": true,
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
                     "name": "i2c",
                     "side": "right",
                     "type": "i2c"
@@ -67,6 +55,19 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
+                    "type": "spi"
+                }
+            ],
+            "name": "spi-device"
+        },
+        {
+            "abstract": true,
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "ddr",
                     "type": "ddr"
                 }
@@ -79,12 +80,347 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "type": "gpio"
+                }
+            ],
+            "name": "gpio-device"
+        },
+        {
+            "category": "Memory/Flash/MX25R8035",
+            "extends": [
+                "spi-device"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Memory/Flash/eMMC",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "type": "sdio"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Memory/Flash/SPI Flash",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "right",
                     "type": "spi"
                 }
             ],
-            "name": "spi-device"
+            "isCategory": true
+        },
+        {
+            "category": "Memory/Flash/SPI Flash/MT25QL",
+            "extends": [
+                "SPI Flash"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Memory/Flash/SD Card",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "type": [
+                        "spi",
+                        "sdio"
+                    ]
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Memory/DDR/TPS51200",
+            "extends": [
+                "ddr-device"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Memory/DDR/MT53D512M32D2DS",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpddr",
+                    "type": "lpddr"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Memory/DDR/LPDDR4",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpddr",
+                    "type": "lpddr"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/Ethernet/GbE Phy",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "GbE",
+                    "type": "gbe phy"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/Ethernet/GbE Phy/VSC8662",
+            "extends": [
+                "GbE Phy"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/CAN",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uCAN",
+                    "type": "can phy"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "type": "can"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/CAN/CAN Transceiver",
+            "extends": [
+                "CAN"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/USB/USB to UART Bridge/CP2108",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "type": "usb"
+                },
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/USB/FTDI UART+JTAG/FT2232D",
+            "description": "Interface Bridges, USB to UART, FIFO, 3 V, 5.25 V, LQFP, 48 Pins, -40 \u00b0C\n\n### Additional information\n\n*Datasheet*: [DS_FT2232D.pdf](https://ftdichip.com/wp-content/uploads/2020/08/DS_FT2232D.pdf)",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "type": "jtag"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "hwp": "components/ftdi-chip-ft2232d"
+            }
+        },
+        {
+            "category": "Interfacing/USB/2xUART MPSSE Bridge",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "type": "jtag"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/USB Micro",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/IO Header",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "io"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Ethernet",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "type": "ethernet"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/SD Card socket",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "type": [
+                        "spi",
+                        "sdio"
+                    ]
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/PCIe/PCIe x16",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie",
+                    "type": "pcie"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/JTAG",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "type": "jtag"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/USB-C",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Debugger/J-Link Debugger",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "serial",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "swd",
+                    "type": "swd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pti",
+                    "type": "pti"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Antenna",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rf",
+                    "type": "rf"
+                }
+            ],
+            "isCategory": true
         },
         {
             "additionalData": {
@@ -167,218 +503,6 @@
             "urls": {
                 "rdp": "soc_components/silabs_si7210"
             }
-        },
-        {
-            "category": "Antenna",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "rf",
-                    "type": "rf"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/Flash/MX25R8035",
-            "extends": [
-                "spi-device"
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/Flash/eMMC",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sdio",
-                    "type": "sdio"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/Flash/SPI Flash",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi",
-                    "type": "spi"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/Flash/SPI Flash/MT25QL",
-            "extends": [
-                "SPI Flash"
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/Flash/SD Card",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sdio",
-                    "type": [
-                        "spi",
-                        "sdio"
-                    ]
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/DDR/LPDDR4",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "lpddr",
-                    "type": "lpddr"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/DDR/MT53D512M32D2DS",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "lpddr",
-                    "type": "lpddr"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Memory/DDR/TPS51200",
-            "extends": [
-                "ddr-device"
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Debugger/J-Link Debugger",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "type": "usb"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "serial",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "swd",
-                    "type": "swd"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pti",
-                    "type": "pti"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Connector/USB-C",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Connector/USB Micro",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Connector/PCIe/PCIe x16",
-            "interfaces": [
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "pcie",
-                    "type": "pcie"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Connector/IO Header",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "io"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Connector/Ethernet",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "ethernet",
-                    "type": "ethernet"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Connector/SD Card socket",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sdio",
-                    "type": [
-                        "spi",
-                        "sdio"
-                    ]
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Connector/JTAG",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "jtag",
-                    "type": "jtag"
-                }
-            ],
-            "isCategory": true
         },
         {
             "category": "SoC/Microchip/MPFS250T",
@@ -629,13 +753,6 @@
             }
         },
         {
-            "category": "UI/Button",
-            "extends": [
-                "gpio-device"
-            ],
-            "isCategory": true
-        },
-        {
             "category": "UI/LED",
             "interfaces": [
                 {
@@ -658,168 +775,18 @@
             }
         },
         {
-            "category": "Interfacing/CAN",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uCAN",
-                    "type": "can phy"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "can",
-                    "type": "can"
-                }
+            "category": "UI/Button",
+            "extends": [
+                "gpio-device"
             ],
             "isCategory": true
         },
         {
-            "category": "Interfacing/CAN/CAN Transceiver",
+            "category": "Memory/Flash/SPI Flash",
             "extends": [
-                "CAN"
+                "SPI Flash"
             ],
-            "isCategory": true
-        },
-        {
-            "category": "Interfacing/Ethernet/GbE Phy",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "ethernet",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "GbE",
-                    "type": "gbe phy"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Interfacing/Ethernet/GbE Phy/VSC8662",
-            "extends": [
-                "GbE Phy"
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Interfacing/USB/USB to UART Bridge/CP2108",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "type": "usb"
-                },
-                {
-                    "array": [
-                        0,
-                        4
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart",
-                    "type": "serial"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Interfacing/USB/FTDI UART+JTAG/FT2232D",
-            "description": "Interface Bridges, USB to UART, FIFO, 3 V, 5.25 V, LQFP, 48 Pins, -40 \u00b0C\n\n### Additional information\n\n*Datasheet*: [DS_FT2232D.pdf](https://ftdichip.com/wp-content/uploads/2020/08/DS_FT2232D.pdf)",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "type": "usb"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "jtag",
-                    "type": "jtag"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "hwp": "components/ftdi-chip-ft2232d"
-            }
-        },
-        {
-            "category": "Interfacing/USB/2xUART MPSSE Bridge",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "type": "usb"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "jtag",
-                    "type": "jtag"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Sensor/Light",
-            "description": "TSL2540 Light-to-Digital Converter Ambient Light Sensing",
-            "extends": [
-                "i2c-device"
-            ],
-            "name": "TSL2540"
-        },
-        {
-            "abstract": true,
-            "category": "Sensor/Light",
-            "extends": [
-                "i2c-device"
-            ],
-            "name": "SI1133"
-        },
-        {
-            "abstract": true,
-            "category": "Sensor/Temperature",
-            "extends": [
-                "i2c-device"
-            ],
-            "name": "SI7021"
-        },
-        {
-            "abstract": true,
-            "category": "Sensor/Inertia",
-            "extends": [
-                "spi-device"
-            ],
-            "name": "icm-20648"
-        },
-        {
-            "category": "Sensor/Touch",
-            "description": "Display Capacitive Multi-Touch sensor",
-            "extends": [
-                "i2c-device"
-            ],
-            "name": "TMA525C"
+            "name": "IS25WX064"
         },
         {
             "category": "Memory/Flash/QSPI Flash",
@@ -832,13 +799,6 @@
                 }
             ],
             "name": "MX25L1006EMI-10G"
-        },
-        {
-            "category": "Memory/Flash/SPI Flash",
-            "extends": [
-                "SPI Flash"
-            ],
-            "name": "IS25WX064"
         },
         {
             "category": "Memory/DDR",
@@ -855,6 +815,122 @@
                 "ddr-device"
             ],
             "name": "H5AN8G8NAFR-UH"
+        },
+        {
+            "category": "Interfacing/Ethernet",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "GbE",
+                    "type": "gmii"
+                }
+            ],
+            "name": "GbE Phy GMII"
+        },
+        {
+            "category": "Interfacing/PCIe",
+            "description": "PCIe-USB bridge to two ports of USB 3.2",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie x2",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "USB 3.2 port A",
+                    "type": "usb"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "USB 3.2 port B",
+                    "type": "usb"
+                }
+            ],
+            "name": "ASM1042A-48"
+        },
+        {
+            "category": "Interfacing/PCIe",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "PCIe x8",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "PCIe A x8",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "PCIe B x4",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "PCIe B x2",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "PCIe B x1",
+                    "type": "pcie"
+                }
+            ],
+            "name": "PCIe Switch"
+        },
+        {
+            "category": "Interfacing/USB",
+            "description": "Four ports USB3.2 Gen1 Hub Controller",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "USB 3.2",
+                    "type": "usb"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "USB 3.2 A",
+                    "type": "usb"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "USB 3.2 B",
+                    "type": "usb"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "USB 3.2 C",
+                    "type": "usb"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "USB 3.2 D",
+                    "type": "usb"
+                }
+            ],
+            "name": "ASM1074"
         },
         {
             "category": "Connector",
@@ -900,37 +976,6 @@
             "name": "Audio jack 3.5 mm"
         },
         {
-            "category": "Connector/USB",
-            "interfaces": [
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 port A",
-                    "type": "usb"
-                },
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 port B",
-                    "type": "usb"
-                }
-            ],
-            "name": "Amphenol GSB4112312HR"
-        },
-        {
-            "category": "Connector/M.2",
-            "description": "M.2 Key M",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pcie x4",
-                    "type": "pcie"
-                }
-            ],
-            "name": "TE-Connectivity 1-2199119-5"
-        },
-        {
             "category": "Connector/M.2",
             "description": "M.2 Key E",
             "interfaces": [
@@ -950,138 +995,75 @@
             "name": "TE-Connectivity 2199119-4"
         },
         {
-            "category": "SoC/Ambiq",
+            "category": "Connector/M.2",
+            "description": "M.2 Key M",
             "interfaces": [
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart0",
-                    "side": "left",
-                    "type": "serial"
-                },
+                    "name": "pcie x4",
+                    "type": "pcie"
+                }
+            ],
+            "name": "TE-Connectivity 1-2199119-5"
+        },
+        {
+            "category": "Connector/USB",
+            "interfaces": [
                 {
-                    "direction": "inout",
+                    "direction": "input",
                     "maxConnectionsCount": -1,
-                    "name": "uart1",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart2",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart3",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "iom0",
-                    "side": "left",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "iom1",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "mspi0",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "mspi1",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "mspi2",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "right",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "reset",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sdio",
-                    "type": "sdio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
+                    "name": "USB 3.2 port A",
                     "type": "usb"
                 },
                 {
-                    "direction": "inout",
+                    "direction": "input",
                     "maxConnectionsCount": -1,
-                    "name": "swd",
-                    "type": "swd"
-                },
-                {
-                    "array": [
-                        0,
-                        8
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "iom",
-                    "type": [
-                        "spi",
-                        "i2c"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pti",
-                    "type": "pti"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "lpadc",
-                    "type": "lpadc"
+                    "name": "USB 3.2 port B",
+                    "type": "usb"
                 }
             ],
-            "name": "Ambiq Apollo 4 plus",
-            "urls": {
-                "rdp": "soc/ambiq_apollo4p"
-            }
+            "name": "Amphenol GSB4112312HR"
+        },
+        {
+            "abstract": true,
+            "category": "Sensor/Temperature",
+            "extends": [
+                "i2c-device"
+            ],
+            "name": "SI7021"
+        },
+        {
+            "abstract": true,
+            "category": "Sensor/Light",
+            "extends": [
+                "i2c-device"
+            ],
+            "name": "SI1133"
+        },
+        {
+            "category": "Sensor/Light",
+            "description": "TSL2540 Light-to-Digital Converter Ambient Light Sensing",
+            "extends": [
+                "i2c-device"
+            ],
+            "name": "TSL2540"
+        },
+        {
+            "abstract": true,
+            "category": "Sensor/Inertia",
+            "extends": [
+                "spi-device"
+            ],
+            "name": "icm-20648"
+        },
+        {
+            "category": "Sensor/Touch",
+            "description": "Display Capacitive Multi-Touch sensor",
+            "extends": [
+                "i2c-device"
+            ],
+            "name": "TMA525C"
         },
         {
             "category": "SoC/SiFive",
@@ -1297,6 +1279,140 @@
             }
         },
         {
+            "category": "SoC/Ambiq",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart2",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart3",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "iom0",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "iom1",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mspi0",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mspi1",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mspi2",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "reset",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "type": "sdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "swd",
+                    "type": "swd"
+                },
+                {
+                    "array": [
+                        0,
+                        8
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "iom",
+                    "type": [
+                        "spi",
+                        "i2c"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pti",
+                    "type": "pti"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpadc",
+                    "type": "lpadc"
+                }
+            ],
+            "name": "Ambiq Apollo 4 plus",
+            "urls": {
+                "rdp": "soc/ambiq_apollo4p"
+            }
+        },
+        {
             "category": "UI",
             "extends": [
                 "spi-device"
@@ -1304,161 +1420,17 @@
             "name": "MIPI AMOLED Display 454x454 px"
         },
         {
-            "category": "Interfacing/PCIe",
-            "interfaces": [
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "PCIe x8",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "PCIe A x8",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "PCIe B x4",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "PCIe B x2",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "PCIe B x1",
-                    "type": "pcie"
-                }
-            ],
-            "name": "PCIe Switch"
-        },
-        {
-            "category": "Interfacing/PCIe",
-            "description": "PCIe-USB bridge to two ports of USB 3.2",
-            "interfaces": [
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "pcie x2",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 port A",
-                    "type": "usb"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 port B",
-                    "type": "usb"
-                }
-            ],
-            "name": "ASM1042A-48"
-        },
-        {
-            "category": "Interfacing/Ethernet",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "ethernet",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "GbE",
-                    "type": "gmii"
-                }
-            ],
-            "name": "GbE Phy GMII"
-        },
-        {
-            "category": "Interfacing/USB",
-            "description": "Four ports USB3.2 Gen1 Hub Controller",
-            "interfaces": [
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2",
-                    "type": "usb"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 A",
-                    "type": "usb"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 B",
-                    "type": "usb"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 C",
-                    "type": "usb"
-                },
-                {
-                    "direction": "output",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 D",
-                    "type": "usb"
-                }
-            ],
-            "name": "ASM1074"
-        },
-        {
             "abstract": false,
-            "description": "LED, Yellow, SMD, 1005, 20 mA, 2 V\n\n### Additional information\n\n*Datasheet*: [vlmo1500.pdf](https://www.vishay.com/docs/82554/vlmo1500.pdf)",
+            "description": "NOR Flash Serial-SPI 3.3V 1G-bit 1G/512M/256M x 1/2-bit/4-bit 6ns 16-Pin SOP-II T/R\n\n### Additional information\n\n*Datasheet*: [mict_s_a0005338280_1-2290790.pdf](https://www.mouser.com/datasheet/2/671/mict_s_a0005338280_1-2290790.pdf)",
             "extends": [
-                "LED"
+                "SPI Flash"
             ],
             "icon": {
-                "hw-icon": "/blender-models/led-0402-1005metric-y/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/sop2-16-7-5x10-3mm/previews/isoF_thumbnail_64x64.webp"
             },
-            "name": "LED_Y_0402_VLMY1500-GS08",
+            "name": "MT25QL01GBBB8E_SOP2-16",
             "urls": {
-                "hwp": "components/vishay-vlmy1500-gs08"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Hall Effect Sensor, Magnetic Position and Temperature Sensor, SOT-23, 5 Pins, 1.71 V, 5.5 V\n\n### Additional information\n\n*Datasheet*: [si7210_datasheet-1128712.pdf](https://www.mouser.com/datasheet/2/368/si7210_datasheet-1128712.pdf)",
-            "extends": [
-                "SI7210"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/sot-23-5/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "Si7210_SOT",
-            "urls": {
-                "hwp": "components/silicon-labs-si7210-b-00-ivr"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "LED, GREEN, 0.8MM X 1.1MM, 20MCD, 571NM\n\n### Additional information\n\n*Datasheet*: [LTST-C190KGKT.pdf](https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C190KGKT.pdf)",
-            "extends": [
-                "LED"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/led-0603-1608metric-g/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "LED_G_0603_LTST-C190KGKT",
-            "urls": {
-                "hwp": "components/lite-on-ltst-c190kgkt"
+                "hwp": "components/micron-technology-mt25ql01gbbb8esf-0sit"
             }
         },
         {
@@ -1477,307 +1449,16 @@
         },
         {
             "abstract": false,
-            "description": "NOR Flash Serial-SPI 3.3V 1G-bit 1G/512M/256M x 1/2-bit/4-bit 6ns 16-Pin SOP-II T/R\n\n### Additional information\n\n*Datasheet*: [mict_s_a0005338280_1-2290790.pdf](https://www.mouser.com/datasheet/2/671/mict_s_a0005338280_1-2290790.pdf)",
+            "description": "NAND Flash Serial e-MMC 64G-bit SanDisk iNAND 7250 Industrial\n\n### Additional information\n\n*Datasheet*: [2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf](https://datasheet.lcsc.com/lcsc/2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf)",
             "extends": [
-                "SPI Flash"
+                "eMMC"
             ],
             "icon": {
-                "hw-icon": "/blender-models/sop2-16-7-5x10-3mm/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/bga-196-153-11-5x13mm-layout14x14-p0-5x0-5mm/previews/isoF_thumbnail_64x64.webp"
             },
-            "name": "MT25QL01GBBB8E_SOP2-16",
+            "name": "SDINBDG4-8G",
             "urls": {
-                "hwp": "components/micron-technology-mt25ql01gbbb8esf-0sit"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Interface Bridges, USB to UART, FIFO, 1.62 V, 3.63 V, LQFP, 64 Pins, -40 \u00b0C\n\n### Additional information\n\n*Datasheet*: [1700960.pdf](https://www.farnell.com/datasheets/1700960.pdf)",
-            "extends": [
-                "2xUART MPSSE Bridge"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/lqfp-64-10x10mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "FT2232HL-REEL",
-            "urls": {
-                "hwp": "components/ftdi-chip-ft2232hl-reel"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Ambient Light Photo Sensor, I2C Output, 625nm Peak Sensitivity, 1.62V to 3.6V Supply, DFN-10\n\n### Additional information\n\n*Datasheet*: [Si1133-1397754.pdf](https://www.mouser.com/datasheet/2/368/Si1133-1397754.pdf)",
-            "extends": [
-                "SI1133"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/dfn-10-2x2mm-p0-5mm-si1133/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "Si1133",
-            "urls": {
-                "hwp": "components/silicon-labs-si1133-aa00-gmr"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "LED, GREEN, 0.8MM X 1.1MM, 20MCD, 570NM, FULL REEL\n\n### Additional information\n\n*Datasheet*: [LTST-C190GKT.pdf](https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C190GKT.pdf)",
-            "extends": [
-                "LED"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/led-0603-1608metric-g/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "LED_G_0603_LTST-C190GKT",
-            "urls": {
-                "hwp": "components/lite-on-ltst-c190gkt"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "LED, Red, SMT, 0603, 20 mA, 2 V, 636 nm\n\n### Additional information\n\n*Datasheet*: [LTST-C190KRKT.pdf](http://optoelectronics.liteon.com/upload/download/DS-22-99-0151/LTST-C190KRKT.pdf)",
-            "extends": [
-                "LED"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/led-0603-1608metric-r/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "LED_R_0603_LTST-C190KRKT",
-            "urls": {
-                "hwp": "components/lite-on-ltst-c190krkt"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Humidity/Temperature Sensor, 0% to 100% RH/-40\u00b0C to 85\u00b0C Range, I2C, Digital, 1.9V to 3.6V, DFN-6\n\n### Additional information\n\n*Datasheet*: [Si7021_A20-1397917.pdf](https://www.mouser.com/datasheet/2/368/Si7021_A20-1397917.pdf)",
-            "extends": [
-                "SI7021"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/dfn-6-1ep-3x3mm-p1mm-ep1-5x2-4mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "Si7021",
-            "urls": {
-                "hwp": "components/silicon-labs-si7021-a20-gm1r"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "MEMS Module, MotionTracking Series, 3-Axis Gyroscope/Accelerometer, \u00b116g, 1.71 V to 3.6 V, QFN-24\n\n### Additional information\n\n*Datasheet*: [ds-000179-icm-20648-v1.2-typ.pdf](https://product.tdk.com/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000179-icm-20648-v1.2-typ.pdf)",
-            "extends": [
-                "icm-20648"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/qfn-24-1ep-3x3mm-p0-4mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "ICM-20648",
-            "urls": {
-                "hwp": "components/tdk-icm-20648"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Modular Jack, 1 x 1 (Port), 8P8C, Cat5, Through Hole Mount\n\n### Additional information\n\n*Datasheet*: [615008141321.pdf](https://www.we-online.com/components/products/datasheet/615008141321.pdf)",
-            "extends": [
-                "Ethernet"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/rj45-wurth-615008137421/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "RJ45_Wurth_615008137421",
-            "urls": {
-                "hwp": "components/wurth-elektronik-615008137421"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Pin Header, Vertical, Board-to-Board, 2.54 mm, 1 Rows, 3 Contacts, Through Hole Straight, WR-PHD\n\n### Additional information\n\n*Datasheet*: [6130xx11121.pdf](https://katalog.we-online.de/em/datasheet/6130xx11121.pdf)",
-            "extends": [
-                "IO Header"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/pinheader-1x3-p2-54-drill1-1mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "PinHeader_1x3_P2.54mm_Drill1.1mm",
-            "urls": {
-                "hwp": "components/wurth-elektronik-61300311121"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Pin Header, Right Angle, Board-to-Board, 2.54 mm, 2 Rows, 10 Contacts, Through Hole Right Angle\n\n### Additional information\n\n*Datasheet*: [htsw_th-2854340.pdf](https://www.mouser.com/datasheet/2/527/htsw_th-2854340.pdf)",
-            "extends": [
-                "IO Header"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/pinheader-2x5-p2-54mm-drill1-1mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "PinHeader_2x5_P2.54mm_Drill1.1mm",
-            "urls": {
-                "hwp": "components/samtec-htsw-105-08-f-d"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "ARM MCU, EFM32 Family EFM32GG Series Microcontrollers, ARM Cortex-M4, 32 bit, 72 MHz, 1 MB\n\n### Additional information\n\n*Datasheet*: [efm32gg12_datasheet-1548213.pdf](https://www.mouser.com/datasheet/2/368/efm32gg12_datasheet-1548213.pdf)",
-            "extends": [
-                "J-Link Debugger"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/bga-169-120-7x7mm-layout13x13-p0-5mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "EFM32GG12B410F1024_BGA",
-            "urls": {
-                "hwp": "components/silicon-labs-efm32gg12b410f1024gl120-ar"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "PCI Express Card Edge SKT 164 POS 1mm Solder ST Edge Mount Tray\n\n### Additional information\n\n*Datasheet*: [10025026.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/10025026.pdf)",
-            "extends": [
-                "PCIe x16"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/pcie-x16-10025026-10103tlf/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "PCIe_x16_10025026-10103TLF",
-            "urls": {
-                "hwp": "components/amphenol-10025026-10103tlf"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "USB - micro B USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [10118192.pdf](http://www.amphenol-icc.com/media/wysiwyg/files/drawing/10118192.pdf)",
-            "extends": [
-                "USB Micro"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/usb-micro-b-receptacle-amphenol-10118192/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "USB-Micro-B_Amphenol_10118192-0001LF",
-            "urls": {
-                "hwp": "components/amphenol-10118192-0001lf"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Fixed LDO Voltage Regulator, 2.375 V to 3.5 V, 0.8 V Dropout, 1.25 V / 3 A out, VSON-10\n\n### Additional information\n\n*Datasheet*: [tps51200.pdf?ts=1685420125657](https://www.ti.com/lit/ds/symlink/tps51200.pdf?ts=1685420125657)",
-            "extends": [
-                "TPS51200"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/vson-10-1ep-3x3mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "TPS51200DRC",
-            "urls": {
-                "hwp": "components/texas-instruments-tps51200drc"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Pin Header, Vertical, Board-to-Board, 2.54 mm, 2 Rows, 40 Contacts, Through Hole Straight, WR-PHD\n\n### Additional information\n\n*Datasheet*: [61304021121-3087666.pdf](https://www.mouser.com/datasheet/2/445/61304021121-3087666.pdf)",
-            "extends": [
-                "IO Header"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/pinheader-2x20-p2-54mm-drill1-1mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "PinHeader_2x20_P2.54mm_Drill1.1mm",
-            "urls": {
-                "hwp": "components/wurth-elektronik-61304021121"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "FLASH - NOR Memory IC 8Mbit SPI - Quad I/O 33 MHz 8-WLCSP\n\n### Additional information\n\n*Datasheet*: [477720.pdf](https://datasheet.chipsmall.com/MX25R8035FBDIL0/477720.pdf)",
-            "extends": [
-                "MX25R8035"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/wlcsp-8-1-24x1-75mm-layout3-2-3-p0-35x0-4mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "MX25R8035F_WLCSP",
-            "urls": {
-                "hwp": "components/macronix-mx25r8035fbdil0"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Memory Card Connector, SD, Push-Push, 11 Contacts, Copper Alloy, Gold Plated Contacts\n\n### Additional information\n\n*Datasheet*: [bwb_sdmemorycard.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/boardwiretoboard/bwb_sdmemorycard.pdf)",
-            "extends": [
-                "SD Card socket"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/sd-10067847-001rlf/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "SD_10067847-001RLF",
-            "urls": {
-                "hwp": "components/amphenol-10067847-001rlf"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "Chip Antenna, Single Band, 2.45 GHz, 50 ohm, 3.2mm x 1.6mm x 1.3mm\n\n### Additional information\n\n*Datasheet*: [2450AT18D0100-1519342.pdf](https://www.mouser.com/datasheet/2/611/2450AT18D0100-1519342.pdf)",
-            "extends": [
-                "Antenna"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/2450at18d0100e/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "2450AT18D0100E",
-            "urls": {
-                "hwp": "components/johanson-technology-2450at18d0100e"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "DC Power/Energy Monitor With Accumulator, Quad High-side current Sensor, 2.7V to 5.5V, UQFN-16\n\n### Additional information\n\n*Datasheet*: [PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf](https://www.mouser.com/datasheet/2/268/PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf)",
-            "extends": [
-                "PAC1934"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/qfn-16-1ep-4x4mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "PAC1934_QFN",
-            "urls": {
-                "hwp": "components/microchip-technology-pac1934t-i-jq"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "USB to Quad UART Bridge Controller 64-Pin QFN EP T/R\n\n### Additional information\n\n*Datasheet*: [cp2108-datasheet-1509353.pdf](https://www.mouser.com/datasheet/2/368/cp2108-datasheet-1509353.pdf)",
-            "extends": [
-                "CP2108"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/qfn-64-1ep-9x9mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "CP2108-B02-GM",
-            "urls": {
-                "hwp": "components/silicon-labs-cp2108-b02-gm"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "USB - micro AB USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [629105150921.pdf](https://www.we-online.com/components/products/datasheet/629105150921.pdf)",
-            "extends": [
-                "USB Micro"
-            ],
-            "name": "USB-Micro-B_WE_629105150921",
-            "urls": {
-                "hwp": "components/wurth-elektronik-629105150921"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "USB - micro B USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [10118194.pdf](http://www.amphenol-icc.com/media/wysiwyg/files/drawing/10118194.pdf)",
-            "extends": [
-                "USB Micro"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/usb-micro-b-receptacle-amphenol-10118194/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "USB-Micro-B_Amphenol_10118194-0001LF",
-            "urls": {
-                "hwp": "components/amphenol-10118194-0001lf"
+                "hwp": "components/sandisk-sdinbdg4-8g"
             }
         },
         {
@@ -1796,44 +1477,30 @@
         },
         {
             "abstract": false,
-            "description": "RISC-V System On Chip (SOC) IC PolarFire\u00ae FPGA - 254K Logic Modules 484-FCBGA (19x19)\n\n### Additional information\n\n*Datasheet*: [1244583-polarfire-soc-advance-datasheet](https://www.microsemi.com/document-portal/doc_download/1244583-polarfire-soc-advance-datasheet)",
+            "description": "Ambient Light Photo Sensor, I2C Output, 625nm Peak Sensitivity, 1.62V to 3.6V Supply, DFN-10\n\n### Additional information\n\n*Datasheet*: [Si1133-1397754.pdf](https://www.mouser.com/datasheet/2/368/Si1133-1397754.pdf)",
             "extends": [
-                "MPFS250T"
+                "SI1133"
             ],
             "icon": {
-                "hw-icon": "/blender-models/bga-484-19x19mm-layout22x22-p0-8mm-fcvg484/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/dfn-10-2x2mm-p0-5mm-si1133/previews/isoF_thumbnail_64x64.webp"
             },
-            "name": "MPFS250T-FCVG484",
+            "name": "Si1133",
             "urls": {
-                "hwp": "components/microchip-technology-mpfs250t-fcvg484"
+                "hwp": "components/silicon-labs-si1133-aa00-gmr"
             }
         },
         {
             "abstract": false,
-            "description": "NAND Flash Serial e-MMC 64G-bit SanDisk iNAND 7250 Industrial\n\n### Additional information\n\n*Datasheet*: [2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf](https://datasheet.lcsc.com/lcsc/2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf)",
+            "description": "MEMS Module, MotionTracking Series, 3-Axis Gyroscope/Accelerometer, \u00b116g, 1.71 V to 3.6 V, QFN-24\n\n### Additional information\n\n*Datasheet*: [ds-000179-icm-20648-v1.2-typ.pdf](https://product.tdk.com/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000179-icm-20648-v1.2-typ.pdf)",
             "extends": [
-                "eMMC"
+                "icm-20648"
             ],
             "icon": {
-                "hw-icon": "/blender-models/bga-196-153-11-5x13mm-layout14x14-p0-5x0-5mm/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/qfn-24-1ep-3x3mm-p0-4mm/previews/isoF_thumbnail_64x64.webp"
             },
-            "name": "SDINBDG4-8G",
+            "name": "ICM-20648",
             "urls": {
-                "hwp": "components/sandisk-sdinbdg4-8g"
-            }
-        },
-        {
-            "abstract": false,
-            "description": "MCU, Application Specific, 32 bit, 76.8 MHz, BLE, 32KB RAM/512KB Program, 1.71-3.8 V in, QFN-40\n\n### Additional information\n\n*Datasheet*: [efr32bg22_datasheet-1830163.pdf](https://www.mouser.com/datasheet/2/368/efr32bg22_datasheet-1830163.pdf)",
-            "extends": [
-                "EFR32BG22"
-            ],
-            "icon": {
-                "hw-icon": "/blender-models/uqfn-40-1ep-5x5mm-p0-4mm-ep3-8x3-8mm/previews/isoF_thumbnail_64x64.webp"
-            },
-            "name": "EFR32BG22_QFN-40",
-            "urls": {
-                "hwp": "components/silicon-labs-efr32bg22c224f512im40-cr"
+                "hwp": "components/tdk-icm-20648"
             }
         },
         {
@@ -1852,6 +1519,129 @@
         },
         {
             "abstract": false,
+            "description": "LED, GREEN, 0.8MM X 1.1MM, 20MCD, 571NM\n\n### Additional information\n\n*Datasheet*: [LTST-C190KGKT.pdf](https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C190KGKT.pdf)",
+            "extends": [
+                "LED"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/led-0603-1608metric-g/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "LED_G_0603_LTST-C190KGKT",
+            "urls": {
+                "hwp": "components/lite-on-ltst-c190kgkt"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Vertical, Board-to-Board, 2.54 mm, 1 Rows, 3 Contacts, Through Hole Straight, WR-PHD\n\n### Additional information\n\n*Datasheet*: [6130xx11121.pdf](https://katalog.we-online.de/em/datasheet/6130xx11121.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinheader-1x3-p2-54-drill1-1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "PinHeader_1x3_P2.54mm_Drill1.1mm",
+            "urls": {
+                "hwp": "components/wurth-elektronik-61300311121"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "PCI Express Card Edge SKT 164 POS 1mm Solder ST Edge Mount Tray\n\n### Additional information\n\n*Datasheet*: [10025026.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/10025026.pdf)",
+            "extends": [
+                "PCIe x16"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pcie-x16-10025026-10103tlf/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "PCIe_x16_10025026-10103TLF",
+            "urls": {
+                "hwp": "components/amphenol-10025026-10103tlf"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB - micro AB USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [629105150921.pdf](https://www.we-online.com/components/products/datasheet/629105150921.pdf)",
+            "extends": [
+                "USB Micro"
+            ],
+            "name": "USB-Micro-B_WE_629105150921",
+            "urls": {
+                "hwp": "components/wurth-elektronik-629105150921"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "LED, Red, SMT, 0603, 20 mA, 2 V, 636 nm\n\n### Additional information\n\n*Datasheet*: [LTST-C190KRKT.pdf](http://optoelectronics.liteon.com/upload/download/DS-22-99-0151/LTST-C190KRKT.pdf)",
+            "extends": [
+                "LED"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/led-0603-1608metric-r/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "LED_R_0603_LTST-C190KRKT",
+            "urls": {
+                "hwp": "components/lite-on-ltst-c190krkt"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB - micro B USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [10118192.pdf](http://www.amphenol-icc.com/media/wysiwyg/files/drawing/10118192.pdf)",
+            "extends": [
+                "USB Micro"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-micro-b-receptacle-amphenol-10118192/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "USB-Micro-B_Amphenol_10118192-0001LF",
+            "urls": {
+                "hwp": "components/amphenol-10118192-0001lf"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Interface Bridges, USB to UART, FIFO, 1.62 V, 3.63 V, LQFP, 64 Pins, -40 \u00b0C\n\n### Additional information\n\n*Datasheet*: [1700960.pdf](https://www.farnell.com/datasheets/1700960.pdf)",
+            "extends": [
+                "2xUART MPSSE Bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/lqfp-64-10x10mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "FT2232HL-REEL",
+            "urls": {
+                "hwp": "components/ftdi-chip-ft2232hl-reel"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Chip Antenna, Single Band, 2.45 GHz, 50 ohm, 3.2mm x 1.6mm x 1.3mm\n\n### Additional information\n\n*Datasheet*: [2450AT18D0100-1519342.pdf](https://www.mouser.com/datasheet/2/611/2450AT18D0100-1519342.pdf)",
+            "extends": [
+                "Antenna"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/2450at18d0100e/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "2450AT18D0100E",
+            "urls": {
+                "hwp": "components/johanson-technology-2450at18d0100e"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Vertical, Board-to-Board, 2.54 mm, 2 Rows, 40 Contacts, Through Hole Straight, WR-PHD\n\n### Additional information\n\n*Datasheet*: [61304021121-3087666.pdf](https://www.mouser.com/datasheet/2/445/61304021121-3087666.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinheader-2x20-p2-54mm-drill1-1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "PinHeader_2x20_P2.54mm_Drill1.1mm",
+            "urls": {
+                "hwp": "components/wurth-elektronik-61304021121"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Tactile Switch, TL3340, Side Actuated, Surface Mount, Round Button, 160 gf, 50mA at 12VDC\n\n### Additional information\n\n*Datasheet*: [TL3340-2065742.pdf](https://mouser.com/datasheet/2/140/TL3340-2065742.pdf)",
             "extends": [
                 "Button"
@@ -1862,6 +1652,216 @@
             "name": "SW_TL3340AF160QG",
             "urls": {
                 "hwp": "components/e-switch-tl3340af160qg"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Memory Card Connector, SD, Push-Push, 11 Contacts, Copper Alloy, Gold Plated Contacts\n\n### Additional information\n\n*Datasheet*: [bwb_sdmemorycard.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/boardwiretoboard/bwb_sdmemorycard.pdf)",
+            "extends": [
+                "SD Card socket"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sd-10067847-001rlf/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "SD_10067847-001RLF",
+            "urls": {
+                "hwp": "components/amphenol-10067847-001rlf"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Fixed LDO Voltage Regulator, 2.375 V to 3.5 V, 0.8 V Dropout, 1.25 V / 3 A out, VSON-10\n\n### Additional information\n\n*Datasheet*: [tps51200.pdf?ts=1685420125657](https://www.ti.com/lit/ds/symlink/tps51200.pdf?ts=1685420125657)",
+            "extends": [
+                "TPS51200"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/vson-10-1ep-3x3mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TPS51200DRC",
+            "urls": {
+                "hwp": "components/texas-instruments-tps51200drc"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "DC Power/Energy Monitor With Accumulator, Quad High-side current Sensor, 2.7V to 5.5V, UQFN-16\n\n### Additional information\n\n*Datasheet*: [PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf](https://www.mouser.com/datasheet/2/268/PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf)",
+            "extends": [
+                "PAC1934"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-16-1ep-4x4mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "PAC1934_QFN",
+            "urls": {
+                "hwp": "components/microchip-technology-pac1934t-i-jq"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "MCU, Application Specific, 32 bit, 76.8 MHz, BLE, 32KB RAM/512KB Program, 1.71-3.8 V in, QFN-40\n\n### Additional information\n\n*Datasheet*: [efr32bg22_datasheet-1830163.pdf](https://www.mouser.com/datasheet/2/368/efr32bg22_datasheet-1830163.pdf)",
+            "extends": [
+                "EFR32BG22"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/uqfn-40-1ep-5x5mm-p0-4mm-ep3-8x3-8mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "EFR32BG22_QFN-40",
+            "urls": {
+                "hwp": "components/silicon-labs-efr32bg22c224f512im40-cr"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Hall Effect Sensor, Magnetic Position and Temperature Sensor, SOT-23, 5 Pins, 1.71 V, 5.5 V\n\n### Additional information\n\n*Datasheet*: [si7210_datasheet-1128712.pdf](https://www.mouser.com/datasheet/2/368/si7210_datasheet-1128712.pdf)",
+            "extends": [
+                "SI7210"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sot-23-5/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Si7210_SOT",
+            "urls": {
+                "hwp": "components/silicon-labs-si7210-b-00-ivr"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "RISC-V System On Chip (SOC) IC PolarFire\u00ae FPGA - 254K Logic Modules 484-FCBGA (19x19)\n\n### Additional information\n\n*Datasheet*: [1244583-polarfire-soc-advance-datasheet](https://www.microsemi.com/document-portal/doc_download/1244583-polarfire-soc-advance-datasheet)",
+            "extends": [
+                "MPFS250T"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-484-19x19mm-layout22x22-p0-8mm-fcvg484/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "MPFS250T-FCVG484",
+            "urls": {
+                "hwp": "components/microchip-technology-mpfs250t-fcvg484"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB to Quad UART Bridge Controller 64-Pin QFN EP T/R\n\n### Additional information\n\n*Datasheet*: [cp2108-datasheet-1509353.pdf](https://www.mouser.com/datasheet/2/368/cp2108-datasheet-1509353.pdf)",
+            "extends": [
+                "CP2108"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-64-1ep-9x9mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "CP2108-B02-GM",
+            "urls": {
+                "hwp": "components/silicon-labs-cp2108-b02-gm"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Modular Jack, 1 x 1 (Port), 8P8C, Cat5, Through Hole Mount\n\n### Additional information\n\n*Datasheet*: [615008141321.pdf](https://www.we-online.com/components/products/datasheet/615008141321.pdf)",
+            "extends": [
+                "Ethernet"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/rj45-wurth-615008137421/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "RJ45_Wurth_615008137421",
+            "urls": {
+                "hwp": "components/wurth-elektronik-615008137421"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "FLASH - NOR Memory IC 8Mbit SPI - Quad I/O 33 MHz 8-WLCSP\n\n### Additional information\n\n*Datasheet*: [477720.pdf](https://datasheet.chipsmall.com/MX25R8035FBDIL0/477720.pdf)",
+            "extends": [
+                "MX25R8035"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/wlcsp-8-1-24x1-75mm-layout3-2-3-p0-35x0-4mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "MX25R8035F_WLCSP",
+            "urls": {
+                "hwp": "components/macronix-mx25r8035fbdil0"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Humidity/Temperature Sensor, 0% to 100% RH/-40\u00b0C to 85\u00b0C Range, I2C, Digital, 1.9V to 3.6V, DFN-6\n\n### Additional information\n\n*Datasheet*: [Si7021_A20-1397917.pdf](https://www.mouser.com/datasheet/2/368/Si7021_A20-1397917.pdf)",
+            "extends": [
+                "SI7021"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/dfn-6-1ep-3x3mm-p1mm-ep1-5x2-4mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Si7021",
+            "urls": {
+                "hwp": "components/silicon-labs-si7021-a20-gm1r"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "LED, GREEN, 0.8MM X 1.1MM, 20MCD, 570NM, FULL REEL\n\n### Additional information\n\n*Datasheet*: [LTST-C190GKT.pdf](https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C190GKT.pdf)",
+            "extends": [
+                "LED"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/led-0603-1608metric-g/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "LED_G_0603_LTST-C190GKT",
+            "urls": {
+                "hwp": "components/lite-on-ltst-c190gkt"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "LED, Yellow, SMD, 1005, 20 mA, 2 V\n\n### Additional information\n\n*Datasheet*: [vlmo1500.pdf](https://www.vishay.com/docs/82554/vlmo1500.pdf)",
+            "extends": [
+                "LED"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/led-0402-1005metric-y/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "LED_Y_0402_VLMY1500-GS08",
+            "urls": {
+                "hwp": "components/vishay-vlmy1500-gs08"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Right Angle, Board-to-Board, 2.54 mm, 2 Rows, 10 Contacts, Through Hole Right Angle\n\n### Additional information\n\n*Datasheet*: [htsw_th-2854340.pdf](https://www.mouser.com/datasheet/2/527/htsw_th-2854340.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinheader-2x5-p2-54mm-drill1-1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "PinHeader_2x5_P2.54mm_Drill1.1mm",
+            "urls": {
+                "hwp": "components/samtec-htsw-105-08-f-d"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB - micro B USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [10118194.pdf](http://www.amphenol-icc.com/media/wysiwyg/files/drawing/10118194.pdf)",
+            "extends": [
+                "USB Micro"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-micro-b-receptacle-amphenol-10118194/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "USB-Micro-B_Amphenol_10118194-0001LF",
+            "urls": {
+                "hwp": "components/amphenol-10118194-0001lf"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "ARM MCU, EFM32 Family EFM32GG Series Microcontrollers, ARM Cortex-M4, 32 bit, 72 MHz, 1 MB\n\n### Additional information\n\n*Datasheet*: [efm32gg12_datasheet-1548213.pdf](https://www.mouser.com/datasheet/2/368/efm32gg12_datasheet-1548213.pdf)",
+            "extends": [
+                "J-Link Debugger"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-169-120-7x7mm-layout13x13-p0-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "EFM32GG12B410F1024_BGA",
+            "urls": {
+                "hwp": "components/silicon-labs-efm32gg12b410f1024gl120-ar"
             }
         }
     ],
