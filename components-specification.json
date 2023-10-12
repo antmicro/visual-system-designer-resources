@@ -76,14 +76,6 @@
             "isCategory": true
         },
         {
-            "additionalData": {
-                "connection": "spi",
-                "snippets": [
-                    "adxl362: spi-dev-adxl362@0 {\n\tcompatible = \"adi,adxl362\";\n\tspi-max-frequency = < 0x7a1200 >;\n\treg = < 0x0 >;\n\tint1-gpios = < &gpio0 0x13 0x0 >;\n};",
-                    "sensor1: sensor@0 {\n\tcompatible = \"adi,adxl362\";\n\treg = < 0x0 >;\n\tint1-gpios = < &gpio0 0x1e 0x0 >;\n\tspi-max-frequency = < 0x7a1200 >;\n};",
-                    "test_spi_adxl362: adxl362@0 {\n\tcompatible = \"adi,adxl362\";\n\treg = < 0x0 >;\n\tspi-max-frequency = < 0x0 >;\n\tint1-gpios = < &test_gpio 0x0 0x0 >;\n};"
-                ]
-            },
             "category": "Sensor/Inertia/ADXL362",
             "interfaces": [
                 {
@@ -427,10 +419,26 @@
         },
         {
             "category": "UI/Button",
-            "extends": [
-                "gpio-device"
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "0x0",
+                    "name": "address (gpio)",
+                    "type": "text"
+                }
+            ],
+            "urls": {
+                "ren": "Miscellaneous/Button.cs"
+            }
         },
         {
             "category": "Interfacing/CAN",
@@ -1678,14 +1686,6 @@
             "name": "SI7021"
         },
         {
-            "additionalData": {
-                "connection": "i2c",
-                "snippets": [
-                    "si7210@30 {\n\tcompatible = \"silabs,si7210\";\n\tstatus = \"okay\";\n\treg = < 0x30 >;\n};",
-                    "si7210: si7210@30 {\n\tcompatible = \"silabs,si7210\";\n\treg = < 0x30 >;\n\tstatus = \"okay\";\n};",
-                    "test_i2c_si7210: si7010@28 {\n\tcompatible = \"silabs,si7210\";\n\treg = < 0x28 >;\n};"
-                ]
-            },
             "category": "Sensor/Hall/SI7210",
             "interfaces": [
                 {
