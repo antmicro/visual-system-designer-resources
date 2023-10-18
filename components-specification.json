@@ -99,15 +99,15 @@
             }
         },
         {
-            "category": "Memory/DDR",
+            "category": "Memory/DDR/APS256XXN",
             "description": "DRAM IoT RAM 256Mb",
             "extends": [
                 "spi-device"
             ],
-            "name": "APS256XXN"
+            "isCategory": true
         },
         {
-            "category": "Interfacing/PCIe",
+            "category": "Interfacing/PCIe/ASM1042A-48",
             "description": "PCIe-USB bridge to two ports of USB 3.2",
             "interfaces": [
                 {
@@ -132,10 +132,10 @@
                     "type": "pcie"
                 }
             ],
-            "name": "ASM1042A-48"
+            "isCategory": true
         },
         {
-            "category": "Interfacing/USB",
+            "category": "Interfacing/USB/ASM1074",
             "description": "Four ports USB3.2 Gen1 Hub Controller",
             "interfaces": [
                 {
@@ -174,7 +174,7 @@
                     "type": "usb"
                 }
             ],
-            "name": "ASM1074"
+            "isCategory": true
         },
         {
             "category": "SoC/arm/ambiq/Ambiq Apollo 4 plus",
@@ -368,11 +368,11 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/ambiq_apollo4p",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ambiq/ambiq_apollo4p.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ambiq/ambiq_apollo4p.dtsi"
             }
         },
         {
-            "category": "Connector/USB",
+            "category": "Connector/USB/Amphenol GSB4112312HR",
             "interfaces": [
                 {
                     "direction": "input",
@@ -389,7 +389,7 @@
                     "type": "usb"
                 }
             ],
-            "name": "Amphenol GSB4112312HR"
+            "isCategory": true
         },
         {
             "category": "Antenna",
@@ -405,7 +405,7 @@
             "isCategory": true
         },
         {
-            "category": "Connector/Audio",
+            "category": "Connector/Audio/Audio jack 3.5 mm",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -415,10 +415,10 @@
                     "type": "lpadc"
                 }
             ],
-            "name": "Audio jack 3.5 mm"
+            "isCategory": true
         },
         {
-            "category": "UI/Button",
+            "category": "IO/Button",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -631,7 +631,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/CY8C6244LQI_S4D92",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/infineon/psoc6/mpns/CY8C6244LQI_S4D92.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/infineon/psoc6/mpns/CY8C6244LQI_S4D92.dtsi"
             }
         },
         {
@@ -767,7 +767,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/CY8C624ABZI_S2D44",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/infineon/psoc6/mpns/CY8C624ABZI_S2D44.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/infineon/psoc6/mpns/CY8C624ABZI_S2D44.dtsi"
             }
         },
         {
@@ -903,7 +903,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/CYBLE_416045_02",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/infineon/psoc6/mpns/CYBLE_416045_02.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/infineon/psoc6/mpns/CYBLE_416045_02.dtsi"
             }
         },
         {
@@ -1032,7 +1032,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32bg22",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32bg22.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32bg22.dtsi"
             }
         },
         {
@@ -1139,43 +1139,50 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm",
+                    "name": "pinctrl",
                     "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "side": "right",
                     "type": "pwm"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart0",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart1",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usart2",
                     "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart3",
+                    "name": "usart2",
                     "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart3",
+                    "side": "right",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/EFR32MG12P432F1024",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32mg12p332f1024gl125.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32mg12p332f1024gl125.dtsi"
             }
         },
         {
@@ -1345,7 +1352,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/u540",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/sifive/riscv64-fu540.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/sifive/riscv64-fu540.dtsi"
             }
         },
         {
@@ -1467,7 +1474,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/u740",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/sifive/riscv64-fu740.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/sifive/riscv64-fu740.dtsi"
             }
         },
         {
@@ -1491,7 +1498,7 @@
             "isCategory": true
         },
         {
-            "category": "Interfacing/Ethernet",
+            "category": "Interfacing/Ethernet/GbE Phy GMII",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -1508,15 +1515,15 @@
                     "type": "ethernet"
                 }
             ],
-            "name": "GbE Phy GMII"
+            "isCategory": true
         },
         {
-            "category": "Memory/DDR",
+            "category": "Memory/DDR/H5AN8G8NAFR-UH",
             "description": "SK-Hynix H5AN8G8NAFR-UH DDR4 x32 SDRAM Memory, 8GB",
             "extends": [
                 "ddr-device"
             ],
-            "name": "H5AN8G8NAFR-UH"
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -1545,7 +1552,7 @@
             "isCategory": true
         },
         {
-            "category": "Memory/Flash/SPI Flash",
+            "abstract": false,
             "extends": [
                 "SPI Flash"
             ],
@@ -1599,7 +1606,7 @@
             "isCategory": true
         },
         {
-            "category": "UI/LED",
+            "category": "IO/LED",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -1705,11 +1712,11 @@
             }
         },
         {
-            "category": "UI",
+            "category": "IO/MIPI AMOLED Display 454x454 px",
             "extends": [
                 "spi-device"
             ],
-            "name": "MIPI AMOLED Display 454x454 px"
+            "isCategory": true
         },
         {
             "category": "SoC/arm/microchip/MPFS250T",
@@ -1879,7 +1886,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mpfs",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/microchip/mpfs-icicle.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/microchip/mpfs-icicle.dtsi"
             }
         },
         {
@@ -1907,7 +1914,7 @@
             "abstract": false,
             "description": "NOR Flash Serial-SPI 3.3V 1G-bit 1G/512M/256M x 1/2-bit/4-bit 6ns 16-Pin SOP-II T/R\n\n### Additional information\n\n*Datasheet*: [mict_s_a0005338280_1-2290790.pdf](https://www.mouser.com/datasheet/2/671/mict_s_a0005338280_1-2290790.pdf)",
             "extends": [
-                "SPI Flash"
+                "MT25QL"
             ],
             "icon": {
                 "hw-icon": "/blender-models/sop2-16-7-5x10-3mm/previews/isoF_thumbnail_64x64.webp"
@@ -1945,15 +1952,9 @@
             }
         },
         {
-            "category": "Memory/Flash/QSPI Flash",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "qspi",
-                    "side": "left",
-                    "type": "qspi"
-                }
+            "abstract": false,
+            "extends": [
+                "QSPI Flash"
             ],
             "name": "MX25L1006EMI-10G"
         },
@@ -2016,7 +2017,7 @@
             }
         },
         {
-            "category": "Interfacing/PCIe",
+            "category": "Interfacing/PCIe/PCIe Switch",
             "interfaces": [
                 {
                     "direction": "output",
@@ -2054,7 +2055,7 @@
                     "type": "pcie"
                 }
             ],
-            "name": "PCIe Switch"
+            "isCategory": true
         },
         {
             "category": "Connector/PCIe/PCIe x16",
@@ -2124,6 +2125,19 @@
             "urls": {
                 "hwp": "components/samtec-htsw-105-08-f-d"
             }
+        },
+        {
+            "category": "Memory/Flash/QSPI Flash",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qspi",
+                    "side": "left",
+                    "type": "qspi"
+                }
+            ],
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -2308,7 +2322,7 @@
             }
         },
         {
-            "category": "Connector/M.2",
+            "category": "Connector/M.2/TE-Connectivity 1-2199119-5",
             "description": "M.2 Key M",
             "interfaces": [
                 {
@@ -2319,10 +2333,10 @@
                     "type": "pcie"
                 }
             ],
-            "name": "TE-Connectivity 1-2199119-5"
+            "isCategory": true
         },
         {
-            "category": "Connector/M.2",
+            "category": "Connector/M.2/TE-Connectivity 2199119-4",
             "description": "M.2 Key E",
             "interfaces": [
                 {
@@ -2340,15 +2354,15 @@
                     "type": "usb"
                 }
             ],
-            "name": "TE-Connectivity 2199119-4"
+            "isCategory": true
         },
         {
-            "category": "Sensor/Touch",
+            "category": "Sensor/Touch/TMA525C",
             "description": "Display Capacitive Multi-Touch sensor",
             "extends": [
                 "i2c-device"
             ],
-            "name": "TMA525C"
+            "isCategory": true
         },
         {
             "category": "Memory/DDR/TPS51200",
@@ -2372,15 +2386,15 @@
             }
         },
         {
-            "category": "Sensor/Light",
+            "category": "Sensor/Light/TSL2540",
             "description": "TSL2540 Light-to-Digital Converter Ambient Light Sensing",
             "extends": [
                 "i2c-device"
             ],
-            "name": "TSL2540"
+            "isCategory": true
         },
         {
-            "category": "Connector",
+            "category": "Connector/UART Header",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2390,7 +2404,7 @@
                     "type": "serial"
                 }
             ],
-            "name": "UART Header"
+            "isCategory": true
         },
         {
             "category": "Connector/USB Micro",
@@ -2461,11 +2475,11 @@
             }
         },
         {
-            "category": "Interfacing/Ethernet/GbE Phy/VSC8662",
+            "abstract": false,
             "extends": [
                 "GbE Phy"
             ],
-            "isCategory": true
+            "name": "VSC8662"
         },
         {
             "abstract": false,
@@ -2544,7 +2558,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/ae350",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/andes/andes_v5_ae350.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/andes/andes_v5_ae350.dtsi"
             }
         },
         {
@@ -2561,7 +2575,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/agilex",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/intel/intel_socfpga_agilex.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/intel/intel_socfpga_agilex.dtsi"
             }
         },
         {
@@ -2578,7 +2592,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/agilex5",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/intel/intel_socfpga_agilex5.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/intel/intel_socfpga_agilex5.dtsi"
             }
         },
         {
@@ -2699,57 +2713,64 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi0",
+                    "name": "mmc",
                     "side": "left",
+                    "type": "mtd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi0",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi1",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi2",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart0",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart0_legacy",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart1",
                     "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart2",
+                    "name": "uart1",
                     "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart2",
+                    "side": "right",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/alder_lake",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/x86/intel/alder_lake.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/x86/intel/alder_lake.dtsi"
             }
         },
         {
@@ -2773,7 +2794,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/am62x_m4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/am62x_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/am62x_m4.dtsi"
             }
         },
         {
@@ -2937,11 +2958,11 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/apollo_lake",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/x86/intel/apollo_lake.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/x86/intel/apollo_lake.dtsi"
             }
         },
         {
-            "category": "Connector",
+            "category": "Connector/asp-134602-01",
             "description": "Samtec ASP-134602-01i Mezzanine Connector",
             "interfaces": [
                 {
@@ -2959,7 +2980,7 @@
                     "type": "gpio"
                 }
             ],
-            "name": "asp-134602-01"
+            "isCategory": true
         },
         {
             "category": "SoC/arm/aspeed/ast10x0",
@@ -2975,7 +2996,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/ast10x0",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/aspeed/ast10x0.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/aspeed/ast10x0.dtsi"
             }
         },
         {
@@ -3090,7 +3111,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/at91sam3x8e",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/sam3x.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/sam3x.dtsi"
             }
         },
         {
@@ -3233,7 +3254,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsam4e16e",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/sam4e16e.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/sam4e16e.dtsi"
             }
         },
         {
@@ -3348,7 +3369,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsam4lc4c",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/sam4lx4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/sam4lx4.dtsi"
             }
         },
         {
@@ -3456,688 +3477,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsam4s16c",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/sam4s16c.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/atmel/atsamc21x18",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc0",
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc1",
-                    "side": "right",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "can0",
-                    "side": "left",
-                    "type": "can"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "can1",
-                    "side": "right",
-                    "type": "can"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "porta",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portb",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portc",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom0",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom1",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom2",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom3",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom4",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom5",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc0",
-                    "side": "left",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc1",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc2",
-                    "side": "left",
-                    "type": "tcc"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/atsamc21x18",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samc21x18.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/atmel/atsamd20j18",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc",
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "dac0",
-                    "side": "right",
-                    "type": "dac"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "porta",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portb",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom0",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom1",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom2",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom3",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom4",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom5",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/atsamd20j18",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samd20.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/atmel/atsamd21e18a",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc",
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "dac0",
-                    "side": "right",
-                    "type": "dac"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "porta",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portb",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom0",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom1",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom2",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom3",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom4",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom5",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc0",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc1",
-                    "side": "left",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc2",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb0",
-                    "side": "left",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/atsamd21e18a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samd21.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/atmel/atsamd21g18a",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc",
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "dac0",
-                    "side": "right",
-                    "type": "dac"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "porta",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portb",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom0",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom1",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom2",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom3",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom4",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom5",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc0",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc1",
-                    "side": "left",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc2",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb0",
-                    "side": "left",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/atsamd21g18a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samd21.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/atmel/atsamd21j18a",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc",
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "dac0",
-                    "side": "right",
-                    "type": "dac"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "porta",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portb",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom0",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom1",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom2",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom3",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom4",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom5",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc0",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc1",
-                    "side": "left",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc2",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb0",
-                    "side": "left",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/atsamd21j18a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samd21.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/sam4s16c.dtsi"
             }
         },
         {
@@ -4326,7 +3666,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsamd51g19a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samd5xx19.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/samd5xx19.dtsi"
             }
         },
         {
@@ -4515,7 +3855,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsamd5xx19",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samd5xx19.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/samd5xx19.dtsi"
             }
         },
         {
@@ -4718,7 +4058,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsame54p20a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/same5xx20.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/same5xx20.dtsi"
             }
         },
         {
@@ -4917,7 +4257,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsame70q21",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/same70q21.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/same70q21.dtsi"
             }
         },
         {
@@ -5116,7 +4456,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsame70q21b",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/same70q21b.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/same70q21b.dtsi"
             }
         },
         {
@@ -5255,153 +4595,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsaml21",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/saml21.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/atmel/atsamr21g18a",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc",
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "dac0",
-                    "side": "right",
-                    "type": "dac"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "porta",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portb",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "portc",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom0",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom1",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom2",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom3",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom4",
-                    "side": "left",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "sercom5",
-                    "side": "right",
-                    "type": [
-                        "i2c",
-                        "serial",
-                        "spi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc0",
-                    "side": "left",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc1",
-                    "side": "right",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "tcc2",
-                    "side": "left",
-                    "type": "tcc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb0",
-                    "side": "right",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/atsamr21g18a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samr21.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/saml21.dtsi"
             }
         },
         {
@@ -5536,7 +4730,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsamr34",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samr34.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/samr34.dtsi"
             }
         },
         {
@@ -5735,7 +4929,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsamv71q21",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samv71q21.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/samv71q21.dtsi"
             }
         },
         {
@@ -5934,7 +5128,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/atsamv71q21b",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/atmel/samv71q21b.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/atmel/samv71q21b.dtsi"
             }
         },
         {
@@ -6098,7 +5292,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/bb-stm32wl",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/olimex/bb-stm32wl.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/olimex/bb-stm32wl.dtsi"
             }
         },
         {
@@ -6122,7 +5316,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/bcm58400",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/broadcom/valkyrie.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/broadcom/valkyrie.dtsi"
             }
         },
         {
@@ -6146,7 +5340,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/bcm58402_m7",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/broadcom/viper-m7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/broadcom/viper-m7.dtsi"
             }
         },
         {
@@ -6170,7 +5364,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/bcm958402m2",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/broadcom/viper-a72.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/broadcom/viper-a72.dtsi"
             }
         },
         {
@@ -6278,7 +5472,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cc1352p",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/cc1352r.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/cc1352r.dtsi"
             }
         },
         {
@@ -6386,7 +5580,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cc1352r",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/cc1352r.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/cc1352r.dtsi"
             }
         },
         {
@@ -6494,7 +5688,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cc1352r7",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/cc1352r7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/cc1352r7.dtsi"
             }
         },
         {
@@ -6602,7 +5796,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cc2652r",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/cc2652r.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/cc2652r.dtsi"
             }
         },
         {
@@ -6675,7 +5869,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cc3220sf",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/cc3220sf.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/cc3220sf.dtsi"
             }
         },
         {
@@ -6748,7 +5942,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cc3235sf",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/cc3235sf.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/cc3235sf.dtsi"
             }
         },
         {
@@ -7003,7 +6197,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cy8c6347bzi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/cypress/psoc6_cm4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/cypress/psoc6_cm4.dtsi"
             }
         },
         {
@@ -7118,7 +6312,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cyclonev-hps",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/intel_socfpga_std/socfpga_cyclone5.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/intel_socfpga_std/socfpga_cyclone5.dtsi"
             }
         },
         {
@@ -7205,7 +6399,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/da14699",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/renesas/smartbond/da14699.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/renesas/smartbond/da14699.dtsi"
             }
         },
         {
@@ -7354,7 +6548,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/dwm1001",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52832_qfaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52832_qfaa.dtsi"
             }
         },
         {
@@ -7488,64 +6682,71 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart0",
+                    "name": "pinctrl",
                     "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart1",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart0",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart1",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart2",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart3",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usart4",
                     "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart5",
+                    "name": "usart4",
                     "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart5",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efm32gg11",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efm32gg11b820f2048gl192.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efm32gg11b820f2048gl192.dtsi"
             }
         },
         {
@@ -7631,57 +6832,64 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart0",
+                    "name": "pinctrl",
                     "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart1",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart0",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart1",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart2",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usart3",
                     "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart4",
+                    "name": "usart3",
                     "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart4",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efm32gg12",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efm32gg12b810f1024gm64.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efm32gg12b810f1024gm64.dtsi"
             }
         },
         {
@@ -7753,22 +6961,29 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart0",
+                    "name": "pinctrl",
                     "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart0",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart1",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efm32hg322f64",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efm32hg322f64.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efm32hg322f64.dtsi"
             }
         },
         {
@@ -7918,7 +7133,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efm32jg12",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efm32jg12b500f1024gl125.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efm32jg12b500f1024gl125.dtsi"
             }
         },
         {
@@ -7983,22 +7198,29 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart0",
+                    "name": "pinctrl",
                     "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart0",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart1",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efm32pg1",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efm32pg1b200f256gm48.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efm32pg1b200f256gm48.dtsi"
             }
         },
         {
@@ -8148,7 +7370,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efm32pg12",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efm32pg12b500f1024gl125.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efm32pg12b500f1024gl125.dtsi"
             }
         },
         {
@@ -8234,43 +7456,50 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart0",
+                    "name": "pinctrl",
                     "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart1",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart0",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usart1",
                     "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart2",
+                    "name": "usart1",
                     "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efm32wg990f256",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efm32wg990f256.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efm32wg990f256.dtsi"
             }
         },
         {
@@ -8342,29 +7571,36 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart0",
+                    "name": "pinctrl",
                     "side": "right",
-                    "type": "serial"
+                    "type": "pinctrl"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart1",
+                    "name": "usart0",
                     "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart2",
+                    "name": "usart1",
                     "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32bg13",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32bg13p632f512gm48.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32bg13p632f512gm48.dtsi"
             }
         },
         {
@@ -8458,7 +7694,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32bg27",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32bg27.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32bg27.dtsi"
             }
         },
         {
@@ -8530,29 +7766,36 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm",
+                    "name": "pinctrl",
                     "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "side": "left",
                     "type": "pwm"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart0",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart1",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32fg1",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32fg1p133f256gm48.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32fg1p133f256gm48.dtsi"
             }
         },
         {
@@ -8624,29 +7867,36 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart0",
+                    "name": "pinctrl",
                     "side": "right",
-                    "type": "serial"
+                    "type": "pinctrl"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart1",
+                    "name": "usart0",
                     "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart2",
+                    "name": "usart1",
                     "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32fg13",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32fg13p233f512gm48.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32fg13p233f512gm48.dtsi"
             }
         },
         {
@@ -8739,43 +7989,50 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm",
+                    "name": "pinctrl",
                     "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "side": "right",
                     "type": "pwm"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart0",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usart1",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usart2",
                     "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart3",
+                    "name": "usart2",
                     "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart3",
+                    "side": "right",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32mg12",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32mg12p433f1024gm68.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32mg12p433f1024gm68.dtsi"
             }
         },
         {
@@ -8833,29 +8090,36 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart0",
+                    "name": "pinctrl",
                     "side": "right",
-                    "type": "serial"
+                    "type": "pinctrl"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart1",
+                    "name": "usart0",
                     "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usart2",
+                    "name": "usart1",
                     "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32mg21",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32mg21a020f1024im32.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32mg21a020f1024im32.dtsi"
             }
         },
         {
@@ -8928,7 +8192,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32mg24",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/silabs/efr32mg24b310f1536im48.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/silabs/efr32mg24b310f1536im48.dtsi"
             }
         },
         {
@@ -9225,7 +8489,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/elkhart_lake",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/x86/intel/elkhart_lake.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/x86/intel/elkhart_lake.dtsi"
             }
         },
         {
@@ -9263,7 +8527,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/eos_s3",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/quicklogic/quicklogic_eos_s3.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/quicklogic/quicklogic_eos_s3.dtsi"
             }
         },
         {
@@ -9392,7 +8656,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32-wrover",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_wrover_e_n16r4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_wrover_e_n16r4.dtsi"
             }
         },
         {
@@ -9521,7 +8785,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32_d0wd_v3",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_d0wd_v3.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_d0wd_v3.dtsi"
             }
         },
         {
@@ -9650,7 +8914,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32_net",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_net.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_net.dtsi"
             }
         },
         {
@@ -9779,7 +9043,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32_pico_d4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_pico_d4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_pico_d4.dtsi"
             }
         },
         {
@@ -9908,7 +9172,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32_wroom_32ue_n16",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_wroom_32ue_n16.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_wroom_32ue_n16.dtsi"
             }
         },
         {
@@ -10037,7 +9301,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32_wroom_32ue_n4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_wroom_32ue_n4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_wroom_32ue_n4.dtsi"
             }
         },
         {
@@ -10166,7 +9430,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32_wrover_e_n4r2",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_wrover_e_n4r2.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_wrover_e_n4r2.dtsi"
             }
         },
         {
@@ -10295,7 +9559,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32_wrover_e_n4r8",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32/esp32_wrover_e_n4r8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32/esp32_wrover_e_n4r8.dtsi"
             }
         },
         {
@@ -10382,7 +9646,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32c3_fx4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/espressif/esp32c3/esp32c3_fx4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/espressif/esp32c3/esp32c3_fx4.dtsi"
             }
         },
         {
@@ -10469,7 +9733,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32c3_mini_n4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/espressif/esp32c3/esp32c3_mini_n4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/espressif/esp32c3/esp32c3_mini_n4.dtsi"
             }
         },
         {
@@ -10577,7 +9841,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32s2_wroom",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32s2/esp32s2_wroom.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32s2/esp32s2_wroom.dtsi"
             }
         },
         {
@@ -10685,7 +9949,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32s2_wrover_n4r2",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32s2/esp32s2_wrover_n4r2.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32s2/esp32s2_wrover_n4r2.dtsi"
             }
         },
         {
@@ -10800,7 +10064,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32s3_mini_n8",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32s3/esp32s3_mini_n8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32s3/esp32s3_mini_n8.dtsi"
             }
         },
         {
@@ -10915,7 +10179,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/esp32s3_wroom_n8r8",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/espressif/esp32s3/esp32s3_wroom_n8r8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/espressif/esp32s3/esp32s3_wroom_n8r8.dtsi"
             }
         },
         {
@@ -11002,7 +10266,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/fe310",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/sifive/riscv32-fe310.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/sifive/riscv32-fe310.dtsi"
             }
         },
         {
@@ -11173,7 +10437,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32a503vdt3",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32a50x/gd32a503vdt3.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32a50x/gd32a503vdt3.dtsi"
             }
         },
         {
@@ -11372,7 +10636,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32e103vbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32e10x/gd32e103vbt6.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32e10x/gd32e103vbt6.dtsi"
             }
         },
         {
@@ -11599,7 +10863,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32e507xe",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32e50x/gd32e507xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32e50x/gd32e507xe.dtsi"
             }
         },
         {
@@ -11686,7 +10950,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32f350rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32f3x0/gd32f350rb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32f3x0/gd32f350rb.dtsi"
             }
         },
         {
@@ -11906,7 +11170,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32f403zet6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32f403/gd32f403zet6.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32f403/gd32f403zet6.dtsi"
             }
         },
         {
@@ -12203,7 +11467,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32f407xk",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32f4xx/gd32f407xk.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32f4xx/gd32f407xk.dtsi"
             }
         },
         {
@@ -12521,7 +11785,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32f450xk",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32f4xx/gd32f450xk.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32f4xx/gd32f450xk.dtsi"
             }
         },
         {
@@ -12839,7 +12103,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32f470ik",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32f4xx/gd32f470ik.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32f4xx/gd32f470ik.dtsi"
             }
         },
         {
@@ -12933,7 +12197,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32l233rc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/gigadevice/gd32l23x/gd32l233rc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/gigadevice/gd32l23x/gd32l233rc.dtsi"
             }
         },
         {
@@ -13104,7 +12368,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32vf103",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/gigadevice/gd32vf103X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/gigadevice/gd32vf103X8.dtsi"
             }
         },
         {
@@ -13169,7 +12433,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gr716a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/sparc/gaisler/gr716a.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/sparc/gaisler/gr716a.dtsi"
             }
         },
         {
@@ -13501,7 +12765,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/imxrt1062",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1060.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1060.dtsi"
             }
         },
         {
@@ -13546,7 +12810,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/intel_ish5",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/x86/intel/intel_ish5.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/x86/intel/intel_ish5.dtsi"
             }
         },
         {
@@ -13976,7 +13240,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/it81xx2",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/ite/it81xx2.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/ite/it81xx2.dtsi"
             }
         },
         {
@@ -14413,7 +13677,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/it82xx2",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/ite/it82xx2.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/ite/it82xx2.dtsi"
             }
         },
         {
@@ -14619,7 +13883,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/k66f",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_k66.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_k66.dtsi"
             }
         },
         {
@@ -14769,7 +14033,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/ke18f",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_ke18f512vlx16.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_ke18f512vlx16.dtsi"
             }
         },
         {
@@ -14912,7 +14176,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/kv58f",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_kv58f1m0vlx24.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_kv58f1m0vlx24.dtsi"
             }
         },
         {
@@ -14929,7 +14193,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/leon3soc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/sparc/gaisler/leon3soc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/sparc/gaisler/leon3soc.dtsi"
             }
         },
         {
@@ -14988,7 +14252,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/litex",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/riscv32-litex-vexriscv.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/riscv32-litex-vexriscv.dtsi"
             }
         },
         {
@@ -15075,7 +14339,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc11u67",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc11u67.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc11u67.dtsi"
             }
         },
         {
@@ -15162,7 +14426,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc11u68",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc11u68.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc11u68.dtsi"
             }
         },
         {
@@ -15200,7 +14464,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc54114",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc54xxx_m0.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc54xxx_m0.dtsi"
             }
         },
         {
@@ -15238,7 +14502,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc54114j256bd64",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc54xxx_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc54xxx_m4.dtsi"
             }
         },
         {
@@ -15297,7 +14561,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc55s16",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc55S16_ns.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc55S16_ns.dtsi"
             }
         },
         {
@@ -15356,7 +14620,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc55s28",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc55S2x.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc55S2x.dtsi"
             }
         },
         {
@@ -15429,7 +14693,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc55s69",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc55S6x_ns.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc55S6x_ns.dtsi"
             }
         },
         {
@@ -15446,7 +14710,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/ls1046a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/nxp/nxp_ls1046a.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/nxp/nxp_ls1046a.dtsi"
             }
         },
         {
@@ -15687,7 +14951,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/m46x",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nuvoton/m46x.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nuvoton/m46x.dtsi"
             }
         },
         {
@@ -15725,7 +14989,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/max10",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/nios2/intel/nios2f.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/nios2/intel/nios2f.dtsi"
             }
         },
         {
@@ -15931,7 +15195,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mcimx6x",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_imx6sx_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_imx6sx_m4.dtsi"
             }
         },
         {
@@ -16102,7 +15366,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mcimx7d",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_imx7d_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_imx7d_m4.dtsi"
             }
         },
         {
@@ -16196,7 +15460,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/me-xu1",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/xilinx/zynqmp_rpu.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/xilinx/zynqmp_rpu.dtsi"
             }
         },
         {
@@ -16451,7 +15715,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mec1501hsz",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/microchip/mec1501hsz.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/microchip/mec1501hsz.dtsi"
             }
         },
         {
@@ -16678,7 +15942,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mec172",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/microchip/mec172xnsz.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/microchip/mec172xnsz.dtsi"
             }
         },
         {
@@ -16695,7 +15959,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/microchip-miv",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/microchip/microchip-miv.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/microchip/microchip-miv.dtsi"
             }
         },
         {
@@ -16866,7 +16130,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimx7sc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_imx7d_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_imx7d_m4.dtsi"
             }
         },
         {
@@ -16946,7 +16210,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimx8mm",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_imx8mm_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_imx8mm_m4.dtsi"
             }
         },
         {
@@ -17005,7 +16269,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimx8mp",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_imx8ml_m7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_imx8ml_m7.dtsi"
             }
         },
         {
@@ -17085,7 +16349,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimx8mq",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_imx8mq_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_imx8mq_m4.dtsi"
             }
         },
         {
@@ -17235,7 +16499,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1011dae5a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1010.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1010.dtsi"
             }
         },
         {
@@ -17476,7 +16740,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1015daf5a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1015.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1015.dtsi"
             }
         },
         {
@@ -17731,7 +16995,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1021dag5a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1020.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1020.dtsi"
             }
         },
         {
@@ -17986,7 +17250,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1024",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1024.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1024.dtsi"
             }
         },
         {
@@ -18269,7 +17533,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1040",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1040.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1040.dtsi"
             }
         },
         {
@@ -18538,7 +17802,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1050",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1050.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1050.dtsi"
             }
         },
         {
@@ -18807,7 +18071,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1052",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1050.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1050.dtsi"
             }
         },
         {
@@ -19076,7 +18340,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1052dvl6b",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1050.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1050.dtsi"
             }
         },
         {
@@ -19380,7 +18644,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1060",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1060.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1060.dtsi"
             }
         },
         {
@@ -19684,7 +18948,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1062",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1060.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1060.dtsi"
             }
         },
         {
@@ -19988,7 +19252,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1062dvl6a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1060.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1060.dtsi"
             }
         },
         {
@@ -20292,7 +19556,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1064dvl6a",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt1064.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt1064.dtsi"
             }
         },
         {
@@ -20687,7 +19951,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt11",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt11xx_cm7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt11xx_cm7.dtsi"
             }
         },
         {
@@ -21068,7 +20332,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1166_cm4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt11xx_cm4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt11xx_cm4.dtsi"
             }
         },
         {
@@ -21463,7 +20727,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1166_cm6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt11xx_cm7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt11xx_cm7.dtsi"
             }
         },
         {
@@ -21844,7 +21108,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1176_cm4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt11xx_cm4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt11xx_cm4.dtsi"
             }
         },
         {
@@ -22239,7 +21503,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt1176_cm7",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt11xx_cm7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt11xx_cm7.dtsi"
             }
         },
         {
@@ -22361,7 +21625,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt595",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt5xx.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt5xx.dtsi"
             }
         },
         {
@@ -22462,7 +21726,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mimxrt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_rt6xx.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_rt6xx.dtsi"
             }
         },
         {
@@ -22605,7 +21869,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mk22fn512vlh12",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_k2x.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_k2x.dtsi"
             }
         },
         {
@@ -22797,7 +22061,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mk64fn1m0vdc12",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_k6x.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_k6x.dtsi"
             }
         },
         {
@@ -22989,7 +22253,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mk64fn1m0vll12",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_k6x.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_k6x.dtsi"
             }
         },
         {
@@ -23195,7 +22459,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mk66fn2m0vmd18",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_k66.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_k66.dtsi"
             }
         },
         {
@@ -23352,7 +22616,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mk82fn256vll15",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_k82fn256vxx15.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_k82fn256vxx15.dtsi"
             }
         },
         {
@@ -23446,7 +22710,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mkl25z128vlk4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_kl25z.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_kl25z.dtsi"
             }
         },
         {
@@ -23568,7 +22832,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mkw24d512",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_kw2xd.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_kw2xd.dtsi"
             }
         },
         {
@@ -23676,7 +22940,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/mkw41z512vht4",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_kw41z.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_kw41z.dtsi"
             }
         },
         {
@@ -23693,7 +22957,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/msp432p401r",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/ti/msp432p401r.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/ti/msp432p401r.dtsi"
             }
         },
         {
@@ -23731,7 +22995,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/neorv32",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/neorv32.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/neorv32.dtsi"
             }
         },
         {
@@ -23748,7 +23012,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/niosv-g",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/niosv/niosv-g.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/niosv/niosv-g.dtsi"
             }
         },
         {
@@ -23765,7 +23029,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/niosv-m",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/niosv/niosv-m.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/niosv/niosv-m.dtsi"
             }
         },
         {
@@ -24083,7 +23347,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/npcx796fb",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nuvoton/npcx7m6fb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nuvoton/npcx7m6fb.dtsi"
             }
         },
         {
@@ -24415,7 +23679,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/npcx996f",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nuvoton/npcx9m6f.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nuvoton/npcx9m6f.dtsi"
             }
         },
         {
@@ -24502,7 +23766,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf51822",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf51822_qfac.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf51822_qfac.dtsi"
             }
         },
         {
@@ -24575,7 +23839,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52805",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52805_caaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52805_caaa.dtsi"
             }
         },
         {
@@ -24662,7 +23926,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52810",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52810_qfaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52810_qfaa.dtsi"
             }
         },
         {
@@ -24756,7 +24020,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52811",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52811_qfaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52811_qfaa.dtsi"
             }
         },
         {
@@ -24843,7 +24107,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52820",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52820_qdaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52820_qdaa.dtsi"
             }
         },
         {
@@ -24979,7 +24243,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52832",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52832_qfaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52832_qfaa.dtsi"
             }
         },
         {
@@ -25150,7 +24414,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52833",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52833_qiaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52833_qiaa.dtsi"
             }
         },
         {
@@ -25328,7 +24592,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52840",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf52840_qiaa.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf52840_qiaa.dtsi"
             }
         },
         {
@@ -25492,7 +24756,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9160",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf9160_sica.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf9160_sica.dtsi"
             }
         },
         {
@@ -25656,7 +24920,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9161",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nordic/nrf9161_laca.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nordic/nrf9161_laca.dtsi"
             }
         },
         {
@@ -25680,7 +24944,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_imx8m",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/xtensa/nxp/nxp_imx8m.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/xtensa/nxp/nxp_imx8m.dtsi"
             }
         },
         {
@@ -25788,7 +25052,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_kw40z",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_kw40z.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_kw40z.dtsi"
             }
         },
         {
@@ -25826,7 +25090,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_lpc51u68",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc51u68.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc51u68.dtsi"
             }
         },
         {
@@ -25878,7 +25142,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_lpc55S06_ns",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc55S06_ns.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc55S06_ns.dtsi"
             }
         },
         {
@@ -25979,7 +25243,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_lpc55S36_ns",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_lpc55S36_ns.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_lpc55S36_ns.dtsi"
             }
         },
         {
@@ -26010,7 +25274,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_mimx8mm_a53",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/nxp/nxp_mimx8mm_a53.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/nxp/nxp_mimx8mm_a53.dtsi"
             }
         },
         {
@@ -26041,7 +25305,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_mimx8mn_a53",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/nxp/nxp_mimx8mn_a53.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/nxp/nxp_mimx8mn_a53.dtsi"
             }
         },
         {
@@ -26072,7 +25336,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_mimx8mp_a53",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/nxp/nxp_mimx8mp_a53.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/nxp/nxp_mimx8mp_a53.dtsi"
             }
         },
         {
@@ -26453,741 +25717,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nxp_s32k344_m7",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_s32k344_m7.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/nxp/nxp_s32z27x_rtu0_r52",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "can0",
-                    "side": "left",
-                    "type": "can"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "can1",
-                    "side": "right",
-                    "type": "can"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "emdio",
-                    "side": "left",
-                    "type": "mdio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_psi0",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi1",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi2",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi3",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi4",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi5",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi6",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi7",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioa",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiob",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioc",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiod",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioe",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiof",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiog",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioh",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioi",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioj",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiok",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiol",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiom",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpion",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioo",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "netc",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "right",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi0",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi1",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi2",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi3",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi4",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi5",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi6",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi7",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi8",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi9",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart0",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart1",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart10",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart11",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart12",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart2",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart3",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart4",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart5",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart6",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart7",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart8",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart9",
-                    "side": "left",
-                    "type": "serial"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/nxp_s32z27x_rtu0_r52",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_s32z27x_rtu0_r52.dtsi"
-            }
-        },
-        {
-            "category": "SoC/arm/nxp/nxp_s32z27x_rtu1_r52",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "can0",
-                    "side": "left",
-                    "type": "can"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "can1",
-                    "side": "right",
-                    "type": "can"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "emdio",
-                    "side": "left",
-                    "type": "mdio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_psi0",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi1",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi2",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi3",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi4",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi5",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi6",
-                    "side": "right",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "enetc_vsi7",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioa",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiob",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioc",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiod",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioe",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiof",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiog",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioh",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioi",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioj",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiok",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiol",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiom",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpion",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioo",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "netc",
-                    "side": "left",
-                    "type": "ethernet"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "side": "right",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi0",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi1",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi2",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi3",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi4",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi5",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi6",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi7",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi8",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi9",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart0",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart1",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart10",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart11",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart12",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart2",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart3",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart4",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart5",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart6",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart7",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart8",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart9",
-                    "side": "left",
-                    "type": "serial"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "rdp": "soc/nxp_s32z27x_rtu1_r52",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nxp/nxp_s32z27x_rtu1_r52.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nxp/nxp_s32k344_m7.dtsi"
             }
         },
         {
@@ -27218,7 +25748,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/opentitan_earlgrey",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/lowrisc/opentitan_earlgrey.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/lowrisc/opentitan_earlgrey.dtsi"
             }
         },
         {
@@ -27347,7 +25877,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/pfm-m487",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/nuvoton/m48x.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/nuvoton/m48x.dtsi"
             }
         },
         {
@@ -27420,7 +25950,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/r8a77951",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/renesas/rcar/gen3/r8a77951.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/renesas/rcar/gen3/r8a77951.dtsi"
             }
         },
         {
@@ -27451,7 +25981,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/r8a77961",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/renesas/r8a77961.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/renesas/r8a77961.dtsi"
             }
         },
         {
@@ -27692,7 +26222,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/raptor_lake",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/x86/intel/raptor_lake.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/x86/intel/raptor_lake.dtsi"
             }
         },
         {
@@ -27863,7 +26393,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/ri5cy",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/openisa/rv32m1_ri5cy.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/openisa/rv32m1_ri5cy.dtsi"
             }
         },
         {
@@ -27950,7 +26480,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/riscv32-fe310",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/sifive/riscv32-fe310.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/sifive/riscv32-fe310.dtsi"
             }
         },
         {
@@ -27967,7 +26497,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/rk3399",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/rockchip/rk3399.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/rockchip/rk3399.dtsi"
             }
         },
         {
@@ -28061,7 +26591,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/rp2040",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/rpi_pico/rp2040.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/rpi_pico/rp2040.dtsi"
             }
         },
         {
@@ -28085,7 +26615,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/sapphire_soc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/efinix/sapphire_soc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/efinix/sapphire_soc.dtsi"
             }
         },
         {
@@ -28220,7 +26750,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32c031X6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/c0/stm32c031X6.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/c0/stm32c031X6.dtsi"
             }
         },
         {
@@ -28342,7 +26872,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f030f4p6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f030X4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f030X4.dtsi"
             }
         },
         {
@@ -28492,7 +27022,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f030r8t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f030X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f030X8.dtsi"
             }
         },
         {
@@ -28621,7 +27151,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f031k6t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f031X6.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f031X6.dtsi"
             }
         },
         {
@@ -28785,7 +27315,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f042k6t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f042X6.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f042X6.dtsi"
             }
         },
         {
@@ -28949,7 +27479,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f051r8t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f051X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f051X8.dtsi"
             }
         },
         {
@@ -29120,7 +27650,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f070",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f070Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f070Xb.dtsi"
             }
         },
         {
@@ -29291,7 +27821,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f070rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f070Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f070Xb.dtsi"
             }
         },
         {
@@ -29490,7 +28020,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f072rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f072Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f072Xb.dtsi"
             }
         },
         {
@@ -29689,7 +28219,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f072vbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f072Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f072Xb.dtsi"
             }
         },
         {
@@ -29909,7 +28439,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f091rct6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f091Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f091Xc.dtsi"
             }
         },
         {
@@ -30129,7 +28659,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f098rch6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f0/stm32f098Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f0/stm32f098Xc.dtsi"
             }
         },
         {
@@ -30279,7 +28809,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f100",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f1/stm32f100Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f1/stm32f100Xb.dtsi"
             }
         },
         {
@@ -30436,7 +28966,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f103c8t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f1/stm32f103X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f1/stm32f103X8.dtsi"
             }
         },
         {
@@ -30593,7 +29123,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f103rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f1/stm32f103Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f1/stm32f103Xb.dtsi"
             }
         },
         {
@@ -30820,7 +29350,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f103rc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f1/stm32f103Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f1/stm32f103Xc.dtsi"
             }
         },
         {
@@ -31047,7 +29577,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f103zet6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f1/stm32f103Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f1/stm32f103Xe.dtsi"
             }
         },
         {
@@ -31253,7 +29783,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f107vct6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f1/stm32f107Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f1/stm32f107Xc.dtsi"
             }
         },
         {
@@ -31536,7 +30066,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f207zgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f2/stm32f207Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f2/stm32f207Xg.dtsi"
             }
         },
         {
@@ -31749,7 +30279,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f302Xc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f3/stm32f302Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f3/stm32f302Xc.dtsi"
             }
         },
         {
@@ -31948,7 +30478,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f302r8t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f3/stm32f302X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f3/stm32f302X8.dtsi"
             }
         },
         {
@@ -32175,7 +30705,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f303k8t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f3/stm32f303X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f3/stm32f303X8.dtsi"
             }
         },
         {
@@ -32409,7 +30939,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f303ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f3/stm32f303Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f3/stm32f303Xe.dtsi"
             }
         },
         {
@@ -32643,7 +31173,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f303vct6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f3/stm32f303Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f3/stm32f303Xc.dtsi"
             }
         },
         {
@@ -32814,7 +31344,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f334r8t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f3/stm32f334X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f3/stm32f334X8.dtsi"
             }
         },
         {
@@ -33062,7 +31592,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f373vct6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f3/stm32f373Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f3/stm32f373Xc.dtsi"
             }
         },
         {
@@ -33331,7 +31861,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f401Xc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f401Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f401Xc.dtsi"
             }
         },
         {
@@ -33600,7 +32130,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f401ccu6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f401Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f401Xc.dtsi"
             }
         },
         {
@@ -33869,7 +32399,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f401ceu6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f401Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f401Xe.dtsi"
             }
         },
         {
@@ -34138,7 +32668,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f401ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f401Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f401Xe.dtsi"
             }
         },
         {
@@ -34512,7 +33042,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f405rg",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f405Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f405Xg.dtsi"
             }
         },
         {
@@ -34886,7 +33416,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f405rgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f405Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f405Xg.dtsi"
             }
         },
         {
@@ -35267,7 +33797,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f407",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f407Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f407Xg.dtsi"
             }
         },
         {
@@ -35648,7 +34178,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f407ve",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f407Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f407Xe.dtsi"
             }
         },
         {
@@ -36029,7 +34559,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f407vet6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f407Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f407Xe.dtsi"
             }
         },
         {
@@ -36410,7 +34940,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f407vgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f407Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f407Xg.dtsi"
             }
         },
         {
@@ -36791,7 +35321,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f407zgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f407Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f407Xg.dtsi"
             }
         },
         {
@@ -37067,7 +35597,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f410rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f410Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f410Xb.dtsi"
             }
         },
         {
@@ -37364,7 +35894,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f411ce",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f411Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f411Xe.dtsi"
             }
         },
         {
@@ -37661,7 +36191,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f411ceu6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f411Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f411Xe.dtsi"
             }
         },
         {
@@ -37958,7 +36488,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f411ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f411Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f411Xe.dtsi"
             }
         },
         {
@@ -38255,7 +36785,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f411vet6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f411Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f411Xe.dtsi"
             }
         },
         {
@@ -38608,7 +37138,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f412cg",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f412Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f412Xg.dtsi"
             }
         },
         {
@@ -38961,7 +37491,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f412cx",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f412Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f412Xg.dtsi"
             }
         },
         {
@@ -39314,7 +37844,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f412rx",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f412Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f412Xg.dtsi"
             }
         },
         {
@@ -39667,7 +38197,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f412zgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f412Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f412Xg.dtsi"
             }
         },
         {
@@ -40076,7 +38606,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f413zht6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f413Xh.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f413Xh.dtsi"
             }
         },
         {
@@ -40450,7 +38980,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f415rg",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f415Rg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f415Rg.dtsi"
             }
         },
         {
@@ -40859,7 +39389,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f427vit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f427vi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f427vi.dtsi"
             }
         },
         {
@@ -41289,7 +39819,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f429zit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f429Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f429Xi.dtsi"
             }
         },
         {
@@ -41614,7 +40144,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f446ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f446Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f446Xe.dtsi"
             }
         },
         {
@@ -41939,7 +40469,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f446vet6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f446Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f446Xe.dtsi"
             }
         },
         {
@@ -42264,7 +40794,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f446zet6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f446Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f446Xe.dtsi"
             }
         },
         {
@@ -42694,7 +41224,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f469nih6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f4/stm32f469Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f4/stm32f469Xi.dtsi"
             }
         },
         {
@@ -43033,7 +41563,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f723iek6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f7/stm32f723Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f7/stm32f723Xe.dtsi"
             }
         },
         {
@@ -43421,7 +41951,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f746ngh6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f7/stm32f746Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f7/stm32f746Xg.dtsi"
             }
         },
         {
@@ -43809,7 +42339,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f746zgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f7/stm32f746Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f7/stm32f746Xg.dtsi"
             }
         },
         {
@@ -44197,7 +42727,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f750X8",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f7/stm32f750X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f7/stm32f750X8.dtsi"
             }
         },
         {
@@ -44585,7 +43115,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f756zg",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f7/stm32f756Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f7/stm32f756Xg.dtsi"
             }
         },
         {
@@ -44966,7 +43496,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f767zit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f7/stm32f767Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f7/stm32f767Xi.dtsi"
             }
         },
         {
@@ -45347,7 +43877,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32f769nih6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/f7/stm32f769Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/f7/stm32f769Xi.dtsi"
             }
         },
         {
@@ -45504,7 +44034,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g031j6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g0/stm32g031X6.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g0/stm32g031X6.dtsi"
             }
         },
         {
@@ -45661,7 +44191,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g031k8",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g0/stm32g031X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g0/stm32g031X8.dtsi"
             }
         },
         {
@@ -45825,7 +44355,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g070rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g0/stm32g070Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g0/stm32g070Xb.dtsi"
             }
         },
         {
@@ -46010,7 +44540,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g071rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g0/stm32g071Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g0/stm32g071Xb.dtsi"
             }
         },
         {
@@ -46195,7 +44725,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g081rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g0/stm32g081Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g0/stm32g081Xb.dtsi"
             }
         },
         {
@@ -46443,7 +44973,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g0b1Xe",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g0/stm32g0b1Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g0/stm32g0b1Xe.dtsi"
             }
         },
         {
@@ -46691,7 +45221,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g0b1ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g0/stm32g0b1Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g0/stm32g0b1Xe.dtsi"
             }
         },
         {
@@ -46939,7 +45469,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g431rbt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g4/stm32g431Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g4/stm32g431Xb.dtsi"
             }
         },
         {
@@ -47271,7 +45801,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g474Xe",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g4/stm32g474Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g4/stm32g474Xe.dtsi"
             }
         },
         {
@@ -47603,7 +46133,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32g474ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/g4/stm32g474Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/g4/stm32g474Xe.dtsi"
             }
         },
         {
@@ -47949,7 +46479,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h563Xi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h5/stm32h563Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h5/stm32h563Xi.dtsi"
             }
         },
         {
@@ -48295,7 +46825,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h573Xi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h5/stm32h573Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h5/stm32h573Xi.dtsi"
             }
         },
         {
@@ -48725,7 +47255,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h723zgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h723Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h723Xg.dtsi"
             }
         },
         {
@@ -49155,7 +47685,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h735igk6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h735Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h735Xg.dtsi"
             }
         },
         {
@@ -49550,7 +48080,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h743zit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h743Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h743Xi.dtsi"
             }
         },
         {
@@ -49952,7 +48482,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h745zi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h745Xi_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h745Xi_m4.dtsi"
             }
         },
         {
@@ -50354,7 +48884,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h745zit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h745Xi_m7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h745Xi_m7.dtsi"
             }
         },
         {
@@ -50756,7 +49286,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h747Xi_m7",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h747Xi_m7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h747Xi_m7.dtsi"
             }
         },
         {
@@ -51158,7 +49688,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h747xi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h747Xi_m4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h747Xi_m4.dtsi"
             }
         },
         {
@@ -51560,7 +50090,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h747xih6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h747Xi_m7.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h747Xi_m7.dtsi"
             }
         },
         {
@@ -51955,7 +50485,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h753zit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h753Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h753Xi.dtsi"
             }
         },
         {
@@ -52357,7 +50887,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h7a3zi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h7a3Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h7a3Xi.dtsi"
             }
         },
         {
@@ -52759,7 +51289,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32h7b3Xi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/h7/stm32h7b3Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/h7/stm32h7b3Xi.dtsi"
             }
         },
         {
@@ -52867,7 +51397,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l011k4t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l0/stm32l011X4.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l0/stm32l011X4.dtsi"
             }
         },
         {
@@ -52982,7 +51512,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l031k6t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l0/stm32l031X6.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l0/stm32l031X6.dtsi"
             }
         },
         {
@@ -53132,7 +51662,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l053r8t6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l0/stm32l053X8.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l0/stm32l053X8.dtsi"
             }
         },
         {
@@ -53317,7 +51847,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l072cz",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l0/stm32l072Xz.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l0/stm32l072Xz.dtsi"
             }
         },
         {
@@ -53502,7 +52032,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l073rz",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l0/stm32l073Xz.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l0/stm32l073Xz.dtsi"
             }
         },
         {
@@ -53687,7 +52217,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l151cb",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l1/stm32l151Xb-a.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l1/stm32l151Xb-a.dtsi"
             }
         },
         {
@@ -53872,7 +52402,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l152r",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l1/stm32l151Xb.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l1/stm32l151Xb.dtsi"
             }
         },
         {
@@ -54071,7 +52601,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l152ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l1/stm32l152Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l1/stm32l152Xe.dtsi"
             }
         },
         {
@@ -54242,7 +52772,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l412rbt6p",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l412XB.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l412XB.dtsi"
             }
         },
         {
@@ -54413,7 +52943,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l432kcu6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l432Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l432Xc.dtsi"
             }
         },
         {
@@ -54619,7 +53149,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l433rc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l433Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l433Xc.dtsi"
             }
         },
         {
@@ -54846,7 +53376,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l452re",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l452Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l452Xe.dtsi"
             }
         },
         {
@@ -55073,7 +53603,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l452ret6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l452Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l452Xe.dtsi"
             }
         },
         {
@@ -55349,7 +53879,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l475Xe",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l475Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l475Xe.dtsi"
             }
         },
         {
@@ -55625,7 +54155,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l475vgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l475Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l475Xg.dtsi"
             }
         },
         {
@@ -55901,7 +54431,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l476rgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l476Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l476Xg.dtsi"
             }
         },
         {
@@ -56177,7 +54707,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l476vgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l476Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l476Xg.dtsi"
             }
         },
         {
@@ -56474,7 +55004,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l496agi6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l496Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l496Xg.dtsi"
             }
         },
         {
@@ -56771,7 +55301,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l496zgt6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l496Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l496Xg.dtsi"
             }
         },
         {
@@ -57068,7 +55598,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l4a6Xg",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l4a6Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l4a6Xg.dtsi"
             }
         },
         {
@@ -57365,7 +55895,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l4r5Xi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l4r5Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l4r5Xi.dtsi"
             }
         },
         {
@@ -57662,7 +56192,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l4r5zit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l4r5Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l4r5Xi.dtsi"
             }
         },
         {
@@ -57966,7 +56496,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l4r9zi",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l4r9Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l4r9Xi.dtsi"
             }
         },
         {
@@ -58263,7 +56793,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l4s5vit6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l4/stm32l4s5Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l4/stm32l4s5Xi.dtsi"
             }
         },
         {
@@ -58518,7 +57048,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l552ze",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l5/stm32l552Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l5/stm32l552Xe.dtsi"
             }
         },
         {
@@ -58773,7 +57303,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l552zet6",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l5/stm32l552Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l5/stm32l552Xe.dtsi"
             }
         },
         {
@@ -59028,7 +57558,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32l562qei6qu",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/l5/stm32l562Xe.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/l5/stm32l562Xe.dtsi"
             }
         },
         {
@@ -59234,7 +57764,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32mp157",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/mp1/stm32mp157.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/mp1/stm32mp157.dtsi"
             }
         },
         {
@@ -59538,7 +58068,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32u575zit6q",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/u5/stm32u575Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/u5/stm32u575Xi.dtsi"
             }
         },
         {
@@ -59842,7 +58372,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32u585ai",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/u5/stm32u585Xi.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/u5/stm32u585Xi.dtsi"
             }
         },
         {
@@ -59999,7 +58529,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32wb55rg",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/wb/stm32wb55Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/wb/stm32wb55Xg.dtsi"
             }
         },
         {
@@ -60142,7 +58672,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32wba52Xg",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/wba/stm32wba52Xg.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/wba/stm32wba52Xg.dtsi"
             }
         },
         {
@@ -60306,7 +58836,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32wl55jc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/wl/stm32wl55Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/wl/stm32wl55Xc.dtsi"
             }
         },
         {
@@ -60470,7 +59000,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/stm32wle5jc",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/st/wl/stm32wle5Xc.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/st/wl/stm32wle5Xc.dtsi"
             }
         },
         {
@@ -60578,7 +59108,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/telink_b91",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/riscv/telink/telink_b91.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/riscv/telink/telink_b91.dtsi"
             }
         },
         {
@@ -60644,7 +59174,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/ti_am6234_a53",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm64/ti/ti_am6234_a53.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm64/ti/ti_am6234_a53.dtsi"
             }
         },
         {
@@ -60745,7 +59275,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/xmc4500_F100x1024",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/infineon/xmc4500_F100x1024.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/infineon/xmc4500_F100x1024.dtsi"
             }
         },
         {
@@ -60853,7 +59383,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/xmc4700_F144x2048",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/infineon/xmc4700_F144x2048.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/infineon/xmc4700_F144x2048.dtsi"
             }
         },
         {
@@ -60926,7 +59456,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/zynq7000",
-                "zephyr": "blob/1731010869c479e19dd87307b8defa25276418cb/dts/arm/xilinx/zynq7000.dtsi"
+                "zephyr": "blob/f09b67b304dd11fd7f7adaedd1865eec3a5f868a/dts/arm/xilinx/zynq7000.dtsi"
             }
         }
     ],
