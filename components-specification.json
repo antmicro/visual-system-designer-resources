@@ -405,6 +405,37 @@
             "isCategory": true
         },
         {
+            "category": "Connector/Camera/Antmicro Dual Camera interface",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Antmicro Dual Camera interface",
+                    "side": "left",
+                    "type": "ant-dual-cam-if"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mipi csi-2 x4",
+                    "side": "left",
+                    "type": "csi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/Audio/Audio jack 3.5 mm",
             "interfaces": [
                 {
@@ -416,6 +447,47 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "category": "Power/Board power distribution",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Card Edge Connector, 0, Dual Side, 67 Contacts, Surface Mount, Right Angle, Solder\n\n### Additional information\n\n*Datasheet*: [DDEController?Action=srchrtrv&DocNm=2199230&DocType=Customer+Drawing&DocLang=English](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=2199230&DocType=Customer+Drawing&DocLang=English)",
+            "extends": [
+                "M.2 Key M"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bus-m-2-socket-key-m-te-1-2199230-6/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Bus_M.2_1-2199230-6",
+            "urls": {
+                "hwp": "components/te-connectivity-1-2199230-6"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "PCI connector\n\n### Additional information\n\n*Datasheet*: [product-2199230-4.html](https://www.te.com/usa-en/product-2199230-4.html)",
+            "extends": [
+                "M.2 key E"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bus-m-2-socket-key-e-te-2199230-4/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Bus_M.2_2199230-6",
+            "urls": {
+                "hwp": "components/te-connectivity-2199230-6"
+            }
         },
         {
             "category": "IO/Button",
@@ -468,34 +540,10 @@
             "isCategory": true
         },
         {
-            "category": "Interfacing/USB/USB to UART Bridge/CP2108",
-            "interfaces": [
-                {
-                    "array": [
-                        0,
-                        4
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "side": "left",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true
-        },
-        {
             "abstract": false,
             "description": "USB to Quad UART Bridge Controller 64-Pin QFN EP T/R\n\n### Additional information\n\n*Datasheet*: [cp2108-datasheet-1509353.pdf](https://www.mouser.com/datasheet/2/368/cp2108-datasheet-1509353.pdf)",
             "extends": [
-                "CP2108"
+                "USB to 4x UART bridge"
             ],
             "icon": {
                 "hw-icon": "/blender-models/qfn-64-1ep-9x9mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
@@ -1186,17 +1234,18 @@
             }
         },
         {
-            "category": "Connector/Ethernet",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "ethernet",
-                    "side": "left",
-                    "type": "ethernet"
-                }
+            "abstract": false,
+            "description": "Mezzanine Connector, Receptacle, 0.8 mm, 2 Rows, 80 Contacts, Surface Mount, Beryllium Copper\n\n### Additional information\n\n*Datasheet*: [erf8.pdf](https://suddendocs.samtec.com/catalog_english/erf8.pdf)",
+            "extends": [
+                "Jetson Orin Baseboard expansion connector"
             ],
-            "isCategory": true
+            "icon": {
+                "hw-icon": "/blender-models/j-erf8-040-05-0-samtec/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "ERF8-040-05.0-L-DV-K-TR",
+            "urls": {
+                "hwp": "components/samtec-erf8-040-05-0-l-dv-k-tr"
+            }
         },
         {
             "category": "Interfacing/USB/FTDI UART+JTAG/FT2232D",
@@ -1241,6 +1290,20 @@
             "name": "FT2232HL-REEL",
             "urls": {
                 "hwp": "components/ftdi-chip-ft2232hl-reel"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB Interface, USB-UART Converter, USB 2.0, 2.97 V, 5.5 V, QFN, 16 Pins\n\n### Additional information\n\n*Datasheet*: [DS_FT230X.pdf](http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT230X.pdf)",
+            "extends": [
+                "USB to UART bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-16-1ep-4x4mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "FT230X_QFN",
+            "urls": {
+                "hwp": "components/ftdi-chip-ft230xq-r"
             }
         },
         {
@@ -1527,6 +1590,54 @@
         },
         {
             "abstract": false,
+            "description": "USB Interface IC 10-Gbps USB 3.1 Type-C 2:1 mux with DRP Controller 30-WQFN -40\u00b0C to 85\u00b0C\n\n### Additional information\n\n*Datasheet*: [hd3ss3220.pdf?ts=1663000043694&ref_url=https%253A%252F%252Fwww.google.com%252F](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf?ts=1663000043694&ref_url=https%253A%252F%252Fwww.google.com%252F)",
+            "extends": [
+                "USB-C mux"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/wqfn-30-1ep-4-6x2-6mm-p0-4mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "HD3SS3220RNH",
+            "urls": {
+                "hwp": "components/texas-instruments-hd3ss3220rnht"
+            }
+        },
+        {
+            "category": "Connector/HDMI/HDMI Mini",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "left",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi mini",
+                    "side": "right",
+                    "type": "hdmi mini"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "HDMI - Mini Receptacle Connector 19 Position Surface Mount, Right Angle; Through Hole\n\n### Additional information\n\n*Datasheet*: [685119136923.pdf](https://www.we-online.com/components/products/datasheet/685119136923.pdf)",
+            "extends": [
+                "HDMI Mini"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/hdmi-mini-c-receptacle-we-685119136923/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "HDMI-Mini-C_WE_685119136923",
+            "urls": {
+                "hwp": "components/wurth-elektronik-685119136923"
+            }
+        },
+        {
+            "abstract": false,
             "description": "MEMS Module, MotionTracking Series, 3-Axis Gyroscope/Accelerometer, \u00b116g, 1.71 V to 3.6 V, QFN-24\n\n### Additional information\n\n*Datasheet*: [ds-000179-icm-20648-v1.2-typ.pdf](https://product.tdk.com/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000179-icm-20648-v1.2-typ.pdf)",
             "extends": [
                 "icm-20648"
@@ -1604,6 +1715,226 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "category": "SoM/Nvidia/Jetson Orin",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dp/hdmi",
+                    "side": "left",
+                    "type": [
+                        "dp",
+                        "hdmi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gbe",
+                    "side": "right",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "array": [
+                        0,
+                        3
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c cam",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2s",
+                    "side": "left",
+                    "type": "i2s"
+                },
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mipi csi-2 x2",
+                    "side": "left",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie0 x4",
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie1 x1",
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie2 x1",
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie3 x1",
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "array": [
+                        0,
+                        3
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "serial",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "array": [
+                        0,
+                        3
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "abstract": true,
+            "category": "Connector/Board to Board",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Jetson Orin Baseboard expansion connector",
+                    "side": "left",
+                    "type": "job-exp-conn"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2s",
+                    "side": "left",
+                    "type": "i2s"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie x1",
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "serial",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "name": "Jetson Orin Baseboard expansion connector"
         },
         {
             "category": "IO/LED",
@@ -1693,6 +2024,89 @@
                     "name": "lpddr",
                     "side": "left",
                     "type": "lpddr"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/M.2/M.2 Key M",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key m",
+                    "side": "right",
+                    "type": "m.2 key m"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie x4",
+                    "side": "left",
+                    "type": "pcie"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/M.2/M.2 key E",
+            "description": "M.2 Key E",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2s",
+                    "side": "right",
+                    "type": "i2s"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key e",
+                    "side": "right",
+                    "type": "m.2 key e"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie0 x1",
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie1 x1",
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcm",
+                    "side": "left",
+                    "type": "pcm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
                 }
             ],
             "isCategory": true
@@ -2127,6 +2541,65 @@
             }
         },
         {
+            "category": "Power/PoE Controller",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "right",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Power",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "right",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Power/Power arbiter",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "right",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Memory/Flash/QSPI Flash",
             "interfaces": [
                 {
@@ -2140,10 +2613,30 @@
             "isCategory": true
         },
         {
+            "category": "Connector/Ethernet/RJ45 Ethernet",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "right",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rj45",
+                    "side": "left",
+                    "type": "rj45"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "Modular Jack, 1 x 1 (Port), 8P8C, Cat5, Through Hole Mount\n\n### Additional information\n\n*Datasheet*: [615008141321.pdf](https://www.we-online.com/components/products/datasheet/615008141321.pdf)",
             "extends": [
-                "Ethernet"
+                "RJ45 Ethernet"
             ],
             "icon": {
                 "hw-icon": "/blender-models/rj45-wurth-615008137421/previews/isoF_thumbnail_64x64.webp"
@@ -2267,6 +2760,20 @@
         },
         {
             "abstract": false,
+            "description": "Tactile Switch, KMR 2 Series, Top Actuated, Surface Mount, Oval Button, 120 gf, 50mA at 32VDC\n\n### Additional information\n\n*Datasheet*: [2631211.pdf](http://www.farnell.com/datasheets/2631211.pdf)",
+            "extends": [
+                "Button"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sw-spst-4-2x2-8/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "SW_SPST_KMR211NGLFS",
+            "urls": {
+                "hwp": "components/c-k-kmr211nglfs"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Tactile Switch, TL3340, Side Actuated, Surface Mount, Round Button, 160 gf, 50mA at 12VDC\n\n### Additional information\n\n*Datasheet*: [TL3340-2065742.pdf](https://mouser.com/datasheet/2/140/TL3340-2065742.pdf)",
             "extends": [
                 "Button"
@@ -2365,6 +2872,20 @@
             "isCategory": true
         },
         {
+            "abstract": false,
+            "description": "PoE interface\n\n### Additional information\n\n*Datasheet*: [tps2372.pdf?ts=1679042478513&ref_url=https%253A%252F%252Fwww.google.com%252F](https://www.ti.com/lit/ds/symlink/tps2372.pdf?ts=1679042478513&ref_url=https%253A%252F%252Fwww.google.com%252F)",
+            "extends": [
+                "PoE Controller"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/vqfn-20-5x5x1mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TPS2372-3RGWR",
+            "urls": {
+                "hwp": "components/texas-instruments-tps2372-3rgwr"
+            }
+        },
+        {
             "category": "Memory/DDR/TPS51200",
             "extends": [
                 "ddr-device"
@@ -2386,12 +2907,51 @@
             }
         },
         {
+            "abstract": false,
+            "description": "USB, Type-C Controller PMIC 56-VQFN (7x7)\n\n### Additional information\n\n*Datasheet*: [tps65988.pdf?ts=1662726631004&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS65988](https://www.ti.com/lit/ds/symlink/tps65988.pdf?ts=1662726631004&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS65988)",
+            "extends": [
+                "USB-C PD controller"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/ic-tps65987ddhrshr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TPS65988DHRSHR",
+            "urls": {
+                "hwp": "components/texas-instruments-tps65988dhrshr"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Special purpose interface switch\n\n### Additional information\n\n*Datasheet*: [ts3dv642-q1.pdf?ts=1676983005656&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTS3DV642-Q1](https://www.ti.com/lit/ds/symlink/ts3dv642-q1.pdf?ts=1676983005656&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTS3DV642-Q1)",
+            "extends": [
+                "Video switch"
+            ],
+            "name": "TS3DV642RUARQ1",
+            "urls": {
+                "hwp": "components/texas-instruments-ts3dv642ruarq1"
+            }
+        },
+        {
             "category": "Sensor/Light/TSL2540",
             "description": "TSL2540 Light-to-Digital Converter Ambient Light Sensing",
             "extends": [
                 "i2c-device"
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Analog & Digital Crosspoint ICs USB Type-C DP ALT Mode, 10-Gbps linear redriver crosspoint switch 40-WQFN 0\u00b0C to 70\u00b0C\n\n### Additional information\n\n*Datasheet*: [sllsew2d.pdf?ts=1662107117482&ref_url=https%253A%252F%252Fwww.google.com%252F](https://www.ti.com/lit/ds/sllsew2d/sllsew2d.pdf?ts=1662107117482&ref_url=https%253A%252F%252Fwww.google.com%252F)",
+            "extends": [
+                "USB-DP switch"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/wqfn-40-1ep-6x3mm-pitch0-4mm-ep4-7x2-7mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TUSB1046-DCIRNQ",
+            "urls": {
+                "hwp": "components/texas-instruments-tusb1046-dcirnqt"
+            }
         },
         {
             "category": "Connector/UART Header",
@@ -2407,7 +2967,7 @@
             "isCategory": true
         },
         {
-            "category": "Connector/USB Micro",
+            "category": "Connector/USB/USB Micro",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2420,13 +2980,145 @@
             "isCategory": true
         },
         {
-            "category": "Connector/USB-C",
+            "category": "Interfacing/USB/USB to 4x UART bridge",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/USB/USB to UART bridge",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/USB/USB-C",
             "interfaces": [
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usb",
                     "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "side": "right",
+                    "type": "usb-c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Power/USB-C PD controller",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/USB/USB-C mux",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "side": "right",
+                    "type": "usb-c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "USB-C (USB TYPE-C) USB 3.2 Gen 2 (USB 3.1 Gen 2, Superspeed + (USB 3.1)) Receptacle Connector 24 Position Surface Mount, Right Angle; Through Hole\n\n### Additional information\n\n*Datasheet*: [632723300011.pdf](https://www.we-online.com/components/products/datasheet/632723300011.pdf)",
+            "extends": [
+                "USB-C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-c-receptacle-we-632723300011/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "USB-C_WE_632723300011",
+            "urls": {
+                "hwp": "components/wurth-elektronik-632723300011"
+            }
+        },
+        {
+            "category": "Interfacing/USB/USB-DP switch",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dp",
+                    "side": "left",
+                    "type": "dp"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
                     "type": "usb"
                 }
             ],
@@ -2494,6 +3186,36 @@
             "urls": {
                 "hwp": "components/microchip-technology-vsc8662xic"
             }
+        },
+        {
+            "category": "Interfacing/Video/Video switch",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dp/hdmi",
+                    "side": "left",
+                    "type": [
+                        "dp",
+                        "hdmi"
+                    ]
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dp/hdmi",
+                    "side": "right",
+                    "type": [
+                        "dp",
+                        "hdmi"
+                    ]
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "Sensor/Position/Distance/a01nyub",
@@ -25316,6 +26038,13 @@
                 "rdp": "soc/mkw41z512vht4",
                 "zephyr": "blob/8fada117616d0f7e797d8d5b3eac02cff674e5ac/dts/arm/nxp/nxp_kw41z.dtsi"
             }
+        },
+        {
+            "abstract": false,
+            "extends": [
+                "Power"
+            ],
+            "name": "molex-1054301202"
         },
         {
             "category": "Sensor/Pressure/mpr",
@@ -62823,6 +63552,13 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "extends": [
+                "Antmicro Dual Camera interface"
+            ],
+            "name": "wurth-elektronik-68715014522"
         },
         {
             "category": "SoC/arm/infineon/xmc4500_F100x1024",
