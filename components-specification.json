@@ -3286,7 +3286,10 @@
                     "type": "serial"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/a01nyub/a01nyub.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/adt7310",
@@ -3295,12 +3298,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/adi_adt7310",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/adt7310/adt7310.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/adt7420",
@@ -3312,9 +3333,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/adi_adt7420",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/adt7420/adt7420.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/adxl345",
@@ -3328,7 +3360,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/adi_adxl345",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/adxl345/adxl345.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/adxl362",
@@ -3337,12 +3373,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int1",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/adi_adxl362",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/adxl362/adxl362.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/adxl372",
@@ -3358,12 +3412,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int1",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/adi_adxl372",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/adxl372/adxl372.c"
+            }
         },
         {
             "category": "SoC/riscv/andes/ae350",
@@ -3477,7 +3549,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/asahi-kasei_ak8975",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ak8975/ak8975.c"
+            }
         },
         {
             "category": "Sensor/Magnetometer/akm09918c",
@@ -3491,7 +3567,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/asahi-kasei_akm09918c",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/akm09918c/akm09918c.c"
+            }
         },
         {
             "category": "SoC/x86/intel/alder_lake",
@@ -3696,8 +3776,8 @@
             }
         },
         {
-            "category": "Sensor/Environmental/Temperature/amg88xx",
-            "description": "Panasonic AMG88XX 8x8 (64) pixel infrared array sensor",
+            "category": "Sensor/Environmental/Temperature/amd_sb_tsi",
+            "description": "AMD SB Temperature Sensor Interface.",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -3707,7 +3787,36 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/amd_sb-tsi",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
+            }
+        },
+        {
+            "category": "Sensor/Environmental/Temperature/amg88xx",
+            "description": "Panasonic AMG88XX 8x8 (64) pixel infrared array sensor",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/panasonic_amg88xx",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amg88xx/amg88xx.c"
+            }
         },
         {
             "category": "Sensor/Position/Distance/apds9960",
@@ -3719,9 +3828,19 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/avago_apds9960"
+            }
         },
         {
             "category": "SoC/x86/intel/apollo_lake",
@@ -3899,7 +4018,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ams_as5600",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ams_as5600/ams_as5600.c"
+            }
         },
         {
             "category": "Connector/asp-134602-01",
@@ -7146,7 +7269,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/rohm_bh1750",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bh1750/bh1750.c"
+            }
         },
         {
             "category": "Sensor/Motion/bma280",
@@ -7158,9 +7285,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int1",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/bosch_bma280",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bma280/bma280.c"
+            }
         },
         {
             "category": "Sensor/Magnetometer/bmc150_magn",
@@ -7169,12 +7307,23 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/bosch_bmc150_magn",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmc150_magn/bmc150_magn.c"
+            }
         },
         {
             "category": "Sensor/Environmental/bme280",
@@ -7195,7 +7344,17 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bme280"
+            }
         },
         {
             "category": "Sensor/Environmental/bme680",
@@ -7216,7 +7375,17 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bme680"
+            }
         },
         {
             "category": "Sensor/Motion/Gyroscope/bmg160",
@@ -7228,9 +7397,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/bosch_bmg160",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmg160/bmg160.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/bmi08x_accel",
@@ -7246,12 +7426,60 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 2,
+                    "name": "accel-fs",
+                    "type": "integer",
+                    "values": [
+                        2,
+                        3,
+                        4,
+                        6,
+                        8,
+                        12,
+                        16,
+                        24
+                    ]
+                },
+                {
+                    "default": "12.5",
+                    "name": "accel-hz",
+                    "type": "text",
+                    "values": [
+                        "100",
+                        "12.5",
+                        "1600",
+                        "200",
+                        "25",
+                        "400",
+                        "50",
+                        "800"
+                    ]
+                },
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bmi08x-accel",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmi08x/bmi08x_accel.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/bmi08x_gyro",
@@ -7267,12 +7495,57 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 2000,
+                    "name": "gyro-fs",
+                    "type": "integer",
+                    "values": [
+                        125,
+                        250,
+                        500,
+                        1000,
+                        2000
+                    ]
+                },
+                {
+                    "default": "2000_532",
+                    "name": "gyro-hz",
+                    "type": "text",
+                    "values": [
+                        "1000_116",
+                        "100_12",
+                        "100_32",
+                        "2000_230",
+                        "2000_532",
+                        "200_23",
+                        "200_64",
+                        "400_47"
+                    ]
+                },
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bmi08x-gyro",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmi08x/bmi08x_gyro.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/bmi160",
@@ -7288,12 +7561,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bmi160",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmi160/emul_bmi160.c"
+            }
         },
         {
             "category": "Sensor/Motion/bmi270",
@@ -7309,12 +7600,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bmi270",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmi270/bmi270.c"
+            }
         },
         {
             "category": "Sensor/Other/bmi323",
@@ -7323,23 +7632,9 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "left",
-                    "type": "spi"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Sensor/Magnetometer/Geomagnetic/bmm150",
-            "description": "Bosch BMM150 Geomagnetic sensor.  See more info at:\nhttps://www.bosch-sensortec.com/bst/products/all_products/bmm150\n",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c",
-                    "side": "left",
-                    "type": "i2c"
+                    "type": "gpio"
                 },
                 {
                     "direction": "inout",
@@ -7349,7 +7644,56 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bmi323",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmi323/bmi323.c"
+            }
+        },
+        {
+            "category": "Sensor/Magnetometer/Geomagnetic/bmm150",
+            "description": "Bosch BMM150 Geomagnetic sensor.  See more info at:\nhttps://www.bosch-sensortec.com/bst/products/all_products/bmm150\n",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "drdy",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
+                    "type": "spi"
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bmm150"
+            }
         },
         {
             "category": "Sensor/Pressure/bmp388",
@@ -7365,12 +7709,29 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/bosch_bmp388"
+            }
         },
         {
             "category": "Sensor/Fuel gauge/bq274xx",
@@ -7382,9 +7743,42 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "design-capacity",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "design-voltage",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "taper-current",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "terminate-voltage",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ti_bq274xx",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bq274xx/bq274xx.c"
+            }
         },
         {
             "category": "SoC/arm/ti/cc1352p",
@@ -7974,9 +8368,34 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "reset",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "wake",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ams_ccs811",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ccs811/ccs811.c"
+            }
         },
         {
             "category": "SoC/arm/cypress/cy8c6347bzi",
@@ -8469,12 +8888,22 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio",
+                    "name": "dio",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
                     "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/dht/dht.c"
+            }
         },
         {
             "category": "Sensor/Environmental/dps310",
@@ -8488,7 +8917,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/infineon_dps310",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/dps310/dps310.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/ds18b20",
@@ -8502,7 +8935,17 @@
                     "type": "1-wire"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "resolution",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ds18b20/ds18b20.c"
+            }
         },
         {
             "category": "SoC/arm/nordic/dwm1001",
@@ -10593,7 +11036,14 @@
                     "type": "adc"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "nchannels",
+                    "type": "integer"
+                }
+            ]
         },
         {
             "category": "Sensor/Environmental/ens210",
@@ -10607,7 +11057,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ams_ens210",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ens210/ens210.c"
+            }
         },
         {
             "category": "SoC/arm/quicklogic/eos_s3",
@@ -10659,7 +11113,18 @@
                     "type": "adc"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": null,
+                    "dtype": "string",
+                    "name": "io-channels",
+                    "type": "list"
+                }
+            ],
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ntc_thermistor/ntc_thermistor.c"
+            }
         },
         {
             "category": "SoC/xtensa/espressif/esp32/esp32-wrover",
@@ -12325,7 +12790,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/fintek_f75303",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/f75303/f75303.c"
+            }
         },
         {
             "category": "Sensor/Position/Distance/fdc2x1x",
@@ -12337,9 +12806,45 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "intb",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sd",
+                    "side": "left",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 1,
+                    "name": "deglitch",
+                    "type": "integer",
+                    "values": [
+                        1,
+                        4,
+                        5,
+                        7
+                    ]
+                },
+                {
+                    "default": 0,
+                    "name": "fref",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ti_fdc2x1x",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/fdc2x1x/fdc2x1x.c"
+            }
         },
         {
             "category": "SoC/riscv/sifive/fe310",
@@ -12438,9 +12943,27 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int1",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int2",
+                    "side": "left",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/nxp_fxas21002",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/fxas21002/fxas21002.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/fxos8700",
@@ -12452,9 +12975,34 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int1",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int2",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "reset",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/nxp_fxos8700",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/fxos8700/fxos8700.c"
+            }
         },
         {
             "category": "SoC/arm/gigadevice/gd32a50x/gd32a503vdt3",
@@ -14630,12 +15178,23 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_hdc",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ti_hdc/ti_hdc.c"
+            }
         },
         {
             "category": "Sensor/Environmental/hdc2010",
@@ -14649,7 +15208,10 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_hdc2010"
+            }
         },
         {
             "category": "Sensor/Environmental/hdc2021",
@@ -14663,7 +15225,10 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_hdc2021"
+            }
         },
         {
             "category": "Sensor/Environmental/hdc2022",
@@ -14677,7 +15242,10 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_hdc2022"
+            }
         },
         {
             "category": "Sensor/Environmental/hdc2080",
@@ -14691,7 +15259,10 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_hdc2080"
+            }
         },
         {
             "category": "Sensor/Magnetometer/hmc5883l",
@@ -14703,9 +15274,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/honeywell_hmc5883l",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/hmc5883l/hmc5883l.c"
+            }
         },
         {
             "category": "Sensor/Environmental/hp206c",
@@ -14719,7 +15301,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/hoperf_hp206c",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/hp206c/hp206c.c"
+            }
         },
         {
             "category": "Sensor/Environmental/hts221",
@@ -14728,19 +15314,37 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_hts221",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/hts221/hts221.c"
+            }
         },
         {
             "abstract": true,
@@ -14774,7 +15378,18 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_i3g4250d",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/i3g4250d/i3g4250d.c"
+            }
         },
         {
             "category": "Sensor/Gas/Air quality/iaqcore",
@@ -14788,7 +15403,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ams_iaqcore",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ams_iAQcore/iAQcore.c"
+            }
         },
         {
             "abstract": true,
@@ -14805,12 +15424,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/invensense_icm42605",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42605/icm42605.c"
+            }
         },
         {
             "category": "Sensor/Motion/icm42670",
@@ -14819,12 +15456,85 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 16,
+                    "name": "accel-fs",
+                    "type": "integer",
+                    "values": [
+                        2,
+                        4,
+                        8,
+                        16
+                    ]
+                },
+                {
+                    "default": 1,
+                    "name": "accel-hz",
+                    "type": "integer",
+                    "values": [
+                        1,
+                        3,
+                        6,
+                        12,
+                        25,
+                        50,
+                        100,
+                        200,
+                        400,
+                        800,
+                        1600
+                    ]
+                },
+                {
+                    "default": 2000,
+                    "name": "gyro-fs",
+                    "type": "integer",
+                    "values": [
+                        250,
+                        500,
+                        1000,
+                        2000
+                    ]
+                },
+                {
+                    "default": 12,
+                    "name": "gyro-hz",
+                    "type": "integer",
+                    "values": [
+                        12,
+                        25,
+                        50,
+                        100,
+                        200,
+                        400,
+                        800,
+                        1600
+                    ]
+                },
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/invensense_icm42670",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42670/icm42670.c"
+            }
         },
         {
             "category": "Sensor/Motion/icm426888",
@@ -14838,7 +15548,18 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/invensense_icm42688",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42688/icm42688_emul.c"
+            }
         },
         {
             "category": "Sensor/Environmental/icp10125",
@@ -14852,7 +15573,35 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "low-power",
+                    "name": "pressure-measurement-mode",
+                    "type": "text",
+                    "values": [
+                        "low-noise",
+                        "low-power",
+                        "normal",
+                        "ultra-low-noise"
+                    ]
+                },
+                {
+                    "default": "low-power",
+                    "name": "temperature-measurement-mode",
+                    "type": "text",
+                    "values": [
+                        "low-noise",
+                        "low-power",
+                        "normal",
+                        "ultra-low-noise"
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/invensense_icp10125",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icp10125/icp10125.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/iis2dh",
@@ -14861,19 +15610,37 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_iis2dh",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/iis2dh/iis2dh.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/iis2dlpc",
@@ -14882,19 +15649,37 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_iis2dlpc",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/iis2dlpc/iis2dlpc.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/iis2iclx",
@@ -14903,19 +15688,37 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_iis2iclx",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/iis2iclx/iis2iclx.c"
+            }
         },
         {
             "category": "Sensor/Magnetometer/iis2mdc",
@@ -14924,9 +15727,48 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
+                    "type": "spi"
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_iis2mdc",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/iis2mdc/iis2mdc.c"
+            }
+        },
+        {
+            "category": "Sensor/Motion/Accelerometer/iis3dhhc",
+            "description": "STMicroelectronics IIS3DHHC 3-axis accelerometer accessed through SPI bus\n",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "left",
+                    "type": "gpio"
                 },
                 {
                     "direction": "inout",
@@ -14936,21 +15778,18 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
-        },
-        {
-            "category": "Sensor/Motion/Accelerometer/iis3dhhc",
-            "description": "STMicroelectronics IIS3DHHC 3-axis accelerometer accessed through SPI bus\n",
-            "interfaces": [
+            "isCategory": true,
+            "properties": [
                 {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi",
-                    "side": "left",
-                    "type": "spi"
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
                 }
             ],
-            "isCategory": true
+            "urls": {
+                "rdp": "soc_components/st_iis3dhhc",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/iis3dhhc/iis3dhhc.c"
+            }
         },
         {
             "category": "SoC/arm/nxp/imxrt1062",
@@ -15268,7 +16107,23 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "lsb-microamp",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "shunt-milliohm",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ti_ina219",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ina219/ina219.c"
+            }
         },
         {
             "category": "Sensor/Power/ina230",
@@ -15277,12 +16132,35 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "alert",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "current-lsb-microamps",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "rshunt-micro-ohms",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ti_ina230",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ina23x/ina230.c"
+            }
         },
         {
             "category": "Sensor/Power/ina231",
@@ -15291,12 +16169,35 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "alert",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "current-lsb-microamps",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "rshunt-micro-ohms",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ti_ina230",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ina23x/ina230.c"
+            }
         },
         {
             "category": "Sensor/Power/ina237",
@@ -15305,12 +16206,35 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "alert",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "current-lsb-microamps",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "rshunt-micro-ohms",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ti_ina237",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ina23x/ina237.c"
+            }
         },
         {
             "category": "Sensor/Power/ina3221",
@@ -15324,7 +16248,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_ina3221",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ina3221/ina3221.c"
+            }
         },
         {
             "category": "SoC/x86/intel/intel_ish5",
@@ -15395,9 +16323,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/isil_isl29035",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/isl29035/isl29035.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/ism330dhcx",
@@ -15406,19 +16345,37 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_ism330dhcx",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ism330dhcx/ism330dhcx.c"
+            }
         },
         {
             "category": "Sensor/Magnetometer/Geomagnetic/ist8310",
@@ -15432,7 +16389,10 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/isentek_ist8310"
+            }
         },
         {
             "category": "SoC/riscv/ite/it81xx2",
@@ -16311,9 +17271,48 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "1.6",
+                    "name": "odr",
+                    "type": "text",
+                    "values": [
+                        "1.6",
+                        "100",
+                        "12.5",
+                        "1600",
+                        "200",
+                        "25",
+                        "400",
+                        "50",
+                        "800"
+                    ]
+                },
+                {
+                    "default": "low-power",
+                    "name": "op-mode",
+                    "type": "text",
+                    "values": [
+                        "high-perf",
+                        "low-power",
+                        "normal"
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/we_wsen-itds",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/wsen_itds/itds.c"
+            }
         },
         {
             "category": "SoC/arm/nxp/k66f",
@@ -16845,12 +17844,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lis2dh",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lis2dh/lis2dh.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/lis2dh12",
@@ -16862,9 +17879,19 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lis2dh12"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/lis2ds12",
@@ -16880,12 +17907,31 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lis2ds12",
+                "ren": "Sensors/LIS2DS12.cs",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lis2ds12/lis2ds12.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/lis2dw12",
@@ -16901,12 +17947,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lis2dw12",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lis2dw12/lis2dw12.c"
+            }
         },
         {
             "category": "Sensor/Magnetometer/lis2mdl",
@@ -16922,12 +17986,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lis2mdl",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lis2mdl/lis2mdl.c"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/lis3dh",
@@ -16939,9 +18021,19 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lis3dh"
+            }
         },
         {
             "category": "Sensor/Magnetometer/lis3mdl_magn",
@@ -16953,9 +18045,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lis3mdl-magn",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lis3mdl/lis3mdl.c"
+            }
         },
         {
             "category": "SoC/riscv/litex",
@@ -17028,7 +18131,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/lm75",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lm75/lm75.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/lm77",
@@ -17040,9 +18147,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/lm77",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lm77/lm77.c"
+            }
         },
         {
             "category": "SoC/arm/nxp/lpc11u67",
@@ -17497,7 +18615,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lps22hb-press",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lps22hb/lps22hb.c"
+            }
         },
         {
             "category": "Sensor/Environmental/lps22hh",
@@ -17506,19 +18628,37 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lps22hh",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lps22hh/lps22hh.c"
+            }
         },
         {
             "category": "Sensor/Pressure/lps25hb_press",
@@ -17532,7 +18672,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lps25hb-press",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lps25hb/lps25hb.c"
+            }
         },
         {
             "category": "SoC/arm64/nxp/ls1046a",
@@ -17565,12 +18709,29 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lsm303agr-accel"
+            }
         },
         {
             "category": "Sensor/Motion/Accelerometer/lsm303dlhc_accel",
@@ -17582,9 +18743,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lsm303dlhc-accel",
+                "ren": "Sensors/LSM303DLHC_Accelerometer.cs"
+            }
         },
         {
             "category": "Sensor/Magnetometer/lsm303dlhc_magn",
@@ -17598,7 +18770,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lsm303dlhc-magn",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm303dlhc_magn/lsm303dlhc_magn.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/lsm6ds0",
@@ -17612,7 +18788,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lsm6ds0",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm6ds0/lsm6ds0.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/lsm6dsl",
@@ -17628,12 +18808,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lsm6dsl",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm6dsl/lsm6dsl.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/lsm6dso",
@@ -17649,12 +18847,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lsm6dso",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm6dso/lsm6dso.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/lsm6dso16is",
@@ -17670,12 +18886,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lsm6dso16is",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm6dso16is/lsm6dso16is.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/lsm6dsv16x",
@@ -17691,12 +18925,30 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "irq",
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/st_lsm6dsv16x",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm6dsv16x/lsm6dsv16x.c"
+            }
         },
         {
             "category": "Sensor/Motion/Gyroscope/lsm9ds0_gyro",
@@ -17708,9 +18960,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lsm9ds0-gyro",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm9ds0_gyro/lsm9ds0_gyro.c"
+            }
         },
         {
             "category": "Sensor/Motion/Inertial measurement unit/lsm9ds0_mfd",
@@ -17722,9 +18985,38 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_lsm9ds0-mfd",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm9ds0_mfd/lsm9ds0_mfd.c"
+            }
+        },
+        {
+            "category": "Sensor/Environmental/Light/ltrf216a0",
+            "description": "LiteOn F216A ambient light sensor",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ltr_f216a",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ltrf216a/ltrf216a.c"
+            }
         },
         {
             "category": "SoC/arm/nuvoton/m46x",
@@ -18017,7 +19309,48 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "design-capacity",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "design-voltage",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "desired-charging-current",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "desired-voltage",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "i-chg-term",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "rsense-mohms",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "v-empty",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/maxim_max17055",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max17055/max17055.c"
+            }
         },
         {
             "category": "Sensor/Fuel gauge/max17262",
@@ -18031,7 +19364,48 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "charge-voltage",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "design-cap",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "design-voltage",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "desired-charging-current",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "desired-voltage",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "empty-voltage",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "recovery-voltage",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/maxim_max17262",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max17262/max17262.c"
+            }
         },
         {
             "category": "Sensor/Heart rate/max30101",
@@ -18045,7 +19419,10 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/maxim_max30101"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/max31855",
@@ -18059,7 +19436,18 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/maxim_max31855",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max31855/max31855.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/max31865",
@@ -18073,7 +19461,27 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "resistance-at-zero",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "resistance-reference",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/maxim_max31865"
+            }
         },
         {
             "category": "Sensor/Power/max31875",
@@ -18087,7 +19495,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/maxim_max31875",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max31875/max31875.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Light/max44009",
@@ -18099,9 +19511,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/maxim_max44009",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max44009/max44009.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/max6675",
@@ -18115,7 +19538,43 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/maxim_max6675",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max6675/max6675.c"
+            }
+        },
+        {
+            "category": "Sensor/Motion/Accelerometer/mc3419",
+            "description": "MC3419 3-axis accel sensor",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/memsic_mc3419",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mc3419/mc3419.c"
+            }
         },
         {
             "category": "SoC/arm/nxp/mcimx6x",
@@ -18506,7 +19965,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/microchip_mcp9600",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mcp9600/mcp9600.c"
+            }
         },
         {
             "category": "Sensor/Power/mcp9700a",
@@ -18520,7 +19983,27 @@
                     "type": "adc"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "MCP9700/9700A",
+                    "name": "family",
+                    "type": "text",
+                    "values": [
+                        "MCP9700/9700A",
+                        "MCP9701/9701A"
+                    ]
+                },
+                {
+                    "default": null,
+                    "dtype": "string",
+                    "name": "io-channels",
+                    "type": "list"
+                }
+            ],
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mcp970x/mcp970x.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/mcp9808",
@@ -18532,9 +20015,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/microchip_mcp9808",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mcp9808/mcp9808.c"
+            }
         },
         {
             "category": "SoC/arm/xilinx/me-xu1",
@@ -19124,7 +20618,22 @@
                     "type": "serial"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 2000,
+                    "name": "maximum-range",
+                    "type": "integer",
+                    "values": [
+                        2000,
+                        5000,
+                        10000
+                    ]
+                }
+            ],
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mhz19b/mhz19b.c"
+            }
         },
         {
             "category": "SoC/riscv/microchip/microchip-miv",
@@ -26143,7 +27652,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/honeywell_mpr",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mpr/mpr.c"
+            }
         },
         {
             "category": "Sensor/Motion/mpu6050",
@@ -26155,9 +27668,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/invensense_mpu6050",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mpu6050/mpu6050.c"
+            }
         },
         {
             "category": "Sensor/Motion/mpu9250",
@@ -26169,9 +27693,79 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "irq",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "218.1",
+                    "name": "accel-dlpf",
+                    "type": "text",
+                    "values": [
+                        "10.2",
+                        "21.2",
+                        "218.1",
+                        "218.1a",
+                        "420",
+                        "44.8",
+                        "5.05",
+                        "99"
+                    ]
+                },
+                {
+                    "default": 2,
+                    "name": "accel-fs",
+                    "type": "integer",
+                    "values": [
+                        2,
+                        4,
+                        8,
+                        16
+                    ]
+                },
+                {
+                    "default": 250,
+                    "name": "gyro-dlpf",
+                    "type": "integer",
+                    "values": [
+                        5,
+                        10,
+                        20,
+                        41,
+                        92,
+                        184,
+                        250,
+                        3600
+                    ]
+                },
+                {
+                    "default": 250,
+                    "name": "gyro-fs",
+                    "type": "integer",
+                    "values": [
+                        250,
+                        500,
+                        1000,
+                        2000
+                    ]
+                },
+                {
+                    "default": 0,
+                    "name": "gyro-sr-div",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/invensense_mpu9250",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mpu9250/mpu9250.c"
+            }
         },
         {
             "category": "Sensor/Environmental/ms5607",
@@ -26192,7 +27786,18 @@
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/meas_ms5607",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ms5607/ms5607.c"
+            }
         },
         {
             "category": "Sensor/Pressure/ms5837",
@@ -26206,7 +27811,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/meas_ms5837",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ms5837/ms5837.c"
+            }
         },
         {
             "category": "SoC/arm/ti/msp432p401r",
@@ -28200,7 +29809,24 @@
                     "type": "adc"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": null,
+                    "dtype": "string",
+                    "name": "io-channels",
+                    "type": "list"
+                },
+                {
+                    "default": "[]",
+                    "dtype": "integer",
+                    "name": "zephyr,compensation-table",
+                    "type": "list"
+                }
+            ],
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ntc_thermistor/ntc_thermistor.c"
+            }
         },
         {
             "category": "SoC/xtensa/nxp/nxp_imx8m",
@@ -29776,7 +31402,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_opt3001",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/opt3001/opt3001.c"
+            }
         },
         {
             "category": "SoC/arm/nuvoton/pfm-m487",
@@ -29919,7 +31549,10 @@
                     "type": "serial"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/pms7003/pms7003.c"
+            }
         },
         {
             "category": "SoC/arm/renesas/rcar/gen3/r8a77951",
@@ -30605,7 +32238,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/hamamatsu_s11059",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/s11059/s11059.c"
+            }
         },
         {
             "category": "SoC/riscv/efinix/sapphire_soc",
@@ -30643,7 +32280,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/sensirion_sgp40",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sgp40/sgp40.c"
+            }
         },
         {
             "category": "Sensor/Environmental/sht3xd",
@@ -30652,12 +32293,23 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "alert",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/sensirion_sht3xd",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sht3xd/sht3xd.c"
+            }
         },
         {
             "category": "Sensor/Environmental/sht4xd",
@@ -30671,7 +32323,23 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "repeatability",
+                    "type": "integer",
+                    "values": [
+                        0,
+                        1,
+                        2
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/sensirion_sht4x",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sht4x/sht4x.c"
+            }
         },
         {
             "category": "Sensor/Environmental/shtc3",
@@ -30685,7 +32353,31 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "shtc1",
+                    "name": "chip",
+                    "type": "text",
+                    "values": [
+                        "shtc1",
+                        "shtc3"
+                    ]
+                },
+                {
+                    "default": "normal",
+                    "name": "measure-mode",
+                    "type": "text",
+                    "values": [
+                        "low-power",
+                        "normal"
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/sensirion_shtcx",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/shtcx/shtcx.c"
+            }
         },
         {
             "category": "Sensor/Environmental/si7006",
@@ -30699,7 +32391,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/silabs_si7006",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/si7006/si7006.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/si7055",
@@ -30713,7 +32409,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/silabs_si7055",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/si7055/si7055.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/si7060",
@@ -30727,7 +32427,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/silabs_si7060",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/si7060/si7060.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/si7210",
@@ -30741,7 +32445,12 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/silabs_si7210",
+                "ren": "Sensors/SI7210.cs",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/si7210/si7210.c"
+            }
         },
         {
             "category": "Sensor/Magnetometer/Magnetoresistive/sm351lt",
@@ -30753,9 +32462,19 @@
                     "name": "gpio",
                     "side": "left",
                     "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpios",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sm351lt/sm351lt.c"
+            }
         },
         {
             "abstract": true,
@@ -63149,12 +64868,23 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_stts751",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/stts751/stts751.c"
+            }
         },
         {
             "category": "Sensor/Position/Distance/sx9500",
@@ -63166,9 +64896,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/semtech_sx9500",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sx9500/sx9500.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/tcn75a",
@@ -63177,12 +64918,23 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "alert",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/microchip_tcn75a",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tcn75a/tcn75a.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Light/tcs3400",
@@ -63194,9 +64946,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ams_tcs3400",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tcs3400/tcs3400.c"
+            }
         },
         {
             "category": "SoC/riscv/telink/telink_b91",
@@ -63318,7 +65081,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/hoperf_th02",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/th02/th02.c"
+            }
         },
         {
             "category": "SoC/arm64/ti/ti_am6234_a53",
@@ -63393,12 +65160,41 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi",
+                    "name": "int",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
                     "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 1,
+                    "name": "operating-mode",
+                    "type": "integer",
+                    "values": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                },
+                {
+                    "default": 0,
+                    "name": "spi-max-frequency",
+                    "type": "integer"
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ti_tmag5170",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmag5170/tmag5170.c"
+            }
         },
         {
             "category": "Sensor/Position/Distance/tmd2620",
@@ -63410,9 +65206,54 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 1,
+                    "name": "proximity-gain",
+                    "type": "integer",
+                    "values": [
+                        1,
+                        2,
+                        4,
+                        8
+                    ]
+                },
+                {
+                    "default": 0,
+                    "name": "proximity-led-drive-strength",
+                    "type": "integer"
+                },
+                {
+                    "default": 0,
+                    "name": "proximity-pulse-count",
+                    "type": "integer"
+                },
+                {
+                    "default": 4,
+                    "name": "proximity-pulse-length",
+                    "type": "integer",
+                    "values": [
+                        4,
+                        8,
+                        16,
+                        32
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/ams_tmd2620",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmd2620/tmd2620.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/tmp007",
@@ -63424,9 +65265,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_tmp007",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmp007/tmp007.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/tmp108",
@@ -63435,12 +65287,24 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "alert",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_tmp108",
+                "ren": "Sensors/TMP108.cs",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmp108/tmp108.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/tmp112",
@@ -63454,7 +65318,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_tmp112",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmp112/tmp112.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/tmp116",
@@ -63468,7 +65336,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ti_tmp116",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmp116/tmp116.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Light/tsl2540",
@@ -63480,9 +65352,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/ams_tsl2540",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tsl2540/tsl2540.c"
+            }
         },
         {
             "category": "Sensor/Position/Distance/vcnl4040",
@@ -63494,9 +65377,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/vishay_vcnl4040",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/vcnl4040/vcnl4040.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Light/veml7700",
@@ -63510,7 +65404,11 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/vishay_veml7700",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/veml7700/veml7700.c"
+            }
         },
         {
             "category": "Sensor/Position/Distance/vl53l0x",
@@ -63522,9 +65420,20 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "xshut",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_vl53l0x",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/vl53l0x/vl53l0x.c"
+            }
         },
         {
             "category": "Sensor/Position/Distance/vl53l1x",
@@ -63536,9 +65445,27 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "xshut",
+                    "side": "left",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "rdp": "soc_components/st_vl53l1x",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/vl53l1x/vl53l1.c"
+            }
         },
         {
             "category": "Sensor/Environmental/wsen_hids",
@@ -63547,12 +65474,35 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "1",
+                    "name": "odr",
+                    "type": "text",
+                    "values": [
+                        "1",
+                        "12.5",
+                        "7"
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/we_wsen-hids",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/wsen_hids/wsen_hids.c"
+            }
         },
         {
             "category": "Sensor/Pressure/wsen_pads",
@@ -63561,12 +65511,40 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
+                    "name": "drdy",
                     "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "odr",
+                    "type": "integer",
+                    "values": [
+                        0,
+                        1,
+                        10,
+                        25,
+                        50,
+                        75,
+                        100,
+                        200
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/we_wsen-pads",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/wsen_pads/wsen_pads.c"
+            }
         },
         {
             "category": "Sensor/Pressure/wsen_pdus",
@@ -63580,7 +65558,25 @@
                     "type": "i2c"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 0,
+                    "name": "sensor-type",
+                    "type": "integer",
+                    "values": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/we_wsen-pdus",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/wsen_pdus/wsen_pdus.c"
+            }
         },
         {
             "category": "Sensor/Environmental/Temperature/wsen_tids",
@@ -63592,9 +65588,33 @@
                     "name": "i2c",
                     "side": "left",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "int",
+                    "side": "right",
+                    "type": "gpio"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": 25,
+                    "name": "odr",
+                    "type": "integer",
+                    "values": [
+                        25,
+                        50,
+                        100,
+                        200
+                    ]
+                }
+            ],
+            "urls": {
+                "rdp": "soc_components/we_wsen-tids",
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/wsen_tids/wsen_tids.c"
+            }
         },
         {
             "abstract": false,
