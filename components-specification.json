@@ -487,6 +487,33 @@
             "isCategory": true
         },
         {
+            "category": "Connector/Camera/Antmicro I-PEX Camera interface",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Antmicro Camera I-PEX Interface",
+                    "side": "left",
+                    "type": "ant-camera-ipex"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/Audio/Audio jack 3.5 mm",
             "interfaces": [
                 {
@@ -1314,6 +1341,33 @@
             }
         },
         {
+            "category": "Connector/Camera/Framos FSA interface",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "framos-fsa",
+                    "side": "left",
+                    "type": "framos-fsa"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "SoC/riscv/sifive/Freedom U540",
             "interfaces": [
                 {
@@ -1611,6 +1665,38 @@
                     "name": "hdmi mini",
                     "side": "right",
                     "type": "hdmi mini"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Mezzanine Connector, Receptacle, 0.4 mm, 2 Rows, 60 Contacts, Surface Mount, Phosphor Bronze\n\n### Additional information\n\n*Datasheet*: [document?clcode=CL0684-4004-6-51&productname=DF40C-60DS-0.4V(51)&series=DF40&documenttype=2DDrawing&lang=en&documentid=0001001229](https://www.hirose.com/en/product/document?clcode=CL0684-4004-6-51&productname=DF40C-60DS-0.4V(51)&series=DF40&documenttype=2DDrawing&lang=en&documentid=0001001229)",
+            "extends": [
+                "Framos FSA interface"
+            ],
+            "name": "Hirose Electric DF40C-60DS-0.4V(51)",
+            "urls": {
+                "datasheet": "https://www.hirose.com/en/product/document?clcode=CL0684-4004-6-51&productname=DF40C-60DS-0.4V(51)&series=DF40&documenttype=2DDrawing&lang=en&documentid=0001001229",
+                "hwp": "components/hirose-electric-df40c-60ds-0-4v-51"
+            }
+        },
+        {
+            "category": "Interfacing/I2C/I2C Level Converter",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c high",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c low",
+                    "side": "right",
+                    "type": "i2c"
                 }
             ],
             "isCategory": true
@@ -2398,6 +2484,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Transceiver, 1.65 V to 3.6 V, XSON-8\n\n### Additional information\n\n*Datasheet*: [1760723.pdf](http://www.farnell.com/datasheets/1760723.pdf)",
+            "extends": [
+                "I2C Level Converter"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/xson-8-1x1-95mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "NXP NTS0102GT",
+            "urls": {
+                "datasheet": "http://www.farnell.com/datasheets/1760723.pdf",
+                "hwp": "components/nxp-nts0102gt"
+            }
+        },
+        {
             "category": "Sensor/Power monitor/PAC1934",
             "interfaces": [
                 {
@@ -2649,6 +2750,21 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Wire to Board Connector pitch 0.5mm \n\n### Additional information\n\n*Datasheet*: [PE-MSAK24025P30~MSAK24025P50_R.pdf](http://www.stm.com.tw/EEPPulish/files/PE/PE-MSAK24025P30~MSAK24025P50_R.pdf)",
+            "extends": [
+                "Antmicro I-PEX Camera interface"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-stm-msak24025p30/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "STMicroelectronics MSAK24025P30",
+            "urls": {
+                "datasheet": "http://www.stm.com.tw/EEPPulish/files/PE/PE-MSAK24025P30~MSAK24025P50_R.pdf",
+                "hwp": "components/stmicroelectronics-msak24025p30"
+            }
         },
         {
             "abstract": false,
@@ -3570,7 +3686,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc_components/asahi-kasei_akm09918c",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/akm09918c/akm09918c_emul.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/akm09918c/akm09918c.c"
             }
         },
         {
@@ -3790,7 +3906,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi.c"
             }
         },
         {
@@ -12793,7 +12909,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/f75303/f75303.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/f75303/f75303_emul.c"
             }
         },
         {
@@ -15558,7 +15674,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42688/icm42688.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42688/icm42688_emul.c"
             }
         },
         {

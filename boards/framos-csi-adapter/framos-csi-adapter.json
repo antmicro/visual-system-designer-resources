@@ -1,0 +1,132 @@
+{
+    "graph": {
+        "id": "b365b74a-99df-4a32-9aff-c45bdc9b901b",
+        "name": "Framos-CSI adatper",
+        "nodes": [
+            {
+                "id": "358f2dbb-9738-442a-877f-ffccdeed3bad",
+                "position": {
+                    "x": 2450,
+                    "y": -500
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "framos-fsa",
+                        "id": "696dad21-9f45-4716-acf0-1d1ab27ba9aa",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "i2c",
+                        "id": "2ea82511-7b85-4975-8216-7a3eef354736",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "csi",
+                        "id": "cce20629-37f6-4028-aac6-1fa5f1bd50fc",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Hirose Electric DF40C-60DS-0.4V(51)",
+                "instanceName": "Framos FSA interface"
+            },
+            {
+                "id": "3e938c6e-0ee4-4c58-89e1-8cba38d9a010",
+                "position": {
+                    "x": 3250,
+                    "y": -500
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "Antmicro Camera I-PEX Interface",
+                        "id": "0e66cc05-35d1-4e6f-9605-fdab2ca0a3bd",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "i2c",
+                        "id": "e533c83b-035b-4ef3-b965-641937b9beb4",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "csi",
+                        "id": "c4d33879-296a-4ee2-a274-525eee14ee6c",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "STMicroelectronics MSAK24025P30",
+                "instanceName": "Antmicro Camera I-PEX interface"
+            },
+            {
+                "id": "631f9006-f898-40e2-8822-75ef212d8c2a",
+                "position": {
+                    "x": 2850,
+                    "y": -300
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c high",
+                        "id": "b15b8b98-daf3-4df8-8a99-bb4166ae1859",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "i2c low",
+                        "id": "4c8e727f-5e77-4767-852d-1699007f34cc",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "NXP NTS0102GT",
+                "instanceName": "I2C Level converter"
+            }
+        ],
+        "connections": [
+            {
+                "id": "97244704-1d15-4c05-a560-5044054d4df4",
+                "from": "cce20629-37f6-4028-aac6-1fa5f1bd50fc",
+                "to": "c4d33879-296a-4ee2-a274-525eee14ee6c"
+            },
+            {
+                "id": "edfcfeb7-73f5-47a8-a6c2-a4a0b0337478",
+                "from": "b15b8b98-daf3-4df8-8a99-bb4166ae1859",
+                "to": "e533c83b-035b-4ef3-b965-641937b9beb4"
+            },
+            {
+                "id": "b4f9b32d-2206-42be-a35c-c7acee7aa557",
+                "from": "4c8e727f-5e77-4767-852d-1699007f34cc",
+                "to": "2ea82511-7b85-4975-8216-7a3eef354736"
+            }
+        ]
+    },
+    "version": "20230830.11",
+    "metadata": {
+        "connectionStyle": "curved",
+        "movementStep": 50,
+        "randomizedOffset": false
+    }
+}
