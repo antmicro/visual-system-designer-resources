@@ -514,6 +514,21 @@
             "isCategory": true
         },
         {
+            "abstract": false,
+            "description": "EEPROM Memory IC 1Kbit I²C 1 MHz 550 ns SOT-23-5\n\n### Additional information\n\n*Datasheet*: [Atmel-8815-SEEPROM-AT24CS01-02-Datasheet.pdf](http://ww1.microchip.com/downloads/en/devicedoc/Atmel-8815-SEEPROM-AT24CS01-02-Datasheet.pdf)",
+            "extends": [
+                "I2C EEPROM"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sot-23-5/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Atmel AT24CS01-ST",
+            "urls": {
+                "datasheet": "http://ww1.microchip.com/downloads/en/devicedoc/Atmel-8815-SEEPROM-AT24CS01-02-Datasheet.pdf",
+                "hwp": "components/atmel-at24cs01-st"
+            }
+        },
+        {
             "category": "Connector/Audio/Audio jack 3.5 mm",
             "interfaces": [
                 {
@@ -1682,6 +1697,19 @@
             }
         },
         {
+            "category": "Memory/EEPROM/I2C EEPROM",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/I2C/I2C Level Converter",
             "interfaces": [
                 {
@@ -1696,6 +1724,26 @@
                     "maxConnectionsCount": -1,
                     "name": "i2c low",
                     "side": "right",
+                    "type": "i2c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/I2C/IO Expander I2C",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
                     "type": "i2c"
                 }
             ],
@@ -2003,6 +2051,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "LED, Low Power, Green, SMT, 0603, 20 mA, 2.1 V, 570 nm\n\n### Additional information\n\n*Datasheet*: [2045956.pdf](http://www.farnell.com/datasheets/2045956.pdf)",
+            "extends": [
+                "LED"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/led-0603-1608metric-g/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Kingbright KP-1608CGCK",
+            "urls": {
+                "datasheet": "http://www.farnell.com/datasheets/2045956.pdf",
+                "hwp": "components/kingbright-kp-1608cgck"
+            }
+        },
+        {
             "category": "IO/LED",
             "interfaces": [
                 {
@@ -2033,6 +2096,33 @@
                     "maxConnectionsCount": -1,
                     "name": "lpddr",
                     "side": "left",
+                    "type": "lpddr"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/SODIMM/LPDDR4 tester edge connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "LPDDR4 testbed SODIMM interface",
+                    "side": "left",
+                    "type": "lpdd4-testbed-sodimm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpddr",
+                    "side": "right",
                     "type": "lpddr"
                 }
             ],
@@ -2352,19 +2442,6 @@
             "isCategory": true
         },
         {
-            "category": "Memory/DDR/MT53D512M32D2DS",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "lpddr",
-                    "side": "left",
-                    "type": "lpddr"
-                }
-            ],
-            "isCategory": true
-        },
-        {
             "abstract": false,
             "extends": [
                 "QSPI Flash"
@@ -2391,6 +2468,21 @@
             "urls": {
                 "datasheet": "https://datasheet.chipsmall.com/MX25R8035FBDIL0/477720.pdf",
                 "hwp": "components/macronix-mx25r8035fbdil0"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "EEPROM, 1 Kbit, 128 x 8bit, Serial I2C (2-Wire), 1 MHz, SOIC-8\n\n### Additional information\n\n*Datasheet*: [20006330A.pdf](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/20006330A.pdf)",
+            "extends": [
+                "I2C EEPROM"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/soic-8-1ep-3-9x4-9x1-75mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology AT24CS01-SSHM-B",
+            "urls": {
+                "datasheet": "https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/20006330A.pdf",
+                "hwp": "components/microchip-technology-at24cs01-sshm-b"
             }
         },
         {
@@ -2485,6 +2577,21 @@
         },
         {
             "abstract": false,
+            "description": "DRAM, Mobile LPDDR4, 32 Gbit, 1G x 32bit, 2.133 GHz, WFBGA, 200 Pins\n\n### Additional information\n\n*Datasheet*: [mt53e1g32d2np-046-wt](https://www.micron.com/products/dram/lpdram/part-catalog/mt53e1g32d2np-046-wt)",
+            "extends": [
+                "LPDDR4"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-200-10-0x14-5mm-layout12x22-p0-80x0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Micron Technology MT53E1G32D2NP-046 WT:A",
+            "urls": {
+                "datasheet": "https://www.micron.com/products/dram/lpdram/part-catalog/mt53e1g32d2np-046-wt",
+                "hwp": "components/micron-technology-mt53e1g32d2np-046-wt-a"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Transceiver, 1.65 V to 3.6 V, XSON-8\n\n### Additional information\n\n*Datasheet*: [1760723.pdf](http://www.farnell.com/datasheets/1760723.pdf)",
             "extends": [
                 "I2C Level Converter"
@@ -2496,6 +2603,21 @@
             "urls": {
                 "datasheet": "http://www.farnell.com/datasheets/1760723.pdf",
                 "hwp": "components/nxp-nts0102gt"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "I/O Expander, 8 bit, I2C, SMBus, 1.65 V, 5.5 V, TSSOP, 16 Pins\n\n### Additional information\n\n*Datasheet*: [PCA6408A-1127604.pdf](https://www.mouser.com/datasheet/2/302/PCA6408A-1127604.pdf)",
+            "extends": [
+                "IO Expander I2C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tssop-16-4-4x5mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "NXP PCA6408APW",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/302/PCA6408A-1127604.pdf",
+                "hwp": "components/nxp-pca6408apw"
             }
         },
         {
@@ -3921,7 +4043,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi.c"
             }
         },
         {
@@ -12924,7 +13046,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/f75303/f75303.c"
             }
         },
         {
