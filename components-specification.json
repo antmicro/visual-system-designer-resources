@@ -1161,6 +1161,110 @@
             }
         },
         {
+            "category": "Interfacing/Video/Display Port 1:3 bridge",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ddc 0",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ddc 1",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ddc 2",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dp in",
+                    "side": "left",
+                    "type": "dp"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi/dp 0",
+                    "side": "right",
+                    "type": [
+                        "dp",
+                        "hdmi"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi/dp 1",
+                    "side": "left",
+                    "type": [
+                        "dp",
+                        "hdmi"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi/dp 2",
+                    "side": "right",
+                    "type": [
+                        "dp",
+                        "hdmi"
+                    ]
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Display Port/Display Port Standard",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dp",
+                    "side": "left",
+                    "type": "dp"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "dp standard",
+                    "side": "right",
+                    "type": "dp standard"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Display Port/Display Port Standard Input",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "dp",
+                    "side": "right",
+                    "type": "dp"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dp standard",
+                    "side": "left",
+                    "type": "dp standard"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "Tactile Switch, TL3340, Side Actuated, Surface Mount, Round Button, 160 gf, 50mA at 12VDC\n\n### Additional information\n\n*Datasheet*: [TL3340-2065742.pdf](https://mouser.com/datasheet/2/140/TL3340-2065742.pdf)",
             "extends": [
@@ -1840,6 +1944,135 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/Video/HDMI 1:2 splitter",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi 0",
+                    "side": "right",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi 1",
+                    "side": "left",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi in",
+                    "side": "left",
+                    "type": "hdmi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/Video/HDMI 4:1 mux",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ch_sel",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi 0",
+                    "side": "left",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi 1",
+                    "side": "right",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi 2",
+                    "side": "left",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi 3",
+                    "side": "right",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi out",
+                    "side": "left",
+                    "type": "hdmi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/HDMI/HDMI A",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ddc",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "left",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi a",
+                    "side": "right",
+                    "type": "hdmi a"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/HDMI/HDMI A Input",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ddc",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "right",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi a",
+                    "side": "left",
+                    "type": "hdmi a"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/HDMI/HDMI Mini",
             "interfaces": [
                 {
@@ -1855,6 +2088,47 @@
                     "name": "hdmi mini",
                     "side": "right",
                     "type": "hdmi mini"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/Video/HDMI-CSI-2 MIPI Bridge",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "csi 0.0",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "csi 0.1",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "csi 1.0",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "csi 1.1",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "left",
+                    "type": "hdmi"
                 }
             ],
             "isCategory": true
@@ -1880,6 +2154,75 @@
                     "name": "hyperbus",
                     "side": "left",
                     "type": "hyperbus"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/I2C/I2C 8-ch switch",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 0",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 1",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 2",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 3",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 4",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 5",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 6",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c 7",
+                    "side": "left",
+                    "type": "i2c"
                 }
             ],
             "isCategory": true
@@ -4223,7 +4566,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc_components/asahi-kasei_akm09918c",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/akm09918c/akm09918c.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/akm09918c/akm09918c_emul.c"
             }
         },
         {
