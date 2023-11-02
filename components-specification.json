@@ -90,10 +90,45 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Kintex®-7 Field Programmable Gate Array (FPGA) IC 285 484-BBGA, FCBGA\n\n### Additional information\n\n*Datasheet*: [ds182_Kintex_7_Data_Sheet](https://docs.xilinx.com/v/u/en-US/ds182_Kintex_7_Data_Sheet)",
+            "extends": [
+                "Kintex-7 70T"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga484c100p22x22-2300x2300x244n/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "AMD-Xilinx XC7K70T-1FBG484C",
+            "urls": {
+                "datasheet": "https://docs.xilinx.com/v/u/en-US/ds182_Kintex_7_Data_Sheet",
+                "hwp": "components/amd-xilinx-xc7k70t-1fbg484c"
+            }
+        },
+        {
             "category": "Memory/DDR/APS256XXN",
             "description": "DRAM IoT RAM 256Mb",
             "extends": [
                 "spi-device"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/JTAG/ARM JTAG 14 Header",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ARM JTAG 14",
+                    "side": "left",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                }
             ],
             "isCategory": true
         },
@@ -435,6 +470,21 @@
             "urls": {
                 "datasheet": "http://www.amphenol-icc.com/media/wysiwyg/files/drawing/10118194.pdf",
                 "hwp": "components/amphenol-10118194-0001lf"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Memory Card Connector, MicroSD, Push-Pull, 8 Contacts, Copper Alloy, Gold Plated Contacts\n\n### Additional information\n\n*Datasheet*: [io_micro_sdcard.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/inputoutput/io_micro_sdcard.pdf)",
+            "extends": [
+                "SD Card socket"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/microsd-amphenol-1140084168/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol 1140084168",
+            "urls": {
+                "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/inputoutput/io_micro_sdcard.pdf",
+                "hwp": "components/amphenol-1140084168"
             }
         },
         {
@@ -1082,6 +1132,36 @@
         },
         {
             "abstract": false,
+            "description": "FLASH - NOR Memory IC 128Mbit SPI - Quad I/O, QPI 133 MHz 8-WSON (5x6)\n\n### Additional information\n\n*Datasheet*: [Infineon-S25FL256L_S25FL128L_256-MB_(32-MB)_128-MB_(16-MB)_3.0_V_FL-L_FLASH_MEMORY-DataSheet-v09_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ed40e335224](https://www.infineon.com/dgdl/Infineon-S25FL256L_S25FL128L_256-MB_(32-MB)_128-MB_(16-MB)_3.0_V_FL-L_FLASH_MEMORY-DataSheet-v09_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ed40e335224)",
+            "extends": [
+                "QSPI Flash"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/wson-8-6x8x0-5mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Cypress Semiconductor S25FL128LAGNFA010",
+            "urls": {
+                "datasheet": "https://www.infineon.com/dgdl/Infineon-S25FL256L_S25FL128L_256-MB_(32-MB)_128-MB_(16-MB)_3.0_V_FL-L_FLASH_MEMORY-DataSheet-v09_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ed40e335224",
+                "hwp": "components/cypress-semiconductor-s25fl128lagnfa010"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "DRAM, HyperRAM, 64 Mbit, 8M x 8bit, 100 MHz, FBGA, 24 Pins\n\n### Additional information\n\n*Datasheet*: [CYPR_S_A0011122227_1-3004854.pdf](https://www.mouser.com/datasheet/2/196/CYPR_S_A0011122227_1-3004854.pdf)",
+            "extends": [
+                "HyperRAM"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/fbga-25-24-6x8mm-layout5x5-p1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Cypress Semiconductor S27KL0641DABHI023",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/196/CYPR_S_A0011122227_1-3004854.pdf",
+                "hwp": "components/cypress-semiconductor-s27kl0641dabhi023"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Tactile Switch, TL3340, Side Actuated, Surface Mount, Round Button, 160 gf, 50mA at 12VDC\n\n### Additional information\n\n*Datasheet*: [TL3340-2065742.pdf](https://mouser.com/datasheet/2/140/TL3340-2065742.pdf)",
             "extends": [
                 "Button"
@@ -1416,6 +1496,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Interface Bridges, USB to UART, MPSSE, 1.62 V, 1.98 V, VQFN, 56 Pins, -40 °C\n\n### Additional information\n\n*Datasheet*: [DS_FT4232H.pdf](https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT4232H.pdf)",
+            "extends": [
+                "USB to 4x UART bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-56-1ep-8x8mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "FTDI Chip FT4232H-56Q-REEL",
+            "urls": {
+                "datasheet": "https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT4232H.pdf",
+                "hwp": "components/ftdi-chip-ft4232h-56q-reel"
+            }
+        },
+        {
             "category": "Connector/Camera/Framos FSA interface",
             "interfaces": [
                 {
@@ -1725,6 +1820,26 @@
             "isCategory": true
         },
         {
+            "category": "Connector/HDMI/HDMI",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "left",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "right",
+                    "type": "hdmi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/HDMI/HDMI Mini",
             "interfaces": [
                 {
@@ -1755,6 +1870,19 @@
                 "datasheet": "https://www.hirose.com/en/product/document?clcode=CL0684-4004-6-51&productname=DF40C-60DS-0.4V(51)&series=DF40&documenttype=2DDrawing&lang=en&documentid=0001001229",
                 "hwp": "components/hirose-electric-df40c-60ds-0-4v-51"
             }
+        },
+        {
+            "category": "Memory/HyperRAM",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "hyperbus",
+                    "side": "left",
+                    "type": "hyperbus"
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "Memory/EEPROM/I2C EEPROM",
@@ -1863,8 +1991,15 @@
             "isCategory": true
         },
         {
-            "category": "Connector/JTAG",
+            "category": "Connector/JTAG/JTAG",
             "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
@@ -2126,6 +2261,72 @@
             }
         },
         {
+            "category": "FPGA/Xilinx/Kintex-7 70T",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 0",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 13",
+                    "side": "right",
+                    "type": [
+                        "gpio",
+                        "hyperbus",
+                        "serial"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 14",
+                    "side": "left",
+                    "type": [
+                        "gpio",
+                        "hdmi",
+                        "qspi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 15",
+                    "side": "right",
+                    "type": [
+                        "gbe phy",
+                        "gpio",
+                        "sdio"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 33",
+                    "side": "left",
+                    "type": [
+                        "gpio",
+                        "i2c"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 34",
+                    "side": "right",
+                    "type": [
+                        "gpio",
+                        "lpddr"
+                    ]
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "IO/LED",
             "interfaces": [
                 {
@@ -2163,6 +2364,33 @@
         },
         {
             "category": "Connector/SODIMM/LPDDR4 tester edge connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "LPDDR4 testbed SODIMM interface",
+                    "side": "left",
+                    "type": "lpdd4-testbed-sodimm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpddr",
+                    "side": "right",
+                    "type": "lpddr"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/SODIMM/LPDDR4 tester testbed socket",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2547,6 +2775,21 @@
         },
         {
             "abstract": false,
+            "description": "Ethernet Controller, 1000 Mbps, IEEE 802.3, 1.14 V, 3.465 V, QFN, 48 Pins\n\n### Additional information\n\n*Datasheet*: [00002117F.pdf](http://ww1.microchip.com/downloads/en/DeviceDoc/00002117F.pdf)",
+            "extends": [
+                "GbE Phy"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-48-1ep-7x7x0-9mm-p0-5mm-ep3-5x3-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology KSZ9031RNXCA",
+            "urls": {
+                "datasheet": "http://ww1.microchip.com/downloads/en/DeviceDoc/00002117F.pdf",
+                "hwp": "components/microchip-technology-ksz9031rnxca"
+            }
+        },
+        {
+            "abstract": false,
             "description": "MCP2562 Series 5.5 V 70 mA High-Speed CAN Flexible Data Rate Transceiver- SOIC-8\n\n### Additional information\n\n*Datasheet*: [20005284A-708901.pdf](https://www.mouser.com/datasheet/2/268/20005284A-708901.pdf)",
             "extends": [
                 "CAN Transceiver"
@@ -2648,6 +2891,21 @@
             "urls": {
                 "datasheet": "https://www.micron.com/products/dram/lpdram/part-catalog/mt53e1g32d2np-046-wt",
                 "hwp": "components/micron-technology-mt53e1g32d2np-046-wt-a"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Wire-to-Board, 2 mm, 2 Rows, 14 Contacts, Surface Mount Straight, Milli-Grid 87832\n\n### Additional information\n\n*Datasheet*: [878322620_sd.pdf](https://www.molex.com/pdm_docs/sd/878322620_sd.pdf)",
+            "extends": [
+                "ARM JTAG 14 Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinheader-2x7-p2mm-drill1mm-shrouded/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 0878311420",
+            "urls": {
+                "datasheet": "https://www.molex.com/pdm_docs/sd/878322620_sd.pdf",
+                "hwp": "components/molex-0878311420"
             }
         },
         {
@@ -3144,6 +3402,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Memory Card Connector, DDR4, SODIMM, Cam-In Locking, 260 Contacts, Copper Alloy\n\n### Additional information\n\n*Datasheet*: [ENG_CD_2309409_5-2032664.pdf](https://www.mouser.com/datasheet/2/418/7/ENG_CD_2309409_5-2032664.pdf)",
+            "extends": [
+                "LPDDR4 tester testbed socket"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bus-ddr4-sodimm-te-2309409/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TE Connectivity 2309409-1",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/418/7/ENG_CD_2309409_5-2032664.pdf",
+                "hwp": "components/te-connectivity-2309409-1"
+            }
+        },
+        {
             "category": "Connector/M.2/TE-Connectivity 1-2199119-5",
             "description": "M.2 Key M",
             "interfaces": [
@@ -3310,6 +3583,13 @@
                     "name": "usb",
                     "side": "left",
                     "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb micro",
+                    "side": "right",
+                    "type": "usb micro"
                 }
             ],
             "isCategory": true
@@ -3544,6 +3824,21 @@
         },
         {
             "abstract": false,
+            "description": "USB - micro B USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [629105150521.pdf](https://www.we-online.com/components/products/datasheet/629105150521.pdf)",
+            "extends": [
+                "USB Micro"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-micro-b-receptacle-we-629105150521/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Würth Elektronik 629105150521",
+            "urls": {
+                "datasheet": "https://www.we-online.com/components/products/datasheet/629105150521.pdf",
+                "hwp": "components/wurth-elektronik-629105150521"
+            }
+        },
+        {
+            "abstract": false,
             "description": "USB - micro AB USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [629105150921.pdf](https://www.we-online.com/components/products/datasheet/629105150921.pdf)",
             "extends": [
                 "USB Micro"
@@ -3574,6 +3869,21 @@
         },
         {
             "abstract": false,
+            "description": "HDMI Receptacle Connector 19 Position Surface Mount, Right Angle; Through Hole\n\n### Additional information\n\n*Datasheet*: [685119134923.pdf](https://www.we-online.com/components/products/datasheet/685119134923.pdf)",
+            "extends": [
+                "HDMI"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/hdmi-a-receptacle-we-685119134923/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Würth Elektronik 685119134923",
+            "urls": {
+                "datasheet": "https://www.we-online.com/components/products/datasheet/685119134923.pdf",
+                "hwp": "components/wurth-elektronik-685119134923"
+            }
+        },
+        {
+            "abstract": false,
             "description": "HDMI - Mini Receptacle Connector 19 Position Surface Mount, Right Angle; Through Hole\n\n### Additional information\n\n*Datasheet*: [685119136923.pdf](https://www.we-online.com/components/products/datasheet/685119136923.pdf)",
             "extends": [
                 "HDMI Mini"
@@ -3600,6 +3910,21 @@
             "urls": {
                 "datasheet": "https://www.we-online.com/components/products/datasheet/68715014522.pdf",
                 "hwp": "components/wurth-elektronik-68715014522"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Modular Connector, RJ45 Jack, 1 x 1 (Port), 8P8C, Through Hole Mount\n\n### Additional information\n\n*Datasheet*: [7499111121A.pdf](https://www.we-online.com/components/products/datasheet/7499111121A.pdf)",
+            "extends": [
+                "RJ45 Ethernet"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/rj45-7499111121a-horizontal/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Würth Elektronik 7499111121A",
+            "urls": {
+                "datasheet": "https://www.we-online.com/components/products/datasheet/7499111121A.pdf",
+                "hwp": "components/wurth-elektronik-7499111121a"
             }
         },
         {
@@ -4118,7 +4443,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -11052,7 +11377,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32mg24",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm/silabs/efr32mg24b220f1536im48.dtsi"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm/silabs/efr32mg24b310f1536im48.dtsi"
             }
         },
         {
@@ -15886,7 +16211,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42688/icm42688_emul.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42688/icm42688.c"
             }
         },
         {
@@ -28968,7 +29293,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf51822",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm/nordic/nrf51822_qfaa.dtsi"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm/nordic/nrf51822_qfac.dtsi"
             }
         },
         {
@@ -29958,7 +30283,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9160",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm/nordic/nrf9160_sica.dtsi"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm/nordic/nrf9160ns_sica.dtsi"
             }
         },
         {
@@ -31888,9 +32213,37 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "emmc2",
+                    "name": "can0",
                     "side": "left",
-                    "type": "mtd"
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio5",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio6",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c4",
+                    "side": "left",
+                    "type": "i2c"
                 },
                 {
                     "direction": "inout",
@@ -31898,6 +32251,20 @@
                     "name": "pfc",
                     "side": "right",
                     "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm0",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "scif1",
+                    "side": "right",
+                    "type": "serial"
                 },
                 {
                     "direction": "inout",
@@ -31910,7 +32277,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/r8a77951",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm64/renesas/r8a77951.dtsi"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/dts/arm/renesas/rcar/gen3/r8a77951.dtsi"
             }
         },
         {
