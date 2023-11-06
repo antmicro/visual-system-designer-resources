@@ -67,29 +67,6 @@
             "isCategory": true
         },
         {
-            "category": "Sensor/Inertia/ADXL362",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi",
-                    "side": "left",
-                    "type": "spi"
-                }
-            ],
-            "isCategory": true,
-            "properties": [
-                {
-                    "default": "0x0",
-                    "name": "address (spi)",
-                    "type": "text"
-                }
-            ],
-            "urls": {
-                "rdp": "soc_components/adi_adxl362"
-            }
-        },
-        {
             "abstract": false,
             "description": "Kintex®-7 Field Programmable Gate Array (FPGA) IC 285 484-BBGA, FCBGA\n\n### Additional information\n\n*Datasheet*: [ds182_Kintex_7_Data_Sheet](https://docs.xilinx.com/v/u/en-US/ds182_Kintex_7_Data_Sheet)",
             "extends": [
@@ -511,7 +488,7 @@
             "abstract": false,
             "description": "Digital Accelerometer, Nanopower Three-Axis, 2g/4g/8g\n\n### Additional information\n\n*Datasheet*: [adxl362-3122260.pdf](https://eu.mouser.com/datasheet/2/609/adxl362-3122260.pdf)",
             "extends": [
-                "ADXL362"
+                "adxl362"
             ],
             "icon": {
                 "hw-icon": "/blender-models/lga-16-3x3-25mm/previews/isoF_thumbnail_64x64.webp"
@@ -3165,7 +3142,7 @@
             "abstract": false,
             "description": "DC Power/Energy Monitor With Accumulator, Quad High-side current Sensor, 2.7V to 5.5V, UQFN-16\n\n### Additional information\n\n*Datasheet*: [PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf](https://www.mouser.com/datasheet/2/268/PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf)",
             "extends": [
-                "PAC1934"
+                "pac1934"
             ],
             "icon": {
                 "hw-icon": "/blender-models/qfn-16-1ep-4x4mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
@@ -3294,29 +3271,6 @@
             "urls": {
                 "datasheet": "https://www.mouser.com/datasheet/2/302/PCA6408A-1127604.pdf",
                 "hwp": "components/nxp-pca6408apw"
-            }
-        },
-        {
-            "category": "Sensor/Power monitor/PAC1934",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c",
-                    "side": "left",
-                    "type": "i2c"
-                }
-            ],
-            "isCategory": true,
-            "properties": [
-                {
-                    "default": "0x0",
-                    "name": "address (i2c)",
-                    "type": "text"
-                }
-            ],
-            "urls": {
-                "ren": "Sensors/PAC1934.cs"
             }
         },
         {
@@ -3498,45 +3452,6 @@
             "isCategory": true
         },
         {
-            "abstract": true,
-            "category": "Sensor/Light",
-            "extends": [
-                "i2c-device"
-            ],
-            "name": "SI1133"
-        },
-        {
-            "abstract": true,
-            "category": "Sensor/Temperature",
-            "extends": [
-                "i2c-device"
-            ],
-            "name": "SI7021"
-        },
-        {
-            "category": "Sensor/Hall/SI7210",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c",
-                    "side": "left",
-                    "type": "i2c"
-                }
-            ],
-            "isCategory": true,
-            "properties": [
-                {
-                    "default": "0x0",
-                    "name": "address (i2c)",
-                    "type": "text"
-                }
-            ],
-            "urls": {
-                "rdp": "soc_components/silabs_si7210"
-            }
-        },
-        {
             "category": "Memory/Flash/SPI Flash",
             "interfaces": [
                 {
@@ -3658,7 +3573,7 @@
             "abstract": false,
             "description": "Ambient Light Photo Sensor, I2C Output, 625nm Peak Sensitivity, 1.62V to 3.6V Supply, DFN-10\n\n### Additional information\n\n*Datasheet*: [Si1133-1397754.pdf](https://www.mouser.com/datasheet/2/368/Si1133-1397754.pdf)",
             "extends": [
-                "SI1133"
+                "si1133"
             ],
             "icon": {
                 "hw-icon": "/blender-models/dfn-10-2x2mm-p0-5mm-si1133/previews/isoF_thumbnail_64x64.webp"
@@ -3673,7 +3588,7 @@
             "abstract": false,
             "description": "Hall Effect Sensor, Magnetic Position and Temperature Sensor, SOT-23, 5 Pins, 1.71 V, 5.5 V\n\n### Additional information\n\n*Datasheet*: [si7210_datasheet-1128712.pdf](https://www.mouser.com/datasheet/2/368/si7210_datasheet-1128712.pdf)",
             "extends": [
-                "SI7210"
+                "si7210"
             ],
             "icon": {
                 "hw-icon": "/blender-models/sot-23-5/previews/isoF_thumbnail_64x64.webp"
@@ -3688,7 +3603,7 @@
             "abstract": false,
             "description": "Humidity/Temperature Sensor, 0% to 100% RH/-40°C to 85°C Range, I2C, Digital, 1.9V to 3.6V, DFN-6\n\n### Additional information\n\n*Datasheet*: [Si7021_A20-1397917.pdf](https://www.mouser.com/datasheet/2/368/Si7021_A20-1397917.pdf)",
             "extends": [
-                "SI7021"
+                "si7021"
             ],
             "icon": {
                 "hw-icon": "/blender-models/dfn-6-1ep-3x3mm-p1mm-ep1-5x2-4mm/previews/isoF_thumbnail_64x64.webp"
@@ -3795,25 +3710,9 @@
             "isCategory": true
         },
         {
-            "category": "Sensor/Touch/TMA525C",
-            "description": "Display Capacitive Multi-Touch sensor",
-            "extends": [
-                "i2c-device"
-            ],
-            "isCategory": true
-        },
-        {
             "category": "Memory/DDR/TPS51200",
             "extends": [
                 "ddr-device"
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "Sensor/Light/TSL2540",
-            "description": "TSL2540 Light-to-Digital Converter Ambient Light Sensing",
-            "extends": [
-                "i2c-device"
             ],
             "isCategory": true
         },
@@ -4339,6 +4238,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/adi_adt7420",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/adt7420/adt7420.c"
@@ -4357,6 +4263,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/adi_adxl345",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/adxl345/adxl345.c"
@@ -4422,6 +4335,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -4546,6 +4464,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/asahi-kasei_ak8975",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ak8975/ak8975.c"
@@ -4564,6 +4489,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/asahi-kasei_akm09918c",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/akm09918c/akm09918c_emul.c"
@@ -4784,6 +4716,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
@@ -4809,6 +4748,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/panasonic_amg88xx",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/amg88xx/amg88xx.c"
@@ -4834,6 +4780,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/avago_apds9960"
             }
@@ -5015,6 +4968,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ams_as5600",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ams_as5600/ams_as5600.c"
@@ -8266,6 +8226,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/rohm_bh1750",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bh1750/bh1750.c"
@@ -8291,6 +8258,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/bosch_bma280",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bma280/bma280.c"
@@ -8316,6 +8290,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/bosch_bmc150_magn",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmc150_magn/bmc150_magn.c"
@@ -8342,6 +8323,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -8374,6 +8360,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -8403,6 +8394,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/bosch_bmg160",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/bmg160/bmg160.c"
@@ -8467,6 +8465,11 @@
                     ]
                 },
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -8505,6 +8508,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 2000,
                     "name": "gyro-fs",
@@ -8572,6 +8580,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -8610,6 +8623,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -8682,6 +8700,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -8720,6 +8743,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -8750,6 +8778,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "design-capacity",
@@ -9388,6 +9421,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ams_ccs811",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ccs811/ccs811.c"
@@ -9914,6 +9954,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/infineon_dps310",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/dps310/dps310.c"
@@ -12054,6 +12101,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ams_ens210",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ens210/ens210.c"
@@ -13787,6 +13841,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/f75303/f75303.c"
@@ -13820,6 +13881,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 1,
                     "name": "deglitch",
@@ -13956,6 +14022,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/nxp_fxas21002",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/fxas21002/fxas21002.c"
@@ -13995,6 +14068,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/nxp_fxos8700",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/fxos8700/fxos8700.c"
@@ -16187,6 +16267,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_hdc",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ti_hdc/ti_hdc.c"
@@ -16205,6 +16292,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_hdc2010"
             }
@@ -16222,6 +16316,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_hdc2021"
             }
@@ -16239,6 +16340,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_hdc2022"
             }
@@ -16256,6 +16364,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_hdc2080"
             }
@@ -16280,6 +16395,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/honeywell_hmc5883l",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/hmc5883l/hmc5883l.c"
@@ -16298,6 +16420,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/hoperf_hp206c",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/hp206c/hp206c.c"
@@ -16331,6 +16460,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -16400,6 +16534,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ams_iaqcore",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ams_iAQcore/iAQcore.c"
@@ -16554,7 +16695,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42688/icm42688.c"
+                "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/icm42688/icm42688_emul.c"
             }
         },
         {
@@ -16571,6 +16712,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": "low-power",
                     "name": "pressure-measurement-mode",
@@ -16628,6 +16774,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -16666,6 +16817,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -16706,6 +16862,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -16744,6 +16905,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -17106,6 +17272,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "lsb-microamp",
                     "type": "integer"
@@ -17142,6 +17313,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "current-lsb-microamps",
@@ -17180,6 +17356,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "current-lsb-microamps",
                     "type": "integer"
@@ -17217,6 +17398,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "current-lsb-microamps",
                     "type": "integer"
@@ -17245,6 +17431,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_ina3221",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ina3221/ina3221.c"
@@ -17329,6 +17522,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/isil_isl29035",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/isl29035/isl29035.c"
@@ -17363,6 +17563,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -17386,6 +17591,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/isentek_ist8310"
             }
@@ -18279,6 +18491,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": "1.6",
                     "name": "odr",
                     "type": "text",
@@ -18855,6 +19072,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -18885,6 +19107,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lis2dh12"
             }
@@ -18917,6 +19146,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -18958,6 +19192,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -18997,6 +19236,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -19027,6 +19271,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lis3dh"
             }
@@ -19051,6 +19302,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lis3mdl-magn",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lis3mdl/lis3mdl.c"
@@ -19128,6 +19386,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/lm75",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lm75/lm75.c"
@@ -19153,6 +19418,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/lm77",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lm77/lm77.c"
@@ -19612,6 +19884,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lps22hb-press",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lps22hb/lps22hb.c"
@@ -19646,6 +19925,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -19669,6 +19953,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lps25hb-press",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lps25hb/lps25hb.c"
@@ -19720,6 +20011,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -19749,6 +20045,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lsm303dlhc-accel",
                 "ren": "Sensors/LSM303DLHC_Accelerometer.cs"
@@ -19767,6 +20070,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lsm303dlhc-magn",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm303dlhc_magn/lsm303dlhc_magn.c"
@@ -19785,6 +20095,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lsm6ds0",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm6ds0/lsm6ds0.c"
@@ -19818,6 +20135,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -19858,6 +20180,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -19896,6 +20223,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "spi-max-frequency",
@@ -19936,6 +20268,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -19966,6 +20303,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lsm9ds0-gyro",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm9ds0_gyro/lsm9ds0_gyro.c"
@@ -19991,6 +20335,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_lsm9ds0-mfd",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/lsm9ds0_mfd/lsm9ds0_mfd.c"
@@ -20009,6 +20360,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ltr_f216a",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ltrf216a/ltrf216a.c"
@@ -20308,6 +20666,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "design-capacity",
                     "type": "integer"
@@ -20363,6 +20726,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "charge-voltage",
                     "type": "integer"
@@ -20416,6 +20784,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/maxim_max30101"
             }
@@ -20492,6 +20867,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/maxim_max31875",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max31875/max31875.c"
@@ -20517,6 +20899,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/maxim_max44009",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/max44009/max44009.c"
@@ -20567,6 +20956,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/memsic_mc3419",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mc3419/mc3419.c"
@@ -20962,6 +21358,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/microchip_mcp9600",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mcp9600/mcp9600.c"
@@ -21021,6 +21424,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/microchip_mcp9808",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mcp9808/mcp9808.c"
@@ -28649,6 +29059,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/honeywell_mpr",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mpr/mpr.c"
@@ -28674,6 +29091,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/invensense_mpu6050",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/mpu6050/mpu6050.c"
@@ -28725,6 +29149,11 @@
                         8,
                         16
                     ]
+                },
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
                 },
                 {
                     "default": 250,
@@ -28785,6 +29214,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "spi-max-frequency",
                     "type": "integer"
@@ -28808,6 +29242,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/meas_ms5837",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/ms5837/ms5837.c"
@@ -32399,9 +32840,39 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_opt3001",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/opt3001/opt3001.c"
+            }
+        },
+        {
+            "category": "Sensor/Power/pac1934",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "0x0",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
+            "urls": {
+                "ren": "Sensors/PAC1934.cs"
             }
         },
         {
@@ -33277,6 +33748,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/hamamatsu_s11059",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/s11059/s11059.c"
@@ -33319,6 +33797,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/sensirion_sgp40",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sgp40/sgp40.c"
@@ -33344,6 +33829,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/sensirion_sht3xd",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sht3xd/sht3xd.c"
@@ -33363,6 +33855,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "repeatability",
@@ -33394,6 +33891,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": "shtc1",
                     "name": "chip",
                     "type": "text",
@@ -33418,6 +33920,14 @@
             }
         },
         {
+            "abstract": true,
+            "category": "Sensor/Environmental/Light",
+            "extends": [
+                "i2c-device"
+            ],
+            "name": "si1133"
+        },
+        {
             "category": "Sensor/Environmental/si7006",
             "description": "Si7006 temperature and humidity sensor",
             "interfaces": [
@@ -33430,10 +33940,25 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/silabs_si7006",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/si7006/si7006.c"
             }
+        },
+        {
+            "abstract": true,
+            "category": "Sensor/Environmental/Temperature",
+            "extends": [
+                "i2c-device"
+            ],
+            "name": "si7021"
         },
         {
             "category": "Sensor/Environmental/Temperature/si7055",
@@ -33448,6 +33973,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/silabs_si7055",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/si7055/si7055.c"
@@ -33466,13 +33998,20 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/silabs_si7060",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/si7060/si7060.c"
             }
         },
         {
-            "category": "Sensor/Environmental/Temperature/si7210",
+            "category": "Sensor/Hall/si7210",
             "description": "Si7210 hall effect magnetic position and temperature sensor",
             "interfaces": [
                 {
@@ -33484,6 +34023,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/silabs_si7210",
                 "ren": "Sensors/SI7210.cs",
@@ -65919,6 +66465,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_stts751",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/stts751/stts751.c"
@@ -65944,6 +66497,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/semtech_sx9500",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/sx9500/sx9500.c"
@@ -65969,6 +66529,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/microchip_tcn75a",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tcn75a/tcn75a.c"
@@ -65994,6 +66561,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ams_tcs3400",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tcs3400/tcs3400.c"
@@ -66120,6 +66694,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/hoperf_th02",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/th02/th02.c"
@@ -66192,6 +66773,14 @@
             }
         },
         {
+            "category": "Sensor/Touch/tma525c",
+            "description": "Display Capacitive Multi-Touch sensor",
+            "extends": [
+                "i2c-device"
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Sensor/Magnetometer/Hall-effect/tmag5170",
             "description": "Texas Instruments TMAG5170 high-precision, linear 3D Hall-effect sensor.",
             "interfaces": [
@@ -66256,6 +66845,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 1,
                     "name": "proximity-gain",
                     "type": "integer",
@@ -66313,6 +66907,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_tmp007",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmp007/tmp007.c"
@@ -66338,6 +66939,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_tmp108",
                 "ren": "Sensors/TMP108.cs",
@@ -66357,6 +66965,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_tmp112",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmp112/tmp112.c"
@@ -66375,6 +66990,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ti_tmp116",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tmp116/tmp116.c"
@@ -66400,6 +67022,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/ams_tsl2540",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/tsl2540/tsl2540.c"
@@ -66425,6 +67054,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/vishay_vcnl4040",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/vcnl4040/vcnl4040.c"
@@ -66443,6 +67079,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/vishay_veml7700",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/veml7700/veml7700.c"
@@ -66468,6 +67111,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_vl53l0x",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/vl53l0x/vl53l0x.c"
@@ -66500,6 +67150,13 @@
                 }
             ],
             "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
             "urls": {
                 "rdp": "soc_components/st_vl53l1x",
                 "zephyr": "blob/27dedec4cc251b0e5ce9b99969e3b8755e0155e8/drivers/sensor/vl53l1x/vl53l1.c"
@@ -66526,6 +67183,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": "1",
                     "name": "odr",
@@ -66564,6 +67226,11 @@
             "isCategory": true,
             "properties": [
                 {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
+                {
                     "default": 0,
                     "name": "odr",
                     "type": "integer",
@@ -66598,6 +67265,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 0,
                     "name": "sensor-type",
@@ -66637,6 +67309,11 @@
             ],
             "isCategory": true,
             "properties": [
+                {
+                    "default": "",
+                    "name": "address (i2c)",
+                    "type": "text"
+                },
                 {
                     "default": 25,
                     "name": "odr",
