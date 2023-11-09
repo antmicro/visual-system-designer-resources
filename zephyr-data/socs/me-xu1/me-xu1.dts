@@ -1,0 +1,274 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		interrupt-parent = < &gic >;
+		flash0: flash@c0000000 {
+			compatible = "soc-nv-flash";
+			reg = < 0xc0000000 0x2000000 >;
+		};
+		sram0: memory@0 {
+			compatible = "mmio-sram";
+			reg = < 0x0 0x4000000 >;
+		};
+		ocm: memory@fffc0000 {
+			compatible = "zephyr,memory-region", "xlnx,zynq-ocm";
+			reg = < 0xfffc0000 0x40000 >;
+			zephyr,memory-region = "OCM";
+		};
+		uart0: uart@ff000000 {
+			compatible = "xlnx,xuartps";
+			reg = < 0xff000000 0x4c >;
+			status = "disabled";
+			interrupts = < 0x0 0x15 0x2 0xa0 >;
+			interrupt-names = "irq_0";
+		};
+		uart1: uart@ff010000 {
+			compatible = "xlnx,xuartps";
+			reg = < 0xff010000 0x4c >;
+			status = "disabled";
+			interrupts = < 0x0 0x16 0x2 0xa0 >;
+			interrupt-names = "irq_0";
+		};
+		ttc0: timer@ff110000 {
+			compatible = "xlnx,ttcps";
+			status = "disabled";
+			interrupts = < 0x0 0x24 0x2 0xa0 >, < 0x0 0x25 0x2 0xa0 >, < 0x0 0x26 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1", "irq_2";
+			reg = < 0xff110000 0x1000 >;
+		};
+		ttc1: timer@ff120000 {
+			compatible = "xlnx,ttcps";
+			status = "disabled";
+			interrupts = < 0x0 0x27 0x2 0xa0 >, < 0x0 0x28 0x2 0xa0 >, < 0x0 0x29 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1", "irq_2";
+			reg = < 0xff120000 0x1000 >;
+		};
+		ttc2: timer@ff130000 {
+			compatible = "xlnx,ttcps";
+			status = "disabled";
+			interrupts = < 0x0 0x2a 0x2 0xa0 >, < 0x0 0x2b 0x2 0xa0 >, < 0x0 0x2c 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1", "irq_2";
+			reg = < 0xff130000 0x1000 >;
+		};
+		ttc3: timer@ff140000 {
+			compatible = "xlnx,ttcps";
+			status = "disabled";
+			interrupts = < 0x0 0x2d 0x2 0xa0 >, < 0x0 0x2e 0x2 0xa0 >, < 0x0 0x2f 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1", "irq_2";
+			reg = < 0xff140000 0x1000 >;
+		};
+		gem0: ethernet@ff0b0000 {
+			compatible = "xlnx,gem";
+			reg = < 0xff0b0000 0x1000 >, < 0xff5e0050 0x4 >;
+			status = "disabled";
+			interrupts = < 0x0 0x39 0x2 0xa0 >, < 0x0 0x3a 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1";
+			mdio-phy-address = < 0x0 >;
+			phy-poll-interval = < 0x3e8 >;
+			link-speed = < 0x2 >;
+			amba-ahb-dbus-width = < 0x0 >;
+			amba-ahb-burst-length = < 0x1 >;
+			hw-rx-buffer-size = < 0x3 >;
+			hw-rx-buffer-offset = < 0x0 >;
+			hw-tx-buffer-size-full;
+			rx-buffer-descriptors = < 0x20 >;
+			tx-buffer-descriptors = < 0x20 >;
+			rx-buffer-size = < 0x200 >;
+			tx-buffer-size = < 0x200 >;
+			discard-rx-fcs;
+			unicast-hash;
+			full-duplex;
+		};
+		gem1: ethernet@ff0c0000 {
+			compatible = "xlnx,gem";
+			reg = < 0xff0c0000 0x1000 >, < 0xff5e0054 0x4 >;
+			status = "disabled";
+			interrupts = < 0x0 0x3b 0x2 0xa0 >, < 0x0 0x3c 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1";
+			mdio-phy-address = < 0x0 >;
+			phy-poll-interval = < 0x3e8 >;
+			link-speed = < 0x2 >;
+			amba-ahb-dbus-width = < 0x0 >;
+			amba-ahb-burst-length = < 0x1 >;
+			hw-rx-buffer-size = < 0x3 >;
+			hw-rx-buffer-offset = < 0x0 >;
+			hw-tx-buffer-size-full;
+			rx-buffer-descriptors = < 0x20 >;
+			tx-buffer-descriptors = < 0x20 >;
+			rx-buffer-size = < 0x200 >;
+			tx-buffer-size = < 0x200 >;
+			discard-rx-fcs;
+			unicast-hash;
+			full-duplex;
+		};
+		gem2: ethernet@ff0d0000 {
+			compatible = "xlnx,gem";
+			reg = < 0xff0d0000 0x1000 >, < 0xff5e0058 0x4 >;
+			status = "disabled";
+			interrupts = < 0x0 0x3d 0x2 0xa0 >, < 0x0 0x3e 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1";
+			mdio-phy-address = < 0x0 >;
+			phy-poll-interval = < 0x3e8 >;
+			link-speed = < 0x2 >;
+			amba-ahb-dbus-width = < 0x0 >;
+			amba-ahb-burst-length = < 0x1 >;
+			hw-rx-buffer-size = < 0x3 >;
+			hw-rx-buffer-offset = < 0x0 >;
+			hw-tx-buffer-size-full;
+			rx-buffer-descriptors = < 0x20 >;
+			tx-buffer-descriptors = < 0x20 >;
+			rx-buffer-size = < 0x200 >;
+			tx-buffer-size = < 0x200 >;
+			discard-rx-fcs;
+			unicast-hash;
+			full-duplex;
+		};
+		gem3: ethernet@ff0e0000 {
+			compatible = "xlnx,gem";
+			reg = < 0xff0e0000 0x1000 >, < 0xff5e005c 0x4 >;
+			status = "disabled";
+			interrupts = < 0x0 0x3f 0x2 0xa0 >, < 0x0 0x40 0x2 0xa0 >;
+			interrupt-names = "irq_0", "irq_1";
+			mdio-phy-address = < 0x0 >;
+			phy-poll-interval = < 0x3e8 >;
+			link-speed = < 0x2 >;
+			amba-ahb-dbus-width = < 0x0 >;
+			amba-ahb-burst-length = < 0x1 >;
+			hw-rx-buffer-size = < 0x3 >;
+			hw-rx-buffer-offset = < 0x0 >;
+			hw-tx-buffer-size-full;
+			rx-buffer-descriptors = < 0x20 >;
+			tx-buffer-descriptors = < 0x20 >;
+			rx-buffer-size = < 0x200 >;
+			tx-buffer-size = < 0x200 >;
+			discard-rx-fcs;
+			unicast-hash;
+			full-duplex;
+		};
+		psgpio: gpio@ff0a0000 {
+			compatible = "xlnx,ps-gpio";
+			status = "disabled";
+			reg = < 0xff0a0000 0x1000 >;
+			interrupts = < 0x0 0x10 0x2 0xa0 >;
+			interrupt-names = "irq_0";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			psgpio_bank0: psgpio_bank@0 {
+				compatible = "xlnx,ps-gpio-bank";
+				reg = < 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0x1a >;
+				status = "okay";
+			};
+			psgpio_bank1: psgpio_bank@1 {
+				compatible = "xlnx,ps-gpio-bank";
+				reg = < 0x1 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0x1a >;
+				status = "okay";
+			};
+			psgpio_bank2: psgpio_bank@2 {
+				compatible = "xlnx,ps-gpio-bank";
+				reg = < 0x2 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0x1a >;
+				status = "okay";
+			};
+			psgpio_bank3: psgpio_bank@3 {
+				compatible = "xlnx,ps-gpio-bank";
+				reg = < 0x3 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0x20 >;
+				status = "okay";
+			};
+			psgpio_bank4: psgpio_bank@4 {
+				compatible = "xlnx,ps-gpio-bank";
+				reg = < 0x4 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0x20 >;
+				status = "okay";
+			};
+			psgpio_bank5: psgpio_bank@5 {
+				compatible = "xlnx,ps-gpio-bank";
+				reg = < 0x5 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0x20 >;
+				status = "okay";
+			};
+		};
+		rpu0_ipi: zynqmp-ipi@ff310000 {
+			status = "disabled";
+			compatible = "xlnx,zynqmp-ipi-mailbox";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			reg = < 0xff310000 0x10000 >;
+			reg-names = "host_ipi_reg";
+			interrupts = < 0x0 0x21 0x2 0xa0 >;
+			local-ipi-id = < 0x1 >;
+			rpu0_apu_mailbox: mailbox@ff990200 {
+				remote-ipi-id = < 0x0 >;
+				reg = < 0xff990200 0x20 >, < 0xff990220 0x20 >, < 0xff990040 0x20 >, < 0xff990060 0x20 >;
+				reg-names = "local_request_region", "local_response_region", "remote_request_region", "remote_response_region";
+			};
+			rpu0_rpu1_mailbox: mailbox@ff990260 {
+				remote-ipi-id = < 0x2 >;
+				reg = < 0xff990260 0x20 >, < 0xff990280 0x20 >, < 0xff990420 0x20 >, < 0xff990440 0x20 >;
+				reg-names = "local_request_region", "local_response_region", "remote_request_region", "remote_response_region";
+			};
+		};
+		rpu1_ipi: zynqmp-ipi@ff320000 {
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			compatible = "xlnx,zynqmp-ipi-mailbox";
+			local-ipi-id = < 0x2 >;
+			reg = < 0xff320000 0x10000 >;
+			reg-names = "host_ipi_reg";
+			interrupts = < 0x0 0x22 0x2 0xa0 >;
+			rpu1_apu_mailbox: mailbox@ff990400 {
+				remote-ipi-id = < 0x0 >;
+				reg = < 0xff990400 0x20 >, < 0xff990420 0x20 >, < 0xff990080 0x20 >, < 0xff9900a0 0x20 >;
+				reg-names = "local_request_region", "local_response_region", "remote_request_region", "remote_response_region";
+			};
+			rpu1_rpu0_mailbox: mailbox@ff990420 {
+				remote-ipi-id = < 0x1 >;
+				reg = < 0xff990420 0x20 >, < 0xff990440 0x20 >, < 0xff990260 0x20 >, < 0xff990280 0x20 >;
+				reg-names = "local_request_region", "local_response_region", "remote_request_region", "remote_response_region";
+			};
+		};
+		gic: interrupt-controller@f9000000 {
+			compatible = "arm,gic-v1", "arm,gic";
+			reg = < 0xf9000000 0x1000 >, < 0xf9001000 0x100 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x4 >;
+			status = "okay";
+			phandle = < 0x1 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-r5f";
+			reg = < 0x0 >;
+		};
+	};
+};

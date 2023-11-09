@@ -1,0 +1,94 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		sram0: memory@400000 {
+			device_type = "memory";
+			reg = < 0x400000 0x80000 >;
+		};
+		uart0: uart@40020000 {
+			compatible = "ns16550";
+			reg = < 0x40020000 0x400 >;
+			reg-shift = < 0x2 >;
+			clock-frequency = < 0x17d7840 >;
+			status = "disabled";
+			interrupt-parent = < &gic >;
+			interrupts = < 0x0 0x18 0x2 0xa0 >;
+		};
+		uart1: uart@48100000 {
+			compatible = "ns16550";
+			reg = < 0x48100000 0x400 >;
+			reg-shift = < 0x2 >;
+			clock-frequency = < 0x5f5e100 >;
+			status = "disabled";
+			interrupt-parent = < &gic >;
+			interrupts = < 0x0 0xbb 0x2 0xa0 >;
+		};
+		pl330: pl330@48300000 {
+			compatible = "arm,dma-pl330";
+			reg = < 0x48300000 0x2000 >, < 0x482f005c 0x20 >;
+			reg-names = "pl330_regs", "control_regs";
+			microcode = < 0x63b00000 0x1000 >;
+			dma-channels = < 0x8 >;
+			#dma-cells = < 0x1 >;
+			phandle = < 0x2 >;
+		};
+		gic: interrupt-controller@42700000 {
+			compatible = "arm,gic-v3", "arm,gic";
+			reg = < 0x42700000 0x10000 >, < 0x42780000 0x600000 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x4 >;
+			status = "okay";
+			phandle = < 0x1 >;
+		};
+	};
+	pcie {
+		#address-cells = < 0x2 >;
+		#size-cells = < 0x2 >;
+		pcie0_ep: pcie@4e100000 {
+			compatible = "brcm,iproc-pcie-ep";
+			reg = < 0x0 0x4e100000 0x0 0x2100 >, < 0x0 0x50000000 0x0 0x8000000 >, < 0x4 0x0 0x0 0x8000000 >;
+			reg-names = "iproc_pcie_regs", "map_lowmem", "map_highmem";
+			dmas = < &pl330 0x0 >, < &pl330 0x1 >;
+			dma-names = "txdma", "rxdma";
+			phandle = < 0x3 >;
+		};
+		paxdma: paxdma@4e100800 {
+			compatible = "brcm,iproc-pax-dma-v2";
+			reg = < 0x0 0x4e100800 0x0 0x2100 >, < 0x0 0x4f000000 0x0 0x200000 >, < 0x0 0x4f200000 0x0 0x10000 >;
+			reg-names = "dme_regs", "rm_ring_regs", "rm_comm_regs";
+			dma-channels = < 0x4 >;
+			#dma-cells = < 0x1 >;
+			bd-memory = < 0x63b00000 0x100000 >;
+			scr-addr-loc = < 0x200061f0 >;
+			scr-size-loc = < 0x200061f8 >;
+			pcie-ep = < &pcie0_ep >;
+			interrupt-parent = < &gic >;
+			interrupts = < 0x0 0xd4 0x2 0xa0 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = < 0x0 >;
+		};
+	};
+	timer {
+		compatible = "arm,armv8-timer";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x1 0xd 0x2 0xa0 >, < 0x1 0xe 0x2 0xa0 >, < 0x1 0xb 0x2 0xa0 >, < 0x1 0xa 0x2 0xa0 >;
+	};
+};

@@ -1,0 +1,55 @@
+/ {
+	compatible = "adafruit,itsybitsy-m4-express";
+	chosen {
+		zephyr,console = &sercom3;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&sercom1{
+	status = "okay";
+	dipo = < 0x3 >;
+	dopo = < 0x0 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom1_spi_default >;
+	pinctrl-names = "default";
+};
+&sercom6{
+	status = "disabled";
+};
+&sercom0{
+	status = "disabled";
+};
+&sercom7{
+	status = "disabled";
+};
+&sercom2{
+	status = "disabled";
+};
+&sercom3{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom3_uart_default >;
+	pinctrl-names = "default";
+};
+&sercom5{
+	status = "disabled";
+};
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb_dc_default >;
+	pinctrl-names = "default";
+};
+&sercom4{
+	status = "disabled";
+};
+&tcc0{
+	status = "okay";
+	prescaler = < 0x8 >;
+	#pwm-cells = < 0x2 >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};

@@ -1,0 +1,16 @@
+/ {
+	compatible = "nxp";
+	chosen {
+		zephyr,console = &uart4;
+		zephyr,sram = &sram0;
+	};
+};
+&pinctrl{
+	status = "okay";
+};
+&uart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart4_default >;
+	pinctrl-names = "default";
+};

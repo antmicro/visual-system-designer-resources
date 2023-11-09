@@ -1,0 +1,566 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,flash-controller = &ftfe;
+	};
+	aliases {
+		watchdog0 = &wdog;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x4 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		edma: dma-controller@40008000 {
+			compatible = "nxp,mcux-edma";
+			dma-channels = < 0x10 >;
+			dma-requests = < 0x40 >;
+			nxp,mem2mem;
+			reg = < 0x40008000 0x1000 >, < 0x40021000 0x1000 >;
+			interrupts = < 0x0 0x0 >, < 0x1 0x0 >, < 0x2 0x0 >, < 0x3 0x0 >, < 0x4 0x0 >, < 0x5 0x0 >, < 0x6 0x0 >, < 0x7 0x0 >, < 0x8 0x0 >, < 0x9 0x0 >, < 0xa 0x0 >, < 0xb 0x0 >, < 0xc 0x0 >, < 0xd 0x0 >, < 0xe 0x0 >, < 0xf 0x0 >, < 0x10 0x0 >;
+			status = "disabled";
+			#dma-cells = < 0x2 >;
+			phandle = < 0xb >;
+		};
+		mpu: mpu@4000d000 {
+			compatible = "nxp,kinetis-mpu";
+			reg = < 0x4000d000 0x1000 >;
+			status = "disabled";
+		};
+		sim: sim@40048000 {
+			compatible = "nxp,kinetis-ke1xf-sim";
+			reg = < 0x40048000 0x1000 >;
+		};
+		scg: scg@40064000 {
+			compatible = "nxp,kinetis-scg";
+			reg = < 0x40064000 0x1000 >;
+			#clock-cells = < 0x1 >;
+			phandle = < 0x8 >;
+			sosc_clk: sosc_clk {
+				compatible = "fixed-clock";
+				status = "disabled";
+				#clock-cells = < 0x0 >;
+				phandle = < 0x2 >;
+			};
+			sirc_clk: sirc_clk {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x7a1200 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x7 >;
+			};
+			firc_clk: firc_clk {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x2dc6c00 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x4 >;
+			};
+			pll: pll {
+				compatible = "fixed-factor-clock";
+				clocks = < &sosc_clk >;
+				clock-div = < 0x1 >;
+				clock-mult = < 0x10 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x3 >;
+			};
+			spll_clk: spll_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &pll >;
+				clock-div = < 0x2 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x6 >;
+			};
+			core_clk: core_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &firc_clk >;
+				clock-div = < 0x1 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x5 >;
+			};
+			bus_clk: bus_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &core_clk >;
+				clock-div = < 0x1 >;
+				#clock-cells = < 0x0 >;
+			};
+			slow_clk: slow_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &core_clk >;
+				clock-div = < 0x2 >;
+				#clock-cells = < 0x0 >;
+			};
+			clkout_clk: clkout_clk {
+				compatible = "fixed-factor-clock";
+				status = "disabled";
+				clocks = < &firc_clk >;
+				#clock-cells = < 0x0 >;
+			};
+			splldiv1_clk: splldiv1_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &spll_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+			splldiv2_clk: splldiv2_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &spll_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+			sircdiv1_clk: sircdiv1_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &sirc_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+			sircdiv2_clk: sircdiv2_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &sirc_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+			fircdiv1_clk: fircdiv1_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &firc_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+			fircdiv2_clk: fircdiv2_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &firc_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+			soscdiv1_clk: soscdiv1_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &sosc_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+			soscdiv2_clk: soscdiv2_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &sosc_clk >;
+				clock-div = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
+		};
+		pmc: pmc@4007d000 {
+			reg = < 0x4007d000 0x1000 >;
+			lpo: lpo128k {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x1f400 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x9 >;
+			};
+		};
+		pcc: pcc@40065000 {
+			compatible = "nxp,kinetis-pcc";
+			reg = < 0x40065000 0x1000 >;
+			#clock-cells = < 0x2 >;
+			phandle = < 0xa >;
+		};
+		rtc: rtc@4003d000 {
+			compatible = "nxp,kinetis-rtc";
+			reg = < 0x4003d000 0x1000 >;
+			interrupts = < 0x2e 0x0 >, < 0x2f 0x0 >;
+			interrupt-names = "alarm", "seconds";
+			clock-frequency = < 0x8000 >;
+			prescaler = < 0x8000 >;
+		};
+		dac0: dac@4003f000 {
+			compatible = "nxp,kinetis-dac32";
+			reg = < 0x4003f000 0x1000 >;
+			interrupts = < 0x38 0x0 >;
+			clocks = < &scg 0x1 >;
+			voltage-reference = < 0x1 >;
+			buffered;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
+		lptmr0: lptmr@40040000 {
+			compatible = "nxp,kinetis-lptmr";
+			reg = < 0x40040000 0x1000 >;
+			interrupts = < 0x3a 0x0 >;
+			clock-frequency = < 0x1f400 >;
+			prescaler = < 0x1 >;
+			clk-source = < 0x1 >;
+		};
+		wdog: watchdog@40052000 {
+			compatible = "nxp,kinetis-wdog32";
+			reg = < 0x40052000 0x1000 >;
+			interrupts = < 0x16 0x0 >;
+			clocks = < &lpo >;
+			clk-source = < 0x1 >;
+			clk-divider = < 0x100 >;
+		};
+		pwt: pwt@40056000 {
+			compatible = "nxp,kinetis-pwt";
+			reg = < 0x40056000 0x1000 >;
+			interrupts = < 0x1d 0x0 >;
+			clocks = < &scg 0x1 >;
+			prescaler = < 0x1 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		ftfe: flash-controller@40020000 {
+			compatible = "nxp,kinetis-ftfe";
+			reg = < 0x40020000 0x1000 >;
+			interrupts = < 0x12 0x0 >, < 0x13 0x0 >;
+			interrupt-names = "command-complete", "read-collision";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				reg = < 0x0 0x80000 >;
+				erase-block-size = < 0x1000 >;
+				write-block-size = < 0x8 >;
+			};
+		};
+		lpuart0: uart@4006a000 {
+			compatible = "nxp,kinetis-lpuart";
+			reg = < 0x4006a000 0x1000 >;
+			interrupts = < 0x1f 0x0 >, < 0x20 0x0 >;
+			interrupt-names = "transmit", "receive";
+			clocks = < &pcc 0x1a8 0x3 >;
+			dmas = < &edma 0x1 0x2 >, < &edma 0x2 0x3 >;
+			dma-names = "rx", "tx";
+			status = "disabled";
+		};
+		lpuart1: uart@4006b000 {
+			compatible = "nxp,kinetis-lpuart";
+			reg = < 0x4006b000 0x1000 >;
+			interrupts = < 0x21 0x0 >, < 0x22 0x0 >;
+			interrupt-names = "transmit", "receive";
+			clocks = < &pcc 0x1ac 0x3 >;
+			dmas = < &edma 0x3 0x4 >, < &edma 0x4 0x5 >;
+			dma-names = "rx", "tx";
+			status = "disabled";
+		};
+		lpuart2: uart@4006c000 {
+			compatible = "nxp,kinetis-lpuart";
+			reg = < 0x4006c000 0x1000 >;
+			interrupts = < 0x23 0x0 >, < 0x24 0x0 >;
+			interrupt-names = "transmit", "receive";
+			clocks = < &pcc 0x1b0 0x3 >;
+			dmas = < &edma 0x5 0x6 >, < &edma 0x5 0x7 >;
+			dma-names = "rx", "tx";
+			status = "disabled";
+		};
+		lpi2c0: i2c@40066000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40066000 0x1000 >;
+			interrupts = < 0x18 0x0 >;
+			clocks = < &pcc 0x198 0x3 >;
+			status = "disabled";
+		};
+		lpi2c1: i2c@40067000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40067000 0x1000 >;
+			interrupts = < 0x19 0x0 >;
+			clocks = < &pcc 0x19c 0x3 >;
+			status = "disabled";
+		};
+		lpspi0: spi@4002c000 {
+			compatible = "nxp,imx-lpspi";
+			reg = < 0x4002c000 0x1000 >;
+			interrupts = < 0x1a 0x0 >;
+			clocks = < &pcc 0xb0 0x3 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		lpspi1: spi@4002d000 {
+			compatible = "nxp,imx-lpspi";
+			reg = < 0x4002d000 0x1000 >;
+			interrupts = < 0x1b 0x0 >;
+			clocks = < &pcc 0xb4 0x3 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		flexcan0: can@40024000 {
+			compatible = "nxp,flexcan";
+			reg = < 0x40024000 0x1000 >;
+			interrupts = < 0x4e 0x0 >, < 0x4f 0x0 >, < 0x50 0x0 >, < 0x51 0x0 >;
+			interrupt-names = "warning", "error", "wake-up", "mb-0-15";
+			clocks = < &scg 0x1 >;
+			clk-source = < 0x1 >;
+			sample-point = < 0x36b >;
+			status = "disabled";
+		};
+		flexcan1: can@40025000 {
+			compatible = "nxp,flexcan";
+			reg = < 0x40025000 0x1000 >;
+			interrupts = < 0x55 0x0 >, < 0x56 0x0 >, < 0x57 0x0 >, < 0x58 0x0 >;
+			interrupt-names = "warning", "error", "wake-up", "mb-0-15";
+			clocks = < &scg 0x1 >;
+			clk-source = < 0x1 >;
+			sample-point = < 0x36b >;
+			status = "disabled";
+		};
+		porta: pinmux@40049000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x40049000 0x1000 >;
+			clocks = < &pcc 0x124 0x0 >;
+			phandle = < 0xc >;
+		};
+		portb: pinmux@4004a000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004a000 0x1000 >;
+			clocks = < &pcc 0x128 0x0 >;
+			phandle = < 0xd >;
+		};
+		portc: pinmux@4004b000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004b000 0x1000 >;
+			clocks = < &pcc 0x12c 0x0 >;
+			phandle = < 0xe >;
+		};
+		portd: pinmux@4004c000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004c000 0x1000 >;
+			clocks = < &pcc 0x130 0x0 >;
+			phandle = < 0xf >;
+		};
+		porte: pinmux@4004d000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004d000 0x1000 >;
+			clocks = < &pcc 0x134 0x0 >;
+			phandle = < 0x10 >;
+		};
+		gpioa: gpio@400ff000 {
+			compatible = "nxp,kinetis-gpio";
+			status = "disabled";
+			reg = < 0x400ff000 0x40 >;
+			interrupts = < 0x3b 0x2 >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			nxp,kinetis-port = < &porta >;
+		};
+		gpiob: gpio@400ff040 {
+			compatible = "nxp,kinetis-gpio";
+			status = "disabled";
+			reg = < 0x400ff040 0x40 >;
+			interrupts = < 0x3c 0x2 >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			nxp,kinetis-port = < &portb >;
+		};
+		gpioc: gpio@400ff080 {
+			compatible = "nxp,kinetis-gpio";
+			status = "disabled";
+			reg = < 0x400ff080 0x40 >;
+			interrupts = < 0x3d 0x2 >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			nxp,kinetis-port = < &portc >;
+		};
+		gpiod: gpio@400ff0c0 {
+			compatible = "nxp,kinetis-gpio";
+			status = "disabled";
+			reg = < 0x400ff0c0 0x40 >;
+			interrupts = < 0x3e 0x2 >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			nxp,kinetis-port = < &portd >;
+		};
+		gpioe: gpio@400ff100 {
+			compatible = "nxp,kinetis-gpio";
+			status = "disabled";
+			reg = < 0x400ff100 0x40 >;
+			interrupts = < 0x3f 0x2 >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			nxp,kinetis-port = < &porte >;
+		};
+		adc0: adc@4003b000 {
+			compatible = "nxp,kinetis-adc12";
+			reg = < 0x4003b000 0x1000 >;
+			interrupts = < 0x27 0x0 >;
+			clocks = < &pcc 0xec 0x3 >;
+			clk-source = < 0x0 >;
+			clk-divider = < 0x1 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+			phandle = < 0x15 >;
+		};
+		adc1: adc@40027000 {
+			compatible = "nxp,kinetis-adc12";
+			reg = < 0x40027000 0x1000 >;
+			interrupts = < 0x49 0x0 >;
+			clocks = < &pcc 0x9c 0x3 >;
+			clk-source = < 0x0 >;
+			clk-divider = < 0x1 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+			phandle = < 0x16 >;
+		};
+		adc2: adc@4003c000 {
+			compatible = "nxp,kinetis-adc12";
+			reg = < 0x4003c000 0x1000 >;
+			interrupts = < 0x4a 0x0 >;
+			clocks = < &pcc 0xf0 0x3 >;
+			clk-source = < 0x0 >;
+			clk-divider = < 0x1 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+			phandle = < 0x17 >;
+		};
+		ftm0: ftm@40038000 {
+			compatible = "nxp,kinetis-ftm";
+			reg = < 0x40038000 0x1000 >;
+			interrupts = < 0x2a 0x0 >;
+			clocks = < &pcc 0xe0 0x3 >;
+			prescaler = < 0x10 >;
+			status = "disabled";
+		};
+		ftm1: ftm@40039000 {
+			compatible = "nxp,kinetis-ftm";
+			reg = < 0x40039000 0x1000 >;
+			interrupts = < 0x2b 0x0 >;
+			clocks = < &pcc 0xe4 0x3 >;
+			prescaler = < 0x10 >;
+			status = "disabled";
+		};
+		ftm2: ftm@4003a000 {
+			compatible = "nxp,kinetis-ftm";
+			reg = < 0x4003a000 0x1000 >;
+			interrupts = < 0x2c 0x0 >;
+			clocks = < &pcc 0xe8 0x3 >;
+			prescaler = < 0x10 >;
+			status = "disabled";
+		};
+		ftm3: ftm@40026000 {
+			compatible = "nxp,kinetis-ftm";
+			reg = < 0x40026000 0x1000 >;
+			interrupts = < 0x47 0x0 >;
+			clocks = < &pcc 0x98 0x3 >;
+			prescaler = < 0x10 >;
+			status = "disabled";
+		};
+		cmp0: cmp@40073000 {
+			compatible = "nxp,kinetis-acmp";
+			reg = < 0x40073000 0x1000 >;
+			interrupts = < 0x28 0x0 >;
+			clocks = < &scg 0x1 >;
+			status = "disabled";
+			#io-channel-cells = < 0x2 >;
+		};
+		cmp1: cmp@40074000 {
+			compatible = "nxp,kinetis-acmp";
+			reg = < 0x40074000 0x1000 >;
+			interrupts = < 0x29 0x0 >;
+			clocks = < &scg 0x1 >;
+			status = "disabled";
+			#io-channel-cells = < 0x2 >;
+		};
+		cmp2: cmp@40075000 {
+			compatible = "nxp,kinetis-acmp";
+			reg = < 0x40075000 0x1000 >;
+			interrupts = < 0x46 0x0 >;
+			clocks = < &scg 0x1 >;
+			status = "disabled";
+			#io-channel-cells = < 0x2 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m4f";
+			reg = < 0x0 >;
+			cpu-power-states = < &idle &stop &pstop1 &pstop2 >;
+		};
+		power-states {
+			idle: idle {
+				compatible = "zephyr,power-state";
+				power-state-name = "runtime-idle";
+				phandle = < 0x11 >;
+			};
+			stop: stop {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x0 >;
+				phandle = < 0x12 >;
+			};
+			pstop1: pstop1 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x1 >;
+				phandle = < 0x13 >;
+			};
+			pstop2: pstop2 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x2 >;
+				phandle = < 0x14 >;
+			};
+		};
+	};
+	temp0: temp0 {
+		compatible = "nxp,kinetis-temperature";
+		io-channels = < &adc0 0x1a >, < &adc0 0x1b >;
+		io-channel-names = "SENSOR", "BANDGAP";
+		bandgap-voltage = < 0xf4240 >;
+		vtemp25 = < 0xb4c94 >;
+		sensor-slope-cold = < 0x61c >;
+		sensor-slope-hot = < 0x61c >;
+		status = "disabled";
+	};
+	temp1: temp1 {
+		compatible = "nxp,kinetis-temperature";
+		io-channels = < &adc1 0x1a >, < &adc1 0x1b >;
+		io-channel-names = "SENSOR", "BANDGAP";
+		bandgap-voltage = < 0xf4240 >;
+		vtemp25 = < 0xb4c94 >;
+		sensor-slope-cold = < 0x61c >;
+		sensor-slope-hot = < 0x61c >;
+		status = "disabled";
+	};
+	temp2: temp2 {
+		compatible = "nxp,kinetis-temperature";
+		io-channels = < &adc2 0x1a >, < &adc2 0x1b >;
+		io-channel-names = "SENSOR", "BANDGAP";
+		bandgap-voltage = < 0xf4240 >;
+		vtemp25 = < 0xb4c94 >;
+		sensor-slope-cold = < 0x61c >;
+		sensor-slope-hot = < 0x61c >;
+		status = "disabled";
+	};
+	pinctrl: pinctrl {
+		compatible = "nxp,kinetis-pinctrl";
+		status = "okay";
+	};
+	sram_l: memory@1fff8000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0x1fff8000 0x8000 >;
+		zephyr,memory-region = "SRAML";
+	};
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = < 0x20000000 0x8000 >;
+	};
+};

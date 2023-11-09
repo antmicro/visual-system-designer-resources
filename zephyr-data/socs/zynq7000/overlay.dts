@@ -1,0 +1,34 @@
+/ {
+	compatible = "digilent,zynq-zybo", "xlnx,zynq-7000";
+	chosen {
+		zephyr,console = &uart1;
+	};
+};
+&psgpio_bank0{
+	status = "okay";
+};
+&psgpio_bank2{
+	status = "okay";
+};
+&uart0{
+	status = "disabled";
+};
+&gem1{
+	status = "disabled";
+};
+&gem0{
+	status = "disabled";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	clock-frequency = < 0x5f5e100 >;
+	pinctrl-0 = < &pinctrl_uart1_default >;
+	pinctrl-names = "default";
+};
+&psgpio_bank3{
+	status = "okay";
+};
+&psgpio_bank1{
+	status = "okay";
+};

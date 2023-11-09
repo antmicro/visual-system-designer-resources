@@ -1,0 +1,82 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		uart0: uart@40010000 {
+			compatible = "arm,pl011";
+			reg = < 0x40010000 0x1000 >;
+			clocks = < &uartclk >;
+			interrupts = < 0x7 0x3 >;
+			interrupt-names = "rx";
+		};
+		uart1: uart@40020000 {
+			compatible = "quicklogic,usbserialport-s3b";
+			reg = < 0x40020000 0x1000 >;
+			status = "disabled";
+		};
+		gpio: gpio@40005000 {
+			compatible = "quicklogic,eos-s3-gpio";
+			reg = < 0x40005000 0x1000 >;
+			status = "disabled";
+			interrupts = < 0x5 0x2 >;
+			#gpio-cells = < 0x2 >;
+			ngpios = < 0x8 >;
+			pin-secondary-config = < 0x0 >;
+			gpio-controller;
+		};
+		pinctrl: pinctrl@40004c00 {
+			compatible = "quicklogic,eos-s3-pinctrl";
+			reg = < 0x40004c00 0x1b0 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m4f";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv7m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+				arm,num-mpu-regions = < 0x8 >;
+			};
+		};
+	};
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = < 0x20000000 0x80000 >;
+	};
+	uartclk: uart-clock {
+		compatible = "fixed-clock";
+		clock-frequency = < 0x4e2000 >;
+		#clock-cells = < 0x0 >;
+		phandle = < 0x2 >;
+	};
+};

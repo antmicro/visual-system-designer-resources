@@ -1,0 +1,44 @@
+/ {
+	compatible = "silabs,efm32hg_slstk3400a", "silabs,efm32hg";
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&gpioc{
+	status = "okay";
+};
+&leuart0{
+	status = "disabled";
+};
+&gpiod{
+	status = "disabled";
+};
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x4 0x0 0x0 >;
+	location-tx = < 0x4 0x5 0x2 >;
+};
+&gpioa{
+	status = "okay";
+};
+&usart0{
+	status = "disabled";
+};
+&gpiof{
+	status = "okay";
+};
+&gpiob{
+	status = "disabled";
+};
+&gpioe{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "silabs,gecko-pinctrl";
+};

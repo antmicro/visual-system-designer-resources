@@ -1,0 +1,72 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu: cpu@0 {
+			device_type = "cpu";
+			compatible = "altr,nios2f";
+			reg = < 0x0 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			phandle = < 0x1 >;
+		};
+	};
+	flash0: flash@0 {
+		compatible = "soc-nv-flash";
+		reg = < 0x0 0xb8000 >;
+	};
+	sram0: memory@400000 {
+		compatible = "mmio-sram";
+		reg = < 0x400000 0x20000 >;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &cpu >;
+		ranges;
+		uart0: uart@100000 {
+			compatible = "ns16550";
+			reg = < 0x100000 0x400 >;
+			clock-frequency = < 0x2faf080 >;
+			interrupts = < 0x1 0x0 >;
+			reg-shift = < 0x2 >;
+			status = "disabled";
+		};
+		jtag_uart: uart@201000 {
+			compatible = "altr,jtag-uart";
+			reg = < 0x201000 0x8 >;
+			status = "disabled";
+		};
+		i2c0: i2c@100200 {
+			compatible = "altr,nios2-i2c";
+			clock-frequency = < 0x4c4b40 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x100200 0x400 >;
+			interrupts = < 0x4 0xa >;
+		};
+		dma: dma@100200 {
+			compatible = "altr,msgdma";
+			reg = < 0x1002c0 0x30 >;
+			interrupts = < 0x3 0x3 >;
+			#dma-cells = < 0x0 >;
+		};
+		qspi: qspi@100240 {
+			compatible = "altr,nios2-qspi";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x100240 0x40 >, < 0x8000000 0x4000000 >;
+			reg-names = "qspi", "qspi_mm";
+			status = "disabled";
+		};
+	};
+};

@@ -1,0 +1,40 @@
+/ {
+	compatible = "nxp,lpc55xxx", "nxp,lpc";
+	chosen {
+		zephyr,console = &flexcomm0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&iap{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_lpadc0 >;
+	pinctrl-names = "default";
+};
+&gpio1{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&hs_lspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_hs_lspi >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x2 >, < &dma0 0x3 >;
+	dma-names = "rx", "tx";
+};
+&flexcomm0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x4 >, < &dma0 0x5 >;
+	dma-names = "rx", "tx";
+};
+&usbhs{
+	status = "okay";
+};

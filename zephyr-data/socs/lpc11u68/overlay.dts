@@ -1,0 +1,47 @@
+/ {
+	compatible = "nxp,lpcxpresso11u68", "nxp,lpc";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&uart1{
+	status = "disabled";
+};
+&gpio2{
+	status = "okay";
+};
+&uart2{
+	status = "disabled";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_fast >;
+	pinctrl-names = "default", "fast-plus";
+};
+&gpio1{
+	status = "okay";
+};
+&uart4{
+	status = "okay";
+	pinctrl-0 = < &uart4_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	status = "disabled";
+};
+&uart3{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&gpio0{
+	status = "okay";
+};

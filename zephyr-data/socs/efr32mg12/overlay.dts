@@ -1,0 +1,78 @@
+/ {
+	compatible = "silabs,efr32_radio_brd4170a", "silabs,efr32mg12p";
+	chosen {
+		zephyr,console = &leuart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x0 0x1 >;
+	location-tx = < 0x0 0x0 0x0 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+};
+&usart1{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	location-rx = < 0xb 0x2 0x7 >;
+	location-tx = < 0xb 0x2 0x6 >;
+	location-clk = < 0xb 0x2 0x8 >;
+	cs-gpios = < &gpioa 0x4 0x1 >;
+};
+&gpiob{
+	status = "okay";
+};
+&i2c1{
+	status = "disabled";
+};
+&gpiof{
+	status = "okay";
+};
+&gpioi{
+	status = "disabled";
+};
+&gpioc{
+	status = "okay";
+};
+&leuart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x0 0x1 >;
+	location-tx = < 0x0 0x0 0x0 >;
+};
+&usart3{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&gpiok{
+	status = "disabled";
+};
+&gpioa{
+	status = "okay";
+};
+&gpioj{
+	status = "disabled";
+};
+&gpiod{
+	status = "okay";
+};
+&i2c0{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "silabs,gecko-pinctrl";
+	usart0_default: usart0_default {
+		group1 {
+			psels = < 0x1000001 >, < 0x4000000 >;
+		};
+		group2 {
+			psels = < 0x0 >, < 0x5000000 >;
+		};
+	};
+};

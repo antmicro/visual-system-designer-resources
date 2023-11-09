@@ -1,0 +1,101 @@
+/ {
+	compatible = "st,stm32l011k4-nucleo";
+	chosen {
+		zephyr,console = &usart2;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pa4 &i2c1_sda_pa10 >;
+	pinctrl-names = "default";
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa15 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&lpuart1{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	compatible = "st,stm32-pinctrl";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	reg = < 0x50000000 0x2000 >;
+	gpioa: gpio@50000000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000000 0x400 >;
+		clocks = < &rcc 0x2c 0x1 >;
+	};
+	gpiob: gpio@50000400 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000400 0x400 >;
+		clocks = < &rcc 0x2c 0x2 >;
+	};
+	gpioc: gpio@50000800 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000800 0x400 >;
+		clocks = < &rcc 0x2c 0x4 >;
+	};
+	gpiod: gpio@50000c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000c00 0x400 >;
+		clocks = < &rcc 0x2c 0x8 >;
+	};
+	gpioh: gpio@50001c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50001c00 0x400 >;
+		clocks = < &rcc 0x2c 0x80 >;
+	};
+	i2c1_scl_pa4: i2c1_scl_pa4 {
+		pinmux = < 0x83 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c1_sda_pa10: i2c1_sda_pa10 {
+		pinmux = < 0x141 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	spi1_miso_pa6: spi1_miso_pa6 {
+		pinmux = < 0xc0 >;
+		bias-pull-down;
+	};
+	spi1_mosi_pa7: spi1_mosi_pa7 {
+		pinmux = < 0xe0 >;
+		bias-pull-down;
+	};
+	spi1_sck_pa5: spi1_sck_pa5 {
+		pinmux = < 0xa0 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	usart2_rx_pa15: usart2_rx_pa15 {
+		pinmux = < 0x1e4 >;
+	};
+	usart2_tx_pa2: usart2_tx_pa2 {
+		pinmux = < 0x44 >;
+		bias-pull-up;
+	};
+};

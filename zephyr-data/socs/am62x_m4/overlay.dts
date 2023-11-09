@@ -1,0 +1,15 @@
+/ {
+	compatible = "phytec,am62x-m4-phyboard-lyra", "ti,am625";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+	};
+};
+&pinctrl{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	pinctrl-0 = < &mcu_uart0_rx_default &mcu_uart0_tx_default >;
+	pinctrl-names = "default";
+};

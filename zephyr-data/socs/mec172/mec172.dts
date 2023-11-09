@@ -1,0 +1,1396 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+			status = "disabled";
+		};
+		ecs: ecs@4000fc00 {
+			reg = < 0x4000fc00 0x200 >;
+		};
+		pcr: pcr@40080100 {
+			compatible = "microchip,xec-pcr";
+			reg = < 0x40080100 0x100 0x4000a400 0x100 >;
+			reg-names = "pcrr", "vbatr";
+			interrupts = < 0xae 0x0 >;
+			core-clock-div = < 0x1 >;
+			pll-32k-src = < 0x0 >;
+			periph-32k-src = < 0x0 >;
+			clk32kmon-period-min = < 0x59b >;
+			clk32kmon-period-max = < 0x5d7 >;
+			clk32kmon-duty-cycle-var-max = < 0x84 >;
+			clk32kmon-valid-min = < 0x4 >;
+			xtal-enable-delay-ms = < 0x12c >;
+			pll-lock-timeout-ms = < 0x1e >;
+			pinctrl-0 = < &clk_32khz_in_gpio165 >;
+			pinctrl-names = "default";
+			#clock-cells = < 0x3 >;
+			phandle = < 0x3 >;
+		};
+		ecia: ecia@4000e000 {
+			compatible = "microchip,xec-ecia";
+			reg = < 0x4000e000 0x400 >;
+			direct-capable-girqs = < 0xd 0xe 0xf 0x10 0x11 0x12 0x13 0x14 0x15 0x17 >;
+			clocks = < &pcr 0x1 0x0 0x3 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ranges = < 0x0 0x4000e000 0x400 >;
+			girq8: girq8@0 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x0 0x14 >;
+				interrupts = < 0x0 0x0 >;
+				girq-id = < 0x0 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x12 0x15 0x16 0x18 0x19 0x1a 0x1b 0x1c 0x1d >;
+				status = "disabled";
+			};
+			girq9: girq9@14 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x14 0x14 >;
+				interrupts = < 0x1 0x0 >;
+				girq-id = < 0x1 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x12 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b 0x1c 0x1d >;
+				status = "disabled";
+			};
+			girq10: girq10@28 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x28 0x14 >;
+				interrupts = < 0x2 0x0 >;
+				girq-id = < 0x2 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x12 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b 0x1c 0x1d 0x1e >;
+				status = "disabled";
+			};
+			girq11: girq11@3c {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x3c 0x14 >;
+				interrupts = < 0x3 0x0 >;
+				girq-id = < 0x3 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x12 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b 0x1c 0x1d 0x1e >;
+				status = "disabled";
+			};
+			girq12: girq12@50 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x50 0x14 >;
+				interrupts = < 0x4 0x0 >;
+				girq-id = < 0x4 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x12 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b 0x1c 0x1d 0x1e >;
+				status = "disabled";
+			};
+			girq13: girq13@64 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x64 0x14 >;
+				interrupts = < 0x5 0x0 >;
+				girq-id = < 0x5 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 >;
+				status = "disabled";
+			};
+			girq14: girq14@78 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x78 0x14 >;
+				interrupts = < 0x6 0x0 >;
+				girq-id = < 0x6 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf >;
+				status = "disabled";
+			};
+			girq15: girq15@8c {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x8c 0x14 >;
+				interrupts = < 0x7 0x0 >;
+				girq-id = < 0x7 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x12 0x13 0x14 0x16 >;
+				status = "disabled";
+			};
+			girq16: girq16@a0 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0xa0 0x14 >;
+				interrupts = < 0x8 0x0 >;
+				girq-id = < 0x8 >;
+				sources = < 0x0 0x2 0x3 >;
+				status = "disabled";
+			};
+			girq17: girq17@b4 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0xb4 0x14 >;
+				interrupts = < 0x9 0x0 >;
+				girq-id = < 0x9 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x14 0x15 0x16 0x17 >;
+				status = "disabled";
+			};
+			girq18: girq18@c8 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0xc8 0x14 >;
+				interrupts = < 0xa 0x0 >;
+				girq-id = < 0xa >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0xa 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b 0x1c >;
+				status = "disabled";
+			};
+			girq19: girq19@dc {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0xdc 0x14 >;
+				interrupts = < 0xb 0x0 >;
+				girq-id = < 0xb >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa >;
+				status = "disabled";
+			};
+			girq20: girq20@f0 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0xf0 0x14 >;
+				interrupts = < 0xc 0x0 >;
+				girq-id = < 0xc >;
+				sources = < 0x3 0x9 >;
+				status = "disabled";
+			};
+			girq21: girq21@104 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x104 0x14 >;
+				interrupts = < 0xd 0x0 >;
+				girq-id = < 0xd >;
+				sources = < 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x12 0x13 0x19 0x1a >;
+				status = "disabled";
+			};
+			girq22: girq22@118 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x118 0x14 >;
+				interrupts = < 0xff 0x0 >;
+				girq-id = < 0xe >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x9 0xf >;
+				status = "disabled";
+			};
+			girq23: girq23@12c {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x12c 0x14 >;
+				interrupts = < 0xe 0x0 >;
+				girq-id = < 0xf >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0x10 0x11 >;
+				status = "disabled";
+			};
+			girq24: girq24@140 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x140 0x14 >;
+				interrupts = < 0xf 0x0 >;
+				girq-id = < 0x10 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf 0x10 0x11 0x12 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b >;
+				status = "disabled";
+			};
+			girq25: girq25@154 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x154 0x14 >;
+				interrupts = < 0x10 0x0 >;
+				girq-id = < 0x11 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf >;
+				status = "disabled";
+			};
+			girq26: girq26@168 {
+				compatible = "microchip,xec-ecia-girq";
+				reg = < 0x168 0x14 >;
+				interrupts = < 0x11 0x0 >;
+				girq-id = < 0x12 >;
+				sources = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0xc 0xd >;
+				status = "disabled";
+			};
+		};
+		pinctrl: pin-controller@40081000 {
+			compatible = "microchip,xec-pinctrl";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			reg = < 0x40081000 0x1000 >;
+			gpio_000_036: gpio@40081000 {
+				compatible = "microchip,xec-gpio-v2";
+				reg = < 0x40081000 0x80 0x40081300 0x4 0x40081380 0x4 0x400813fc 0x4 >;
+				interrupts = < 0x3 0x2 >;
+				gpio-controller;
+				port-id = < 0x0 >;
+				girq-id = < 0xb >;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio_040_076: gpio@40081080 {
+				compatible = "microchip,xec-gpio-v2";
+				reg = < 0x40081080 0x80 0x40081304 0x4 0x40081384 0x4 0x400813f8 0x4 >;
+				interrupts = < 0x2 0x2 >;
+				gpio-controller;
+				port-id = < 0x1 >;
+				girq-id = < 0xa >;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio_100_136: gpio@40081100 {
+				compatible = "microchip,xec-gpio-v2";
+				reg = < 0x40081100 0x80 0x40081308 0x4 0x40081388 0x4 0x400813f4 0x4 >;
+				gpio-controller;
+				interrupts = < 0x1 0x2 >;
+				port-id = < 0x2 >;
+				girq-id = < 0x9 >;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio_140_176: gpio@40081180 {
+				compatible = "microchip,xec-gpio-v2";
+				reg = < 0x40081180 0x80 0x4008130c 0x4 0x4008138c 0x4 0x400813f0 0x4 >;
+				gpio-controller;
+				interrupts = < 0x0 0x2 >;
+				port-id = < 0x3 >;
+				girq-id = < 0x8 >;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio_200_236: gpio@40081200 {
+				compatible = "microchip,xec-gpio-v2";
+				reg = < 0x40081200 0x80 0x40081310 0x4 0x40081390 0x4 0x400813ec 0x4 >;
+				gpio-controller;
+				interrupts = < 0x4 0x2 >;
+				port-id = < 0x4 >;
+				girq-id = < 0xc >;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio_240_276: gpio@40081280 {
+				compatible = "microchip,xec-gpio-v2";
+				reg = < 0x40081280 0x80 0x40081314 0x4 0x40081394 0x4 0x400813e8 0x4 >;
+				gpio-controller;
+				interrupts = < 0x11 0x2 >;
+				port-id = < 0x5 >;
+				girq-id = < 0x1a >;
+				#gpio-cells = < 0x2 >;
+			};
+			clk_32khz_in_gpio165: clk_32khz_in_gpio165 {
+				pinmux = < 0x353 >;
+				phandle = < 0x2 >;
+			};
+			peci_dat_gpio042_sleep: peci_dat_gpio042_sleep {
+				pinmux = < 0x221 >;
+				low-power-enable;
+			};
+			vref_vtt_gpio044_sleep: vref_vtt_gpio044_sleep {
+				pinmux = < 0x241 >;
+				low-power-enable;
+			};
+			ps2_clk0b_gpio007_sleep: ps2_clk0b_gpio007_sleep {
+				pinmux = < 0x470 >;
+				low-power-enable;
+			};
+			ps2_dat0b_gpio010_sleep: ps2_dat0b_gpio010_sleep {
+				pinmux = < 0x480 >;
+				low-power-enable;
+			};
+			ps2_clk1b_gpio154_sleep: ps2_clk1b_gpio154_sleep {
+				pinmux = < 0x4c3 >;
+				low-power-enable;
+			};
+			ps2_dat1b_gpio155_sleep: ps2_dat1b_gpio155_sleep {
+				pinmux = < 0x4d3 >;
+				low-power-enable;
+			};
+			pwm0_gpio053_sleep: pwm0_gpio053_sleep {
+				pinmux = < 0x2b1 >;
+				low-power-enable;
+			};
+			pwm0_alt_gpio241_sleep: pwm0_alt_gpio241_sleep {
+				pinmux = < 0x215 >;
+				low-power-enable;
+			};
+			pwm1_gpio054_sleep: pwm1_gpio054_sleep {
+				pinmux = < 0x2c1 >;
+				low-power-enable;
+			};
+			pwm1_alt_gpio254_sleep: pwm1_alt_gpio254_sleep {
+				pinmux = < 0x2c5 >;
+				low-power-enable;
+			};
+			pwm2_gpio055_sleep: pwm2_gpio055_sleep {
+				pinmux = < 0x2d1 >;
+				low-power-enable;
+			};
+			pwm2_alt_gpio045_sleep: pwm2_alt_gpio045_sleep {
+				pinmux = < 0x451 >;
+				low-power-enable;
+			};
+			pwm3_gpio056_sleep: pwm3_gpio056_sleep {
+				pinmux = < 0x2e1 >;
+				low-power-enable;
+			};
+			pwm3_alt_gpio047_sleep: pwm3_alt_gpio047_sleep {
+				pinmux = < 0x471 >;
+				low-power-enable;
+			};
+			pwm4_gpio011_sleep: pwm4_gpio011_sleep {
+				pinmux = < 0x490 >;
+				low-power-enable;
+			};
+			pwm5_gpio002_sleep: pwm5_gpio002_sleep {
+				pinmux = < 0x220 >;
+				low-power-enable;
+			};
+			pwm6_gpio014_sleep: pwm6_gpio014_sleep {
+				pinmux = < 0x2c0 >;
+				low-power-enable;
+			};
+			pwm6_alt_gpio063_sleep: pwm6_alt_gpio063_sleep {
+				pinmux = < 0x531 >;
+				low-power-enable;
+			};
+			pwm7_gpio015_sleep: pwm7_gpio015_sleep {
+				pinmux = < 0x2d0 >;
+				low-power-enable;
+			};
+			pwm7_alt_gpio061_sleep: pwm7_alt_gpio061_sleep {
+				pinmux = < 0x511 >;
+				low-power-enable;
+			};
+			pwm8_gpio035_sleep: pwm8_gpio035_sleep {
+				pinmux = < 0x3d0 >;
+				low-power-enable;
+			};
+			pwm8_alt_gpio175_sleep: pwm8_alt_gpio175_sleep {
+				pinmux = < 0x7d3 >;
+				low-power-enable;
+			};
+			ksi0_gpio017_sleep: ksi0_gpio017_sleep {
+				pinmux = < 0x2f0 >;
+				low-power-enable;
+			};
+			ksi1_gpio020_sleep: ksi1_gpio020_sleep {
+				pinmux = < 0x300 >;
+				low-power-enable;
+			};
+			ksi2_gpio021_sleep: ksi2_gpio021_sleep {
+				pinmux = < 0x310 >;
+				low-power-enable;
+			};
+			ksi3_gpio026_sleep: ksi3_gpio026_sleep {
+				pinmux = < 0x360 >;
+				low-power-enable;
+			};
+			ksi4_gpio027_sleep: ksi4_gpio027_sleep {
+				pinmux = < 0x370 >;
+				low-power-enable;
+			};
+			ksi5_gpio030_sleep: ksi5_gpio030_sleep {
+				pinmux = < 0x380 >;
+				low-power-enable;
+			};
+			ksi6_gpio031_sleep: ksi6_gpio031_sleep {
+				pinmux = < 0x390 >;
+				low-power-enable;
+			};
+			ksi7_gpio032_sleep: ksi7_gpio032_sleep {
+				pinmux = < 0x3a0 >;
+				low-power-enable;
+			};
+			kso00_gpio040_sleep: kso00_gpio040_sleep {
+				pinmux = < 0x401 >;
+				low-power-enable;
+			};
+			kso01_gpio045_sleep: kso01_gpio045_sleep {
+				pinmux = < 0x251 >;
+				low-power-enable;
+			};
+			kso02_gpio046_sleep: kso02_gpio046_sleep {
+				pinmux = < 0x261 >;
+				low-power-enable;
+			};
+			kso03_gpio047_sleep: kso03_gpio047_sleep {
+				pinmux = < 0x271 >;
+				low-power-enable;
+			};
+			kso04_gpio107_sleep: kso04_gpio107_sleep {
+				pinmux = < 0x472 >;
+				low-power-enable;
+			};
+			kso05_gpio112_sleep: kso05_gpio112_sleep {
+				pinmux = < 0x2a2 >;
+				low-power-enable;
+			};
+			kso06_gpio113_sleep: kso06_gpio113_sleep {
+				pinmux = < 0x2b2 >;
+				low-power-enable;
+			};
+			kso07_gpio120_sleep: kso07_gpio120_sleep {
+				pinmux = < 0x302 >;
+				low-power-enable;
+			};
+			kso08_gpio121_sleep: kso08_gpio121_sleep {
+				pinmux = < 0x512 >;
+				low-power-enable;
+			};
+			kso09_gpio122_sleep: kso09_gpio122_sleep {
+				pinmux = < 0x522 >;
+				low-power-enable;
+			};
+			kso10_gpio123_sleep: kso10_gpio123_sleep {
+				pinmux = < 0x532 >;
+				low-power-enable;
+			};
+			kso11_gpio124_sleep: kso11_gpio124_sleep {
+				pinmux = < 0x542 >;
+				low-power-enable;
+			};
+			kso12_gpio125_sleep: kso12_gpio125_sleep {
+				pinmux = < 0x552 >;
+				low-power-enable;
+			};
+			kso13_gpio126_sleep: kso13_gpio126_sleep {
+				pinmux = < 0x562 >;
+				low-power-enable;
+			};
+			kso14_gpio152_sleep: kso14_gpio152_sleep {
+				pinmux = < 0x2a3 >;
+				low-power-enable;
+			};
+			kso15_gpio151_sleep: kso15_gpio151_sleep {
+				pinmux = < 0x493 >;
+				low-power-enable;
+			};
+			kso16_gpio132_sleep: kso16_gpio132_sleep {
+				pinmux = < 0x5a2 >;
+				low-power-enable;
+			};
+			kso17_gpio140_sleep: kso17_gpio140_sleep {
+				pinmux = < 0x603 >;
+				low-power-enable;
+			};
+			pspi_cs_n_gpio116_sleep: pspi_cs_n_gpio116_sleep {
+				pinmux = < 0x4e2 >;
+				low-power-enable;
+			};
+			pspi_clk_gpio117_sleep: pspi_clk_gpio117_sleep {
+				pinmux = < 0x4f2 >;
+				low-power-enable;
+			};
+			pspi_mosi_gpio074_sleep: pspi_mosi_gpio074_sleep {
+				pinmux = < 0x5c1 >;
+				low-power-enable;
+			};
+			pspi_miso_gpio075_sleep: pspi_miso_gpio075_sleep {
+				pinmux = < 0x5d1 >;
+				low-power-enable;
+			};
+		};
+		wdog: watchdog@40000400 {
+			compatible = "microchip,xec-watchdog";
+			reg = < 0x40000400 0x400 >;
+			interrupts = < 0xab 0x0 >;
+			girqs = < 0x15 0x2 >;
+			pcrs = < 0x1 0x9 >;
+		};
+		rtimer: timer@40007400 {
+			compatible = "microchip,xec-rtos-timer";
+			reg = < 0x40007400 0x10 >;
+			interrupts = < 0x6f 0x0 >;
+			girqs = < 0x17 0xa >;
+		};
+		timer0: timer@40000c00 {
+			compatible = "microchip,xec-timer";
+			clock-frequency = < 0x2dc6c00 >;
+			reg = < 0x40000c00 0x20 >;
+			interrupts = < 0x88 0x0 >;
+			girqs = < 0x17 0x0 >;
+			pcrs = < 0x1 0x1e >;
+			max-value = < 0xffff >;
+			prescaler = < 0x0 >;
+			status = "disabled";
+		};
+		timer1: timer@40000c20 {
+			compatible = "microchip,xec-timer";
+			clock-frequency = < 0x2dc6c00 >;
+			reg = < 0x40000c20 0x20 >;
+			interrupts = < 0x89 0x0 >;
+			girqs = < 0x17 0x1 >;
+			pcrs = < 0x1 0x1f >;
+			max-value = < 0xffff >;
+			prescaler = < 0x0 >;
+			status = "disabled";
+		};
+		timer2: timer@40000c40 {
+			compatible = "microchip,xec-timer";
+			clock-frequency = < 0x2dc6c00 >;
+			reg = < 0x40000c40 0x20 >;
+			interrupts = < 0x8a 0x0 >;
+			girqs = < 0x17 0x2 >;
+			pcrs = < 0x3 0x15 >;
+			max-value = < 0xffff >;
+			prescaler = < 0x0 >;
+			status = "disabled";
+		};
+		timer3: timer@40000c60 {
+			compatible = "microchip,xec-timer";
+			clock-frequency = < 0x2dc6c00 >;
+			reg = < 0x40000c60 0x20 >;
+			interrupts = < 0x8b 0x0 >;
+			girqs = < 0x17 0x3 >;
+			pcrs = < 0x3 0x16 >;
+			max-value = < 0xffff >;
+			prescaler = < 0x0 >;
+			status = "disabled";
+		};
+		timer4: timer@40000c80 {
+			compatible = "microchip,xec-timer";
+			clock-frequency = < 0x2dc6c00 >;
+			reg = < 0x40000c80 0x20 >;
+			interrupts = < 0x8c 0x0 >;
+			girqs = < 0x17 0x4 >;
+			pcrs = < 0x3 0x17 >;
+			max-value = < 0xffffffff >;
+			prescaler = < 0x0 >;
+			status = "disabled";
+		};
+		timer5: timer@40000ca0 {
+			compatible = "microchip,xec-timer";
+			clock-frequency = < 0x2dc6c00 >;
+			reg = < 0x40000ca0 0x20 >;
+			interrupts = < 0x8d 0x0 >;
+			girqs = < 0x17 0x5 >;
+			pcrs = < 0x3 0x18 >;
+			max-value = < 0xffffffff >;
+			prescaler = < 0x0 >;
+			status = "disabled";
+		};
+		cntr0: timer@40000d00 {
+			reg = < 0x40000d00 0x20 >;
+			interrupts = < 0x8e 0x0 >;
+			girqs = < 0x17 0x6 >;
+			pcrs = < 0x4 0x2 >;
+			status = "disabled";
+		};
+		cntr1: timer@40000d20 {
+			reg = < 0x40000d20 0x20 >;
+			interrupts = < 0x8f 0x0 >;
+			girqs = < 0x17 0x7 >;
+			pcrs = < 0x4 0x3 >;
+			status = "disabled";
+		};
+		cntr2: timer@40000d40 {
+			reg = < 0x40000d40 0x20 >;
+			interrupts = < 0x90 0x0 >;
+			girqs = < 0x17 0x8 >;
+			pcrs = < 0x4 0x3 >;
+			status = "disabled";
+		};
+		cntr3: timer@40000d60 {
+			reg = < 0x40000d60 0x20 >;
+			interrupts = < 0x91 0x0 >;
+			girqs = < 0x17 0x9 >;
+			pcrs = < 0x4 0x4 >;
+			status = "disabled";
+		};
+		cctmr0: timer@40001000 {
+			reg = < 0x40001000 0x40 >;
+			interrupts = < 0x92 0x0 >, < 0x93 0x0 >, < 0x94 0x0 >, < 0x95 0x0 >, < 0x96 0x0 >, < 0x97 0x0 >, < 0x98 0x0 >, < 0x99 0x0 >, < 0x9a 0x0 >;
+			girqs = < 0x12 0x14 >, < 0x12 0x15 >, < 0x12 0x16 >, < 0x12 0x17 >, < 0x12 0x18 >, < 0x12 0x19 >, < 0x12 0x1a >, < 0x12 0x1b >, < 0x12 0x1c >;
+			pcrs = < 0x3 0x1e >;
+			status = "disabled";
+		};
+		hibtimer0: timer@40009800 {
+			reg = < 0x40009800 0x20 >;
+			interrupts = < 0x70 0x0 >;
+			girqs = < 0x17 0x10 >;
+		};
+		hibtimer1: timer@40009820 {
+			reg = < 0x40009820 0x20 >;
+			interrupts = < 0x71 0x0 >;
+			girqs = < 0x17 0x11 >;
+		};
+		weektmr0: timer@4000ac80 {
+			reg = < 0x4000ac80 0x80 >;
+			interrupts = < 0x72 0x0 >, < 0x73 0x0 >, < 0x74 0x0 >, < 0x75 0x0 >, < 0x76 0x0 >;
+			girqs = < 0x15 0x3 >, < 0x15 0x4 >, < 0x15 0x5 >, < 0x15 0x6 >, < 0x15 0x7 >;
+			status = "disabled";
+		};
+		bbram: bb-ram@4000a800 {
+			compatible = "microchip,xec-bbram";
+			reg = < 0x4000a800 0x100 >;
+			reg-names = "memory";
+		};
+		vci0: vci@4000ae00 {
+			reg = < 0x4000ae00 0x40 >;
+			interrupts = < 0x79 0x0 >, < 0x7a 0x0 >, < 0x7b 0x0 >, < 0x7c 0x0 >, < 0x7d 0x0 >;
+			girqs = < 0x15 0xa >, < 0x15 0xb >, < 0x15 0xc >, < 0x15 0xd >, < 0x15 0xe >;
+			status = "disabled";
+		};
+		dmac: dmac@40002400 {
+			compatible = "microchip,xec-dmac";
+			reg = < 0x40002400 0xc00 >;
+			interrupts = < 0x18 0x1 >, < 0x19 0x1 >, < 0x1a 0x1 >, < 0x1b 0x1 >, < 0x1c 0x1 >, < 0x1d 0x1 >, < 0x1e 0x1 >, < 0x1f 0x1 >, < 0x20 0x1 >, < 0x21 0x1 >, < 0x22 0x1 >, < 0x23 0x1 >, < 0x24 0x1 >, < 0x25 0x1 >, < 0x26 0x1 >, < 0x27 0x1 >;
+			girqs = < 0x1806000e 0x1906010e 0x1a06020e 0x1b06030e 0x1c06040e 0x1d06050e 0x1e06060e 0x1f06070e 0x2006080e 0x2106090e 0x22060a0e 0x23060b0e 0x24060c0e 0x25060d0e 0x26060e0e 0x27060f0e >;
+			pcrs = < 0x1 0x6 >;
+			#dma-cells = < 0x2 >;
+			dma-channels = < 0x10 >;
+			dma-requests = < 0x10 >;
+			status = "disabled";
+		};
+		i2c_smb_0: i2c@40004000 {
+			compatible = "microchip,xec-i2c-v2";
+			reg = < 0x40004000 0x80 >;
+			clock-frequency = < 0x186a0 >;
+			interrupts = < 0x14 0x1 >;
+			girqs = < 0xd 0x0 >;
+			pcrs = < 0x1 0xa >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		i2c_smb_1: i2c@40004400 {
+			compatible = "microchip,xec-i2c-v2";
+			reg = < 0x40004400 0x80 >;
+			clock-frequency = < 0x186a0 >;
+			interrupts = < 0x15 0x1 >;
+			girqs = < 0xd 0x1 >;
+			pcrs = < 0x3 0xd >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		i2c_smb_2: i2c@40004800 {
+			compatible = "microchip,xec-i2c-v2";
+			reg = < 0x40004800 0x80 >;
+			clock-frequency = < 0x186a0 >;
+			interrupts = < 0x16 0x1 >;
+			girqs = < 0xd 0x2 >;
+			pcrs = < 0x3 0xe >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		i2c_smb_3: i2c@40004c00 {
+			compatible = "microchip,xec-i2c-v2";
+			reg = < 0x40004c00 0x80 >;
+			clock-frequency = < 0x186a0 >;
+			interrupts = < 0x17 0x1 >;
+			girqs = < 0xd 0x3 >;
+			pcrs = < 0x3 0xf >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		i2c_smb_4: i2c@40005000 {
+			compatible = "microchip,xec-i2c-v2";
+			reg = < 0x40005000 0x80 >;
+			clock-frequency = < 0x186a0 >;
+			interrupts = < 0x9e 0x1 >;
+			girqs = < 0xd 0x4 >;
+			pcrs = < 0x3 0x14 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		ps2_0: ps2@40009000 {
+			compatible = "microchip,xec-ps2";
+			reg = < 0x40009000 0x40 >;
+			interrupts = < 0x64 0x1 >;
+			girqs = < 0x12 0xa >, < 0x15 0x12 >;
+			pcrs = < 0x3 0x5 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		pwm0: pwm@40005800 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005800 0x20 >;
+			pcrs = < 0x1 0x4 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm1: pwm@40005810 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005810 0x20 >;
+			pcrs = < 0x1 0x14 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm2: pwm@40005820 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005820 0x20 >;
+			pcrs = < 0x1 0x15 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm3: pwm@40005830 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005830 0x20 >;
+			pcrs = < 0x1 0x16 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm4: pwm@40005840 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005840 0x20 >;
+			pcrs = < 0x1 0x17 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm5: pwm@40005850 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005850 0x20 >;
+			pcrs = < 0x1 0x18 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm6: pwm@40005860 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005860 0x20 >;
+			pcrs = < 0x1 0x19 >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm7: pwm@40005870 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005870 0x20 >;
+			pcrs = < 0x1 0x1a >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		pwm8: pwm@40005880 {
+			compatible = "microchip,xec-pwm";
+			reg = < 0x40005880 0x20 >;
+			pcrs = < 0x1 0x1b >;
+			status = "disabled";
+			#pwm-cells = < 0x3 >;
+		};
+		tach0: tach@40006000 {
+			compatible = "microchip,xec-tach";
+			reg = < 0x40006000 0x10 >;
+			interrupts = < 0x47 0x4 >;
+			girqs = < 0x11 0x1 >;
+			pcrs = < 0x1 0x2 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		tach1: tach@40006010 {
+			compatible = "microchip,xec-tach";
+			reg = < 0x40006010 0x10 >;
+			interrupts = < 0x48 0x4 >;
+			girqs = < 0x11 0x2 >;
+			pcrs = < 0x1 0xb >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		tach2: tach@40006020 {
+			compatible = "microchip,xec-tach";
+			reg = < 0x40006020 0x10 >;
+			interrupts = < 0x49 0x4 >;
+			girqs = < 0x11 0x3 >;
+			pcrs = < 0x1 0xc >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		tach3: tach@40006030 {
+			compatible = "microchip,xec-tach";
+			reg = < 0x40006030 0x10 >;
+			interrupts = < 0x9f 0x4 >;
+			girqs = < 0x11 0x4 >;
+			pcrs = < 0x1 0xd >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		rpmfan0: rpmfan@4000a000 {
+			reg = < 0x4000a000 0x80 >;
+			interrupts = < 0x4a 0x1 >, < 0x4b 0x1 >;
+			girqs = < 0x11 0x14 >, < 0x11 0x15 >;
+			pcrs = < 0x3 0xc >;
+			status = "disabled";
+		};
+		rpmfan1: rpmfan@4000a080 {
+			reg = < 0x4000a080 0x80 >;
+			interrupts = < 0x4c 0x1 >, < 0x4d 0x1 >;
+			girqs = < 0x11 0x16 >, < 0x11 0x17 >;
+			pcrs = < 0x4 0x7 >;
+			status = "disabled";
+		};
+		adc0: adc@40007c00 {
+			compatible = "microchip,xec-adc";
+			reg = < 0x40007c00 0x90 >;
+			interrupts = < 0x4e 0x0 >, < 0x4f 0x0 >;
+			girqs = < 0x11 0x8 >, < 0x11 0x9 >;
+			pcrs = < 0x3 0x3 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+			clktime = < 0x20 >;
+		};
+		kscan0: kscan@40009c00 {
+			compatible = "microchip,xec-kscan";
+			reg = < 0x40009c00 0x18 >;
+			interrupts = < 0x87 0x0 >;
+			girqs = < 0x15 0x19 >;
+			pcrs = < 0x3 0xb >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		peci0: peci@40006400 {
+			compatible = "microchip,xec-peci";
+			reg = < 0x40006400 0x80 >;
+			interrupts = < 0x46 0x4 >;
+			girqs = < 0x11 0x0 >;
+			pcrs = < 0x1 0x1 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi0: spi@40070000 {
+			reg = < 0x40070000 0x400 >;
+			interrupts = < 0x5b 0x2 >;
+			girqs = < 0x5b0a0112 >;
+			clocks = < &pcr 0x4 0x8 0x3 >;
+			clock-frequency = < 0xb71b00 >;
+			lines = < 0x1 >;
+			chip-select = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		spi1: spi@40009400 {
+			reg = < 0x40009400 0x80 >;
+			interrupts = < 0x5c 0x2 >, < 0x5d 0x2 >;
+			girqs = < 0x12 0x2 >, < 0x12 0x3 >;
+			pcrs = < 0x3 0x9 >;
+			status = "disabled";
+		};
+		spi2: spi@40009480 {
+			reg = < 0x40009480 0x80 >;
+			interrupts = < 0x5e 0x2 >, < 0x5f 0x2 >;
+			girqs = < 0x12 0x4 >, < 0x12 0x5 >;
+			pcrs = < 0x4 0x16 >;
+			status = "disabled";
+		};
+		prochot0: prochot@40003400 {
+			reg = < 0x40003400 0x20 >;
+			interrupts = < 0x57 0x0 >;
+			girqs = < 0x11 0x11 >;
+			pcrs = < 0x4 0xd >;
+			status = "disabled";
+		};
+		rcid0: rcid@40001400 {
+			reg = < 0x40001400 0x80 >;
+			interrupts = < 0x50 0x0 >;
+			girqs = < 0x11 0xa >;
+			pcrs = < 0x4 0xa >;
+			status = "disabled";
+		};
+		rcid1: rcid@40001480 {
+			reg = < 0x40001480 0x80 >;
+			interrupts = < 0x51 0x0 >;
+			girqs = < 0x11 0xb >;
+			pcrs = < 0x4 0xb >;
+			status = "disabled";
+		};
+		rcid2: rcid@40001500 {
+			reg = < 0x40001500 0x80 >;
+			interrupts = < 0x52 0x0 >;
+			girqs = < 0x11 0xc >;
+			pcrs = < 0x4 0xc >;
+			status = "disabled";
+		};
+		spip0: spip@40007000 {
+			reg = < 0x40007000 0x100 >;
+			interrupts = < 0x5a 0x0 >;
+			girqs = < 0x12 0x0 >;
+			pcrs = < 0x4 0x10 >;
+			status = "disabled";
+		};
+		bbled0: bbled@4000b800 {
+			reg = < 0x4000b800 0x100 >;
+			interrupts = < 0x53 0x0 >;
+			girqs = < 0x11 0xd >;
+			pcrs = < 0x3 0x10 >;
+			status = "disabled";
+		};
+		bbled1: bbled@4000b900 {
+			reg = < 0x4000b900 0x100 >;
+			interrupts = < 0x54 0x0 >;
+			girqs = < 0x11 0xe >;
+			pcrs = < 0x3 0x11 >;
+			status = "disabled";
+		};
+		bbled2: bbled@4000ba00 {
+			reg = < 0x4000ba00 0x100 >;
+			interrupts = < 0x55 0x0 >;
+			girqs = < 0x11 0xf >;
+			pcrs = < 0x3 0x12 >;
+			status = "disabled";
+		};
+		bbled3: bbled@4000bb00 {
+			reg = < 0x4000bb00 0x100 >;
+			interrupts = < 0x56 0x0 >;
+			girqs = < 0x11 0x10 >;
+			pcrs = < 0x3 0x19 >;
+			status = "disabled";
+		};
+		bclink0: bclink@4000cd00 {
+			reg = < 0x4000cd00 0x20 >;
+			interrupts = < 0x60 0x0 >, < 0x61 0x0 >;
+			girqs = < 0x12 0x7 >, < 0x12 0x6 >;
+			pcrs = < 0x3 0x13 >;
+			status = "disabled";
+		};
+		tfdp0: tfdp@40008c00 {
+			reg = < 0x40008c00 0x10 >;
+			pcrs = < 0x1 0x7 >;
+			status = "disabled";
+		};
+		glblcfg0: glblcfg@400fff00 {
+			reg = < 0x400fff00 0x40 >;
+			pcrs = < 0x2 0xc >;
+			status = "disabled";
+		};
+		uart0: uart@400f2400 {
+			compatible = "microchip,xec-uart";
+			reg = < 0x400f2400 0x400 >;
+			interrupts = < 0x28 0x1 >;
+			clock-frequency = < 0x1c2000 >;
+			current-speed = < 0x9600 >;
+			girqs = < 0xf 0x0 >;
+			pcrs = < 0x2 0x1 >;
+			ldn = < 0x9 >;
+			status = "disabled";
+		};
+		uart1: uart@400f2800 {
+			compatible = "microchip,xec-uart";
+			reg = < 0x400f2800 0x400 >;
+			interrupts = < 0x29 0x1 >;
+			clock-frequency = < 0x1c2000 >;
+			current-speed = < 0x9600 >;
+			girqs = < 0xf 0x1 >;
+			pcrs = < 0x2 0x2 >;
+			ldn = < 0xa >;
+			status = "disabled";
+		};
+		espi0: espi@400f3400 {
+			compatible = "microchip,xec-espi-v2";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			reg = < 0x400f3400 0x400 0x400f3800 0x400 0x400f9c00 0x400 >;
+			reg-names = "io", "mem", "vw";
+			interrupts = < 0x67 0x3 >, < 0x68 0x3 >, < 0x69 0x3 >, < 0x6a 0x3 >, < 0x6b 0x3 >, < 0x6c 0x3 >, < 0x6d 0x3 >, < 0x6e 0x2 >, < 0x9c 0x3 >;
+			interrupt-names = "pc", "bm1", "bm2", "ltr", "oob_up", "oob_dn", "fc", "rst", "vw_chan_en";
+			girqs = < 0x670b0013 0x680b0113 0x690b0213 0x6a0b0313 0x6b0b0413 0x6c0b0513 0x6d0b0613 0x6e0b0713 0x9c0b0813 >;
+			pcrs = < 0x2 0x13 >;
+			status = "disabled";
+			espi_saf0: espi_saf@40008000 {
+				compatible = "microchip,xec-espi-saf-v2";
+				reg = < 0x40008000 0x400 >, < 0x40070000 0x400 >, < 0x40071000 0x400 >;
+				reg-names = "safbr", "safqspi", "safcomm";
+				interrupts = < 0xa6 0x3 >, < 0xa7 0x3 >;
+				interrupt-names = "done", "err";
+				girqs = < 0xa60b0913 >, < 0xa70b0a13 >;
+				pcrs = < 0x2 0x1b >;
+				status = "disabled";
+			};
+			mbox0: mbox@400f0000 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f0000 0x200 >;
+				interrupts = < 0x3c 0x3 >;
+				girqs = < 0x3c07140f >;
+				pcrs = < 0x2 0x11 >;
+				ldn = < 0x0 >;
+				status = "disabled";
+			};
+			kbc0: kbc@400f0400 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f0400 0x400 >;
+				interrupts = < 0x3a 0x3 >, < 0x3b 0x3 >;
+				interrupt-names = "kbc_obe", "kbc_ibf";
+				girqs = < 0x3a07120f 0x3b07130f >;
+				ldn = < 0x1 >;
+				status = "disabled";
+			};
+			acpi_ec0: acpi_ec@400f0800 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f0800 0x400 >;
+				interrupts = < 0x2d 0x3 >, < 0x2e 0x3 >;
+				interrupt-names = "acpi_ibf", "acpi_obe";
+				girqs = < 0x2d07050f 0x2e07060f >;
+				ldn = < 0x2 >;
+				status = "disabled";
+			};
+			acpi_ec1: acpi_ec@400f0c00 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f0c00 0x400 >;
+				interrupts = < 0x2f 0x3 >, < 0x30 0x3 >;
+				interrupt-names = "acpi_ibf", "acpi_obe";
+				girqs = < 0x2f07070f 0x3007080f >;
+				ldn = < 0x3 >;
+				status = "disabled";
+			};
+			acpi_ec2: acpi_ec@400f1000 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f1000 0x400 >;
+				interrupts = < 0x31 0x3 >, < 0x32 0x3 >;
+				interrupt-names = "acpi_ibf", "acpi_obe";
+				girqs = < 0x3107090f 0x32070a0f >;
+				ldn = < 0x4 >;
+				status = "disabled";
+			};
+			acpi_ec3: acpi_ec@400f1400 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f1400 0x400 >;
+				interrupts = < 0x33 0x3 >, < 0x34 0x3 >;
+				interrupt-names = "acpi_ibf", "acpi_obe";
+				girqs = < 0x33070b0f 0x34070c0f >;
+				ldn = < 0x5 >;
+				status = "disabled";
+			};
+			acpi_ec4: acpi_ec@400f1800 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f1800 0x400 >;
+				interrupts = < 0x35 0x3 >, < 0x36 0x3 >;
+				interrupt-names = "acpi_ibf", "acpi_obe";
+				girqs = < 0x35070d0f 0x36070e0f >;
+				ldn = < 0x6 >;
+				status = "disabled";
+			};
+			acpi_pm1: acpi_pm1@400f1c00 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f1c00 0x400 >;
+				interrupts = < 0x37 0x3 >, < 0x38 0x3 >, < 0x39 0x3 >;
+				interrupt-names = "pm1_ctl", "pm1_en", "pm1_sts";
+				girqs = < 0x37070f0f 0x3807100f 0x3907110f >;
+				ldn = < 0x7 >;
+				status = "disabled";
+			};
+			port92: port92@400f2000 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f2000 0x400 >;
+				ldn = < 0x8 >;
+				status = "disabled";
+			};
+			emi0: emi@400f4000 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f4000 0x400 >;
+				interrupts = < 0x2a 0x3 >;
+				girqs = < 0x2a07020f >;
+				ldn = < 0x10 >;
+				status = "disabled";
+			};
+			emi1: emi@400f4400 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f4400 0x400 >;
+				interrupts = < 0x2b 0x3 >;
+				girqs = < 0x2b07030f >;
+				ldn = < 0x11 >;
+				status = "disabled";
+			};
+			emi2: emi@400f4800 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f4800 0x400 >;
+				interrupts = < 0x2c 0x3 >;
+				girqs = < 0x2c07040f >;
+				ldn = < 0x12 >;
+				status = "disabled";
+			};
+			rtc0: rtc@400f5000 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f5000 0x100 >;
+				interrupts = < 0x77 0x3 >, < 0x78 0x3 >;
+				girqs = < 0x770d0815 0x780d0915 >;
+				pcrs = < 0x2 0x12 >;
+				ldn = < 0x14 >;
+				status = "disabled";
+			};
+			p80bd0: p80bd@400f8000 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f8000 0x400 >;
+				interrupts = < 0x3e 0x0 >;
+				girqs = < 0x3e07160f >;
+				pcrs = < 0x2 0x19 >;
+				ldn = < 0x20 >;
+				status = "disabled";
+			};
+			p80bd0_alias: p80bd@400f8400 {
+				compatible = "microchip,xec-espi-host-dev";
+				reg = < 0x400f8400 0x400 >;
+				ldn = < 0x21 >;
+				host-io = < 0x90 >;
+				host-io-addr-mask = < 0x1 >;
+				status = "disabled";
+			};
+		};
+		symcr: symcr@40100000 {
+			compatible = "microchip,xec-symcr";
+			reg = < 0x40100000 0x1000 >;
+			interrupts = < 0x44 0x1 >;
+			clocks = < &pcr 0x3 0x1a 0x3 >;
+			girqs = < 0x10 0x3 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+		};
+		rom_api: rom_api@1f000 {
+			reg = < 0x1f000 0x1000 >;
+			status = "disabled";
+		};
+		eeprom: eeprom@40002c00 {
+			compatible = "microchip,xec-eeprom";
+			reg = < 0x40002c00 0x400 >;
+			interrupts = < 0x9b 0x2 >;
+			size = < 0x800 >;
+			girqs = < 0x12 0xd >;
+			pcrs = < 0x4 0xe >;
+			status = "disabled";
+		};
+	};
+	mchp-xec-espi-vw-routing {
+		compatible = "microchip,xec-espi-vw-routing";
+		vw_slp_s3_n: vw_slp_s3_n {
+			vw-reg = < 0x2 0x1 0x0 0x0 >;
+			vw-girq = < 0x18 0x0 >;
+			status = "okay";
+		};
+		vw_slp_s4_n: vw_slp_s4_n {
+			vw-reg = < 0x2 0x1 0x0 0x1 >;
+			vw-girq = < 0x18 0x1 >;
+			status = "okay";
+		};
+		vw_slp_s5_n: vw_slp_s5_n {
+			vw-reg = < 0x2 0x1 0x0 0x2 >;
+			vw-girq = < 0x18 0x2 >;
+			status = "okay";
+		};
+		vw_sus_stat_n: vw_sus_stat_n {
+			vw-reg = < 0x3 0x1 0x1 0x0 >;
+			vw-girq = < 0x18 0x4 >;
+			status = "okay";
+		};
+		vw_pltrst_n: vw_pltrst_n {
+			vw-reg = < 0x3 0x1 0x1 0x1 >;
+			vw-girq = < 0x18 0x5 >;
+			status = "okay";
+		};
+		vw_oob_rst_warn: vw_oob_rst_warn {
+			vw-reg = < 0x3 0x1 0x1 0x2 >;
+			vw-girq = < 0x18 0x6 >;
+			status = "okay";
+		};
+		vw_host_rst_warn: vw_host_rst_warn {
+			vw-reg = < 0x7 0x1 0x2 0x0 >;
+			vw-girq = < 0x18 0x8 >;
+			status = "okay";
+		};
+		vw_smiout_n: vw_smiout_n {
+			vw-reg = < 0x7 0x1 0x2 0x1 >;
+			vw-girq = < 0x18 0x9 >;
+			status = "disabled";
+		};
+		vw_nmiout_n: vw_nmiout_n {
+			vw-reg = < 0x7 0x1 0x2 0x2 >;
+			vw-girq = < 0x18 0xa >;
+			status = "disabled";
+		};
+		vw_sus_warn_n: vw_sus_warn_n {
+			vw-reg = < 0x41 0x1 0x3 0x0 >;
+			vw-girq = < 0x18 0xc >;
+			status = "okay";
+		};
+		vw_sus_pwrdn_ack: vw_sus_pwrdn_ack {
+			vw-reg = < 0x41 0x1 0x3 0x1 >;
+			vw-girq = < 0x18 0xd >;
+			status = "okay";
+		};
+		vw_slp_a_n: vw_slp_a_n {
+			vw-reg = < 0x41 0x1 0x3 0x3 >;
+			vw-girq = < 0x18 0xf >;
+			status = "okay";
+		};
+		vw_slp_lan_n: vw_slp_lan_n {
+			vw-reg = < 0x42 0x1 0x4 0x0 >;
+			vw-girq = < 0x18 0x10 >;
+			status = "okay";
+		};
+		vw_slp_wlan_n: vw_slp_wlan_n {
+			vw-reg = < 0x42 0x1 0x4 0x1 >;
+			vw-girq = < 0x18 0x11 >;
+			status = "okay";
+		};
+		vw_host_c10: vw_host_c10 {
+			vw-reg = < 0x47 0x1 0x7 0x0 >;
+			vw-girq = < 0x19 0x0 >;
+			status = "okay";
+		};
+		vw_dnx_warn: vw_dnx_warn {
+			vw-reg = < 0x4a 0x1 0x8 0x1 >;
+			vw-girq = < 0x19 0x5 >;
+			status = "okay";
+		};
+		vw_oob_rst_ack: vw_oob_rst_ack {
+			vw-reg = < 0x4 0x0 0x0 0x0 >;
+			status = "okay";
+		};
+		vw_wake_n: vw_wake_n {
+			vw-reg = < 0x4 0x0 0x0 0x2 >;
+			status = "okay";
+		};
+		vw_pme_n: vw_pme_n {
+			vw-reg = < 0x4 0x0 0x0 0x3 >;
+			status = "okay";
+		};
+		vw_slave_boot_done: vw_slave_boot_done {
+			vw-reg = < 0x5 0x0 0x1 0x0 >;
+			status = "okay";
+		};
+		vw_error_fatal: vw_error_fatal {
+			vw-reg = < 0x5 0x0 0x1 0x1 >;
+			status = "okay";
+		};
+		vw_error_non_fatal: vw_error_non_fatal {
+			vw-reg = < 0x5 0x0 0x1 0x2 >;
+			status = "okay";
+		};
+		vw_slave_boot_status: vw_slave_boot_status {
+			vw-reg = < 0x5 0x0 0x1 0x3 >;
+			status = "okay";
+		};
+		vw_sci_n: vw_sci_n {
+			vw-reg = < 0x6 0x0 0x2 0x0 >;
+			status = "okay";
+		};
+		vw_smi_n: vw_smi_n {
+			vw-reg = < 0x6 0x0 0x2 0x1 >;
+			status = "okay";
+		};
+		vw_rcin_n: vw_rcin_n {
+			vw-reg = < 0x6 0x0 0x2 0x2 >;
+			status = "okay";
+		};
+		vw_host_rst_ack: vw_host_rst_ack {
+			vw-reg = < 0x6 0x0 0x2 0x3 >;
+			status = "okay";
+		};
+		vw_sus_ack_n: vw_sus_ack_n {
+			vw-reg = < 0x40 0x0 0x3 0x0 >;
+			status = "okay";
+		};
+		vw_dnx_ack: vw_dnx_ack {
+			vw-reg = < 0x40 0x0 0x3 0x1 >;
+			status = "okay";
+		};
+		vw_t2c_gpio_0: vw_t2c_gpio_0 {
+			vw-reg = < 0x50 0x0 0x6 0x0 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_1: vw_t2c_gpio_1 {
+			vw-reg = < 0x50 0x0 0x6 0x1 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_2: vw_t2c_gpio_2 {
+			vw-reg = < 0x50 0x0 0x6 0x2 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_3: vw_t2c_gpio_3 {
+			vw-reg = < 0x50 0x0 0x6 0x3 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_4: vw_t2c_gpio_4 {
+			vw-reg = < 0x51 0x0 0x7 0x0 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_5: vw_t2c_gpio_5 {
+			vw-reg = < 0x51 0x0 0x7 0x1 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_6: vw_t2c_gpio_6 {
+			vw-reg = < 0x51 0x0 0x7 0x2 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_7: vw_t2c_gpio_7 {
+			vw-reg = < 0x51 0x0 0x7 0x3 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_8: vw_t2c_gpio_8 {
+			vw-reg = < 0x52 0x0 0x8 0x0 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_9: vw_t2c_gpio_9 {
+			vw-reg = < 0x52 0x0 0x8 0x1 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_10: vw_t2c_gpio_10 {
+			vw-reg = < 0x52 0x0 0x8 0x2 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_11: vw_t2c_gpio_11 {
+			vw-reg = < 0x52 0x0 0x8 0x3 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_12: vw_t2c_gpio_12 {
+			vw-reg = < 0x53 0x0 0x9 0x0 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_13: vw_t2c_gpio_13 {
+			vw-reg = < 0x53 0x0 0x9 0x1 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_14: vw_t2c_gpio_14 {
+			vw-reg = < 0x53 0x0 0x9 0x2 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_15: vw_t2c_gpio_15 {
+			vw-reg = < 0x53 0x0 0x9 0x3 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_16: vw_t2c_gpio_16 {
+			vw-reg = < 0x54 0x0 0xa 0x0 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_17: vw_t2c_gpio_17 {
+			vw-reg = < 0x54 0x0 0xa 0x1 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_18: vw_t2c_gpio_18 {
+			vw-reg = < 0x54 0x0 0xa 0x2 >;
+			status = "disabled";
+		};
+		vw_t2c_gpio_19: vw_t2c_gpio_19 {
+			vw-reg = < 0x54 0x0 0xa 0x3 >;
+			status = "disabled";
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m4";
+			reg = < 0x0 >;
+			cpu-power-states = < &idle &suspend_to_ram >;
+		};
+		power-states {
+			idle: idle {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				min-residency-us = < 0xf4240 >;
+				phandle = < 0x4 >;
+			};
+			suspend_to_ram: suspend_to_ram {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-ram";
+				min-residency-us = < 0x1e8480 >;
+				phandle = < 0x5 >;
+			};
+		};
+	};
+	flash0: flash@c0000 {
+		reg = < 0xc0000 0x58000 >;
+	};
+	sram0: memory@118000 {
+		compatible = "mmio-sram";
+		reg = < 0x118000 0x10000 >;
+	};
+};

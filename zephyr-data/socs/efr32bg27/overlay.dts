@@ -1,0 +1,59 @@
+/ {
+	compatible = "silabs,efr32bg27c140f768im40", "silabs,efr32bg27_brd2602a", "silabs,efr32bg27";
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&gpioc{
+	status = "okay";
+};
+&i2c1{
+	status = "disabled";
+};
+&gpiod{
+	status = "disabled";
+};
+&adc0{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x3 0x3 0x2 >;
+	location-scl = < 0x3 0x3 0x3 >;
+};
+&gpiob{
+	status = "okay";
+};
+&usart0{
+	status = "okay";
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioc 0x3 0x1 >;
+};
+&gpioa{
+	status = "okay";
+};
+&gpiof{
+	status = "disabled";
+};
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	compatible = "silabs,gecko-pinctrl";
+	usart0_default: usart0_default {
+		group1 {
+			psels = < 0x8000202 >, < 0x6000200 >, < 0x5000201 >;
+		};
+	};
+	usart1_default: usart1_default {
+		group1 {
+			psels = < 0x5 >, < 0x1000006 >, < 0x4000001 >;
+		};
+	};
+};

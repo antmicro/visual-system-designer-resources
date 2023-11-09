@@ -1,0 +1,46 @@
+/ {
+	compatible = "espressif,esp32s3_appcpu";
+	chosen {
+		zephyr,sram = &sram0;
+	};
+};
+&spi3{
+	status = "disabled";
+};
+&twai{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&uart0{
+	status = "disabled";
+};
+&adc0{
+	status = "disabled";
+};
+&usb_serial{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&i2c1{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "espressif,esp32-pinctrl";
+	status = "okay";
+};

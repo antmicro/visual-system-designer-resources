@@ -1,0 +1,3170 @@
+{
+    "a01nyub": {
+        "category": "Position/Distance",
+        "compatible": [
+            "dfrobot,a01nyub"
+        ],
+        "description": "DFRobot A01NYUB Distance Sensor",
+        "driver": [
+            "drivers/sensor/a01nyub/a01nyub.c"
+        ],
+        "interfaces": {
+            "uart": "serial"
+        }
+    },
+    "adt7310": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "adi,adt7310"
+        ],
+        "description": "ADT7310 16-Bit digital SPI temperature sensor",
+        "driver": [
+            "drivers/sensor/adt7310/adt7310.c"
+        ],
+        "interfaces": {
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "adi,adt7310"
+    },
+    "adt7420": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "adi,adt7420"
+        ],
+        "description": "ADT7420 16-Bit digital I2C temperature sensor",
+        "driver": [
+            "drivers/sensor/adt7420/adt7420.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "adi,adt7420"
+    },
+    "adxl345": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "adi,adxl345"
+        ],
+        "description": "ADXL345 3-axis I2C accelerometer",
+        "driver": [
+            "drivers/sensor/adxl345/adxl345.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "adi,adxl345"
+    },
+    "adxl362": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "adi,adxl362"
+        ],
+        "description": "ADXL362 3-axis SPI accelerometer",
+        "driver": [
+            "drivers/sensor/adxl362/adxl362.c"
+        ],
+        "interfaces": {
+            "int1": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "adi,adxl362"
+    },
+    "adxl367": {
+        "category": "Other",
+        "compatible": [
+            "adi,adxl367"
+        ],
+        "description": "ADXL367 3-axis nanopower accelerometer, accessed through SPI bus",
+        "driver": [
+            "drivers/sensor/adxl367/adxl367.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        }
+    },
+    "adxl372": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "adi,adxl372"
+        ],
+        "description": "ADXL372 3-axis high-g accelerometer, accessed through SPI bus",
+        "driver": [
+            "drivers/sensor/adxl372/adxl372.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "adi,adxl372"
+    },
+    "ak8975": {
+        "category": "Magnetometer",
+        "compatible": [
+            "asahi-kasei,ak8975"
+        ],
+        "description": "Asahi Kasei AK8975 Magnetometer. See datasheet at\nhttps://www.akm.com/akm/en/file/datasheet/AK8975.pdf\n",
+        "driver": [
+            "drivers/sensor/ak8975/ak8975.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "asahi-kasei,ak8975"
+    },
+    "akm09918c": {
+        "category": "Magnetometer",
+        "compatible": [
+            "asahi-kasei,akm09918c"
+        ],
+        "description": "Asahi Kasei AKM09918C Magnetometer. See datasheet at\nhttps://www.akm.com/content/dam/documents/products/electronic-compass/ak09918c/ak09918c-en-datasheet.pdf\n",
+        "driver": [
+            "drivers/sensor/akm09918c/akm09918c_emul.c",
+            "drivers/sensor/akm09918c/akm09918c.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "asahi-kasei,akm09918c"
+    },
+    "amd_sb_tsi": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "amd,sb-tsi"
+        ],
+        "description": "AMD SB Temperature Sensor Interface.",
+        "driver": [
+            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c",
+            "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "amd,sb-tsi"
+    },
+    "amg88xx": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "panasonic,amg88xx"
+        ],
+        "description": "Panasonic AMG88XX 8x8 (64) pixel infrared array sensor",
+        "driver": [
+            "drivers/sensor/amg88xx/amg88xx.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "panasonic,amg88xx"
+    },
+    "apds9960": {
+        "category": "Position/Distance",
+        "compatible": [
+            "avago,apds9960"
+        ],
+        "description": "APDS9960 digital proximity, ambient light, RGB, and gesture sensor",
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "avago,apds9960"
+    },
+    "as5600": {
+        "category": "Position/Angular position",
+        "compatible": [
+            "ams,as5600"
+        ],
+        "description": "AMS (Austria Mikro Systeme) AS5600 Angular position sensor\n",
+        "driver": [
+            "drivers/sensor/ams_as5600/ams_as5600.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,as5600"
+    },
+    "bh1750": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "rohm,bh1750"
+        ],
+        "description": "Rohm BH1750 ambient light sensor.",
+        "driver": [
+            "drivers/sensor/bh1750/bh1750.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "rohm,bh1750"
+    },
+    "bma280": {
+        "category": "Motion",
+        "compatible": [
+            "bosch,bma280"
+        ],
+        "description": "Bosch BMA280 triaxial acceleration sensor.  See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/accelerometers/bma280.html\n",
+        "driver": [
+            "drivers/sensor/bma280/bma280.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "bosch,bma280"
+    },
+    "bmc150_magn": {
+        "category": "Magnetometer",
+        "compatible": [
+            "bosch,bmc150_magn"
+        ],
+        "description": "Bosch BMC150 Magnetometer.  See more info at:\nhttps://www.bosch-sensortec.com/bst/products/all_products/bmc150\n",
+        "driver": [
+            "drivers/sensor/bmc150_magn/bmc150_magn.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "bosch,bmc150_magn"
+    },
+    "bme280": {
+        "category": "Environmental",
+        "compatible": [
+            "bosch,bme280"
+        ],
+        "description": "BME280 integrated environmental sensor",
+        "interfaces": {
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bme280"
+    },
+    "bme680": {
+        "category": "Environmental",
+        "compatible": [
+            "bosch,bme680"
+        ],
+        "description": "The BME680 is an integrated environmental sensor that measures\ntemperature, pressure, humidity and air quality\n",
+        "interfaces": {
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bme680"
+    },
+    "bmg160": {
+        "category": "Motion/Gyroscope",
+        "compatible": [
+            "bosch,bmg160"
+        ],
+        "description": "Bosch BMG160 gyroscope.  See more info at:\nhttps://www.bosch-sensortec.com/bst/products/all_products/bmg160\n",
+        "driver": [
+            "drivers/sensor/bmg160/bmg160.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "bosch,bmg160"
+    },
+    "bmi08x_accel": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "bosch,bmi08x-accel"
+        ],
+        "description": "BMI08X Accel inertial measurement unit",
+        "driver": [
+            "drivers/sensor/bmi08x/bmi08x_accel.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "accel-fs": {
+                "enum": [
+                    2,
+                    3,
+                    4,
+                    6,
+                    8,
+                    12,
+                    16,
+                    24
+                ],
+                "type": "int"
+            },
+            "accel-hz": {
+                "enum": [
+                    "12.5",
+                    "25",
+                    "50",
+                    "100",
+                    "200",
+                    "400",
+                    "800",
+                    "1600"
+                ],
+                "type": "string"
+            },
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmi08x-accel"
+    },
+    "bmi08x_gyro": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "bosch,bmi08x-gyro"
+        ],
+        "description": "BMI08X Gyro inertial measurement unit",
+        "driver": [
+            "drivers/sensor/bmi08x/bmi08x_gyro.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "gyro-fs": {
+                "enum": [
+                    2000,
+                    1000,
+                    500,
+                    250,
+                    125
+                ],
+                "type": "int"
+            },
+            "gyro-hz": {
+                "enum": [
+                    "2000_532",
+                    "2000_230",
+                    "1000_116",
+                    "400_47",
+                    "200_23",
+                    "100_12",
+                    "200_64",
+                    "100_32"
+                ],
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmi08x-gyro"
+    },
+    "bmi160": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "bosch,bmi160"
+        ],
+        "description": "BMI160 inertial measurement unit",
+        "driver": [
+            "drivers/sensor/bmi160/emul_bmi160.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmi160"
+    },
+    "bmi270": {
+        "category": "Motion",
+        "compatible": [
+            "bosch,bmi270"
+        ],
+        "description": "The BMI270 is an inertial measurement unit. See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/imus/bmi270.html\n",
+        "driver": [
+            "drivers/sensor/bmi270/bmi270.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmi270"
+    },
+    "bmi323": {
+        "category": "Other",
+        "compatible": [
+            "bosch,bmi323"
+        ],
+        "description": "Sensor Device",
+        "driver": [
+            "drivers/sensor/bmi323/bmi323.c"
+        ],
+        "interfaces": {
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmi323"
+    },
+    "bmm150": {
+        "category": "Magnetometer/Geomagnetic",
+        "compatible": [
+            "bosch,bmm150"
+        ],
+        "description": "Bosch BMM150 Geomagnetic sensor.  See more info at:\nhttps://www.bosch-sensortec.com/bst/products/all_products/bmm150\n",
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmm150"
+    },
+    "bmp388": {
+        "category": "Pressure",
+        "compatible": [
+            "bosch,bmp388"
+        ],
+        "description": "Bosch BMP388 pressure sensor accessed through SPI bus\n",
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmp388"
+    },
+    "bq274xx": {
+        "category": "Fuel gauge",
+        "compatible": [
+            "ti,bq274xx"
+        ],
+        "description": "Texas Instruments BQ274xx Fuel Gauge",
+        "driver": [
+            "drivers/sensor/bq274xx/bq274xx.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "design-capacity": {
+                "type": "int"
+            },
+            "design-voltage": {
+                "type": "int"
+            },
+            "taper-current": {
+                "type": "int"
+            },
+            "terminate-voltage": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,bq274xx"
+    },
+    "ccs811": {
+        "category": "Gas/Air quality",
+        "compatible": [
+            "ams,ccs811"
+        ],
+        "description": "CCS811 digital air quality sensor",
+        "driver": [
+            "drivers/sensor/ccs811/ccs811.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "reset": "gpio",
+            "wake": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,ccs811"
+    },
+    "dht22": {
+        "category": "Environmental",
+        "compatible": [
+            "aosong,dht"
+        ],
+        "description": "Aosong DHT (Digital-output Humidity and Temperature Sensor)\n\nThe Aosong DHT family of sensors provide temperature and humidity\nmeasurements through a bidirectional serial digital signal.  The\nDHT11 uses a polymer humidity capacitor with NTC thermistor; the\nDHT22 replaces the thermistor with a DS18B20 1-wire thermometer.\n\nThe DHT22 is also known as an AM2303.\n",
+        "driver": [
+            "drivers/sensor/dht/dht.c"
+        ],
+        "interfaces": {
+            "dio": "gpio",
+            "gpio": "gpio"
+        }
+    },
+    "dps310": {
+        "category": "Environmental",
+        "compatible": [
+            "infineon,dps310"
+        ],
+        "description": "Infineon DPS310 temperature and pressure sensor",
+        "driver": [
+            "drivers/sensor/dps310/dps310.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "infineon,dps310"
+    },
+    "ds18b20": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "maxim,ds18b20"
+        ],
+        "description": "Maxim 1-Wire temperature sensor",
+        "driver": [
+            "drivers/sensor/ds18b20/ds18b20.c"
+        ],
+        "interfaces": {
+            "w1": "1-wire"
+        },
+        "properties": {
+            "resolution": {
+                "type": "int"
+            }
+        }
+    },
+    "emul": {
+        "category": "Other",
+        "compatible": [
+            "zephyr,adc-emul"
+        ],
+        "description": "Zephyr ADC Emulator",
+        "interfaces": {
+            "adc": "adc"
+        },
+        "properties": {
+            "nchannels": {
+                "type": "int"
+            }
+        }
+    },
+    "ens210": {
+        "category": "Environmental",
+        "compatible": [
+            "ams,ens210"
+        ],
+        "description": "AMS (Austria Mikro Systeme) ens210 Relative Humidity and Temperature Sensor\n",
+        "driver": [
+            "drivers/sensor/ens210/ens210.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,ens210"
+    },
+    "epcos_b57861s0103a039": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "epcos,b57861s0103a039"
+        ],
+        "description": "EPCOS B57861S0103A039 thermistor",
+        "driver": [
+            "drivers/sensor/ntc_thermistor/ntc_thermistor.c"
+        ],
+        "interfaces": {
+            "adc": "adc"
+        },
+        "properties": {
+            "io-channels": {
+                "type": "phandle-array"
+            }
+        }
+    },
+    "f75303": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "fintek,f75303"
+        ],
+        "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
+        "driver": [
+            "drivers/sensor/f75303/f75303.c",
+            "drivers/sensor/f75303/f75303_emul.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "fintek,f75303"
+    },
+    "fdc2x1x": {
+        "category": "Position/Distance",
+        "compatible": [
+            "ti,fdc2x1x"
+        ],
+        "description": "Texas Instruments FDC2X1X capacitive sensor",
+        "driver": [
+            "drivers/sensor/fdc2x1x/fdc2x1x.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "intb": "gpio",
+            "sd": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "deglitch": {
+                "enum": [
+                    1,
+                    4,
+                    5,
+                    7
+                ],
+                "type": "int"
+            },
+            "fref": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,fdc2x1x"
+    },
+    "fxas21002": {
+        "category": "Motion/Gyroscope",
+        "compatible": [
+            "nxp,fxas21002"
+        ],
+        "description": "FXAS21002 3-axis gyroscope sensor",
+        "driver": [
+            "drivers/sensor/fxas21002/fxas21002.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "int2": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "nxp,fxas21002"
+    },
+    "fxos8700": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "nxp,fxos8700"
+        ],
+        "description": "FXOS8700 6-axis accelerometer/magnetometer sensor",
+        "driver": [
+            "drivers/sensor/fxos8700/fxos8700.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "int2": "gpio",
+            "reset": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "nxp,fxos8700"
+    },
+    "hdc": {
+        "category": "Environmental",
+        "compatible": [
+            "ti,hdc"
+        ],
+        "description": "Texas Instruments temperature and humidity sensor (e.g. HDC1008)",
+        "driver": [
+            "drivers/sensor/ti_hdc/ti_hdc.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,hdc"
+    },
+    "hdc2010": {
+        "category": "Environmental",
+        "compatible": [
+            "ti,hdc2010"
+        ],
+        "description": "Texas Instruments HDC2010 Temperature and Humidity Sensor",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,hdc2010"
+    },
+    "hdc2021": {
+        "category": "Environmental",
+        "compatible": [
+            "ti,hdc2021"
+        ],
+        "description": "Texas Instruments HDC2021 Temperature and Humidity Sensor",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,hdc2021"
+    },
+    "hdc2022": {
+        "category": "Environmental",
+        "compatible": [
+            "ti,hdc2022"
+        ],
+        "description": "Texas Instruments HDC2022 Temperature and Humidity Sensor",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,hdc2022"
+    },
+    "hdc2080": {
+        "category": "Environmental",
+        "compatible": [
+            "ti,hdc2080"
+        ],
+        "description": "Texas Instruments HDC2080 Temperature and Humidity Sensor",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,hdc2080"
+    },
+    "hmc5883l": {
+        "category": "Magnetometer",
+        "compatible": [
+            "honeywell,hmc5883l"
+        ],
+        "description": "Honeywell HMC5883L 3-axis magnetometer sensor",
+        "driver": [
+            "drivers/sensor/hmc5883l/hmc5883l.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "honeywell,hmc5883l"
+    },
+    "hp206c": {
+        "category": "Environmental",
+        "compatible": [
+            "hoperf,hp206c"
+        ],
+        "description": "HopeRF Electronic HP206C precision barometer and altimeter.\nSee more info at:\nhttps://www.hoperf.com/sensor/pressure_sensor/HP206C.html\n",
+        "driver": [
+            "drivers/sensor/hp206c/hp206c.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "hoperf,hp206c"
+    },
+    "hts221": {
+        "category": "Environmental",
+        "compatible": [
+            "st,hts221"
+        ],
+        "description": "STMicroelectronics HTS221 humidity and temperature sensor on SPI bus\n",
+        "driver": [
+            "drivers/sensor/hts221/hts221.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,hts221"
+    },
+    "i3g4250d": {
+        "category": "Motion/Gyroscope",
+        "compatible": [
+            "st,i3g4250d"
+        ],
+        "description": "STMicroelectronics I3G4250D 3-axis gyrometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/i3g4250d/i3g4250d.c"
+        ],
+        "interfaces": {
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,i3g4250d"
+    },
+    "iaqcore": {
+        "category": "Gas/Air quality",
+        "compatible": [
+            "ams,iaqcore"
+        ],
+        "description": "iAQ-core indoor air quality sensor",
+        "driver": [
+            "drivers/sensor/ams_iAQcore/iAQcore.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,iaqcore"
+    },
+    "icm42605": {
+        "category": "Motion",
+        "compatible": [
+            "invensense,icm42605"
+        ],
+        "description": "ICM-42605 motion tracking device",
+        "driver": [
+            "drivers/sensor/icm42605/icm42605.c"
+        ],
+        "interfaces": {
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "invensense,icm42605"
+    },
+    "icm42670": {
+        "category": "Motion",
+        "compatible": [
+            "invensense,icm42670"
+        ],
+        "description": "ICM-42670 motion tracking device",
+        "driver": [
+            "drivers/sensor/icm42670/icm42670.c"
+        ],
+        "interfaces": {
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "accel-fs": {
+                "enum": [
+                    16,
+                    8,
+                    4,
+                    2
+                ],
+                "type": "int"
+            },
+            "accel-hz": {
+                "enum": [
+                    1,
+                    3,
+                    6,
+                    12,
+                    25,
+                    50,
+                    100,
+                    200,
+                    400,
+                    800,
+                    1600
+                ],
+                "type": "int"
+            },
+            "gyro-fs": {
+                "enum": [
+                    2000,
+                    1000,
+                    500,
+                    250
+                ],
+                "type": "int"
+            },
+            "gyro-hz": {
+                "enum": [
+                    12,
+                    25,
+                    50,
+                    100,
+                    200,
+                    400,
+                    800,
+                    1600
+                ],
+                "type": "int"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "invensense,icm42670"
+    },
+    "icm426888": {
+        "category": "Motion",
+        "compatible": [
+            "invensense,icm42688"
+        ],
+        "description": "ICM-42688 motion tracking device",
+        "driver": [
+            "drivers/sensor/icm42688/icm42688_emul.c",
+            "drivers/sensor/icm42688/icm42688.c"
+        ],
+        "interfaces": {
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "invensense,icm42688"
+    },
+    "icp10125": {
+        "category": "Environmental",
+        "compatible": [
+            "invensense,icp10125"
+        ],
+        "description": "ICP10125 barometric pressure/temperature sensor",
+        "driver": [
+            "drivers/sensor/icp10125/icp10125.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "pressure-measurement-mode": {
+                "enum": [
+                    "low-power",
+                    "normal",
+                    "low-noise",
+                    "ultra-low-noise"
+                ],
+                "type": "string"
+            },
+            "temperature-measurement-mode": {
+                "enum": [
+                    "low-power",
+                    "normal",
+                    "low-noise",
+                    "ultra-low-noise"
+                ],
+                "type": "string"
+            }
+        },
+        "rdp-compat": "invensense,icp10125"
+    },
+    "iis2dh": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,iis2dh"
+        ],
+        "description": "STMicroelectronics IIS2DH accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/iis2dh/iis2dh.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,iis2dh"
+    },
+    "iis2dlpc": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,iis2dlpc"
+        ],
+        "description": "STMicroelectronics IIS2DLPC accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/iis2dlpc/iis2dlpc.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,iis2dlpc"
+    },
+    "iis2iclx": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,iis2iclx"
+        ],
+        "description": "STMicroelectronics IIS2ICLX 2-axis accelerometer sensor\naccessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/iis2iclx/iis2iclx.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,iis2iclx"
+    },
+    "iis2mdc": {
+        "category": "Magnetometer",
+        "compatible": [
+            "st,iis2mdc"
+        ],
+        "description": "STMicroelectronics IIS2MDC magnetometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/iis2mdc/iis2mdc.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,iis2mdc"
+    },
+    "iis3dhhc": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,iis3dhhc"
+        ],
+        "description": "STMicroelectronics IIS3DHHC 3-axis accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/iis3dhhc/iis3dhhc.c"
+        ],
+        "interfaces": {
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,iis3dhhc"
+    },
+    "ina219": {
+        "category": "Power",
+        "compatible": [
+            "ti,ina219"
+        ],
+        "description": "Texas Instruments Bidirectional Current/Power Sensor",
+        "driver": [
+            "drivers/sensor/ina219/ina219.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "lsb-microamp": {
+                "type": "int"
+            },
+            "shunt-milliohm": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,ina219"
+    },
+    "ina230": {
+        "category": "Power",
+        "compatible": [
+            "ti,ina230"
+        ],
+        "description": "TI INA230 and INA231 Bidirectional Current and Power Monitor.\nThe <zephyr/dt-bindings/sensor/ina230.h> file should be included in the\nDeviceTree and it provides macro that can be used for initializing the\nconfiguration register.\n",
+        "driver": [
+            "drivers/sensor/ina23x/ina230.c"
+        ],
+        "interfaces": {
+            "alert": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "current-lsb-microamps": {
+                "type": "int"
+            },
+            "rshunt-micro-ohms": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,ina230"
+    },
+    "ina231": {
+        "category": "Power",
+        "compatible": [
+            "ti,ina230"
+        ],
+        "description": "TI INA230 and INA231 Bidirectional Current and Power Monitor.\nThe <zephyr/dt-bindings/sensor/ina230.h> file should be included in the\nDeviceTree and it provides macro that can be used for initializing the\nconfiguration register.\n",
+        "driver": [
+            "drivers/sensor/ina23x/ina230.c"
+        ],
+        "interfaces": {
+            "alert": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "current-lsb-microamps": {
+                "type": "int"
+            },
+            "rshunt-micro-ohms": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,ina230"
+    },
+    "ina237": {
+        "category": "Power",
+        "compatible": [
+            "ti,ina237"
+        ],
+        "description": "TI INA237 Bidirectional Current and Power Monitor.\nThe <zephyr/dt-bindings/sensor/ina237.h> file should be included in the\nDeviceTree and it provides macros that can be used for initializing the\nconfiguration registers.\n",
+        "driver": [
+            "drivers/sensor/ina23x/ina237.c"
+        ],
+        "interfaces": {
+            "alert": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "current-lsb-microamps": {
+                "type": "int"
+            },
+            "rshunt-micro-ohms": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,ina237"
+    },
+    "ina3221": {
+        "category": "Power",
+        "compatible": [
+            "ti,ina3221"
+        ],
+        "description": "Texas Instruments INA3221 Triple-Channel Current/Power Monitor",
+        "driver": [
+            "drivers/sensor/ina3221/ina3221.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,ina3221"
+    },
+    "isl29035": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "isil,isl29035"
+        ],
+        "description": "Intersil ISL29035 Light Sensor. See datasheet at\nhttps://www.renesas.com/us/en/www/doc/datasheet/isl29035.pdf\n",
+        "driver": [
+            "drivers/sensor/isl29035/isl29035.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "isil,isl29035"
+    },
+    "ism330dhcx": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,ism330dhcx"
+        ],
+        "description": "STMicroelectronics ISM330DHCX 6-axis IMU (Inertial Measurement Unit) sensor\naccessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/ism330dhcx/ism330dhcx.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,ism330dhcx"
+    },
+    "ist8310": {
+        "category": "Magnetometer/Geomagnetic",
+        "compatible": [
+            "isentek,ist8310"
+        ],
+        "description": "iSentek ist8310 Geomagnetic sensor.  See more info at:\nhttps://isentek.com/products_view.php?PID=10&sn=13\n",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "isentek,ist8310"
+    },
+    "itds": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "we,wsen-itds"
+        ],
+        "description": "WSEN-ITDS 3-axis accel sensor",
+        "driver": [
+            "drivers/sensor/wsen_itds/itds.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "odr": {
+                "enum": [
+                    "1.6",
+                    "12.5",
+                    "25",
+                    "50",
+                    "100",
+                    "200",
+                    "400",
+                    "800",
+                    "1600"
+                ],
+                "type": "string"
+            },
+            "op-mode": {
+                "enum": [
+                    "low-power",
+                    "normal",
+                    "high-perf"
+                ],
+                "type": "string"
+            }
+        },
+        "rdp-compat": "we,wsen-itds"
+    },
+    "lis2dh": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lis2dh"
+        ],
+        "description": "STMicroelectronics LIS2DH 3-axis accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lis2dh/lis2dh.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lis2dh"
+    },
+    "lis2dh12": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lis2dh12"
+        ],
+        "description": "STMicroelectronics LIS2DH12 3-axis accelerometer",
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lis2dh12"
+    },
+    "lis2ds12": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lis2ds12"
+        ],
+        "description": "STMicroelectronics LIS2DS12 3-axis accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lis2ds12/lis2ds12.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lis2ds12",
+        "renode-model": "Sensors.LIS2DS12"
+    },
+    "lis2dw12": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lis2dw12"
+        ],
+        "description": "STMicroelectronics LIS2DW12 3-axis accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lis2dw12/lis2dw12.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lis2dw12"
+    },
+    "lis2mdl": {
+        "category": "Magnetometer",
+        "compatible": [
+            "st,lis2mdl"
+        ],
+        "description": "STMicroelectronics LIS2MDL magnetometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lis2mdl/lis2mdl.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lis2mdl"
+    },
+    "lis3dh": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lis3dh"
+        ],
+        "description": "STMicroelectronics LIS3DH 3-axis accelerometer",
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lis3dh"
+    },
+    "lis3mdl_magn": {
+        "category": "Magnetometer",
+        "compatible": [
+            "st,lis3mdl-magn"
+        ],
+        "description": "STMicroelectronics LIS3MDL magnetometer",
+        "driver": [
+            "drivers/sensor/lis3mdl/lis3mdl.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lis3mdl-magn"
+    },
+    "lm75": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "lm75"
+        ],
+        "description": "LM75 Digital Temperature Sensor with 2-Wire Interface.",
+        "driver": [
+            "drivers/sensor/lm75/lm75.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "lm75"
+    },
+    "lm77": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "lm77"
+        ],
+        "description": "LM77 digital temperature sensor\n",
+        "driver": [
+            "drivers/sensor/lm77/lm77.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "lm77"
+    },
+    "lps22hb_press": {
+        "category": "Pressure",
+        "compatible": [
+            "st,lps22hb-press"
+        ],
+        "description": "STMicroelectronics LPS22HB pressure sensor",
+        "driver": [
+            "drivers/sensor/lps22hb/lps22hb.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lps22hb-press"
+    },
+    "lps22hh": {
+        "category": "Environmental",
+        "compatible": [
+            "st,lps22hh"
+        ],
+        "description": "STMicroelectronics LPS22HH pressure and temperature sensor connected to SPI\nbus\n",
+        "driver": [
+            "drivers/sensor/lps22hh/lps22hh.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lps22hh"
+    },
+    "lps25hb_press": {
+        "category": "Pressure",
+        "compatible": [
+            "st,lps25hb-press"
+        ],
+        "description": "STMicroelectronics LPS25HB pressure sensor",
+        "driver": [
+            "drivers/sensor/lps25hb/lps25hb.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lps25hb-press"
+    },
+    "lsm303agr_accel": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lsm303agr-accel"
+        ],
+        "description": "STMicroelectronics LSM303AGR 3-axis accelerometer accessed through SPI bus\n",
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lsm303agr-accel"
+    },
+    "lsm303dlhc_accel": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lsm303dlhc-accel"
+        ],
+        "description": "LSM303DLHC acceleration sensor",
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lsm303dlhc-accel",
+        "renode-model": "Sensors.LSM303DLHC_Accelerometer"
+    },
+    "lsm303dlhc_magn": {
+        "category": "Magnetometer",
+        "compatible": [
+            "st,lsm303dlhc-magn"
+        ],
+        "description": "STMicroelectronics LSM303DLHC magnetometer sensor",
+        "driver": [
+            "drivers/sensor/lsm303dlhc_magn/lsm303dlhc_magn.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lsm303dlhc-magn"
+    },
+    "lsm6ds0": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,lsm6ds0"
+        ],
+        "description": "STMicroelectronics LSM6DS0 6-axis accelerometer and gyrometer",
+        "driver": [
+            "drivers/sensor/lsm6ds0/lsm6ds0.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lsm6ds0"
+    },
+    "lsm6dsl": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,lsm6dsl"
+        ],
+        "description": "STMicroelectronics LSM6DSL 6-axis accelerometer and gyrometer accessed through\nSPI bus\n",
+        "driver": [
+            "drivers/sensor/lsm6dsl/lsm6dsl.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lsm6dsl"
+    },
+    "lsm6dso": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,lsm6dso"
+        ],
+        "description": "STMicroelectronics LSM6DSO 6-axis IMU (Inertial Measurement Unit) sensor\naccessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lsm6dso/lsm6dso.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lsm6dso"
+    },
+    "lsm6dso16is": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,lsm6dso16is"
+        ],
+        "description": "STMicroelectronics LSM6DSO16IS 6-axis IMU (Inertial Measurement Unit) sensor\naccessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lsm6dso16is/lsm6dso16is.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lsm6dso16is"
+    },
+    "lsm6dsv16x": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,lsm6dsv16x"
+        ],
+        "description": "STMicroelectronics LSM6DSV16X 6-axis IMU (Inertial Measurement Unit) sensor\naccessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lsm6dsv16x/lsm6dsv16x.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lsm6dsv16x"
+    },
+    "lsm9ds0_gyro": {
+        "category": "Motion/Gyroscope",
+        "compatible": [
+            "st,lsm9ds0-gyro"
+        ],
+        "description": "STMicroelectronics LSM9DS0-GYRO 3-axis gyro",
+        "driver": [
+            "drivers/sensor/lsm9ds0_gyro/lsm9ds0_gyro.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lsm9ds0-gyro"
+    },
+    "lsm9ds0_mfd": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,lsm9ds0-mfd"
+        ],
+        "description": "STMicroelectronics LSM9DS0 3-axis accelerometer + magnetometer",
+        "driver": [
+            "drivers/sensor/lsm9ds0_mfd/lsm9ds0_mfd.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lsm9ds0-mfd"
+    },
+    "ltrf216a0": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "ltr,f216a"
+        ],
+        "description": "LiteOn F216A ambient light sensor",
+        "driver": [
+            "drivers/sensor/ltrf216a/ltrf216a.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ltr,f216a"
+    },
+    "max17055": {
+        "category": "Fuel gauge",
+        "compatible": [
+            "maxim,max17055"
+        ],
+        "description": "Maxim MAX17055 Fuel Gauge",
+        "driver": [
+            "drivers/sensor/max17055/max17055.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "design-capacity": {
+                "type": "int"
+            },
+            "design-voltage": {
+                "type": "int"
+            },
+            "desired-charging-current": {
+                "type": "int"
+            },
+            "desired-voltage": {
+                "type": "int"
+            },
+            "i-chg-term": {
+                "type": "int"
+            },
+            "rsense-mohms": {
+                "type": "int"
+            },
+            "v-empty": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "maxim,max17055"
+    },
+    "max17262": {
+        "category": "Fuel gauge",
+        "compatible": [
+            "maxim,max17262"
+        ],
+        "description": "Maxim MAX17262 Fuel Gauge",
+        "driver": [
+            "drivers/sensor/max17262/max17262.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "charge-voltage": {
+                "type": "int"
+            },
+            "design-cap": {
+                "type": "int"
+            },
+            "design-voltage": {
+                "type": "int"
+            },
+            "desired-charging-current": {
+                "type": "int"
+            },
+            "desired-voltage": {
+                "type": "int"
+            },
+            "empty-voltage": {
+                "type": "int"
+            },
+            "recovery-voltage": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "maxim,max17262"
+    },
+    "max30101": {
+        "category": "Heart rate",
+        "compatible": [
+            "maxim,max30101"
+        ],
+        "description": "MAX30101 heart rate sensor",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "maxim,max30101"
+    },
+    "max31855": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "maxim,max31855"
+        ],
+        "description": "MAX31855 SPI-based cold-junction compensated thermocouple-to-digital converter.",
+        "driver": [
+            "drivers/sensor/max31855/max31855.c"
+        ],
+        "interfaces": {
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "maxim,max31855"
+    },
+    "max31865": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "maxim,max31865"
+        ],
+        "description": "Maxim MAX31865 SPI RTD-to-Digital Converter Temperature Sensor.\nFind the datasheet here:\nhttps://datasheets.maximintegrated.com/en/ds/MAX31865.pdf\n",
+        "interfaces": {
+            "spi": "spi"
+        },
+        "properties": {
+            "resistance-at-zero": {
+                "type": "int"
+            },
+            "resistance-reference": {
+                "type": "int"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "maxim,max31865"
+    },
+    "max31875": {
+        "category": "Power",
+        "compatible": [
+            "maxim,max31875"
+        ],
+        "description": "Maxim MAX31875 Low-Power I2C Temperature Sensor.\nFind the datasheet here:\nhttps://datasheets.maximintegrated.com/en/ds/MAX31875.pdf\n",
+        "driver": [
+            "drivers/sensor/max31875/max31875.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "maxim,max31875"
+    },
+    "max44009": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "maxim,max44009"
+        ],
+        "description": "Maxim MAX44009 Ambient Light Sensor. See datasheet at\nhttps://datasheets.maximintegrated.com/en/ds/MAX44009.pdf\n",
+        "driver": [
+            "drivers/sensor/max44009/max44009.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "maxim,max44009"
+    },
+    "max6675": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "maxim,max6675"
+        ],
+        "description": "MAX6675 K-thermocouple to digital converter",
+        "driver": [
+            "drivers/sensor/max6675/max6675.c"
+        ],
+        "interfaces": {
+            "spi": "spi"
+        },
+        "properties": {
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "maxim,max6675"
+    },
+    "mc3419": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "memsic,mc3419"
+        ],
+        "description": "MC3419 3-axis accel sensor",
+        "driver": [
+            "drivers/sensor/mc3419/mc3419.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "memsic,mc3419"
+    },
+    "mcp9600": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "microchip,mcp9600"
+        ],
+        "description": "Microchip MCP9600 I2C Thermocouple EMF to Temperature Converter. See\nhttps://www.microchip.com/wwwproducts/en/MCP9600.\n",
+        "driver": [
+            "drivers/sensor/mcp9600/mcp9600.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "microchip,mcp9600"
+    },
+    "mcp9700a": {
+        "category": "Power",
+        "compatible": [
+            "microchip,mcp970x"
+        ],
+        "description": "Microchip MCP9700/9700A MCP9701/9701A\nLow-Power Linear Active Thermistor IC\n",
+        "driver": [
+            "drivers/sensor/mcp970x/mcp970x.c"
+        ],
+        "interfaces": {
+            "adc": "adc"
+        },
+        "properties": {
+            "family": {
+                "enum": [
+                    "MCP9700/9700A",
+                    "MCP9701/9701A"
+                ],
+                "type": "string"
+            },
+            "io-channels": {
+                "type": "phandle-array"
+            }
+        }
+    },
+    "mcp9808": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "microchip,mcp9808"
+        ],
+        "description": "Microchip MCP9808 Digital Temperature Sensor. See\nhttp://ww1.microchip.com/downloads/en/DeviceDoc/25095A.pdf.\n",
+        "driver": [
+            "drivers/sensor/mcp9808/mcp9808.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "microchip,mcp9808"
+    },
+    "mhz19b": {
+        "category": "Gas/CO2",
+        "compatible": [
+            "winsen,mhz19b"
+        ],
+        "description": "Winsen MHZ-19B CO2 Sensor",
+        "driver": [
+            "drivers/sensor/mhz19b/mhz19b.c"
+        ],
+        "interfaces": {
+            "uart": "serial"
+        },
+        "properties": {
+            "maximum-range": {
+                "enum": [
+                    2000,
+                    5000,
+                    10000
+                ],
+                "type": "int"
+            }
+        }
+    },
+    "mpr": {
+        "category": "Pressure",
+        "compatible": [
+            "honeywell,mpr"
+        ],
+        "description": "Honeywell Digital Pressure Sensor. For details see here:\nhttps://sensing.honeywell.com/micropressure-mpr-series\n",
+        "driver": [
+            "drivers/sensor/mpr/mpr.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "honeywell,mpr"
+    },
+    "mpu6050": {
+        "category": "Motion",
+        "compatible": [
+            "invensense,mpu6050"
+        ],
+        "description": "MPU-6000 motion tracking device",
+        "driver": [
+            "drivers/sensor/mpu6050/mpu6050.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "invensense,mpu6050"
+    },
+    "mpu9250": {
+        "category": "Motion",
+        "compatible": [
+            "invensense,mpu9250"
+        ],
+        "description": "InvenSense MPU-9250 Nine-Axis (Gyro + Accelerometer + Compass). See more\ninfo at https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/\n",
+        "driver": [
+            "drivers/sensor/mpu9250/mpu9250.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "irq": "gpio"
+        },
+        "properties": {
+            "accel-dlpf": {
+                "enum": [
+                    "218.1",
+                    "218.1a",
+                    "99",
+                    "44.8",
+                    "21.2",
+                    "10.2",
+                    "5.05",
+                    "420"
+                ],
+                "type": "string"
+            },
+            "accel-fs": {
+                "enum": [
+                    2,
+                    4,
+                    8,
+                    16
+                ],
+                "type": "int"
+            },
+            "address (i2c)": {
+                "type": "string"
+            },
+            "gyro-dlpf": {
+                "enum": [
+                    250,
+                    184,
+                    92,
+                    41,
+                    20,
+                    10,
+                    5,
+                    3600
+                ],
+                "type": "int"
+            },
+            "gyro-fs": {
+                "enum": [
+                    250,
+                    500,
+                    1000,
+                    2000
+                ],
+                "type": "int"
+            },
+            "gyro-sr-div": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "invensense,mpu9250"
+    },
+    "ms5607": {
+        "category": "Environmental",
+        "compatible": [
+            "meas,ms5607"
+        ],
+        "description": "TE Connectivity MS5607 digital pressure and temperature sensor.\nThe Datasheet is at https://www.te.com/usa-en/product-CAT-BLPS0035.html\n",
+        "driver": [
+            "drivers/sensor/ms5607/ms5607.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "meas,ms5607"
+    },
+    "ms5837": {
+        "category": "Pressure",
+        "compatible": [
+            "meas,ms5837"
+        ],
+        "description": "TE Connectivity MS5837 digital pressure sensor",
+        "driver": [
+            "drivers/sensor/ms5837/ms5837.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "meas,ms5837"
+    },
+    "ntc_thermistor_generic": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "ntc-thermistor-generic"
+        ],
+        "description": "Generic NTC thermistor",
+        "driver": [
+            "drivers/sensor/ntc_thermistor/ntc_thermistor.c"
+        ],
+        "interfaces": {
+            "adc": "adc"
+        },
+        "properties": {
+            "io-channels": {
+                "type": "phandle-array"
+            },
+            "zephyr,compensation-table": {
+                "type": "array"
+            }
+        }
+    },
+    "opt3001": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "ti,opt3001"
+        ],
+        "description": "Texas Instruments OPT3001 ambient light sensor",
+        "driver": [
+            "drivers/sensor/opt3001/opt3001.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,opt3001"
+    },
+    "pms7003": {
+        "category": "Gas/Air quality",
+        "compatible": [
+            "plantower,pms7003"
+        ],
+        "description": "Plantower PMS7003 air pollution sensor.\nAir pollution sensor capable of measuring mass concentration of dust.  See\nmore info at:\nhttps://www.espruino.com/datasheets/PMS7003.pdf\n",
+        "driver": [
+            "drivers/sensor/pms7003/pms7003.c"
+        ],
+        "interfaces": {
+            "uart": "serial"
+        }
+    },
+    "s11059": {
+        "category": "Color sensor",
+        "compatible": [
+            "hamamatsu,s11059"
+        ],
+        "description": "Hamamatsu Photonics S11059 Color Sensor.  See datasheet at\nhttps://datasheetspdf.com/pdf/1323325/Hamamatsu/S11059-02DT/1\n",
+        "driver": [
+            "drivers/sensor/s11059/s11059.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "hamamatsu,s11059"
+    },
+    "sgp40": {
+        "category": "Gas",
+        "compatible": [
+            "sensirion,sgp40"
+        ],
+        "description": "Sensirion SGP40 Multipixel Gas Sensor",
+        "driver": [
+            "drivers/sensor/sgp40/sgp40.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "sensirion,sgp40"
+    },
+    "sht3xd": {
+        "category": "Environmental",
+        "compatible": [
+            "sensirion,sht3xd"
+        ],
+        "description": "Sensirion Humidity SHT3x-DIS humidity and temperature sensor",
+        "driver": [
+            "drivers/sensor/sht3xd/sht3xd.c"
+        ],
+        "interfaces": {
+            "alert": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "sensirion,sht3xd"
+    },
+    "sht4xd": {
+        "category": "Environmental",
+        "compatible": [
+            "sensirion,sht4x"
+        ],
+        "description": "Sensirion SHT4x humidity and temperature sensor",
+        "driver": [
+            "drivers/sensor/sht4x/sht4x.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "repeatability": {
+                "enum": [
+                    0,
+                    1,
+                    2
+                ],
+                "type": "int"
+            }
+        },
+        "rdp-compat": "sensirion,sht4x"
+    },
+    "shtc3": {
+        "category": "Environmental",
+        "compatible": [
+            "sensirion,shtcx"
+        ],
+        "description": "Sensirion SHTCx humidity and temperature sensor",
+        "driver": [
+            "drivers/sensor/shtcx/shtcx.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "chip": {
+                "enum": [
+                    "shtc1",
+                    "shtc3"
+                ],
+                "type": "string"
+            },
+            "measure-mode": {
+                "enum": [
+                    "normal",
+                    "low-power"
+                ],
+                "type": "string"
+            }
+        },
+        "rdp-compat": "sensirion,shtcx"
+    },
+    "si7006": {
+        "category": "Environmental",
+        "compatible": [
+            "silabs,si7006"
+        ],
+        "description": "Si7006 temperature and humidity sensor",
+        "driver": [
+            "drivers/sensor/si7006/si7006.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "silabs,si7006"
+    },
+    "si7055": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "silabs,si7055"
+        ],
+        "description": "Si7055 temperature sensor",
+        "driver": [
+            "drivers/sensor/si7055/si7055.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "silabs,si7055"
+    },
+    "si7060": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "silabs,si7060"
+        ],
+        "description": "Si7060 temperature sensor",
+        "driver": [
+            "drivers/sensor/si7060/si7060.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "silabs,si7060"
+    },
+    "si7210": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "silabs,si7210"
+        ],
+        "description": "Si7210 hall effect magnetic position and temperature sensor",
+        "driver": [
+            "drivers/sensor/si7210/si7210.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "silabs,si7210",
+        "renode-model": "Sensors.SI7210"
+    },
+    "sm351lt": {
+        "category": "Magnetometer/Magnetoresistive",
+        "compatible": [
+            "honeywell,sm351lt"
+        ],
+        "description": "SM351LT magnetoresistive sensor",
+        "driver": [
+            "drivers/sensor/sm351lt/sm351lt.c"
+        ],
+        "interfaces": {
+            "gpio": "gpio",
+            "gpios": "gpio"
+        }
+    },
+    "stts751": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "st,stts751"
+        ],
+        "description": "STMicroelectronics STTS751 temperature sensor connected to I2C bus\n",
+        "driver": [
+            "drivers/sensor/stts751/stts751.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,stts751"
+    },
+    "sx9500": {
+        "category": "Position/Distance",
+        "compatible": [
+            "semtech,sx9500"
+        ],
+        "description": "Semtech SX9500 capacitive proximity/button. See more info at\nhttps://www.semtech.com/products/smart-sensing/touch-proximity-devices/sx9500\n",
+        "driver": [
+            "drivers/sensor/sx9500/sx9500.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "semtech,sx9500"
+    },
+    "tcn75a": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "microchip,tcn75a"
+        ],
+        "description": "TCN75A ambient temperature sensor",
+        "driver": [
+            "drivers/sensor/tcn75a/tcn75a.c"
+        ],
+        "interfaces": {
+            "alert": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "microchip,tcn75a"
+    },
+    "tcs3400": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "ams,tcs3400"
+        ],
+        "description": "AMS TCS3400 Color Light-to-Digital Converter",
+        "driver": [
+            "drivers/sensor/tcs3400/tcs3400.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,tcs3400"
+    },
+    "th02": {
+        "category": "Environmental",
+        "compatible": [
+            "hoperf,th02"
+        ],
+        "description": "TH02 Temperature and Humidity sensor. See datasheet at\nhttp://www.datasheetspdf.com/mobile/748107/TH02.html\n",
+        "driver": [
+            "drivers/sensor/th02/th02.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "hoperf,th02"
+    },
+    "tmag5170": {
+        "category": "Magnetometer/Hall-effect",
+        "compatible": [
+            "ti,tmag5170"
+        ],
+        "description": "Texas Instruments TMAG5170 high-precision, linear 3D Hall-effect sensor.",
+        "driver": [
+            "drivers/sensor/tmag5170/tmag5170.c"
+        ],
+        "interfaces": {
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "operating-mode": {
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "type": "int"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,tmag5170"
+    },
+    "tmd2620": {
+        "category": "Position/Distance",
+        "compatible": [
+            "ams,tmd2620"
+        ],
+        "description": "OSRAM ams TMD2620 Proximity Sensor",
+        "driver": [
+            "drivers/sensor/tmd2620/tmd2620.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "proximity-gain": {
+                "enum": [
+                    1,
+                    2,
+                    4,
+                    8
+                ],
+                "type": "int"
+            },
+            "proximity-led-drive-strength": {
+                "type": "int"
+            },
+            "proximity-pulse-count": {
+                "type": "int"
+            },
+            "proximity-pulse-length": {
+                "enum": [
+                    4,
+                    8,
+                    16,
+                    32
+                ],
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ams,tmd2620"
+    },
+    "tmp007": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "ti,tmp007"
+        ],
+        "description": "TMP007 Digital Temperature Sensor.  See datasheet at\nhttps://cdn-shop.adafruit.com/datasheets/tmp007.pdf\n",
+        "driver": [
+            "drivers/sensor/tmp007/tmp007.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,tmp007"
+    },
+    "tmp108": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "ti,tmp108"
+        ],
+        "description": "TMP108 Digital Temperature Sensor.  See more info at\nhttps://www.ti.com/product/TMP108\n",
+        "driver": [
+            "drivers/sensor/tmp108/tmp108.c",
+            "drivers/sensor/tmp108/tmp108.c"
+        ],
+        "interfaces": {
+            "alert": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,tmp108",
+        "renode-model": "Sensors.TMP108"
+    },
+    "tmp112": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "ti,tmp112"
+        ],
+        "description": "TMP112 Digital Temperature Sensor.  See more info at\nhttps://www.ti.com/product/TMP112\n",
+        "driver": [
+            "drivers/sensor/tmp112/tmp112.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,tmp112"
+    },
+    "tmp116": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "ti,tmp116"
+        ],
+        "description": "Texas Instruments TMP116 temperature sensor",
+        "driver": [
+            "drivers/sensor/tmp116/tmp116.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ti,tmp116"
+    },
+    "tsl2540": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "ams,tsl2540"
+        ],
+        "description": "TSL2540 series ambient light sensor.  See datasheet at\nhttps://ams.com/documents/20143/36005/TSL2540_DS000564_4-00.pdf/39728ac4-098c-9eca-b5ca-61d9c6f3a588\n",
+        "driver": [
+            "drivers/sensor/tsl2540/tsl2540.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,tsl2540"
+    },
+    "vcnl4040": {
+        "category": "Position/Distance",
+        "compatible": [
+            "vishay,vcnl4040"
+        ],
+        "description": "VCNL4040 proximity and ambient light sensor.  See datasheet at\nhttps://www.vishay.com/docs/84274/vcnl4040.pdf\n",
+        "driver": [
+            "drivers/sensor/vcnl4040/vcnl4040.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "vishay,vcnl4040"
+    },
+    "veml7700": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "vishay,veml7700"
+        ],
+        "description": "Vishay VEML7700 High Accuracy Ambient Light Sensor With I2C Interface.\nSee: https://www.vishay.com/doc?84286\n",
+        "driver": [
+            "drivers/sensor/veml7700/veml7700.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "vishay,veml7700"
+    },
+    "vl53l0x": {
+        "category": "Position/Distance",
+        "compatible": [
+            "st,vl53l0x"
+        ],
+        "description": "STMicroelectronics VL53L0X Time of Flight sensor",
+        "driver": [
+            "drivers/sensor/vl53l0x/vl53l0x.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "xshut": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,vl53l0x"
+    },
+    "vl53l1x": {
+        "category": "Position/Distance",
+        "compatible": [
+            "st,vl53l1x"
+        ],
+        "description": "STMicroelectronics VL53L1X Time of Flight sensor",
+        "driver": [
+            "drivers/sensor/vl53l1x/vl53l1.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio",
+            "xshut": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,vl53l1x"
+    },
+    "wsen_hids": {
+        "category": "Environmental",
+        "compatible": [
+            "we,wsen-hids"
+        ],
+        "description": "W\u00fcrth Elektronik WSEN-HIDS humidity sensor with integrated temperature sensor (I2C bus)\n",
+        "driver": [
+            "drivers/sensor/wsen_hids/wsen_hids.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "odr": {
+                "enum": [
+                    "1",
+                    "7",
+                    "12.5"
+                ],
+                "type": "string"
+            }
+        },
+        "rdp-compat": "we,wsen-hids"
+    },
+    "wsen_pads": {
+        "category": "Pressure",
+        "compatible": [
+            "we,wsen-pads"
+        ],
+        "description": "W\u00fcrth Elektronik WSEN-PADS absolute pressure sensor (I2C bus)\n",
+        "driver": [
+            "drivers/sensor/wsen_pads/wsen_pads.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "odr": {
+                "enum": [
+                    0,
+                    1,
+                    10,
+                    25,
+                    50,
+                    75,
+                    100,
+                    200
+                ],
+                "type": "int"
+            }
+        },
+        "rdp-compat": "we,wsen-pads"
+    },
+    "wsen_pdus": {
+        "category": "Pressure",
+        "compatible": [
+            "we,wsen-pdus"
+        ],
+        "description": "W\u00fcrth Elektronik WSEN-PDUS differential pressure sensor\n",
+        "driver": [
+            "drivers/sensor/wsen_pdus/wsen_pdus.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "sensor-type": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "type": "int"
+            }
+        },
+        "rdp-compat": "we,wsen-pdus"
+    },
+    "wsen_tids": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "we,wsen-tids"
+        ],
+        "description": "W\u00fcrth Elektronik WSEN-TIDS temperature sensor\n",
+        "driver": [
+            "drivers/sensor/wsen_tids/wsen_tids.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "odr": {
+                "enum": [
+                    25,
+                    50,
+                    100,
+                    200
+                ],
+                "type": "int"
+            }
+        },
+        "rdp-compat": "we,wsen-tids"
+    }
+}

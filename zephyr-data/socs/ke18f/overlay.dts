@@ -1,0 +1,90 @@
+/ {
+	compatible = "nxp,mke18f16", "nxp,ke18f", "nxp,ke1xf";
+	chosen {
+		zephyr,console = &lpuart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&gpiod{
+	status = "okay";
+};
+&lpi2c1{
+	status = "okay";
+	pinctrl-0 = < &lpi2c1_default >;
+	pinctrl-names = "default";
+	scl-gpios = < &gpiod 0x9 0x0 >;
+	sda-gpios = < &gpiod 0x8 0x0 >;
+};
+&lpuart1{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&gpiob{
+	status = "okay";
+};
+&lpspi1{
+	status = "okay";
+	pinctrl-0 = < &lpspi1_default >;
+	pinctrl-names = "default";
+};
+&adc2{
+	status = "disabled";
+};
+&adc0{
+	status = "okay";
+	sample-time = < 0xc >;
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&lpi2c0{
+	status = "okay";
+	pinctrl-0 = < &lpi2c0_default >;
+	pinctrl-names = "default";
+	scl-gpios = < &gpioa 0x3 0x0 >;
+	sda-gpios = < &gpioa 0x2 0x0 >;
+};
+&gpioe{
+	status = "okay";
+};
+&lpuart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&flexcan1{
+	status = "disabled";
+};
+&lpuart2{
+	status = "disabled";
+};
+&flexcan0{
+	status = "okay";
+	bus-speed = < 0x1e848 >;
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+};
+&lpspi0{
+	status = "okay";
+	dmas = < &edma 0x0 0xe >, < &edma 0x1 0xf >;
+	dma-names = "rx", "tx";
+	pinctrl-0 = < &lpspi0_default >;
+	pinctrl-names = "default";
+};
+&dac0{
+	status = "okay";
+	pinctrl-0 = < &dac0_default >;
+	pinctrl-names = "default";
+};
+&gpioc{
+	status = "okay";
+};

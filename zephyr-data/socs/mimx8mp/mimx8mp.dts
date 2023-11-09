@@ -1,0 +1,156 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x4 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		itcm: itcm@0 {
+			compatible = "nxp,imx-itcm";
+			reg = < 0x0 0x20000 >;
+		};
+		dtcm: dtcm@20000000 {
+			compatible = "nxp,imx-dtcm";
+			reg = < 0x20000000 0x20000 >;
+		};
+		ocram_code: code@900000 {
+			compatible = "nxp,imx-code-bus";
+			reg = < 0x900000 0x90000 >;
+		};
+		ocram_sys: memory@20200000 {
+			device_type = "memory";
+			compatible = "nxp,imx-sys-bus";
+			reg = < 0x20200000 0x90000 >;
+		};
+		ocram_s_code: code@180000 {
+			compatible = "nxp,imx-code-bus";
+			reg = < 0x180000 0x9000 >;
+		};
+		ocram_s_sys: memory@20180000 {
+			device_type = "memory";
+			compatible = "nxp,imx-sys-bus";
+			reg = < 0x20180000 0x9000 >;
+		};
+		ddr_code: code@80000000 {
+			device_type = "memory";
+			compatible = "nxp,imx-code-bus";
+			reg = < 0x80000000 0x200000 >;
+		};
+		ddr_sys: memory@80200000 {
+			device_type = "memory";
+			compatible = "nxp,imx-sys-bus";
+			reg = < 0x80200000 0x200000 >;
+		};
+		ccm: ccm@30380000 {
+			compatible = "nxp,imx-ccm";
+			reg = < 0x30380000 0x10000 >;
+			#clock-cells = < 0x3 >;
+			phandle = < 0x2 >;
+		};
+		iomuxc: iomuxc@30330000 {
+			compatible = "nxp,imx-iomuxc";
+			reg = < 0x30330000 0x10000 >;
+			status = "okay";
+			pinctrl: pinctrl {
+				status = "okay";
+				compatible = "nxp,imx8mp-pinctrl";
+			};
+		};
+		gpio1: gpio@30200000 {
+			compatible = "nxp,imx-gpio";
+			reg = < 0x30200000 0x10000 >;
+			interrupts = < 0x40 0x0 >, < 0x41 0x0 >;
+			rdc = < 0xf >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio2: gpio@30210000 {
+			compatible = "nxp,imx-gpio";
+			reg = < 0x30210000 0x10000 >;
+			interrupts = < 0x42 0x0 >, < 0x43 0x0 >;
+			rdc = < 0xf >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio3: gpio@30220000 {
+			compatible = "nxp,imx-gpio";
+			reg = < 0x30220000 0x10000 >;
+			interrupts = < 0x44 0x0 >, < 0x45 0x0 >;
+			rdc = < 0xf >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio4: gpio@30230000 {
+			compatible = "nxp,imx-gpio";
+			reg = < 0x30230000 0x10000 >;
+			interrupts = < 0x46 0x0 >, < 0x47 0x0 >;
+			rdc = < 0xf >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio5: gpio@30240000 {
+			compatible = "nxp,imx-gpio";
+			reg = < 0x30240000 0x10000 >;
+			interrupts = < 0x48 0x0 >, < 0x49 0x0 >;
+			rdc = < 0xf >;
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			status = "disabled";
+		};
+		uart4: uart@30a60000 {
+			compatible = "nxp,imx-iuart";
+			reg = < 0x30a60000 0x10000 >;
+			interrupts = < 0x1d 0x3 >;
+			clocks = < &ccm 0x803 0x6c 0x18 >;
+			status = "disabled";
+		};
+		mailbox0: mailbox@30ab0000 {
+			compatible = "nxp,imx-mu";
+			reg = < 0x30ab0000 0x10000 >;
+			interrupts = < 0x61 0x0 >;
+			rdc = < 0xf >;
+			status = "disabled";
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m7";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv7m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+				arm,num-mpu-regions = < 0x10 >;
+			};
+		};
+	};
+};

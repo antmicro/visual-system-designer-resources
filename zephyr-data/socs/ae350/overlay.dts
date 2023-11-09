@@ -1,0 +1,34 @@
+/ {
+	compatible = "andestech,adp_xc7k_ae350";
+	chosen {
+		zephyr,console = &uart1;
+		zephyr,sram = &dram;
+	};
+};
+&i2c0{
+	status = "okay";
+};
+&uart1{
+	status = "okay";
+	clock-frequency = < 0x12c0000 >;
+	current-speed = < 0x1c200 >;
+};
+&gpio0{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+};
+&mmc0{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	cs-gpios = < &gpio0 0x7 0x1 >;
+};
+&uart0{
+	status = "disabled";
+};
+&eth0{
+	status = "disabled";
+};

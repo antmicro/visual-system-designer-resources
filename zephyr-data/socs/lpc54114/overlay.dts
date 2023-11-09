@@ -1,0 +1,10 @@
+/ {
+	compatible = "nxp,lpc54xxx", "nxp,lpc";
+	chosen {
+		zephyr,sram = &sram2;
+		zephyr,flash = &sram1;
+	};
+};
+&iap{
+	status = "disabled";
+};

@@ -1,0 +1,80 @@
+/ {
+	compatible = "espressif,esp32c3";
+	chosen {
+		zephyr,console = &usb_serial;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&twai{
+	status = "disabled";
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&flash0{
+	status = "okay";
+};
+&spi2{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim2_default >;
+	pinctrl-names = "default";
+};
+&uart0{
+	status = "disabled";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&usb_serial{
+	status = "okay";
+};
+&adc0{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&uart1{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&gpio0{
+	status = "okay";
+};
+&pinctrl{
+	compatible = "espressif,esp32-pinctrl";
+	status = "okay";
+	uart0_default: uart0_default {
+		group1 {
+			pinmux = < 0x37fd5 >;
+			output-high;
+		};
+		group2 {
+			pinmux = < 0xff8194 >;
+		};
+	};
+	spim2_default: spim2_default {
+		group1 {
+			pinmux = < 0xff9004 >, < 0x1fffc5 >, < 0x227fc6 >;
+		};
+		group2 {
+			pinmux = < 0x20ffc7 >;
+			output-low;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = < 0x1b0d82 >, < 0x1a8d48 >;
+			drive-open-drain;
+			output-high;
+		};
+	};
+};

@@ -1,0 +1,76 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x2 >;
+	#size-cells = < 0x2 >;
+	compatible = "renesas,r8a77961";
+	chosen {
+	};
+	aliases {
+	};
+	soc: soc {
+		#address-cells = < 0x2 >;
+		#size-cells = < 0x2 >;
+		compatible = "simple-bus";
+		ranges;
+		interrupt-parent = < &gic >;
+		cpg: clock-controller@e6150000 {
+			reg = < 0x0 0xe6150000 0x0 0x1000 >;
+			#clock-cells = < 0x2 >;
+			#power-domain-cells = < 0x0 >;
+			#reset-cells = < 0x1 >;
+			compatible = "renesas,r8a7795-cpg-mssr";
+			phandle = < 0x2 >;
+		};
+		emmc2: mmc@ee140000 {
+			compatible = "renesas,rcar-mmc";
+			reg = < 0x0 0xee140000 0x0 0x2000 >;
+			interrupts = < 0x0 0xa7 0x2 0xa0 >;
+			clocks = < &cpg 0x1 0x138 >;
+			max-frequency = < 0xbebc200 >;
+			status = "disabled";
+		};
+		pfc: pin-controller@e6060000 {
+			compatible = "renesas,rcar-pfc";
+			reg = < 0x0 0xe6060000 0x0 0x50c >;
+		};
+		scif2: serial@e6e88000 {
+			compatible = "renesas,rcar-scif";
+			reg = < 0x0 0xe6e88000 0x0 0x64 >;
+			interrupt-parent = < &gic >;
+			clocks = < &cpg 0x1 0x136 >, < &cpg 0x0 0x12 >;
+			interrupts = < 0x0 0xa4 0x2 0xa0 >;
+			current-speed = < 0x1c200 >;
+			interrupt-names = "irq_0";
+			status = "disabled";
+		};
+	};
+	psci {
+		compatible = "arm,psci-1.0", "arm,psci-0.2", "arm,psci";
+		method = "smc";
+	};
+	arch_timer: timer {
+		compatible = "arm,armv8-timer";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x1 0xd 0x2 0xa0 >, < 0x1 0xe 0x2 0xa0 >, < 0x1 0xb 0x2 0xa0 >, < 0x1 0xa 0x2 0xa0 >;
+	};
+	gic: interrupt-controller@f1010000 {
+		compatible = "arm,gic-400", "arm,gic-v2", "arm,gic";
+		#interrupt-cells = < 0x4 >;
+		#address-cells = < 0x0 >;
+		interrupt-controller;
+		reg = < 0x0 0xf1010000 0x0 0x1000 >, < 0x0 0xf1020000 0x0 0x20000 >;
+		status = "okay";
+		phandle = < 0x1 >;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		a57_0: cpu@0 {
+			compatible = "arm,cortex-a57", "arm,armv8";
+			reg = < 0x0 >;
+			device_type = "cpu";
+			enable-method = "psci";
+		};
+	};
+};

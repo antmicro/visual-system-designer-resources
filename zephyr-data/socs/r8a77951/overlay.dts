@@ -1,0 +1,51 @@
+/ {
+	compatible = "renesas,r8a77951";
+	chosen {
+		zephyr,console = &scif2;
+		zephyr,sram = &sram0;
+	};
+};
+&scif2{
+	interrupt-names = "irq_0";
+	status = "okay";
+	pinctrl-0 = < &scif2_data_a_tx_default &scif2_data_a_rx_default >;
+	pinctrl-names = "default";
+};
+&can0{
+	status = "okay";
+	pinctrl-0 = < &can0_data_a_tx_default &can0_data_a_rx_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&i2c2{
+	status = "okay";
+};
+&gpio5{
+	status = "disabled";
+};
+&gpio6{
+	status = "okay";
+};
+&scif1{
+	status = "okay";
+	pinctrl-0 = < &scif1_data_a_tx_default &scif1_data_a_rx_default >;
+	pinctrl-names = "default";
+};
+&pwm0{
+	status = "disabled";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};
+&i2c4{
+	status = "okay";
+};
+&pfc{
+	compatible = "renesas,rcar-pfc";
+	reg = < 0x0 0xe6060000 0x0 0x50c >;
+	scif2_data_a_tx_default: scif2_data_a_tx_default {
+		pin = < 0xaa 0x3400 >;
+	};
+	scif2_data_a_rx_default: scif2_data_a_rx_default {
+		pin = < 0xab 0x3440 >;
+	};
+};

@@ -1,0 +1,288 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,entropy = &trng;
+		zephyr,flash-controller = &flash_controller;
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x4 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		sram0: memory@20000000 {
+			compatible = "mmio-sram";
+			reg = < 0x20000000 0x80000 >;
+		};
+		qspif: memory@16000000 {
+			compatible = "zephyr,memory-region";
+			reg = < 0x16000000 0x2000000 >;
+			zephyr,memory-region = "QSPIF";
+		};
+		flash_controller: flash-controller@38000000 {
+			compatible = "renesas,smartbond-flash-controller";
+			reg = < 0x38000000 0xb0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			read-cs-idle-delay = < 0x32 >;
+			erase-cs-idle-delay = < 0x32 >;
+			flash0: flash@16000000 {
+				compatible = "soc-nv-flash";
+				erase-block-size = < 0x1000 >;
+				write-block-size = < 0x1 >;
+			};
+		};
+		pinctrl: pin-controller@50020a00 {
+			compatible = "renesas,smartbond-pinctrl";
+			reg = < 0x50020a00 0x100 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			gpio0: gpio@50020a00 {
+				compatible = "renesas,smartbond-gpio";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0x20 >;
+				reg = < 0x50020a00 0x14 0x50020a18 0x80 0x50000070 0xc 0x50000114 0x24 >;
+				reg-names = "data", "mode", "latch", "wkup";
+				interrupts = < 0x26 0x0 >;
+			};
+			gpio1: gpio@50020a04 {
+				compatible = "renesas,smartbond-gpio";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				ngpios = < 0xc >;
+				reg = < 0x50020a04 0x14 0x50020a98 0x5c 0x5000007c 0xc 0x50000118 0x24 >;
+				reg-names = "data", "mode", "latch", "wkup";
+				interrupts = < 0x27 0x0 >;
+			};
+		};
+		rtc: rtc@50000400 {
+			compatible = "renesas,smartbond-rtc";
+			reg = < 0x50000400 0x98 >;
+			interrupts = < 0x12 0x0 >;
+			alarms-count = < 0x1 >;
+			status = "disabled";
+		};
+		wdog: watchdog@50000700 {
+			compatible = "renesas,smartbond-watchdog";
+			reg = < 0x50000700 0x8 >;
+			status = "okay";
+		};
+		timer1: timer@50010200 {
+			compatible = "renesas,smartbond-timer";
+			reg = < 0x50010200 0x300 >;
+			clock-src = < &lp_clk >;
+			interrupts = < 0x10 0x0 >;
+			prescaler = < 0x1 >;
+			status = "disabled";
+		};
+		timer2: timer@50010300 {
+			compatible = "renesas,smartbond-timer";
+			reg = < 0x50010300 0x300 >;
+			clock-src = < &divn_clk >;
+			interrupts = < 0x11 0x0 >;
+			prescaler = < 0x20 >;
+			status = "disabled";
+		};
+		timer3: timer@50040a00 {
+			compatible = "renesas,smartbond-timer";
+			reg = < 0x50040a00 0x300 >;
+			clock-src = < &lp_clk >;
+			interrupts = < 0x22 0x0 >;
+			prescaler = < 0x1f >;
+			status = "disabled";
+		};
+		timer4: timer@50040b00 {
+			compatible = "renesas,smartbond-timer";
+			reg = < 0x50040b00 0x300 >;
+			clock-src = < &divn_clk >;
+			interrupts = < 0x23 0x0 >;
+			prescaler = < 0x20 >;
+			status = "disabled";
+		};
+		uart: uart@50020000 {
+			compatible = "renesas,smartbond-uart";
+			reg = < 0x50020000 0x100 >;
+			periph-clock-config = < 0x1 >;
+			interrupts = < 0x5 0x0 >;
+			status = "disabled";
+		};
+		uart2: uart@50020100 {
+			compatible = "renesas,smartbond-uart";
+			reg = < 0x50020100 0x100 >;
+			periph-clock-config = < 0x2 >;
+			interrupts = < 0x6 0x0 >;
+			status = "disabled";
+		};
+		uart3: uart@50020200 {
+			compatible = "renesas,smartbond-uart";
+			reg = < 0x50020200 0x100 >;
+			periph-clock-config = < 0x8 >;
+			interrupts = < 0x7 0x0 >;
+			status = "disabled";
+		};
+		adc: adc@50030900 {
+			compatible = "renesas,smartbond-adc";
+			reg = < 0x50030900 0x1c >;
+			interrupts = < 0x1b 0x0 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
+		sdadc: sdadc@50020800 {
+			compatible = "renesas,smartbond-sdadc";
+			reg = < 0x50020800 0x1c >;
+			interrupts = < 0x1c 0x0 >;
+			clock-freq = < 0x2 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
+		crypto: crypto@30040000 {
+			compatible = "renesas,smartbond-crypto";
+			reg = < 0x30040000 0x200 >;
+			interrupts = < 0x1d 0x0 >;
+			status = "disabled";
+		};
+		trng: trng@50040c00 {
+			compatible = "renesas,smartbond-trng";
+			reg = < 0x50040c00 0xc >;
+			interrupts = < 0x18 0x0 >;
+			status = "okay";
+		};
+		i2c: i2c@50020600 {
+			compatible = "renesas,smartbond-i2c";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x50020600 0x100 >;
+			periph-clock-config = < 0x200 >;
+			interrupts = < 0x8 0x0 >;
+			status = "disabled";
+		};
+		i2c2: i2c@50020700 {
+			compatible = "renesas,smartbond-i2c";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x50020700 0x100 >;
+			periph-clock-config = < 0x800 >;
+			interrupts = < 0x9 0x0 >;
+		};
+		spi: spi@50020300 {
+			compatible = "renesas,smartbond-spi";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x50020300 0x100 >;
+			periph-clock-config = < 0x20 >;
+			interrupts = < 0xa 0x0 >;
+			status = "disabled";
+		};
+		spi2: spi@50020400 {
+			compatible = "renesas,smartbond-spi";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x50020400 0x100 >;
+			periph-clock-config = < 0x80 >;
+			interrupts = < 0xb 0x0 >;
+			status = "disabled";
+		};
+		usbd: usb@50040000 {
+			compatible = "renesas,smartbond-usbd";
+			reg = < 0x50040000 0x1b0 >;
+			dma-chan-rx = < 0x6 >;
+			dma-chan-tx = < 0x7 >;
+			dma-min-transfer-size = < 0x41 >;
+			fifo-read-threshold = < 0x4 >;
+			ep-out-buf-size = < 0x8 0x40 0x40 0x40 >;
+			interrupts = < 0xf 0x0 >, < 0x15 0x0 >;
+			status = "disabled";
+		};
+	};
+	cpus: cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			compatible = "arm,cortex-m33f";
+			reg = < 0x0 >;
+			clock-frequency = < 0x1e84800 >;
+		};
+	};
+	crg {
+		osc: osc {
+			rc32k: rc32k {
+				compatible = "renesas,smartbond-lp-osc";
+				clock-frequency = < 0x7d00 >;
+				calibration-interval = < 0x1 >;
+				#clock-cells = < 0x0 >;
+				status = "okay";
+				phandle = < 0x5 >;
+			};
+			xtal32k: xtal32k {
+				compatible = "renesas,smartbond-lp-osc";
+				clock-frequency = < 0x8000 >;
+				settle-time = < 0x1f40 >;
+				#clock-cells = < 0x0 >;
+				status = "disabled";
+			};
+			rcx: rcx {
+				compatible = "renesas,smartbond-lp-osc";
+				clock-frequency = < 0x3a98 >;
+				calibration-interval = < 0x1 >;
+				#clock-cells = < 0x0 >;
+				status = "disabled";
+			};
+			rc32m: rc32m {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x1e84800 >;
+				#clock-cells = < 0x0 >;
+				status = "okay";
+				phandle = < 0x4 >;
+			};
+			xtal32m: xtal32m {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x1e84800 >;
+				#clock-cells = < 0x0 >;
+				status = "disabled";
+			};
+			pll: pll {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x5b8d800 >;
+				#clock-cells = < 0x0 >;
+				status = "disabled";
+			};
+		};
+		divn_clk: divn_clk {
+			compatible = "fixed-clock";
+			clock-frequency = < 0x1e84800 >;
+			#clock-cells = < 0x0 >;
+			status = "okay";
+			phandle = < 0x3 >;
+		};
+		sys_clk: sys_clk {
+			compatible = "renesas,smartbond-sys-clk";
+			status = "okay";
+			clock-src = < &rc32m >;
+		};
+		lp_clk: lp_clk {
+			compatible = "renesas,smartbond-lp-clk";
+			clock-src = < &rc32k >;
+			status = "okay";
+			phandle = < 0x2 >;
+		};
+	};
+};

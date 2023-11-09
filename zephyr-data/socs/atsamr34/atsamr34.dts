@@ -1,0 +1,260 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,flash-controller = &nvmctrl;
+		zephyr,entropy = &trng;
+	};
+	aliases {
+		watchdog0 = &wdog;
+		lora0 = &lora;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v6m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x2 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv6m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		nvmctrl: nvmctrl@41004000 {
+			compatible = "atmel,sam0-nvmctrl";
+			reg = < 0x41004000 0x22 >;
+			interrupts = < 0x4 0x0 >;
+			lock-regions = < 0x10 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				reg = < 0x0 0x40000 >;
+				write-block-size = < 0x4 >;
+			};
+		};
+		pm: pm@40000400 {
+			compatible = "atmel,saml2x-pm";
+			reg = < 0x40000400 0x400 >;
+			interrupts = < 0x0 0x0 >;
+			#clock-cells = < 0x2 >;
+		};
+		mclk: mclk@40000400 {
+			compatible = "atmel,saml2x-mclk";
+			reg = < 0x40000400 0x400 >;
+			#clock-cells = < 0x2 >;
+			phandle = < 0x3 >;
+		};
+		gclk: gclk@40001800 {
+			compatible = "atmel,saml2x-gclk";
+			reg = < 0x40001800 0x400 >;
+			#clock-cells = < 0x1 >;
+			phandle = < 0x2 >;
+		};
+		dmac: dmac@44000400 {
+			compatible = "atmel,sam0-dmac";
+			reg = < 0x44000400 0x50 >;
+			interrupts = < 0x5 0x0 >;
+			#dma-cells = < 0x2 >;
+		};
+		eic: eic@40002400 {
+			compatible = "atmel,sam0-eic";
+			reg = < 0x40002400 0x24 >;
+			interrupts = < 0x3 0x0 >;
+		};
+		wdog: watchdog@40001c00 {
+			compatible = "atmel,sam0-watchdog";
+			reg = < 0x40001c00 0xc >;
+			interrupts = < 0x1 0x0 >;
+		};
+		sercom0: sercom@42000000 {
+			compatible = "atmel,sam0-sercom";
+			reg = < 0x42000000 0x40 >;
+			status = "disabled";
+			interrupts = < 0x8 0x0 >;
+			clocks = < &gclk 0x12 >, < &mclk 0x1c 0x0 >;
+			clock-names = "GCLK", "MCLK";
+		};
+		sercom1: sercom@42000400 {
+			compatible = "atmel,sam0-sercom";
+			reg = < 0x42000400 0x40 >;
+			status = "disabled";
+			interrupts = < 0x9 0x0 >;
+			clocks = < &gclk 0x13 >, < &mclk 0x1c 0x1 >;
+			clock-names = "GCLK", "MCLK";
+		};
+		sercom2: sercom@42000800 {
+			compatible = "atmel,sam0-sercom";
+			reg = < 0x42000800 0x40 >;
+			status = "disabled";
+			interrupts = < 0xa 0x0 >;
+			clocks = < &gclk 0x14 >, < &mclk 0x1c 0x2 >;
+			clock-names = "GCLK", "MCLK";
+		};
+		sercom3: sercom@42000c00 {
+			compatible = "atmel,sam0-sercom";
+			reg = < 0x42000c00 0x40 >;
+			status = "disabled";
+			interrupts = < 0xb 0x0 >;
+			clocks = < &gclk 0x15 >, < &mclk 0x1c 0x3 >;
+			clock-names = "GCLK", "MCLK";
+		};
+		sercom4: sercom@42001000 {
+			compatible = "atmel,sam0-spi";
+			reg = < 0x42001000 0x40 >;
+			status = "disabled";
+			interrupts = < 0xc 0x0 >;
+			clocks = < &gclk 0x16 >, < &mclk 0x1c 0x4 >;
+			clock-names = "GCLK", "MCLK";
+			dipo = < 0x0 >;
+			dopo = < 0x1 >;
+			cs-gpios = < &portb 0x1f 0x1 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			pinctrl-0 = < &sercom4_default >;
+			pinctrl-names = "default";
+			lora: sx1276@0 {
+				compatible = "semtech,sx1276";
+				status = "disabled";
+				reg = < 0x0 >;
+				reset-gpios = < &portb 0xf 0x1 >;
+				dio-gpios = < &portb 0x10 0x20 >, < &porta 0xb 0x20 >, < &porta 0xc 0x20 >, < &portb 0x11 0x20 >, < &porta 0xa 0x20 >, < &portb 0x0 0x20 >;
+				spi-max-frequency = < 0x989680 >;
+			};
+		};
+		sercom5: sercom@43000400 {
+			compatible = "atmel,sam0-sercom";
+			reg = < 0x43000400 0x40 >;
+			status = "disabled";
+			interrupts = < 0xd 0x0 >;
+			clocks = < &gclk 0x18 >, < &mclk 0x20 0x1 >;
+			clock-names = "GCLK", "MCLK";
+		};
+		tc4: tc@43000800 {
+			compatible = "atmel,sam0-tc32";
+			reg = < 0x43000800 0x34 >;
+			interrupts = < 0x15 0x0 >;
+			clocks = < &gclk 0x1d >, < &mclk 0x20 0x2 >;
+			clock-names = "GCLK", "MCLK";
+		};
+		pinctrl: pinctrl@40002800 {
+			compatible = "atmel,sam0-pinctrl";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ranges = < 0x40002800 0x40002800 0x180 >;
+			porta: gpio@40002800 {
+				compatible = "atmel,sam0-gpio";
+				reg = < 0x40002800 0x80 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				#atmel,pin-cells = < 0x2 >;
+				phandle = < 0x6 >;
+			};
+			portb: gpio@40002880 {
+				compatible = "atmel,sam0-gpio";
+				reg = < 0x40002880 0x80 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				#atmel,pin-cells = < 0x2 >;
+				phandle = < 0x4 >;
+			};
+			sercom4_default: sercom4_default {
+				phandle = < 0x5 >;
+				group1 {
+					pinmux = < 0x53e1 >, < 0x53f1 >, < 0x5322 >, < 0x5332 >;
+				};
+			};
+			portc: gpio@40002900 {
+				compatible = "atmel,sam0-gpio";
+				reg = < 0x40002900 0x80 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				#atmel,pin-cells = < 0x2 >;
+			};
+		};
+		rtc: rtc@40002000 {
+			compatible = "atmel,sam0-rtc";
+			reg = < 0x40002000 0x1c >;
+			interrupts = < 0x2 0x0 >;
+			clock-generator = < 0x0 >;
+			status = "disabled";
+		};
+		adc: adc@43000c00 {
+			compatible = "atmel,sam0-adc";
+			reg = < 0x43000c00 0x30 >;
+			gclk = < 0x3 >;
+			prescaler = < 0x2 >;
+			#io-channel-cells = < 0x1 >;
+			interrupts = < 0x16 0x0 >;
+			interrupt-names = "resrdy";
+			clocks = < &gclk 0x1e >, < &mclk 0x20 0x3 >;
+			clock-names = "GCLK", "MCLK";
+		};
+		trng: random@42003800 {
+			compatible = "atmel,sam-trng";
+			reg = < 0x42003800 0x24 >;
+			interrupts = < 0x1b 0x0 >;
+		};
+		usb0: usb@41000000 {
+			compatible = "atmel,sam0-usb";
+			status = "disabled";
+			reg = < 0x41000000 0x1000 >;
+			interrupts = < 0x6 0x0 >;
+			num-bidir-endpoints = < 0x8 >;
+		};
+		tcc0: tcc@42001400 {
+			compatible = "atmel,sam0-tcc";
+			reg = < 0x42001400 0x80 >;
+			interrupts = < 0xe 0x0 >;
+			clocks = < &gclk 0x19 >, < &mclk 0x1c 0x5 >;
+			clock-names = "GCLK", "MCLK";
+			channels = < 0x4 >;
+			counter-size = < 0x18 >;
+		};
+		tcc1: tcc@42001800 {
+			compatible = "atmel,sam0-tcc";
+			reg = < 0x42001800 0x80 >;
+			interrupts = < 0xf 0x0 >;
+			clocks = < &gclk 0x19 >, < &mclk 0x1c 0x6 >;
+			clock-names = "GCLK", "MCLK";
+			channels = < 0x4 >;
+			counter-size = < 0x18 >;
+		};
+		tcc2: tcc@42001c00 {
+			compatible = "atmel,sam0-tcc";
+			reg = < 0x42001c00 0x80 >;
+			interrupts = < 0x10 0x0 >;
+			clocks = < &gclk 0x1a >, < &mclk 0x1c 0x7 >;
+			clock-names = "GCLK", "MCLK";
+			channels = < 0x2 >;
+			counter-size = < 0x10 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m0+";
+			reg = < 0x0 >;
+		};
+	};
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = < 0x20000000 0x8000 >;
+	};
+	id: device_id@80a00c {
+		compatible = "atmel,sam0-id";
+		reg = < 0x80a00c 0x4 >, < 0x80a040 0x4 >, < 0x80a044 0x4 >, < 0x80a048 0x4 >;
+	};
+};

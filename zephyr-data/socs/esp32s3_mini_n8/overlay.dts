@@ -1,0 +1,126 @@
+/ {
+	compatible = "espressif,esp32s3";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&spi3{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
+	pinctrl-names = "default";
+};
+&gpio1{
+	status = "okay";
+};
+&twai{
+	status = "disabled";
+	pinctrl-0 = < &twai_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&i2c0{
+	status = "disabled";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&flash0{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&uart2{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "disabled";
+};
+&usb_serial{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&i2c1{
+	status = "disabled";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim2_default >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	compatible = "espressif,esp32-pinctrl";
+	status = "okay";
+	uart0_default: uart0_default {
+		group1 {
+			pinmux = < 0x67feb >;
+			output-high;
+		};
+		group2 {
+			pinmux = < 0xff832c >;
+			bias-pull-up;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = < 0x2d1681 >, < 0x2c9642 >;
+			bias-pull-up;
+			drive-open-drain;
+			output-high;
+		};
+	};
+	i2c1_default: i2c1_default {
+		group1 {
+			pinmux = < 0x2e1704 >, < 0x2d96c5 >;
+			bias-pull-up;
+			drive-open-drain;
+			output-high;
+		};
+	};
+	spim2_default: spim2_default {
+		group1 {
+			pinmux = < 0xff998d >, < 0x32ffcc >, < 0x377fca >;
+		};
+		group2 {
+			pinmux = < 0x33ffcb >;
+			output-low;
+		};
+	};
+	spim3_default: spim3_default {
+		group1 {
+			pinmux = < 0xff90e5 >, < 0x217fe4 >, < 0x23ffe6 >;
+		};
+		group2 {
+			pinmux = < 0x227fe7 >;
+			output-low;
+		};
+	};
+	twai_default: twai_default {
+		group1 {
+			pinmux = < 0x3a7fc5 >, < 0xff9d06 >;
+		};
+	};
+};

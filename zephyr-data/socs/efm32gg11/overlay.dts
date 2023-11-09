@@ -1,0 +1,106 @@
+/ {
+	compatible = "silabs,efm32gg_stk3701a", "silabs,efm32gg11b";
+	chosen {
+		zephyr,console = &leuart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x4 0xb >;
+	location-tx = < 0x0 0x4 0xa >;
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
+};
+&gpioa{
+	status = "okay";
+};
+&usart1{
+	status = "disabled";
+};
+&usart5{
+	status = "disabled";
+};
+&gpiof{
+	status = "okay";
+};
+&gpiog{
+	status = "okay";
+};
+&uart1{
+	status = "disabled";
+};
+&gpiob{
+	status = "okay";
+};
+&leuart1{
+	status = "disabled";
+};
+&usart3{
+	status = "disabled";
+};
+&gpioe{
+	status = "okay";
+};
+&gpioh{
+	status = "okay";
+};
+&usart2{
+	status = "disabled";
+};
+&leuart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x0 0x1 >;
+	location-tx = < 0x0 0x0 0x0 >;
+};
+&usart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x4 0x7 0x5 >;
+	location-tx = < 0x4 0x7 0x4 >;
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&eth0{
+	status = "okay";
+	phy-address = < 0x0 >;
+	location-mdio = < 0x1 >;
+	location-phy_mdc = < 0x1 0x3 0xe >;
+	location-phy_mdio = < 0x1 0x3 0xd >;
+	location-rmii = < 0x1 >;
+	location-rmii_refclk = < 0x5 0x3 0xa >;
+	location-rmii_crs_dv = < 0x1 0x3 0xb >;
+	location-rmii_txd0 = < 0x1 0x5 0x7 >;
+	location-rmii_txd1 = < 0x1 0x5 0x6 >;
+	location-rmii_tx_en = < 0x1 0x5 0x8 >;
+	location-rmii_rxd0 = < 0x1 0x3 0x9 >;
+	location-rmii_rxd1 = < 0x1 0x5 0x9 >;
+	location-rmii_rx_er = < 0x1 0x3 0xc >;
+};
+&gpioi{
+	status = "okay";
+};
+&i2c1{
+	status = "okay";
+	location-sda = < 0x0 0x2 0x4 >;
+	location-scl = < 0x0 0x2 0x5 >;
+};
+&uart0{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "silabs,gecko-pinctrl";
+};

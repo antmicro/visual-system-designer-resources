@@ -1,0 +1,144 @@
+/ {
+	compatible = "actinius,icarus_som_dk";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&spi0{
+	status = "disabled";
+};
+&pwm1{
+	status = "disabled";
+};
+&gpio0{
+	status = "okay";
+};
+&i2c3{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&spi3{
+	status = "okay";
+	cs-gpios = < &gpio0 0x18 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart2{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&pwm3{
+	status = "disabled";
+};
+&adc{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart3{
+	status = "disabled";
+};
+&pdm0{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &neopixel_spi_default >;
+	pinctrl-1 = < &neopixel_spi_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2s0{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm2{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart0_default: uart0_default {
+		group1 {
+			psels = < 0x9 >, < 0x10006 >;
+		};
+	};
+	uart0_sleep: uart0_sleep {
+		group1 {
+			psels = < 0x9 >, < 0x10006 >;
+			low-power-enable;
+		};
+	};
+	i2c2_default: i2c2_default {
+		group1 {
+			psels = < 0xc000a >, < 0xb000b >;
+		};
+	};
+	i2c2_sleep: i2c2_sleep {
+		group1 {
+			psels = < 0xc000a >, < 0xb000b >;
+			low-power-enable;
+		};
+	};
+	spi3_default: spi3_default {
+		group1 {
+			psels = < 0x40016 >, < 0x50019 >, < 0x60015 >;
+		};
+	};
+	spi3_sleep: spi3_sleep {
+		group1 {
+			psels = < 0x40016 >, < 0x50019 >, < 0x60015 >;
+			low-power-enable;
+		};
+	};
+	neopixel_spi_default: neopixel_spi_default {
+		group1 {
+			psels = < 0x40000 >, < 0x50008 >, < 0x60000 >;
+		};
+	};
+	neopixel_spi_sleep: neopixel_spi_sleep {
+		group1 {
+			psels = < 0x40000 >, < 0x50008 >, < 0x60000 >;
+			low-power-enable;
+		};
+	};
+	pwm0_default: pwm0_default {
+		group1 {
+			psels = < 0x160003 >;
+			nordic,invert;
+		};
+	};
+	pwm0_sleep: pwm0_sleep {
+		group1 {
+			psels = < 0x160003 >;
+			low-power-enable;
+		};
+	};
+};

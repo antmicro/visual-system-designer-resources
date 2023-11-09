@@ -1,0 +1,124 @@
+/ {
+	compatible = "gd,gd32vf103c-starter";
+	chosen {
+		zephyr,console = &usart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&gpioe{
+	status = "okay";
+};
+&pinctrl{
+	status = "okay";
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+};
+&usart1{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&spi1{
+	status = "disabled";
+};
+&gpiod{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&gpiob{
+	status = "okay";
+};
+&uart3{
+	status = "disabled";
+};
+&uart4{
+	status = "disabled";
+};
+&spi0{
+	status = "disabled";
+};
+&gpioa{
+	status = "okay";
+};
+&adc1{
+	status = "disabled";
+};
+&adc0{
+	status = "disabled";
+};
+&gpioc{
+	status = "okay";
+};
+&dac{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "gd,gd32-pinctrl-afio";
+	reg = < 0x40010800 0x1c00 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	status = "okay";
+	gpioa: gpio@40010800 {
+		compatible = "gd,gd32-gpio";
+		reg = < 0x40010800 0x400 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		clocks = < &cctl 0x602 >;
+		resets = < &rctl 0x302 >;
+		status = "okay";
+	};
+	gpiob: gpio@40010c00 {
+		compatible = "gd,gd32-gpio";
+		reg = < 0x40010c00 0x400 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		clocks = < &cctl 0x603 >;
+		resets = < &rctl 0x303 >;
+		status = "okay";
+	};
+	gpioc: gpio@40011000 {
+		compatible = "gd,gd32-gpio";
+		reg = < 0x40011000 0x400 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		clocks = < &cctl 0x604 >;
+		resets = < &rctl 0x304 >;
+		status = "okay";
+	};
+	gpiod: gpio@40011400 {
+		compatible = "gd,gd32-gpio";
+		reg = < 0x40011400 0x400 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		clocks = < &cctl 0x605 >;
+		resets = < &rctl 0x305 >;
+		status = "disabled";
+	};
+	gpioe: gpio@40011800 {
+		compatible = "gd,gd32-gpio";
+		reg = < 0x40011800 0x400 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		clocks = < &cctl 0x606 >;
+		resets = < &rctl 0x306 >;
+		status = "okay";
+	};
+	usart0_default: usart0_default {
+		group1 {
+			pinmux = < 0x111a0 >, < 0x11290 >;
+		};
+	};
+	pwm2_default: pwm2_default {
+		group1 {
+			pinmux = < 0x35270 >;
+		};
+	};
+};

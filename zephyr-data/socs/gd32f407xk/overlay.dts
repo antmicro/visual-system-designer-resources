@@ -1,0 +1,193 @@
+/ {
+	compatible = "gd,gd32f407v-start";
+	chosen {
+		zephyr,console = &usart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&gpiod{
+	status = "disabled";
+};
+&gpioc{
+	status = "okay";
+};
+&usart5{
+	status = "disabled";
+};
+&spi1{
+	status = "disabled";
+};
+&uart6{
+	status = "disabled";
+};
+&uart4{
+	status = "disabled";
+};
+&gpioh{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&spi0{
+	status = "disabled";
+};
+&gpioe{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&uart7{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&adc2{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&usart1{
+	status = "disabled";
+};
+&gpiof{
+	status = "disabled";
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+};
+&gpiog{
+	status = "disabled";
+};
+&gpioi{
+	status = "disabled";
+};
+&uart3{
+	status = "disabled";
+};
+&gpiob{
+	status = "disabled";
+};
+&adc0{
+	status = "disabled";
+};
+&gpioa{
+	status = "okay";
+};
+&i2c1{
+	status = "disabled";
+};
+&dac{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "gd,gd32-pinctrl-af";
+	reg = < 0x40020000 0x2400 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	status = "okay";
+	gpioa: gpio@40020000 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40020000 0x400 >;
+		clocks = < &cctl 0xc00 >;
+		resets = < &rctl 0x400 >;
+		status = "okay";
+	};
+	gpiob: gpio@40020400 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40020400 0x400 >;
+		clocks = < &cctl 0xc01 >;
+		resets = < &rctl 0x401 >;
+		status = "disabled";
+	};
+	gpioc: gpio@40020800 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40020800 0x400 >;
+		clocks = < &cctl 0xc02 >;
+		resets = < &rctl 0x402 >;
+		status = "okay";
+	};
+	gpiod: gpio@40020c00 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40020c00 0x400 >;
+		clocks = < &cctl 0xc03 >;
+		resets = < &rctl 0x403 >;
+		status = "disabled";
+	};
+	gpioe: gpio@40021000 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40021000 0x400 >;
+		clocks = < &cctl 0xc04 >;
+		resets = < &rctl 0x404 >;
+		status = "disabled";
+	};
+	gpiof: gpio@40021400 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40021400 0x400 >;
+		clocks = < &cctl 0xc05 >;
+		resets = < &rctl 0x405 >;
+		status = "disabled";
+	};
+	gpiog: gpio@40021800 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40021800 0x400 >;
+		clocks = < &cctl 0xc06 >;
+		resets = < &rctl 0x406 >;
+		status = "disabled";
+	};
+	gpioh: gpio@40021c00 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40021c00 0x400 >;
+		clocks = < &cctl 0xc07 >;
+		resets = < &rctl 0x407 >;
+		status = "disabled";
+	};
+	gpioi: gpio@40022000 {
+		compatible = "gd,gd32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x40022000 0x400 >;
+		clocks = < &cctl 0xc08 >;
+		resets = < &rctl 0x408 >;
+		status = "disabled";
+	};
+	usart0_default: usart0_default {
+		group1 {
+			pinmux = < 0x761 >, < 0x771 >;
+		};
+	};
+	pwm2_default: pwm2_default {
+		group1 {
+			pinmux = < 0x262 >;
+		};
+	};
+};

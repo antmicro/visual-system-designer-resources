@@ -1,0 +1,245 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	aliases {
+		die-temp0 = &coretemp;
+	};
+	chosen {
+		zephyr,canbus = &twai;
+		zephyr,entropy = &trng0;
+		zephyr,flash-controller = &flash;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "espressif,riscv";
+			riscv,isa = "rv32imc_zicsr";
+			reg = < 0x0 >;
+			cpu-power-states = < &light_sleep &deep_sleep >;
+		};
+		power-states {
+			light_sleep: light_sleep {
+				compatible = "zephyr,power-state";
+				power-state-name = "standby";
+				min-residency-us = < 0xc8 >;
+				exit-latency-us = < 0x3c >;
+				phandle = < 0x1 >;
+			};
+			deep_sleep: deep_sleep {
+				compatible = "zephyr,power-state";
+				power-state-name = "soft-off";
+				min-residency-us = < 0x294 >;
+				exit-latency-us = < 0x69 >;
+				phandle = < 0x2 >;
+			};
+		};
+	};
+	pinctrl: pin-controller {
+		compatible = "espressif,esp32-pinctrl";
+		status = "okay";
+	};
+	wifi: wifi {
+		compatible = "espressif,esp32-wifi";
+		status = "disabled";
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		sram0: memory@3fc7c000 {
+			compatible = "mmio-sram";
+			reg = < 0x3fc7c000 0x50000 >;
+		};
+		intc: interrupt-controller@600c2000 {
+			compatible = "espressif,esp32-intc";
+			#address-cells = < 0x0 >;
+			#interrupt-cells = < 0x1 >;
+			interrupt-controller;
+			reg = < 0x600c2000 0x198 >;
+			status = "okay";
+			phandle = < 0x3 >;
+		};
+		systimer0: systimer@60023000 {
+			compatible = "espressif,esp32-systimer";
+			reg = < 0x60023000 0x80 >;
+			interrupts = < 0x25 >;
+			interrupt-parent = < &intc >;
+			status = "okay";
+		};
+		rtc: rtc@60008000 {
+			compatible = "espressif,esp32-rtc";
+			reg = < 0x60008000 0x1000 >;
+			xtal-freq = < 0x1 >;
+			#clock-cells = < 0x1 >;
+			status = "okay";
+			phandle = < 0x4 >;
+			rtc_timer: rtc_timer {
+				compatible = "espressif,esp32-rtc-timer";
+				slow-clk-freq = < 0x15f90 >;
+				interrupts = < 0x1b >;
+				interrupt-parent = < &intc >;
+				status = "okay";
+			};
+		};
+		flash: flash-controller@60002000 {
+			compatible = "espressif,esp32-flash-controller";
+			reg = < 0x60002000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				reg = < 0x0 0x400000 >;
+				erase-block-size = < 0x1000 >;
+				write-block-size = < 0x4 >;
+			};
+		};
+		gpio0: gpio@60004000 {
+			compatible = "espressif,esp32-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x60004000 0x800 >;
+			interrupts = < 0x10 >;
+			interrupt-parent = < &intc >;
+			ngpios = < 0x1a >;
+		};
+		i2c0: i2c@60013000 {
+			compatible = "espressif,esp32-i2c";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x60013000 0x1000 >;
+			interrupts = < 0x1d >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x4 >;
+			status = "disabled";
+		};
+		uart0: uart@60000000 {
+			compatible = "espressif,esp32-uart";
+			reg = < 0x60000000 0x400 >;
+			status = "disabled";
+			interrupts = < 0x15 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x1 >;
+		};
+		uart1: uart@60010000 {
+			compatible = "espressif,esp32-uart";
+			reg = < 0x60010000 0x400 >;
+			status = "disabled";
+			interrupts = < 0x16 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x2 >;
+			current-speed = < 0x1c200 >;
+		};
+		ledc0: ledc@60019000 {
+			compatible = "espressif,esp32-ledc";
+			pwm-controller;
+			#pwm-cells = < 0x3 >;
+			reg = < 0x60019000 0x1000 >;
+			clocks = < &rtc 0x0 >;
+			status = "disabled";
+		};
+		usb_serial: uart@60043000 {
+			compatible = "espressif,esp32-usb-serial";
+			reg = < 0x60043000 0x400 >;
+			status = "disabled";
+			interrupts = < 0x1a >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x3 >;
+		};
+		timer0: counter@6001f000 {
+			compatible = "espressif,esp32-timer";
+			reg = < 0x6001f000 0x1000 >;
+			group = < 0x0 >;
+			index = < 0x0 >;
+			interrupts = < 0x20 >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
+		timer1: counter@60020000 {
+			compatible = "espressif,esp32-timer";
+			reg = < 0x60020000 0x1000 >;
+			group = < 0x1 >;
+			index = < 0x0 >;
+			interrupts = < 0x22 >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
+		trng0: trng@3ff700b0 {
+			compatible = "espressif,esp32-trng";
+			reg = < 0x3ff700b0 0x4 >;
+			status = "disabled";
+		};
+		twai: can@6002b000 {
+			compatible = "espressif,esp32-twai";
+			reg = < 0x6002b000 0x1000 >;
+			interrupts = < 0x19 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0xc >;
+			sample-point = < 0x36b >;
+			status = "disabled";
+		};
+		spi2: spi@60024000 {
+			compatible = "espressif,esp32-spi";
+			reg = < 0x60024000 0x1000 >;
+			interrupts = < 0x13 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0xb >;
+			dma-clk = < 0x18 >;
+			dma-host = < 0x0 >;
+			status = "disabled";
+		};
+		wdt0: watchdog@6001f048 {
+			compatible = "espressif,esp32-watchdog";
+			reg = < 0x6001f048 0x20 >;
+			interrupts = < 0x21 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x6 >;
+			status = "disabled";
+		};
+		wdt1: watchdog@60020048 {
+			compatible = "espressif,esp32-watchdog";
+			reg = < 0x60020048 0x20 >;
+			interrupts = < 0x23 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x7 >;
+			status = "disabled";
+		};
+		coretemp: coretemp@60040058 {
+			compatible = "espressif,esp32-temp";
+			friendly-name = "coretemp";
+			reg = < 0x60040058 0x4 >;
+			status = "disabled";
+		};
+		adc0: adc@60040000 {
+			compatible = "espressif,esp32-adc";
+			reg = < 0x60040000 0x4 >;
+			unit = < 0x1 >;
+			channel-count = < 0x5 >;
+			#io-channel-cells = < 0x1 >;
+			status = "disabled";
+		};
+		adc1: adc@60040004 {
+			compatible = "espressif,esp32-adc";
+			reg = < 0x60040004 0x4 >;
+			unit = < 0x2 >;
+			channel-count = < 0x2 >;
+			#io-channel-cells = < 0x1 >;
+			status = "disabled";
+		};
+		dma: dma@6003f000 {
+			compatible = "espressif,esp32-gdma";
+			reg = < 0x6003f000 0x1000 >;
+			#dma-cells = < 0x1 >;
+			interrupts = < 0x2c 0x2d 0x2e >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x18 >;
+			dma-channels = < 0x6 >;
+			dma-buf-addr-alignment = < 0x4 >;
+			status = "disabled";
+		};
+	};
+};

@@ -1,0 +1,69 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = < 0x0 >;
+		};
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = < 0x1 >;
+		};
+		cpu@2 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = < 0x2 >;
+		};
+		cpu@3 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = < 0x3 >;
+		};
+	};
+	gic: interrupt-controller@1410000 {
+		compatible = "arm,gic-v2", "arm,gic";
+		reg = < 0x1410000 0x10000 >, < 0x142f000 0x1000 >;
+		interrupt-controller;
+		#interrupt-cells = < 0x4 >;
+		status = "okay";
+		phandle = < 0x1 >;
+	};
+	psci: psci {
+		compatible = "arm,psci-0.2";
+		method = "smc";
+	};
+	sram0: memory@c0000000 {
+		reg = < 0xc0000000 0x100000 >;
+	};
+	timer {
+		compatible = "arm,armv8-timer";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x1 0xd 0x2 0xa0 >, < 0x1 0xe 0x2 0xa0 >, < 0x1 0xb 0x2 0xa0 >, < 0x1 0xa 0x2 0xa0 >;
+	};
+	uart1: serial@21c0600 {
+		compatible = "fsl,ns16550", "ns16550";
+		reg = < 0x21c0600 0x100 >;
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x36 0x2 0xa0 >;
+		clock-frequency = < 0x14dc9380 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+};

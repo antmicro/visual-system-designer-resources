@@ -1,0 +1,93 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	compatible = "lowrisc,opentitan-earlgrey";
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		timebase-frequency = < 0x989680 >;
+		cpu@0 {
+			device_type = "cpu";
+			reg = < 0x0 >;
+			status = "okay";
+			compatible = "riscv";
+			riscv,isa = "rv32imcb_zicsr_zifencei";
+			hlic: interrupt-controller {
+				#interrupt-cells = < 0x1 >;
+				interrupt-controller;
+				compatible = "riscv,cpu-intc";
+				phandle = < 0x1 >;
+			};
+		};
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		flash0: flash@20000000 {
+			reg = < 0x20000000 0x100000 >;
+			compatible = "soc-nv-flash";
+		};
+		ram0: memory@10000000 {
+			device_type = "memory";
+			reg = < 0x10000000 0x10000 >;
+		};
+		mtimer: timer@40100000 {
+			compatible = "lowrisc,machine-timer";
+			reg = < 0x40100000 0x200 >;
+			interrupts = < 0x7 0x0 >;
+			interrupt-parent = < &hlic >;
+			status = "disabled";
+		};
+		aontimer: aontimer@40470000 {
+			compatible = "lowrisc,opentitan-aontimer";
+			reg = < 0x40470000 0x1000 >;
+			interrupts = < 0x9c 0x1 >;
+			interrupt-names = "wdog_bark";
+			interrupt-parent = < &plic >;
+			clock-frequency = < 0x30d40 >;
+			status = "disabled";
+		};
+		pwrmgr: pwrmgr@40400000 {
+			compatible = "lowrisc,opentitan-pwrmgr";
+			reg = < 0x40400000 0x80 >;
+			status = "okay";
+		};
+		plic: interrupt-controller@48000000 {
+			compatible = "sifive,plic-1.0.0";
+			#address-cells = < 0x0 >;
+			#interrupt-cells = < 0x2 >;
+			interrupt-controller;
+			interrupts-extended = < &hlic 0xb >;
+			reg = < 0x48000000 0x4000000 >;
+			riscv,max-priority = < 0x7 >;
+			riscv,ndev = < 0xb8 >;
+			status = "okay";
+			phandle = < 0x2 >;
+		};
+		uart0: serial@40000000 {
+			reg = < 0x40000000 0x1000 >;
+			compatible = "lowrisc,opentitan-uart";
+			status = "disabled";
+		};
+		spi0: spi@40300000 {
+			compatible = "lowrisc,opentitan-spi";
+			status = "disabled";
+			reg = < 0x40300000 0x100 >;
+			clock-frequency = < 0x5b8d800 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi1: spi@40310000 {
+			compatible = "lowrisc,opentitan-spi";
+			status = "disabled";
+			reg = < 0x40310000 0x100 >;
+			clock-frequency = < 0x2dc6c00 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+	};
+};

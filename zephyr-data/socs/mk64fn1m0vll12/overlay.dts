@@ -1,0 +1,110 @@
+/ {
+	compatible = "nxp,mk64f12", "nxp,k64f", "nxp,k6x";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_default >;
+	pinctrl-names = "default";
+};
+&gpiod{
+	status = "okay";
+};
+&usbotg{
+	status = "okay";
+};
+&dac1{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&ftfe{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioe 0x4 0x1 >;
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&gpioe{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&uart3{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart3_default >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "disabled";
+};
+&dac0{
+	status = "okay";
+};
+&enet{
+	status = "okay";
+	pinctrl-0 = < &enet_default >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&i2c2{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&flexcan0{
+	status = "okay";
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&uart5{
+	status = "disabled";
+};
+&uart4{
+	status = "disabled";
+};
+&gpioc{
+	status = "okay";
+};

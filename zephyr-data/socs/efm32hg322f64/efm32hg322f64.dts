@@ -1,0 +1,148 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,flash-controller = &msc;
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "silabs,efm32hg322f64", "silabs,efm32hg", "silabs,efm32", "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v6m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x2 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv6m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		msc: flash-controller@400c0000 {
+			compatible = "silabs,gecko-flash-controller";
+			reg = < 0x400c0000 0x5c >;
+			interrupts = < 0xf 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				write-block-size = < 0x4 >;
+				erase-block-size = < 0x400 >;
+				reg = < 0x0 0x10000 >;
+			};
+		};
+		usart0: usart@4000c000 {
+			compatible = "silabs,gecko-usart";
+			reg = < 0x4000c000 0x400 >;
+			interrupts = < 0x11 0x0 >, < 0x12 0x0 >;
+			interrupt-names = "rx", "tx";
+			peripheral-id = < 0x0 >;
+			status = "disabled";
+		};
+		usart1: usart@4000c400 {
+			compatible = "silabs,gecko-usart";
+			reg = < 0x4000c400 0x400 >;
+			interrupts = < 0x8 0x0 >, < 0x9 0x0 >;
+			interrupt-names = "rx", "tx";
+			peripheral-id = < 0x1 >;
+			status = "disabled";
+		};
+		leuart0: leuart@40084000 {
+			compatible = "silabs,gecko-leuart";
+			reg = < 0x40084000 0x400 >;
+			interrupts = < 0xa 0x0 >;
+			peripheral-id = < 0x0 >;
+			status = "disabled";
+		};
+		i2c0: i2c@4000a000 {
+			compatible = "silabs,gecko-i2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x4000a000 0x400 >;
+			interrupts = < 0x5 0x0 >;
+			status = "disabled";
+		};
+		gpio@40006100 {
+			compatible = "silabs,gecko-gpio";
+			reg = < 0x40006100 0xf00 >;
+			interrupts = < 0x1 0x0 0x6 0x0 >;
+			interrupt-names = "GPIO_EVEN", "GPIO_ODD";
+			ranges;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			gpioa: gpio@40006000 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x40006000 0x24 >;
+				peripheral-id = < 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpiob: gpio@40006024 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x40006024 0x24 >;
+				peripheral-id = < 0x1 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpioc: gpio@40006048 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x40006048 0x24 >;
+				peripheral-id = < 0x2 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpiod: gpio@4000606c {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x4000606c 0x24 >;
+				peripheral-id = < 0x3 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpioe: gpio@40006090 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x40006090 0x24 >;
+				peripheral-id = < 0x4 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpiof: gpio@400060b4 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x400060b4 0x24 >;
+				peripheral-id = < 0x5 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+		};
+		pinctrl: pin-controller {
+			compatible = "silabs,gecko-pinctrl";
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			compatible = "arm,cortex-m0+";
+			reg = < 0x0 >;
+		};
+	};
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = < 0x20000000 0x2000 >;
+	};
+};

@@ -1,0 +1,126 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = < 0x0 >;
+		};
+		cpu1: cpu@1 {
+			compatible = "arm,cortex-a53";
+			device_type = "cpu";
+			reg = < 0x1 >;
+		};
+		cpu2: cpu@2 {
+			compatible = "arm,cortex-a53";
+			device_type = "cpu";
+			reg = < 0x2 >;
+		};
+		cpu3: cpu@3 {
+			compatible = "arm,cortex-a53";
+			device_type = "cpu";
+			reg = < 0x3 >;
+		};
+	};
+	gic: interrupt-controller@fffc1000 {
+		compatible = "arm,gic-v2", "arm,gic";
+		reg = < 0xfffc1000 0x1000 >, < 0xfffc2000 0x2000 >;
+		interrupt-controller;
+		#interrupt-cells = < 0x4 >;
+		status = "okay";
+		phandle = < 0x1 >;
+	};
+	arch_timer: timer {
+		compatible = "arm,armv8-timer";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x1 0xd 0x2 0xa0 >, < 0x1 0xe 0x2 0xa0 >, < 0x1 0xb 0x2 0xa0 >, < 0x1 0xa 0x2 0xa0 >;
+	};
+	sysmgr: sysmgr@ffd12000 {
+		compatible = "syscon";
+		reg = < 0xffd12000 0x1000 >;
+	};
+	clock: clock@ffd10000 {
+		compatible = "intel,agilex-clock";
+		reg = < 0xffd10000 0x1000 >;
+		#clock-cells = < 0x1 >;
+		phandle = < 0x2 >;
+	};
+	qspi: qspi@ff8d2000 {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		compatible = "cdns,qspi-nor";
+		reg = < 0xff8d2000 0x100 >, < 0xff900000 0x100000 >;
+		reg-names = "qspi_reg", "qspi_data";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x4 0x2 0xa0 >;
+		clock-frequency = < 0x2faf080 >;
+		status = "disabled";
+	};
+	mem0: memory@10000000 {
+		device_type = "memory";
+		reg = < 0x10000000 0x200000 >;
+	};
+	uart0: uart@ffc02000 {
+		compatible = "ns16550";
+		reg-shift = < 0x2 >;
+		reg = < 0xffc02000 0x100 >;
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x6c 0x2 0xa0 >;
+		interrupt-names = "irq_0";
+		clocks = < &clock 0x2 >;
+		status = "disabled";
+	};
+	sip_smc: smc {
+		compatible = "intel,socfpga-agilex-sip-smc";
+		method = "smc";
+		status = "disabled";
+		zephyr,num-clients = < 0x2 >;
+	};
+	timer0: timer@ffc03000 {
+		compatible = "snps,dw-timers";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x71 0x2 0xa0 >;
+		reg = < 0xffc03000 0x100 >;
+		clock-frequency = < 0x5f5e100 >;
+		status = "disabled";
+	};
+	timer1: timer@ffc03100 {
+		compatible = "snps,dw-timers";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x72 0x2 0xa0 >;
+		reg = < 0xffc03100 0x100 >;
+		clock-frequency = < 0x5f5e100 >;
+		status = "disabled";
+	};
+	timer2: timer@ffd00000 {
+		compatible = "snps,dw-timers";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x73 0x2 0xa0 >;
+		reg = < 0xffd00000 0x100 >;
+		clock-frequency = < 0x5f5e100 >;
+		status = "disabled";
+	};
+	timer3: timer@ffd00100 {
+		compatible = "snps,dw-timers";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x74 0x2 0xa0 >;
+		reg = < 0xffd00100 0x100 >;
+		clock-frequency = < 0x5f5e100 >;
+		status = "disabled";
+	};
+};

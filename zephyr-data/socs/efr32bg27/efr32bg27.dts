@@ -1,0 +1,197 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,flash-controller = &msc;
+		zephyr,entropy = &trng;
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x4 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		msc: flash-controller@50030000 {
+			compatible = "silabs,gecko-flash-controller";
+			reg = < 0x50030000 0xc69 >;
+			interrupts = < 0x31 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@8000000 {
+				compatible = "soc-nv-flash";
+				write-block-size = < 0x4 >;
+				erase-block-size = < 0x2000 >;
+				reg = < 0x8000000 0xc0000 >;
+			};
+		};
+		usart0: usart@5005c000 {
+			compatible = "silabs,gecko-spi-usart";
+			reg = < 0x5005c000 0x400 >;
+			interrupt-names = "rx", "tx";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			interrupts = < 0x10 0x0 >, < 0x11 0x0 >;
+		};
+		usart1: usart@50060000 {
+			compatible = "silabs,gecko-usart";
+			reg = < 0x50060000 0x400 >;
+			interrupt-names = "rx", "tx";
+			status = "disabled";
+			interrupts = < 0x12 0x0 >, < 0x13 0x0 >;
+		};
+		burtc0: burtc@50064000 {
+			compatible = "silabs,gecko-burtc";
+			reg = < 0x50064000 0x3034 >;
+			status = "disabled";
+			interrupts = < 0x17 0x0 >;
+		};
+		stimer0: stimer@58000000 {
+			compatible = "silabs,gecko-stimer";
+			reg = < 0x58000000 0x3054 >;
+			clock-frequency = < 0x8000 >;
+			prescaler = < 0x1 >;
+			status = "disabled";
+			interrupts = < 0xf 0x0 >;
+		};
+		trng: trng@4c021000 {
+			compatible = "silabs,gecko-trng";
+			reg = < 0x4c021000 0x1000 >;
+			status = "disabled";
+			interrupts = < 0x1 0x0 >;
+		};
+		i2c0: i2c@5a010000 {
+			compatible = "silabs,gecko-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x5a010000 0x3044 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			interrupts = < 0x20 0x0 >;
+		};
+		i2c1: i2c@50068000 {
+			compatible = "silabs,gecko-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x50068000 0x3044 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			interrupts = < 0x21 0x0 >;
+		};
+		gpio: gpio@5003c000 {
+			compatible = "silabs,gecko-gpio";
+			reg = < 0x5003c000 0x3660 >;
+			interrupt-names = "GPIO_EVEN", "GPIO_ODD";
+			ranges;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			interrupts = < 0x1e 0x2 0x1f 0x2 >;
+			gpioa: gpio@5003c000 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x5003c000 0x30 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpiob: gpio@5003c030 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x5003c030 0x30 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpioc: gpio@5003c060 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x5003c060 0x30 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpiod: gpio@5003c090 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x5003c090 0x30 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+			gpiof: gpio@5003c0c0 {
+				compatible = "silabs,gecko-gpio-port";
+				reg = < 0x5003c0c0 0x30 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "disabled";
+			};
+		};
+		wdog0: wdog@4a018000 {
+			compatible = "silabs,gecko-wdog";
+			reg = < 0x4a018000 0x3028 >;
+			peripheral-id = < 0x0 >;
+			interrupts = < 0x2b 0x0 >;
+			status = "disabled";
+		};
+		adc0: adc@5a004000 {
+			compatible = "silabs,gecko-iadc";
+			reg = < 0x5a004000 0x4000 >;
+			interrupts = < 0x36 0x0 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m33";
+			reg = < 0x0 >;
+			cpu-power-states = < &pstate_em1 &pstate_em2 &pstate_em3 >;
+		};
+		power-states {
+			pstate_em1: em1 {
+				compatible = "zephyr,power-state";
+				power-state-name = "runtime-idle";
+				min-residency-us = < 0x4 >;
+				exit-latency-us = < 0x2 >;
+				phandle = < 0x2 >;
+			};
+			pstate_em2: em2 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				min-residency-us = < 0x104 >;
+				exit-latency-us = < 0xfa >;
+				phandle = < 0x3 >;
+			};
+			pstate_em3: em3 {
+				compatible = "zephyr,power-state";
+				power-state-name = "standby";
+				min-residency-us = < 0x4e20 >;
+				exit-latency-us = < 0x7d0 >;
+				phandle = < 0x4 >;
+			};
+		};
+	};
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = < 0x20000000 0x10000 >;
+	};
+	pinctrl: pin-controller {
+		compatible = "silabs,gecko-pinctrl";
+	};
+};

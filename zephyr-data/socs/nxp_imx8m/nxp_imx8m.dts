@@ -1,0 +1,70 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		interrupt-parent = < &irqsteer >;
+		irqsteer: interrupt-controller {
+			compatible = "nxp,irqsteer-intc";
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			phandle = < 0x1 >;
+		};
+		ccm: ccm@30380000 {
+			compatible = "nxp,imx-ccm";
+			reg = < 0x30380000 0x10000 >;
+			#clock-cells = < 0x3 >;
+			phandle = < 0x2 >;
+		};
+		iomuxc: iomuxc@30330000 {
+			compatible = "nxp,imx-iomuxc";
+			reg = < 0x30330000 0x10000 >;
+			status = "okay";
+			pinctrl: pinctrl {
+				status = "okay";
+				compatible = "nxp,imx8mp-pinctrl";
+			};
+		};
+		uart4: uart@30a60000 {
+			compatible = "nxp,imx-iuart";
+			reg = < 0x30a60000 0x10000 >;
+			clocks = < &ccm 0x803 0x6c 0x18 >;
+			status = "disabled";
+		};
+		mailbox0: mailbox@30e70000 {
+			compatible = "nxp,imx-mu-rev2";
+			reg = < 0x30e70000 0x10000 >;
+			interrupts = < 0x7 0x0 >;
+			rdc = < 0x0 >;
+			status = "disabled";
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "cdns,tensilica-xtensa-lx6";
+			reg = < 0x0 >;
+		};
+	};
+	sram0: memory@92400000 {
+		device_type = "memory";
+		compatible = "mmio-sram";
+		reg = < 0x92400000 0x80000 >;
+	};
+	sram1: memory@92c00000 {
+		device_type = "memory";
+		compatible = "mmio-sram";
+		reg = < 0x92c00000 0x80000 >;
+	};
+};

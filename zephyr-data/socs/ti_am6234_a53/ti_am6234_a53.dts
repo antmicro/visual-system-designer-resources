@@ -1,0 +1,131 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = < 0x0 >;
+		};
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = < 0x1 >;
+		};
+		cpu@2 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = < 0x2 >;
+		};
+		cpu@3 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = < 0x3 >;
+		};
+	};
+	oc_sram: memory@70000000 {
+		reg = < 0x70000000 0x10000 >;
+	};
+	arch_timer: timer {
+		compatible = "arm,armv8-timer";
+		interrupts = < 0x1 0xd 0x2 0xa0 >, < 0x1 0xe 0x2 0xa0 >, < 0x1 0xb 0x2 0xa0 >, < 0x1 0xa 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+	};
+	gic: interrupt-controller@1800000 {
+		compatible = "arm,gic-v3", "arm,gic";
+		reg = < 0x1800000 0x10000 >, < 0x1880000 0xc0000 >;
+		interrupt-controller;
+		#interrupt-cells = < 0x4 >;
+		status = "okay";
+		phandle = < 0x1 >;
+	};
+	pinctrl: pinctrl@f4000 {
+		compatible = "ti,k3-pinctrl";
+		reg = < 0xf4000 0x2ac >;
+		status = "okay";
+	};
+	uart0: serial@2800000 {
+		compatible = "ns16550";
+		reg = < 0x2800000 0x100 >;
+		interrupts = < 0x0 0xb2 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clock-frequency = < 0x2dc6c00 >;
+		current-speed = < 0x1c200 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+	uart1: serial@2810000 {
+		compatible = "ns16550";
+		reg = < 0x2810000 0x100 >;
+		interrupts = < 0x0 0xb3 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clock-frequency = < 0x2dc6c00 >;
+		current-speed = < 0x1c200 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+	uart2: serial@2820000 {
+		compatible = "ns16550";
+		reg = < 0x2820000 0x100 >;
+		interrupts = < 0x0 0xb4 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clock-frequency = < 0x2dc6c00 >;
+		current-speed = < 0x1c200 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+	uart3: serial@2830000 {
+		compatible = "ns16550";
+		reg = < 0x2830000 0x100 >;
+		interrupts = < 0x0 0xb5 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clock-frequency = < 0x2dc6c00 >;
+		current-speed = < 0x1c200 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+	uart4: serial@2840000 {
+		compatible = "ns16550";
+		reg = < 0x2840000 0x100 >;
+		interrupts = < 0x0 0xb6 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clock-frequency = < 0x2dc6c00 >;
+		current-speed = < 0x1c200 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+	uart5: serial@2850000 {
+		compatible = "ns16550";
+		reg = < 0x2850000 0x100 >;
+		interrupts = < 0x0 0xb7 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clock-frequency = < 0x2dc6c00 >;
+		current-speed = < 0x1c200 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+	uart6: serial@2860000 {
+		compatible = "ns16550";
+		reg = < 0x2860000 0x100 >;
+		interrupts = < 0x0 0xb8 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clock-frequency = < 0x2dc6c00 >;
+		current-speed = < 0x1c200 >;
+		reg-shift = < 0x2 >;
+		status = "disabled";
+	};
+};

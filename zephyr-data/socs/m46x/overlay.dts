@@ -1,0 +1,138 @@
+/ {
+	compatible = "nuvoton,pfm-m467", "nuvoton,m467";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&uart8{
+	status = "disabled";
+};
+&uart6{
+	status = "disabled";
+};
+&gpioc{
+	status = "disabled";
+};
+&gpioh{
+	status = "okay";
+};
+&emac{
+	status = "okay";
+	pinctrl-0 = < &emac_default >;
+	pinctrl-names = "default";
+};
+&gpioa{
+	status = "disabled";
+};
+&spi0{
+	status = "disabled";
+};
+&spi7{
+	status = "disabled";
+};
+&gpiob{
+	status = "okay";
+};
+&spi10{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&gpioi{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&spi5{
+	status = "disabled";
+};
+&uart7{
+	status = "disabled";
+};
+&spi8{
+	status = "disabled";
+};
+&spi6{
+	status = "disabled";
+};
+&uart3{
+	status = "disabled";
+};
+&uart4{
+	status = "disabled";
+};
+&spi1{
+	status = "disabled";
+};
+&spi3{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&spi4{
+	status = "disabled";
+};
+&spi9{
+	status = "disabled";
+};
+&uart9{
+	status = "disabled";
+};
+&gpiog{
+	status = "disabled";
+};
+&gpioe{
+	status = "disabled";
+};
+&gpiof{
+	status = "disabled";
+};
+&gpioj{
+	status = "disabled";
+};
+&gpiod{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "nuvoton,numaker-pinctrl";
+	reg = < 0x40000080 0x28 0x40000500 0xa0 >;
+	reg-names = "mfos", "mfp";
+	status = "okay";
+	uart0_default: uart0_default {
+		group0 {
+			pinmux = < 0x1c000006 >, < 0x1d000006 >;
+		};
+	};
+	uart1_default: uart1_default {
+		group0 {
+			pinmux = < 0x19000006 >, < 0x18000006 >, < 0x12000006 >, < 0x13000006 >, < 0x29000000 >;
+		};
+	};
+	canfd0_default: canfd0_default {
+		group0 {
+			pinmux = < 0x9a00000b >, < 0x9b00000b >;
+		};
+	};
+	emac_default: emac_default {
+		group0 {
+			pinmux = < 0x48000003 >, < 0x49000003 >, < 0x4a000003 >, < 0x4b000003 >, < 0x4c000003 >, < 0x28000003 >, < 0x27000003 >, < 0x26000003 >, < 0x7000003 >, < 0x6000003 >, < 0x16000003 >;
+		};
+	};
+};

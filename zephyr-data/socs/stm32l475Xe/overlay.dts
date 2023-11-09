@@ -1,0 +1,163 @@
+/ {
+	compatible = "alientek,pandora_stm32l475";
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart2{
+	status = "disabled";
+};
+&usart3{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&can1{
+	status = "disabled";
+};
+&lpuart1{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&adc2{
+	status = "disabled";
+};
+&spi1{
+	status = "disabled";
+};
+&uart4{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};
+&spi3{
+	status = "disabled";
+};
+&usbotg_fs{
+	status = "disabled";
+};
+&quadspi{
+	status = "okay";
+	pinctrl-0 = < &quadspi_clk_pe10 &quadspi_ncs_pe11 &quadspi_bk1_io0_pe12 &quadspi_bk1_io1_pe13 &quadspi_bk1_io2_pe14 &quadspi_bk1_io3_pe15 >;
+	pinctrl-names = "default";
+};
+&adc3{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&dac1{
+	status = "disabled";
+};
+&i2c3{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "st,stm32-pinctrl";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	reg = < 0x48000000 0x2000 >;
+	gpioa: gpio@48000000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000000 0x400 >;
+		clocks = < &rcc 0x4c 0x1 >;
+	};
+	gpiob: gpio@48000400 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000400 0x400 >;
+		clocks = < &rcc 0x4c 0x2 >;
+	};
+	gpioc: gpio@48000800 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000800 0x400 >;
+		clocks = < &rcc 0x4c 0x4 >;
+	};
+	gpioh: gpio@48001c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001c00 0x400 >;
+		clocks = < &rcc 0x4c 0x80 >;
+	};
+	gpiod: gpio@48000c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000c00 0x400 >;
+		clocks = < &rcc 0x4c 0x8 >;
+	};
+	gpioe: gpio@48001000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001000 0x400 >;
+		clocks = < &rcc 0x4c 0x10 >;
+	};
+	gpiof: gpio@48001400 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001400 0x400 >;
+		clocks = < &rcc 0x4c 0x20 >;
+	};
+	gpiog: gpio@48001800 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001800 0x400 >;
+		clocks = < &rcc 0x4c 0x40 >;
+	};
+	quadspi_clk_pe10: quadspi_clk_pe10 {
+		pinmux = < 0x94a >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_ncs_pe11: quadspi_ncs_pe11 {
+		pinmux = < 0x96a >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io0_pe12: quadspi_bk1_io0_pe12 {
+		pinmux = < 0x98a >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io1_pe13: quadspi_bk1_io1_pe13 {
+		pinmux = < 0x9aa >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io2_pe14: quadspi_bk1_io2_pe14 {
+		pinmux = < 0x9ca >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io3_pe15: quadspi_bk1_io3_pe15 {
+		pinmux = < 0x9ea >;
+		slew-rate = "very-high-speed";
+	};
+	usart1_rx_pa10: usart1_rx_pa10 {
+		pinmux = < 0x147 >;
+	};
+	usart1_tx_pa9: usart1_tx_pa9 {
+		pinmux = < 0x127 >;
+		bias-pull-up;
+	};
+};

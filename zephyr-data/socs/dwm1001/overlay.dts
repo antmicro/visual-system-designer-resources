@@ -1,0 +1,134 @@
+/ {
+	compatible = "decawave,dwm1001";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&nfct{
+	status = "okay";
+};
+&spi0{
+	status = "disabled";
+};
+&pwm2{
+	status = "disabled";
+};
+&pwm1{
+	status = "disabled";
+};
+&spi2{
+	status = "okay";
+	cs-gpios = < &gpio0 0x11 0x1 >;
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
+&i2s0{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	cs-gpios = < &gpio0 0x3 0x0 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pdm0{
+	status = "disabled";
+};
+&radio{
+	status = "okay";
+};
+&qdec{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&i2c1{
+	status = "disabled";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart0_default: uart0_default {
+		group1 {
+			psels = < 0x5 >, < 0x1000b >;
+		};
+	};
+	uart0_sleep: uart0_sleep {
+		group1 {
+			psels = < 0x5 >, < 0x1000b >;
+			low-power-enable;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0xc001d >, < 0xb001c >;
+			bias-pull-up;
+		};
+	};
+	i2c0_sleep: i2c0_sleep {
+		group1 {
+			psels = < 0xc001d >, < 0xb001c >;
+			low-power-enable;
+		};
+	};
+	spi1_default: spi1_default {
+		group1 {
+			psels = < 0x40004 >, < 0x50006 >, < 0x60007 >;
+		};
+	};
+	spi1_sleep: spi1_sleep {
+		group1 {
+			psels = < 0x40004 >, < 0x50006 >, < 0x60007 >;
+			low-power-enable;
+		};
+	};
+	spi2_default: spi2_default {
+		group1 {
+			psels = < 0x40010 >, < 0x50014 >, < 0x60012 >;
+		};
+	};
+	spi2_sleep: spi2_sleep {
+		group1 {
+			psels = < 0x40010 >, < 0x50014 >, < 0x60012 >;
+			low-power-enable;
+		};
+	};
+	pwm0_default: pwm0_default {
+		group1 {
+			psels = < 0x160016 >;
+			nordic,invert;
+		};
+	};
+	pwm0_sleep: pwm0_sleep {
+		group1 {
+			psels = < 0x160016 >;
+			low-power-enable;
+		};
+	};
+};

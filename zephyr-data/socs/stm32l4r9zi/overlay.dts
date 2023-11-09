@@ -1,0 +1,232 @@
+/ {
+	compatible = "st,sensortile-box";
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&ltdc{
+	status = "disabled";
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart3{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&octospi2{
+	status = "disabled";
+};
+&can1{
+	status = "disabled";
+};
+&lpuart1{
+	status = "disabled";
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&adc2{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_nss_pe12 &spi1_sck_pe13 &spi1_miso_pe14 &spi1_mosi_pe15 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioe 0xb 0x1 >, < &gpioe 0xc 0x1 >, < &gpioe 0xa 0x1 >;
+};
+&uart4{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};
+&spi3{
+	status = "okay";
+	pinctrl-0 = < &spi3_nss_pa15 &spi3_sck_pb3 &spi3_miso_pb4 &spi3_mosi_pb5 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0xf 0x1 >;
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&i2c4{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&octospi1{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&dac1{
+	status = "disabled";
+};
+&i2c3{
+	status = "okay";
+	pinctrl-0 = < &i2c3_scl_pg7 &i2c3_sda_pg8 >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	compatible = "st,stm32-pinctrl";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	reg = < 0x48000000 0x2400 >;
+	gpioa: gpio@48000000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000000 0x400 >;
+		clocks = < &rcc 0x4c 0x1 >;
+	};
+	gpiob: gpio@48000400 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000400 0x400 >;
+		clocks = < &rcc 0x4c 0x2 >;
+	};
+	gpioc: gpio@48000800 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000800 0x400 >;
+		clocks = < &rcc 0x4c 0x4 >;
+	};
+	gpioh: gpio@48001c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001c00 0x400 >;
+		clocks = < &rcc 0x4c 0x80 >;
+	};
+	gpiod: gpio@48000c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48000c00 0x400 >;
+		clocks = < &rcc 0x4c 0x8 >;
+	};
+	gpioe: gpio@48001000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001000 0x400 >;
+		clocks = < &rcc 0x4c 0x10 >;
+	};
+	gpiof: gpio@48001400 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001400 0x400 >;
+		clocks = < &rcc 0x4c 0x20 >;
+	};
+	gpiog: gpio@48001800 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48001800 0x400 >;
+		clocks = < &rcc 0x4c 0x40 >;
+	};
+	gpioi: gpio@48002000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x48002000 0x400 >;
+		clocks = < &rcc 0x4c 0x100 >;
+	};
+	i2c1_scl_pb6: i2c1_scl_pb6 {
+		pinmux = < 0x2c4 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c3_scl_pg7: i2c3_scl_pg7 {
+		pinmux = < 0xce4 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c1_sda_pb7: i2c1_sda_pb7 {
+		pinmux = < 0x2e4 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c3_sda_pg8: i2c3_sda_pg8 {
+		pinmux = < 0xd04 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	spi1_miso_pe14: spi1_miso_pe14 {
+		pinmux = < 0x9c5 >;
+		bias-pull-down;
+	};
+	spi3_miso_pb4: spi3_miso_pb4 {
+		pinmux = < 0x286 >;
+		bias-pull-down;
+	};
+	spi1_mosi_pe15: spi1_mosi_pe15 {
+		pinmux = < 0x9e5 >;
+		bias-pull-down;
+	};
+	spi3_mosi_pb5: spi3_mosi_pb5 {
+		pinmux = < 0x2a6 >;
+		bias-pull-down;
+	};
+	spi1_nss_pe12: spi1_nss_pe12 {
+		pinmux = < 0x985 >;
+		bias-pull-up;
+	};
+	spi3_nss_pa15: spi3_nss_pa15 {
+		pinmux = < 0x1e6 >;
+		bias-pull-up;
+	};
+	spi1_sck_pe13: spi1_sck_pe13 {
+		pinmux = < 0x9a5 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	spi3_sck_pb3: spi3_sck_pb3 {
+		pinmux = < 0x266 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	usart1_rx_pa10: usart1_rx_pa10 {
+		pinmux = < 0x147 >;
+	};
+	usart2_rx_pa3: usart2_rx_pa3 {
+		pinmux = < 0x67 >;
+	};
+	usart1_tx_pa9: usart1_tx_pa9 {
+		pinmux = < 0x127 >;
+		bias-pull-up;
+	};
+	usart2_tx_pa2: usart2_tx_pa2 {
+		pinmux = < 0x47 >;
+		bias-pull-up;
+	};
+	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {
+		pinmux = < 0x16a >;
+	};
+	usb_otg_fs_dp_pa12: usb_otg_fs_dp_pa12 {
+		pinmux = < 0x18a >;
+	};
+};

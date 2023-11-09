@@ -1,0 +1,115 @@
+/ {
+	compatible = "vendor,dragino";
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&lpuart1{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&i2c3{
+	status = "disabled";
+};
+&usb{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&spi1{
+	status = "disabled";
+};
+&usart4{
+	status = "disabled";
+};
+&usart5{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&dac1{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&pinctrl{
+	compatible = "st,stm32-pinctrl";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	reg = < 0x50000000 0x2000 >;
+	gpioa: gpio@50000000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000000 0x400 >;
+		clocks = < &rcc 0x2c 0x1 >;
+	};
+	gpiob: gpio@50000400 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000400 0x400 >;
+		clocks = < &rcc 0x2c 0x2 >;
+	};
+	gpioc: gpio@50000800 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000800 0x400 >;
+		clocks = < &rcc 0x2c 0x4 >;
+	};
+	gpiod: gpio@50000c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50000c00 0x400 >;
+		clocks = < &rcc 0x2c 0x8 >;
+	};
+	gpioh: gpio@50001c00 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50001c00 0x400 >;
+		clocks = < &rcc 0x2c 0x80 >;
+	};
+	gpioe: gpio@50001000 {
+		compatible = "st,stm32-gpio";
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		reg = < 0x50001000 0x400 >;
+		clocks = < &rcc 0x2c 0x10 >;
+	};
+	usart1_rx_pb7: usart1_rx_pb7 {
+		pinmux = < 0x2e0 >;
+	};
+	usart2_rx_pa3: usart2_rx_pa3 {
+		pinmux = < 0x64 >;
+	};
+	usart1_tx_pb6: usart1_tx_pb6 {
+		pinmux = < 0x2c0 >;
+		bias-pull-up;
+	};
+	usart2_tx_pa2: usart2_tx_pa2 {
+		pinmux = < 0x44 >;
+		bias-pull-up;
+	};
+};

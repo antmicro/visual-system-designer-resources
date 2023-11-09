@@ -1,0 +1,60 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			clock-frequency = < 0x0 >;
+			compatible = "microchip,miv", "riscv";
+			device_type = "cpu";
+			reg = < 0x0 >;
+			riscv,isa = "rv32ima_zicsr_zifencei";
+			hlic: interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#address-cells = < 0x0 >;
+				#interrupt-cells = < 0x1 >;
+				interrupt-controller;
+				phandle = < 0x1 >;
+			};
+		};
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "microchip,miv-soc", "simple-bus";
+		ranges;
+		flash0: flash@80000000 {
+			compatible = "soc-nv-flash";
+			reg = < 0x80000000 0x40000 >;
+		};
+		sram0: memory@80040000 {
+			compatible = "mmio-sram";
+			reg = < 0x80040000 0x40000 >;
+		};
+		clint: clint@44000000 {
+			compatible = "sifive,clint0";
+			interrupts-extended = < &hlic 0x3 >, < &hlic 0x7 >;
+			reg = < 0x44000000 0x10000 >;
+		};
+		plic: interrupt-controller@40000000 {
+			compatible = "sifive,plic-1.0.0";
+			#address-cells = < 0x0 >;
+			#interrupt-cells = < 0x2 >;
+			interrupt-controller;
+			interrupts-extended = < &hlic 0xb >;
+			reg = < 0x40000000 0x4000000 >;
+			riscv,max-priority = < 0x1 >;
+			riscv,ndev = < 0x1f >;
+		};
+		uart0: uart@70001000 {
+			compatible = "microchip,coreuart";
+			reg = < 0x70001000 0x1000 >;
+			status = "disabled";
+			current-speed = < 0x0 >;
+			clock-frequency = < 0x0 >;
+		};
+	};
+};

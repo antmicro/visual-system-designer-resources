@@ -1,0 +1,2405 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	npcx-alts-map {
+		compatible = "nuvoton,npcx-pinctrl-conf";
+		alt0_spip_sl: alt00 {
+			alts = < &scfg 0x0 0x0 0x0 >;
+		};
+		alt0_gpio_no_spip: alt03-inv {
+			alts = < &scfg 0x0 0x3 0x1 >;
+			phandle = < 0xe8 >;
+		};
+		alt0_gpio_no_fpip: alt07-inv {
+			alts = < &scfg 0x0 0x7 0x1 >;
+			phandle = < 0xe9 >;
+		};
+		alt1_kbrst_sl: alt10 {
+			alts = < &scfg 0x1 0x0 0x0 >;
+		};
+		alt1_smi_sl: alt12 {
+			alts = < &scfg 0x1 0x2 0x0 >;
+		};
+		alt1_ec_sci_sl: alt13 {
+			alts = < &scfg 0x1 0x3 0x0 >;
+		};
+		alt1_no_pwrgd: alt14-inv {
+			alts = < &scfg 0x1 0x4 0x1 >;
+			phandle = < 0xea >;
+		};
+		alt1_pwroff: alt15 {
+			alts = < &scfg 0x1 0x5 0x0 >;
+		};
+		alt1_clkrn_sl: alt16 {
+			alts = < &scfg 0x1 0x6 0x0 >;
+		};
+		alt1_no_lpc_espi: alt17-inv {
+			alts = < &scfg 0x1 0x7 0x1 >;
+		};
+		alt2_i2c0_0_sl: alt20 {
+			alts = < &scfg 0x2 0x0 0x0 >;
+		};
+		alt2_i2c7_0_sl: alt21 {
+			alts = < &scfg 0x2 0x1 0x0 >;
+		};
+		alt2_i2c1_0_sl: alt22 {
+			alts = < &scfg 0x2 0x2 0x0 >;
+		};
+		alt2_i2c6_0_sl: alt23 {
+			alts = < &scfg 0x2 0x3 0x0 >;
+		};
+		alt2_i2c2_0_sl: alt24 {
+			alts = < &scfg 0x2 0x4 0x0 >;
+		};
+		alt2_i2c5_0_sl: alt25 {
+			alts = < &scfg 0x2 0x5 0x0 >;
+		};
+		alt2_i2c3_0_sl: alt26 {
+			alts = < &scfg 0x2 0x6 0x0 >;
+		};
+		alt3_ps2_0_sl: alt30 {
+			alts = < &scfg 0x3 0x0 0x0 >;
+		};
+		alt3_ps2_1_sl: alt31 {
+			alts = < &scfg 0x3 0x1 0x0 >;
+		};
+		alt3_ps2_2_sl: alt32 {
+			alts = < &scfg 0x3 0x2 0x0 >;
+		};
+		alt3_ta1_sl1: alt34 {
+			alts = < &scfg 0x3 0x4 0x0 >;
+		};
+		alt3_tb1_sl1: alt35 {
+			alts = < &scfg 0x3 0x5 0x0 >;
+		};
+		alt3_ta2_sl1: alt36 {
+			alts = < &scfg 0x3 0x6 0x0 >;
+		};
+		alt4_pwm0_sl: alt40 {
+			alts = < &scfg 0x4 0x0 0x0 >;
+		};
+		alt4_pwm1_sl: alt41 {
+			alts = < &scfg 0x4 0x1 0x0 >;
+		};
+		alt4_pwm2_sl: alt42 {
+			alts = < &scfg 0x4 0x2 0x0 >;
+		};
+		alt4_pwm3_sl: alt43 {
+			alts = < &scfg 0x4 0x3 0x0 >;
+		};
+		alt4_pwm4_sl: alt44 {
+			alts = < &scfg 0x4 0x4 0x0 >;
+		};
+		alt4_pwm5_sl: alt45 {
+			alts = < &scfg 0x4 0x5 0x0 >;
+		};
+		alt4_pwm6_sl: alt46 {
+			alts = < &scfg 0x4 0x6 0x0 >;
+		};
+		alt4_pwm7_sl: alt47 {
+			alts = < &scfg 0x4 0x7 0x0 >;
+		};
+		alt5_trace_en: alt50 {
+			alts = < &scfg 0x5 0x0 0x0 >;
+		};
+		alt5_strace_en: alt54 {
+			alts = < &scfg 0x5 0x4 0x0 >;
+		};
+		alt6_adc0_sl: alt60 {
+			alts = < &scfg 0x6 0x0 0x0 >;
+		};
+		alt6_adc1_sl: alt61 {
+			alts = < &scfg 0x6 0x1 0x0 >;
+		};
+		alt6_adc2_sl: alt62 {
+			alts = < &scfg 0x6 0x2 0x0 >;
+		};
+		alt6_adc3_sl: alt63 {
+			alts = < &scfg 0x6 0x3 0x0 >;
+		};
+		alt6_adc4_sl: alt64 {
+			alts = < &scfg 0x6 0x4 0x0 >;
+		};
+		alt6_i2c6_1_sl: alt65 {
+			alts = < &scfg 0x6 0x5 0x0 >;
+		};
+		alt6_i2c5_1_sl: alt66 {
+			alts = < &scfg 0x6 0x6 0x0 >;
+		};
+		alt6_i2c4_1_sl: alt67 {
+			alts = < &scfg 0x6 0x7 0x0 >;
+		};
+		alt7_no_ksi0_sl: alt70-inv {
+			alts = < &scfg 0x7 0x0 0x1 >;
+			phandle = < 0xeb >;
+		};
+		alt7_no_ksi1_sl: alt71-inv {
+			alts = < &scfg 0x7 0x1 0x1 >;
+			phandle = < 0xec >;
+		};
+		alt7_no_ksi2_sl: alt72-inv {
+			alts = < &scfg 0x7 0x2 0x1 >;
+			phandle = < 0xed >;
+		};
+		alt7_no_ksi3_sl: alt73-inv {
+			alts = < &scfg 0x7 0x3 0x1 >;
+			phandle = < 0xee >;
+		};
+		alt7_no_ksi4_sl: alt74-inv {
+			alts = < &scfg 0x7 0x4 0x1 >;
+			phandle = < 0xef >;
+		};
+		alt7_no_ksi5_sl: alt75-inv {
+			alts = < &scfg 0x7 0x5 0x1 >;
+			phandle = < 0xf0 >;
+		};
+		alt7_no_ksi6_sl: alt76-inv {
+			alts = < &scfg 0x7 0x6 0x1 >;
+			phandle = < 0xf1 >;
+		};
+		alt7_no_ksi7_sl: alt77-inv {
+			alts = < &scfg 0x7 0x7 0x1 >;
+			phandle = < 0xf2 >;
+		};
+		alt8_no_kso00_sl: alt80-inv {
+			alts = < &scfg 0x8 0x0 0x1 >;
+			phandle = < 0xf3 >;
+		};
+		alt8_no_kso01_sl: alt81-inv {
+			alts = < &scfg 0x8 0x1 0x1 >;
+			phandle = < 0xf4 >;
+		};
+		alt8_no_kso02_sl: alt82-inv {
+			alts = < &scfg 0x8 0x2 0x1 >;
+			phandle = < 0xf5 >;
+		};
+		alt8_no_kso03_sl: alt83-inv {
+			alts = < &scfg 0x8 0x3 0x1 >;
+			phandle = < 0xf6 >;
+		};
+		alt8_no_kso04_sl: alt84-inv {
+			alts = < &scfg 0x8 0x4 0x1 >;
+			phandle = < 0xf7 >;
+		};
+		alt8_no_kso05_sl: alt85-inv {
+			alts = < &scfg 0x8 0x5 0x1 >;
+			phandle = < 0xf8 >;
+		};
+		alt8_no_kso06_sl: alt86-inv {
+			alts = < &scfg 0x8 0x6 0x1 >;
+			phandle = < 0xf9 >;
+		};
+		alt8_no_kso07_sl: alt87-inv {
+			alts = < &scfg 0x8 0x7 0x1 >;
+			phandle = < 0xfa >;
+		};
+		alt9_no_kso08_sl: alt90-inv {
+			alts = < &scfg 0x9 0x0 0x1 >;
+			phandle = < 0xfb >;
+		};
+		alt9_no_kso09_sl: alt91-inv {
+			alts = < &scfg 0x9 0x1 0x1 >;
+			phandle = < 0xfc >;
+		};
+		alt9_no_kso10_sl: alt92-inv {
+			alts = < &scfg 0x9 0x2 0x1 >;
+			phandle = < 0xfd >;
+		};
+		alt9_no_kso11_sl: alt93-inv {
+			alts = < &scfg 0x9 0x3 0x1 >;
+			phandle = < 0xfe >;
+		};
+		alt9_no_kso12_sl: alt94-inv {
+			alts = < &scfg 0x9 0x4 0x1 >;
+			phandle = < 0xff >;
+		};
+		alt9_no_kso13_sl: alt95-inv {
+			alts = < &scfg 0x9 0x5 0x1 >;
+			phandle = < 0x100 >;
+		};
+		alt9_no_kso14_sl: alt96-inv {
+			alts = < &scfg 0x9 0x6 0x1 >;
+			phandle = < 0x101 >;
+		};
+		alt9_no_kso15_sl: alt97-inv {
+			alts = < &scfg 0x9 0x7 0x1 >;
+			phandle = < 0x102 >;
+		};
+		alta_no_kso16_sl: alta0-inv {
+			alts = < &scfg 0xa 0x0 0x1 >;
+			phandle = < 0x103 >;
+		};
+		alta_no_kso17_sl: alta1-inv {
+			alts = < &scfg 0xa 0x1 0x1 >;
+			phandle = < 0x104 >;
+		};
+		alta_32k_out_sl: alta2 {
+			alts = < &scfg 0xa 0x2 0x0 >;
+		};
+		alta_no_vcc1_rst: alta4-inv {
+			alts = < &scfg 0xa 0x4 0x1 >;
+		};
+		alta_no_peci_en: alta6-inv {
+			alts = < &scfg 0xa 0x6 0x1 >;
+			phandle = < 0x105 >;
+		};
+		altb_rxd_sl: altb0 {
+			alts = < &scfg 0xb 0x0 0x0 >;
+		};
+		altb_txd_sl: altb1 {
+			alts = < &scfg 0xb 0x1 0x0 >;
+		};
+		altb_rts_sl: altb2 {
+			alts = < &scfg 0xb 0x2 0x0 >;
+		};
+		altb_cts_sl: altb3 {
+			alts = < &scfg 0xb 0x3 0x0 >;
+		};
+		altb_ri_sl: altb4 {
+			alts = < &scfg 0xb 0x4 0x0 >;
+		};
+		altb_dtr_bout_sl: altb5 {
+			alts = < &scfg 0xb 0x5 0x0 >;
+		};
+		altb_dcd_sl: altb6 {
+			alts = < &scfg 0xb 0x6 0x0 >;
+		};
+		altb_dsr_sl: altb7 {
+			alts = < &scfg 0xb 0x7 0x0 >;
+		};
+		altc_shi_sl: altc1 {
+			alts = < &scfg 0xc 0x1 0x0 >;
+		};
+		altc_ps2_3_sl2: altc3 {
+			alts = < &scfg 0xc 0x3 0x0 >;
+		};
+		altc_ta1_sl2: altc4 {
+			alts = < &scfg 0xc 0x4 0x0 >;
+		};
+		altc_tb1_sl2: altc5 {
+			alts = < &scfg 0xc 0x5 0x0 >;
+		};
+		altc_ta2_sl2: altc6 {
+			alts = < &scfg 0xc 0x6 0x0 >;
+		};
+		altc_tb2_sl2: altc7 {
+			alts = < &scfg 0xc 0x7 0x0 >;
+		};
+		altd_psl_in1_ahi: altd0 {
+			alts = < &scfg 0xd 0x0 0x0 >;
+		};
+		altd_npsl_in1_sl: altd1-inv {
+			alts = < &scfg 0xd 0x1 0x1 >;
+			phandle = < 0x107 >;
+		};
+		altd_psl_in2_ahi: altd2 {
+			alts = < &scfg 0xd 0x2 0x0 >;
+		};
+		altd_npsl_in2_sl: altd3-inv {
+			alts = < &scfg 0xd 0x3 0x1 >;
+			phandle = < 0x108 >;
+		};
+		altd_psl_in3_ahi: altd4 {
+			alts = < &scfg 0xd 0x4 0x0 >;
+		};
+		altd_psl_in3_sl: altd5 {
+			alts = < &scfg 0xd 0x5 0x0 >;
+			phandle = < 0x109 >;
+		};
+		altd_psl_in4_ahi: altd6 {
+			alts = < &scfg 0xd 0x6 0x0 >;
+		};
+		altd_psl_in4_sl: altd7 {
+			alts = < &scfg 0xd 0x7 0x0 >;
+			phandle = < 0x10a >;
+		};
+		altf_adc5_sl: altf0 {
+			alts = < &scfg 0xf 0x0 0x0 >;
+		};
+		altf_adc6_sl: altf1 {
+			alts = < &scfg 0xf 0x1 0x0 >;
+		};
+		altf_adc7_sl: altf2 {
+			alts = < &scfg 0xf 0x2 0x0 >;
+		};
+		altf_adc8_sl: altf3 {
+			alts = < &scfg 0xf 0x3 0x0 >;
+		};
+		altf_adc9_sl: altf4 {
+			alts = < &scfg 0xf 0x4 0x0 >;
+		};
+		altf_shi_new: altf_adc12_sl: altf7 {
+			alts = < &scfg 0xf 0x7 0x0 >;
+		};
+		alt0_f_spi_cs1: alt04 {
+			alts = < &scfg 0x0 0x4 0x0 >;
+		};
+		alt0_f_spi_quad: alt06 {
+			alts = < &scfg 0x0 0x6 0x0 >;
+		};
+		alt2_i2c4_0_sl: alt27 {
+			alts = < &scfg 0x2 0x7 0x0 >;
+		};
+		alt5_jen_lk: alt51 {
+			alts = < &scfg 0x5 0x1 0x0 >;
+		};
+		alt5_gp_lk: alt57 {
+			alts = < &scfg 0x5 0x7 0x0 >;
+		};
+		alte_cr_sin4_sl: alte6 {
+			alts = < &scfg 0xe 0x6 0x0 >;
+		};
+		alte_cr_sout4_sl: alte7 {
+			alts = < &scfg 0xe 0x7 0x0 >;
+		};
+		altf_adc10_sl: altf5 {
+			alts = < &scfg 0xf 0x5 0x0 >;
+		};
+		altf_adc11_sl: altf6 {
+			alts = < &scfg 0xf 0x6 0x0 >;
+		};
+		alta_32kclkin_sl: alta3 {
+			alts = < &scfg 0xa 0x3 0x0 >;
+		};
+		altc_gpio97_sl_inv: altc2-inv {
+			alts = < &scfg 0xc 0x2 0x1 >;
+			phandle = < 0x106 >;
+		};
+		altg_vcc1_rst_pud: altg4 {
+			alts = < &scfg 0x10 0x4 0x0 >;
+		};
+		altg_vcc1_rst_pud_lk: altg5 {
+			alts = < &scfg 0x10 0x5 0x0 >;
+		};
+		altg_psl_out_sl: altg6 {
+			alts = < &scfg 0x10 0x6 0x0 >;
+		};
+		altg_psl_gpo_sl: altg7 {
+			alts = < &scfg 0x10 0x7 0x0 >;
+			phandle = < 0x10b >;
+		};
+		alth_fcsi_typ: alth1 {
+			alts = < &scfg 0x11 0x1 0x0 >;
+		};
+		alth_flm_quad: alth5 {
+			alts = < &scfg 0x11 0x5 0x0 >;
+		};
+		alth_flm_mon_md: alth6-inv {
+			alts = < &scfg 0x11 0x6 0x1 >;
+		};
+		alth_flm_sl: alth7 {
+			alts = < &scfg 0x11 0x7 0x0 >;
+		};
+		altj_cr_sin1_sl1: altj0 {
+			alts = < &scfg 0x12 0x0 0x0 >;
+		};
+		altj_cr_sout1_sl1: altj1 {
+			alts = < &scfg 0x12 0x1 0x0 >;
+		};
+		altj_cr_sin1_sl2: altj2 {
+			alts = < &scfg 0x12 0x2 0x0 >;
+		};
+		altj_cr_sout1_sl2: altj3 {
+			alts = < &scfg 0x12 0x3 0x0 >;
+		};
+		altj_cr_sin2_sl: altj4 {
+			alts = < &scfg 0x12 0x4 0x0 >;
+		};
+		altj_cr_sout2_sl: altj5 {
+			alts = < &scfg 0x12 0x5 0x0 >;
+		};
+		altj_cr_sin3_sl: altj6 {
+			alts = < &scfg 0x12 0x6 0x0 >;
+		};
+		altj_cr_sout3_sl: altj7 {
+			alts = < &scfg 0x12 0x7 0x0 >;
+		};
+		altk_i2c7_1_sl: altk7 {
+			alts = < &scfg 0x13 0x7 0x0 >;
+		};
+		altl_adc13_sl: altl0 {
+			alts = < &scfg 0x14 0x0 0x0 >;
+		};
+		altl_adc14_sl: altl1 {
+			alts = < &scfg 0x14 0x1 0x0 >;
+		};
+		altl_adc15_sl: altl2 {
+			alts = < &scfg 0x14 0x2 0x0 >;
+		};
+		altl_adc16_sl: altl3 {
+			alts = < &scfg 0x14 0x3 0x0 >;
+		};
+		altl_adc17_sl: altl4 {
+			alts = < &scfg 0x14 0x4 0x0 >;
+		};
+		altl_adc18_sl: altl5 {
+			alts = < &scfg 0x14 0x5 0x0 >;
+		};
+		altl_adc19_sl: altl6 {
+			alts = < &scfg 0x14 0x6 0x0 >;
+		};
+		altl_adc20_sl: altl7 {
+			alts = < &scfg 0x14 0x7 0x0 >;
+		};
+		altm_adc21_sl: altm0 {
+			alts = < &scfg 0x15 0x0 0x0 >;
+		};
+		altm_adc22_sl: altm1 {
+			alts = < &scfg 0x15 0x1 0x0 >;
+		};
+		altm_adc23_sl: altm2 {
+			alts = < &scfg 0x15 0x2 0x0 >;
+		};
+		altm_adc24_sl: altm3 {
+			alts = < &scfg 0x15 0x3 0x0 >;
+		};
+		altm_adc25_sl: altm4 {
+			alts = < &scfg 0x15 0x4 0x0 >;
+		};
+		altn_i3c1_sl: altn0 {
+			alts = < &scfg 0x16 0x0 0x0 >;
+		};
+		altn_i3c2_sl: altn1 {
+			alts = < &scfg 0x16 0x1 0x0 >;
+		};
+		altn_i3c3_sl: altn2 {
+			alts = < &scfg 0x16 0x2 0x0 >;
+		};
+	};
+	npcx-miwus-wui-map {
+		compatible = "nuvoton,npcx-miwu-wui-map";
+		wui_io80: wui0-1-0 {
+			miwus = < &miwu0 0x0 0x0 >;
+			phandle = < 0x7b >;
+		};
+		wui_io81: wui0-1-1 {
+			miwus = < &miwu0 0x0 0x1 >;
+			phandle = < 0x7c >;
+		};
+		wui_io82: wui0-1-2 {
+			miwus = < &miwu0 0x0 0x2 >;
+			phandle = < 0x7d >;
+		};
+		wui_io83: wui0-1-3 {
+			miwus = < &miwu0 0x0 0x3 >;
+			phandle = < 0x7e >;
+		};
+		wui_io87: wui0-1-7 {
+			miwus = < &miwu0 0x0 0x7 >;
+			phandle = < 0x7f >;
+		};
+		wui_io90: wui0-2-0 {
+			miwus = < &miwu0 0x1 0x0 >;
+			phandle = < 0x84 >;
+		};
+		wui_io91: wui0-2-1 {
+			miwus = < &miwu0 0x1 0x1 >;
+			phandle = < 0x85 >;
+		};
+		wui_io92: wui0-2-2 {
+			miwus = < &miwu0 0x1 0x2 >;
+			phandle = < 0x86 >;
+		};
+		wui_io93: wui0-2-3 {
+			miwus = < &miwu0 0x1 0x3 >;
+			phandle = < 0x87 >;
+		};
+		wui_io94: wui0-2-4 {
+			miwus = < &miwu0 0x1 0x4 >;
+			phandle = < 0x88 >;
+		};
+		wui_io95: wui0-2-5 {
+			miwus = < &miwu0 0x1 0x5 >;
+			phandle = < 0x89 >;
+		};
+		wui_mswc: wui0-2-6 {
+			miwus = < &miwu0 0x1 0x6 >;
+		};
+		wui_t0out: wui0-2-7 {
+			miwus = < &miwu0 0x1 0x7 >;
+			phandle = < 0xdf >;
+		};
+		wui_io96: wui0-3-0 {
+			miwus = < &miwu0 0x2 0x0 >;
+			phandle = < 0x8a >;
+		};
+		wui_io97: wui0-3-1 {
+			miwus = < &miwu0 0x2 0x1 >;
+			phandle = < 0x8b >;
+		};
+		wui_ioa0: wui0-3-2 {
+			miwus = < &miwu0 0x2 0x2 >;
+			phandle = < 0x8f >;
+		};
+		wui_ioa1: wui0-3-3 {
+			miwus = < &miwu0 0x2 0x3 >;
+			phandle = < 0x90 >;
+		};
+		wui_ioa2: wui0-3-4 {
+			miwus = < &miwu0 0x2 0x4 >;
+			phandle = < 0x91 >;
+		};
+		wui_ioa3: wui0-3-5 {
+			miwus = < &miwu0 0x2 0x5 >;
+			phandle = < 0x92 >;
+		};
+		wui_ioa4: wui0-3-6 {
+			miwus = < &miwu0 0x2 0x6 >;
+			phandle = < 0x93 >;
+		};
+		wui_ioa5: wui0-3-7 {
+			miwus = < &miwu0 0x2 0x7 >;
+			phandle = < 0x94 >;
+		};
+		wui_ioa6: wui0-4-0 {
+			miwus = < &miwu0 0x3 0x0 >;
+			phandle = < 0x95 >;
+		};
+		wui_ioa7: wui0-4-1 {
+			miwus = < &miwu0 0x3 0x1 >;
+			phandle = < 0x96 >;
+		};
+		wui_iob0: wui0-4-2 {
+			miwus = < &miwu0 0x3 0x2 >;
+			phandle = < 0x97 >;
+		};
+		wui_smb0_2: wui0-4-3 {
+			miwus = < &miwu0 0x3 0x3 >;
+		};
+		wui_smb1_3: wui0-4-4 {
+			miwus = < &miwu0 0x3 0x4 >;
+		};
+		wui_iob1: wui0-4-5 {
+			miwus = < &miwu0 0x3 0x5 >;
+			phandle = < 0x98 >;
+		};
+		wui_iob2: wui0-4-6 {
+			miwus = < &miwu0 0x3 0x6 >;
+			phandle = < 0x99 >;
+		};
+		wui_mtc: wui0-4-7 {
+			miwus = < &miwu0 0x3 0x7 >;
+		};
+		wui_iob3: wui0-5-0 {
+			miwus = < &miwu0 0x4 0x0 >;
+			phandle = < 0x9a >;
+		};
+		wui_iob4: wui0-5-1 {
+			miwus = < &miwu0 0x4 0x1 >;
+			phandle = < 0x9b >;
+		};
+		wui_iob5: wui0-5-2 {
+			miwus = < &miwu0 0x4 0x2 >;
+			phandle = < 0x9c >;
+		};
+		wui_smb4: wui0-5-3 {
+			miwus = < &miwu0 0x4 0x3 >;
+		};
+		wui_iob7: wui0-5-4 {
+			miwus = < &miwu0 0x4 0x4 >;
+			phandle = < 0x9e >;
+		};
+		wui_espi_rst: wui0-5-5 {
+			miwus = < &miwu0 0x4 0x5 >;
+			phandle = < 0xe0 >;
+		};
+		wui_host_acc: wui0-5-6 {
+			miwus = < &miwu0 0x4 0x6 >;
+			phandle = < 0xe1 >;
+		};
+		wui_plt_rst: wui0-5-7 {
+			miwus = < &miwu0 0x4 0x7 >;
+		};
+		wui_ioc0: wui0-6-0 {
+			miwus = < &miwu0 0x5 0x0 >;
+			phandle = < 0xa6 >;
+		};
+		wui_ioc1: wui0-6-1 {
+			miwus = < &miwu0 0x5 0x1 >;
+			phandle = < 0xa7 >;
+		};
+		wui_ioc2: wui0-6-2 {
+			miwus = < &miwu0 0x5 0x2 >;
+			phandle = < 0xa8 >;
+		};
+		wui_ioc3: wui0-6-3 {
+			miwus = < &miwu0 0x5 0x3 >;
+			phandle = < 0xa9 >;
+		};
+		wui_ioc4: wui0-6-4 {
+			miwus = < &miwu0 0x5 0x4 >;
+			phandle = < 0xaa >;
+		};
+		wui_ioc5: wui0-6-5 {
+			miwus = < &miwu0 0x5 0x5 >;
+			phandle = < 0xab >;
+		};
+		wui_ioc6: wui0-6-6 {
+			miwus = < &miwu0 0x5 0x6 >;
+			phandle = < 0xac >;
+		};
+		wui_ioc7: wui0-6-7 {
+			miwus = < &miwu0 0x5 0x7 >;
+			phandle = < 0xad >;
+		};
+		wui_iod0: wui0-7-0 {
+			miwus = < &miwu0 0x6 0x0 >;
+			phandle = < 0xb6 >;
+		};
+		wui_iod1: wui0-7-1 {
+			miwus = < &miwu0 0x6 0x1 >;
+			phandle = < 0xb7 >;
+		};
+		wui_iod2: wui0-7-2 {
+			miwus = < &miwu0 0x6 0x2 >;
+			phandle = < 0xb8 >;
+		};
+		wui_iod3: wui0-7-3 {
+			miwus = < &miwu0 0x6 0x3 >;
+			phandle = < 0xb9 >;
+		};
+		wui_iod4: wui0-7-4 {
+			miwus = < &miwu0 0x6 0x4 >;
+			phandle = < 0xba >;
+		};
+		wui_iod5: wui0-7-5 {
+			miwus = < &miwu0 0x6 0x5 >;
+			phandle = < 0xbb >;
+		};
+		wui_ioe0: wui0-7-7 {
+			miwus = < &miwu0 0x6 0x7 >;
+			phandle = < 0xc4 >;
+		};
+		wui_ioe1: wui0-8-0 {
+			miwus = < &miwu0 0x7 0x0 >;
+			phandle = < 0xc5 >;
+		};
+		wui_ioe2: wui0-8-1 {
+			miwus = < &miwu0 0x7 0x1 >;
+			phandle = < 0xc6 >;
+		};
+		wui_ioe3: wui0-8-2 {
+			miwus = < &miwu0 0x7 0x2 >;
+			phandle = < 0xc7 >;
+		};
+		wui_ioe4: wui0-8-3 {
+			miwus = < &miwu0 0x7 0x3 >;
+			phandle = < 0xc8 >;
+		};
+		wui_ioe5: wui0-8-4 {
+			miwus = < &miwu0 0x7 0x4 >;
+			phandle = < 0xc9 >;
+		};
+		wui_iof0: wui0-8-5 {
+			miwus = < &miwu0 0x7 0x5 >;
+			phandle = < 0xd2 >;
+		};
+		wui_iof3: wui0-8-6 {
+			miwus = < &miwu0 0x7 0x6 >;
+			phandle = < 0xd5 >;
+		};
+		wui_io00: wui1-1-0 {
+			miwus = < &miwu1 0x0 0x0 >;
+			phandle = < 0x13 >;
+		};
+		wui_io01: wui1-1-1 {
+			miwus = < &miwu1 0x0 0x1 >;
+			phandle = < 0x14 >;
+		};
+		wui_io02: wui1-1-2 {
+			miwus = < &miwu1 0x0 0x2 >;
+			phandle = < 0x15 >;
+		};
+		wui_io03: wui1-1-3 {
+			miwus = < &miwu1 0x0 0x3 >;
+			phandle = < 0x16 >;
+		};
+		wui_io04: wui1-1-4 {
+			miwus = < &miwu1 0x0 0x4 >;
+			phandle = < 0x17 >;
+		};
+		wui_io05: wui1-1-5 {
+			miwus = < &miwu1 0x0 0x5 >;
+			phandle = < 0x18 >;
+		};
+		wui_io06: wui1-1-6 {
+			miwus = < &miwu1 0x0 0x6 >;
+			phandle = < 0x19 >;
+		};
+		wui_io07: wui1-1-7 {
+			miwus = < &miwu1 0x0 0x7 >;
+			phandle = < 0x1a >;
+		};
+		wui_io10: wui1-2-0 {
+			miwus = < &miwu1 0x1 0x0 >;
+			phandle = < 0x23 >;
+		};
+		wui_io11: wui1-2-1 {
+			miwus = < &miwu1 0x1 0x1 >;
+			phandle = < 0x24 >;
+		};
+		wui_iof4: wui1-2-2 {
+			miwus = < &miwu1 0x1 0x2 >;
+			phandle = < 0xd6 >;
+		};
+		wui_io14: wui1-2-4 {
+			miwus = < &miwu1 0x1 0x4 >;
+			phandle = < 0x27 >;
+		};
+		wui_io15: wui1-2-5 {
+			miwus = < &miwu1 0x1 0x5 >;
+			phandle = < 0x28 >;
+		};
+		wui_io16: wui1-2-6 {
+			miwus = < &miwu1 0x1 0x6 >;
+			phandle = < 0x29 >;
+		};
+		wui_io17: wui1-2-7 {
+			miwus = < &miwu1 0x1 0x7 >;
+			phandle = < 0x2a >;
+		};
+		wui_io31: wui1-3-0 {
+			miwus = < &miwu1 0x2 0x0 >;
+			phandle = < 0x40 >;
+		};
+		wui_io30: wui1-3-1 {
+			miwus = < &miwu1 0x2 0x1 >;
+			phandle = < 0x3f >;
+		};
+		wui_io27: wui1-3-2 {
+			miwus = < &miwu1 0x2 0x2 >;
+			phandle = < 0x3a >;
+		};
+		wui_io26: wui1-3-3 {
+			miwus = < &miwu1 0x2 0x3 >;
+			phandle = < 0x39 >;
+		};
+		wui_io25: wui1-3-4 {
+			miwus = < &miwu1 0x2 0x4 >;
+			phandle = < 0x38 >;
+		};
+		wui_io24: wui1-3-5 {
+			miwus = < &miwu1 0x2 0x5 >;
+			phandle = < 0x37 >;
+		};
+		wui_io23: wui1-3-6 {
+			miwus = < &miwu1 0x2 0x6 >;
+			phandle = < 0x36 >;
+		};
+		wui_io22: wui1-3-7 {
+			miwus = < &miwu1 0x2 0x7 >;
+			phandle = < 0x35 >;
+		};
+		wui_io20: wui1-4-0 {
+			miwus = < &miwu1 0x3 0x0 >;
+			phandle = < 0x33 >;
+		};
+		wui_io21: wui1-4-1 {
+			miwus = < &miwu1 0x3 0x1 >;
+			phandle = < 0x34 >;
+		};
+		wui_iof5: wui1-4-2 {
+			miwus = < &miwu1 0x3 0x2 >;
+			phandle = < 0xd7 >;
+		};
+		wui_io33: wui1-4-3 {
+			miwus = < &miwu1 0x3 0x3 >;
+			phandle = < 0x42 >;
+		};
+		wui_io34: wui1-4-4 {
+			miwus = < &miwu1 0x3 0x4 >;
+			phandle = < 0x43 >;
+		};
+		wui_io36: wui1-4-6 {
+			miwus = < &miwu1 0x3 0x6 >;
+			phandle = < 0x44 >;
+		};
+		wui_io37: wui1-4-7 {
+			miwus = < &miwu1 0x3 0x7 >;
+			phandle = < 0x45 >;
+		};
+		wui_io40: wui1-5-0 {
+			miwus = < &miwu1 0x4 0x0 >;
+			phandle = < 0x4a >;
+		};
+		wui_io41: wui1-5-1 {
+			miwus = < &miwu1 0x4 0x1 >;
+			phandle = < 0x4b >;
+		};
+		wui_io42: wui1-5-2 {
+			miwus = < &miwu1 0x4 0x2 >;
+			phandle = < 0x4c >;
+		};
+		wui_io43: wui1-5-3 {
+			miwus = < &miwu1 0x4 0x3 >;
+			phandle = < 0x4d >;
+		};
+		wui_io44: wui1-5-4 {
+			miwus = < &miwu1 0x4 0x4 >;
+			phandle = < 0x4e >;
+		};
+		wui_io45: wui1-5-5 {
+			miwus = < &miwu1 0x4 0x5 >;
+			phandle = < 0x4f >;
+		};
+		wui_io46: wui1-5-6 {
+			miwus = < &miwu1 0x4 0x6 >;
+			phandle = < 0x50 >;
+		};
+		wui_io47: wui1-5-7 {
+			miwus = < &miwu1 0x4 0x7 >;
+			phandle = < 0x51 >;
+		};
+		wui_io50: wui1-6-0 {
+			miwus = < &miwu1 0x5 0x0 >;
+			phandle = < 0x58 >;
+		};
+		wui_io51: wui1-6-1 {
+			miwus = < &miwu1 0x5 0x1 >;
+			phandle = < 0x59 >;
+		};
+		wui_io52: wui1-6-2 {
+			miwus = < &miwu1 0x5 0x2 >;
+			phandle = < 0x5a >;
+		};
+		wui_io53: wui1-6-3 {
+			miwus = < &miwu1 0x5 0x3 >;
+			phandle = < 0x5b >;
+		};
+		wui_io54: wui1-6-4 {
+			miwus = < &miwu1 0x5 0x4 >;
+			phandle = < 0x5c >;
+		};
+		wui_io55: wui1-6-5 {
+			miwus = < &miwu1 0x5 0x5 >;
+			phandle = < 0x5d >;
+		};
+		wui_io56: wui1-6-6 {
+			miwus = < &miwu1 0x5 0x6 >;
+			phandle = < 0x5e >;
+		};
+		wui_io57: wui1-6-7 {
+			miwus = < &miwu1 0x5 0x7 >;
+			phandle = < 0x5f >;
+		};
+		wui_io60: wui1-7-0 {
+			miwus = < &miwu1 0x6 0x0 >;
+			phandle = < 0x61 >;
+		};
+		wui_io61: wui1-7-1 {
+			miwus = < &miwu1 0x6 0x1 >;
+			phandle = < 0x62 >;
+		};
+		wui_io62: wui1-7-2 {
+			miwus = < &miwu1 0x6 0x2 >;
+			phandle = < 0x63 >;
+		};
+		wui_io63: wui1-7-3 {
+			miwus = < &miwu1 0x6 0x3 >;
+			phandle = < 0x64 >;
+		};
+		wui_io64: wui1-7-4 {
+			miwus = < &miwu1 0x6 0x4 >;
+			phandle = < 0x65 >;
+		};
+		wui_io70: wui1-8-0 {
+			miwus = < &miwu1 0x7 0x0 >;
+			phandle = < 0x6f >;
+		};
+		wui_io67: wui1-8-1 {
+			miwus = < &miwu1 0x7 0x1 >;
+			phandle = < 0x67 >;
+		};
+		wui_io72: wui1-8-2 {
+			miwus = < &miwu1 0x7 0x2 >;
+			phandle = < 0x70 >;
+		};
+		wui_io73: wui1-8-3 {
+			miwus = < &miwu1 0x7 0x3 >;
+			phandle = < 0x71 >;
+		};
+		wui_io74: wui1-8-4 {
+			miwus = < &miwu1 0x7 0x4 >;
+			phandle = < 0x72 >;
+		};
+		wui_io75: wui1-8-5 {
+			miwus = < &miwu1 0x7 0x5 >;
+			phandle = < 0x73 >;
+		};
+		wui_io76: wui1-8-6 {
+			miwus = < &miwu1 0x7 0x6 >;
+			phandle = < 0x74 >;
+		};
+		wui_cr_sin1: wui1-8-7 {
+			miwus = < &miwu1 0x7 0x7 >;
+			phandle = < 0xe2 >;
+		};
+		wui_vw_slp_s3: wui2-1-0 {
+			miwus = < &miwu2 0x0 0x0 >;
+			phandle = < 0x6 >;
+		};
+		wui_vw_slp_s4: wui2-1-1 {
+			miwus = < &miwu2 0x0 0x1 >;
+			phandle = < 0x7 >;
+		};
+		wui_vw_slp_s5: wui2-1-2 {
+			miwus = < &miwu2 0x0 0x2 >;
+			phandle = < 0x8 >;
+		};
+		wui_vw_sus_stat: wui2-1-4 {
+			miwus = < &miwu2 0x0 0x4 >;
+			phandle = < 0x9 >;
+		};
+		wui_vw_plt_rst: wui2-1-5 {
+			miwus = < &miwu2 0x0 0x5 >;
+			phandle = < 0xa >;
+		};
+		wui_vw_oob_rst_warn: wui2-1-6 {
+			miwus = < &miwu2 0x0 0x6 >;
+			phandle = < 0xb >;
+		};
+		wui_vw_host_rst_warn: wui2-2-0 {
+			miwus = < &miwu2 0x1 0x0 >;
+			phandle = < 0xc >;
+		};
+		wui_vw_sus_warn: wui2-2-4 {
+			miwus = < &miwu2 0x1 0x4 >;
+			phandle = < 0xd >;
+		};
+		wui_vw_sus_pwrdn_ack: wui2-2-5 {
+			miwus = < &miwu2 0x1 0x5 >;
+			phandle = < 0xe >;
+		};
+		wui_vw_slp_a: wui2-2-7 {
+			miwus = < &miwu2 0x1 0x7 >;
+			phandle = < 0xf >;
+		};
+		wui_vw_slp_lan: wui2-3-0 {
+			miwus = < &miwu2 0x2 0x0 >;
+			phandle = < 0x10 >;
+		};
+		wui_vw_slp_wlan: wui2-3-1 {
+			miwus = < &miwu2 0x2 0x1 >;
+			phandle = < 0x11 >;
+		};
+		wui_vw_fl_ack: wui2-3-4 {
+			miwus = < &miwu2 0x2 0x4 >;
+		};
+		wui_vw_pch_to_ec_gen_1: wui2-3-5 {
+			miwus = < &miwu2 0x2 0x5 >;
+		};
+		wui_vw_pch_to_ec_gen_2: wui2-3-6 {
+			miwus = < &miwu2 0x2 0x6 >;
+		};
+		wui_vw_pch_to_ec_gen_3: wui2-3-7 {
+			miwus = < &miwu2 0x2 0x7 >;
+		};
+		wui_vw_pch_to_ec_gen_4: wui2-4-0 {
+			miwus = < &miwu2 0x3 0x0 >;
+		};
+		wui_vw_pch_to_ec_gen_5: wui2-4-1 {
+			miwus = < &miwu2 0x3 0x1 >;
+		};
+		wui_vw_pch_to_ec_gen_6: wui2-4-2 {
+			miwus = < &miwu2 0x3 0x2 >;
+		};
+		wui_vw_pch_to_ec_gen_7: wui2-4-3 {
+			miwus = < &miwu2 0x3 0x3 >;
+		};
+		wui_vw_host_c10: wui2-4-4 {
+			miwus = < &miwu2 0x3 0x4 >;
+		};
+		wui_iof1: wui2-6-1 {
+			miwus = < &miwu2 0x5 0x1 >;
+			phandle = < 0xd3 >;
+		};
+		wui_iof2: wui2-6-2 {
+			miwus = < &miwu2 0x5 0x2 >;
+			phandle = < 0xd4 >;
+		};
+		wui_smb5: wui2-7-0 {
+			miwus = < &miwu2 0x6 0x0 >;
+		};
+		wui_smb6: wui2-7-1 {
+			miwus = < &miwu2 0x6 0x1 >;
+		};
+		wui_smb7: wui2-7-2 {
+			miwus = < &miwu2 0x6 0x2 >;
+		};
+		wui_none: wui-pseudo {
+			miwus = < &miwu_none 0x7 0x7 >;
+			phandle = < 0x41 >;
+		};
+		wui_ioe7: wui0-8-7 {
+			miwus = < &miwu0 0x7 0x7 >;
+			phandle = < 0xca >;
+		};
+		wui_io13: wui1-2-3 {
+			miwus = < &miwu1 0x1 0x3 >;
+			phandle = < 0x26 >;
+		};
+		wui_io66: wui1-7-6 {
+			miwus = < &miwu1 0x6 0x6 >;
+			phandle = < 0x66 >;
+		};
+		wui_slp_msc: wui2-5-0 {
+			miwus = < &miwu2 0x4 0x0 >;
+		};
+		wui_z8: wui2-5-1 {
+			miwus = < &miwu2 0x4 0x1 >;
+		};
+		wui_z9: wui2-5-2 {
+			miwus = < &miwu2 0x4 0x2 >;
+		};
+		wui_z10: wui2-5-3 {
+			miwus = < &miwu2 0x4 0x3 >;
+		};
+		wui_io12: wui2-6-0 {
+			miwus = < &miwu2 0x5 0x0 >;
+			phandle = < 0x25 >;
+		};
+		wui_smb2: wui2-6-3 {
+			miwus = < &miwu2 0x5 0x3 >;
+		};
+		wui_smb3: wui2-6-4 {
+			miwus = < &miwu2 0x5 0x4 >;
+		};
+		wui_iod6: wui2-6-5 {
+			miwus = < &miwu2 0x5 0x5 >;
+			phandle = < 0xbc >;
+		};
+		wui_iob6: wui2-6-6 {
+			miwus = < &miwu2 0x5 0x6 >;
+			phandle = < 0x9d >;
+		};
+		wui_lct: wui2-6-7 {
+			miwus = < &miwu2 0x5 0x7 >;
+		};
+		wui_cr_sin2: wui2-7-3 {
+			miwus = < &miwu2 0x6 0x3 >;
+			phandle = < 0xe3 >;
+		};
+		wui_cr_sin3: wui2-7-4 {
+			miwus = < &miwu2 0x6 0x4 >;
+			phandle = < 0xe4 >;
+		};
+		wui_cr_sin4: wui2-7-5 {
+			miwus = < &miwu2 0x6 0x5 >;
+			phandle = < 0xe5 >;
+		};
+		wui_i3c1_addrw: wui2-7-6 {
+			miwus = < &miwu2 0x6 0x6 >;
+		};
+		wui_i3c1_rstw: wui2-7-7 {
+			miwus = < &miwu2 0x6 0x7 >;
+		};
+		wui_i3c2_addrw: wui2-8-0 {
+			miwus = < &miwu2 0x7 0x0 >;
+		};
+		wui_i3c2_rstw: wui2-8-1 {
+			miwus = < &miwu2 0x7 0x1 >;
+		};
+		wui_i3c3_addrw: wui2-8-2 {
+			miwus = < &miwu2 0x7 0x2 >;
+		};
+		wui_i3c3_rstw: wui2-8-3 {
+			miwus = < &miwu2 0x7 0x3 >;
+		};
+	};
+	miwu_none: miwu-pseudo {
+		compatible = "nuvoton,npcx-miwu";
+		index = < 0x3 >;
+		#miwu-cells = < 0x2 >;
+		status = "disabled";
+		phandle = < 0x5 >;
+	};
+	npcx-miwus-int-map {
+		map_miwu0_groups: map-miwu0-groups {
+			compatible = "nuvoton,npcx-miwu-int-map";
+			parent = < &miwu0 >;
+			group_b0: group-b0-map {
+				irq = < 0x1f >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x2 >;
+			};
+			group_c0: group-c0-map {
+				irq = < 0xf >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x4 >;
+			};
+			group_a0: group-a0-map {
+				irq = < 0x7 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x1 >;
+			};
+			group_d0: group-d0-map {
+				irq = < 0x5 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x8 >;
+			};
+			group_e0: group-e0-map {
+				irq = < 0xb >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x10 >;
+			};
+			group_f0: group-f0-map {
+				irq = < 0x23 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x20 >;
+			};
+			group_g0: group-g0-map {
+				irq = < 0x2a >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x40 >;
+			};
+			group_h0: group-h0-map {
+				irq = < 0x2e >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x80 >;
+			};
+		};
+		map_miwu1_groups: map-miwu1-groups {
+			compatible = "nuvoton,npcx-miwu-int-map";
+			parent = < &miwu1 >;
+			group_a1: group-a1-map {
+				irq = < 0x2f >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x1 >;
+			};
+			group_b1: group-b1-map {
+				irq = < 0x30 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x2 >;
+			};
+			group_c1: group-c1-map {
+				irq = < 0x31 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x4 >;
+			};
+			group_d1: group-d1-map {
+				irq = < 0x32 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x8 >;
+			};
+			group_e1: group-e1-map {
+				irq = < 0x33 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x10 >;
+			};
+			group_f1: group-f1-map {
+				irq = < 0x34 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x20 >;
+			};
+			group_g1: group-g1-map {
+				irq = < 0x35 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x40 >;
+			};
+			group_h1: group-h1-map {
+				irq = < 0x36 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x80 >;
+			};
+		};
+		map_miwu2_groups: map-miwu2-groups {
+			compatible = "nuvoton,npcx-miwu-int-map";
+			parent = < &miwu2 >;
+			group_a2: group-a2-map {
+				irq = < 0x3c >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x1 >;
+			};
+			group_b2: group-b2-map {
+				irq = < 0x3d >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x2 >;
+			};
+			group_c2: group-c2-map {
+				irq = < 0x3e >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x4 >;
+			};
+			group_d2: group-d2-map {
+				irq = < 0x3f >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x8 >;
+			};
+			group_e2: group-e2-map {
+				irq = < 0x40 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x10 >;
+			};
+			group_f2: group-f2-map {
+				irq = < 0x3b >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x20 >;
+			};
+			group_g2: group-g2-map {
+				irq = < 0x37 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x40 >;
+			};
+			group_h2: group-h2-map {
+				irq = < 0x52 >;
+				irq-prio = < 0x2 >;
+				group-mask = < 0x80 >;
+			};
+		};
+	};
+	npcx-espi-vws-map {
+		compatible = "nuvoton,npcx-espi-vw-conf";
+		vw-slp-s3 {
+			vw-reg = < 0x0 0x1 >;
+			vw-wui = < &wui_vw_slp_s3 >;
+		};
+		vw-slp-s4 {
+			vw-reg = < 0x0 0x2 >;
+			vw-wui = < &wui_vw_slp_s4 >;
+		};
+		vw-slp-s5 {
+			vw-reg = < 0x0 0x4 >;
+			vw-wui = < &wui_vw_slp_s5 >;
+		};
+		vw-sus-stat {
+			vw-reg = < 0x1 0x1 >;
+			vw-wui = < &wui_vw_sus_stat >;
+		};
+		vw-plt-rst {
+			vw-reg = < 0x1 0x2 >;
+			vw-wui = < &wui_vw_plt_rst >;
+		};
+		vw-oob-rst-warn {
+			vw-reg = < 0x1 0x4 >;
+			vw-wui = < &wui_vw_oob_rst_warn >;
+		};
+		vw-host-rst-warn {
+			vw-reg = < 0x2 0x1 >;
+			vw-wui = < &wui_vw_host_rst_warn >;
+		};
+		vw-sus-warn {
+			vw-reg = < 0x3 0x1 >;
+			vw-wui = < &wui_vw_sus_warn >;
+		};
+		vw-sus-pwrdn-ack {
+			vw-reg = < 0x3 0x2 >;
+			vw-wui = < &wui_vw_sus_pwrdn_ack >;
+		};
+		vw-slp-a {
+			vw-reg = < 0x3 0x8 >;
+			vw-wui = < &wui_vw_slp_a >;
+		};
+		vw-slp-lan {
+			vw-reg = < 0x4 0x1 >;
+			vw-wui = < &wui_vw_slp_lan >;
+		};
+		vw-slp-wlan {
+			vw-reg = < 0x4 0x2 >;
+			vw-wui = < &wui_vw_slp_wlan >;
+		};
+		vw-oob-rst-ack {
+			vw-reg = < 0x0 0x1 >;
+		};
+		vw-wake {
+			vw-reg = < 0x0 0x4 >;
+		};
+		vw-pme {
+			vw-reg = < 0x0 0x8 >;
+		};
+		vw-slv-boot-done {
+			vw-reg = < 0x1 0x1 >;
+		};
+		vw-err-fatal {
+			vw-reg = < 0x1 0x2 >;
+		};
+		vw-err-non-fatal {
+			vw-reg = < 0x1 0x4 >;
+		};
+		vw-slv-boot-sts-with-done {
+			vw-reg = < 0x1 0x9 >;
+		};
+		vw-sci {
+			vw-reg = < 0x2 0x1 >;
+		};
+		vw-smi {
+			vw-reg = < 0x2 0x2 >;
+		};
+		vw-host-rst-ack {
+			vw-reg = < 0x2 0x8 >;
+		};
+		vw-sus-ack {
+			vw-reg = < 0x3 0x1 >;
+		};
+		vw_slv_gpio_0 {
+			vw-reg = < 0x0 0x1 >;
+		};
+		vw_slv_gpio_1 {
+			vw-reg = < 0x0 0x2 >;
+		};
+		vw_slv_gpio_2 {
+			vw-reg = < 0x0 0x4 >;
+		};
+		vw_slv_gpio_3 {
+			vw-reg = < 0x0 0x8 >;
+		};
+		vw_slv_gpio_4 {
+			vw-reg = < 0x1 0x1 >;
+		};
+		vw_slv_gpio_5 {
+			vw-reg = < 0x1 0x2 >;
+		};
+		vw_slv_gpio_6 {
+			vw-reg = < 0x1 0x4 >;
+		};
+		vw_slv_gpio_7 {
+			vw-reg = < 0x1 0x8 >;
+		};
+	};
+	def-lvol-conf-list {
+		compatible = "nuvoton,npcx-lvolctrl-conf";
+		lvol_iob5: lvol00 {
+			lvols = < &scfg 0x0 0x0 >;
+			phandle = < 0xa3 >;
+		};
+		lvol_iob4: lvol01 {
+			lvols = < &scfg 0x0 0x1 >;
+			phandle = < 0xa2 >;
+		};
+		lvol_iob3: lvol02 {
+			lvols = < &scfg 0x0 0x2 >;
+			phandle = < 0xa1 >;
+		};
+		lvol_iob2: lvol03 {
+			lvols = < &scfg 0x0 0x3 >;
+			phandle = < 0xa0 >;
+		};
+		lvol_io90: lvol04 {
+			lvols = < &scfg 0x0 0x4 >;
+			phandle = < 0x8c >;
+		};
+		lvol_io87: lvol05 {
+			lvols = < &scfg 0x0 0x5 >;
+			phandle = < 0x83 >;
+		};
+		lvol_io00: lvol06 {
+			lvols = < &scfg 0x0 0x6 >;
+			phandle = < 0x1b >;
+		};
+		lvol_io33: lvol07 {
+			lvols = < &scfg 0x0 0x7 >;
+			phandle = < 0x46 >;
+		};
+		lvol_io92: lvol10 {
+			lvols = < &scfg 0x1 0x0 >;
+			phandle = < 0x8e >;
+		};
+		lvol_io91: lvol11 {
+			lvols = < &scfg 0x1 0x1 >;
+			phandle = < 0x8d >;
+		};
+		lvol_iod1: lvol12 {
+			lvols = < &scfg 0x1 0x2 >;
+			phandle = < 0xbe >;
+		};
+		lvol_iod0: lvol13 {
+			lvols = < &scfg 0x1 0x3 >;
+			phandle = < 0xbd >;
+		};
+		lvol_io36: lvol14 {
+			lvols = < &scfg 0x1 0x4 >;
+			phandle = < 0x48 >;
+		};
+		lvol_io64: lvol15 {
+			lvols = < &scfg 0x1 0x5 >;
+			phandle = < 0x6c >;
+		};
+		lvol_io74: lvol20 {
+			lvols = < &scfg 0x2 0x0 >;
+			phandle = < 0x78 >;
+		};
+		lvol_io73: lvol23 {
+			lvols = < &scfg 0x2 0x3 >;
+			phandle = < 0x77 >;
+		};
+		lvol_ioc1: lvol24 {
+			lvols = < &scfg 0x2 0x4 >;
+			phandle = < 0xaf >;
+		};
+		lvol_ioc7: lvol25 {
+			lvols = < &scfg 0x2 0x5 >;
+			phandle = < 0xb5 >;
+		};
+		lvol_io34: lvol27 {
+			lvols = < &scfg 0x2 0x7 >;
+			phandle = < 0x47 >;
+		};
+		lvol_ioc6: lvol30 {
+			lvols = < &scfg 0x3 0x0 >;
+			phandle = < 0xb4 >;
+		};
+		lvol_io37: lvol31 {
+			lvols = < &scfg 0x3 0x1 >;
+			phandle = < 0x49 >;
+		};
+		lvol_io40: lvol32 {
+			lvols = < &scfg 0x3 0x2 >;
+			phandle = < 0x52 >;
+		};
+		lvol_io82: lvol34 {
+			lvols = < &scfg 0x3 0x4 >;
+			phandle = < 0x81 >;
+		};
+		lvol_io75: lvol35 {
+			lvols = < &scfg 0x3 0x5 >;
+			phandle = < 0x79 >;
+		};
+		lvol_io80: lvol36 {
+			lvols = < &scfg 0x3 0x6 >;
+			phandle = < 0x80 >;
+		};
+		lvol_ioc5: lvol37 {
+			lvols = < &scfg 0x3 0x7 >;
+			phandle = < 0xb3 >;
+		};
+		lvol_ioc2: lvol41 {
+			lvols = < &scfg 0x4 0x1 >;
+			phandle = < 0xb0 >;
+		};
+		lvol_iof3: lvol42 {
+			lvols = < &scfg 0x4 0x2 >;
+			phandle = < 0xdb >;
+		};
+		lvol_iof2: lvol43 {
+			lvols = < &scfg 0x4 0x3 >;
+			phandle = < 0xda >;
+		};
+		lvol_iof5: lvol44 {
+			lvols = < &scfg 0x4 0x4 >;
+			phandle = < 0xdd >;
+		};
+		lvol_iof4: lvol45 {
+			lvols = < &scfg 0x4 0x5 >;
+			phandle = < 0xdc >;
+		};
+		lvol_ioe4: lvol46 {
+			lvols = < &scfg 0x4 0x6 >;
+			phandle = < 0xcf >;
+		};
+		lvol_ioe3: lvol47 {
+			lvols = < &scfg 0x4 0x7 >;
+			phandle = < 0xce >;
+		};
+		lvol_io72: lvol50 {
+			lvols = < &scfg 0x5 0x0 >;
+			phandle = < 0x76 >;
+		};
+		lvol_io50: lvol53 {
+			lvols = < &scfg 0x5 0x3 >;
+			phandle = < 0x60 >;
+		};
+		lvol_none: lvol-pseudo {
+			lvols = < &scfg 0x1f 0x0 >;
+			phandle = < 0x2d >;
+		};
+		lvol_io66: lvol17 {
+			lvols = < &scfg 0x1 0x7 >;
+			phandle = < 0x6d >;
+		};
+		lvol_ioe7: lvol26 {
+			lvols = < &scfg 0x2 0x6 >;
+			phandle = < 0xd1 >;
+		};
+		lvol_io02: lvol54 {
+			lvols = < &scfg 0x5 0x4 >;
+			phandle = < 0x1d >;
+		};
+		lvol_io01: lvol55 {
+			lvols = < &scfg 0x5 0x5 >;
+			phandle = < 0x1c >;
+		};
+		lvol_ioe2: lvol56 {
+			lvols = < &scfg 0x5 0x6 >;
+			phandle = < 0xcd >;
+		};
+		lvol_iod6: lvol57 {
+			lvols = < &scfg 0x5 0x7 >;
+			phandle = < 0xc3 >;
+		};
+		lvol_io03: lvol60 {
+			lvols = < &scfg 0x6 0x0 >;
+			phandle = < 0x1e >;
+		};
+		lvol_io05: lvol61 {
+			lvols = < &scfg 0x6 0x1 >;
+			phandle = < 0x20 >;
+		};
+		lvol_io04: lvol62 {
+			lvols = < &scfg 0x6 0x2 >;
+			phandle = < 0x1f >;
+		};
+		lvol_io06: lvol63 {
+			lvols = < &scfg 0x6 0x3 >;
+			phandle = < 0x21 >;
+		};
+		lvol_io07: lvol64 {
+			lvols = < &scfg 0x6 0x4 >;
+			phandle = < 0x22 >;
+		};
+		lvol_io10: lvol65 {
+			lvols = < &scfg 0x6 0x5 >;
+			phandle = < 0x2b >;
+		};
+		lvol_io11: lvol66 {
+			lvols = < &scfg 0x6 0x6 >;
+			phandle = < 0x2c >;
+		};
+		lvol_io13: lvol67 {
+			lvols = < &scfg 0x6 0x7 >;
+			phandle = < 0x2e >;
+		};
+		lvol_io14: lvol70 {
+			lvols = < &scfg 0x7 0x0 >;
+			phandle = < 0x2f >;
+		};
+		lvol_io15: lvol71 {
+			lvols = < &scfg 0x7 0x1 >;
+			phandle = < 0x30 >;
+		};
+		lvol_io16: lvol72 {
+			lvols = < &scfg 0x7 0x2 >;
+			phandle = < 0x31 >;
+		};
+		lvol_io17: lvol73 {
+			lvols = < &scfg 0x7 0x3 >;
+			phandle = < 0x32 >;
+		};
+		lvol_io20: lvol74 {
+			lvols = < &scfg 0x7 0x4 >;
+			phandle = < 0x3b >;
+		};
+		lvol_io21: lvol75 {
+			lvols = < &scfg 0x7 0x5 >;
+			phandle = < 0x3c >;
+		};
+		lvol_io22: lvol76 {
+			lvols = < &scfg 0x7 0x6 >;
+			phandle = < 0x3d >;
+		};
+		lvol_io23: lvol77 {
+			lvols = < &scfg 0x7 0x7 >;
+			phandle = < 0x3e >;
+		};
+		lvol_ioe0: lvol80 {
+			lvols = < &scfg 0x8 0x0 >;
+			phandle = < 0xcb >;
+		};
+		lvol_io41: lvol81 {
+			lvols = < &scfg 0x8 0x1 >;
+			phandle = < 0x53 >;
+		};
+		lvol_iof0: lvol82 {
+			lvols = < &scfg 0x8 0x2 >;
+			phandle = < 0xd8 >;
+		};
+		lvol_io42: lvol83 {
+			lvols = < &scfg 0x8 0x3 >;
+			phandle = < 0x54 >;
+		};
+		lvol_io43: lvol84 {
+			lvols = < &scfg 0x8 0x4 >;
+			phandle = < 0x55 >;
+		};
+		lvol_io44: lvol85 {
+			lvols = < &scfg 0x8 0x5 >;
+			phandle = < 0x56 >;
+		};
+		lvol_io45: lvol86 {
+			lvols = < &scfg 0x8 0x6 >;
+			phandle = < 0x57 >;
+		};
+		lvol_ioe1: lvol87 {
+			lvols = < &scfg 0x8 0x7 >;
+			phandle = < 0xcc >;
+		};
+		lvol_iof1: lvol90 {
+			lvols = < &scfg 0x9 0x0 >;
+			phandle = < 0xd9 >;
+		};
+		lvol_io61: lvol91 {
+			lvols = < &scfg 0x9 0x1 >;
+			phandle = < 0x69 >;
+		};
+		lvol_io62: lvol92 {
+			lvols = < &scfg 0x9 0x2 >;
+			phandle = < 0x6a >;
+		};
+		lvol_io63: lvol93 {
+			lvols = < &scfg 0x9 0x3 >;
+			phandle = < 0x6b >;
+		};
+		lvol_io67: lvol94 {
+			lvols = < &scfg 0x9 0x4 >;
+			phandle = < 0x6e >;
+		};
+		lvol_io70: lvol95 {
+			lvols = < &scfg 0x9 0x5 >;
+			phandle = < 0x75 >;
+		};
+		lvol_io76: lvol96 {
+			lvols = < &scfg 0x9 0x6 >;
+			phandle = < 0x7a >;
+		};
+		lvol_io83: lvol97 {
+			lvols = < &scfg 0x9 0x7 >;
+			phandle = < 0x82 >;
+		};
+		lvol_iob1: lvola0 {
+			lvols = < &scfg 0xa 0x0 >;
+			phandle = < 0x9f >;
+		};
+		lvol_iob6: lvola1 {
+			lvols = < &scfg 0xa 0x1 >;
+			phandle = < 0xa4 >;
+		};
+		lvol_iob7: lvola2 {
+			lvols = < &scfg 0xa 0x2 >;
+			phandle = < 0xa5 >;
+		};
+		lvol_ioc0: lvola3 {
+			lvols = < &scfg 0xa 0x3 >;
+			phandle = < 0xae >;
+		};
+		lvol_ioc3: lvola4 {
+			lvols = < &scfg 0xa 0x4 >;
+			phandle = < 0xb1 >;
+		};
+		lvol_ioc4: lvola5 {
+			lvols = < &scfg 0xa 0x5 >;
+			phandle = < 0xb2 >;
+		};
+		lvol_iod2: lvola6 {
+			lvols = < &scfg 0xa 0x6 >;
+			phandle = < 0xbf >;
+		};
+		lvol_iod3: lvola7 {
+			lvols = < &scfg 0xa 0x7 >;
+			phandle = < 0xc0 >;
+		};
+		lvol_iod4: lvolb0 {
+			lvols = < &scfg 0xb 0x0 >;
+			phandle = < 0xc1 >;
+		};
+		lvol_iod5: lvolb1 {
+			lvols = < &scfg 0xb 0x1 >;
+			phandle = < 0xc2 >;
+		};
+		lvol_ioe5: lvolb2 {
+			lvols = < &scfg 0xb 0x2 >;
+			phandle = < 0xd0 >;
+		};
+		lvol_io60: lvolb7 {
+			lvols = < &scfg 0xb 0x7 >;
+			phandle = < 0x68 >;
+		};
+	};
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "nuvoton,npcx4", "nuvoton,npcx", "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x12 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		bbram: bb-ram@400af000 {
+			compatible = "nuvoton,npcx-bbram";
+			reg = < 0x400af000 0x80 0x400af100 0x1 >;
+			reg-names = "memory", "status";
+		};
+		pcc: clock-controller@4000d000 {
+			compatible = "nuvoton,npcx-pcc";
+			#clock-cells = < 0x3 >;
+			reg = < 0x4000d000 0x2000 0x400b5000 0x2000 >;
+			reg-names = "pmc", "cdcg";
+			clock-frequency = < 0x7270e00 >;
+			core-prescaler = < 0x8 >;
+			apb1-prescaler = < 0x8 >;
+			apb2-prescaler = < 0x8 >;
+			apb3-prescaler = < 0x8 >;
+			apb4-prescaler = < 0x8 >;
+			ram-pd-depth = < 0x8 >;
+			pwdwn-ctl-val = < 0xfb 0xff 0x1f 0xff 0xfa 0x7f 0xff 0xcf >;
+			phandle = < 0xde >;
+		};
+		scfg: scfg@400c3000 {
+			compatible = "nuvoton,npcx-scfg";
+			reg = < 0x400c3000 0x70 0x400c3070 0x30 0x400a5000 0x2000 >;
+			reg-names = "scfg", "dbg", "glue";
+			#alt-cells = < 0x3 >;
+			#lvol-cells = < 0x2 >;
+			phandle = < 0x1 >;
+		};
+		mdc: mdc@4000c000 {
+			compatible = "syscon";
+			reg = < 0x4000c000 0xa >;
+			reg-io-width = < 0x1 >;
+		};
+		mdc_header: mdc@4000c00a {
+			compatible = "syscon";
+			reg = < 0x4000c00a 0x4 >;
+			reg-io-width = < 0x2 >;
+		};
+		miwu0: miwu@400bb000 {
+			compatible = "nuvoton,npcx-miwu";
+			reg = < 0x400bb000 0x2000 >;
+			index = < 0x0 >;
+			#miwu-cells = < 0x2 >;
+			phandle = < 0x2 >;
+		};
+		miwu1: miwu@400bd000 {
+			compatible = "nuvoton,npcx-miwu";
+			reg = < 0x400bd000 0x2000 >;
+			index = < 0x1 >;
+			#miwu-cells = < 0x2 >;
+			phandle = < 0x3 >;
+		};
+		miwu2: miwu@400bf000 {
+			compatible = "nuvoton,npcx-miwu";
+			reg = < 0x400bf000 0x2000 >;
+			index = < 0x2 >;
+			#miwu-cells = < 0x2 >;
+			phandle = < 0x4 >;
+		};
+		gpio0: gpio@40081000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40081000 0x2000 >;
+			gpio-controller;
+			index = < 0x0 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io00 &wui_io01 &wui_io02 &wui_io03 &wui_io04 &wui_io05 &wui_io06 &wui_io07 >;
+			lvol-maps = < &lvol_io00 &lvol_io01 &lvol_io02 &lvol_io03 &lvol_io04 &lvol_io05 &lvol_io06 &lvol_io07 >;
+		};
+		gpio1: gpio@40083000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40083000 0x2000 >;
+			gpio-controller;
+			index = < 0x1 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io10 &wui_io11 &wui_io12 &wui_io13 &wui_io14 &wui_io15 &wui_io16 &wui_io17 >;
+			lvol-maps = < &lvol_io10 &lvol_io11 &lvol_none &lvol_io13 &lvol_io14 &lvol_io15 &lvol_io16 &lvol_io17 >;
+		};
+		gpio2: gpio@40085000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40085000 0x2000 >;
+			gpio-controller;
+			index = < 0x2 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io20 &wui_io21 &wui_io22 &wui_io23 &wui_io24 &wui_io25 &wui_io26 &wui_io27 >;
+			lvol-maps = < &lvol_io20 &lvol_io21 &lvol_io22 &lvol_io23 &lvol_none &lvol_none &lvol_none &lvol_none >;
+		};
+		gpio3: gpio@40087000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40087000 0x2000 >;
+			gpio-controller;
+			index = < 0x3 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io30 &wui_io31 &wui_none &wui_io33 &wui_io34 &wui_none &wui_io36 &wui_io37 >;
+			lvol-maps = < &lvol_none &lvol_none &lvol_none &lvol_io33 &lvol_io34 &lvol_none &lvol_io36 &lvol_io37 >;
+		};
+		gpio4: gpio@40089000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40089000 0x2000 >;
+			gpio-controller;
+			index = < 0x4 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io40 &wui_io41 &wui_io42 &wui_io43 &wui_io44 &wui_io45 &wui_io46 &wui_io47 >;
+			lvol-maps = < &lvol_io40 &lvol_io41 &lvol_io42 &lvol_io43 &lvol_io44 &lvol_io45 &lvol_none &lvol_none >;
+		};
+		gpio5: gpio@4008b000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x4008b000 0x2000 >;
+			gpio-controller;
+			index = < 0x5 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io50 &wui_io51 &wui_io52 &wui_io53 &wui_io54 &wui_io55 &wui_io56 &wui_io57 >;
+			lvol-maps = < &lvol_io50 &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none >;
+		};
+		gpio6: gpio@4008d000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x4008d000 0x2000 >;
+			gpio-controller;
+			index = < 0x6 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io60 &wui_io61 &wui_io62 &wui_io63 &wui_io64 &wui_none &wui_io66 &wui_io67 >;
+			lvol-maps = < &lvol_io60 &lvol_io61 &lvol_io62 &lvol_io63 &lvol_io64 &lvol_none &lvol_io66 &lvol_io67 >;
+		};
+		gpio7: gpio@4008f000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x4008f000 0x2000 >;
+			gpio-controller;
+			index = < 0x7 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io70 &wui_none &wui_io72 &wui_io73 &wui_io74 &wui_io75 &wui_io76 &wui_none >;
+			lvol-maps = < &lvol_io70 &lvol_none &lvol_io72 &lvol_io73 &lvol_io74 &lvol_io75 &lvol_io76 &lvol_none >;
+		};
+		gpio8: gpio@40091000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40091000 0x2000 >;
+			gpio-controller;
+			index = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io80 &wui_io81 &wui_io82 &wui_io83 &wui_none &wui_none &wui_none &wui_io87 >;
+			lvol-maps = < &lvol_io80 &lvol_none &lvol_io82 &lvol_io83 &lvol_none &lvol_none &lvol_none &lvol_io87 >;
+		};
+		gpio9: gpio@40093000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40093000 0x2000 >;
+			gpio-controller;
+			index = < 0x9 >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_io90 &wui_io91 &wui_io92 &wui_io93 &wui_io94 &wui_io95 &wui_io96 &wui_io97 >;
+			lvol-maps = < &lvol_io90 &lvol_io91 &lvol_io92 &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none >;
+		};
+		gpioa: gpio@40095000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40095000 0x2000 >;
+			gpio-controller;
+			index = < 0xa >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_ioa0 &wui_ioa1 &wui_ioa2 &wui_ioa3 &wui_ioa4 &wui_ioa5 &wui_ioa6 &wui_ioa7 >;
+			lvol-maps = < &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none &lvol_none >;
+		};
+		gpiob: gpio@40097000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40097000 0x2000 >;
+			gpio-controller;
+			index = < 0xb >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_iob0 &wui_iob1 &wui_iob2 &wui_iob3 &wui_iob4 &wui_iob5 &wui_iob6 &wui_iob7 >;
+			lvol-maps = < &lvol_none &lvol_iob1 &lvol_iob2 &lvol_iob3 &lvol_iob4 &lvol_iob5 &lvol_iob6 &lvol_iob7 >;
+		};
+		gpioc: gpio@40099000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x40099000 0x2000 >;
+			gpio-controller;
+			index = < 0xc >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_ioc0 &wui_ioc1 &wui_ioc2 &wui_ioc3 &wui_ioc4 &wui_ioc5 &wui_ioc6 &wui_ioc7 >;
+			lvol-maps = < &lvol_ioc0 &lvol_ioc1 &lvol_ioc2 &lvol_ioc3 &lvol_ioc4 &lvol_ioc5 &lvol_ioc6 &lvol_ioc7 >;
+		};
+		gpiod: gpio@4009b000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x4009b000 0x2000 >;
+			gpio-controller;
+			index = < 0xd >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_iod0 &wui_iod1 &wui_iod2 &wui_iod3 &wui_iod4 &wui_iod5 &wui_iod6 &wui_none >;
+			lvol-maps = < &lvol_iod0 &lvol_iod1 &lvol_iod2 &lvol_iod3 &lvol_iod4 &lvol_iod5 &lvol_iod6 &lvol_none >;
+		};
+		gpioe: gpio@4009d000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x4009d000 0x2000 >;
+			gpio-controller;
+			index = < 0xe >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_ioe0 &wui_ioe1 &wui_ioe2 &wui_ioe3 &wui_ioe4 &wui_ioe5 &wui_none &wui_ioe7 >;
+			lvol-maps = < &lvol_ioe0 &lvol_ioe1 &lvol_ioe2 &lvol_ioe3 &lvol_ioe4 &lvol_ioe5 &lvol_none &lvol_ioe7 >;
+		};
+		gpiof: gpio@4009f000 {
+			compatible = "nuvoton,npcx-gpio";
+			reg = < 0x4009f000 0x2000 >;
+			gpio-controller;
+			index = < 0xf >;
+			#gpio-cells = < 0x2 >;
+			wui-maps = < &wui_iof0 &wui_iof1 &wui_iof2 &wui_iof3 &wui_iof4 &wui_iof5 &wui_none &wui_none >;
+			lvol-maps = < &lvol_iof0 &lvol_iof1 &lvol_iof2 &lvol_iof3 &lvol_iof4 &lvol_iof5 &lvol_none &lvol_none >;
+		};
+		pwm0: pwm@40080000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x40080000 0x2000 >;
+			pwm-channel = < 0x0 >;
+			clocks = < &pcc 0x6 0x1 0x0 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		pwm1: pwm@40082000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x40082000 0x2000 >;
+			pwm-channel = < 0x1 >;
+			clocks = < &pcc 0x6 0x1 0x1 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		pwm2: pwm@40084000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x40084000 0x2000 >;
+			pwm-channel = < 0x2 >;
+			clocks = < &pcc 0x6 0x1 0x2 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		pwm3: pwm@40086000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x40086000 0x2000 >;
+			pwm-channel = < 0x3 >;
+			clocks = < &pcc 0x6 0x1 0x3 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		pwm4: pwm@40088000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x40088000 0x2000 >;
+			pwm-channel = < 0x4 >;
+			clocks = < &pcc 0x6 0x1 0x4 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		pwm5: pwm@4008a000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x4008a000 0x2000 >;
+			pwm-channel = < 0x5 >;
+			clocks = < &pcc 0x6 0x1 0x5 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		pwm6: pwm@4008c000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x4008c000 0x2000 >;
+			pwm-channel = < 0x6 >;
+			clocks = < &pcc 0x6 0x1 0x6 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		pwm7: pwm@4008e000 {
+			compatible = "nuvoton,npcx-pwm";
+			reg = < 0x4008e000 0x2000 >;
+			pwm-channel = < 0x7 >;
+			clocks = < &pcc 0x6 0x1 0x7 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		adc0: adc@400d1000 {
+			compatible = "nuvoton,npcx-adc";
+			#io-channel-cells = < 0x1 >;
+			reg = < 0x400d1000 0x2000 >;
+			interrupts = < 0xa 0x3 >;
+			clocks = < &pcc 0x5 0x3 0x4 >;
+			vref-mv = < 0xb00 >;
+			status = "disabled";
+			channel-count = < 0x1a >;
+			threshold-count = < 0x6 >;
+		};
+		twd0: watchdog@400d8000 {
+			compatible = "nuvoton,npcx-watchdog";
+			reg = < 0x400d8000 0x2000 >;
+			t0-out = < &wui_t0out >;
+		};
+		espi0: espi@4000a000 {
+			compatible = "nuvoton,npcx-espi";
+			reg = < 0x4000a000 0x2000 >;
+			interrupts = < 0x12 0x3 >;
+			clocks = < &pcc 0x7 0x5 0x7 >;
+			espi-rst-wui = < &wui_espi_rst >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			#vw-cells = < 0x3 >;
+			status = "disabled";
+		};
+		shi0: shi@4000f000 {
+			compatible = "nuvoton,npcx-shi";
+			reg = < 0x4000f000 0x120 >;
+			interrupts = < 0x12 0x1 >;
+			clocks = < &pcc 0x7 0x4 0x1 >;
+			status = "disabled";
+			buffer-rx-size = < 0x80 >;
+			buffer-tx-size = < 0x80 >;
+		};
+		host_sub: lpc@400c1000 {
+			compatible = "nuvoton,npcx-host-sub";
+			reg = < 0x400c1000 0x2000 0x40010000 0x2000 0x4000e000 0x2000 0x400c7000 0x2000 0x400c9000 0x2000 0x400cb000 0x2000 >;
+			reg-names = "mswc", "shm", "c2h", "kbc", "pm_acpi", "pm_hcmd";
+			interrupts = < 0x19 0x3 >, < 0x38 0x3 >, < 0x1a 0x3 >, < 0x3 0x3 >, < 0x6 0x3 >;
+			interrupt-names = "kbc_ibf", "kbc_obe", "pmch_ibf", "pmch_obe", "p80_fifo";
+			host-acc-wui = < &wui_host_acc >;
+			clocks = < &pcc 0x7 0x4 0x3 >, < &pcc 0x7 0x4 0x4 >, < &pcc 0x7 0x4 0x5 >, < &pcc 0x7 0x4 0x6 >, < &pcc 0x7 0x4 0x7 >;
+		};
+		i2c_ctrl0: i2c@40009000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x40009000 0x1000 >;
+			interrupts = < 0xd 0x3 >;
+			clocks = < &pcc 0x7 0x2 0x0 >;
+			status = "disabled";
+			phandle = < 0x10c >;
+		};
+		i2c_ctrl1: i2c@4000b000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x4000b000 0x1000 >;
+			interrupts = < 0xe 0x3 >;
+			clocks = < &pcc 0x7 0x2 0x1 >;
+			status = "disabled";
+			phandle = < 0x10d >;
+		};
+		i2c_ctrl2: i2c@400c0000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x400c0000 0x1000 >;
+			interrupts = < 0x24 0x3 >;
+			clocks = < &pcc 0x6 0x2 0x2 >;
+			status = "disabled";
+			phandle = < 0x10e >;
+		};
+		i2c_ctrl3: i2c@400c2000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x400c2000 0x1000 >;
+			interrupts = < 0x25 0x3 >;
+			clocks = < &pcc 0x6 0x2 0x3 >;
+			status = "disabled";
+			phandle = < 0x10f >;
+		};
+		i2c_ctrl4: i2c@40008000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x40008000 0x1000 >;
+			interrupts = < 0x13 0x3 >;
+			clocks = < &pcc 0x7 0x2 0x4 >;
+			status = "disabled";
+			phandle = < 0x110 >;
+		};
+		i2c_ctrl5: i2c@40017000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x40017000 0x1000 >;
+			interrupts = < 0x14 0x3 >;
+			clocks = < &pcc 0x7 0x6 0x0 >;
+			status = "disabled";
+			phandle = < 0x111 >;
+		};
+		i2c_ctrl6: i2c@40018000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x40018000 0x1000 >;
+			interrupts = < 0x10 0x3 >;
+			clocks = < &pcc 0x7 0x6 0x1 >;
+			status = "disabled";
+			phandle = < 0x112 >;
+		};
+		i2c_ctrl7: i2c@40019000 {
+			compatible = "nuvoton,npcx-i2c-ctrl";
+			reg = < 0x40019000 0x1000 >;
+			interrupts = < 0x8 0x3 >;
+			clocks = < &pcc 0x7 0x6 0x2 >;
+			status = "disabled";
+			phandle = < 0x113 >;
+		};
+		tach1: tach@400e1000 {
+			compatible = "nuvoton,npcx-tach";
+			reg = < 0x400e1000 0x2000 >;
+			clocks = < &pcc 0x1 0x0 0x5 >;
+			status = "disabled";
+		};
+		tach2: tach@400e3000 {
+			compatible = "nuvoton,npcx-tach";
+			reg = < 0x400e3000 0x2000 >;
+			clocks = < &pcc 0x1 0x0 0x6 >;
+			status = "disabled";
+		};
+		ps2_ctrl0: ps2@400b1000 {
+			compatible = "nuvoton,npcx-ps2-ctrl";
+			reg = < 0x400b1000 0x1000 >;
+			interrupts = < 0x15 0x4 >;
+			clocks = < &pcc 0x0 0x0 0x3 >;
+			ps2_channel0: io_ps2_channel0 {
+				compatible = "nuvoton,npcx-ps2-channel";
+				channel = < 0x0 >;
+				status = "disabled";
+			};
+			ps2_channel1: io_ps2_channel1 {
+				compatible = "nuvoton,npcx-ps2-channel";
+				channel = < 0x1 >;
+				status = "disabled";
+			};
+			ps2_channel2: io_ps2_channel2 {
+				compatible = "nuvoton,npcx-ps2-channel";
+				channel = < 0x2 >;
+				status = "disabled";
+			};
+			ps2_channel3: io_ps2_channel3 {
+				compatible = "nuvoton,npcx-ps2-channel";
+				channel = < 0x3 >;
+				status = "disabled";
+			};
+		};
+		qspi_fiu0: quadspi@40020000 {
+			compatible = "nuvoton,npcx-fiu-qspi";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40020000 0x2000 >;
+			clocks = < &pcc 0x3 0x7 0x5 >;
+			status = "okay";
+			int_flash: w25q80@0 {
+				compatible = "nuvoton,npcx-fiu-nor";
+				size = < 0x800000 >;
+				reg = < 0x0 >;
+				status = "okay";
+				qspi-flags = < 0x1 >;
+				mapped-addr = < 0x60000000 >;
+			};
+		};
+		peci0: peci@400d4000 {
+			compatible = "nuvoton,npcx-peci";
+			reg = < 0x400d4000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x4 0x4 >;
+			clocks = < &pcc 0xa 0x3 0x5 >;
+			status = "disabled";
+		};
+		kbd: kbd@400a3000 {
+			compatible = "nuvoton,npcx-kbd";
+			reg = < 0x400a3000 0x2000 >;
+			interrupts = < 0x31 0x4 >;
+			clocks = < &pcc 0x5 0x0 0x0 >;
+			wui-maps = < &wui_io31 &wui_io30 &wui_io27 &wui_io26 &wui_io25 &wui_io24 &wui_io23 &wui_io22 >;
+			status = "disabled";
+		};
+		itims: timer@400b0000 {
+			compatible = "nuvoton,npcx-itim-timer";
+			reg = < 0x400b0000 0x2000 0x400be000 0x2000 >;
+			reg-names = "evt_itim", "sys_itim";
+			clocks = < &pcc 0x1 0x3 0x0 &pcc 0x6 0x6 0x5 >;
+			interrupts = < 0x1c 0x1 >;
+		};
+		uart1: serial@400e0000 {
+			compatible = "nuvoton,npcx-uart";
+			reg = < 0x400e0000 0x2000 >;
+			interrupts = < 0x21 0x3 >;
+			clocks = < &pcc 0x8 0x0 0x4 >;
+			uart-rx = < &wui_cr_sin1 >;
+			status = "disabled";
+		};
+		uart2: serial@400e2000 {
+			compatible = "nuvoton,npcx-uart";
+			reg = < 0x400e2000 0x2000 >;
+			interrupts = < 0x20 0x3 >;
+			clocks = < &pcc 0x8 0x6 0x6 >;
+			uart-rx = < &wui_cr_sin2 >;
+			status = "disabled";
+		};
+		uart3: serial@400e4000 {
+			compatible = "nuvoton,npcx-uart";
+			reg = < 0x400e4000 0x2000 >;
+			interrupts = < 0x26 0x3 >;
+			clocks = < &pcc 0x8 0x6 0x4 >;
+			uart-rx = < &wui_cr_sin3 >;
+			status = "disabled";
+		};
+		uart4: serial@400e6000 {
+			compatible = "nuvoton,npcx-uart";
+			reg = < 0x400e6000 0x2000 >;
+			interrupts = < 0x27 0x3 >;
+			clocks = < &pcc 0x8 0x6 0x3 >;
+			uart-rx = < &wui_cr_sin4 >;
+			status = "disabled";
+		};
+		adc1: adc@400d5000 {
+			compatible = "nuvoton,npcx-adc";
+			#io-channel-cells = < 0x1 >;
+			reg = < 0x400d5000 0x2000 >;
+			interrupts = < 0x16 0x3 >;
+			clocks = < &pcc 0x5 0x3 0x3 >;
+			vref-mv = < 0xce4 >;
+			channel-count = < 0x1a >;
+			threshold-count = < 0x6 >;
+			status = "disabled";
+		};
+		qspi_fiu1: quadspi@40021000 {
+			compatible = "nuvoton,npcx-fiu-qspi";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40021000 0x1000 >;
+			clocks = < &pcc 0x3 0x7 0x6 >;
+		};
+		sha0: sha@13c {
+			compatible = "nuvoton,npcx-sha";
+			reg = < 0x13c 0x3c >;
+			context-buffer-size = < 0xe4 >;
+			status = "disabled";
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m4f";
+			reg = < 0x0 >;
+			cpu-power-states = < &suspend_to_idle0 &suspend_to_idle1 >;
+		};
+		power-states {
+			suspend_to_idle0: suspend-to-idle0 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x0 >;
+				min-residency-us = < 0x3e8 >;
+				phandle = < 0xe6 >;
+			};
+			suspend_to_idle1: suspend-to-idle1 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x1 >;
+				min-residency-us = < 0x31128 >;
+				phandle = < 0xe7 >;
+			};
+		};
+	};
+	def-io-conf-list {
+		compatible = "nuvoton,npcx-pinctrl-def";
+		pinmux = < &alt0_gpio_no_spip &alt0_gpio_no_fpip &alt1_no_pwrgd &alt7_no_ksi0_sl &alt7_no_ksi1_sl &alt7_no_ksi2_sl &alt7_no_ksi3_sl &alt7_no_ksi4_sl &alt7_no_ksi5_sl &alt7_no_ksi6_sl &alt7_no_ksi7_sl &alt8_no_kso00_sl &alt8_no_kso01_sl &alt8_no_kso02_sl &alt8_no_kso03_sl &alt8_no_kso04_sl &alt8_no_kso05_sl &alt8_no_kso06_sl &alt8_no_kso07_sl &alt9_no_kso08_sl &alt9_no_kso09_sl &alt9_no_kso10_sl &alt9_no_kso11_sl &alt9_no_kso12_sl &alt9_no_kso13_sl &alt9_no_kso14_sl &alt9_no_kso15_sl &alta_no_kso16_sl &alta_no_kso17_sl &alta_no_peci_en &altc_gpio97_sl_inv &altd_npsl_in1_sl &altd_npsl_in2_sl &altd_psl_in3_sl &altd_psl_in4_sl &altg_psl_gpo_sl >;
+	};
+	pinctrl: pinctrl {
+		compatible = "nuvoton,npcx-pinctrl";
+		status = "okay";
+	};
+	power_leakage_io: power-leakage-io {
+		compatible = "nuvoton,npcx-leakage-io";
+		status = "okay";
+	};
+	soc-if {
+		host_uart: io_host_uart {
+			compatible = "nuvoton,npcx-host-uart";
+			status = "disabled";
+		};
+		i2c0_0: io_i2c_ctrl0_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x0 >;
+			controller = < &i2c_ctrl0 >;
+			status = "disabled";
+		};
+		i2c1_0: io_i2c_ctrl1_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x10 >;
+			controller = < &i2c_ctrl1 >;
+			status = "disabled";
+		};
+		i2c2_0: io_i2c_ctrl2_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x20 >;
+			controller = < &i2c_ctrl2 >;
+			status = "disabled";
+		};
+		i2c3_0: io_i2c_ctrl3_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x30 >;
+			controller = < &i2c_ctrl3 >;
+			status = "disabled";
+		};
+		i2c4_1: io_i2c_ctrl4_port1 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x41 >;
+			controller = < &i2c_ctrl4 >;
+			status = "disabled";
+		};
+		i2c5_0: io_i2c_ctrl5_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x50 >;
+			controller = < &i2c_ctrl5 >;
+			status = "disabled";
+		};
+		i2c5_1: io_i2c_ctrl5_port1 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x51 >;
+			controller = < &i2c_ctrl5 >;
+			status = "disabled";
+		};
+		i2c6_0: io_i2c_ctrl6_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x60 >;
+			controller = < &i2c_ctrl6 >;
+			status = "disabled";
+		};
+		i2c6_1: io_i2c_ctrl6_port1 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x61 >;
+			controller = < &i2c_ctrl6 >;
+			status = "disabled";
+		};
+		i2c7_0: io_i2c_ctrl7_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x70 >;
+			controller = < &i2c_ctrl7 >;
+			status = "disabled";
+		};
+		power_ctrl_psl: power-ctrl-psl {
+			compatible = "nuvoton,npcx-power-psl";
+			status = "disabled";
+		};
+		i2c4_0: io_i2c_ctrl4_port0 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x40 >;
+			controller = < &i2c_ctrl4 >;
+			status = "disabled";
+		};
+		i2c7_1: io_i2c_ctrl7_port1 {
+			compatible = "nuvoton,npcx-i2c-port";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			port = < 0x71 >;
+			controller = < &i2c_ctrl7 >;
+			status = "disabled";
+		};
+	};
+	soc-id {
+		compatible = "nuvoton,npcx-soc-id";
+		family-id = < 0x23 >;
+		chip-id = < 0xa >;
+		revision-reg = < 0xfffc 0x4 >;
+		device-id = < 0x23 >;
+	};
+	booter-variant {
+		compatible = "nuvoton,npcx-booter-variant";
+	};
+	flash0: flash@10060000 {
+		reg = < 0x10060000 0x60000 >;
+	};
+	flash1: flash@60000000 {
+		reg = < 0x60000000 0x100000 >;
+	};
+	sram0: memory@200c0000 {
+		compatible = "mmio-sram";
+		reg = < 0x200c0000 0x1c800 >;
+	};
+};

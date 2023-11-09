@@ -1,0 +1,45 @@
+/ {
+	compatible = "sparkfun,red-v_things_plus";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &dtim;
+	};
+};
+&gpio0{
+	status = "okay";
+};
+&pwm0{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
+	pinctrl-names = "default";
+};
+&pwm2{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&pwm1{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
+	pinctrl-names = "default";
+};
+&spi0{
+	status = "disabled";
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_0_default &i2c0_1_default >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "disabled";
+};

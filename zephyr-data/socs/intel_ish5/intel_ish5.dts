@@ -1,0 +1,182 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	power-states {
+		d0i0: d0i0 {
+			compatible = "zephyr,power-state";
+			power-state-name = "runtime-idle";
+			min-residency-us = < 0x1f4 >;
+			substate-id = < 0x1 >;
+			phandle = < 0x1 >;
+		};
+		d0i1: d0i1 {
+			compatible = "zephyr,power-state";
+			power-state-name = "suspend-to-idle";
+			min-residency-us = < 0x7d0 >;
+			substate-id = < 0x2 >;
+			phandle = < 0x2 >;
+		};
+		d0i2: d0i2 {
+			compatible = "zephyr,power-state";
+			power-state-name = "suspend-to-ram";
+			min-residency-us = < 0xfa0 >;
+			substate-id = < 0x3 >;
+			phandle = < 0x3 >;
+		};
+		d0i3: d0i3 {
+			compatible = "zephyr,power-state";
+			power-state-name = "suspend-to-disk";
+			min-residency-us = < 0x2dc6c0 >;
+			substate-id = < 0x4 >;
+			phandle = < 0x4 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu0@0 {
+			device_type = "cpu";
+			compatible = "intel,ish";
+			reg = < 0x0 >;
+			cpu-power-states = < &d0i0 &d0i1 &d0i2 &d0i3 >;
+		};
+	};
+	intc: ioapic@fec00000 {
+		compatible = "intel,ioapic";
+		#address-cells = < 0x1 >;
+		#interrupt-cells = < 0x3 >;
+		reg = < 0xfec00000 0x1000 >;
+		interrupt-controller;
+		phandle = < 0x5 >;
+	};
+	intc_loapic: loapic@fee00000 {
+		compatible = "intel,loapic";
+		reg = < 0xfee00000 0x1000 >;
+		interrupt-controller;
+		#interrupt-cells = < 0x3 >;
+		#address-cells = < 0x1 >;
+	};
+	sram: memory@ff200000 {
+		device_type = "memory";
+		compatible = "mmio-sram";
+		reg = < 0xff200000 0xa0000 >;
+	};
+	aon: memory@ff800000 {
+		device_type = "memory";
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0xff800000 0x2000 >;
+		zephyr,memory-region = "AON";
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		hpet: hpet@4700000 {
+			compatible = "intel,hpet";
+			reg = < 0x4700000 0x400 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0xe 0x8000 0x2 >;
+			status = "okay";
+		};
+		ipmhost: ipm@4100000 {
+			compatible = "intel,sedi-ipm";
+			reg = < 0x4100000 0x1000 >;
+			peripheral-id = < 0x0 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0x0 0x8100 0x2 >;
+			status = "okay";
+		};
+		uart0: uart@8100000 {
+			compatible = "intel,sedi-uart";
+			reg = < 0x8100000 0x1000 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0x17 0x100 0x6 >;
+			peripheral-id = < 0x0 >;
+			current-speed = < 0x1c200 >;
+			status = "okay";
+		};
+		i2c0: i2c@0 {
+			compatible = "intel,sedi-i2c";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x0 0x1000 >;
+			peripheral-id = < 0x0 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0xf 0x8100 0x2 >;
+			clock-frequency = < 0x61a80 >;
+			status = "okay";
+		};
+		i2c1: i2c@2000 {
+			compatible = "intel,sedi-i2c";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x2000 0x1000 >;
+			peripheral-id = < 0x1 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0x10 0x8100 0x2 >;
+			clock-frequency = < 0x61a80 >;
+			status = "okay";
+		};
+		i2c2: i2c@4000 {
+			compatible = "intel,sedi-i2c";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x4000 0x1000 >;
+			peripheral-id = < 0x2 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0x11 0x8100 0x2 >;
+			clock-frequency = < 0x61a80 >;
+			status = "disabled";
+		};
+		gpio0: gpio@100000 {
+			compatible = "intel,sedi-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			peripheral-id = < 0x0 >;
+			reg = < 0x100000 0x1000 >;
+			interrupt-parent = < &intc >;
+			ngpios = < 0x20 >;
+			interrupts = < 0xd 0x8100 0x2 >;
+			status = "okay";
+		};
+		spi0: spi@8000000 {
+			compatible = "intel,sedi-spi";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x8000000 0x1000 >;
+			peripheral-id = < 0x0 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0x13 0x8100 0x2 >;
+			status = "okay";
+		};
+		spi1: spi@8002000 {
+			compatible = "intel,sedi-spi";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x8002000 0x1000 >;
+			peripheral-id = < 0x1 >;
+			interrupt-parent = < &intc >;
+			interrupts = < 0x14 0x8100 0x2 >;
+			status = "disabled";
+		};
+		dma0: dma@10100000 {
+			compatible = "intel,sedi_dma";
+			#dma-cells = < 0x2 >;
+			dma-channels = < 0x8 >;
+			peripheral-id = < 0x0 >;
+			reg = < 0x10100000 0x1000 >;
+			interrupts = < 0xb 0x8100 0x2 >;
+			interrupt-parent = < &intc >;
+			dma-buf-size-alignment = < 0x4 >;
+			dma-copy-alignment = < 0x4 >;
+			status = "okay";
+		};
+	};
+};

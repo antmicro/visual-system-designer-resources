@@ -1,0 +1,81 @@
+/ {
+	compatible = "nordic,nrf52-dk-nrf52810";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&pdm0{
+	status = "disabled";
+};
+&qdec{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&radio{
+	status = "okay";
+};
+&pwm0{
+	status = "disabled";
+};
+&adc{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-1 = < &spi0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart0_default: uart0_default {
+		group1 {
+			psels = < 0x6 >, < 0x10008 >, < 0x20005 >, < 0x30007 >;
+		};
+	};
+	uart0_sleep: uart0_sleep {
+		group1 {
+			psels = < 0x6 >, < 0x10008 >, < 0x20005 >, < 0x30007 >;
+			low-power-enable;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0xc001a >, < 0xb001b >;
+		};
+	};
+	i2c0_sleep: i2c0_sleep {
+		group1 {
+			psels = < 0xc001a >, < 0xb001b >;
+			low-power-enable;
+		};
+	};
+	spi0_default: spi0_default {
+		group1 {
+			psels = < 0x4001d >, < 0x5001f >, < 0x6001e >;
+		};
+	};
+	spi0_sleep: spi0_sleep {
+		group1 {
+			psels = < 0x4001d >, < 0x5001f >, < 0x6001e >;
+			low-power-enable;
+		};
+	};
+};

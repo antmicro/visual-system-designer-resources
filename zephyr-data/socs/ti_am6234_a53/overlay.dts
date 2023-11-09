@@ -1,0 +1,32 @@
+/ {
+	compatible = "ti,am6234";
+	chosen {
+		zephyr,console = &uart0;
+	};
+};
+&uart4{
+	status = "disabled";
+};
+&uart3{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
+	pinctrl-names = "default";
+};
+&uart1{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&uart6{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};

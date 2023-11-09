@@ -1,0 +1,17 @@
+/ {
+	compatible = "raspberrypi,4-model-b", "brcm,bcm2838";
+	chosen {
+		zephyr,console = &uart1;
+		zephyr,sram = &sram0;
+	};
+};
+&gpio0{
+	status = "disabled";
+};
+&gpio1{
+	status = "okay";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};

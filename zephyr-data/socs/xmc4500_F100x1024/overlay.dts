@@ -1,0 +1,61 @@
+/ {
+	compatible = "infineon,xm4500-relax-kit", "infineon,xmc4500", "infineon,xmc4xxx";
+	chosen {
+		zephyr,console = &usic1ch1;
+		zephyr,sram = &dsram1;
+		zephyr,flash = &flash0;
+	};
+};
+&adc0{
+	status = "disabled";
+	vref-internal-mv = < 0xce4 >;
+};
+&gpio14{
+	status = "disabled";
+};
+&gpio0{
+	status = "disabled";
+};
+&gpio2{
+	status = "disabled";
+};
+&usic1ch1{
+	status = "okay";
+	compatible = "infineon,xmc4xxx-uart";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart_tx_p0_1_u1c1 &uart_rx_p0_0_u1c1 >;
+	pinctrl-names = "default";
+	input-src = "DX0D";
+	interrupts = < 0x5a 0x1 0x5b 0x1 >;
+	interrupt-names = "tx", "rx";
+	fifo-start-offset = < 0x0 >;
+	fifo-tx-size = < 0x10 >;
+	fifo-rx-size = < 0x10 >;
+};
+&gpio5{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+	vref-internal-mv = < 0xce4 >;
+};
+&gpio4{
+	status = "disabled";
+};
+&adc3{
+	status = "disabled";
+	vref-internal-mv = < 0xce4 >;
+};
+&adc2{
+	status = "disabled";
+	vref-internal-mv = < 0xce4 >;
+};
+&gpio3{
+	status = "disabled";
+};
+&gpio15{
+	status = "disabled";
+};
+&gpio1{
+	status = "okay";
+};

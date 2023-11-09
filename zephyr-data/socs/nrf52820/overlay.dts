@@ -1,0 +1,86 @@
+/ {
+	compatible = "panasonic-industrial-devices-europe-gmbh,pan1781-evb";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&qdec{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&radio{
+	status = "okay";
+};
+&usbd{
+	status = "disabled";
+};
+&spi0{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	cs-gpios = < &gpio0 0x3 0x1 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c1{
+	status = "disabled";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart0_default: uart0_default {
+		group1 {
+			psels = < 0x6 >;
+		};
+		group2 {
+			psels = < 0x10008 >;
+			bias-pull-up;
+		};
+	};
+	uart0_sleep: uart0_sleep {
+		group1 {
+			psels = < 0x6 >, < 0x10008 >;
+			low-power-enable;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0xc0007 >, < 0xb001e >;
+		};
+	};
+	i2c0_sleep: i2c0_sleep {
+		group1 {
+			psels = < 0xc0007 >, < 0xb001e >;
+			low-power-enable;
+		};
+	};
+	spi1_default: spi1_default {
+		group1 {
+			psels = < 0x4001c >, < 0x6001d >, < 0x50014 >;
+		};
+	};
+	spi1_sleep: spi1_sleep {
+		group1 {
+			psels = < 0x4001c >, < 0x6001d >, < 0x50014 >;
+			low-power-enable;
+		};
+	};
+};

@@ -1,0 +1,28 @@
+/ {
+	compatible = "intel,ish_5_4_1";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram;
+	};
+};
+&i2c0{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&i2c2{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+};
+&i2c1{
+	status = "okay";
+};
+&spi1{
+	status = "disabled";
+};

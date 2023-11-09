@@ -1,0 +1,39 @@
+/ {
+	compatible = "ti,cc3235sf-launchxl", "ti,cc3235sf", "ti,cc32xx";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash1;
+	};
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&uart1{
+	status = "disabled";
+};
+&adc0{
+	status = "okay";
+};
+&pinctrl{
+	compatible = "ti,cc32xx-pinctrl";
+	reg = < 0x4402e0a0 0x80 >;
+	uart0_default: uart0_default {
+		group1 {
+			pinmux = < 0x370003 >, < 0x390003 >;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = < 0x10001 >, < 0x20001 >;
+		};
+	};
+};
