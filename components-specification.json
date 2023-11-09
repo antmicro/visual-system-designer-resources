@@ -612,6 +612,21 @@
             "isCategory": true
         },
         {
+            "abstract": false,
+            "description": "Sensor\n\n### Additional information\n\n*Datasheet*: [bst-bme280-ds002.pdf](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf)",
+            "extends": [
+                "bme280"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/lga-8-2-5x2-5mm-bme280/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Bosch BME280",
+            "urls": {
+                "datasheet": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf",
+                "hwp": "components/bosch-bme280"
+            }
+        },
+        {
             "category": "IO/Button",
             "interfaces": [
                 {
@@ -688,6 +703,26 @@
             "category": "Interfacing/CAN/CAN Transceiver",
             "extends": [
                 "CAN"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Power/Battery/CR battery holder",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "cr-battery",
+                    "side": "right",
+                    "type": "cr-battery"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                }
             ],
             "isCategory": true
         },
@@ -1452,6 +1487,13 @@
             }
         },
         {
+            "category": "Memory/FRAM/FRAM-I2C",
+            "extends": [
+                "i2c-device"
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/USB/FTDI UART+JTAG/FT2232D",
             "interfaces": [
                 {
@@ -1533,6 +1575,21 @@
             "urls": {
                 "datasheet": "https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT4232H.pdf",
                 "hwp": "components/ftdi-chip-ft4232h-56q-reel"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Interface Bridges, USB to UART, MPSSE, 1.62 V, 1.98 V, LQFP, 64 Pins, -40 °C\n\n### Additional information\n\n*Datasheet*: [DS_FT4233HP.pdf](https://ftdichip.com/wp-content/uploads/2021/11/DS_FT4233HP.pdf)",
+            "extends": [
+                "USB to 4x UART 2x MPSSE bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-68-1ep-8x8mm-p0-4mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "FTDI Chip FT4232HPQ-TRAY",
+            "urls": {
+                "datasheet": "https://ftdichip.com/wp-content/uploads/2021/11/DS_FT4233HP.pdf",
+                "hwp": "components/ftdi-chip-ft4232hpq-tray"
             }
         },
         {
@@ -1794,6 +1851,36 @@
             "urls": {
                 "rdp": "soc/u740",
                 "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/dts/riscv/sifive/riscv64-fu740.dtsi"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "FRAM (Ferroelectric RAM) Memory IC 1Mbit I²C 3.4 MHz 130 ns 8-SOP\n\n### Additional information\n\n*Datasheet*: [MB85RC1MT-DS501-00027-5v0-E.pdf](https://www.fujitsu.com/jp/group/fsm/en/documents/products/feram/lineup/MB85RC1MT-DS501-00027-5v0-E.pdf)",
+            "extends": [
+                "FRAM-I2C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sop-8-3-9x5-05mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Fujitsu MB85RC1MTPNF-G-JNERE1",
+            "urls": {
+                "datasheet": "https://www.fujitsu.com/jp/group/fsm/en/documents/products/feram/lineup/MB85RC1MT-DS501-00027-5v0-E.pdf",
+                "hwp": "components/fujitsu-mb85rc1mtpnf-g-jnere1"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB-C (USB TYPE-C) USB 2.0 Receptacle Connector 24 (16+8 Dummy) Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [usb4105.pdf](https://gct.co/files/drawings/usb4105.pdf)",
+            "extends": [
+                "USB-C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-c-receptacle-gct-usb4105-gf-a/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "GCT USB4105-GF-A",
+            "urls": {
+                "datasheet": "https://gct.co/files/drawings/usb4105.pdf",
+                "hwp": "components/gct-usb4105-gf-a"
             }
         },
         {
@@ -2060,6 +2147,9 @@
             "extends": [
                 "Framos FSA interface"
             ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-socket-hirose-df40-2x30-df40c-60ds-0-4v/previews/isoF_thumbnail_64x64.webp"
+            },
             "name": "Hirose Electric DF40C-60DS-0.4V(51)",
             "urls": {
                 "datasheet": "https://www.hirose.com/en/product/document?clcode=CL0684-4004-6-51&productname=DF40C-60DS-0.4V(51)&series=DF40&documenttype=2DDrawing&lang=en&documentid=0001001229",
@@ -2253,6 +2343,21 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Right Angle, Wire-to-Board, 1 mm, 1 Rows, 4 Contacts, Surface Mount Right Angle, SH\n\n### Additional information\n\n*Datasheet*: [eSH.pdf](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-sh-1x4-sm04b-srss-tb-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors SM04B-SRSS-TB(LF)(SN)",
+            "urls": {
+                "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+                "hwp": "components/jst-automotive-connectors-sm04b-srss-tb-lf-sn"
+            }
         },
         {
             "category": "Connector/JTAG/JTAG",
@@ -2679,6 +2784,21 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "BATTERY HOLDER, CR1216/1225, SMT\n\n### Additional information\n\n*Datasheet*: [](https://www.snapeda.com/parts/BAT-HLD-012-SMT-TR/Linx/datasheet/)",
+            "extends": [
+                "CR battery holder"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bat-bat-hld-012-smt-tr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Linx Technologies BAT-HLD-012-SMT-TR",
+            "urls": {
+                "datasheet": "https://www.snapeda.com/parts/BAT-HLD-012-SMT-TR/Linx/datasheet/",
+                "hwp": "components/linx-technologies-bat-hld-012-smt-tr"
+            }
         },
         {
             "abstract": false,
@@ -3204,7 +3324,7 @@
         },
         {
             "abstract": false,
-            "description": "I/O Expander, 8 bit, I2C, SMBus, 1.65 V, 5.5 V, TSSOP, 16 Pins\n\n### Additional information\n\n*Datasheet*: [PCA6408A-1127604.pdf](https://www.mouser.com/datasheet/2/302/PCA6408A-1127604.pdf)",
+            "description": "I/O Expander, 8 bit, I2C, SMBus, 1.65-5.5 V, TSSOP, 16 Pins\n\n### Additional information\n\n*Datasheet*: [PCA6408A-1127604.pdf](https://www.mouser.com/datasheet/2/302/PCA6408A-1127604.pdf)",
             "extends": [
                 "IO Expander I2C"
             ],
@@ -3425,12 +3545,27 @@
         },
         {
             "abstract": false,
+            "description": "ARM MCU, STM32 Family STM32G4 Series Microcontrollers, ARM Cortex-M4F, 32 bit, 170 MHz, 512 KB\n\n### Additional information\n\n*Datasheet*: [stm32g474ce.pdf](https://www.st.com/resource/en/datasheet/stm32g474ce.pdf)",
+            "extends": [
+                "stm32g474cet6"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/lqfp-48-b7x7mm-p0-5mm-0-20mmpadpadclearance-pad0-30x1-20mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "STMicroelectronics STM32G474CET6",
+            "urls": {
+                "datasheet": "https://www.st.com/resource/en/datasheet/stm32g474ce.pdf",
+                "hwp": "components/stmicroelectronics-stm32g474cet6"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Mezzanine Connector, Receptacle, 0.8 mm, 2 Rows, 80 Contacts, Surface Mount, Beryllium Copper\n\n### Additional information\n\n*Datasheet*: [erf8.pdf](https://suddendocs.samtec.com/catalog_english/erf8.pdf)",
             "extends": [
                 "Jetson Orin Baseboard expansion connector"
             ],
             "icon": {
-                "hw-icon": "/blender-models/j-erf8-040-05-0-samtec/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/conn-socket-samtec-erf8-2x40-erf8-040-05-0-l-dv-k-tr/previews/isoF_thumbnail_64x64.webp"
             },
             "name": "Samtec ERF8-040-05.0-L-DV-K-TR",
             "urls": {
@@ -3466,6 +3601,21 @@
             "urls": {
                 "datasheet": "https://datasheet.lcsc.com/lcsc/2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf",
                 "hwp": "components/sandisk-sdinbdg4-8g"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Sensor\n\n### Additional information\n\n*Datasheet*: [](https://sensirion.com/products/catalog/SHT45/)",
+            "extends": [
+                "sht4xd"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sensirion-dfn-4-1-5x1-5x0-5mm-p0-8mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Sensirion SHT45-AD1B-R2",
+            "urls": {
+                "datasheet": "https://sensirion.com/products/catalog/SHT45/",
+                "hwp": "components/sensirion-sht45-ad1b-r2"
             }
         },
         {
@@ -3781,6 +3931,45 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/USB/USB to 4x UART 2x MPSSE bridge",
+            "interfaces": [
+                {
+                    "array": [
+                        2,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart/mpsse",
+                    "side": "left",
+                    "type": [
+                        "jtag",
+                        "serial",
+                        "spi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/USB/USB to 4x UART bridge",
             "interfaces": [
                 {
@@ -3962,6 +4151,25 @@
                 "datasheet": "https://www.vishay.com/docs/82554/vlmo1500.pdf",
                 "hwp": "components/vishay-vlmy1500-gs08"
             }
+        },
+        {
+            "category": "Connector/Wire to Board",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio header",
+                    "side": "right",
+                    "type": "gpio header"
+                }
+            ],
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -4442,7 +4650,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/asahi-kasei_akm09918c",
-                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/akm09918c/akm09918c.c"
+                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/akm09918c/akm09918c_emul.c"
             }
         },
         {
@@ -13794,7 +14002,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/f75303/f75303.c"
             }
         },
         {
@@ -53196,6 +53404,80 @@
                 "rdp": "soc/stm32g474Xe",
                 "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/dts/arm/st/g4/stm32g474Xe.dtsi"
             }
+        },
+        {
+            "category": "SoC/arm/st/g4/stm32g474cet6",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio a",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio b",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "left",
+                    "type": "jtag"
+                },
+                {
+                    "array": [
+                        0,
+                        3
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "array": [
+                        0,
+                        3
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "vbat",
+                    "side": "right",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "SoC/arm/st/g4/stm32g474ret6",
