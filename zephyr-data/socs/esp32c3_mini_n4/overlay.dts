@@ -6,10 +6,25 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc0{
+&gpio0{
+	status = "okay";
+};
+&uart0{
+	status = "disabled";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&adc1{
 	status = "disabled";
 };
-&uart1{
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&adc0{
 	status = "disabled";
 };
 &spi2{
@@ -19,38 +34,23 @@
 	pinctrl-0 = < &spim2_default >;
 	pinctrl-names = "default";
 };
+&flash0{
+	status = "okay";
+};
 &twai{
 	status = "disabled";
 	pinctrl-0 = < &twai_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
-&i2c0{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&uart0{
-	status = "disabled";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&flash0{
+&usb_serial{
 	status = "okay";
 };
 &pinctrl{
 	status = "okay";
 };
-&gpio0{
-	status = "okay";
-};
-&adc1{
+&uart1{
 	status = "disabled";
-};
-&usb_serial{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

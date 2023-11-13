@@ -5,11 +5,11 @@
 		zephyr,sram = &sram0;
 	};
 };
-&pinctrl{
-	status = "okay";
-};
 &uart0{
 	status = "okay";
 	pinctrl-0 = < &mcu_uart0_rx_default &mcu_uart0_tx_default >;
 	pinctrl-names = "default";
+};
+&pinctrl{
+	status = "okay";
 };

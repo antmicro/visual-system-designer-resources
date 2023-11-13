@@ -6,34 +6,21 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpio15{
+	status = "disabled";
+};
 &gpio2{
 	status = "disabled";
 };
-&adc1{
-	status = "disabled";
-	vref-internal-mv = < 0xce4 >;
-};
-&adc2{
-	status = "disabled";
-	vref-internal-mv = < 0xce4 >;
-};
 &gpio4{
-	status = "disabled";
-};
-&gpio15{
 	status = "disabled";
 };
 &gpio5{
 	status = "disabled";
 };
-&gpio1{
-	status = "okay";
-};
-&gpio14{
+&adc3{
 	status = "disabled";
-};
-&gpio3{
-	status = "disabled";
+	vref-internal-mv = < 0xce4 >;
 };
 &usic1ch1{
 	status = "okay";
@@ -48,14 +35,27 @@
 	fifo-tx-size = < 0x10 >;
 	fifo-rx-size = < 0x10 >;
 };
+&gpio14{
+	status = "disabled";
+};
+&gpio3{
+	status = "disabled";
+};
 &gpio0{
 	status = "disabled";
 };
-&adc3{
+&adc2{
 	status = "disabled";
 	vref-internal-mv = < 0xce4 >;
 };
 &adc0{
+	status = "disabled";
+	vref-internal-mv = < 0xce4 >;
+};
+&gpio1{
+	status = "okay";
+};
+&adc1{
 	status = "disabled";
 	vref-internal-mv = < 0xce4 >;
 };

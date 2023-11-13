@@ -6,48 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart1{
-	status = "disabled";
-};
-&spi2{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim2_miso_gpio12 &spim2_mosi_gpio11 &spim2_sclk_gpio14 &spim2_csel_gpio16 >;
-	pinctrl-names = "default";
-};
-&i2c1{
-	status = "disabled";
-};
-&gpio0{
-	status = "okay";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_tx_gpio1 &uart0_rx_gpio3 >;
-	pinctrl-names = "default";
-};
 &gpio1{
 	status = "okay";
-};
-&pinctrl{
-	status = "okay";
-};
-&eth{
-	status = "disabled";
-};
-&mdio{
-	status = "disabled";
-};
-&uart2{
-	status = "disabled";
-};
-&flash0{
-	status = "okay";
-};
-&adc0{
-	status = "disabled";
 };
 &i2c0{
 	status = "okay";
@@ -57,6 +17,52 @@
 	pinctrl-0 = < &i2c0_sda_gpio21 &i2c0_scl_gpio22 >;
 	pinctrl-names = "default";
 };
+&spi2{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim2_miso_gpio12 &spim2_mosi_gpio11 &spim2_sclk_gpio14 &spim2_csel_gpio16 >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&uart1{
+	status = "disabled";
+};
+&adc0{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_tx_gpio1 &uart0_rx_gpio3 >;
+	pinctrl-names = "default";
+};
+&flash0{
+	status = "okay";
+};
+&twai{
+	status = "disabled";
+};
+&eth{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&dac{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
 &spi3{
 	status = "okay";
 	#address-cells = < 0x1 >;
@@ -64,13 +70,7 @@
 	pinctrl-0 = < &spim3_miso_gpio25 &spim3_mosi_gpio15 &spim3_sclk_gpio13 &spim3_csel_gpio5 >;
 	pinctrl-names = "default";
 };
-&dac{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
-&twai{
+&mdio{
 	status = "disabled";
 };
 &pinctrl{

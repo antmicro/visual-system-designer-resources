@@ -6,36 +6,33 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usbd{
+&pwm0{
 	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
-&gpio0{
-	status = "okay";
+&pdm0{
+	status = "disabled";
 };
 &adc{
 	status = "okay";
 };
-&qdec{
-	status = "disabled";
+&nfct{
+	status = "okay";
 };
-&uart1{
-	status = "disabled";
-};
-&pwm2{
-	status = "disabled";
-};
-&i2s0{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-	pinctrl-0 = < &spi2_default >;
-	pinctrl-1 = < &spi2_sleep >;
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&radio{
-	status = "okay";
-	fem = < &nrf_radio_fem >;
+&pwm3{
+	status = "disabled";
+};
+&qdec{
+	status = "disabled";
 };
 &i2c1{
 	status = "disabled";
@@ -43,17 +40,29 @@
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi0{
+&uart1{
 	status = "disabled";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-1 = < &spi0_sleep >;
+};
+&pwm2{
+	status = "disabled";
+};
+&gpio0{
+	status = "okay";
+};
+&i2s0{
+	status = "disabled";
+};
+&usbd{
+	status = "okay";
+};
+&spi2{
+	status = "disabled";
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&qspi{
-	status = "okay";
-	pinctrl-0 = < &qspi_default >;
-	pinctrl-1 = < &qspi_sleep >;
-	pinctrl-names = "default", "sleep";
+&pwm1{
+	status = "disabled";
 };
 &spi1{
 	status = "okay";
@@ -67,18 +76,6 @@
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio1{
-	status = "okay";
-};
-&nfct{
-	status = "okay";
-};
-&pdm0{
-	status = "disabled";
-};
-&pwm1{
-	status = "disabled";
-};
 &spi3{
 	status = "okay";
 	cs-gpios = < &arduino_header 0x10 0x1 >;
@@ -86,20 +83,23 @@
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart0{
+&gpio1{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-1 = < &uart0_sleep >;
+};
+&radio{
+	status = "okay";
+	fem = < &nrf_radio_fem >;
+};
+&qspi{
+	status = "okay";
+	pinctrl-0 = < &qspi_default >;
+	pinctrl-1 = < &qspi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm3{
+&spi0{
 	status = "disabled";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-1 = < &spi0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &pinctrl{

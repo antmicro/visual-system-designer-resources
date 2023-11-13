@@ -6,19 +6,52 @@
 		zephyr,sram = &sram0;
 	};
 };
-&gpio0{
-	status = "okay";
-};
-&pwm3{
+&i2c3{
 	status = "disabled";
 };
-&pwm1{
+&adc{
+	status = "okay";
+};
+&spi2{
 	status = "disabled";
 };
 &i2s0{
 	status = "disabled";
 };
+&uart3{
+	status = "disabled";
+};
+&pdm0{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &neopixel_spi_default >;
+	pinctrl-1 = < &neopixel_spi_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart1{
+	status = "disabled";
+};
 &i2c1{
+	status = "disabled";
+};
+&pwm3{
+	status = "disabled";
+};
+&pwm2{
 	status = "disabled";
 };
 &spi3{
@@ -28,41 +61,11 @@
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart3{
-	status = "disabled";
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&uart1{
-	status = "disabled";
-};
-&i2c0{
-	status = "disabled";
-};
-&pwm2{
-	status = "disabled";
-};
-&pdm0{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&adc{
-	status = "okay";
-};
-&spi0{
-	status = "disabled";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &neopixel_spi_default >;
-	pinctrl-1 = < &neopixel_spi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &pwm0{
@@ -71,16 +74,13 @@
 	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&i2c2{
-	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
-	pinctrl-1 = < &i2c2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&i2c3{
+&pwm1{
 	status = "disabled";
 };
 &uart2{
+	status = "disabled";
+};
+&spi0{
 	status = "disabled";
 };
 &pinctrl{

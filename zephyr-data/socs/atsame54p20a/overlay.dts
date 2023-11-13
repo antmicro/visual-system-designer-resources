@@ -6,19 +6,59 @@
 		zephyr,flash = &flash0;
 	};
 };
+&adc0{
+	status = "okay";
+};
+&sercom3{
+	status = "disabled";
+};
+&gmac{
+	status = "okay";
+	pinctrl-0 = < &gmac_rmii >;
+	pinctrl-names = "default";
+	mac-eeprom = < &eeprom >;
+	phy-handle = < &phy >;
+};
+&sercom1{
+	status = "disabled";
+};
 &usb0{
 	status = "okay";
 	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
 };
-&sercom3{
+&sercom5{
 	status = "disabled";
 };
-&sercom6{
-	status = "disabled";
+&sercom7{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom7_i2c_default >;
+	pinctrl-names = "default";
 };
-&sercom1{
-	status = "disabled";
+&sercom2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom2_uart_default >;
+	pinctrl-names = "default";
+};
+&tcc0{
+	status = "okay";
+	prescaler = < 0x8 >;
+	#pwm-cells = < 0x2 >;
+	pinctrl-0 = < &pwm_default >;
+	pinctrl-names = "default";
+};
+&mdio{
+	status = "okay";
+	pinctrl-0 = < &mdio_default >;
+	pinctrl-names = "default";
 };
 &sercom0{
 	status = "disabled";
@@ -32,46 +72,6 @@
 	pinctrl-0 = < &sercom4_spi_default >;
 	pinctrl-names = "default";
 };
-&tcc0{
-	status = "okay";
-	prescaler = < 0x8 >;
-	#pwm-cells = < 0x2 >;
-	pinctrl-0 = < &pwm_default >;
-	pinctrl-names = "default";
-};
-&sercom7{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom7_i2c_default >;
-	pinctrl-names = "default";
-};
-&sercom5{
+&sercom6{
 	status = "disabled";
-};
-&gmac{
-	status = "okay";
-	pinctrl-0 = < &gmac_rmii >;
-	pinctrl-names = "default";
-	mac-eeprom = < &eeprom >;
-	phy-handle = < &phy >;
-};
-&sercom2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom2_uart_default >;
-	pinctrl-names = "default";
-};
-&mdio{
-	status = "okay";
-	pinctrl-0 = < &mdio_default >;
-	pinctrl-names = "default";
-};
-&adc0{
-	status = "okay";
 };

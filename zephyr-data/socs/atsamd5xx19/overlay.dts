@@ -5,11 +5,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
 &sercom3{
 	status = "okay";
 	clock-frequency = < 0x61a80 >;
@@ -18,22 +13,45 @@
 	pinctrl-0 = < &sercom3_i2c_default >;
 	pinctrl-names = "default";
 };
-&sercom6{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	dipo = < 0x2 >;
-	dopo = < 0x0 >;
-	pinctrl-0 = < &sercom6_spi_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &portc 0x13 0x1 >;
-};
 &sercom1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	rxpo = < 0x1 >;
 	txpo = < 0x0 >;
 	pinctrl-0 = < &sercom1_uart_default >;
+	pinctrl-names = "default";
+};
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb_dc_default >;
+	pinctrl-names = "default";
+};
+&sercom5{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	dipo = < 0x2 >;
+	dopo = < 0x0 >;
+	pinctrl-0 = < &sercom5_spi_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &portb 0x1 0x1 >;
+};
+&sercom7{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	dipo = < 0x2 >;
+	dopo = < 0x3 >;
+	pinctrl-0 = < &sercom7_spi_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &portb 0x15 0x1 >;
+};
+&sercom2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom2_uart_default >;
 	pinctrl-names = "default";
 };
 &sercom0{
@@ -54,31 +72,13 @@
 	pinctrl-0 = < &sercom4_i2c_default >;
 	pinctrl-names = "default";
 };
-&sercom7{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	dipo = < 0x2 >;
-	dopo = < 0x3 >;
-	pinctrl-0 = < &sercom7_spi_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &portb 0x15 0x1 >;
-};
-&sercom5{
+&sercom6{
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	dipo = < 0x2 >;
 	dopo = < 0x0 >;
-	pinctrl-0 = < &sercom5_spi_default >;
+	pinctrl-0 = < &sercom6_spi_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &portb 0x1 0x1 >;
-};
-&sercom2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom2_uart_default >;
-	pinctrl-names = "default";
+	cs-gpios = < &portc 0x13 0x1 >;
 };

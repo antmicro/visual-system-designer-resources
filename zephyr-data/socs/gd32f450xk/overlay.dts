@@ -6,60 +6,55 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi4{
-	status = "disabled";
-};
-&uart3{
-	status = "disabled";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&gpioi{
-	status = "okay";
-};
-&adc2{
-	status = "disabled";
-};
-&spi0{
-	status = "disabled";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&usart5{
+&i2c1{
 	status = "disabled";
 };
 &usart1{
 	status = "disabled";
 };
-&i2c1{
+&usart5{
 	status = "disabled";
 };
-&spi3{
+&uart6{
 	status = "disabled";
 };
-&usart2{
+&spi4{
 	status = "disabled";
 };
-&i2c2{
+&adc2{
 	status = "disabled";
 };
-&gpiod{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
 };
 &gpiob{
 	status = "okay";
 };
+&gpioe{
+	status = "okay";
+};
+&gpiod{
+	status = "disabled";
+};
+&gpioc{
+	status = "okay";
+};
+&usart2{
+	status = "disabled";
+};
+&uart3{
+	status = "disabled";
+};
+&spi1{
+	status = "disabled";
+};
 &gpiog{
 	status = "okay";
+};
+&spi3{
+	status = "disabled";
 };
 &spi5{
 	status = "okay";
@@ -69,28 +64,39 @@
 	dmas = < &dma1 0x5 0x1 0x0 0x0 >, < &dma1 0x6 0x1 0x0 0x0 >;
 	dma-names = "tx", "rx";
 };
-&gpioh{
+&spi2{
 	status = "disabled";
 };
-&uart6{
+&uart7{
 	status = "disabled";
 };
-&gpioe{
-	status = "okay";
+&spi0{
+	status = "disabled";
 };
 &gpioa{
 	status = "okay";
 };
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
-};
-&spi1{
+&uart4{
 	status = "disabled";
 };
 &adc1{
 	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpioi{
+	status = "okay";
 };
 &usart0{
 	status = "okay";
@@ -98,20 +104,14 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&uart4{
-	status = "disabled";
-};
-&uart7{
-	status = "disabled";
-};
-&gpioc{
-	status = "okay";
-};
 &gpiof{
 	status = "okay";
 };
-&pinctrl{
-	status = "okay";
+&gpioh{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

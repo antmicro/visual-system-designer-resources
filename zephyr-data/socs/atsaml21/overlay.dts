@@ -6,27 +6,13 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom4{
+&sercom3{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	rxpo = < 0x1 >;
 	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom4_default >;
+	pinctrl-0 = < &sercom3_default >;
 	pinctrl-names = "default";
-};
-&sercom1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x3 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom1_default >;
-	pinctrl-names = "default";
-};
-&usb0{
-	status = "okay";
-};
-&adc{
-	status = "okay";
 };
 &sercom5{
 	status = "okay";
@@ -44,25 +30,6 @@
 	pinctrl-0 = < &tcc0_default >;
 	pinctrl-names = "default";
 };
-&sercom2{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom2_default >;
-	pinctrl-names = "default";
-};
-&dac{
-	status = "disabled";
-};
-&sercom3{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom3_default >;
-	pinctrl-names = "default";
-};
 &sercom0{
 	status = "okay";
 	dipo = < 0x0 >;
@@ -71,4 +38,37 @@
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom0_default >;
 	pinctrl-names = "default";
+};
+&sercom2{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom2_default >;
+	pinctrl-names = "default";
+};
+&sercom1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom1_default >;
+	pinctrl-names = "default";
+};
+&dac{
+	status = "disabled";
+};
+&usb0{
+	status = "okay";
+};
+&sercom4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom4_default >;
+	pinctrl-names = "default";
+};
+&adc{
+	status = "okay";
 };

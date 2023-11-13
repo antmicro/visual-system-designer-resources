@@ -6,38 +6,38 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpiob{
+	status = "disabled";
+};
+&usart0{
+	status = "disabled";
+};
+&gpiod{
+	status = "disabled";
+};
 &gpioe{
 	status = "disabled";
+};
+&gpioa{
+	status = "okay";
 };
 &gpiof{
 	status = "okay";
 };
+&leuart0{
+	status = "disabled";
+};
 &gpioc{
 	status = "okay";
+};
+&i2c0{
+	status = "disabled";
 };
 &usart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	location-rx = < 0x4 0x0 0x0 >;
 	location-tx = < 0x4 0x5 0x2 >;
-};
-&i2c0{
-	status = "disabled";
-};
-&gpiod{
-	status = "disabled";
-};
-&gpioa{
-	status = "okay";
-};
-&leuart0{
-	status = "disabled";
-};
-&usart0{
-	status = "disabled";
-};
-&gpiob{
-	status = "disabled";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

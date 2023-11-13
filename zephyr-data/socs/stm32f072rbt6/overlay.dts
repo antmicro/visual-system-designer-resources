@@ -6,7 +6,35 @@
 		zephyr,flash = &flash0;
 	};
 };
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-names = "default";
+};
+&dac1{
+	status = "disabled";
+};
+&usart3{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&usb{
+	status = "disabled";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
+	pinctrl-names = "default";
+};
 &usart4{
+	status = "disabled";
+};
+&adc1{
 	status = "disabled";
 };
 &usart1{
@@ -20,39 +48,11 @@
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&usart3{
-	status = "disabled";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
-	pinctrl-names = "default";
-};
-&i2c2{
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
-	pinctrl-names = "default";
-};
 &can1{
 	status = "okay";
 	pinctrl-0 = < &can_rx_pb8 &can_tx_pb9 >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
-};
-&dac1{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&usb{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
-&usart2{
-	status = "disabled";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

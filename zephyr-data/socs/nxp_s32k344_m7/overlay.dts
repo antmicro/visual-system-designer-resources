@@ -6,62 +6,25 @@
 		zephyr,flash = &flash0;
 	};
 };
-&flexcan2{
-	status = "disabled";
-	pinctrl-0 = < &flexcan2_default >;
+&qspi0{
+	status = "okay";
+	pinctrl-0 = < &qspi0_default >;
 	pinctrl-names = "default";
-	phys = < &can_phy2 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
+	data-rate = "SDR";
+	a-rx-clock-source = "LOOPBACK";
+	a-dll-mode = "BYPASSED";
+	ahb-buffers-masters = < 0x0 0x1 0x2 0x3 >;
+	ahb-buffers-sizes = < 0x0 0x0 0x0 0x100 >;
+	ahb-buffers-all-masters;
 };
-&lpuart10{
-	status = "disabled";
-	pinctrl-0 = < &lpuart10_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x12 0x26 >, < &edma0 0x13 0x27 >;
-	dma-names = "tx", "rx";
-};
-&lpuart8{
-	status = "disabled";
-};
-&lpuart4{
-	status = "disabled";
-};
-&adc2{
-	status = "disabled";
-};
-&lpspi1{
-	status = "disabled";
-	pinctrl-0 = < &lpspi1_default >;
+&lpspi3{
+	status = "okay";
+	pinctrl-0 = < &lpspi3_default >;
 	pinctrl-names = "default";
 	data-pin-config = "sdo-in,sdi-out";
 };
-&lpuart5{
-	status = "disabled";
-};
 &flash0{
 	status = "disabled";
-};
-&lpi2c1{
-	status = "disabled";
-	pinctrl-0 = < &lpi2c1_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x186a0 >;
-};
-&lpuart7{
-	status = "disabled";
-};
-&emac0{
-	pinctrl-0 = < &emac0_default >;
-	pinctrl-names = "default";
-	phy-connection-type = "rmii";
-	local-mac-address = [ 02 04 9F AA BB CC ];
-	status = "okay";
-};
-&gpioe_l{
-	status = "okay";
 };
 &lpuart9{
 	status = "disabled";
@@ -70,22 +33,39 @@
 	dmas = < &edma0 0x4 0x27 >, < &edma0 0x5 0x28 >;
 	dma-names = "tx", "rx";
 };
-&lpspi4{
+&gpiod_l{
+	status = "okay";
+};
+&gpiog_l{
 	status = "disabled";
-	pinctrl-0 = < &lpspi4_default >;
+};
+&lpuart1{
+	status = "disabled";
+	pinctrl-0 = < &lpuart1_default >;
 	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
+	dmas = < &edma0 0x2 0x27 >, < &edma0 0x3 0x28 >;
+	dma-names = "tx", "rx";
 };
-&lpuart6{
+&gpioc_l{
 	status = "disabled";
 };
-&lpspi5{
+&gpiob_l{
+	status = "okay";
+};
+&adc1{
 	status = "disabled";
-	pinctrl-0 = < &lpspi5_default >;
+};
+&lpi2c1{
+	status = "disabled";
+	pinctrl-0 = < &lpi2c1_default >;
 	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
+	clock-frequency = < 0x186a0 >;
 };
-&gpioe_h{
+&emac0{
+	pinctrl-0 = < &emac0_default >;
+	pinctrl-names = "default";
+	phy-connection-type = "rmii";
+	local-mac-address = [ 02 04 9F AA BB CC ];
 	status = "okay";
 };
 &flexcan3{
@@ -98,59 +78,137 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
-&lpuart1{
+&lpspi4{
 	status = "disabled";
-	pinctrl-0 = < &lpuart1_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x2 0x27 >, < &edma0 0x3 0x28 >;
-	dma-names = "tx", "rx";
-};
-&lpuart0{
-	status = "disabled";
-	pinctrl-0 = < &lpuart0_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x0 0x25 >, < &edma0 0x1 0x26 >;
-	dma-names = "tx", "rx";
-};
-&gpiog_h{
-	status = "disabled";
-};
-&gpiog_l{
-	status = "disabled";
-};
-&lpspi3{
-	status = "okay";
-	pinctrl-0 = < &lpspi3_default >;
+	pinctrl-0 = < &lpspi4_default >;
 	pinctrl-names = "default";
 	data-pin-config = "sdo-in,sdi-out";
+};
+&gpioe_l{
+	status = "okay";
+};
+&lpuart11{
+	status = "disabled";
+};
+&lpuart15{
+	status = "disabled";
+};
+&flexcan5{
+	status = "disabled";
+	pinctrl-0 = < &flexcan5_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy5 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
+&lpuart6{
+	status = "disabled";
+};
+&lpspi2{
+	status = "disabled";
+	pinctrl-0 = < &lpspi2_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
+&lpuart7{
+	status = "disabled";
+};
+&lpuart13{
+	status = "disabled";
+	pinctrl-0 = < &lpuart13_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x14 0x2c >, < &edma0 0x15 0x2d >;
+	dma-names = "tx", "rx";
+};
+&gpioa_l{
+	status = "disabled";
+};
+&gpiob_h{
+	status = "disabled";
+};
+&lpi2c0{
+	status = "disabled";
+	pinctrl-0 = < &lpi2c0_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x186a0 >;
+};
+&adc0{
+	status = "disabled";
+};
+&lpuart4{
+	status = "disabled";
+};
+&adc2{
+	status = "disabled";
+};
+&lpuart3{
+	status = "disabled";
+};
+&lpuart8{
+	status = "disabled";
+};
+&lpuart14{
+	status = "disabled";
+	pinctrl-0 = < &lpuart14_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x16 0x2e >, < &edma0 0x17 0x2f >;
+	dma-names = "tx", "rx";
+};
+&pinctrl{
+	status = "okay";
+};
+&lpuart10{
+	status = "disabled";
+	pinctrl-0 = < &lpuart10_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x12 0x26 >, < &edma0 0x13 0x27 >;
+	dma-names = "tx", "rx";
 };
 &gpiod_h{
 	status = "okay";
 };
-&lpuart12{
+&lpspi5{
 	status = "disabled";
-};
-&qspi0{
-	status = "okay";
-	pinctrl-0 = < &qspi0_default >;
+	pinctrl-0 = < &lpspi5_default >;
 	pinctrl-names = "default";
-	data-rate = "SDR";
-	a-rx-clock-source = "LOOPBACK";
-	a-dll-mode = "BYPASSED";
-	ahb-buffers-masters = < 0x0 0x1 0x2 0x3 >;
-	ahb-buffers-sizes = < 0x0 0x0 0x0 0x100 >;
-	ahb-buffers-all-masters;
+	data-pin-config = "sdo-in,sdi-out";
 };
-&gpiob_l{
-	status = "okay";
-};
-&adc1{
+&flexcan1{
 	status = "disabled";
+	pinctrl-0 = < &flexcan1_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy1 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
 };
-&gpiod_l{
+&gpioc_h{
 	status = "okay";
 };
-&gpiob_h{
+&flexcan4{
+	status = "disabled";
+	pinctrl-0 = < &flexcan4_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy4 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
+&flexcan2{
+	status = "disabled";
+	pinctrl-0 = < &flexcan2_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy2 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
+&gpiof_h{
 	status = "disabled";
 };
 &flexcan0{
@@ -163,8 +221,36 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
-&gpioc_l{
+&gpiog_h{
 	status = "disabled";
+};
+&lpspi1{
+	status = "disabled";
+	pinctrl-0 = < &lpspi1_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
+&gpiof_l{
+	status = "disabled";
+};
+&gpioa_h{
+	status = "okay";
+};
+&gpioe_h{
+	status = "okay";
+};
+&lpspi0{
+	status = "disabled";
+};
+&lpuart12{
+	status = "disabled";
+};
+&lpuart0{
+	status = "disabled";
+	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x0 0x25 >, < &edma0 0x1 0x26 >;
+	dma-names = "tx", "rx";
 };
 &lpuart2{
 	status = "okay";
@@ -174,92 +260,6 @@
 	dmas = < &edma0 0x10 0x26 >, < &edma0 0x11 0x27 >;
 	dma-names = "tx", "rx";
 };
-&gpiof_l{
+&lpuart5{
 	status = "disabled";
-};
-&gpiof_h{
-	status = "disabled";
-};
-&lpuart14{
-	status = "disabled";
-	pinctrl-0 = < &lpuart14_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x16 0x2e >, < &edma0 0x17 0x2f >;
-	dma-names = "tx", "rx";
-};
-&flexcan5{
-	status = "disabled";
-	pinctrl-0 = < &flexcan5_default >;
-	pinctrl-names = "default";
-	phys = < &can_phy5 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&lpspi0{
-	status = "disabled";
-};
-&gpioc_h{
-	status = "okay";
-};
-&lpuart3{
-	status = "disabled";
-};
-&flexcan1{
-	status = "disabled";
-	pinctrl-0 = < &flexcan1_default >;
-	pinctrl-names = "default";
-	phys = < &can_phy1 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&lpuart11{
-	status = "disabled";
-};
-&lpi2c0{
-	status = "disabled";
-	pinctrl-0 = < &lpi2c0_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x186a0 >;
-};
-&flexcan4{
-	status = "disabled";
-	pinctrl-0 = < &flexcan4_default >;
-	pinctrl-names = "default";
-	phys = < &can_phy4 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&adc0{
-	status = "disabled";
-};
-&lpspi2{
-	status = "disabled";
-	pinctrl-0 = < &lpspi2_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
-};
-&lpuart13{
-	status = "disabled";
-	pinctrl-0 = < &lpuart13_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x14 0x2c >, < &edma0 0x15 0x2d >;
-	dma-names = "tx", "rx";
-};
-&gpioa_h{
-	status = "okay";
-};
-&lpuart15{
-	status = "disabled";
-};
-&gpioa_l{
-	status = "disabled";
-};
-&pinctrl{
-	status = "okay";
 };

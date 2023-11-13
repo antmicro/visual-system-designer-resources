@@ -2881,16 +2881,19 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
-                    "side": "left",
-                    "type": "i2c"
+                    "name": "ddr",
+                    "side": "right",
+                    "type": [
+                        "ddr",
+                        "lpddr"
+                    ]
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "lpddr",
-                    "side": "right",
-                    "type": "lpddr"
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
                 }
             ],
             "isCategory": true
@@ -2908,16 +2911,19 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c",
-                    "side": "left",
-                    "type": "i2c"
+                    "name": "ddr",
+                    "side": "right",
+                    "type": [
+                        "ddr",
+                        "lpddr"
+                    ]
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "lpddr",
-                    "side": "right",
-                    "type": "lpddr"
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
                 }
             ],
             "isCategory": true
@@ -3266,6 +3272,19 @@
             "isCategory": true
         },
         {
+            "category": "Memory/DDR/MT60B2G8",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ddr5",
+                    "side": "left",
+                    "type": "ddr"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "extends": [
                 "QSPI Flash"
@@ -3427,6 +3446,21 @@
             "urls": {
                 "datasheet": "https://www.micron.com/products/dram/lpdram/part-catalog/mt53e1g32d2np-046-wt",
                 "hwp": "components/micron-technology-mt53e1g32d2np-046-wt-a"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "DRAM, SDRAM, 16 Gbit, 2G x 8bit, FBGA, 82 Pins\n\n### Additional information\n\n*Datasheet*: [16gb_ddr5_sdram_diereva.pdf?rev=c95e4a49184145f18e105cc41e0ee643](https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr5/16gb_ddr5_sdram_diereva.pdf?rev=c95e4a49184145f18e105cc41e0ee643)",
+            "extends": [
+                "MT60B2G8"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-82-11x9mm-layout13x11-p0-8mm-ddr5-mo-210-an/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Micron Technology MT60B2G8HB-48B:A",
+            "urls": {
+                "datasheet": "https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr5/16gb_ddr5_sdram_diereva.pdf?rev=c95e4a49184145f18e105cc41e0ee643",
+                "hwp": "components/micron-technology-mt60b2g8hb-48b-a"
             }
         },
         {
@@ -4977,7 +5011,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/asahi-kasei_akm09918c",
-                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/akm09918c/akm09918c.c"
+                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/akm09918c/akm09918c_emul.c"
             }
         },
         {
@@ -5209,7 +5243,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -14459,7 +14493,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/f75303/f75303.c"
+                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/f75303/f75303_emul.c"
             }
         },
         {
@@ -17384,7 +17418,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/icm42688/icm42688_emul.c"
+                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/icm42688/icm42688.c"
             }
         },
         {

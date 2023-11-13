@@ -6,27 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
-	status = "disabled";
-};
-&gpiof{
-	status = "disabled";
-};
-&pinctrl{
-	status = "okay";
-};
-&dac{
-	status = "disabled";
-};
 &gpiod{
 	status = "disabled";
 };
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&gpioc{
+&usart1{
 	status = "disabled";
 };
 &usart0{
@@ -35,11 +18,28 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
+&gpioc{
+	status = "disabled";
+};
+&dac{
+	status = "disabled";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpioa{
+	status = "disabled";
+};
+&gpiof{
+	status = "disabled";
+};
 &gpiob{
 	status = "disabled";
 };
-&usart1{
-	status = "disabled";
+&pinctrl{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

@@ -11,12 +11,6 @@
 	pinctrl-0 = < &i2c1_scl_pa9 &i2c1_sda_pa10 >;
 	pinctrl-names = "default";
 };
-&lpuart1{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa15 >;
@@ -27,6 +21,12 @@
 	status = "okay";
 	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
+};
+&adc1{
+	status = "disabled";
+};
+&lpuart1{
+	status = "disabled";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

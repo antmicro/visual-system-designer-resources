@@ -6,55 +6,46 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiod{
-	status = "disabled";
-};
-&pinctrl{
+&gpiob{
 	status = "okay";
 };
-&uart2{
-	status = "disabled";
-};
-&uart3{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
-};
-&uart7{
-	status = "disabled";
-};
-&gpiog{
+&pinctrl{
 	status = "okay";
 };
 &uart5{
 	status = "disabled";
 };
-&gpiob{
-	status = "okay";
-};
 &gpioe{
 	status = "disabled";
 };
-&flash0{
-	reg = < 0x0 0x80000 >;
+&uart2{
+	status = "disabled";
 };
-&uart1{
+&gpiod{
 	status = "disabled";
 };
 &gpiof{
 	status = "okay";
 };
+&gpiog{
+	status = "okay";
+};
 &gpioh{
 	status = "okay";
 };
-&gpioa{
+&uart4{
+	status = "disabled";
+};
+&flash0{
+	reg = < 0x0 0x80000 >;
+};
+&uart3{
+	status = "disabled";
+};
+&uart7{
 	status = "disabled";
 };
 &uart6{
-	status = "disabled";
-};
-&gpioc{
 	status = "disabled";
 };
 &uart0{
@@ -62,4 +53,13 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
+};
+&gpioc{
+	status = "disabled";
+};
+&gpioa{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
 };

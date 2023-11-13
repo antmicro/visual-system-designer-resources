@@ -4,6 +4,9 @@
 		zephyr,console = &lpuart2;
 	};
 };
+&lpuart1{
+	status = "disabled";
+};
 &lpuart2{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -12,7 +15,4 @@
 };
 &pinctrl{
 	status = "okay";
-};
-&lpuart1{
-	status = "disabled";
 };

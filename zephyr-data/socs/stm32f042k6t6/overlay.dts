@@ -6,20 +6,13 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart1{
-	status = "disabled";
-};
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc_in0_pa0 >;
-	pinctrl-names = "default";
-	st,adc-clock-source = < 0x1 >;
-	st,adc-prescaler = < 0x4 >;
+&can1{
+	status = "disabled";
 };
 &usart2{
 	status = "okay";
@@ -27,7 +20,7 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi2{
+&usb{
 	status = "disabled";
 };
 &spi1{
@@ -36,10 +29,17 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioa 0xb 0x11 >;
 };
-&can1{
+&usart1{
 	status = "disabled";
 };
-&usb{
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc_in0_pa0 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x1 >;
+	st,adc-prescaler = < 0x4 >;
+};
+&spi2{
 	status = "disabled";
 };
 &pinctrl{

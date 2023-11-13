@@ -5,15 +5,6 @@
 		zephyr,sram = &dram;
 	};
 };
-&i2c0{
-	status = "okay";
-};
-&mmc0{
-	status = "disabled";
-};
-&eth0{
-	status = "disabled";
-};
 &uart1{
 	status = "okay";
 	clock-frequency = < 0x12c0000 >;
@@ -22,13 +13,22 @@
 &uart0{
 	status = "disabled";
 };
-&gpio0{
-	status = "okay";
-};
-&spi0{
+&i2c0{
 	status = "okay";
 };
 &spi1{
 	status = "okay";
 	cs-gpios = < &gpio0 0x7 0x1 >;
+};
+&mmc0{
+	status = "disabled";
+};
+&gpio0{
+	status = "okay";
+};
+&eth0{
+	status = "disabled";
+};
+&spi0{
+	status = "okay";
 };

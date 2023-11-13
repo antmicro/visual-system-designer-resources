@@ -6,13 +6,27 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart4{
+&uart7{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&spi5{
 	status = "disabled";
 };
 &lpuart1{
 	status = "disabled";
 };
-&i2c1{
+&spi6{
+	status = "disabled";
+};
+&usbotg_hs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_hs_dm_pa11 &usb_otg_hs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&dac1{
 	status = "disabled";
 };
 &usart3{
@@ -21,16 +35,55 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi6{
+&usart2{
+	status = "disabled";
+};
+&octospi1{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&usart6{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};
+&mac{
+	status = "disabled";
+};
+&spi4{
+	status = "disabled";
+};
+&fdcan2{
+	status = "disabled";
+};
+&uart8{
+	status = "disabled";
+};
+&spi3{
 	status = "disabled";
 };
 &spi1{
 	status = "disabled";
 };
-&i2c2{
+&ltdc{
 	status = "disabled";
 };
-&spi4{
+&uart4{
+	status = "disabled";
+};
+&quadspi{
+	status = "disabled";
+};
+&adc1_2{
+	status = "disabled";
+};
+&usart1{
+	status = "disabled";
+};
+&i2c1{
 	status = "disabled";
 };
 &adc1{
@@ -40,72 +93,19 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&mac{
-	status = "disabled";
-};
-&ltdc{
-	status = "disabled";
-};
-&i2c3{
-	status = "disabled";
-};
 &fdcan1{
-	status = "disabled";
-};
-&usbotg_hs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_hs_dm_pa11 &usb_otg_hs_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&spi3{
-	status = "disabled";
-};
-&i2c4{
-	status = "disabled";
-};
-&uart7{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&usart6{
-	status = "disabled";
-};
-&octospi1{
-	status = "disabled";
-};
-&usart1{
-	status = "disabled";
-};
-&uart5{
-	status = "disabled";
-};
-&fdcan2{
-	status = "disabled";
-};
-&quadspi{
-	status = "disabled";
-};
-&adc1_2{
-	status = "disabled";
-};
-&usart2{
-	status = "disabled";
-};
-&adc2{
 	status = "disabled";
 };
 &octospi2{
 	status = "disabled";
 };
-&uart8{
+&i2c4{
 	status = "disabled";
 };
-&spi5{
+&i2c3{
+	status = "disabled";
+};
+&adc2{
 	status = "disabled";
 };
 &pinctrl{

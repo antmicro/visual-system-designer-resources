@@ -5,42 +5,18 @@
 		zephyr,sram = &sram0;
 	};
 };
-&usbhs{
+&gpio0{
 	status = "okay";
-};
-&gpio2{
-	status = "okay";
-};
-&hs_lspi{
-	status = "disabled";
-};
-&sc_timer{
-	status = "okay";
-	pinctrl-0 = < &pinmux_sctimer >;
-	pinctrl-names = "default";
-};
-&pmic_i2c{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &pinmux_pmic_i2c >;
-	pinctrl-names = "default";
 };
 &i3c0{
 	status = "okay";
 	pinctrl-0 = < &pinmux_i3c >;
 	pinctrl-names = "default";
 };
-&gpio1{
+&usbhs{
 	status = "okay";
 };
-&flexspi{
-	status = "okay";
-	pinctrl-0 = < &pinmux_flexspi >;
-	pinctrl-names = "default";
-};
-&gpio0{
+&gpio2{
 	status = "okay";
 };
 &flexcomm0{
@@ -50,4 +26,28 @@
 	pinctrl-names = "default";
 	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
 	dma-names = "rx", "tx";
+};
+&pmic_i2c{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &pinmux_pmic_i2c >;
+	pinctrl-names = "default";
+};
+&gpio1{
+	status = "okay";
+};
+&sc_timer{
+	status = "okay";
+	pinctrl-0 = < &pinmux_sctimer >;
+	pinctrl-names = "default";
+};
+&flexspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexspi >;
+	pinctrl-names = "default";
+};
+&hs_lspi{
+	status = "disabled";
 };

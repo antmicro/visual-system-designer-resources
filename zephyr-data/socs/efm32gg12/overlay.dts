@@ -6,21 +6,7 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x1 0x4 0x6 >;
-	location-tx = < 0x1 0x4 0x7 >;
-};
-&uart1{
-	status = "disabled";
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0x4 0x2 0x0 >;
-	location-scl = < 0x4 0x2 0x1 >;
-};
-&gpioe{
+&gpiob{
 	status = "okay";
 };
 &i2c1{
@@ -28,32 +14,40 @@
 	location-sda = < 0x0 0x2 0x4 >;
 	location-scl = < 0x0 0x2 0x5 >;
 };
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x1 0x4 0x6 >;
+	location-tx = < 0x1 0x4 0x7 >;
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
+};
 &usart3{
 	status = "disabled";
-};
-&gpioc{
-	status = "okay";
-};
-&leuart1{
-	status = "disabled";
-};
-&uart0{
-	status = "disabled";
-};
-&leuart0{
-	status = "okay";
-	current-speed = < 0x2580 >;
-	location-rx = < 0x1 0x1 0xe >;
-	location-tx = < 0x1 0x1 0xd >;
-};
-&gpiob{
-	status = "okay";
 };
 &usart2{
 	status = "disabled";
 };
+&gpiof{
+	status = "okay";
+};
+&uart1{
+	status = "disabled";
+};
 &gpiod{
 	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&uart0{
+	status = "disabled";
+};
+&leuart1{
+	status = "disabled";
 };
 &usart4{
 	status = "okay";
@@ -61,14 +55,20 @@
 	location-rx = < 0x0 0x1 0x8 >;
 	location-tx = < 0x0 0x1 0x7 >;
 };
-&gpiof{
+&leuart0{
+	status = "okay";
+	current-speed = < 0x2580 >;
+	location-rx = < 0x1 0x1 0xe >;
+	location-tx = < 0x1 0x1 0xd >;
+};
+&usart1{
+	status = "disabled";
+};
+&gpioc{
 	status = "okay";
 };
 &gpioa{
 	status = "okay";
-};
-&usart1{
-	status = "disabled";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

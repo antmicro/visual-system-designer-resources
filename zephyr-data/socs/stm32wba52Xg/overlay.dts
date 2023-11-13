@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb12 &usart1_rx_pa8 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb2 &i2c1_sda_pb1 >;
@@ -20,7 +14,16 @@
 &usart2{
 	status = "disabled";
 };
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pb5 &lpuart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &spi3{
+	status = "disabled";
+};
+&i2c3{
 	status = "disabled";
 };
 &spi1{
@@ -34,12 +37,9 @@
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x4 >;
 };
-&i2c3{
-	status = "disabled";
-};
-&lpuart1{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pb5 &lpuart1_rx_pa10 >;
+	pinctrl-0 = < &usart1_tx_pb12 &usart1_rx_pa8 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
