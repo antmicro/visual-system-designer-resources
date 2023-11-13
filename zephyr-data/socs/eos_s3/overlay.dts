@@ -5,15 +5,15 @@
 		zephyr,sram = &sram0;
 	};
 };
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_rx_default &uart1_tx_default &usb_pu_default &usb_dn_default &usb_dp_default >;
-	pinctrl-names = "default";
-};
 &gpio{
 	status = "okay";
 };
 &uart0{
 	status = "disabled";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_rx_default &uart1_tx_default &usb_pu_default &usb_dn_default &usb_dp_default >;
+	pinctrl-names = "default";
 };

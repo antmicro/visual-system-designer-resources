@@ -6,16 +6,44 @@
 		zephyr,flash = &flash0;
 	};
 };
-&mac{
-	status = "okay";
-	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb15 >;
-	pinctrl-names = "default";
+&adc2{
+	status = "disabled";
+};
+&uart9{
+	status = "disabled";
+};
+&usart10{
+	status = "disabled";
 };
 &usart1{
 	status = "disabled";
 };
-&usart2{
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pg9 &spi1_mosi_pb5 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiod 0xe 0x11 >;
+};
+&uart12{
 	status = "disabled";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_inp3_pa6 &adc1_inp15_pa3 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x2 >;
+	st,adc-prescaler = < 0x6 >;
+};
+&spi5{
+	status = "disabled";
+};
+&spi3{
+	status = "disabled";
+};
+&mac{
+	status = "okay";
+	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb15 >;
+	pinctrl-names = "default";
 };
 &usart3{
 	status = "okay";
@@ -26,43 +54,10 @@
 &spi2{
 	status = "disabled";
 };
-&lpuart1{
-	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pb6 &lpuart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&usart10{
-	status = "disabled";
-};
-&spi4{
-	status = "disabled";
-};
-&fdcan2{
-	status = "disabled";
-};
-&uart9{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&adc2{
-	status = "disabled";
-};
 &octospi1{
 	status = "disabled";
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pg9 &spi1_mosi_pb5 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiod 0xe 0x11 >;
-};
 &uart4{
-	status = "disabled";
-};
-&uart5{
 	status = "disabled";
 };
 &dac1{
@@ -70,40 +65,45 @@
 	pinctrl-0 = < &dac1_out2_pa5 >;
 	pinctrl-names = "default";
 };
-&spi3{
-	status = "disabled";
-};
-&i2c4{
-	status = "disabled";
-};
-&i2c3{
-	status = "disabled";
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_inp3_pa6 &adc1_inp15_pa3 >;
-	pinctrl-names = "default";
-	st,adc-clock-source = < 0x2 >;
-	st,adc-prescaler = < 0x6 >;
-};
 &usb{
 	status = "okay";
 	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
 };
-&uart12{
+&uart5{
 	status = "disabled";
 };
-&spi5{
-	status = "disabled";
-};
-&fdcan1{
+&fdcan2{
 	status = "disabled";
 };
 &spi6{
 	status = "disabled";
 };
+&i2c3{
+	status = "disabled";
+};
+&i2c4{
+	status = "disabled";
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pb6 &lpuart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&spi4{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
 &i2c2{
+	status = "disabled";
+};
+&fdcan1{
 	status = "disabled";
 };
 &pinctrl{

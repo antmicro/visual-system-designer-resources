@@ -6,29 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&iom1{
-	status = "okay";
-	compatible = "ambiq,spi";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0xf4240 >;
-};
-&iom7{
+&uart2{
 	status = "disabled";
 };
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&uart3{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
-};
-&iom3{
+&iom2{
 	status = "disabled";
 };
 &mspi0{
@@ -36,25 +17,31 @@
 	pinctrl-0 = < &mspi0_default >;
 	pinctrl-names = "default";
 };
-&iom2{
-	status = "disabled";
-};
-&uart2{
-	status = "disabled";
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };
 &mspi1{
-	status = "disabled";
-};
-&iom5{
 	status = "disabled";
 };
 &mspi2{
 	status = "disabled";
 };
-&iom6{
+&uart3{
 	status = "disabled";
 };
 &iom4{
+	status = "disabled";
+};
+&iom5{
+	status = "disabled";
+};
+&iom7{
+	status = "disabled";
+};
+&iom6{
 	status = "disabled";
 };
 &iom0{
@@ -63,6 +50,19 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 	clock-frequency = < 0x186a0 >;
+};
+&uart1{
+	status = "disabled";
+};
+&iom1{
+	status = "okay";
+	compatible = "ambiq,spi";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0xf4240 >;
+};
+&iom3{
+	status = "disabled";
 };
 &pinctrl{
 	compatible = "ambiq,apollo4-pinctrl";

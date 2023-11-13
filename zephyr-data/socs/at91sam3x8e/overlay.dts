@@ -17,21 +17,13 @@
 	pinctrl-0 = < &uart_default >;
 	pinctrl-names = "default";
 };
-&usart2{
+&eefc{
 	status = "disabled";
-};
-&usart0{
-	status = "disabled";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-names = "default";
 };
 &usart1{
 	status = "disabled";
 };
-&eefc{
+&usart2{
 	status = "disabled";
 };
 &usart3{
@@ -41,4 +33,12 @@
 	status = "okay";
 	pinctrl-0 = < &twi1_default >;
 	pinctrl-names = "default";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};
+&usart0{
+	status = "disabled";
 };

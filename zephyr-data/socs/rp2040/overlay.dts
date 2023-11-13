@@ -5,22 +5,14 @@
 		zephyr,flash = &flash0;
 	};
 };
+&spi1{
+	status = "disabled";
+};
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 	clock-frequency = < 0x61a80 >;
-};
-&i2c0{
-	status = "disabled";
-};
-&adc{
-	status = "okay";
-	pinctrl-0 = < &adc_default >;
-	pinctrl-names = "default";
-};
-&uart1{
-	status = "disabled";
 };
 &spi0{
 	status = "okay";
@@ -28,14 +20,20 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0x7a1200 >;
 };
-&spi1{
+&pwm{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&usbd{
+	status = "okay";
+};
+&i2c0{
 	status = "disabled";
 };
 &flash0{
 	reg = < 0x10000000 0x800000 >;
-};
-&pwm{
-	status = "disabled";
 };
 &uart0{
 	status = "okay";
@@ -43,8 +41,10 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&usbd{
+&adc{
 	status = "okay";
+	pinctrl-0 = < &adc_default >;
+	pinctrl-names = "default";
 };
 &gpio0{
 	status = "okay";

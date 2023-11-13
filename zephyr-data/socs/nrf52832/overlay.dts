@@ -6,19 +6,40 @@
 		zephyr,flash = &flash0;
 	};
 };
-&nfct{
+&spi2{
+	status = "disabled";
+};
+&pdm0{
+	status = "disabled";
+};
+&spi1{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&qdec{
+	status = "disabled";
+};
+&radio{
 	status = "okay";
 };
 &spi0{
 	status = "disabled";
 };
+&i2c1{
+	status = "disabled";
+};
 &pwm2{
 	status = "disabled";
 };
-&pwm1{
-	status = "disabled";
+&nfct{
+	status = "okay";
 };
-&spi2{
+&gpio0{
+	status = "okay";
+};
+&pwm1{
 	status = "disabled";
 };
 &pwm0{
@@ -30,21 +51,6 @@
 &adc{
 	status = "okay";
 };
-&i2s0{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
-};
-&pdm0{
-	status = "disabled";
-};
-&radio{
-	status = "okay";
-};
-&qdec{
-	status = "disabled";
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -52,13 +58,7 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio0{
-	status = "okay";
-};
-&i2c1{
-	status = "disabled";
-};
-&i2c0{
+&i2s0{
 	status = "disabled";
 };
 &pinctrl{

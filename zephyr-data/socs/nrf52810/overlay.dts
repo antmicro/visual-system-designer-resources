@@ -6,30 +6,12 @@
 		zephyr,flash = &flash0;
 	};
 };
-&pdm0{
-	status = "disabled";
-};
-&qdec{
-	status = "disabled";
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&gpio0{
-	status = "okay";
-};
-&radio{
-	status = "okay";
-};
-&pwm0{
-	status = "disabled";
-};
-&adc{
-	status = "okay";
 };
 &spi0{
 	status = "okay";
@@ -42,6 +24,24 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&radio{
+	status = "okay";
+};
+&qdec{
+	status = "disabled";
+};
+&pdm0{
+	status = "disabled";
+};
+&gpio0{
+	status = "okay";
+};
+&pwm0{
+	status = "disabled";
+};
+&adc{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

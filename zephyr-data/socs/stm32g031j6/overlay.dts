@@ -6,19 +6,28 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c1{
-	status = "disabled";
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&usart2{
+&adc1{
+	status = "disabled";
+};
+&spi1{
 	status = "disabled";
 };
 &spi2{
+	status = "disabled";
+};
+&lpuart1{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&usart2{
 	status = "disabled";
 };
 &i2c2{
@@ -26,15 +35,6 @@
 };
 &pinctrl{
 	remap-pa11;
-};
-&spi1{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
-&lpuart1{
-	status = "disabled";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

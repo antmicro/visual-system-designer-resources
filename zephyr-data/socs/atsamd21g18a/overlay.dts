@@ -6,6 +6,12 @@
 		zephyr,flash = &flash0;
 	};
 };
+&sercom5{
+	status = "disabled";
+};
+&sercom3{
+	status = "disabled";
+};
 &sercom0{
 	status = "okay";
 	dipo = < 0x1 >;
@@ -20,16 +26,16 @@
 	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
-&sercom5{
-	status = "disabled";
-};
 &sercom1{
 	status = "disabled";
+};
+&sercom2{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom2_i2c_default >;
+	pinctrl-names = "default";
 };
 &sercom4{
 	status = "okay";
@@ -39,15 +45,9 @@
 	pinctrl-0 = < &sercom4_uart_default >;
 	pinctrl-names = "default";
 };
-&sercom3{
-	status = "disabled";
-};
-&sercom2{
+&usb0{
 	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom2_i2c_default >;
+	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
 };
 &tcc2{

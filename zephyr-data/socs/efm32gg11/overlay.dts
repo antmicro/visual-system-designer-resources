@@ -6,18 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart0{
+&gpiog{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x0 0x4 0xb >;
-	location-tx = < 0x0 0x4 0xa >;
 };
-&i2c0{
-	status = "okay";
-	location-sda = < 0x4 0x2 0x0 >;
-	location-scl = < 0x4 0x2 0x1 >;
-};
-&gpioa{
+&gpiod{
 	status = "okay";
 };
 &usart1{
@@ -26,50 +18,8 @@
 &usart5{
 	status = "disabled";
 };
-&gpiof{
-	status = "okay";
-};
-&gpiog{
-	status = "okay";
-};
-&uart1{
+&uart0{
 	status = "disabled";
-};
-&gpiob{
-	status = "okay";
-};
-&leuart1{
-	status = "disabled";
-};
-&usart3{
-	status = "disabled";
-};
-&gpioe{
-	status = "okay";
-};
-&gpioh{
-	status = "okay";
-};
-&usart2{
-	status = "disabled";
-};
-&leuart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x0 0x0 0x1 >;
-	location-tx = < 0x0 0x0 0x0 >;
-};
-&usart4{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x4 0x7 0x5 >;
-	location-tx = < 0x4 0x7 0x4 >;
-};
-&gpioc{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
 };
 &eth0{
 	status = "okay";
@@ -90,16 +40,66 @@
 &gpioi{
 	status = "okay";
 };
+&gpioe{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
+};
+&usart2{
+	status = "disabled";
+};
+&usart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x4 0x7 0x5 >;
+	location-tx = < 0x4 0x7 0x4 >;
+};
+&gpioh{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&usart3{
+	status = "disabled";
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x4 0xb >;
+	location-tx = < 0x0 0x4 0xa >;
+};
+&i2c2{
+	status = "disabled";
+};
 &i2c1{
 	status = "okay";
 	location-sda = < 0x0 0x2 0x4 >;
 	location-scl = < 0x0 0x2 0x5 >;
 };
-&uart0{
+&gpioa{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&uart1{
 	status = "disabled";
 };
-&i2c2{
+&gpiob{
+	status = "okay";
+};
+&leuart1{
 	status = "disabled";
+};
+&leuart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x0 0x1 >;
+	location-tx = < 0x0 0x0 0x0 >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

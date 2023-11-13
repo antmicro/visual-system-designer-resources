@@ -5,10 +5,13 @@
 		zephyr,sram = &sram;
 	};
 };
-&i2c0{
+&i2c1{
 	status = "okay";
 };
-&gpio0{
+&spi1{
+	status = "disabled";
+};
+&spi0{
 	status = "okay";
 };
 &i2c2{
@@ -17,12 +20,9 @@
 &uart0{
 	status = "okay";
 };
-&spi0{
+&i2c0{
 	status = "okay";
 };
-&i2c1{
+&gpio0{
 	status = "okay";
-};
-&spi1{
-	status = "disabled";
 };

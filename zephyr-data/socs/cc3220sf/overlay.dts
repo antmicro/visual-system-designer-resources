@@ -6,7 +6,13 @@
 		zephyr,flash = &flash1;
 	};
 };
-&gpioa2{
+&uart1{
+	status = "disabled";
+};
+&gpioa3{
+	status = "okay";
+};
+&gpioa1{
 	status = "okay";
 };
 &uart0{
@@ -15,10 +21,10 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&gpioa1{
+&gpioa0{
 	status = "okay";
 };
-&gpioa0{
+&adc0{
 	status = "okay";
 };
 &i2c0{
@@ -26,13 +32,7 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&gpioa3{
-	status = "okay";
-};
-&uart1{
-	status = "disabled";
-};
-&adc0{
+&gpioa2{
 	status = "okay";
 };
 &pinctrl{

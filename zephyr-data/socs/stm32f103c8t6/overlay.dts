@@ -12,10 +12,9 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-names = "default";
 };
-&usart2{
+&spi1{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &spi1_nss_master_pa4 &spi1_sck_master_pa5 &spi1_miso_master_pa6 &spi1_mosi_master_pa7 >;
 	pinctrl-names = "default";
 };
 &usart3{
@@ -32,6 +31,11 @@
 &can1{
 	status = "disabled";
 };
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in0_pa0 >;
+	pinctrl-names = "default";
+};
 &usb{
 	status = "okay";
 	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
@@ -42,14 +46,10 @@
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
-&spi1{
+&usart2{
 	status = "okay";
-	pinctrl-0 = < &spi1_nss_master_pa4 &spi1_sck_master_pa5 &spi1_miso_master_pa6 &spi1_mosi_master_pa7 >;
-	pinctrl-names = "default";
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in0_pa0 >;
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	current-speed = < 0x1c200 >;
 	pinctrl-names = "default";
 };
 &i2c2{

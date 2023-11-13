@@ -6,28 +6,28 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioc{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&gpiof{
+&adc1{
 	status = "disabled";
 };
-&adc1{
+&spi1{
+	status = "disabled";
+};
+&gpiof{
 	status = "disabled";
 };
 &gpiod{
 	status = "disabled";
 };
-&spi1{
+&i2c1{
+	status = "disabled";
+};
+&gpioc{
 	status = "disabled";
 };
 &pinctrl{

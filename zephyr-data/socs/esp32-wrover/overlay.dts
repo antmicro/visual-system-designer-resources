@@ -6,14 +6,27 @@
 		zephyr,flash = &flash0;
 	};
 };
+&pinctrl{
+	status = "okay";
+};
+&mdio{
+	status = "disabled";
+};
+&spi3{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "disabled";
+};
 &i2c1{
 	status = "disabled";
 };
-&gpio1{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
+&eth{
+	status = "disabled";
 };
 &i2c0{
 	status = "okay";
@@ -23,23 +36,23 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&spi2{
-	status = "disabled";
-};
-&eth{
-	status = "disabled";
-};
-&mdio{
-	status = "disabled";
+&gpio1{
+	status = "okay";
 };
 &flash0{
 	status = "okay";
 };
-&dac{
+&twai{
+	status = "disabled";
+};
+&adc1{
 	status = "disabled";
 };
 &uart2{
 	status = "disabled";
+};
+&gpio0{
+	status = "okay";
 };
 &uart0{
 	status = "okay";
@@ -47,27 +60,14 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&twai{
+&dac{
 	status = "disabled";
 };
 &adc0{
 	status = "disabled";
 };
-&adc1{
-	status = "disabled";
-};
-&pinctrl{
-	status = "okay";
-};
 &uart1{
 	status = "disabled";
-};
-&spi3{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim3_default >;
-	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

@@ -6,42 +6,15 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart1{
+&flashcalw{
 	status = "disabled";
 };
 &twim1{
 	status = "disabled";
 };
-&twim2{
-	status = "disabled";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0x2 0x1 >, < &gpioc 0x0 0x1 >;
-};
-&usart0{
-	status = "disabled";
-};
 &usbc{
 	status = "okay";
 	pinctrl-0 = < &usbc_default >;
-	pinctrl-names = "default";
-};
-&flashcalw{
-	status = "disabled";
-};
-&twim3{
-	status = "disabled";
-};
-&usart3{
-	status = "disabled";
-};
-&usart2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart2_default >;
 	pinctrl-names = "default";
 };
 &twim0{
@@ -58,4 +31,31 @@
 	hs-data-slew-lim = < 0x0 >;
 	hs-data-strength-low = "0.5";
 	hs-master-code = < 0x0 >;
+};
+&usart1{
+	status = "disabled";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0x2 0x1 >, < &gpioc 0x0 0x1 >;
+};
+&usart2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart2_default >;
+	pinctrl-names = "default";
+};
+&twim3{
+	status = "disabled";
+};
+&usart3{
+	status = "disabled";
+};
+&twim2{
+	status = "disabled";
+};
+&usart0{
+	status = "disabled";
 };

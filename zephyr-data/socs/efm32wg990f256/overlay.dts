@@ -6,11 +6,35 @@
 		zephyr,flash = &flash0;
 	};
 };
-&leuart0{
+&usart0{
+	status = "disabled";
+};
+&i2c1{
 	status = "disabled";
 };
 &gpiod{
 	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&leuart0{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&gpioe{
+	status = "okay";
+};
+&leuart1{
+	status = "disabled";
+};
+&gpioc{
+	status = "disabled";
+};
+&gpiof{
+	status = "okay";
 };
 &uart0{
 	status = "okay";
@@ -24,35 +48,11 @@
 &gpiob{
 	status = "okay";
 };
-&i2c0{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
-};
-&usart2{
-	status = "disabled";
-};
-&leuart1{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
 &usart1{
 	status = "disabled";
 };
-&usart0{
+&i2c0{
 	status = "disabled";
-};
-&gpioc{
-	status = "disabled";
-};
-&gpiof{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

@@ -9,6 +9,14 @@
 &iap{
 	status = "disabled";
 };
+&sc_timer{
+	status = "disabled";
+	pinctrl-0 = < &pinmux_sctimer_default >;
+	pinctrl-names = "default";
+};
+&gpio0{
+	status = "okay";
+};
 &usbfs{
 	status = "disabled";
 };
@@ -18,17 +26,9 @@
 &gpio1{
 	status = "okay";
 };
-&gpio0{
-	status = "okay";
-};
 &hs_lspi{
 	status = "disabled";
 	pinctrl-0 = < &pinmux_hs_lspi_default >;
-	pinctrl-names = "default";
-};
-&sc_timer{
-	status = "disabled";
-	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
 &adc0{

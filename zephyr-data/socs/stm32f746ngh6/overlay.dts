@@ -6,6 +6,32 @@
 		zephyr,flash = &flash0;
 	};
 };
+&usbotg_hs{
+	status = "disabled";
+};
+&adc2{
+	status = "disabled";
+};
+&uart8{
+	status = "disabled";
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&spi1{
+	status = "disabled";
+};
+&i2c3{
+	status = "okay";
+	pinctrl-0 = < &i2c3_scl_ph7 &i2c3_sda_ph8 >;
+	pinctrl-names = "default";
+};
+&spi3{
+	status = "disabled";
+};
 &ltdc{
 	status = "okay";
 	pinctrl-0 = < &ltdc_r0_pi15 &ltdc_r1_pj0 &ltdc_r2_pj1 &ltdc_r3_pj2 &ltdc_r4_pj3 &ltdc_r5_pj4 &ltdc_r6_pj5 &ltdc_r7_pj6 &ltdc_g0_pj7 &ltdc_g1_pj8 &ltdc_g2_pj9 &ltdc_g3_pj10 &ltdc_g4_pj11 &ltdc_g5_pk0 &ltdc_g6_pk1 &ltdc_g7_pk2 &ltdc_b0_pe4 &ltdc_b1_pj13 &ltdc_b2_pj14 &ltdc_b3_pj15 &ltdc_b4_pg12 &ltdc_b5_pk4 &ltdc_b6_pk5 &ltdc_b7_pk6 &ltdc_de_pk7 &ltdc_clk_pi14 &ltdc_hsync_pi10 &ltdc_vsync_pi9 >;
@@ -20,12 +46,23 @@
 	def-back-color-green = < 0xff >;
 	def-back-color-blue = < 0xff >;
 };
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&usart6{
+	status = "okay";
+	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &mac{
 	status = "okay";
 	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pg14 >;
 	pinctrl-names = "default";
 };
-&usart2{
+&dac1{
 	status = "disabled";
 };
 &usart3{
@@ -37,56 +74,28 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioa 0x8 0x11 >;
 };
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
+&uart4{
+	status = "disabled";
 };
 &can1{
-	status = "disabled";
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
-};
-&i2c4{
-	status = "disabled";
-};
-&spi6{
-	status = "disabled";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&uart4{
 	status = "disabled";
 };
 &uart5{
 	status = "disabled";
 };
-&spi1{
+&spi5{
 	status = "disabled";
 };
-&spi3{
+&spi4{
 	status = "disabled";
 };
-&adc2{
+&spi6{
 	status = "disabled";
-};
-&usart6{
-	status = "okay";
-	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &adc3{
 	status = "disabled";
 };
-&uart8{
+&adc1{
 	status = "disabled";
 };
 &quadspi{
@@ -94,33 +103,24 @@
 	pinctrl-0 = < &quadspi_clk_pb2 &quadspi_bk1_ncs_pb6 &quadspi_bk1_io0_pd11 &quadspi_bk1_io1_pd12 &quadspi_bk1_io2_pe2 &quadspi_bk1_io3_pd13 >;
 	pinctrl-names = "default";
 };
-&i2c3{
+&i2c4{
+	status = "disabled";
+};
+&i2c1{
 	status = "okay";
-	pinctrl-0 = < &i2c3_scl_ph7 &i2c3_sda_ph8 >;
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&adc1{
-	status = "disabled";
-};
-&can2{
-	status = "disabled";
-};
-&spi5{
+&usart2{
 	status = "disabled";
 };
 &i2c2{
 	status = "disabled";
 };
-&spi4{
-	status = "disabled";
-};
-&usbotg_hs{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
 &uart7{
+	status = "disabled";
+};
+&can2{
 	status = "disabled";
 };
 &pinctrl{

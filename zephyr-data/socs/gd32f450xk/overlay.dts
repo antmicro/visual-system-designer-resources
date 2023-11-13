@@ -6,65 +6,37 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiod{
-	status = "disabled";
-};
-&gpioc{
-	status = "okay";
-};
-&usart5{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
-};
-&uart6{
-	status = "disabled";
-};
 &uart4{
-	status = "disabled";
-};
-&gpioh{
-	status = "disabled";
-};
-&usart2{
-	status = "disabled";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&spi5{
-	status = "okay";
-	pinctrl-0 = < &spi5_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioi 0x8 0x1 >;
-	dmas = < &dma1 0x5 0x1 0x0 0x0 >, < &dma1 0x6 0x1 0x0 0x0 >;
-	dma-names = "tx", "rx";
-};
-&spi0{
-	status = "disabled";
-};
-&gpioe{
-	status = "okay";
-};
-&spi2{
-	status = "disabled";
-};
-&uart7{
 	status = "disabled";
 };
 &adc1{
 	status = "disabled";
 };
-&adc2{
+&usart5{
 	status = "disabled";
+};
+&gpiob{
+	status = "okay";
 };
 &pinctrl{
 	status = "okay";
 };
-&usart1{
+&spi0{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&gpioc{
+	status = "okay";
+};
+&uart3{
+	status = "disabled";
+};
+&spi2{
 	status = "disabled";
 };
 &gpiof{
@@ -76,41 +48,69 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&gpiog{
-	status = "okay";
-};
-&gpioi{
-	status = "okay";
-};
-&uart3{
+&usart1{
 	status = "disabled";
 };
-&gpiob{
+&gpioe{
 	status = "okay";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&gpioa{
-	status = "okay";
-};
-&spi4{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&spi3{
-	status = "disabled";
 };
 &dac{
 	status = "okay";
 	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
-&i2c2{
+&spi1{
+	status = "disabled";
+};
+&gpiod{
+	status = "disabled";
+};
+&gpioi{
+	status = "okay";
+};
+&spi4{
+	status = "disabled";
+};
+&gpioh{
+	status = "disabled";
+};
+&spi3{
+	status = "disabled";
+};
+&gpioa{
+	status = "okay";
+};
+&spi5{
+	status = "okay";
+	pinctrl-0 = < &spi5_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioi 0x8 0x1 >;
+	dmas = < &dma1 0x5 0x1 0x0 0x0 >, < &dma1 0x6 0x1 0x0 0x0 >;
+	dma-names = "tx", "rx";
+};
+&adc2{
+	status = "disabled";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&uart6{
+	status = "disabled";
+};
+&gpiog{
+	status = "okay";
+};
+&uart7{
+	status = "disabled";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&i2c1{
 	status = "disabled";
 };
 &pinctrl{

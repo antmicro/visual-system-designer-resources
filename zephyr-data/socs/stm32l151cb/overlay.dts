@@ -12,11 +12,14 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&usart2{
+&spi1{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	cs-gpios = < &gpiob 0x0 0x1 >;
+};
+&dac1{
+	status = "disabled";
 };
 &usart3{
 	status = "disabled";
@@ -24,30 +27,27 @@
 &spi2{
 	status = "disabled";
 };
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
-};
 &uart4{
 	status = "disabled";
 };
 &uart5{
 	status = "disabled";
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0x0 0x1 >;
-};
 &adc1{
 	status = "disabled";
 };
-&i2c2{
-	status = "disabled";
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
 };
-&dac1{
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&i2c2{
 	status = "disabled";
 };
 &pinctrl{

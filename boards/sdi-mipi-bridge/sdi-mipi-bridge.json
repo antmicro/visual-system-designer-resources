@@ -1,0 +1,387 @@
+{
+    "graph": {
+        "id": "b365b74a-99df-4a32-9aff-c45bdc9b901b",
+        "name": "SDI to MIPI CSI-2 bridge",
+        "nodes": [
+            {
+                "id": "f2e0517c-5d56-43ee-8bb0-fad0eab152f7",
+                "position": {
+                    "x": 1300,
+                    "y": 50
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "Antmicro Dual Camera interface",
+                        "id": "2579a7b3-8728-4165-babd-7c7cff1912cc",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "mipi csi-2 x4[0]",
+                        "id": "6d080aa9-4c67-4cda-a7da-f91b54e275e1",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "mipi csi-2 x4[1]",
+                        "id": "dbafc8b2-b915-46e1-b613-630bbc9685b3",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "i2c",
+                        "id": "f532f58a-f0b9-4780-8acc-ea2f2b72ea06",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 2
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Würth Elektronik 68715014522",
+                "instanceName": "Antmicro Dual Camera interface"
+            },
+            {
+                "id": "95eca5a8-8524-4233-8bb0-d7a240f970e3",
+                "position": {
+                    "x": -450,
+                    "y": 250
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "sdi",
+                        "id": "e8385e96-dde4-4652-876e-c15bfc1d17c2",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "bnc-sdi",
+                        "id": "a6ecb550-d52f-43ae-8e2b-acd65e038b5c",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Amphenol 031-70526-21",
+                "instanceName": "BNC Loopback"
+            },
+            {
+                "id": "3cd6c15a-cf6f-4dd0-bf84-48b636600df0",
+                "position": {
+                    "x": 0,
+                    "y": 250
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "unbuffered sdi",
+                        "id": "b078c417-869e-4282-87d5-2ccff9bdc816",
+                        "direction": "input",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "sdi",
+                        "id": "939c1689-d1a1-43d8-8b7c-052cc9be82a1",
+                        "direction": "output",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Semtech GS2988-INE3",
+                "instanceName": "SDI Transmitter"
+            },
+            {
+                "id": "4b1aa810-d0eb-4d23-b41a-83b585e709fb",
+                "position": {
+                    "x": 400,
+                    "y": 50
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "sdi",
+                        "id": "6aa6d29e-65a6-4622-957a-d5c0dc7fc094",
+                        "direction": "input",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "control",
+                        "id": "a03aa35a-21dc-4355-8fa3-eae4eb337df9",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "i2s",
+                        "id": "7edf775e-cae7-4d0e-88dd-851ea2cd9272",
+                        "direction": "output",
+                        "side": "right",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "parallel",
+                        "id": "ed1b4d85-8a35-4c55-b7b1-86e5f3fbb226",
+                        "direction": "output",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "sdi loopback",
+                        "id": "e68467fc-69b6-4567-9f30-b7e5706bbd9f",
+                        "direction": "output",
+                        "side": "left",
+                        "sidePosition": 1
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Semtech GS2971A",
+                "instanceName": "SDI Deserializer"
+            },
+            {
+                "id": "a3bf8b2d-7e9b-4477-aea3-9421ac90662f",
+                "position": {
+                    "x": 1300,
+                    "y": 300
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "7c3a975f-9451-4a6d-9804-0cb031971c1a",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "gpio header",
+                        "id": "4da11805-0ff4-4a8d-a2ae-8ec35ab103c8",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Multicomp Pro MC-HVT1-S04-G",
+                "instanceName": "I2C Header"
+            },
+            {
+                "id": "616e475a-0f20-4531-ba3d-aa7c8e0579b0",
+                "position": {
+                    "x": 1300,
+                    "y": 450
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "44e73a8e-4e1a-49b2-8362-5bd0b016dcbe",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "gpio header",
+                        "id": "b88e76fd-0849-41f2-98bd-aeef83c5cb93",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Multicomp Pro 2199SB-10G-301523",
+                "instanceName": "SPI Header"
+            },
+            {
+                "id": "c7550b11-52c4-4f56-86c7-a7fb6e17cb49",
+                "position": {
+                    "x": 1300,
+                    "y": 600
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "8664cea7-6391-4651-934a-8325983a1a11",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "gpio header",
+                        "id": "258a4155-ccd3-4fc0-8590-25ed4d97a33e",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Multicomp Pro 2199SB-10G-301523",
+                "instanceName": "Audio Header"
+            },
+            {
+                "id": "16f9019b-b92b-49cd-b4a4-3724a5c176a3",
+                "position": {
+                    "x": -450,
+                    "y": 50
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "sdi",
+                        "id": "23650d98-f9e7-4221-b37f-08e597777e2f",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "bnc-sdi",
+                        "id": "7ced178b-793c-4dfc-9b64-913d9055d22d",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Amphenol 031-70526-21",
+                "instanceName": "BNC in"
+            },
+            {
+                "id": "8056230e-d12d-4b0b-982a-0eeb3db0c2f1",
+                "position": {
+                    "x": 800,
+                    "y": 50
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "Hard D-PHY 1",
+                        "id": "6547c336-1d20-46d8-ae0e-389e5e5f702b",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "bank[0]",
+                        "id": "e290219a-d2fb-4b8d-8ee0-1e4cccd4b2a9",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "bank[1]",
+                        "id": "cc2c728c-bd3d-41a3-a5e6-0d29b6a1d7fb",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "bank[2]",
+                        "id": "625298f4-88a9-4316-ad49-6acbc2fad261",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "Hard D-PHY 0",
+                        "id": "e9e863ff-fa6a-4795-a092-06691ec9e9e2",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Lattice Semiconductor LIF-MD6000-6JMG80I",
+                "instanceName": "Crosslink FPGA"
+            }
+        ],
+        "connections": [
+            {
+                "id": "8a3e2883-979e-4a25-803d-574c6f404b66",
+                "from": "7edf775e-cae7-4d0e-88dd-851ea2cd9272",
+                "to": "8664cea7-6391-4651-934a-8325983a1a11"
+            },
+            {
+                "id": "1a24f8b8-95f8-4876-bfa2-c2d9eff7ce14",
+                "from": "23650d98-f9e7-4221-b37f-08e597777e2f",
+                "to": "6aa6d29e-65a6-4622-957a-d5c0dc7fc094"
+            },
+            {
+                "id": "e307962e-381b-435a-bc68-8efd41328839",
+                "from": "e68467fc-69b6-4567-9f30-b7e5706bbd9f",
+                "to": "b078c417-869e-4282-87d5-2ccff9bdc816"
+            },
+            {
+                "id": "1310888c-b81e-4f2a-ba93-1340c91345b1",
+                "from": "939c1689-d1a1-43d8-8b7c-052cc9be82a1",
+                "to": "e8385e96-dde4-4652-876e-c15bfc1d17c2"
+            },
+            {
+                "id": "89b39715-680d-438b-a2a6-5bdf440fdcd6",
+                "from": "ed1b4d85-8a35-4c55-b7b1-86e5f3fbb226",
+                "to": "cc2c728c-bd3d-41a3-a5e6-0d29b6a1d7fb"
+            },
+            {
+                "id": "27616065-13ca-4442-99af-53a833612a65",
+                "from": "a03aa35a-21dc-4355-8fa3-eae4eb337df9",
+                "to": "625298f4-88a9-4316-ad49-6acbc2fad261"
+            },
+            {
+                "id": "c11ac5ec-f94e-425c-8929-e95dc3dbcfc9",
+                "from": "e9e863ff-fa6a-4795-a092-06691ec9e9e2",
+                "to": "6d080aa9-4c67-4cda-a7da-f91b54e275e1"
+            },
+            {
+                "id": "35a49e70-cff2-4eac-b52c-937b00f89072",
+                "from": "6547c336-1d20-46d8-ae0e-389e5e5f702b",
+                "to": "dbafc8b2-b915-46e1-b613-630bbc9685b3"
+            },
+            {
+                "id": "f3b71963-a6be-4ade-89a2-a2cf702450eb",
+                "from": "e290219a-d2fb-4b8d-8ee0-1e4cccd4b2a9",
+                "to": "f532f58a-f0b9-4780-8acc-ea2f2b72ea06"
+            },
+            {
+                "id": "4ec818c1-38fb-47d2-9807-4d7f5ba13b6a",
+                "from": "e290219a-d2fb-4b8d-8ee0-1e4cccd4b2a9",
+                "to": "7c3a975f-9451-4a6d-9804-0cb031971c1a"
+            },
+            {
+                "id": "e540fdcb-f817-474e-be76-57d410cda834",
+                "from": "e290219a-d2fb-4b8d-8ee0-1e4cccd4b2a9",
+                "to": "44e73a8e-4e1a-49b2-8362-5bd0b016dcbe"
+            }
+        ]
+    },
+    "version": "20230830.11",
+    "metadata": {
+        "connectionStyle": "curved",
+        "movementStep": 50
+    }
+}

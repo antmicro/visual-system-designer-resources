@@ -6,22 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom0{
-	status = "okay";
-	current-speed = < 0x2580 >;
-	rxpo = < 0x3 >;
-	txpo = < 0x2 >;
-	pinctrl-0 = < &sercom0_uart_default >;
-	pinctrl-names = "default";
-};
-&dac0{
-	status = "disabled";
-};
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
 &sercom5{
 	status = "okay";
 	dipo = < 0x0 >;
@@ -31,23 +15,38 @@
 	pinctrl-0 = < &sercom5_spi_default >;
 	pinctrl-names = "default";
 };
-&sercom1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x3 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom1_uart_default >;
-	pinctrl-names = "default";
-};
-&sercom4{
-	status = "disabled";
-};
 &sercom3{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	rxpo = < 0x1 >;
 	txpo = < 0x0 >;
 	pinctrl-0 = < &sercom3_uart_default >;
+	pinctrl-names = "default";
+};
+&sercom0{
+	status = "okay";
+	current-speed = < 0x2580 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x2 >;
+	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-names = "default";
+};
+&tcc0{
+	status = "okay";
+	prescaler = < 0x4 >;
+	#pwm-cells = < 0x2 >;
+	pinctrl-0 = < &pwm_default >;
+	pinctrl-names = "default";
+};
+&dac0{
+	status = "disabled";
+};
+&sercom1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom1_uart_default >;
 	pinctrl-names = "default";
 };
 &sercom2{
@@ -58,10 +57,11 @@
 	pinctrl-0 = < &sercom2_i2c_default >;
 	pinctrl-names = "default";
 };
-&tcc0{
+&sercom4{
+	status = "disabled";
+};
+&usb0{
 	status = "okay";
-	prescaler = < 0x4 >;
-	#pwm-cells = < 0x2 >;
-	pinctrl-0 = < &pwm_default >;
+	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
 };

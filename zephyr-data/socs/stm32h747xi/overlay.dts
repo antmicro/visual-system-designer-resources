@@ -6,61 +6,16 @@
 		zephyr,flash = &flash1;
 	};
 };
-&quadspi{
+&lpuart1{
 	status = "disabled";
 };
-&usbotg_fs{
+&fdcan1{
 	status = "disabled";
 };
-&mac{
-	status = "disabled";
-};
-&usart2{
-	status = "disabled";
-};
-&usart3{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&i2c4{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
-};
-&uart5{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
-};
-&ltdc{
-	status = "disabled";
-};
-&spi3{
-	status = "disabled";
-};
-&adc3{
+&usbotg_hs{
 	status = "disabled";
 };
 &adc1{
-	status = "disabled";
-};
-&spi6{
-	status = "disabled";
-};
-&usart6{
 	status = "disabled";
 };
 &uart8{
@@ -69,22 +24,55 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&adc1_2{
+&quadspi{
 	status = "disabled";
 };
-&lpuart1{
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&adc1_2{
 	status = "disabled";
 };
 &adc2{
 	status = "disabled";
 };
-&dac1{
+&spi1{
 	status = "disabled";
 };
 &i2c3{
 	status = "disabled";
 };
-&fdcan2{
+&spi3{
+	status = "disabled";
+};
+&spi6{
+	status = "disabled";
+};
+&usart6{
+	status = "disabled";
+};
+&mac{
+	status = "disabled";
+};
+&dac1{
+	status = "disabled";
+};
+&usart3{
+	status = "disabled";
+};
+&spi2{
+	status = "disabled";
+};
+&uart4{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};
+&i2c4{
 	status = "disabled";
 };
 &spi5{
@@ -92,16 +80,28 @@
 	pinctrl-0 = < &spi5_nss_pk1 &spi5_sck_pk0 &spi5_miso_pj11 &spi5_mosi_pj10 >;
 	pinctrl-names = "default";
 };
-&i2c2{
-	status = "disabled";
-};
 &spi4{
 	status = "disabled";
 };
-&usbotg_hs{
+&usbotg_fs{
 	status = "disabled";
 };
-&fdcan1{
+&adc3{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&ltdc{
+	status = "disabled";
+};
+&fdcan2{
 	status = "disabled";
 };
 &uart7{

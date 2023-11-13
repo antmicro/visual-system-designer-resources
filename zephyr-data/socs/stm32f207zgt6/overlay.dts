@@ -6,40 +6,7 @@
 		zephyr,flash = &flash0;
 	};
 };
-&mac{
-	status = "okay";
-	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
-	pinctrl-names = "default";
-};
-&usart2{
-	status = "disabled";
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&spi2{
-	status = "disabled";
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
-};
 &usart1{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
-};
-&uart5{
 	status = "disabled";
 };
 &spi1{
@@ -47,6 +14,9 @@
 	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpiod 0xe 0x11 >;
+};
+&i2c3{
+	status = "disabled";
 };
 &spi3{
 	status = "disabled";
@@ -57,15 +27,9 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&adc1{
+&mac{
 	status = "okay";
-	pinctrl-0 = < &adc1_in0_pa0 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x2 >;
-};
-&i2c2{
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
 	pinctrl-names = "default";
 };
 &dac1{
@@ -73,8 +37,44 @@
 	pinctrl-0 = < &dac_out1_pa4 >;
 	pinctrl-names = "default";
 };
-&i2c3{
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&spi2{
 	status = "disabled";
+};
+&uart4{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in0_pa0 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x2 >;
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&usart2{
+	status = "disabled";
+};
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-names = "default";
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

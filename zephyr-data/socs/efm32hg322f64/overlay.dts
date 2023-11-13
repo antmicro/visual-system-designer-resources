@@ -6,13 +6,13 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioc{
-	status = "okay";
-};
-&leuart0{
+&gpioe{
 	status = "disabled";
 };
-&gpiod{
+&usart0{
+	status = "disabled";
+};
+&i2c0{
 	status = "disabled";
 };
 &usart1{
@@ -21,22 +21,22 @@
 	location-rx = < 0x4 0x0 0x0 >;
 	location-tx = < 0x4 0x5 0x2 >;
 };
-&gpioa{
+&gpioc{
 	status = "okay";
-};
-&usart0{
-	status = "disabled";
 };
 &gpiof{
 	status = "okay";
 };
+&gpiod{
+	status = "disabled";
+};
+&leuart0{
+	status = "disabled";
+};
+&gpioa{
+	status = "okay";
+};
 &gpiob{
-	status = "disabled";
-};
-&gpioe{
-	status = "disabled";
-};
-&i2c0{
 	status = "disabled";
 };
 &pinctrl{

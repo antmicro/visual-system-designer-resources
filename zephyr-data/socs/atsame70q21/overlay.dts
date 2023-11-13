@@ -6,17 +6,47 @@
 		zephyr,flash = &flash0;
 	};
 };
-&can0{
-	status = "okay";
-	pinctrl-0 = < &can0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
-};
 &afec0{
 	status = "okay";
 	pinctrl-0 = < &afec0_default >;
 	pinctrl-names = "default";
+};
+&afec1{
+	status = "okay";
+	pinctrl-0 = < &afec1_default >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "disabled";
+};
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
+};
+&uart1{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&uart0{
+	status = "disabled";
+};
+&mdio{
+	status = "okay";
+	pinctrl-0 = < &mdio_default >;
+	pinctrl-names = "default";
+};
+&can1{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&usbhs{
+	status = "okay";
 };
 &spi0{
 	status = "okay";
@@ -26,35 +56,13 @@
 	dmas = < &xdmac 0x1 0x1 >, < &xdmac 0x2 0x2 >;
 	dma-names = "tx", "rx";
 };
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
-};
-&afec1{
-	status = "okay";
-	pinctrl-0 = < &afec1_default >;
-	pinctrl-names = "default";
-};
-&usbhs{
-	status = "okay";
-};
-&spi1{
-	status = "disabled";
-};
-&twihs0{
-	status = "okay";
-	pinctrl-0 = < &twihs0_default >;
-	pinctrl-names = "default";
-};
-&usart2{
-	status = "disabled";
-};
-&uart2{
+&twihs1{
 	status = "disabled";
 };
 &uart3{
+	status = "disabled";
+};
+&usart0{
 	status = "disabled";
 };
 &gmac{
@@ -64,13 +72,7 @@
 	mac-eeprom = < &eeprom >;
 	phy-handle = < &phy >;
 };
-&usart0{
-	status = "disabled";
-};
-&can1{
-	status = "disabled";
-};
-&twihs1{
+&uart4{
 	status = "disabled";
 };
 &twihs2{
@@ -78,17 +80,15 @@
 	pinctrl-0 = < &twihs2_default >;
 	pinctrl-names = "default";
 };
-&mdio{
+&can0{
 	status = "okay";
-	pinctrl-0 = < &mdio_default >;
+	pinctrl-0 = < &can0_default >;
 	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
 };
-&uart4{
-	status = "disabled";
-};
-&uart0{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
+&twihs0{
+	status = "okay";
+	pinctrl-0 = < &twihs0_default >;
+	pinctrl-names = "default";
 };
