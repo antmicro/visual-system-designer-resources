@@ -6,52 +6,75 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart4{
+&spi4{
 	status = "disabled";
 };
-&adc1{
+&uart3{
+	status = "disabled";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&gpioi{
+	status = "okay";
+};
+&adc2{
+	status = "disabled";
+};
+&spi0{
+	status = "disabled";
+};
+&adc0{
 	status = "disabled";
 };
 &usart5{
 	status = "disabled";
 };
-&gpiob{
-	status = "okay";
-};
-&pinctrl{
-	status = "okay";
-};
-&spi0{
+&usart1{
 	status = "disabled";
 };
-&i2c2{
+&i2c1{
+	status = "disabled";
+};
+&spi3{
 	status = "disabled";
 };
 &usart2{
 	status = "disabled";
 };
-&gpioc{
-	status = "okay";
+&i2c2{
+	status = "disabled";
 };
-&uart3{
+&gpiod{
 	status = "disabled";
 };
 &spi2{
 	status = "disabled";
 };
-&gpiof{
+&gpiob{
 	status = "okay";
 };
-&usart0{
+&gpiog{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart0_default >;
+};
+&spi5{
+	status = "okay";
+	pinctrl-0 = < &spi5_default >;
 	pinctrl-names = "default";
+	cs-gpios = < &gpioi 0x8 0x1 >;
 };
-&usart1{
+&gpioh{
+	status = "disabled";
+};
+&uart6{
 	status = "disabled";
 };
 &gpioe{
+	status = "okay";
+};
+&gpioa{
 	status = "okay";
 };
 &dac{
@@ -62,52 +85,29 @@
 &spi1{
 	status = "disabled";
 };
-&gpiod{
+&adc1{
 	status = "disabled";
 };
-&gpioi{
+&usart0{
 	status = "okay";
-};
-&spi4{
-	status = "disabled";
-};
-&gpioh{
-	status = "disabled";
-};
-&spi3{
-	status = "disabled";
-};
-&gpioa{
-	status = "okay";
-};
-&spi5{
-	status = "okay";
-	pinctrl-0 = < &spi5_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpioi 0x8 0x1 >;
 };
-&adc2{
+&uart4{
 	status = "disabled";
-};
-&adc0{
-	status = "disabled";
-};
-&uart6{
-	status = "disabled";
-};
-&gpiog{
-	status = "okay";
 };
 &uart7{
 	status = "disabled";
 };
-&i2c0{
+&gpioc{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
 };
-&i2c1{
-	status = "disabled";
+&gpiof{
+	status = "okay";
+};
+&pinctrl{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

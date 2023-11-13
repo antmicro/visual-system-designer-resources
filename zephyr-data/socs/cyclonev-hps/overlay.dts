@@ -4,13 +4,22 @@
 		zephyr,console = &uart0;
 	};
 };
+&gpio2{
+	status = "okay";
+};
+&i2c3{
+	status = "disabled";
+};
 &gpio1{
 	status = "okay";
 };
-&usb0{
-	status = "disabled";
+&spi0{
+	status = "okay";
 };
 &i2c2{
+	status = "disabled";
+};
+&usb0{
 	status = "disabled";
 };
 &gpio0{
@@ -20,27 +29,18 @@
 	status = "okay";
 	local-mac-address = [ E6 88 2D 82 1F D4 ];
 };
-&gpio2{
-	status = "okay";
-};
-&i2c3{
+&i2c1{
 	status = "disabled";
-};
-&gmac0{
-	status = "disabled";
-};
-&usb1{
-	status = "okay";
-};
-&spi0{
-	status = "okay";
 };
 &i2c0{
 	status = "okay";
 };
-&spi1{
+&usb1{
+	status = "okay";
+};
+&gmac0{
 	status = "disabled";
 };
-&i2c1{
+&spi1{
 	status = "disabled";
 };

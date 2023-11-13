@@ -6,57 +6,25 @@
 		zephyr,flash = &flash0;
 	};
 };
-&afec0{
-	status = "okay";
-	pinctrl-0 = < &afec0_default >;
-	pinctrl-names = "default";
-};
-&afec1{
+&usart0{
 	status = "disabled";
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &pioc 0x19 0x1 >;
+&uart4{
+	status = "disabled";
 };
 &usart1{
 	status = "disabled";
 };
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-names = "default";
-};
-&uart2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart2_default >;
-	pinctrl-names = "default";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&mdio{
-	status = "okay";
-	pinctrl-0 = < &mdio_default >;
-	pinctrl-names = "default";
-};
-&can1{
-	status = "disabled";
-};
-&usart2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart2_default >;
-	pinctrl-names = "default";
-};
 &usbhs{
 	status = "okay";
+};
+&twihs0{
+	status = "okay";
+	pinctrl-0 = < &twihs0_default >;
+	pinctrl-names = "default";
+};
+&afec1{
+	status = "disabled";
 };
 &spi0{
 	status = "okay";
@@ -66,33 +34,65 @@
 	dma-names = "tx", "rx";
 	cs-gpios = < &pioa 0x1f 0x1 >, < &pioc 0x1f 0x1 >;
 };
-&twihs1{
+&can1{
+	status = "disabled";
+};
+&uart2{
 	status = "okay";
-	pinctrl-0 = < &twihs1_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
+};
+&usart2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart2_default >;
 	pinctrl-names = "default";
 };
 &uart3{
 	status = "disabled";
 };
-&usart0{
-	status = "disabled";
-};
-&gmac{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
+&twihs1{
+	status = "okay";
+	pinctrl-0 = < &twihs1_default >;
+	pinctrl-names = "default";
 };
 &twihs2{
 	status = "okay";
 	pinctrl-0 = < &twihs2_default >;
 	pinctrl-names = "default";
 };
-&can0{
+&afec0{
+	status = "okay";
+	pinctrl-0 = < &afec0_default >;
+	pinctrl-names = "default";
+};
+&gmac{
 	status = "disabled";
 };
-&twihs0{
+&mdio{
 	status = "okay";
-	pinctrl-0 = < &twihs0_default >;
+	pinctrl-0 = < &mdio_default >;
 	pinctrl-names = "default";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &pioc 0x19 0x1 >;
+};
+&can0{
+	status = "disabled";
 };

@@ -6,105 +6,37 @@
 		zephyr,flash = &flash0;
 	};
 };
-&lpuart1{
-	status = "disabled";
-};
-&fdcan1{
-	status = "okay";
-	pinctrl-0 = < &fdcan1_rx_pa11 &fdcan1_tx_pa12 >;
-	pinctrl-names = "default";
-	phys = < &transceiver0 >;
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
-};
-&usbotg_hs{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
-&uart8{
-	status = "disabled";
-};
-&quadspi{
-	status = "disabled";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&adc1_2{
-	status = "disabled";
-};
-&adc2{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
-};
-&i2c3{
-	status = "disabled";
-};
-&octospi1{
-	status = "okay";
-	pinctrl-0 = < &octospim_p1_clk_pb2 &octospim_p1_ncs_pg6 &octospim_p1_io0_pd11 &octospim_p1_io1_pf9 &octospim_p1_io2_pf7 &octospim_p1_io3_pf6 &octospim_p1_io4_pc1 &octospim_p1_io5_ph3 &octospim_p1_io6_pg9 &octospim_p1_io7_pd7 &octospim_p1_dqs_pc5 >;
-	pinctrl-names = "default";
-};
-&spi3{
-	status = "disabled";
-};
-&spi6{
-	status = "disabled";
-};
-&usart6{
-	status = "disabled";
-};
-&mac{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
-&usart3{
-	status = "disabled";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_sck_pa12 &spi2_miso_pb14 &spi2_mosi_pb15 &spi2_nss_pi0 >;
-	pinctrl-names = "default";
-};
-&octospi2{
-	status = "disabled";
-};
 &uart4{
 	status = "okay";
 	pinctrl-0 = < &uart4_tx_ph13 &uart4_rx_ph14 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&uart5{
-	status = "disabled";
-};
-&i2c4{
-	status = "okay";
-	pinctrl-0 = < &i2c4_scl_pd12 &i2c4_sda_pd13 >;
-	pinctrl-names = "default";
-};
-&spi5{
-	status = "disabled";
-};
-&spi4{
+&lpuart1{
 	status = "disabled";
 };
 &i2c1{
 	status = "disabled";
 };
-&usart2{
+&usart3{
+	status = "disabled";
+};
+&spi6{
+	status = "disabled";
+};
+&spi1{
 	status = "disabled";
 };
 &i2c2{
+	status = "disabled";
+};
+&spi4{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&mac{
 	status = "disabled";
 };
 &ltdc{
@@ -121,10 +53,78 @@
 	def-back-color-green = < 0xff >;
 	def-back-color-blue = < 0xff >;
 };
+&i2c3{
+	status = "disabled";
+};
+&fdcan1{
+	status = "okay";
+	pinctrl-0 = < &fdcan1_rx_pa11 &fdcan1_tx_pa12 >;
+	pinctrl-names = "default";
+	phys = < &transceiver0 >;
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&usbotg_hs{
+	status = "disabled";
+};
+&spi3{
+	status = "disabled";
+};
+&i2c4{
+	status = "okay";
+	pinctrl-0 = < &i2c4_scl_pd12 &i2c4_sda_pd13 >;
+	pinctrl-names = "default";
+};
+&uart7{
+	status = "disabled";
+};
+&dac1{
+	status = "disabled";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pa12 &spi2_miso_pb14 &spi2_mosi_pb15 &spi2_nss_pi0 >;
+	pinctrl-names = "default";
+};
+&usart6{
+	status = "disabled";
+};
+&octospi1{
+	status = "okay";
+	pinctrl-0 = < &octospim_p1_clk_pb2 &octospim_p1_ncs_pg6 &octospim_p1_io0_pd11 &octospim_p1_io1_pf9 &octospim_p1_io2_pf7 &octospim_p1_io3_pf6 &octospim_p1_io4_pc1 &octospim_p1_io5_ph3 &octospim_p1_io6_pg9 &octospim_p1_io7_pd7 &octospim_p1_dqs_pc5 >;
+	pinctrl-names = "default";
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&uart5{
+	status = "disabled";
+};
 &fdcan2{
 	status = "disabled";
 };
-&uart7{
+&quadspi{
+	status = "disabled";
+};
+&adc1_2{
+	status = "disabled";
+};
+&usart2{
+	status = "disabled";
+};
+&adc2{
+	status = "disabled";
+};
+&octospi2{
+	status = "disabled";
+};
+&uart8{
+	status = "disabled";
+};
+&spi5{
 	status = "disabled";
 };
 &pinctrl{

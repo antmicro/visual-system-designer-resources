@@ -6,48 +6,13 @@
 		zephyr,flash = &flash0;
 	};
 };
-&pinctrl{
-	status = "okay";
-};
-&mdio{
+&uart1{
 	status = "disabled";
-};
-&spi3{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim3_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpio0 0x12 0x1 >;
 };
 &spi2{
 	status = "disabled";
 };
 &i2c1{
-	status = "disabled";
-};
-&eth{
-	status = "disabled";
-};
-&i2c0{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	sda-gpios = < &gpio0 0x4 0x6 >;
-	scl-gpios = < &gpio0 0xf 0x6 >;
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&flash0{
-	reg = < 0x0 0x800000 >;
-	status = "okay";
-};
-&twai{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
-&uart2{
 	status = "disabled";
 };
 &gpio0{
@@ -59,13 +24,48 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&dac{
+&pinctrl{
+	status = "okay";
+};
+&eth{
 	status = "disabled";
+};
+&mdio{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&flash0{
+	reg = < 0x0 0x800000 >;
+	status = "okay";
 };
 &adc0{
 	status = "disabled";
 };
-&uart1{
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	sda-gpios = < &gpio0 0x4 0x6 >;
+	scl-gpios = < &gpio0 0xf 0x6 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&spi3{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpio0 0x12 0x1 >;
+};
+&dac{
+	status = "disabled";
+};
+&adc1{
+	status = "disabled";
+};
+&twai{
 	status = "disabled";
 };
 &gpio1{

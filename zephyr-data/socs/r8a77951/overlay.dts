@@ -11,14 +11,22 @@
 	pinctrl-0 = < &scif2_data_a_tx_default &scif2_data_a_rx_default >;
 	pinctrl-names = "default";
 };
-&gpio6{
-	status = "okay";
+&pwm0{
+	status = "disabled";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
 };
 &can0{
 	status = "okay";
 	pinctrl-0 = < &can0_data_a_tx_default &can0_data_a_rx_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
+};
+&gpio5{
+	status = "disabled";
+};
+&i2c2{
+	status = "okay";
 };
 &scif1{
 	status = "okay";
@@ -28,15 +36,7 @@
 &i2c4{
 	status = "okay";
 };
-&pwm0{
-	status = "disabled";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-names = "default";
-};
-&gpio5{
-	status = "disabled";
-};
-&i2c2{
+&gpio6{
 	status = "okay";
 };
 &pfc{

@@ -6,10 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac_out1_pa4 >;
-	pinctrl-names = "default";
+&usart4{
+	status = "disabled";
 };
 &usart1{
 	status = "okay";
@@ -17,13 +15,29 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&lpuart1{
+	status = "disabled";
+};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 };
-&lpuart1{
+&i2c3{
 	status = "disabled";
+};
+&i2c2{
+	status = "disabled";
+};
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac_out1_pa4 >;
+	pinctrl-names = "default";
 };
 &spi2{
 	status = "okay";
@@ -31,7 +45,7 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0xc 0x1 >;
 };
-&usart4{
+&usb{
 	status = "disabled";
 };
 &usart5{
@@ -44,25 +58,11 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&usb{
-	status = "disabled";
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
-&i2c2{
-	status = "disabled";
-};
-&i2c3{
-	status = "disabled";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

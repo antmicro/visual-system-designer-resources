@@ -6,34 +6,34 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart4{
-	status = "disabled";
-};
-&gpiod{
-	status = "disabled";
-};
-&gpioe{
-	status = "disabled";
-};
-&adc1{
+&uart3{
 	status = "disabled";
 };
 &spi0{
 	status = "disabled";
 };
+&pinctrl{
+	status = "okay";
+};
+&usart1{
+	status = "disabled";
+};
+&gpiof{
+	status = "okay";
+};
 &usart2{
+	status = "disabled";
+};
+&gpioc{
+	status = "okay";
+};
+&spi2{
 	status = "disabled";
 };
 &gpiob{
 	status = "disabled";
 };
-&uart3{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&usart1{
+&spi1{
 	status = "disabled";
 };
 &usart0{
@@ -42,13 +42,16 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&spi1{
+&uart4{
 	status = "disabled";
 };
-&adc2{
+&gpiod{
 	status = "disabled";
 };
-&gpiog{
+&gpioa{
+	status = "okay";
+};
+&adc1{
 	status = "disabled";
 };
 &adc0{
@@ -56,17 +59,14 @@
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&pinctrl{
-	status = "okay";
+&gpiog{
+	status = "disabled";
 };
-&gpioa{
-	status = "okay";
+&adc2{
+	status = "disabled";
 };
-&gpiof{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
+&gpioe{
+	status = "disabled";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-afio";

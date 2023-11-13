@@ -5,19 +5,40 @@
 		zephyr,flash = &flash0;
 	};
 };
-&shi0{
+&i2c7_0{
 	status = "disabled";
 };
-&pwm4{
+&i2c4_1{
+	status = "disabled";
+};
+&pwm0{
+	status = "disabled";
+};
+&tach2{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&i2c5_0{
+	status = "disabled";
+};
+&shi0{
 	status = "disabled";
 };
 &uart4{
 	status = "disabled";
 };
-&uart3{
+&pwm1{
 	status = "disabled";
 };
-&i2c7_0{
+&pwm5{
+	status = "disabled";
+};
+&i2c6_0{
+	status = "disabled";
+};
+&pwm3{
 	status = "disabled";
 };
 &uart1{
@@ -26,25 +47,46 @@
 	pinctrl-0 = < &uart1_2_sin_gp64 &uart1_2_sout_gp65 >;
 	pinctrl-names = "default";
 };
-&i2c3_0{
-	status = "disabled";
+&tach1{
+	status = "okay";
+	pinctrl-0 = < &ta1_1_in_gp40 >;
+	pinctrl-names = "default";
+	port = < 0x0 >;
+	sample-clk = < 0x8000 >;
+	pulses-per-round = < 0x1 >;
 };
 &pwm7{
 	status = "disabled";
 };
-&i2c5_0{
+&i2c5_1{
 	status = "disabled";
+};
+&i2c1_0{
+	status = "disabled";
+};
+&i2c6_1{
+	status = "disabled";
+};
+&pwm4{
+	status = "disabled";
+};
+&pwm6{
+	status = "okay";
+	pinctrl-0 = < &pwm6_gpc0 >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_chan0_gp45 &adc0_chan2_gp43 >;
+	pinctrl-names = "default";
+};
+&uart3{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
 };
 &pwm2{
-	status = "disabled";
-};
-&pwm5{
-	status = "disabled";
-};
-&tach2{
-	status = "disabled";
-};
-&i2c5_1{
 	status = "disabled";
 };
 &i2c0_0{
@@ -52,23 +94,6 @@
 	pinctrl-0 = < &i2c0_0_sda_scl_gpb4_b5 >;
 	pinctrl-names = "default";
 	clock-frequency = < 0x61a80 >;
-};
-&pwm6{
-	status = "okay";
-	pinctrl-0 = < &pwm6_gpc0 >;
-	pinctrl-names = "default";
-};
-&pwm3{
-	status = "disabled";
-};
-&pinctrl{
-	status = "okay";
-};
-&uart2{
-	status = "disabled";
-};
-&i2c4_1{
-	status = "disabled";
 };
 &i2c2_0{
 	status = "disabled";
@@ -78,34 +103,9 @@
 	pinctrl-0 = < &espi_lpc_gp46_47_51_52_53_54_55_57 >;
 	pinctrl-names = "default";
 };
-&i2c6_1{
-	status = "disabled";
-};
-&pwm1{
-	status = "disabled";
-};
-&pwm0{
-	status = "disabled";
-};
 &qspi_fiu0{
 	status = "okay";
 };
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_chan0_gp45 &adc0_chan2_gp43 >;
-	pinctrl-names = "default";
-};
-&i2c1_0{
+&i2c3_0{
 	status = "disabled";
-};
-&i2c6_0{
-	status = "disabled";
-};
-&tach1{
-	status = "okay";
-	pinctrl-0 = < &ta1_1_in_gp40 >;
-	pinctrl-names = "default";
-	port = < 0x0 >;
-	sample-clk = < 0x8000 >;
-	pulses-per-round = < 0x1 >;
 };

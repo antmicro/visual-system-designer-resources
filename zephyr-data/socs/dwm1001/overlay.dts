@@ -6,6 +6,21 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpio0{
+	status = "okay";
+};
+&adc{
+	status = "okay";
+};
+&qdec{
+	status = "disabled";
+};
+&pwm2{
+	status = "disabled";
+};
+&i2s0{
+	status = "disabled";
+};
 &spi2{
 	status = "okay";
 	cs-gpios = < &gpio0 0x11 0x1 >;
@@ -13,7 +28,13 @@
 	pinctrl-1 = < &spi2_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pdm0{
+&radio{
+	status = "okay";
+};
+&i2c1{
+	status = "disabled";
+};
+&spi0{
 	status = "disabled";
 };
 &spi1{
@@ -29,38 +50,14 @@
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&qdec{
-	status = "disabled";
-};
-&radio{
-	status = "okay";
-};
-&spi0{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&pwm2{
-	status = "disabled";
-};
 &nfct{
 	status = "okay";
 };
-&gpio0{
-	status = "okay";
+&pdm0{
+	status = "disabled";
 };
 &pwm1{
 	status = "disabled";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&adc{
-	status = "okay";
 };
 &uart0{
 	status = "okay";
@@ -69,8 +66,11 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&i2s0{
-	status = "disabled";
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

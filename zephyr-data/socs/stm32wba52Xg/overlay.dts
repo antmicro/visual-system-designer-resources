@@ -12,7 +12,15 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c3{
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb2 &i2c1_sda_pb1 >;
+	pinctrl-names = "default";
+};
+&usart2{
+	status = "disabled";
+};
+&spi3{
 	status = "disabled";
 };
 &spi1{
@@ -26,15 +34,7 @@
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x4 >;
 };
-&spi3{
-	status = "disabled";
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb2 &i2c1_sda_pb1 >;
-	pinctrl-names = "default";
-};
-&usart2{
+&i2c3{
 	status = "disabled";
 };
 &lpuart1{

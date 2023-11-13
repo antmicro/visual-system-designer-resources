@@ -9,6 +9,11 @@
 &usart1{
 	status = "disabled";
 };
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
 &adc1{
 	status = "okay";
 	pinctrl-0 = < &adc_in0_pa0 >;
@@ -16,31 +21,26 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0xb 0x11 >;
-};
-&usb{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&can1{
-	status = "disabled";
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa15 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c1{
+&spi2{
+	status = "disabled";
+};
+&spi1{
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
 	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0xb 0x11 >;
+};
+&can1{
+	status = "disabled";
+};
+&usb{
+	status = "disabled";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

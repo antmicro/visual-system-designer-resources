@@ -6,8 +6,13 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom5{
-	status = "disabled";
+&sercom4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom4_uart_default >;
+	pinctrl-names = "default";
 };
 &sercom3{
 	status = "okay";
@@ -16,6 +21,9 @@
 	txpo = < 0x1 >;
 	pinctrl-0 = < &sercom3_uart_default >;
 	pinctrl-names = "default";
+};
+&dac0{
+	status = "disabled";
 };
 &sercom0{
 	status = "okay";
@@ -27,7 +35,7 @@
 	pinctrl-0 = < &sercom0_spi_default >;
 	pinctrl-names = "default";
 };
-&dac0{
+&sercom5{
 	status = "disabled";
 };
 &sercom1{
@@ -39,14 +47,6 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom2_i2c_default >;
-	pinctrl-names = "default";
-};
-&sercom4{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom4_uart_default >;
 	pinctrl-names = "default";
 };
 &adc{

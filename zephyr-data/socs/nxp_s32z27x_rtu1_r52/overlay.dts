@@ -5,40 +5,13 @@
 		zephyr,sram = &sram1;
 	};
 };
-&enetc_vsi2{
+&uart2{
 	status = "disabled";
 };
-&gpiok{
-	status = "disabled";
-};
-&gpioh{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&uart1{
+&gpioe{
 	status = "disabled";
 };
 &spi9{
-	status = "disabled";
-};
-&can0{
-	status = "okay";
-	pinctrl-0 = < &can0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&uart11{
-	status = "disabled";
-};
-&enetc_vsi3{
-	status = "disabled";
-};
-&gpioa{
 	status = "disabled";
 };
 &uart0{
@@ -46,7 +19,21 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&gpiom{
+&uart9{
+	status = "disabled";
+};
+&emdio{
+	status = "okay";
+	pinctrl-0 = < &emdio_default >;
+	pinctrl-names = "default";
+};
+&enetc_vsi4{
+	status = "disabled";
+};
+&spi4{
+	status = "disabled";
+};
+&enetc_vsi1{
 	status = "disabled";
 };
 &enetc_vsi5{
@@ -55,90 +42,40 @@
 &enetc_vsi7{
 	status = "disabled";
 };
-&spi6{
+&uart6{
 	status = "disabled";
 };
-&pinctrl{
-	status = "okay";
-};
-&spi1{
+&uart11{
 	status = "disabled";
 };
-&spi5{
-	status = "disabled";
-};
-&emdio{
-	status = "okay";
-	pinctrl-0 = < &emdio_default >;
-	pinctrl-names = "default";
-};
-&gpiog{
-	status = "disabled";
-};
-&gpiod{
-	status = "disabled";
-};
-&spi0{
-	status = "disabled";
-};
-&spi7{
-	status = "disabled";
-};
-&enetc_vsi4{
-	status = "disabled";
-};
-&spi4{
-	status = "disabled";
-};
-&can1{
-	status = "disabled";
-	pinctrl-0 = < &can1_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&uart5{
-	status = "disabled";
-};
-&gpioe{
-	status = "disabled";
-};
-&gpiof{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
-};
-&uart2{
-	status = "disabled";
-};
-&uart12{
-	status = "disabled";
-};
-&uart7{
-	status = "disabled";
-};
-&uart10{
+&uart8{
 	status = "disabled";
 };
 &gpioo{
 	status = "disabled";
 };
-&uart9{
+&spi2{
 	status = "disabled";
 };
-&gpioj{
+&spi3{
 	status = "disabled";
 };
-&gpioi{
+&uart4{
 	status = "disabled";
 };
-&spi8{
+&gpiok{
 	status = "disabled";
 };
-&gpion{
+&spi1{
+	status = "disabled";
+};
+&gpiog{
+	status = "disabled";
+};
+&uart10{
+	status = "disabled";
+};
+&enetc_vsi6{
 	status = "disabled";
 };
 &enetc_psi0{
@@ -151,30 +88,93 @@
 	mboxes = < &mru4 0x0 >;
 	mbox-names = "rx";
 };
-&uart8{
+&gpioj{
 	status = "disabled";
 };
-&gpioc{
+&gpion{
 	status = "disabled";
 };
-&enetc_vsi6{
+&gpiod{
+	status = "disabled";
+};
+&gpioi{
 	status = "disabled";
 };
 &gpiol{
 	status = "disabled";
 };
-&uart6{
+&uart12{
+	status = "disabled";
+};
+&spi0{
+	status = "disabled";
+};
+&gpioc{
+	status = "disabled";
+};
+&uart5{
+	status = "disabled";
+};
+&can1{
+	status = "disabled";
+	pinctrl-0 = < &can1_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
+&gpiof{
 	status = "disabled";
 };
 &uart3{
 	status = "disabled";
 };
+&gpioa{
+	status = "disabled";
+};
+&spi7{
+	status = "disabled";
+};
+&gpioh{
+	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
+};
+&spi6{
+	status = "disabled";
+};
+&uart1{
+	status = "disabled";
+};
+&gpiom{
+	status = "disabled";
+};
+&can0{
+	status = "okay";
+	pinctrl-0 = < &can0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
 &gpiob{
 	status = "disabled";
 };
-&enetc_vsi1{
+&spi5{
 	status = "disabled";
 };
-&spi3{
+&enetc_vsi2{
+	status = "disabled";
+};
+&enetc_vsi3{
+	status = "disabled";
+};
+&uart7{
+	status = "disabled";
+};
+&spi8{
 	status = "disabled";
 };

@@ -6,25 +6,13 @@
 		zephyr,flash = &flash1;
 	};
 };
-&uart1{
-	status = "disabled";
-};
-&gpioa3{
+&gpioa0{
 	status = "okay";
 };
 &gpioa1{
 	status = "okay";
 };
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&gpioa0{
-	status = "okay";
-};
-&adc0{
+&gpioa3{
 	status = "okay";
 };
 &i2c0{
@@ -34,6 +22,18 @@
 };
 &gpioa2{
 	status = "okay";
+};
+&adc0{
+	status = "okay";
+};
+&uart1{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "ti,cc32xx-pinctrl";

@@ -6,6 +6,14 @@
 		zephyr,flash = &flash1;
 	};
 };
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+};
 &uart1{
 	status = "disabled";
 };
@@ -13,14 +21,6 @@
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&adc0{
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
 &pinctrl{

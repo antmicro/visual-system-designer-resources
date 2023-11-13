@@ -5,69 +5,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi1{
-	status = "disabled";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&i2c3{
-	status = "disabled";
-};
-&spi0{
-	status = "disabled";
-};
-&pwm3{
-	status = "disabled";
-};
-&pwm1{
-	status = "disabled";
-};
-&uart2{
-	status = "disabled";
-};
-&adc{
-	status = "okay";
-};
-&i2c1{
-	status = "disabled";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-1 = < &uart0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&i2s0{
-	status = "disabled";
-};
-&uart3{
-	status = "disabled";
-};
-&i2c0{
-	status = "disabled";
-};
-&pwm2{
-	status = "disabled";
-};
 &pdm0{
 	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&gpio0{
-	status = "okay";
-};
-&i2c2{
-	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
-	pinctrl-1 = < &i2c2_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &spi3{
 	status = "okay";
@@ -82,6 +21,67 @@
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&pwm1{
+	status = "disabled";
+};
+&spi0{
+	status = "disabled";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi2{
+	status = "disabled";
+};
+&i2s0{
+	status = "disabled";
+};
+&i2c3{
+	status = "disabled";
+};
+&i2c1{
+	status = "disabled";
+};
+&adc{
+	status = "okay";
+};
+&uart3{
+	status = "disabled";
+};
+&pwm3{
+	status = "disabled";
+};
+&uart2{
+	status = "disabled";
+};
+&i2c0{
+	status = "disabled";
+};
+&pwm2{
+	status = "disabled";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi1{
+	status = "disabled";
+};
+&gpio0{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

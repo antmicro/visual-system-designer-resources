@@ -6,32 +6,23 @@
 		zephyr,flash = &flash0;
 	};
 };
-&pwm3{
-	status = "disabled";
-};
 &i2c0{
 	status = "okay";
 	pinctrl-0 = < &i2c0_scl_default &i2c0_sda_default >;
 	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm2{
+&spi1{
 	status = "disabled";
 };
-&pwm1{
+&pwm0{
 	status = "disabled";
 };
 &radio{
 	status = "okay";
 };
-&uart1{
-	status = "disabled";
-};
-&gpio0{
+&adc0{
 	status = "okay";
-};
-&pwm0{
-	status = "disabled";
 };
 &spi0{
 	status = "okay";
@@ -39,7 +30,13 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpio0 0xb 0x1 >;
 };
-&adc0{
+&pwm2{
+	status = "disabled";
+};
+&pwm3{
+	status = "disabled";
+};
+&gpio0{
 	status = "okay";
 };
 &uart0{
@@ -48,6 +45,9 @@
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
 	pinctrl-names = "default";
 };
-&spi1{
+&uart1{
+	status = "disabled";
+};
+&pwm1{
 	status = "disabled";
 };

@@ -6,58 +6,15 @@
 		zephyr,flash = &flash0;
 	};
 };
-&lpuart4{
+&flexcan2{
 	status = "disabled";
-};
-&lpuart6{
-	status = "disabled";
-};
-&lpi2c1{
-	status = "disabled";
-	pinctrl-0 = < &lpi2c1_default >;
+	pinctrl-0 = < &flexcan2_default >;
 	pinctrl-names = "default";
-	clock-frequency = < 0x186a0 >;
-};
-&adc2{
-	status = "disabled";
-};
-&lpspi5{
-	status = "disabled";
-	pinctrl-0 = < &lpspi5_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
-};
-&lpspi4{
-	status = "disabled";
-	pinctrl-0 = < &lpspi4_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
-};
-&lpuart1{
-	status = "disabled";
-	pinctrl-0 = < &lpuart1_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x2 0x27 >, < &edma0 0x3 0x28 >;
-	dma-names = "tx", "rx";
-};
-&flexcan5{
-	status = "disabled";
-	pinctrl-0 = < &flexcan5_default >;
-	pinctrl-names = "default";
-	phys = < &can_phy5 >;
+	phys = < &can_phy2 >;
 	bus-speed = < 0x1e848 >;
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
-};
-&lpuart15{
-	status = "disabled";
-};
-&lpuart12{
-	status = "disabled";
-};
-&gpiod_l{
-	status = "okay";
 };
 &lpuart10{
 	status = "disabled";
@@ -66,8 +23,112 @@
 	dmas = < &edma0 0x12 0x26 >, < &edma0 0x13 0x27 >;
 	dma-names = "tx", "rx";
 };
+&lpuart8{
+	status = "disabled";
+};
+&lpuart4{
+	status = "disabled";
+};
+&adc2{
+	status = "disabled";
+};
+&lpspi1{
+	status = "disabled";
+	pinctrl-0 = < &lpspi1_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
+&lpuart5{
+	status = "disabled";
+};
+&flash0{
+	status = "disabled";
+};
+&lpi2c1{
+	status = "disabled";
+	pinctrl-0 = < &lpi2c1_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x186a0 >;
+};
+&lpuart7{
+	status = "disabled";
+};
+&emac0{
+	pinctrl-0 = < &emac0_default >;
+	pinctrl-names = "default";
+	phy-connection-type = "rmii";
+	local-mac-address = [ 02 04 9F AA BB CC ];
+	status = "okay";
+};
+&gpioe_l{
+	status = "okay";
+};
+&lpuart9{
+	status = "disabled";
+	pinctrl-0 = < &lpuart9_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x4 0x27 >, < &edma0 0x5 0x28 >;
+	dma-names = "tx", "rx";
+};
+&lpspi4{
+	status = "disabled";
+	pinctrl-0 = < &lpspi4_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
+&lpuart6{
+	status = "disabled";
+};
+&lpspi5{
+	status = "disabled";
+	pinctrl-0 = < &lpspi5_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
+&gpioe_h{
+	status = "okay";
+};
+&flexcan3{
+	status = "disabled";
+	pinctrl-0 = < &flexcan3_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy3 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
+&lpuart1{
+	status = "disabled";
+	pinctrl-0 = < &lpuart1_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x2 0x27 >, < &edma0 0x3 0x28 >;
+	dma-names = "tx", "rx";
+};
+&lpuart0{
+	status = "disabled";
+	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x0 0x25 >, < &edma0 0x1 0x26 >;
+	dma-names = "tx", "rx";
+};
+&gpiog_h{
+	status = "disabled";
+};
+&gpiog_l{
+	status = "disabled";
+};
+&lpspi3{
+	status = "okay";
+	pinctrl-0 = < &lpspi3_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
 &gpiod_h{
 	status = "okay";
+};
+&lpuart12{
+	status = "disabled";
 };
 &qspi0{
 	status = "okay";
@@ -80,41 +141,16 @@
 	ahb-buffers-sizes = < 0x0 0x0 0x0 0x100 >;
 	ahb-buffers-all-masters;
 };
-&lpspi0{
-	status = "disabled";
-};
 &gpiob_l{
 	status = "okay";
 };
-&lpuart13{
-	status = "disabled";
-	pinctrl-0 = < &lpuart13_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x14 0x2c >, < &edma0 0x15 0x2d >;
-	dma-names = "tx", "rx";
-};
-&adc0{
+&adc1{
 	status = "disabled";
 };
-&gpioa_l{
-	status = "disabled";
-};
-&gpiof_h{
-	status = "disabled";
-};
-&gpioa_h{
+&gpiod_l{
 	status = "okay";
 };
-&gpioe_l{
-	status = "okay";
-};
-&pinctrl{
-	status = "okay";
-};
-&flash0{
-	status = "disabled";
-};
-&lpuart3{
+&gpiob_h{
 	status = "disabled";
 };
 &flexcan0{
@@ -127,20 +163,7 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
-&flexcan4{
-	status = "disabled";
-	pinctrl-0 = < &flexcan4_default >;
-	pinctrl-names = "default";
-	phys = < &can_phy4 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&adc1{
-	status = "disabled";
-};
-&gpiof_l{
+&gpioc_l{
 	status = "disabled";
 };
 &lpuart2{
@@ -151,27 +174,37 @@
 	dmas = < &edma0 0x10 0x26 >, < &edma0 0x11 0x27 >;
 	dma-names = "tx", "rx";
 };
-&lpuart11{
+&gpiof_l{
 	status = "disabled";
 };
-&lpspi1{
+&gpiof_h{
 	status = "disabled";
-	pinctrl-0 = < &lpspi1_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
 };
-&emac0{
-	pinctrl-0 = < &emac0_default >;
+&lpuart14{
+	status = "disabled";
+	pinctrl-0 = < &lpuart14_default >;
 	pinctrl-names = "default";
-	phy-connection-type = "rmii";
-	local-mac-address = [ 02 04 9F AA BB CC ];
-	status = "okay";
+	dmas = < &edma0 0x16 0x2e >, < &edma0 0x17 0x2f >;
+	dma-names = "tx", "rx";
 };
-&gpioe_h{
-	status = "okay";
+&flexcan5{
+	status = "disabled";
+	pinctrl-0 = < &flexcan5_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy5 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
+&lpspi0{
+	status = "disabled";
 };
 &gpioc_h{
 	status = "okay";
+};
+&lpuart3{
+	status = "disabled";
 };
 &flexcan1{
 	status = "disabled";
@@ -183,46 +216,7 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
-&gpiog_l{
-	status = "disabled";
-};
-&flexcan2{
-	status = "disabled";
-	pinctrl-0 = < &flexcan2_default >;
-	pinctrl-names = "default";
-	phys = < &can_phy2 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&gpioc_l{
-	status = "disabled";
-};
-&lpuart5{
-	status = "disabled";
-};
-&gpiog_h{
-	status = "disabled";
-};
-&lpuart8{
-	status = "disabled";
-};
-&lpuart14{
-	status = "disabled";
-	pinctrl-0 = < &lpuart14_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x16 0x2e >, < &edma0 0x17 0x2f >;
-	dma-names = "tx", "rx";
-};
-&lpuart0{
-	status = "disabled";
-	pinctrl-0 = < &lpuart0_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x0 0x25 >, < &edma0 0x1 0x26 >;
-	dma-names = "tx", "rx";
-};
-&gpiob_h{
+&lpuart11{
 	status = "disabled";
 };
 &lpi2c0{
@@ -231,15 +225,18 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0x186a0 >;
 };
-&flexcan3{
+&flexcan4{
 	status = "disabled";
-	pinctrl-0 = < &flexcan3_default >;
+	pinctrl-0 = < &flexcan4_default >;
 	pinctrl-names = "default";
-	phys = < &can_phy3 >;
+	phys = < &can_phy4 >;
 	bus-speed = < 0x1e848 >;
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
+};
+&adc0{
+	status = "disabled";
 };
 &lpspi2{
 	status = "disabled";
@@ -247,19 +244,22 @@
 	pinctrl-names = "default";
 	data-pin-config = "sdo-in,sdi-out";
 };
-&lpuart9{
+&lpuart13{
 	status = "disabled";
-	pinctrl-0 = < &lpuart9_default >;
+	pinctrl-0 = < &lpuart13_default >;
 	pinctrl-names = "default";
-	dmas = < &edma0 0x4 0x27 >, < &edma0 0x5 0x28 >;
+	dmas = < &edma0 0x14 0x2c >, < &edma0 0x15 0x2d >;
 	dma-names = "tx", "rx";
 };
-&lpuart7{
+&gpioa_h{
+	status = "okay";
+};
+&lpuart15{
 	status = "disabled";
 };
-&lpspi3{
+&gpioa_l{
+	status = "disabled";
+};
+&pinctrl{
 	status = "okay";
-	pinctrl-0 = < &lpspi3_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
 };

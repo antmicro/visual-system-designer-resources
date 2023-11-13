@@ -6,21 +6,36 @@
 		zephyr,flash = &m4_flash;
 	};
 };
+&tpm0{
+	status = "disabled";
+};
+&lpuart3{
+	status = "disabled";
+};
+&lpuart2{
+	status = "disabled";
+};
+&lpspi2{
+	status = "disabled";
+};
+&tpm1{
+	status = "disabled";
+};
+&lpi2c0{
+	status = "okay";
+	pinctrl-0 = < &lpi2c0_default >;
+	pinctrl-names = "default";
+};
 &lpuart1{
 	status = "disabled";
 	pinctrl-0 = < &lpuart1_default >;
 	pinctrl-names = "default";
 };
-&lpuart2{
-	status = "disabled";
-};
-&lpspi0{
+&lpuart0{
 	status = "okay";
-	pinctrl-0 = < &lpspi0_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &lpuart0_default >;
 	pinctrl-names = "default";
-};
-&pinctrl{
-	status = "okay";
 };
 &tpm2{
 	status = "okay";
@@ -30,21 +45,13 @@
 &lpspi3{
 	status = "disabled";
 };
+&lpi2c2{
+	status = "disabled";
+};
 &lpspi1{
 	status = "okay";
 	cs-gpios = < &gpiob 0x16 0x1 >;
 	pinctrl-0 = < &lpspi1_default >;
-	pinctrl-names = "default";
-};
-&tpm1{
-	status = "disabled";
-};
-&lpspi2{
-	status = "disabled";
-};
-&lpi2c0{
-	status = "okay";
-	pinctrl-0 = < &lpi2c0_default >;
 	pinctrl-names = "default";
 };
 &lpi2c3{
@@ -52,24 +59,17 @@
 	pinctrl-0 = < &lpi2c3_default >;
 	pinctrl-names = "default";
 };
-&lpuart0{
+&lpspi0{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-0 = < &lpspi0_default >;
 	pinctrl-names = "default";
-};
-&lpuart3{
-	status = "disabled";
-};
-&tpm0{
-	status = "disabled";
-};
-&lpi2c2{
-	status = "disabled";
 };
 &tpm3{
 	status = "disabled";
 };
 &lpi2c1{
 	status = "disabled";
+};
+&pinctrl{
+	status = "okay";
 };

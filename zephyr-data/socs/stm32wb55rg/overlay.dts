@@ -6,18 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
-&lpuart1{
-	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pc1 &lpuart1_rx_pc0 &lpuart1_cts_pa6 &lpuart1_rts_pb12 >;
-	hw-flow-control;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -29,21 +27,23 @@
 	pinctrl-0 = < &i2c3_scl_pc0 &i2c3_sda_pc1 >;
 	pinctrl-names = "default";
 };
-&spi2{
-	status = "disabled";
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pc1 &lpuart1_rx_pc0 &lpuart1_cts_pa6 &lpuart1_rts_pb12 >;
+	hw-flow-control;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &usb{
 	status = "okay";
 	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
 };
-&quadspi{
+&spi2{
 	status = "disabled";
 };
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
+&quadspi{
+	status = "disabled";
 };
 &adc1{
 	status = "okay";

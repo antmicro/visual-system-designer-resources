@@ -6,10 +6,21 @@
 		zephyr,flash = &flash0;
 	};
 };
-&twi0{
+&twi1{
 	status = "okay";
-	pinctrl-0 = < &twi0_default >;
+	pinctrl-0 = < &twi1_default >;
 	pinctrl-names = "default";
+};
+&eefc{
+	status = "disabled";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};
+&usart3{
+	status = "disabled";
 };
 &uart{
 	status = "okay";
@@ -17,27 +28,16 @@
 	pinctrl-0 = < &uart_default >;
 	pinctrl-names = "default";
 };
-&eefc{
-	status = "disabled";
-};
 &usart1{
 	status = "disabled";
 };
+&twi0{
+	status = "okay";
+	pinctrl-0 = < &twi0_default >;
+	pinctrl-names = "default";
+};
 &usart2{
 	status = "disabled";
-};
-&usart3{
-	status = "disabled";
-};
-&twi1{
-	status = "okay";
-	pinctrl-0 = < &twi1_default >;
-	pinctrl-names = "default";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-names = "default";
 };
 &usart0{
 	status = "disabled";

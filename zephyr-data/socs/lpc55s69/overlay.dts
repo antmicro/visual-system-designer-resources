@@ -6,21 +6,10 @@
 		zephyr,console = &flexcomm0;
 	};
 };
-&iap{
-	status = "disabled";
-};
-&sc_timer{
-	status = "disabled";
-	pinctrl-0 = < &pinmux_sctimer_default >;
-	pinctrl-names = "default";
-};
 &gpio0{
 	status = "okay";
 };
 &usbfs{
-	status = "disabled";
-};
-&usbhs{
 	status = "disabled";
 };
 &gpio1{
@@ -33,6 +22,17 @@
 };
 &adc0{
 	status = "disabled";
+};
+&usbhs{
+	status = "disabled";
+};
+&iap{
+	status = "disabled";
+};
+&sc_timer{
+	status = "disabled";
+	pinctrl-0 = < &pinmux_sctimer_default >;
+	pinctrl-names = "default";
 };
 &flexcomm0{
 	status = "okay";

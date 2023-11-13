@@ -6,13 +6,19 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom0{
+&can0{
 	status = "okay";
-	current-speed = < 0x2580 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-0 = < &can0_default >;
 	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&can1{
+	status = "disabled";
+	pinctrl-0 = < &can1_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
 };
 &tcc2{
 	status = "okay";
@@ -21,12 +27,27 @@
 	pinctrl-0 = < &pwm_default >;
 	pinctrl-names = "default";
 };
-&can0{
+&sercom5{
 	status = "okay";
-	pinctrl-0 = < &can0_default >;
+	dipo = < 0x0 >;
+	dopo = < 0x2 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom5_spi_default >;
 	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
+};
+&sercom4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x1 >;
+	pinctrl-0 = < &sercom4_uart_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
 };
 &sercom2{
 	status = "okay";
@@ -39,12 +60,17 @@
 &sercom3{
 	status = "disabled";
 };
-&sercom4{
+&sercom0{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x3 >;
-	txpo = < 0x1 >;
-	pinctrl-0 = < &sercom4_uart_default >;
+	current-speed = < 0x2580 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-names = "default";
+};
+&adc1{
+	status = "disabled";
+	pinctrl-0 = < &adc1_default >;
 	pinctrl-names = "default";
 };
 &sercom1{
@@ -53,31 +79,5 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom1_i2c_default >;
-	pinctrl-names = "default";
-};
-&can1{
-	status = "disabled";
-	pinctrl-0 = < &can1_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
-};
-&adc1{
-	status = "disabled";
-	pinctrl-0 = < &adc1_default >;
-	pinctrl-names = "default";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&sercom5{
-	status = "okay";
-	dipo = < 0x0 >;
-	dopo = < 0x2 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom5_spi_default >;
 	pinctrl-names = "default";
 };

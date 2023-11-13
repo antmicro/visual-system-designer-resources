@@ -501,6 +501,21 @@
         },
         {
             "abstract": false,
+            "description": "Video decoder\n\n### Additional information\n\n*Datasheet*: [ADV7282-2955931.pdf](https://eu.mouser.com/datasheet/2/609/ADV7282-2955931.pdf)",
+            "extends": [
+                "CVBS to MIPI CSI-2 bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/lfcsp-32-1ep-5x5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Analog Devices ADV7282WBCPZ-M",
+            "urls": {
+                "datasheet": "https://eu.mouser.com/datasheet/2/609/ADV7282-2955931.pdf",
+                "hwp": "components/analog-devices-adv7282wbcpz-m"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Digital Accelerometer, Nanopower Three-Axis, 2g/4g/8g\n\n### Additional information\n\n*Datasheet*: [adxl362-3122260.pdf](https://eu.mouser.com/datasheet/2/609/adxl362-3122260.pdf)",
             "extends": [
                 "adxl362"
@@ -775,6 +790,41 @@
                 "datasheet": "https://eu.mouser.com/datasheet/2/670/sj_435107-1779267.pdf",
                 "hwp": "components/cui-devices-sj-435107"
             }
+        },
+        {
+            "category": "Interfacing/Video/CVBS to MIPI CSI-2 bridge",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cvbs",
+                    "side": "left",
+                    "type": "cvbs"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "mipi csi-2 x4",
+                    "side": "right",
+                    "type": "csi"
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "SoC/arm/infineon/psoc6/mpns/CY8C6244LQI_S4D92",
@@ -2768,6 +2818,21 @@
             "isCategory": true
         },
         {
+            "abstract": false,
+            "description": "Barrel audio connector\n\n### Additional information\n\n*Datasheet*: [KLPX.pdf](https://www.kycon.com/2013Catalogpage/RCA/KLPX.pdf)",
+            "extends": [
+                "RCA"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/rca-phono-jack-klpx-0848a-2-y/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Kycon KLPX-0848A-2-Y",
+            "urls": {
+                "datasheet": "https://www.kycon.com/2013Catalogpage/RCA/KLPX.pdf",
+                "hwp": "components/kycon-klpx-0848a-2-y"
+            }
+        },
+        {
             "category": "IO/LED",
             "interfaces": [
                 {
@@ -3570,6 +3635,26 @@
                     "name": "qspi",
                     "side": "left",
                     "type": "qspi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/RCA",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "cvbs",
+                    "side": "right",
+                    "type": "cvbs"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rca",
+                    "side": "left",
+                    "type": "rca"
                 }
             ],
             "isCategory": true
@@ -17299,7 +17384,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/icm42688/icm42688.c"
+                "zephyr": "blob/2fbcb46a60e8dab01fca2f9808f4c1eef894c2e0/drivers/sensor/icm42688/icm42688_emul.c"
             }
         },
         {
