@@ -6,22 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&hs_lspi{
+&gpio0{
 	status = "okay";
-	pinctrl-0 = < &pinmux_hs_lspi >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x2 >, < &dma0 0x3 >;
-	dma-names = "rx", "tx";
 };
 &gpio1{
-	status = "okay";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_lpadc0 >;
-	pinctrl-names = "default";
-};
-&gpio0{
 	status = "okay";
 };
 &flexcomm0{
@@ -31,6 +19,18 @@
 	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
 	dmas = < &dma0 0x4 >, < &dma0 0x5 >;
+	dma-names = "rx", "tx";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_lpadc0 >;
+	pinctrl-names = "default";
+};
+&hs_lspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_hs_lspi >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x2 >, < &dma0 0x3 >;
 	dma-names = "rx", "tx";
 };
 &usbhs{

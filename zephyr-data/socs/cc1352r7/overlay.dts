@@ -12,6 +12,18 @@
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
 	pinctrl-names = "default";
 };
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_rx_default &uart1_tx_default >;
+	pinctrl-names = "default";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default &spi0_cs0_default &spi0_cs1_default &spi0_cs2_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpio0 0x8 0x1 >, < &gpio0 0x1c 0x1 >, < &gpio0 0x1b 0x1 >;
+};
 &i2c0{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -19,18 +31,6 @@
 	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_rx_default &uart1_tx_default >;
-	pinctrl-names = "default";
-};
 &gpio0{
 	status = "okay";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default &spi0_cs0_default &spi0_cs1_default &spi0_cs2_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpio0 0x8 0x1 >, < &gpio0 0x1c 0x1 >, < &gpio0 0x1b 0x1 >;
 };

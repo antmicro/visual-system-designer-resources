@@ -6,7 +6,7 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiod{
+&gpioc{
 	status = "okay";
 };
 &adc1{
@@ -14,33 +14,13 @@
 	pinctrl-0 = < &adc1_default >;
 	pinctrl-names = "default";
 };
-&adc0{
+&dac0{
+	voltage-reference = < 0x2 >;
 	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
 };
-&enet{
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
-	pinctrl-0 = < &enet_default >;
-	pinctrl-names = "default";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&flexcan0{
-	status = "okay";
-	pinctrl-0 = < &flexcan0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioe 0x4 0x1 >;
 };
 &uart3{
 	status = "okay";
@@ -48,37 +28,57 @@
 	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
-&gpiob{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
-};
 &uart2{
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpiod{
+	status = "okay";
+};
+&flexcan0{
+	status = "okay";
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
 };
 &i2c0{
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&usbotg{
-	num-bidir-endpoints = < 0x8 >;
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
-};
 &spi0{
 	status = "okay";
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
 };
-&dac0{
-	voltage-reference = < 0x2 >;
+&gpioa{
 	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&enet{
+	status = "okay";
+	pinctrl-0 = < &enet_default >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioe 0x4 0x1 >;
 };

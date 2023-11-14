@@ -6,9 +6,8 @@
 		zephyr,console = &flexcomm0;
 	};
 };
-&hs_lspi{
-	pinctrl-0 = < &pinmux_hs_lspi_default >;
-	pinctrl-names = "default";
+&gpio0{
+	status = "okay";
 };
 &gpio1{
 	status = "okay";
@@ -20,7 +19,11 @@
 	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
-&gpio0{
+&hs_lspi{
+	pinctrl-0 = < &pinmux_hs_lspi_default >;
+	pinctrl-names = "default";
+};
+&adc0{
 	status = "okay";
 };
 &flexcomm0{
@@ -33,8 +36,5 @@
 	pinctrl-names = "default";
 };
 &usbhs{
-	status = "okay";
-};
-&adc0{
 	status = "okay";
 };

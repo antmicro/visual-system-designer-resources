@@ -6,8 +6,27 @@
 		zephyr,flash = &flash0;
 	};
 };
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0xb 0x11 >;
+};
 &clk_hsi{
 	status = "okay";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc_in0_pa0 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x1 >;
+	st,adc-prescaler = < 0x4 >;
 };
 &usart2{
 	status = "okay";
@@ -18,34 +37,15 @@
 &clk_lsi{
 	status = "okay";
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0xb 0x11 >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &pll{
 	status = "okay";
 	prediv = < 0x1 >;
 	mul = < 0x6 >;
 	clocks = < &clk_hsi >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc_in0_pa0 >;
-	pinctrl-names = "default";
-	st,adc-clock-source = < 0x1 >;
-	st,adc-prescaler = < 0x4 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -5,7 +5,13 @@
 		zephyr,sram = &dram;
 	};
 };
+&gpio0{
+	status = "okay";
+};
 &spi0{
+	status = "okay";
+};
+&i2c0{
 	status = "okay";
 };
 &spi1{
@@ -16,10 +22,4 @@
 	status = "okay";
 	clock-frequency = < 0x12c0000 >;
 	current-speed = < 0x1c200 >;
-};
-&i2c0{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
 };

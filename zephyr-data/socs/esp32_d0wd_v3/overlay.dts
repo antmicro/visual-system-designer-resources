@@ -6,13 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi3{
+&uart0{
 	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim3_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpio0 0x12 0x1 >;
+};
+&gpio0{
+	status = "okay";
 };
 &i2c0{
 	status = "okay";
@@ -26,19 +27,13 @@
 	reg = < 0x0 0x800000 >;
 	status = "okay";
 };
-&uart0{
+&spi3{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
 	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
-};
-&uart1{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_rx_gpio33 &uart1_tx_gpio32 >;
-	pinctrl-names = "default";
+	cs-gpios = < &gpio0 0x12 0x1 >;
 };
 &i2c1{
 	clock-frequency = < 0x186a0 >;
@@ -49,6 +44,11 @@
 };
 &gpio1{
 	status = "okay";
+};
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_rx_gpio33 &uart1_tx_gpio32 >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

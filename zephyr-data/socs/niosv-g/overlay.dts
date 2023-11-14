@@ -5,10 +5,10 @@
 		zephyr,sram = &sram0;
 	};
 };
+&sram0{
+	reg = < 0x0 0x40000 >;
+};
 &uart0{
 	status = "okay";
 	reg = < 0x90078 0x8 >;
-};
-&sram0{
-	reg = < 0x0 0x40000 >;
 };

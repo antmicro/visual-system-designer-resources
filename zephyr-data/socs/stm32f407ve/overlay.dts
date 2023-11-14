@@ -5,18 +5,18 @@
 		zephyr,flash = &flash0;
 	};
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
+};
 &clk_hse{
 	status = "okay";
 	clock-frequency = < 0xb71b00 >;
 };
 &clk_lsi{
 	status = "okay";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xa037a00 >;
-	apb1-prescaler = < 0x4 >;
-	apb2-prescaler = < 0x2 >;
 };
 &pll{
 	status = "okay";

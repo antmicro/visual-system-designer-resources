@@ -6,9 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usbc{
+&usart2{
 	status = "okay";
-	pinctrl-0 = < &usbc_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart2_default >;
 	pinctrl-names = "default";
 };
 &spi0{
@@ -16,6 +17,11 @@
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpioa 0x2 0x1 >, < &gpioc 0x0 0x1 >;
+};
+&usbc{
+	status = "okay";
+	pinctrl-0 = < &usbc_default >;
+	pinctrl-names = "default";
 };
 &twim0{
 	status = "okay";
@@ -31,10 +37,4 @@
 	hs-data-slew-lim = < 0x0 >;
 	hs-data-strength-low = "0.5";
 	hs-master-code = < 0x0 >;
-};
-&usart2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart2_default >;
-	pinctrl-names = "default";
 };

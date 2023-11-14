@@ -5,6 +5,15 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
 &enet{
 	status = "okay";
 	pinctrl-0 = < &enet_default >;
@@ -16,13 +25,4 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0x29f6300 >;
 	cs-gpios = < &gpioe 0x4 0x1 >;
-};
-&gpiob{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
 };

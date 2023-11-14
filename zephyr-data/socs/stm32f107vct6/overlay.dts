@@ -6,27 +6,27 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_remap1_pd5 &usart2_rx_remap1_pd6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&pll{
+&clk_hse{
 	status = "okay";
-	mul = < 0x9 >;
-	prediv = < 0x1 >;
-	clocks = < &clk_hse >;
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x44aa200 >;
 	apb1-prescaler = < 0x2 >;
+};
+&pll{
+	status = "okay";
+	mul = < 0x9 >;
+	prediv = < 0x1 >;
+	clocks = < &clk_hse >;
 };
 &pinctrl{
 	compatible = "st,stm32f1-pinctrl";

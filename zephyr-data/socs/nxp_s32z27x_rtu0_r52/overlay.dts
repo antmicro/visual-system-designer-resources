@@ -5,20 +5,6 @@
 		zephyr,sram = &sram0;
 	};
 };
-&can0{
-	status = "okay";
-	pinctrl-0 = < &can0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&emdio{
-	status = "okay";
-	pinctrl-0 = < &emdio_default >;
-	pinctrl-names = "default";
-};
 &enetc_psi0{
 	status = "okay";
 	local-mac-address = [ 00 00 00 01 02 00 ];
@@ -37,8 +23,22 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
+&can0{
+	status = "okay";
+	pinctrl-0 = < &can0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
 &uart0{
 	status = "okay";
 	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&emdio{
+	status = "okay";
+	pinctrl-0 = < &emdio_default >;
 	pinctrl-names = "default";
 };

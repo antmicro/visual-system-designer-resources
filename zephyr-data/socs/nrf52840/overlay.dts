@@ -6,14 +6,22 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi1{
-	compatible = "nordic,nrf-spi";
+&qspi{
 	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-0 = < &qspi_default >;
+	pinctrl-1 = < &qspi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
+&i2c1{
+	compatible = "nordic,nrf-twi";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-1 = < &i2c1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&gpio1{
 	status = "okay";
 };
 &uart0{
@@ -23,14 +31,21 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio0{
+&spi1{
+	compatible = "nordic,nrf-spi";
 	status = "okay";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&spi2{
+	compatible = "nordic,nrf-spi";
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
 };
 &spi0{
 	compatible = "nordic,nrf-spi";
@@ -41,9 +56,6 @@
 &radio{
 	fem = < &nrf_radio_fem >;
 };
-&gpio1{
-	status = "okay";
-};
 &spi3{
 	status = "okay";
 	cs-gpios = < &arduino_header 0x10 0x1 >;
@@ -51,8 +63,11 @@
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&usbd{
+&pwm0{
 	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &i2c0{
 	compatible = "nordic,nrf-twi";
@@ -61,23 +76,8 @@
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&i2c1{
-	compatible = "nordic,nrf-twi";
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-1 = < &i2c1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&spi2{
-	compatible = "nordic,nrf-spi";
-	pinctrl-0 = < &spi2_default >;
-	pinctrl-1 = < &spi2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&qspi{
+&usbd{
 	status = "okay";
-	pinctrl-0 = < &qspi_default >;
-	pinctrl-1 = < &qspi_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &uart1{
 	status = "okay";
@@ -86,6 +86,13 @@
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&pdm0{
+	status = "okay";
+	pinctrl-0 = < &pdm0_default >;
+	pinctrl-1 = < &pdm0_sleep >;
+	pinctrl-names = "default", "sleep";
+	clock-source = "PCLK32M_HFXO";
 };
 &pwm1{
 	status = "okay";
@@ -97,13 +104,6 @@
 	pinctrl-0 = < &pwm2_default >;
 	pinctrl-1 = < &pwm2_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&pdm0{
-	status = "okay";
-	pinctrl-0 = < &pdm0_default >;
-	pinctrl-1 = < &pdm0_sleep >;
-	pinctrl-names = "default", "sleep";
-	clock-source = "PCLK32M_HFXO";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

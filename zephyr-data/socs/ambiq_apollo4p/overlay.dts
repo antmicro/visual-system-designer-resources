@@ -19,17 +19,17 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0x186a0 >;
 };
-&mspi0{
-	status = "okay";
-	pinctrl-0 = < &mspi0_default >;
-	pinctrl-names = "default";
-};
 &iom1{
 	status = "okay";
 	compatible = "ambiq,spi";
 	pinctrl-0 = < &spi1_default >;
 	pinctrl-names = "default";
 	clock-frequency = < 0xf4240 >;
+};
+&mspi0{
+	status = "okay";
+	pinctrl-0 = < &mspi0_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "ambiq,apollo4-pinctrl";

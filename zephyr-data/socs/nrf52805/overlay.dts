@@ -6,11 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c0{
-	compatible = "nordic,nrf-twi";
+&uart0{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &spi0{
@@ -20,17 +20,17 @@
 	pinctrl-1 = < &spi0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
-	status = "okay";
-};
 &gpio0{
 	status = "okay";
 };
-&uart0{
+&adc{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-1 = < &uart0_sleep >;
+};
+&i2c0{
+	compatible = "nordic,nrf-twi";
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &pinctrl{
