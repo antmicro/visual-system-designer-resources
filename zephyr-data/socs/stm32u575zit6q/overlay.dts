@@ -6,10 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c2{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pf1 &i2c2_sda_pf0 >;
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_lse{
+	status = "okay";
 };
 &adc1{
 	status = "okay";
@@ -17,41 +21,18 @@
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x4 >;
 };
-&i2c4{
-	status = "disabled";
-};
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac1_out1_pa4 >;
-	pinctrl-names = "default";
-};
-&usart3{
-	status = "disabled";
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi2{
-	status = "disabled";
-};
-&uart5{
-	status = "disabled";
-};
-&i2c3{
-	status = "disabled";
-};
-&usbotg_fs{
-	status = "disabled";
-};
-&fdcan1{
+&clk_msis{
 	status = "okay";
-	pinctrl-0 = < &fdcan1_rx_pd0 &fdcan1_tx_pd1 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
+	msi-pll-mode;
+};
+&clk_hsi48{
+	status = "okay";
 };
 &lpuart1{
 	status = "okay";
@@ -59,13 +40,24 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi3{
-	status = "disabled";
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pf1 &i2c2_sda_pf0 >;
+	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
+};
+&pll1{
+	status = "okay";
+	div-m = < 0x1 >;
+	mul-n = < 0x50 >;
+	div-q = < 0x2 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_msis >;
 };
 &adc4{
 	status = "okay";
@@ -73,25 +65,28 @@
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x4 >;
 };
-&uart4{
-	status = "disabled";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&octospi2{
-	status = "disabled";
-};
 &i2c1{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&octospi1{
-	status = "disabled";
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac1_out1_pa4 >;
+	pinctrl-names = "default";
+};
+&fdcan1{
+	clocks = < &rcc 0xa0 0x200 >, < &rcc 0x2 0x178e0 >;
+	status = "okay";
+	pinctrl-0 = < &fdcan1_rx_pd0 &fdcan1_tx_pd1 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&rcc{
+	clocks = < &pll1 >;
+	clock-frequency = < 0x9896800 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

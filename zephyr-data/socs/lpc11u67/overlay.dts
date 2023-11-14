@@ -6,26 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart2{
-	status = "disabled";
-};
-&i2c0{
+&uart0{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_fast >;
-	pinctrl-names = "default", "fast-plus";
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
-&uart4{
-	status = "disabled";
-};
-&gpio1{
+&gpio0{
 	status = "okay";
-};
-&gpio2{
-	status = "okay";
-};
-&uart1{
-	status = "disabled";
 };
 &i2c1{
 	status = "okay";
@@ -33,15 +21,15 @@
 	pinctrl-1 = < &i2c1_fast >;
 	pinctrl-names = "default", "fast-plus";
 };
-&gpio0{
+&gpio2{
 	status = "okay";
 };
-&uart3{
-	status = "disabled";
-};
-&uart0{
+&gpio1{
 	status = "okay";
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_fast >;
+	pinctrl-names = "default", "fast-plus";
 };

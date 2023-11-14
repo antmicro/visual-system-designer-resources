@@ -6,23 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiod{
-	status = "okay";
-};
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
-};
-&usart0{
-	status = "disabled";
-};
 &gpioc{
 	status = "okay";
-};
-&uart3{
-	status = "disabled";
 };
 &adc0{
 	status = "okay";
@@ -32,16 +17,19 @@
 &gpioa{
 	status = "okay";
 };
-&gpiof{
+&gpiod{
 	status = "okay";
 };
-&uart4{
-	status = "disabled";
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
 };
 &gpiob{
 	status = "okay";
 };
-&pinctrl{
+&gpiof{
 	status = "okay";
 };
 &pinctrl{

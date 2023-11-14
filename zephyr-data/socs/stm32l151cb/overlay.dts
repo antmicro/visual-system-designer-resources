@@ -6,14 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c2{
-	status = "disabled";
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
-&dac1{
-	status = "disabled";
-};
-&usart3{
-	status = "disabled";
+&clk_hsi{
+	status = "okay";
 };
 &usart2{
 	status = "okay";
@@ -21,11 +21,12 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi2{
-	status = "disabled";
+&clk_lsi{
+	status = "okay";
 };
-&uart5{
-	status = "disabled";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x1e84800 >;
 };
 &spi1{
 	status = "okay";
@@ -33,17 +34,11 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0x0 0x1 >;
 };
-&uart4{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
-&usart1{
+&pll{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	div = < 0x2 >;
+	mul = < 0x4 >;
+	clocks = < &clk_hsi >;
 };
 &i2c1{
 	status = "okay";

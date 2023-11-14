@@ -6,29 +6,25 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c1{
-	status = "disabled";
-};
-&gpiod{
-	status = "disabled";
-};
-&gpioc{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&gpiof{
-	status = "disabled";
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
 };
-&adc1{
-	status = "disabled";
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

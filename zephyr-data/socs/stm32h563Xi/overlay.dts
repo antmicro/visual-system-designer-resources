@@ -6,14 +6,23 @@
 		zephyr,flash = &flash0;
 	};
 };
-&lpuart1{
+&usb{
 	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pb6 &lpuart1_rx_pb7 >;
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
-&i2c2{
-	status = "disabled";
+&mac{
+	status = "okay";
+	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb15 >;
+	pinctrl-names = "default";
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
+	hse-bypass;
+};
+&clk_lse{
+	status = "okay";
 };
 &adc1{
 	status = "okay";
@@ -22,62 +31,20 @@
 	st,adc-clock-source = < 0x2 >;
 	st,adc-prescaler = < 0x6 >;
 };
-&spi6{
-	status = "disabled";
-};
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac1_out2_pa5 >;
-	pinctrl-names = "default";
-};
-&usb{
-	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&uart9{
-	status = "disabled";
-};
 &usart3{
 	status = "okay";
 	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&usart2{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&uart5{
-	status = "disabled";
-};
-&adc2{
-	status = "disabled";
-};
-&mac{
+&clk_hsi48{
 	status = "okay";
-	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb15 >;
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pb6 &lpuart1_rx_pb7 >;
 	pinctrl-names = "default";
-};
-&fdcan1{
-	status = "disabled";
-};
-&i2c3{
-	status = "disabled";
-};
-&octospi1{
-	status = "disabled";
-};
-&spi4{
-	status = "disabled";
-};
-&i2c4{
-	status = "disabled";
-};
-&spi3{
-	status = "disabled";
+	current-speed = < 0x1c200 >;
 };
 &spi1{
 	status = "okay";
@@ -85,26 +52,23 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiod 0xe 0x11 >;
 };
-&spi5{
-	status = "disabled";
+&pll1{
+	status = "okay";
+	div-m = < 0x2 >;
+	mul-n = < 0x78 >;
+	div-p = < 0x2 >;
+	div-q = < 0x2 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hse >;
 };
-&uart4{
-	status = "disabled";
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac1_out2_pa5 >;
+	pinctrl-names = "default";
 };
-&usart1{
-	status = "disabled";
-};
-&usart10{
-	status = "disabled";
-};
-&fdcan2{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&uart12{
-	status = "disabled";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xe4e1c00 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

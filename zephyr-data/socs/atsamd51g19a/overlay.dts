@@ -7,6 +7,7 @@
 	};
 };
 &sercom3{
+	compatible = "atmel,sam0-uart";
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	rxpo = < 0x1 >;
@@ -14,7 +15,16 @@
 	pinctrl-0 = < &sercom3_uart_default >;
 	pinctrl-names = "default";
 };
+&tcc0{
+	compatible = "atmel,sam0-tcc-pwm";
+	status = "okay";
+	prescaler = < 0x8 >;
+	#pwm-cells = < 0x2 >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};
 &sercom1{
+	compatible = "atmel,sam0-spi";
 	status = "okay";
 	dipo = < 0x3 >;
 	dopo = < 0x0 >;
@@ -27,29 +37,4 @@
 	status = "okay";
 	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
-};
-&sercom5{
-	status = "disabled";
-};
-&sercom7{
-	status = "disabled";
-};
-&sercom2{
-	status = "disabled";
-};
-&tcc0{
-	status = "okay";
-	prescaler = < 0x8 >;
-	#pwm-cells = < 0x2 >;
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-names = "default";
-};
-&sercom0{
-	status = "disabled";
-};
-&sercom4{
-	status = "disabled";
-};
-&sercom6{
-	status = "disabled";
 };

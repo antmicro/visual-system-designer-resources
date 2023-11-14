@@ -5,32 +5,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&ftfe{
+&enet{
 	status = "okay";
-};
-&uart0{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&uart2{
-	status = "disabled";
-};
-&i2c0{
-	status = "disabled";
-};
-&adc1{
-	status = "disabled";
-};
-&uart3{
-	status = "disabled";
-};
-&gpioe{
-	status = "okay";
-};
-&pinctrl{
-	status = "okay";
+	pinctrl-0 = < &enet_default >;
+	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -39,59 +17,12 @@
 	clock-frequency = < 0x29f6300 >;
 	cs-gpios = < &gpioe 0x4 0x1 >;
 };
-&spi0{
-	status = "disabled";
-};
-&dac0{
-	status = "disabled";
-};
-&gpiod{
-	status = "disabled";
-};
-&gpioc{
-	status = "disabled";
-};
-&enet{
+&gpiob{
 	status = "okay";
-	pinctrl-0 = < &enet_default >;
-	pinctrl-names = "default";
 };
 &gpioa{
 	status = "okay";
 };
-&flexcan1{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&flexcan0{
-	status = "disabled";
-};
-&usbotg{
-	status = "disabled";
-};
-&adc0{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
-&gpiob{
+&gpioe{
 	status = "okay";
-};
-&lpuart0{
-	status = "disabled";
-};
-&uart5{
-	status = "disabled";
-};
-&i2c2{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
 };

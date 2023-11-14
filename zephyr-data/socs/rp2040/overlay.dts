@@ -8,11 +8,10 @@
 &gpio0{
 	status = "okay";
 };
-&i2c1{
+&adc{
 	status = "okay";
-	pinctrl-0 = < &i2c1_default >;
+	pinctrl-0 = < &adc_default >;
 	pinctrl-names = "default";
-	clock-frequency = < 0x61a80 >;
 };
 &flash0{
 	reg = < 0x10000000 0x800000 >;
@@ -23,20 +22,8 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&spi1{
-	status = "disabled";
-};
-&i2c0{
-	status = "disabled";
-};
 &usbd{
 	status = "okay";
-};
-&pwm{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
 };
 &spi0{
 	status = "okay";
@@ -44,9 +31,21 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0x7a1200 >;
 };
-&adc{
+&i2c1{
 	status = "okay";
-	pinctrl-0 = < &adc_default >;
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x61a80 >;
+};
+&pwm{
+	pinctrl-0 = < &pwm_ch4b_default >;
+	pinctrl-names = "default";
+	divider-int-0 = < 0xff >;
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
 &pinctrl{

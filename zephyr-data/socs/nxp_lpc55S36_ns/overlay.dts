@@ -6,20 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&hs_lspi{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
-&flexcomm0{
+&usbfs{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-0 = < &pinmux_usbfs >;
 	pinctrl-names = "default";
-};
-&dac2{
-	status = "disabled";
 };
 &can0{
 	status = "okay";
@@ -28,24 +18,20 @@
 	pinctrl-0 = < &pinmux_mcan_can0 >;
 	pinctrl-names = "default";
 };
-&usbfs{
+&flexcomm0{
+	compatible = "nxp,lpc-usart";
 	status = "okay";
-	pinctrl-0 = < &pinmux_usbfs >;
-	pinctrl-names = "default";
-};
-&sc_timer{
-	status = "disabled";
-};
-&iap{
-	status = "ok";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_lpadc0 >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
 };
 &dac0{
 	status = "okay";
 	pinctrl-0 = < &pinmux_dac0 >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_lpadc0 >;
 	pinctrl-names = "default";
 };

@@ -6,13 +6,26 @@
 		zephyr,flash = &flash0;
 	};
 };
-&ftfl{
+&gpiod{
 	status = "okay";
 };
-&i2c1{
-	status = "disabled";
-};
 &gpioe{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&usbd{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };
 &uart0{
@@ -20,37 +33,4 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
-};
-&usbd{
-	status = "okay";
-};
-&spi0{
-	status = "disabled";
-};
-&adc0{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
-};
-&uart2{
-	status = "disabled";
-};
-&gpiob{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&i2c0{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
-};
-&gpioa{
-	status = "okay";
-};
-&pinctrl{
-	status = "okay";
 };

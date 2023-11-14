@@ -4,31 +4,10 @@
 		zephyr,console = &uart1;
 	};
 };
-&psgpio_bank3{
-	status = "okay";
-};
-&gem1{
-	status = "disabled";
-};
-&uart0{
-	status = "disabled";
-};
-&psgpio_bank1{
-	status = "okay";
-};
 &uart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	clock-frequency = < 0x5f5e100 >;
 	pinctrl-0 = < &pinctrl_uart1_default >;
 	pinctrl-names = "default";
-};
-&psgpio_bank2{
-	status = "okay";
-};
-&gem0{
-	status = "disabled";
-};
-&psgpio_bank0{
-	status = "okay";
 };

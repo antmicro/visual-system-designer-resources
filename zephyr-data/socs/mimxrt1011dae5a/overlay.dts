@@ -5,42 +5,9 @@
 		zephyr,sram = &ocram;
 	};
 };
-&usb1{
-	status = "okay";
-};
 &adc1{
 	status = "okay";
 	pinctrl-0 = < &pinmux_adc1 >;
-	pinctrl-names = "default";
-};
-&qdec1{
-	status = "disabled";
-};
-&lpuart2{
-	status = "disabled";
-};
-&qdec3{
-	status = "disabled";
-};
-&lpuart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_lpuart1 >;
-	pinctrl-1 = < &pinmux_lpuart1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&flexspi{
-	status = "okay";
-};
-&lpuart4{
-	status = "disabled";
-	pinctrl-0 = < &pinmux_lpuart4 >;
-	pinctrl-1 = < &pinmux_lpuart4_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&lpi2c1{
-	status = "okay";
-	pinctrl-0 = < &pinmux_lpi2c1 >;
 	pinctrl-names = "default";
 };
 &gpio1{
@@ -49,17 +16,22 @@
 &gpio2{
 	pinmux = < &iomuxc_gpio_sd_00_gpio2_io00 >, < &iomuxc_gpio_sd_01_gpio2_io01 >, < &iomuxc_gpio_sd_02_gpio2_io02 >, < &iomuxc_gpio_sd_03_gpio2_io03 >, < &iomuxc_gpio_sd_04_gpio2_io04 >, < &iomuxc_gpio_sd_05_gpio2_io05 >, < &iomuxc_gpio_sd_06_gpio2_io06 >, < &iomuxc_gpio_sd_07_gpio2_io07 >, < &iomuxc_gpio_sd_08_gpio2_io08 >, < &iomuxc_gpio_sd_09_gpio2_io09 >, < &iomuxc_gpio_sd_10_gpio2_io10 >, < &iomuxc_gpio_sd_11_gpio2_io11 >, < &iomuxc_gpio_sd_12_gpio2_io12 >, < &iomuxc_gpio_sd_13_gpio2_io13 >;
 };
-&lpspi2{
-	status = "disabled";
+&usb1{
+	status = "okay";
 };
-&qdec4{
-	status = "disabled";
+&lpuart4{
+	pinctrl-0 = < &pinmux_lpuart4 >;
+	pinctrl-1 = < &pinmux_lpuart4_sleep >;
+	pinctrl-names = "default", "sleep";
 };
-&qdec2{
-	status = "disabled";
+&flexspi{
+	reg = < 0x400a0000 0x4000 >, < 0x60000000 0x1000000 >;
+	status = "okay";
 };
-&adc2{
-	status = "disabled";
+&lpi2c1{
+	status = "okay";
+	pinctrl-0 = < &pinmux_lpi2c1 >;
+	pinctrl-names = "default";
 };
 &lpspi1{
 	status = "okay";
@@ -71,12 +43,10 @@
 &gpio5{
 	pinmux = < &iomuxc_snvs_pmic_on_req_gpio5_io00 >;
 };
-&lpi2c2{
-	status = "disabled";
-};
-&lpuart3{
-	status = "disabled";
-};
-&pinctrl{
+&lpuart1{
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_lpuart1 >;
+	pinctrl-1 = < &pinmux_lpuart1_sleep >;
+	pinctrl-names = "default", "sleep";
 };

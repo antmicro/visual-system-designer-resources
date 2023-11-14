@@ -6,8 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c1{
-	status = "disabled";
+&gpiod{
+	status = "okay";
 };
 &usart0{
 	status = "okay";
@@ -17,37 +17,11 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&i2c0{
-	status = "disabled";
-};
-&gpioj{
-	status = "disabled";
-};
-&gpioa{
-	status = "okay";
-};
-&usart3{
-	status = "disabled";
-};
-&usart2{
-	status = "disabled";
-};
 &gpiob{
 	status = "okay";
 };
-&gpioi{
-	status = "disabled";
-};
-&gpiof{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&gpiok{
-	status = "disabled";
-};
 &usart1{
+	compatible = "silabs,gecko-spi-usart";
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
@@ -56,7 +30,7 @@
 	location-clk = < 0xb 0x2 0x8 >;
 	cs-gpios = < &gpioa 0x4 0x1 >;
 };
-&gpioc{
+&gpiof{
 	status = "okay";
 };
 &leuart0{
@@ -64,6 +38,12 @@
 	current-speed = < 0x1c200 >;
 	location-rx = < 0x0 0x0 0x1 >;
 	location-tx = < 0x0 0x0 0x0 >;
+};
+&gpioc{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

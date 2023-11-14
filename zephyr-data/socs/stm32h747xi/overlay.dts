@@ -6,82 +6,11 @@
 		zephyr,flash = &flash1;
 	};
 };
-&uart7{
-	status = "disabled";
-};
-&i2c2{
-	status = "disabled";
-};
-&adc3{
-	status = "disabled";
-};
-&spi5{
-	status = "disabled";
-	pinctrl-0 = < &spi5_nss_pk1 &spi5_sck_pk0 &spi5_miso_pj11 &spi5_mosi_pj10 >;
-	pinctrl-names = "default";
-};
-&lpuart1{
-	status = "disabled";
-};
-&spi6{
-	status = "disabled";
-};
-&usbotg_hs{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
-&usart3{
-	status = "disabled";
-};
-&usart2{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&usart6{
-	status = "disabled";
-};
-&uart5{
-	status = "disabled";
-};
-&mac{
-	status = "disabled";
-};
-&fdcan2{
-	status = "disabled";
-};
-&spi4{
-	status = "disabled";
-};
 &uart8{
 	status = "okay";
 	pinctrl-0 = < &uart8_tx_pj8 &uart8_rx_pj9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&spi3{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
-};
-&ltdc{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
-};
-&quadspi{
-	status = "disabled";
-};
-&usbotg_fs{
-	status = "disabled";
-};
-&adc1_2{
-	status = "disabled";
 };
 &usart1{
 	status = "okay";
@@ -89,23 +18,63 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c1{
-	status = "disabled";
+&spi5{
+	pinctrl-0 = < &spi5_nss_pk1 &spi5_sck_pk0 &spi5_miso_pj11 &spi5_mosi_pj10 >;
+	pinctrl-names = "default";
 };
-&adc1{
-	status = "disabled";
+&rcc{
+	hpre = < 0x2 >;
+	d1ppre = < 0x2 >;
+	d2ppre1 = < 0x2 >;
+	d2ppre2 = < 0x2 >;
+	d3ppre = < 0x2 >;
+	clock-frequency = < 0xbebc200 >;
 };
 &fdcan1{
-	status = "disabled";
+	pinctrl-0 = < &fdcan1_rx_pb8 &fdcan1_tx_ph13 >;
+	pinctrl-names = "default";
+};
+&usbotg_fs{
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&usart6{
+	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_hsi48{
+	status = "okay";
 };
 &i2c4{
-	status = "disabled";
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c4_scl_ph11 &i2c4_sda_ph12 >;
+	pinctrl-names = "default";
 };
 &i2c3{
-	status = "disabled";
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c3_scl_ph7 &i2c3_sda_ph8 >;
+	pinctrl-names = "default";
 };
-&adc2{
-	status = "disabled";
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&uart4{
+	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pi9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&spi2{
+	pinctrl-0 = < &spi2_nss_pi0 &spi2_sck_pi1 &spi2_miso_pc2 &spi2_mosi_pc3 >;
+	pinctrl-names = "default";
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -10,12 +10,6 @@
 	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
 	pinctrl-names = "default";
 };
-&pwm1{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
-};
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
@@ -28,18 +22,9 @@
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
 	pinctrl-names = "default";
 };
-&pwm0{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&spi0{
-	status = "disabled";
-};
 &gpio0{
 	status = "okay";
 };
-&pwm2{
-	status = "disabled";
+&spi0{
+	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
 };

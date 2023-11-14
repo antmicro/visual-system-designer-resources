@@ -6,8 +6,23 @@
 		zephyr,flash = &flash0;
 	};
 };
-&ftfe{
+&gpiod{
 	status = "okay";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&enet{
+	status = "okay";
+	pinctrl-0 = < &enet_default >;
+	pinctrl-names = "default";
 };
 &uart0{
 	status = "okay";
@@ -15,11 +30,34 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&spi2{
-	status = "disabled";
+&flexcan0{
+	status = "okay";
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioe 0x4 0x1 >;
+};
+&uart3{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart3_default >;
+	pinctrl-names = "default";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
 };
 &uart2{
-	status = "disabled";
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
 };
@@ -28,28 +66,12 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&adc1{
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
-	pinctrl-0 = < &adc1_default >;
-	pinctrl-names = "default";
-};
-&uart3{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart3_default >;
-	pinctrl-names = "default";
 };
 &gpioe{
 	status = "okay";
-};
-&pinctrl{
-	status = "okay";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioe 0x4 0x1 >;
 };
 &spi0{
 	status = "okay";
@@ -57,54 +79,6 @@
 	pinctrl-names = "default";
 };
 &dac0{
+	voltage-reference = < 0x2 >;
 	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
-};
-&enet{
-	status = "okay";
-	pinctrl-0 = < &enet_default >;
-	pinctrl-names = "default";
-};
-&gpioa{
-	status = "okay";
-};
-&uart4{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&flexcan0{
-	status = "okay";
-	pinctrl-0 = < &flexcan0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&usbotg{
-	status = "okay";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&dac1{
-	status = "disabled";
-};
-&gpiob{
-	status = "okay";
-};
-&uart5{
-	status = "disabled";
-};
-&i2c2{
-	status = "disabled";
-};
-&uart1{
-	status = "disabled";
 };

@@ -6,10 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c1{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-0 = < &usart1_tx_pc4 &usart1_rx_pc5 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_hsi{
+	status = "okay";
 };
 &usart2{
 	status = "okay";
@@ -17,7 +21,11 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&clk_lsi{
+	status = "okay";
+};
 &i2c2{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c2_scl_pa11 &i2c2_sda_pa12 >;
 	pinctrl-names = "default";
@@ -27,14 +35,19 @@
 	pinctrl-0 = < &spi1_nss_pb0 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 };
-&usart4{
-	status = "disabled";
-};
-&usart1{
+&pll{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pc4 &usart1_rx_pc5 >;
+	div-m = < 0x1 >;
+	mul-n = < 0x8 >;
+	div-p = < 0x2 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hsi >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &spi2{
 	status = "okay";
@@ -49,8 +62,9 @@
 	st,adc-prescaler = < 0x4 >;
 	vref-mv = < 0xce4 >;
 };
-&usart3{
-	status = "disabled";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

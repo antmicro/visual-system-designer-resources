@@ -6,36 +6,21 @@
 		zephyr,flash = &flash0;
 	};
 };
-&eefc{
-	status = "disabled";
-};
-&usart0{
-	status = "disabled";
-};
-&uart{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart_default >;
-	pinctrl-names = "default";
-};
-&usart2{
-	status = "disabled";
-};
 &twi0{
 	status = "okay";
 	pinctrl-0 = < &twi0_default >;
 	pinctrl-names = "default";
-};
-&usart1{
-	status = "disabled";
 };
 &pwm0{
 	status = "okay";
 	pinctrl-0 = < &pwm0_default >;
 	pinctrl-names = "default";
 };
-&usart3{
-	status = "disabled";
+&uart{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart_default >;
+	pinctrl-names = "default";
 };
 &twi1{
 	status = "okay";

@@ -6,53 +6,14 @@
 		zephyr,sram = &sram0;
 	};
 };
-&i2c3{
-	status = "disabled";
-};
-&adc{
-	status = "okay";
-};
-&spi2{
-	status = "disabled";
-};
-&i2s0{
-	status = "disabled";
-};
-&uart3{
-	status = "disabled";
-};
-&pdm0{
-	status = "disabled";
-};
-&i2c0{
-	status = "disabled";
-};
-&i2c2{
-	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
-	pinctrl-1 = < &i2c2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &gpio0{
 	status = "okay";
 };
-&spi1{
+&pwm0{
 	status = "okay";
-	pinctrl-0 = < &neopixel_spi_default >;
-	pinctrl-1 = < &neopixel_spi_sleep >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&uart1{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&pwm3{
-	status = "disabled";
-};
-&pwm2{
-	status = "disabled";
 };
 &spi3{
 	status = "okay";
@@ -61,6 +22,16 @@
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -68,20 +39,37 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm0{
+&spi1{
 	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-0 = < &neopixel_spi_default >;
+	pinctrl-1 = < &neopixel_spi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm1{
-	status = "disabled";
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-1 = < &i2c1_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &uart2{
-	status = "disabled";
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-1 = < &uart2_sleep >;
+	pinctrl-names = "default", "sleep";
 };
-&spi0{
-	status = "disabled";
+&sram0{
+	reg = < 0x20000000 0x10000 >;
+};
+&pwm1{
+	status = "okay";
+	pinctrl-0 = < &pwm1_default >;
+	pinctrl-1 = < &pwm1_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

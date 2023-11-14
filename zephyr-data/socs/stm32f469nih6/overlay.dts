@@ -6,46 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart7{
-	status = "disabled";
-};
-&i2c2{
-	status = "disabled";
-};
-&spi5{
-	status = "disabled";
-};
-&i2s3{
-	status = "disabled";
-};
-&usbotg_hs{
-	status = "disabled";
-};
-&adc3{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
-&usart3{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&usart2{
-	status = "disabled";
+	clock-frequency = < 0x7a1200 >;
 };
 &usbotg_fs{
 	status = "okay";
 	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_sck_pd3 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioh 0x6 0x11 >;
 };
 &usart6{
 	status = "okay";
@@ -53,58 +21,39 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&uart5{
-	status = "disabled";
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
-&mac{
-	status = "disabled";
+&clk_lsi{
+	status = "okay";
 };
-&spi4{
-	status = "disabled";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
 };
-&spi6{
-	status = "disabled";
-};
-&uart8{
-	status = "disabled";
-};
-&spi3{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
-};
-&uart4{
-	status = "disabled";
-};
-&adc2{
-	status = "disabled";
-};
-&can2{
-	status = "disabled";
-};
-&usart1{
-	status = "disabled";
+&pll{
+	status = "okay";
+	div-m = < 0x8 >;
+	mul-n = < 0x150 >;
+	div-p = < 0x2 >;
+	div-q = < 0x7 >;
+	clocks = < &clk_hse >;
 };
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&adc1{
-	status = "disabled";
-};
-&i2s2{
-	status = "disabled";
-};
-&can1{
-	status = "disabled";
-};
-&ltdc{
-	status = "disabled";
-};
-&i2c3{
-	status = "disabled";
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pd3 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioh 0x6 0x11 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

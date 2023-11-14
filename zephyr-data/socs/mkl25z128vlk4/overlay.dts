@@ -6,22 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&ftfa{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&gpioe{
-	status = "disabled";
-};
-&uart0{
+&gpiod{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
 };
-&usbotg{
+&gpioa{
 	status = "okay";
 };
 &adc0{
@@ -29,13 +17,11 @@
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&gpioc{
-	status = "disabled";
-};
 &gpiob{
 	status = "okay";
 };
-&gpiod{
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };
 &i2c0{
@@ -43,9 +29,9 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
+&uart0{
 	status = "okay";
-};
-&pinctrl{
-	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };

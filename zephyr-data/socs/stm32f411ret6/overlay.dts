@@ -6,19 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c2{
-	status = "disabled";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
-	pinctrl-names = "default";
-};
-&spi5{
-	status = "disabled";
-};
-&i2s3{
-	status = "disabled";
-};
-&i2s4{
-	status = "disabled";
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &usart2{
 	status = "okay";
@@ -26,54 +17,51 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&usbotg_fs{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&usart6{
-	status = "disabled";
-};
-&spi4{
-	status = "disabled";
-};
-&spi3{
-	status = "disabled";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
-	pinctrl-names = "default";
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c1{
+&clk_lsi{
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
 };
-&adc1{
-	status = "disabled";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x5b8d800 >;
+	apb1-prescaler = < 0x2 >;
 };
-&i2s2{
-	status = "disabled";
-};
-&i2s5{
-	status = "disabled";
-};
-&i2s1{
-	status = "disabled";
-	pinctrl-0 = < &i2s1_ck_pa5 &i2s1_sd_pa7 >;
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
 	pinctrl-names = "default";
 };
 &i2c3{
-	status = "disabled";
+	clock-frequency = < 0x61a80 >;
 	pinctrl-0 = < &i2c3_scl_pa8 &i2c3_sda_pb4 >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+};
+&i2s1{
+	pinctrl-0 = < &i2s1_ck_pa5 &i2s1_sd_pa7 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	div-m = < 0x8 >;
+	mul-n = < 0x180 >;
+	div-p = < 0x4 >;
+	div-q = < 0x8 >;
+	clocks = < &clk_hse >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

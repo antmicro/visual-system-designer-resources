@@ -4,15 +4,9 @@
 		zephyr,console = &lpuart2;
 	};
 };
-&lpuart1{
-	status = "disabled";
-};
 &lpuart2{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
-};
-&pinctrl{
-	status = "okay";
 };

@@ -6,19 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&pwm0{
+&spi1{
+	compatible = "nordic,nrf-spi";
 	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pdm0{
-	status = "disabled";
-};
 &adc{
-	status = "okay";
-};
-&nfct{
 	status = "okay";
 };
 &uart0{
@@ -28,53 +23,26 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm3{
-	status = "disabled";
-};
-&qdec{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-1 = < &i2c1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&uart1{
-	status = "disabled";
-};
-&pwm2{
-	status = "disabled";
-};
 &gpio0{
 	status = "okay";
 };
-&i2s0{
-	status = "disabled";
-};
-&usbd{
+&pwm0{
 	status = "okay";
-};
-&spi2{
-	status = "disabled";
-	pinctrl-0 = < &spi2_default >;
-	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm1{
-	status = "disabled";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-1 = < &spi1_sleep >;
+&spi0{
+	compatible = "nordic,nrf-spi";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-1 = < &spi0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&i2c0{
+&radio{
+	fem = < &nrf_radio_fem >;
+};
+&gpio1{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &spi3{
 	status = "okay";
@@ -83,12 +51,27 @@
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio1{
+&usbd{
 	status = "okay";
 };
-&radio{
+&i2c0{
+	compatible = "nordic,nrf-twi";
 	status = "okay";
-	fem = < &nrf_radio_fem >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c1{
+	compatible = "nordic,nrf-twi";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-1 = < &i2c1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi2{
+	compatible = "nordic,nrf-spi";
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &qspi{
 	status = "okay";
@@ -96,11 +79,31 @@
 	pinctrl-1 = < &qspi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi0{
-	status = "disabled";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-1 = < &spi0_sleep >;
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	hw-flow-control;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&pwm1{
+	status = "okay";
+	pinctrl-0 = < &pwm1_default >;
+	pinctrl-1 = < &pwm1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm2{
+	pinctrl-0 = < &pwm2_default >;
+	pinctrl-1 = < &pwm2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pdm0{
+	status = "okay";
+	pinctrl-0 = < &pdm0_default >;
+	pinctrl-1 = < &pdm0_sleep >;
+	pinctrl-names = "default", "sleep";
+	clock-source = "PCLK32M_HFXO";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

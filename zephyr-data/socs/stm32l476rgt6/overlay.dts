@@ -6,23 +6,17 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c2{
-	status = "disabled";
-};
-&quadspi{
-	status = "disabled";
-};
-&dac1{
-	status = "disabled";
-};
-&lpuart1{
-	status = "disabled";
-};
-&usart3{
-	status = "disabled";
-	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&clk_lse{
+	status = "okay";
+};
+&clk_hsi{
+	status = "okay";
 };
 &usart2{
 	status = "okay";
@@ -30,26 +24,13 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in1_pc0 >;
+&usart3{
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
 	pinctrl-names = "default";
-	st,adc-clock-source = < 0x1 >;
-	st,adc-prescaler = < 0x4 >;
+	current-speed = < 0x1c200 >;
 };
-&spi2{
+&clk_lsi{
 	status = "okay";
-	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-};
-&adc2{
-	status = "disabled";
-};
-&uart5{
-	status = "disabled";
-};
-&adc3{
-	status = "disabled";
 };
 &spi3{
 	status = "okay";
@@ -62,30 +43,40 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0x6 0x11 >;
 };
-&uart4{
-	status = "disabled";
-};
-&usart1{
+&i2c3{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-0 = < &i2c3_scl_pc0 &i2c3_sda_pc1 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+};
+&pll{
+	status = "okay";
+	div-m = < 0x1 >;
+	mul-n = < 0x14 >;
+	div-r = < 0x4 >;
+	clocks = < &clk_hsi >;
 };
 &i2c1{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&can1{
-	status = "disabled";
-};
-&usbotg_fs{
-	status = "disabled";
-};
-&i2c3{
+&spi2{
 	status = "okay";
-	pinctrl-0 = < &i2c3_scl_pc0 &i2c3_sda_pc1 >;
+	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in1_pc0 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x1 >;
+	st,adc-prescaler = < 0x4 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x4c4b400 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

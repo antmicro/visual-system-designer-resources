@@ -7,38 +7,34 @@
 	};
 };
 &hs_lspi{
-	status = "disabled";
 	pinctrl-0 = < &pinmux_hs_lspi_default >;
 	pinctrl-names = "default";
-};
-&usbhs{
-	status = "disabled";
 };
 &gpio1{
 	status = "okay";
 };
-&usbfs{
-	status = "disabled";
+&sram3{
+	reg = < 0x20030000 0x14000 >;
 };
 &sc_timer{
-	status = "disabled";
 	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
-};
-&iap{
-	status = "disabled";
-};
-&adc0{
-	status = "disabled";
 };
 &gpio0{
 	status = "okay";
 };
 &flexcomm0{
+	compatible = "nxp,lpc-usart";
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	dmas = < &dma0 0x4 >, < &dma0 0x5 >;
 	dma-names = "rx", "tx";
 	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
+};
+&usbhs{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
 };

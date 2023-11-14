@@ -6,19 +6,7 @@
 		zephyr,flash = &flash0;
 	};
 };
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&pdm0{
-	status = "disabled";
-};
 &adc{
-	status = "okay";
-};
-&nfct{
 	status = "okay";
 };
 &uart0{
@@ -28,38 +16,44 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&qdec{
-	status = "disabled";
-};
-&i2c1{
-	status = "disabled";
-};
-&pwm2{
-	status = "disabled";
-};
 &gpio0{
 	status = "okay";
 };
-&i2s0{
-	status = "disabled";
-};
-&spi2{
-	status = "disabled";
-};
-&pwm1{
-	status = "disabled";
-};
-&spi1{
-	status = "disabled";
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &i2c0{
-	status = "disabled";
-};
-&radio{
 	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &spi0{
-	status = "disabled";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-1 = < &spi0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c1{
+	compatible = "nordic,nrf-twi";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-1 = < &i2c1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi2{
+	status = "okay";
+	cs-gpios = < &arduino_header 0x10 0x1 >;
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
