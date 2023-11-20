@@ -65,4 +65,13 @@
 		reg-shift = < 0x2 >;
 		status = "disabled";
 	};
+	gpio0: gpio@4201010 {
+		compatible = "ti,davinci-gpio";
+		reg = < 0x4201010 0x100 >;
+		#address-cells = < 0x2 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		ngpios = < 0x18 >;
+		status = "disabled";
+	};
 };

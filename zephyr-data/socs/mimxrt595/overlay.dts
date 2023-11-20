@@ -5,13 +5,50 @@
 		zephyr,sram = &sram0;
 	};
 };
-&gpio2{
+&flexcomm0{
+	compatible = "nxp,lpc-usart";
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
+	dma-names = "rx", "tx";
+};
+&gpio0{
+	status = "okay";
+};
+&i3c0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-names = "default";
+};
+&gpio3{
+	status = "okay";
+	int-source = "int-a";
+	interrupts = < 0x2 0x0 >;
 };
 &gpio4{
 	status = "okay";
 	int-source = "int-b";
 	interrupts = < 0x3 0x0 >;
+};
+&hs_lspi1{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexcomm16_spi >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
+	dma-names = "rx", "tx";
+};
+&sc_timer{
+	status = "okay";
+	pinctrl-0 = < &pinmux_sctimer_default >;
+	pinctrl-names = "default";
+};
+&flexspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexspi >;
+	pinctrl-1 = < &pinmux_flexspi_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &flexspi2{
 	status = "okay";
@@ -23,51 +60,19 @@
 	ahb-cacheable;
 	ahb-read-addr-opt;
 };
-&i3c0{
+&gpio1{
 	status = "okay";
-	pinctrl-0 = < &pinmux_i3c >;
-	pinctrl-names = "default";
-};
-&flexcomm0{
-	compatible = "nxp,lpc-usart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_flexcomm0_usart >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
-	dma-names = "rx", "tx";
-};
-&sc_timer{
-	status = "okay";
-	pinctrl-0 = < &pinmux_sctimer_default >;
-	pinctrl-names = "default";
 };
 &gpio5{
-	status = "okay";
-};
-&gpio6{
-	status = "okay";
-};
-&gpio0{
 	status = "okay";
 };
 &usbhs{
 	status = "okay";
 };
-&flexspi{
+&gpio2{
 	status = "okay";
-	pinctrl-0 = < &pinmux_flexspi >;
-	pinctrl-1 = < &pinmux_flexspi_sleep >;
-	pinctrl-names = "default", "sleep";
 };
-&hs_lspi1{
-	status = "okay";
-	pinctrl-0 = < &pinmux_flexcomm16_spi >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
-	dma-names = "rx", "tx";
-};
-&gpio1{
+&gpio6{
 	status = "okay";
 };
 &pmic_i2c{
@@ -77,9 +82,4 @@
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &pinmux_pmic_i2c >;
 	pinctrl-names = "default";
-};
-&gpio3{
-	status = "okay";
-	int-source = "int-a";
-	interrupts = < 0x2 0x0 >;
 };

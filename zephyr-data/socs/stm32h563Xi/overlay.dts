@@ -6,36 +6,20 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc1{
+&pll1{
 	status = "okay";
-	pinctrl-0 = < &adc1_inp3_pa6 &adc1_inp15_pa3 >;
-	pinctrl-names = "default";
-	st,adc-clock-source = < 0x2 >;
-	st,adc-prescaler = < 0x6 >;
+	div-m = < 0x2 >;
+	mul-n = < 0x78 >;
+	div-p = < 0x2 >;
+	div-q = < 0x2 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hse >;
 };
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pg9 &spi1_mosi_pb5 >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpiod 0xe 0x11 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xe4e1c00 >;
-};
-&clk_hsi48{
-	status = "okay";
-};
-&lpuart1{
-	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pb6 &lpuart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac1_out2_pa5 >;
-	pinctrl-names = "default";
 };
 &clk_hse{
 	status = "okay";
@@ -47,14 +31,10 @@
 	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb15 >;
 	pinctrl-names = "default";
 };
-&pll1{
+&dac1{
 	status = "okay";
-	div-m = < 0x2 >;
-	mul-n = < 0x78 >;
-	div-p = < 0x2 >;
-	div-q = < 0x2 >;
-	div-r = < 0x2 >;
-	clocks = < &clk_hse >;
+	pinctrl-0 = < &dac1_out2_pa5 >;
+	pinctrl-names = "default";
 };
 &usart3{
 	status = "okay";
@@ -62,13 +42,33 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_lse{
-	status = "okay";
-};
 &usb{
 	status = "okay";
 	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_inp3_pa6 &adc1_inp15_pa3 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x2 >;
+	st,adc-prescaler = < 0x6 >;
+};
+&clk_lse{
+	status = "okay";
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xe4e1c00 >;
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pb6 &lpuart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_hsi48{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

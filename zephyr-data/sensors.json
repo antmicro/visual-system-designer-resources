@@ -102,6 +102,7 @@
         ],
         "interfaces": {
             "i2c": "i2c",
+            "int1": "gpio",
             "spi": "spi"
         },
         "properties": {
@@ -111,7 +112,8 @@
             "spi-max-frequency": {
                 "type": "int"
             }
-        }
+        },
+        "rdp-compat": "adi,adxl367"
     },
     "adxl372": {
         "category": "Motion/Accelerometer",
@@ -735,6 +737,19 @@
             }
         }
     },
+    "explorir_m": {
+        "category": "Gas",
+        "compatible": [
+            "gss,explorir-m"
+        ],
+        "description": "Gas Sensing Solutions CO2 sensor",
+        "driver": [
+            "drivers/sensor/explorir_m/explorir_m.c"
+        ],
+        "interfaces": {
+            "uart": "serial"
+        }
+    },
     "f75303": {
         "category": "Environmental/Temperature",
         "compatible": [
@@ -742,8 +757,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303_emul.c",
-            "drivers/sensor/f75303/f75303.c"
+            "drivers/sensor/f75303/f75303.c",
+            "drivers/sensor/f75303/f75303_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -954,6 +969,24 @@
         },
         "rdp-compat": "hoperf,hp206c"
     },
+    "hs300x": {
+        "category": "Environmental",
+        "compatible": [
+            "renesas,hs300x"
+        ],
+        "description": "Renesas HS300x humidity and temperature sensor",
+        "driver": [
+            "drivers/sensor/hs300x/hs300x.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
+    },
     "hts221": {
         "category": "Environmental",
         "compatible": [
@@ -1110,8 +1143,8 @@
         ],
         "description": "ICM-42688 motion tracking device",
         "driver": [
-            "drivers/sensor/icm42688/icm42688_emul.c",
-            "drivers/sensor/icm42688/icm42688.c"
+            "drivers/sensor/icm42688/icm42688.c",
+            "drivers/sensor/icm42688/icm42688_emul.c"
         ],
         "interfaces": {
             "spi": "spi"
@@ -1690,6 +1723,31 @@
         },
         "rdp-compat": "lm77"
     },
+    "lps22df": {
+        "category": "Environmental",
+        "compatible": [
+            "st,lps22df"
+        ],
+        "description": "STMicroelectronics LPS22DF pressure and temperature sensor connected to I3C\nbus\n",
+        "driver": [
+            "drivers/sensor/lps22df/lps22df.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "i3c": "i3c",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lps22df"
+    },
     "lps22hb_press": {
         "category": "Pressure",
         "compatible": [
@@ -1714,13 +1772,14 @@
         "compatible": [
             "st,lps22hh"
         ],
-        "description": "STMicroelectronics LPS22HH pressure and temperature sensor connected to SPI\nbus\n",
+        "description": "STMicroelectronics LPS22HH pressure and temperature sensor connected to I3C\nbus\n",
         "driver": [
             "drivers/sensor/lps22hh/lps22hh.c"
         ],
         "interfaces": {
             "drdy": "gpio",
             "i2c": "i2c",
+            "i3c": "i3c",
             "spi": "spi"
         },
         "properties": {
@@ -1912,7 +1971,8 @@
         ],
         "interfaces": {
             "i2c": "i2c",
-            "irq": "gpio",
+            "int1": "gpio",
+            "int2": "gpio",
             "spi": "spi"
         },
         "properties": {
@@ -2967,6 +3027,25 @@
             }
         },
         "rdp-compat": "ams,tsl2540"
+    },
+    "tsl2561": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "ams,tsl2561"
+        ],
+        "description": "OSRAM ams TSL2561 light sensor.\n",
+        "driver": [
+            "drivers/sensor/tsl2561/tsl2561.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,tsl2561"
     },
     "vcnl4040": {
         "category": "Position/Distance",

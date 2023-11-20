@@ -338,7 +338,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x40130000 0x10000 >;
 			interrupts = < 0x0 0xbf 0x2 0xa0 >;
-			clocks = < &clock 0x111 >;
+			clocks = < &clock 0x110 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -348,7 +348,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x40140000 0x10000 >;
 			interrupts = < 0x0 0xc0 0x2 0xa0 >;
-			clocks = < &clock 0x112 >;
+			clocks = < &clock 0x111 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -358,7 +358,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x40930000 0x10000 >;
 			interrupts = < 0x0 0xc1 0x2 0xa0 >;
-			clocks = < &clock 0x114 >;
+			clocks = < &clock 0x113 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -368,7 +368,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x40940000 0x10000 >;
 			interrupts = < 0x0 0xc2 0x2 0xa0 >;
-			clocks = < &clock 0x115 >;
+			clocks = < &clock 0x114 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -378,7 +378,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x40950000 0x10000 >;
 			interrupts = < 0x0 0xc3 0x2 0xa0 >;
-			clocks = < &clock 0x116 >;
+			clocks = < &clock 0x115 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -388,7 +388,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x42130000 0x10000 >;
 			interrupts = < 0x0 0xc4 0x2 0xa0 >;
-			clocks = < &clock 0x118 >;
+			clocks = < &clock 0x117 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -398,7 +398,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x42140000 0x10000 >;
 			interrupts = < 0x0 0xc5 0x2 0xa0 >;
-			clocks = < &clock 0x119 >;
+			clocks = < &clock 0x118 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -408,7 +408,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x42150000 0x10000 >;
 			interrupts = < 0x0 0xc6 0x2 0xa0 >;
-			clocks = < &clock 0x11a >;
+			clocks = < &clock 0x119 >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -418,7 +418,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x42930000 0x10000 >;
 			interrupts = < 0x0 0xc7 0x2 0xa0 >;
-			clocks = < &clock 0x11c >;
+			clocks = < &clock 0x11b >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -428,7 +428,7 @@
 			compatible = "nxp,s32-spi";
 			reg = < 0x42940000 0x10000 >;
 			interrupts = < 0x0 0xc8 0x2 0xa0 >;
-			clocks = < &clock 0x11d >;
+			clocks = < &clock 0x11c >;
 			num-cs = < 0x5 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -549,8 +549,8 @@
 			reg-names = "sic", "grp_ctrl", "dsc_ctrl";
 			status = "disabled";
 			interrupts = < 0x0 0xe0 0x2 0xa0 >, < 0x0 0xe1 0x2 0xa0 >;
-			interrupt-names = "RX_TX_DATA_IRQ", "INT_ERROR_IRQ";
-			clocks = < &clock 0xe8 >;
+			interrupt-names = "rx_tx", "error";
+			clocks = < &clock 0xe7 >;
 		};
 		can1: can@4751b000 {
 			compatible = "nxp,s32-canxl";
@@ -558,35 +558,35 @@
 			reg-names = "sic", "grp_ctrl", "dsc_ctrl";
 			status = "disabled";
 			interrupts = < 0x0 0xe2 0x2 0xa0 >, < 0x0 0xe3 0x2 0xa0 >;
-			interrupt-names = "RX_TX_DATA_IRQ", "INT_ERROR_IRQ";
-			clocks = < &clock 0xe8 >;
+			interrupt-names = "rx_tx", "error";
+			clocks = < &clock 0xe7 >;
 		};
 		stm0: stm@76a00000 {
 			compatible = "nxp,s32-sys-timer";
 			reg = < 0x76a00000 0x10000 >;
 			interrupts = < 0x0 0xd 0x2 0xa0 >;
-			clocks = < &clock 0x105 >;
+			clocks = < &clock 0x104 >;
 			status = "disabled";
 		};
 		stm1: stm@76a10000 {
 			compatible = "nxp,s32-sys-timer";
 			reg = < 0x76a10000 0x10000 >;
 			interrupts = < 0x0 0xe 0x2 0xa0 >;
-			clocks = < &clock 0x105 >;
+			clocks = < &clock 0x104 >;
 			status = "disabled";
 		};
 		stm2: stm@76820000 {
 			compatible = "nxp,s32-sys-timer";
 			reg = < 0x76820000 0x10000 >;
 			interrupts = < 0x0 0xf 0x2 0xa0 >;
-			clocks = < &clock 0x105 >;
+			clocks = < &clock 0x104 >;
 			status = "disabled";
 		};
 		stm3: stm@76830000 {
 			compatible = "nxp,s32-sys-timer";
 			reg = < 0x76830000 0x10000 >;
 			interrupts = < 0x0 0x10 0x2 0xa0 >;
-			clocks = < &clock 0x105 >;
+			clocks = < &clock 0x104 >;
 			status = "disabled";
 		};
 		swt0: watchdog@76800000 {
@@ -628,7 +628,7 @@
 			compatible = "nxp,kinetis-pit";
 			reg = < 0x76950000 0x10000 >;
 			interrupts = < 0x0 0x13 0x2 0xa0 >;
-			clocks = < &clock 0xc3 >;
+			clocks = < &clock 0xc2 >;
 			max-load-value = < 0xffffff >;
 			status = "disabled";
 		};

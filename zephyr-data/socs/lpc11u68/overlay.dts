@@ -18,6 +18,12 @@
 &gpio1{
 	status = "okay";
 };
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_fast >;
+	pinctrl-names = "default", "fast-plus";
+};
 &uart0{
 	status = "okay";
 	pinctrl-0 = < &uart0_default >;
@@ -26,10 +32,4 @@
 };
 &gpio0{
 	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_fast >;
-	pinctrl-names = "default", "fast-plus";
 };

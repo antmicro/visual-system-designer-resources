@@ -6,8 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hsi{
-	status = "okay";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x4c4b400 >;
 };
 &usart2{
 	status = "okay";
@@ -15,12 +16,11 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_lsi{
+&clk_hsi{
 	status = "okay";
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x4c4b400 >;
+&clk_lsi{
+	status = "okay";
 };
 &pll{
 	status = "okay";

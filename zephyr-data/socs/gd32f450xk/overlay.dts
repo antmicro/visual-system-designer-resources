@@ -1,35 +1,19 @@
 / {
-	compatible = "gd,gd32f450i-eval";
+	compatible = "gd,gd32f450z-eval";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&gpioe{
+&gpioa{
 	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
 };
 &usart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
-};
-&spi5{
-	status = "okay";
-	pinctrl-0 = < &spi5_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioi 0x8 0x1 >;
-	dmas = < &dma1 0x5 0x1 0x0 0x0 >, < &dma1 0x6 0x1 0x0 0x0 >;
-	dma-names = "tx", "rx";
 };
 &gpioc{
 	status = "okay";
@@ -39,24 +23,38 @@
 	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
 &gpiog{
 	status = "okay";
 };
-&gpioi{
+&gpiod{
 	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&spi5{
+	status = "okay";
+	pinctrl-0 = < &spi5_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiog 0x9 0x1 >;
 };
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&gpiod{
+&gpiof{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&gpioi{
 	status = "okay";
 };
 &pinctrl{
@@ -99,7 +97,7 @@
 		reg = < 0x40020c00 0x400 >;
 		clocks = < &cctl 0xc03 >;
 		resets = < &rctl 0x403 >;
-		status = "disabled";
+		status = "okay";
 	};
 	gpioe: gpio@40021000 {
 		compatible = "gd,gd32-gpio";
@@ -108,7 +106,7 @@
 		reg = < 0x40021000 0x400 >;
 		clocks = < &cctl 0xc04 >;
 		resets = < &rctl 0x404 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpiof: gpio@40021400 {
 		compatible = "gd,gd32-gpio";
@@ -117,7 +115,7 @@
 		reg = < 0x40021400 0x400 >;
 		clocks = < &cctl 0xc05 >;
 		resets = < &rctl 0x405 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpiog: gpio@40021800 {
 		compatible = "gd,gd32-gpio";
@@ -144,16 +142,11 @@
 		reg = < 0x40022000 0x400 >;
 		clocks = < &cctl 0xc08 >;
 		resets = < &rctl 0x408 >;
-		status = "okay";
+		status = "disabled";
 	};
 	usart0_default: usart0_default {
 		group1 {
 			pinmux = < 0x790 >, < 0x7a0 >;
-		};
-	};
-	adc0_default: adc0_default {
-		group1 {
-			pinmux = < 0x1032 >;
 		};
 	};
 	dac_default: dac_default {

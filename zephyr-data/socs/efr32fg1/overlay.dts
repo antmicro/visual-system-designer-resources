@@ -6,6 +6,12 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpioa{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
 &gpiof{
 	status = "okay";
 };
@@ -22,9 +28,6 @@
 &gpiob{
 	status = "okay";
 };
-&gpioc{
-	status = "okay";
-};
 &gpiod{
 	status = "okay";
 };
@@ -35,9 +38,6 @@
 	location-tx = < 0x0 0x0 0x0 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpioa{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

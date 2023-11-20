@@ -6,6 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0xf42400 >;
+};
 &i2c2{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -18,15 +22,6 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x501bd00 >;
-	apb1-prescaler = < 0x2 >;
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0xf42400 >;
-};
 &clk_lsi{
 	status = "okay";
 };
@@ -38,11 +33,10 @@
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x501bd00 >;
+	apb1-prescaler = < 0x2 >;
 };
 &spi1{
 	status = "okay";
@@ -59,6 +53,12 @@
 	pinctrl-0 = < &adc1_in1_pa1 >;
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x2 >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

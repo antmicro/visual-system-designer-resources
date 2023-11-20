@@ -6,17 +6,27 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart4{
+&gpiob{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x4 0x7 0x5 >;
-	location-tx = < 0x4 0x7 0x4 >;
 };
 &gpioh{
 	status = "okay";
 };
-&gpioe{
+&gpioi{
 	status = "okay";
+};
+&i2c1{
+	status = "okay";
+	location-sda = < 0x0 0x2 0x4 >;
+	location-scl = < 0x0 0x2 0x5 >;
+};
+&gpioc{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
 };
 &leuart0{
 	status = "okay";
@@ -24,13 +34,25 @@
 	location-rx = < 0x0 0x0 0x1 >;
 	location-tx = < 0x0 0x0 0x0 >;
 };
-&usart0{
+&gpiod{
+	status = "okay";
+};
+&usart4{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	location-rx = < 0x0 0x4 0xb >;
-	location-tx = < 0x0 0x4 0xa >;
+	location-rx = < 0x4 0x7 0x5 >;
+	location-tx = < 0x4 0x7 0x4 >;
 };
-&gpioc{
+&gpiog{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpioe{
 	status = "okay";
 };
 &eth0{
@@ -49,33 +71,11 @@
 	location-rmii_rxd1 = < 0x1 0x5 0x9 >;
 	location-rmii_rx_er = < 0x1 0x3 0xc >;
 };
-&gpioi{
+&usart0{
 	status = "okay";
-};
-&i2c1{
-	status = "okay";
-	location-sda = < 0x0 0x2 0x4 >;
-	location-scl = < 0x0 0x2 0x5 >;
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0x4 0x2 0x0 >;
-	location-scl = < 0x4 0x2 0x1 >;
-};
-&gpiod{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpiog{
-	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x4 0xb >;
+	location-tx = < 0x0 0x4 0xa >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

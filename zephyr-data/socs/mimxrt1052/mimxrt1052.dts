@@ -30,11 +30,15 @@
 			status = "disabled";
 		};
 		flexram: flexram@400b0000 {
-			compatible = "nxp,imx-flexram";
+			compatible = "nxp,flexram";
 			reg = < 0x400b0000 0x4000 >;
 			interrupts = < 0x26 0x0 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
+			status = "okay";
+			flexram,bank-size = < 0x20 >;
+			flexram,num-ram-banks = < 0x10 >;
+			flexram,bank-spec = < 0x1 >, < 0x1 >, < 0x1 >, < 0x1 >, < 0x2 >, < 0x2 >, < 0x3 >, < 0x3 >, < 0x3 >, < 0x3 >, < 0x2 >, < 0x2 >, < 0x1 >, < 0x1 >, < 0x1 >, < 0x1 >;
 			itcm: itcm@0 {
 				compatible = "zephyr,memory-region", "nxp,imx-itcm";
 				reg = < 0x0 0x20000 >;
@@ -633,23 +637,21 @@
 			interrupts = < 0x35 0x0 >;
 		};
 		usb1: usbd@402e0000 {
-			compatible = "nxp,mcux-usbd";
+			compatible = "nxp,ehci";
 			reg = < 0x402e0000 0x200 >;
 			interrupts = < 0x71 0x1 >;
 			interrupt-names = "usb_otg";
 			clocks = < &usbclk >;
 			num-bidir-endpoints = < 0x8 >;
-			usb-controller-index = "Ehci0";
 			status = "disabled";
 		};
 		usb2: usbd@402e0200 {
-			compatible = "nxp,mcux-usbd";
+			compatible = "nxp,ehci";
 			reg = < 0x402e0200 0x200 >;
 			interrupts = < 0x70 0x1 >;
 			interrupt-names = "usb_otg";
 			clocks = < &usbclk >;
 			num-bidir-endpoints = < 0x8 >;
-			usb-controller-index = "Ehci1";
 			status = "disabled";
 		};
 		usdhc1: usdhc@402c0000 {

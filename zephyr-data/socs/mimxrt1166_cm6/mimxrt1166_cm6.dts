@@ -624,23 +624,21 @@
 			status = "okay";
 		};
 		usb1: usbd@40430000 {
-			compatible = "nxp,mcux-usbd";
+			compatible = "nxp,ehci";
 			reg = < 0x40430000 0x200 >;
 			interrupts = < 0x88 0x1 >;
 			interrupt-names = "usb_otg";
 			clocks = < &xtal >;
 			num-bidir-endpoints = < 0x8 >;
-			usb-controller-index = "Ehci0";
 			status = "disabled";
 		};
 		usb2: usbd@4042c000 {
-			compatible = "nxp,mcux-usbd";
+			compatible = "nxp,ehci";
 			reg = < 0x4042c000 0x200 >;
 			interrupts = < 0x87 0x1 >;
 			interrupt-names = "usb_otg";
 			clocks = < &xtal >;
 			num-bidir-endpoints = < 0x8 >;
-			usb-controller-index = "Ehci1";
 			status = "disabled";
 		};
 		usdhc1: usdhc@40418000 {
@@ -946,10 +944,15 @@
 			status = "disabled";
 		};
 		flexram: flexram@40028000 {
+			compatible = "nxp,flexram";
 			reg = < 0x40028000 0x4000 >;
 			interrupts = < 0x32 0x0 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
+			flexram,bank-size = < 0x20 >;
+			flexram,num-ram-banks = < 0x10 >;
+			flexram,has-magic-addr;
+			flexram,bank-spec = < 0x2 >, < 0x2 >, < 0x2 >, < 0x2 >, < 0x3 >, < 0x3 >, < 0x3 >, < 0x3 >, < 0x2 >, < 0x2 >, < 0x2 >, < 0x2 >, < 0x3 >, < 0x3 >, < 0x3 >, < 0x3 >;
 			itcm: itcm@0 {
 				compatible = "zephyr,memory-region", "nxp,imx-itcm";
 				reg = < 0x0 0x40000 >;
@@ -989,7 +992,7 @@
 			#gpio-cells = < 0x2 >;
 		};
 		mailbox_a: mailbox@40c48000 {
-			compatible = "nxp,imx-mu-rev2";
+			compatible = "nxp,imx-mu";
 			reg = < 0x40c48000 0x4000 >;
 			interrupts = < 0x76 0x0 >;
 			rdc = < 0x0 >;

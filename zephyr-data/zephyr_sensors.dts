@@ -695,7 +695,8 @@
 			test_i2c_lsm6dsv16x: lsm6dsv16x@69 {
 				compatible = "st,lsm6dsv16x";
 				reg = < 0x69 >;
-				irq-gpios = < &test_gpio 0x0 0x0 >;
+				int1-gpios = < &test_gpio 0x0 0x0 >;
+				int2-gpios = < &test_gpio 0x0 0x0 >;
 			};
 			test_i2c_mcp9600: mcp9600@6a {
 				compatible = "microchip,mcp9600";
@@ -778,6 +779,21 @@
 				compatible = "adi,adxl367";
 				reg = < 0x77 >;
 				odr = < 0x4 >;
+				int1-gpios = < &test_gpio 0x0 0x0 >;
+			};
+			test_i2c_tsl2561: tsl2561@78 {
+				compatible = "ams,tsl2561";
+				reg = < 0x78 >;
+			};
+			test_i2c_lps22df: lps22df@79 {
+				compatible = "st,lps22df";
+				reg = < 0x79 >;
+				drdy-gpios = < &test_gpio 0x0 0x0 >;
+				status = "okay";
+			};
+			test_i2c_hs300x: hs300x@79 {
+				compatible = "renesas,hs300x";
+				reg = < 0x79 >;
 			};
 		};
 		test_spi: spi@33334444 {
@@ -787,7 +803,7 @@
 			reg = < 0x33334444 0x1000 >;
 			status = "okay";
 			clock-frequency = < 0x1e8480 >;
-			cs-gpios = < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >;
+			cs-gpios = < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >;
 			test_spi_adxl362: adxl362@0 {
 				compatible = "adi,adxl362";
 				reg = < 0x0 >;
@@ -1005,7 +1021,8 @@
 				compatible = "st,lsm6dsv16x";
 				reg = < 0x22 >;
 				spi-max-frequency = < 0x0 >;
-				irq-gpios = < &test_gpio 0x0 0x0 >;
+				int1-gpios = < &test_gpio 0x0 0x0 >;
+				int2-gpios = < &test_gpio 0x0 0x0 >;
 			};
 			test_spi_bmi08x_accel: bmi08x@23 {
 				compatible = "bosch,bmi08x-accel";
@@ -1041,6 +1058,14 @@
 				reg = < 0x26 >;
 				spi-max-frequency = < 0x0 >;
 				odr = < 0x4 >;
+				int1-gpios = < &test_gpio 0x0 0x0 >;
+			};
+			test_spi_lps22df: lps22df@27 {
+				compatible = "st,lps22df";
+				reg = < 0x27 >;
+				spi-max-frequency = < 0x0 >;
+				drdy-gpios = < &test_gpio 0x0 0x0 >;
+				status = "okay";
 			};
 		};
 		test_uart: uart@55556666 {
@@ -1067,6 +1092,9 @@
 			test_uart_a01nyub: a01nyub {
 				compatible = "dfrobot,a01nyub";
 			};
+			test_uart_explorir_m: explorir-m {
+				compatible = "gss,explorir-m";
+			};
 		};
 		test_w1: w1@66660000 {
 			compatible = "vnd,w1";
@@ -1079,6 +1107,25 @@
 				family-code = < 0x28 >;
 				resolution = < 0xc >;
 				status = "okay";
+			};
+		};
+		test_i3c: i3c@f0cacc1a {
+			#address-cells = < 0x3 >;
+			#size-cells = < 0x0 >;
+			compatible = "vnd,i3c";
+			reg = < 0xf0cacc1a 0x1000 >;
+			status = "okay";
+			test_i3c_lps22hh: lps22hh@100000803E0000001 {
+				compatible = "st,lps22hh";
+				reg = < 0x1 0x803 0xe0000001 >;
+				assigned-address = < 0x1 >;
+				drdy-gpios = < &test_gpio 0x0 0x0 >;
+			};
+			test_i3c_lps22df: lps22df@200000803E0000002 {
+				compatible = "st,lps22df";
+				reg = < 0x2 0x803 0xe0000002 >;
+				assigned-address = < 0x2 >;
+				drdy-gpios = < &test_gpio 0x0 0x0 >;
 			};
 		};
 	};

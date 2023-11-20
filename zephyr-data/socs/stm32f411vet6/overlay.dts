@@ -6,16 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
+	clock-frequency = < 0x7a1200 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x5b8d800 >;
-	apb1-prescaler = < 0x2 >;
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &usart2{
 	status = "okay";
@@ -23,9 +21,11 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_hse{
+&i2c1{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	clock-frequency = < 0x7a1200 >;
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
 };
 &clk_lsi{
 	status = "okay";
@@ -38,10 +38,10 @@
 	div-q = < 0x4 >;
 	clocks = < &clk_hse >;
 };
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x5b8d800 >;
+	apb1-prescaler = < 0x2 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

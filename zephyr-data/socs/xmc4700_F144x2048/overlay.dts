@@ -6,20 +6,26 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc2{
+&adc3{
 	vref-internal-mv = < 0xce4 >;
+};
+&gpio1{
+	status = "okay";
 };
 &adc1{
 	vref-internal-mv = < 0xce4 >;
 };
-&gpio3{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
-};
 &gpio14{
 	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
+&gpio5{
+	status = "okay";
+};
+&adc0{
+	vref-internal-mv = < 0xce4 >;
 };
 &usic0ch0{
 	status = "okay";
@@ -34,18 +40,12 @@
 	fifo-tx-size = < 0x10 >;
 	fifo-rx-size = < 0x10 >;
 };
-&gpio2{
-	status = "okay";
-};
-&gpio5{
-	status = "okay";
-};
-&adc3{
+&adc2{
 	vref-internal-mv = < 0xce4 >;
 };
-&gpio1{
+&gpio3{
 	status = "okay";
 };
-&adc0{
-	vref-internal-mv = < 0xce4 >;
+&gpio0{
+	status = "okay";
 };

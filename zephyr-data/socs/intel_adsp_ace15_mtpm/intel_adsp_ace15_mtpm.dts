@@ -354,29 +354,6 @@
 			interrupts = < 0x0 0x0 0x0 >;
 			interrupt-parent = < &ace_intc >;
 		};
-		watchdog0: watchdog@78300 {
-			compatible = "snps,designware-watchdog";
-			reg = < 0x78300 0x100 >;
-			interrupts = < 0x8 0x0 0x0 >;
-			interrupt-parent = < &core_intc >;
-			clock-frequency = < 0x8000 >;
-			reset-pulse-length = < 0x2 >;
-			status = "okay";
-		};
-		watchdog1: watchdog@78400 {
-			compatible = "snps,designware-watchdog";
-			reg = < 0x78400 0x100 >;
-			clock-frequency = < 0x8000 >;
-			reset-pulse-length = < 0x2 >;
-			status = "okay";
-		};
-		watchdog2: watchdog@78500 {
-			compatible = "snps,designware-watchdog";
-			reg = < 0x78500 0x100 >;
-			clock-frequency = < 0x8000 >;
-			reset-pulse-length = < 0x2 >;
-			status = "okay";
-		};
 		ace_intc: ace_intc@7ac00 {
 			compatible = "intel,ace-intc";
 			reg = < 0x7ac00 0xc00 >;

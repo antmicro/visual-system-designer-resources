@@ -1,0 +1,17 @@
+/ {
+	compatible = "renesas,r7fa4m1aB3cfm";
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+&fcu{
+	status = "okay";
+};
+&hoco{
+	clock-frequency = < 0x2dc6c00 >;
+	status = "okay";
+};
+&ioport1{
+	status = "okay";
+};

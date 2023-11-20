@@ -804,8 +804,8 @@
 			interrupts = < 0xa0 0x4 >;
 			status = "disabled";
 		};
-		kscan0: kscan@f01d00 {
-			compatible = "ite,it8xxx2-kscan";
+		kbd: kbd@f01d00 {
+			compatible = "ite,it8xxx2-kbd";
 			reg = < 0xf01d00 0x29 >;
 			interrupt-parent = < &intc >;
 			interrupts = < 0xd 0x4 >;
@@ -1177,6 +1177,7 @@
 			interrupt-parent = < &intc >;
 			status = "disabled";
 			port-num = < 0x0 >;
+			channel-switch-sel = < 0x0 >;
 			scl-gpios = < &gpiob 0x3 0x0 >;
 			sda-gpios = < &gpiob 0x4 0x0 >;
 			clock-gate-offset = < 0x904 >;
@@ -1190,6 +1191,7 @@
 			interrupt-parent = < &intc >;
 			status = "disabled";
 			port-num = < 0x1 >;
+			channel-switch-sel = < 0x1 >;
 			scl-gpios = < &gpioc 0x1 0x0 >;
 			sda-gpios = < &gpioc 0x2 0x0 >;
 			clock-gate-offset = < 0x908 >;
@@ -1203,6 +1205,7 @@
 			interrupt-parent = < &intc >;
 			status = "disabled";
 			port-num = < 0x2 >;
+			channel-switch-sel = < 0x2 >;
 			scl-gpios = < &gpiof 0x6 0x0 >;
 			sda-gpios = < &gpiof 0x7 0x0 >;
 			clock-gate-offset = < 0x910 >;
@@ -1216,6 +1219,7 @@
 			interrupt-parent = < &intc >;
 			status = "disabled";
 			port-num = < 0x3 >;
+			channel-switch-sel = < 0x3 >;
 			scl-gpios = < &gpioh 0x1 0x0 >;
 			sda-gpios = < &gpioh 0x2 0x0 >;
 			clock-gate-offset = < 0x920 >;
@@ -1229,6 +1233,7 @@
 			interrupt-parent = < &intc >;
 			status = "disabled";
 			port-num = < 0x4 >;
+			channel-switch-sel = < 0x4 >;
 			scl-gpios = < &gpioe 0x0 0x0 >;
 			sda-gpios = < &gpioe 0x7 0x0 >;
 			clock-gate-offset = < 0x940 >;
@@ -1242,6 +1247,7 @@
 			interrupt-parent = < &intc >;
 			status = "disabled";
 			port-num = < 0x5 >;
+			channel-switch-sel = < 0x5 >;
 			scl-gpios = < &gpioa 0x4 0x0 >;
 			sda-gpios = < &gpioa 0x5 0x0 >;
 			clock-gate-offset = < 0x980 >;

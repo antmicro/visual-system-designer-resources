@@ -23,6 +23,16 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
+&emdio{
+	status = "okay";
+	pinctrl-0 = < &emdio_default >;
+	pinctrl-names = "default";
+};
+&uart0{
+	status = "okay";
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
 &can0{
 	status = "okay";
 	pinctrl-0 = < &can0_default >;
@@ -31,14 +41,4 @@
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
-};
-&uart0{
-	status = "okay";
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&emdio{
-	status = "okay";
-	pinctrl-0 = < &emdio_default >;
-	pinctrl-names = "default";
 };

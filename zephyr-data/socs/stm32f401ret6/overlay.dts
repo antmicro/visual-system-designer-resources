@@ -1,21 +1,70 @@
 / {
-	compatible = "seeed,carbon";
+	compatible = "st,stm32f401re-nucleo";
 	chosen {
-		zephyr,console = &usart1;
+		zephyr,console = &usart2;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&usart6{
+&spi1{
 	status = "okay";
-	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0x6 0x11 >;
+};
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in0_pa0 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x2 >;
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&clk_lsi{
+	status = "okay";
+};
+&pll{
+	status = "okay";
+	div-m = < 0x8 >;
+	mul-n = < 0x150 >;
+	div-p = < 0x4 >;
+	div-q = < 0x7 >;
+	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x501bd00 >;
+	apb1-prescaler = < 0x2 >;
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &i2c2{
@@ -24,58 +73,11 @@
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
 	pinctrl-names = "default";
 };
-&usart1{
+&usart6{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_miso_pa6 &spi1_mosi_pa7 &spi1_sck_pa5 &spi1_nss_pa4 >;
-	pinctrl-names = "default";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x501bd00 >;
-	apb1-prescaler = < 0x2 >;
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0xf42400 >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&pll{
-	status = "okay";
-	div-m = < 0x10 >;
-	mul-n = < 0x150 >;
-	div-p = < 0x4 >;
-	div-q = < 0x7 >;
-	clocks = < &clk_hse >;
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in0_pa0 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x2 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
@@ -138,23 +140,16 @@
 		reg = < 0x40021c00 0x400 >;
 		clocks = < &rcc 0x30 0x80 >;
 	};
-	i2c1_scl_pb6: i2c1_scl_pb6 {
-		pinmux = < 0x2c4 >;
+	adc1_in0_pa0: adc1_in0_pa0 {
+		pinmux = < 0x10 >;
+	};
+	i2c1_scl_pb8: i2c1_scl_pb8 {
+		pinmux = < 0x304 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
-	i2c2_scl_pb10: i2c2_scl_pb10 {
-		pinmux = < 0x344 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c1_sda_pb7: i2c1_sda_pb7 {
-		pinmux = < 0x2e4 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c2_sda_pb3: i2c2_sda_pb3 {
-		pinmux = < 0x269 >;
+	i2c1_sda_pb9: i2c1_sda_pb9 {
+		pinmux = < 0x324 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
@@ -174,10 +169,6 @@
 		pinmux = < 0x3e5 >;
 		bias-pull-down;
 	};
-	spi1_nss_pa4: spi1_nss_pa4 {
-		pinmux = < 0x85 >;
-		bias-pull-up;
-	};
 	spi2_nss_pb12: spi2_nss_pb12 {
 		pinmux = < 0x385 >;
 		bias-pull-up;
@@ -192,31 +183,21 @@
 		bias-pull-down;
 		slew-rate = "very-high-speed";
 	};
-	usart1_rx_pa10: usart1_rx_pa10 {
-		pinmux = < 0x147 >;
+	tim2_ch1_pa5: tim2_ch1_pa5 {
+		pinmux = < 0xa1 >;
+	};
+	usart1_rx_pb7: usart1_rx_pb7 {
+		pinmux = < 0x2e7 >;
 	};
 	usart2_rx_pa3: usart2_rx_pa3 {
 		pinmux = < 0x67 >;
 	};
-	usart6_rx_pc7: usart6_rx_pc7 {
-		pinmux = < 0x4e8 >;
-	};
-	usart1_tx_pa9: usart1_tx_pa9 {
-		pinmux = < 0x127 >;
+	usart1_tx_pb6: usart1_tx_pb6 {
+		pinmux = < 0x2c7 >;
 		bias-pull-up;
 	};
 	usart2_tx_pa2: usart2_tx_pa2 {
 		pinmux = < 0x47 >;
 		bias-pull-up;
-	};
-	usart6_tx_pc6: usart6_tx_pc6 {
-		pinmux = < 0x4c8 >;
-		bias-pull-up;
-	};
-	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {
-		pinmux = < 0x16a >;
-	};
-	usb_otg_fs_dp_pa12: usb_otg_fs_dp_pa12 {
-		pinmux = < 0x18a >;
 	};
 };

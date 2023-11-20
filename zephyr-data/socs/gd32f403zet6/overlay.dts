@@ -9,11 +9,6 @@
 &gpioa{
 	status = "okay";
 };
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
 &gpioc{
 	status = "okay";
 };
@@ -21,6 +16,11 @@
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
 &gpiof{

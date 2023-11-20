@@ -6,16 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&can0{
-	status = "okay";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
-	pinctrl-0 = < &pinmux_mcan_can0 >;
-	pinctrl-names = "default";
-};
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &pinmux_lpadc0 >;
+	pinctrl-names = "default";
+};
+&usbfs{
+	status = "okay";
+	pinctrl-0 = < &pinmux_usbfs >;
 	pinctrl-names = "default";
 };
 &flexcomm0{
@@ -30,8 +28,10 @@
 	pinctrl-0 = < &pinmux_dac0 >;
 	pinctrl-names = "default";
 };
-&usbfs{
+&can0{
 	status = "okay";
-	pinctrl-0 = < &pinmux_usbfs >;
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+	pinctrl-0 = < &pinmux_mcan_can0 >;
 	pinctrl-names = "default";
 };

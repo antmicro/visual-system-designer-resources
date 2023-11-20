@@ -6,22 +6,29 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc1{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &adc1_inp0_pa0_c >;
+	clock-frequency = < 0x17d7840 >;
+};
+&mac{
+	status = "okay";
+	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pb11 &eth_txd0_pb12 &eth_txd1_pb13 >;
 	pinctrl-names = "default";
-	st,adc-clock-source = < 0x1 >;
-	st,adc-prescaler = < 0x4 >;
+};
+&i2c4{
+	pinctrl-0 = < &i2c4_scl_pf14 &i2c4_sda_pf15 >;
+	pinctrl-names = "default";
 };
 &uart7{
 	pinctrl-0 = < &uart7_tx_pf7 &uart7_rx_pf6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&octospi1{
+&usart3{
 	status = "okay";
-	pinctrl-0 = < &octospim_p1_clk_pf10 &octospim_p1_ncs_pg6 &octospim_p1_io0_pd11 &octospim_p1_io1_pd12 &octospim_p1_io2_pe2 &octospim_p1_io3_pd13 &octospim_p1_io4_pd4 &octospim_p1_io5_pd5 &octospim_p1_io6_pg9 &octospim_p1_io7_pd7 &octospim_p1_dqs_pb2 >;
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &rcc{
 	clocks = < &pll >;
@@ -32,16 +39,23 @@
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
 };
-&clk_hsi48{
+&octospi1{
 	status = "okay";
-};
-&i2c4{
-	pinctrl-0 = < &i2c4_scl_pf14 &i2c4_sda_pf15 >;
+	pinctrl-0 = < &octospim_p1_clk_pf10 &octospim_p1_ncs_pg6 &octospim_p1_io0_pd11 &octospim_p1_io1_pd12 &octospim_p1_io2_pe2 &octospim_p1_io3_pd13 &octospim_p1_io4_pd4 &octospim_p1_io5_pd5 &octospim_p1_io6_pg9 &octospim_p1_io7_pd7 &octospim_p1_dqs_pb2 >;
 	pinctrl-names = "default";
 };
-&clk_hse{
+&clk_lse{
 	status = "okay";
-	clock-frequency = < 0x17d7840 >;
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_inp0_pa0_c >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x1 >;
+	st,adc-prescaler = < 0x4 >;
+};
+&clk_lsi{
+	status = "okay";
 };
 &pll{
 	status = "okay";
@@ -52,21 +66,7 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
 };
-&mac{
-	status = "okay";
-	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pb11 &eth_txd0_pb12 &eth_txd1_pb13 >;
-	pinctrl-names = "default";
-};
-&clk_lsi{
-	status = "okay";
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&clk_lse{
+&clk_hsi48{
 	status = "okay";
 };
 &pinctrl{

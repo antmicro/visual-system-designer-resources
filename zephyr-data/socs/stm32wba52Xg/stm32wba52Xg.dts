@@ -103,6 +103,13 @@
 				clocks = < &rcc 0x8c 0x80 >;
 			};
 		};
+		rtc: rtc@46007800 {
+			compatible = "st,stm32-rtc";
+			reg = < 0x46007800 0x400 >;
+			interrupts = < 0x2 0x0 >;
+			clocks = < &rcc 0xa8 0x200000 >;
+			status = "disabled";
+		};
 		iwdg: watchdog@40003000 {
 			compatible = "st,stm32-watchdog";
 			reg = < 0x40003000 0x400 >;

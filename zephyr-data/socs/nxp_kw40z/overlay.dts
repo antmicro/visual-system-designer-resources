@@ -1,12 +1,16 @@
 / {
 	compatible = "nxp,kw40z", "nxp,mkw40z4";
 	chosen {
-		zephyr,console = &lpuart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&gpioc{
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpioa{
 	status = "okay";
 };
 &lpuart0{
@@ -15,11 +19,6 @@
 	pinctrl-0 = < &lpuart0_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
+&gpioc{
 	status = "okay";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
 };

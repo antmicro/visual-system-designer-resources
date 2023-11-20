@@ -514,6 +514,12 @@
 			resolution = < 0x10 >;
 			status = "disabled";
 		};
+		sdhc0: sdhc@40460000 {
+			compatible = "infineon,cat1-sdhc-sdio";
+			reg = < 0x40460000 0x2000 >;
+			interrupts = < 0xa4 0x6 >;
+			status = "disabled";
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

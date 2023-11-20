@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_remap1_pd5 &usart2_rx_remap1_pd6 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &clk_hse{
 	status = "okay";
 	hse-bypass;
@@ -21,6 +15,12 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x44aa200 >;
 	apb1-prescaler = < 0x2 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_remap1_pd5 &usart2_rx_remap1_pd6 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pll{
 	status = "okay";
