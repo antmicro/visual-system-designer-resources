@@ -6,15 +6,42 @@
 		zephyr,flash = &flash0;
 	};
 };
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&quadspi{
+	status = "okay";
+	pinctrl-0 = < &quadspi_clk_pb2 &quadspi_bk1_ncs_pg6 &quadspi_bk1_io0_pf8 &quadspi_bk1_io1_pf9 &quadspi_bk1_io2_pf7 &quadspi_bk1_io3_pf6 >;
+	pinctrl-names = "default";
+};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_nss_pa15 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 };
-&clk_hse{
+&pll{
 	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
+	div-m = < 0x4 >;
+	mul-n = < 0x64 >;
+	div-p = < 0x2 >;
+	div-q = < 0x8 >;
+	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x5f5e100 >;
+	apb1-prescaler = < 0x2 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &i2c2{
 	clock-frequency = < 0x61a80 >;
@@ -28,36 +55,10 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&usart2{
+&i2c1{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&pll{
-	status = "okay";
-	div-m = < 0x4 >;
-	mul-n = < 0x64 >;
-	div-p = < 0x2 >;
-	div-q = < 0x8 >;
-	clocks = < &clk_hse >;
-};
-&quadspi{
-	status = "okay";
-	pinctrl-0 = < &quadspi_clk_pb2 &quadspi_bk1_ncs_pg6 &quadspi_bk1_io0_pf8 &quadspi_bk1_io1_pf9 &quadspi_bk1_io2_pf7 &quadspi_bk1_io3_pf6 >;
-	pinctrl-names = "default";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x5f5e100 >;
-	apb1-prescaler = < 0x2 >;
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
 &usart3{
@@ -66,10 +67,9 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
+&usbotg_fs{
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

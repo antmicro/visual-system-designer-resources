@@ -6,11 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&twi1{
-	status = "okay";
-	pinctrl-0 = < &twi1_default >;
-	pinctrl-names = "default";
-};
 &pwm0{
 	status = "okay";
 	pinctrl-0 = < &pwm0_default >;
@@ -19,6 +14,11 @@
 &twi0{
 	status = "okay";
 	pinctrl-0 = < &twi0_default >;
+	pinctrl-names = "default";
+};
+&twi1{
+	status = "okay";
+	pinctrl-0 = < &twi1_default >;
 	pinctrl-names = "default";
 };
 &uart{

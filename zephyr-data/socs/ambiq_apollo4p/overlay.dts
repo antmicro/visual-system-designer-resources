@@ -6,15 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
+&iom0{
+	status = "okay";
+	compatible = "ambiq,i2c";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x186a0 >;
+};
 &mspi0{
 	status = "okay";
 	pinctrl-0 = < &mspi0_default >;
-	pinctrl-names = "default";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
 &iom1{
@@ -24,12 +25,11 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0xf4240 >;
 };
-&iom0{
+&uart0{
 	status = "okay";
-	compatible = "ambiq,i2c";
-	pinctrl-0 = < &i2c0_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
-	clock-frequency = < 0x186a0 >;
 };
 &pinctrl{
 	compatible = "ambiq,apollo4-pinctrl";

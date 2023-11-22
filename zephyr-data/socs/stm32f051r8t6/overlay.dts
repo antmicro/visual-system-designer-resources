@@ -10,9 +10,14 @@
 	status = "okay";
 	clock-frequency = < 0x7a1200 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
+&clk_lsi{
+	status = "okay";
+};
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hse >;
 };
 &usart2{
 	status = "okay";
@@ -20,20 +25,15 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_lsi{
-	status = "okay";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&pll{
-	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hse >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

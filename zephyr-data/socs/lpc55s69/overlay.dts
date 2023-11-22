@@ -10,21 +10,18 @@
 	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
-&gpio1{
+&gpio0{
 	status = "okay";
 };
 &hs_lspi{
 	pinctrl-0 = < &pinmux_hs_lspi_default >;
 	pinctrl-names = "default";
 };
-&gpio0{
+&gpio1{
 	status = "okay";
 };
 &sram3{
 	reg = < 0x20030000 0x14000 >;
-};
-&adc0{
-	status = "okay";
 };
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
@@ -36,5 +33,8 @@
 	pinctrl-names = "default";
 };
 &usbhs{
+	status = "okay";
+};
+&adc0{
 	status = "okay";
 };

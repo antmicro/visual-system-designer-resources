@@ -319,6 +319,8 @@
 				compatible = "st,iis2dlpc";
 				reg = < 0x27 >;
 				drdy-gpios = < &test_gpio 0x0 0x0 >;
+				tap-mode = < 0x1 >;
+				power-mode = < 0x4 >;
 			};
 			test_i2c_iis2mdc: iis2mdc@28 {
 				compatible = "st,iis2mdc";
@@ -329,12 +331,17 @@
 				compatible = "st,ism330dhcx";
 				reg = < 0x29 >;
 				drdy-gpios = < &test_gpio 0x0 0x0 >;
+				accel-odr = < 0x4 >;
+				gyro-odr = < 0x4 >;
 				status = "disabled";
 			};
 			test_i2c_lis2dh: lis2dh@2a {
 				compatible = "st,lis2dh";
 				reg = < 0x2a >;
 				irq-gpios = < &test_gpio 0x0 0x0 >;
+				int1-gpio-config = < 0x4 >;
+				int2-gpio-config = < 0x4 >;
+				anym-mode = < 0x3 >;
 			};
 			test_i2c_lis2dh12: lis2dh12@2b {
 				compatible = "st,lis2dh12";
@@ -346,11 +353,18 @@
 				compatible = "st,lis2ds12";
 				reg = < 0x2c >;
 				irq-gpios = < &test_gpio 0x0 0x0 >;
+				power-mode = < 0x1 >;
+				odr = < 0x2 >;
 			};
 			test_i2c_lis2dw12: lis2dw12@2d {
 				compatible = "st,lis2dw12";
 				reg = < 0x2d >;
 				irq-gpios = < &test_gpio 0x0 0x0 >;
+				wakeup-duration = < 0x3 >;
+				ff-threshold = < 0x7 >;
+				tap-mode = < 0x1 >;
+				power-mode = < 0x4 >;
+				bw-filt = < 0x0 >;
 			};
 			test_i2c_lis2mdl: lis2mdl@2e {
 				compatible = "st,lis2mdl";
@@ -376,6 +390,7 @@
 				compatible = "st,lps22hh";
 				reg = < 0x32 >;
 				drdy-gpios = < &test_gpio 0x0 0x0 >;
+				odr = < 0x7 >;
 			};
 			test_i2c_lps25hb_press: lps25hb-press@33 {
 				compatible = "st,lps25hb-press";
@@ -410,6 +425,12 @@
 				compatible = "st,lsm6dso";
 				reg = < 0x39 >;
 				irq-gpios = < &test_gpio 0x0 0x0 >;
+				accel-pm = < 0x2 >;
+				accel-range = < 0x3 >;
+				accel-odr = < 0xb >;
+				gyro-pm = < 0x1 >;
+				gyro-range = < 0x6 >;
+				gyro-odr = < 0xa >;
 			};
 			test_i2c_lsm9ds0_gyro: lsm9ds0-gyro@3a {
 				compatible = "st,lsm9ds0-gyro";
@@ -501,6 +522,8 @@
 				reg = < 0x4c >;
 				drdy-gpios = < &test_gpio 0x0 0x0 >;
 				int-pin = < 0x1 >;
+				range = < 0x3 >;
+				odr = < 0x7 >;
 			};
 			test_i2c_wsen_hids: wsen_hids@4d {
 				compatible = "we,wsen-hids";
@@ -691,12 +714,20 @@
 				compatible = "st,lsm6dso16is";
 				reg = < 0x68 >;
 				irq-gpios = < &test_gpio 0x0 0x0 >;
+				accel-range = < 0x3 >;
+				accel-odr = < 0x14 >;
+				gyro-range = < 0x3 >;
+				gyro-odr = < 0x14 >;
 			};
 			test_i2c_lsm6dsv16x: lsm6dsv16x@69 {
 				compatible = "st,lsm6dsv16x";
 				reg = < 0x69 >;
 				int1-gpios = < &test_gpio 0x0 0x0 >;
 				int2-gpios = < &test_gpio 0x0 0x0 >;
+				accel-range = < 0x2 >;
+				accel-odr = < 0x5 >;
+				gyro-range = < 0x4 >;
+				gyro-odr = < 0x5 >;
 			};
 			test_i2c_mcp9600: mcp9600@6a {
 				compatible = "microchip,mcp9600";
@@ -790,6 +821,9 @@
 				reg = < 0x79 >;
 				drdy-gpios = < &test_gpio 0x0 0x0 >;
 				status = "okay";
+				odr = < 0x3 >;
+				lpf = < 0x1 >;
+				avg = < 0x5 >;
 			};
 			test_i2c_hs300x: hs300x@79 {
 				compatible = "renesas,hs300x";

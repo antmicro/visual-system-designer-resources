@@ -10,9 +10,11 @@
 	status = "okay";
 	clock-frequency = < 0x7a1200 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hse >;
 };
 &usart2{
 	status = "okay";
@@ -20,11 +22,9 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&pll{
-	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hse >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

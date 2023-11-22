@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0x2 0x1 >, < &gpioc 0x0 0x1 >;
-};
 &usbc{
 	status = "okay";
 	pinctrl-0 = < &usbc_default >;
@@ -37,4 +31,10 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart2_default >;
 	pinctrl-names = "default";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0x2 0x1 >, < &gpioc 0x0 0x1 >;
 };

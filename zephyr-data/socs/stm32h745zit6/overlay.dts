@@ -11,16 +11,11 @@
 	hse-bypass;
 	clock-frequency = < 0x7a1200 >;
 };
-&mac{
+&i2c1{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &rcc{
 	hpre = < 0x2 >;
@@ -31,6 +26,20 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x1c9c3800 >;
 };
+&mac{
+	status = "okay";
+	pinctrl-0 = < &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
+	pinctrl-names = "default";
+};
+&clk_lsi{
+	status = "okay";
+};
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &pll{
 	status = "okay";
 	div-m = < 0x1 >;
@@ -39,15 +48,6 @@
 	div-q = < 0x2 >;
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
 };
 &clk_hsi48{
 	status = "okay";

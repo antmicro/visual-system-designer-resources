@@ -6,15 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
 &usart1{
 	compatible = "silabs,gecko-spi-usart";
 	status = "okay";
@@ -25,16 +16,7 @@
 	location-clk = < 0xb 0x2 0x8 >;
 	cs-gpios = < &gpioa 0x4 0x1 >;
 };
-&leuart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x0 0x0 0x1 >;
-	location-tx = < 0x0 0x0 0x0 >;
-};
-&gpiob{
-	status = "okay";
-};
-&gpiod{
+&gpioa{
 	status = "okay";
 };
 &usart0{
@@ -42,6 +24,24 @@
 	current-speed = < 0x1c200 >;
 	location-rx = < 0x0 0x0 0x1 >;
 	location-tx = < 0x0 0x0 0x0 >;
+};
+&leuart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x0 0x1 >;
+	location-tx = < 0x0 0x0 0x0 >;
+};
+&gpiof{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

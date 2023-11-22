@@ -6,21 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x4c4b400 >;
-};
-&clk_hsi{
-	status = "okay";
-};
 &clk_lsi{
 	status = "okay";
 };
-&usart1{
+&quadspi{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-0 = < &quadspi_clk_pe10 &quadspi_ncs_pe11 &quadspi_bk1_io0_pe12 &quadspi_bk1_io1_pe13 &quadspi_bk1_io2_pe14 &quadspi_bk1_io3_pe15 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+};
+&clk_hsi{
+	status = "okay";
 };
 &pll{
 	status = "okay";
@@ -31,10 +26,15 @@
 	div-r = < 0x4 >;
 	clocks = < &clk_hsi >;
 };
-&quadspi{
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x4c4b400 >;
+};
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &quadspi_clk_pe10 &quadspi_ncs_pe11 &quadspi_bk1_io0_pe12 &quadspi_bk1_io1_pe13 &quadspi_bk1_io2_pe14 &quadspi_bk1_io3_pe15 >;
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

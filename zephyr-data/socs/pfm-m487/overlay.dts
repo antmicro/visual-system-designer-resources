@@ -6,9 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiob{
-	status = "okay";
-};
 &gpiog{
 	status = "okay";
 };
@@ -21,12 +18,15 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&sram0{
-	reg = < 0x20000000 0x28000 >;
+&gpioh{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
 };
 &flash0{
 	reg = < 0x0 0x80000 >;
 };
-&gpioh{
-	status = "okay";
+&sram0{
+	reg = < 0x20000000 0x28000 >;
 };

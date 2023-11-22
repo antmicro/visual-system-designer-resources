@@ -6,17 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
+&leuart0{
 	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x0 0x1 >;
+	location-tx = < 0x0 0x0 0x0 >;
 };
 &usart1{
 	compatible = "silabs,gecko-spi-usart";
@@ -28,13 +22,16 @@
 	location-clk = < 0xb 0x2 0x8 >;
 	cs-gpios = < &gpioa 0x4 0x1 >;
 };
-&leuart0{
+&gpiob{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x0 0x0 0x1 >;
-	location-tx = < 0x0 0x0 0x0 >;
 };
-&gpioc{
+&gpiod{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpiof{
 	status = "okay";
 };
 &usart0{
@@ -44,6 +41,9 @@
 	location-tx = < 0x0 0x0 0x0 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
+};
+&gpioc{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

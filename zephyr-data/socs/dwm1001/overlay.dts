@@ -6,6 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpio0{
+	status = "okay";
+};
 &i2c0{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -21,17 +24,12 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
+&spi1{
 	status = "okay";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
+	cs-gpios = < &gpio0 0x3 0x0 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&gpio0{
-	status = "okay";
 };
 &spi2{
 	status = "okay";
@@ -40,12 +38,14 @@
 	pinctrl-1 = < &spi2_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi1{
+&pwm0{
 	status = "okay";
-	cs-gpios = < &gpio0 0x3 0x0 >;
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
