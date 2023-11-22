@@ -6,8 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioc{
+&i2c0{
 	status = "okay";
+	location-sda = < 0x5 0x2 0x5 >;
+	location-scl = < 0x5 0x2 0x4 >;
 };
 &usart0{
 	status = "okay";
@@ -18,18 +20,16 @@
 &gpiob{
 	status = "okay";
 };
-&gpiod{
+&adc0{
 	status = "okay";
 };
-&i2c0{
+&gpiod{
 	status = "okay";
-	location-sda = < 0x5 0x2 0x5 >;
-	location-scl = < 0x5 0x2 0x4 >;
 };
 &gpioa{
 	status = "okay";
 };
-&adc0{
+&gpioc{
 	status = "okay";
 };
 &pinctrl{

@@ -6,11 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiog{
-	status = "okay";
+&sram0{
+	reg = < 0x20000000 0x28000 >;
 };
-&gpiof{
-	status = "okay";
+&flash0{
+	reg = < 0x0 0x80000 >;
 };
 &uart0{
 	status = "okay";
@@ -24,9 +24,9 @@
 &gpiob{
 	status = "okay";
 };
-&flash0{
-	reg = < 0x0 0x80000 >;
+&gpiog{
+	status = "okay";
 };
-&sram0{
-	reg = < 0x20000000 0x28000 >;
+&gpiof{
+	status = "okay";
 };

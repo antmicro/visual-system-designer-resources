@@ -5,29 +5,6 @@
 		zephyr,sram = &sram0;
 	};
 };
-&flexcomm0{
-	compatible = "nxp,lpc-usart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_flexcomm0_usart >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
-	dma-names = "rx", "tx";
-};
-&gpio1{
-	status = "okay";
-};
-&gpio5{
-	status = "okay";
-};
-&gpio6{
-	status = "okay";
-};
-&gpio3{
-	status = "okay";
-	int-source = "int-a";
-	interrupts = < 0x2 0x0 >;
-};
 &hs_lspi1{
 	status = "okay";
 	pinctrl-0 = < &pinmux_flexcomm16_spi >;
@@ -40,8 +17,27 @@
 	pinctrl-0 = < &pinmux_i3c >;
 	pinctrl-names = "default";
 };
-&gpio2{
+&gpio5{
 	status = "okay";
+};
+&flexcomm0{
+	compatible = "nxp,lpc-usart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
+	dma-names = "rx", "tx";
+};
+&flexspi2{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexspi2 >;
+	pinctrl-names = "default";
+	rx-clock-source = < 0x3 >;
+	ahb-prefetch;
+	ahb-bufferable;
+	ahb-cacheable;
+	ahb-read-addr-opt;
 };
 &pmic_i2c{
 	status = "okay";
@@ -54,7 +50,7 @@
 &gpio0{
 	status = "okay";
 };
-&usbhs{
+&gpio6{
 	status = "okay";
 };
 &gpio4{
@@ -67,19 +63,23 @@
 	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
-&flexspi2{
+&usbhs{
 	status = "okay";
-	pinctrl-0 = < &pinmux_flexspi2 >;
-	pinctrl-names = "default";
-	rx-clock-source = < 0x3 >;
-	ahb-prefetch;
-	ahb-bufferable;
-	ahb-cacheable;
-	ahb-read-addr-opt;
+};
+&gpio1{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
 };
 &flexspi{
 	status = "okay";
 	pinctrl-0 = < &pinmux_flexspi >;
 	pinctrl-1 = < &pinmux_flexspi_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&gpio3{
+	status = "okay";
+	int-source = "int-a";
+	interrupts = < 0x2 0x0 >;
 };

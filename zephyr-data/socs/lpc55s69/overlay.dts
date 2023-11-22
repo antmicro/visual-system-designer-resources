@@ -6,9 +6,8 @@
 		zephyr,console = &flexcomm0;
 	};
 };
-&sc_timer{
-	pinctrl-0 = < &pinmux_sctimer_default >;
-	pinctrl-names = "default";
+&sram3{
+	reg = < 0x20030000 0x14000 >;
 };
 &gpio0{
 	status = "okay";
@@ -17,11 +16,18 @@
 	pinctrl-0 = < &pinmux_hs_lspi_default >;
 	pinctrl-names = "default";
 };
+&sc_timer{
+	pinctrl-0 = < &pinmux_sctimer_default >;
+	pinctrl-names = "default";
+};
 &gpio1{
 	status = "okay";
 };
-&sram3{
-	reg = < 0x20030000 0x14000 >;
+&usbhs{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
 };
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
@@ -31,10 +37,4 @@
 	dma-names = "rx", "tx";
 	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
-};
-&usbhs{
-	status = "okay";
-};
-&adc0{
-	status = "okay";
 };

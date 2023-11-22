@@ -21,20 +21,12 @@
 &gpio0{
 	status = "okay";
 };
-&i2c1{
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-names = "default";
-};
 &spi2{
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &spim2_default >;
 	pinctrl-names = "default";
-};
-&flash0{
-	status = "okay";
 };
 &spi3{
 	status = "okay";
@@ -43,8 +35,16 @@
 	pinctrl-0 = < &spim3_default >;
 	pinctrl-names = "default";
 };
+&flash0{
+	status = "okay";
+};
 &gpio1{
 	status = "okay";
+};
+&i2c1{
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

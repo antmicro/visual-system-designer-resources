@@ -6,11 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart1{
+&gpioc{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x4 0x0 0x0 >;
-	location-tx = < 0x4 0x5 0x2 >;
 };
 &gpiof{
 	status = "okay";
@@ -18,8 +15,11 @@
 &gpioa{
 	status = "okay";
 };
-&gpioc{
+&usart1{
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x4 0x0 0x0 >;
+	location-tx = < 0x4 0x5 0x2 >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

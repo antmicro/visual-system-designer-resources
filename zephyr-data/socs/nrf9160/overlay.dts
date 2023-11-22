@@ -6,6 +6,13 @@
 		zephyr,sram = &sram0;
 	};
 };
+&spi3{
+	status = "okay";
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
+	cs-gpios = < &gpio0 0x19 0x1 >;
+};
 &uart2{
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart2_default >;
@@ -17,6 +24,16 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &pwm0{
@@ -34,23 +51,6 @@
 	pinctrl-0 = < &i2c2_default >;
 	pinctrl-1 = < &i2c2_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&spi3{
-	status = "okay";
-	pinctrl-0 = < &spi3_default >;
-	pinctrl-1 = < &spi3_sleep >;
-	pinctrl-names = "default", "sleep";
-	cs-gpios = < &gpio0 0x19 0x1 >;
-};
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-1 = < &uart1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&adc{
-	status = "okay";
 };
 &pwm1{
 	status = "okay";

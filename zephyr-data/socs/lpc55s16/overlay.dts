@@ -6,11 +6,12 @@
 		zephyr,flash = &flash0;
 	};
 };
-&flexcomm0{
-	compatible = "nxp,lpc-usart";
+&usbhs{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+};
+&hs_lspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_hs_lspi >;
 	pinctrl-names = "default";
 };
 &can0{
@@ -20,11 +21,10 @@
 	pinctrl-0 = < &pinmux_can0 >;
 	pinctrl-names = "default";
 };
-&usbhs{
+&flexcomm0{
+	compatible = "nxp,lpc-usart";
 	status = "okay";
-};
-&hs_lspi{
-	status = "okay";
-	pinctrl-0 = < &pinmux_hs_lspi >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
 };

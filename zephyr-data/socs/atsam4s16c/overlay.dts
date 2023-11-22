@@ -12,28 +12,6 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&twi0{
-	status = "okay";
-	pinctrl-0 = < &twi0_default >;
-	pinctrl-names = "default";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &pioa 0x1f 0x1 >, < &pioa 0x1e 0x1 >;
-};
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-names = "default";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-names = "default";
-};
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
@@ -42,4 +20,26 @@
 	startup-time = < 0x40 >;
 	settling-time = < 0x3 >;
 	tracking-time = < 0x2 >;
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
+};
+&twi0{
+	status = "okay";
+	pinctrl-0 = < &twi0_default >;
+	pinctrl-names = "default";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &pioa 0x1f 0x1 >, < &pioa 0x1e 0x1 >;
 };

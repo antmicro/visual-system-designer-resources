@@ -6,17 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart1{
-	compatible = "silabs,gecko-spi-usart";
+&gpiob{
 	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	location-rx = < 0xb 0x2 0x7 >;
-	location-tx = < 0xb 0x2 0x6 >;
-	location-clk = < 0xb 0x2 0x8 >;
-	cs-gpios = < &gpioa 0x4 0x1 >;
 };
 &gpioa{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioc{
 	status = "okay";
 };
 &usart0{
@@ -27,16 +26,17 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
+&usart1{
+	compatible = "silabs,gecko-spi-usart";
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	location-rx = < 0xb 0x2 0x7 >;
+	location-tx = < 0xb 0x2 0x6 >;
+	location-clk = < 0xb 0x2 0x8 >;
+	cs-gpios = < &gpioa 0x4 0x1 >;
+};
 &gpiof{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
-};
-&gpiod{
 	status = "okay";
 };
 &pinctrl{

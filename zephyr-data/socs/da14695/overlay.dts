@@ -9,14 +9,17 @@
 &gpio1{
 	status = "okay";
 };
-&uart2{
+&uart3{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart2_default >;
+	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
-&gpio0{
+&usbd{
 	status = "okay";
+};
+&flash0{
+	reg = < 0x16000000 0x100000 >;
 };
 &uart{
 	status = "okay";
@@ -24,15 +27,20 @@
 	pinctrl-0 = < &uart_default >;
 	pinctrl-names = "default";
 };
-&uart3{
+&spi{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart3_default >;
+	pinctrl-0 = < &spi_controller >;
 	pinctrl-names = "default";
 };
-&i2c{
+&spi2{
 	status = "okay";
-	pinctrl-0 = < &i2c_default >;
+	pinctrl-0 = < &spi2_controller >;
+	pinctrl-names = "default";
+};
+&uart2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
 };
 &i2c2{
@@ -40,21 +48,13 @@
 	pinctrl-0 = < &i2c2_default >;
 	pinctrl-names = "default";
 };
-&usbd{
+&gpio0{
 	status = "okay";
 };
-&spi2{
+&i2c{
 	status = "okay";
-	pinctrl-0 = < &spi2_controller >;
+	pinctrl-0 = < &i2c_default >;
 	pinctrl-names = "default";
-};
-&spi{
-	status = "okay";
-	pinctrl-0 = < &spi_controller >;
-	pinctrl-names = "default";
-};
-&flash0{
-	reg = < 0x16000000 0x100000 >;
 };
 &pinctrl{
 	compatible = "renesas,smartbond-pinctrl";

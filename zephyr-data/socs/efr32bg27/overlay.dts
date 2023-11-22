@@ -11,12 +11,6 @@
 	location-sda = < 0x3 0x3 0x2 >;
 	location-scl = < 0x3 0x3 0x3 >;
 };
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
-};
 &usart0{
 	status = "okay";
 	pinctrl-0 = < &usart0_default >;
@@ -26,10 +20,16 @@
 &gpioc{
 	status = "okay";
 };
-&gpiob{
+&adc0{
 	status = "okay";
 };
-&adc0{
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
+};
+&gpiob{
 	status = "okay";
 };
 &gpioa{

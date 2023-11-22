@@ -6,10 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
+};
+&usart1{
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -17,18 +21,19 @@
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&can1{
-	status = "okay";
-	pinctrl-0 = < &can_rx_pa11 &can_tx_pa12 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
 &clk_lsi{
 	status = "okay";
 };
-&spi2{
+&adc1{
 	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-0 = < &adc_in0_pa0 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x1 >;
+	st,adc-prescaler = < 0x4 >;
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c2_scl_pa11 &i2c2_sda_pa12 >;
 	pinctrl-names = "default";
 };
 &spi1{
@@ -41,38 +46,33 @@
 	pinctrl-0 = < &dac_out1_pa4 >;
 	pinctrl-names = "default";
 };
-&pll{
-	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hse >;
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc_in0_pa0 >;
-	pinctrl-names = "default";
-	st,adc-clock-source = < 0x1 >;
-	st,adc-prescaler = < 0x4 >;
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
-};
-&usart1{
-	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c2_scl_pa11 &i2c2_sda_pa12 >;
+&can1{
+	status = "okay";
+	pinctrl-0 = < &can_rx_pa11 &can_tx_pa12 >;
 	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hse >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

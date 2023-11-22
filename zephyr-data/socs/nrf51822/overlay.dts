@@ -15,13 +15,6 @@
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi1{
-	compatible = "nordic,nrf-spis";
-	status = "okay";
-	def-char = < 0x0 >;
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -29,18 +22,25 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi0{
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-1 = < &spi0_sleep >;
-	pinctrl-names = "default", "sleep";
+&spi1{
+	compatible = "nordic,nrf-spis";
+	status = "okay";
+	def-char = < 0x0 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+};
+&adc{
+	status = "okay";
 };
 &i2c1{
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
-	status = "okay";
+&spi0{
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-1 = < &spi0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

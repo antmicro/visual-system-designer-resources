@@ -9,13 +9,7 @@
 &gpioa{
 	status = "okay";
 };
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
-};
-&gpioc{
+&gpiob{
 	status = "okay";
 };
 &adc0{
@@ -23,14 +17,20 @@
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&gpiof{
-	status = "okay";
-};
 &gpiod{
 	status = "okay";
 };
-&gpiob{
+&gpioc{
 	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

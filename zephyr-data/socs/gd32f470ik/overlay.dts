@@ -17,7 +17,10 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioi 0x8 0x1 >;
 };
-&gpioe{
+&gpiof{
+	status = "okay";
+};
+&gpioc{
 	status = "okay";
 };
 &usart0{
@@ -26,24 +29,21 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
-};
-&gpiof{
-	status = "okay";
-};
-&gpioc{
+&gpiog{
 	status = "okay";
 };
 &gpiob{
 	status = "okay";
 };
-&gpiog{
+&gpioa{
 	status = "okay";
 };
-&gpioa{
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
+};
+&gpioe{
 	status = "okay";
 };
 &gpioi{

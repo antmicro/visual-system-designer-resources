@@ -6,10 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
+&usart1{
 	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
+	pinctrl-0 = < &usart1_tx_pc4 &usart1_rx_pc5 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x44aa200 >;
+	apb1-prescaler = < 0x2 >;
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -17,11 +23,19 @@
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
-&can1{
+&usb{
 	status = "okay";
-	pinctrl-0 = < &can_rx_pd0 &can_tx_pd1 >;
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&uart4{
+	status = "okay";
+	pinctrl-0 = < &uart4_tx_pc10 &uart4_rx_pc11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &adc1{
 	status = "okay";
@@ -30,17 +44,10 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x2 >;
 };
-&clk_lsi{
+&i2c2{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-};
-&usb{
-	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-0 = < &i2c2_scl_pa9 &i2c2_sda_pa10 >;
 	pinctrl-names = "default";
 };
 &spi1{
@@ -53,40 +60,33 @@
 	pinctrl-0 = < &dac_out1_pa4 >;
 	pinctrl-names = "default";
 };
-&pll{
-	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x9 >;
-	clocks = < &clk_hse >;
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x44aa200 >;
-	apb1-prescaler = < 0x2 >;
-};
-&usart1{
+&spi2{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pc4 &usart1_rx_pc5 >;
+	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
-&uart4{
+&can1{
 	status = "okay";
-	pinctrl-0 = < &uart4_tx_pc10 &uart4_rx_pc11 >;
+	pinctrl-0 = < &can_rx_pd0 &can_tx_pd1 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	bus-speed = < 0x1e848 >;
 };
-&i2c2{
-	clock-frequency = < 0x61a80 >;
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pa9 &i2c2_sda_pa10 >;
-	pinctrl-names = "default";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x9 >;
+	clocks = < &clk_hse >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

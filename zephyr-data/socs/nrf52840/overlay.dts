@@ -6,6 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpio1{
+	status = "okay";
+};
+&spi2{
+	compatible = "nordic,nrf-spi";
+	status = "okay";
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
 &gpio0{
 	status = "okay";
 };
@@ -24,16 +34,6 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio1{
-	status = "okay";
-};
-&spi2{
-	compatible = "nordic,nrf-spi";
-	status = "okay";
-	pinctrl-0 = < &spi2_default >;
-	pinctrl-1 = < &spi2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &uart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -41,6 +41,9 @@
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
 };
 &spi0{
 	compatible = "nordic,nrf-spi";
@@ -52,12 +55,6 @@
 &usbd{
 	status = "okay";
 };
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &spi1{
 	compatible = "nordic,nrf-spi";
 	status = "okay";
@@ -66,19 +63,22 @@
 	pinctrl-1 = < &spi1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
+&pwm0{
 	status = "okay";
-};
-&qspi{
-	status = "okay";
-	pinctrl-0 = < &qspi_default >;
-	pinctrl-1 = < &qspi_sleep >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c1{
 	compatible = "nordic,nrf-twi";
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-1 = < &i2c1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&qspi{
+	status = "okay";
+	pinctrl-0 = < &qspi_default >;
+	pinctrl-1 = < &qspi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &spi3{
@@ -93,17 +93,17 @@
 	pinctrl-1 = < &pwm1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&pwm2{
+	pinctrl-0 = < &pwm2_default >;
+	pinctrl-1 = < &pwm2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
 &pdm0{
 	status = "okay";
 	pinctrl-0 = < &pdm0_default >;
 	pinctrl-1 = < &pdm0_sleep >;
 	pinctrl-names = "default", "sleep";
 	clock-source = "PCLK32M_HFXO";
-};
-&pwm2{
-	pinctrl-0 = < &pwm2_default >;
-	pinctrl-1 = < &pwm2_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &radio{
 	fem = < &nrf_radio_fem >;

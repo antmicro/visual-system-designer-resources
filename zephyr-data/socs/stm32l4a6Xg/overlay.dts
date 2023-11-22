@@ -6,6 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x4c4b400 >;
+};
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &i2c1{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -13,6 +23,9 @@
 	pinctrl-names = "default";
 };
 &clk_lsi{
+	status = "okay";
+};
+&clk_lse{
 	status = "okay";
 };
 &spi1{
@@ -24,9 +37,9 @@
 &clk_hsi{
 	status = "okay";
 };
-&usart3{
+&lpuart1{
 	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-0 = < &lpuart1_tx_pg7 &lpuart1_rx_pg8 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -37,19 +50,6 @@
 	div-q = < 0x2 >;
 	div-r = < 0x4 >;
 	clocks = < &clk_hsi >;
-};
-&clk_lse{
-	status = "okay";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x4c4b400 >;
-};
-&lpuart1{
-	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pg7 &lpuart1_rx_pg8 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
