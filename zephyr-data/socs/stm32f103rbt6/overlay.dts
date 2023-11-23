@@ -1,44 +1,13 @@
 / {
-	compatible = "olimex,stm32-h103";
+	compatible = "st,stm32f103rb-nucleo";
 	chosen {
 		zephyr,console = &usart2;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&usart1{
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x44aa200 >;
-	apb1-prescaler = < 0x2 >;
-};
-&usart3{
-	pinctrl-0 = < &usart3_tx_remap1_pc10 &usart3_rx_remap1_pc11 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
-&usb{
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
-	disconnect-gpios = < &gpioc 0xb 0x1 >;
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
-	pinctrl-names = "default";
-};
-&spi1{
-	pinctrl-0 = < &spi1_nss_master_pa4 &spi1_sck_master_pa5 &spi1_miso_master_pa6 &spi1_mosi_master_pa7 >;
-	pinctrl-names = "default";
+&clk_lsi{
+	status = "okay";
 };
 &usart2{
 	status = "okay";
@@ -46,18 +15,63 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_remap1_pb8 &i2c1_sda_remap1_pb9 >;
+	pinctrl-names = "default";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in0_pa0 >;
+	pinctrl-names = "default";
+};
 &spi2{
+	status = "okay";
 	pinctrl-0 = < &spi2_nss_master_pb12 &spi2_sck_master_pb13 &spi2_miso_master_pb14 &spi2_mosi_master_pb15 >;
 	pinctrl-names = "default";
 };
 &clk_hse{
 	status = "okay";
+	hse-bypass;
 	clock-frequency = < 0x7a1200 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_master_pa5 &spi1_miso_master_pa6 &spi1_mosi_master_pa7 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0x6 0x11 >;
 };
 &pll{
 	status = "okay";
 	mul = < 0x9 >;
 	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x44aa200 >;
+	apb1-prescaler = < 0x2 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart3{
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-names = "default";
+};
+&usb{
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
+	disconnect-gpios = < &gpioc 0xb 0x1 >;
 };
 &can1{
 	status = "okay";
@@ -65,14 +79,6 @@
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 	phys = < &transceiver0 >;
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in0_pa0 >;
-	pinctrl-names = "default";
-};
-&clk_lsi{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32f1-pinctrl";
@@ -114,20 +120,15 @@
 		reg = < 0x40011800 0x400 >;
 		clocks = < &rcc 0x18 0x40 >;
 	};
-	i2c1_scl_pb6: i2c1_scl_pb6 {
-		pinmux = < 0x10858 >;
+	adc1_in0_pa0: adc1_in0_pa0 {
+		pinmux = < 0x2 >;
+	};
+	i2c1_scl_remap1_pb8: i2c1_scl_remap1_pb8 {
+		pinmux = < 0x50860 >;
 		drive-open-drain;
 	};
-	i2c2_scl_pb10: i2c2_scl_pb10 {
-		pinmux = < 0x68 >;
-		drive-open-drain;
-	};
-	i2c1_sda_pb7: i2c1_sda_pb7 {
-		pinmux = < 0x1085c >;
-		drive-open-drain;
-	};
-	i2c2_sda_pb11: i2c2_sda_pb11 {
-		pinmux = < 0x6c >;
+	i2c1_sda_remap1_pb9: i2c1_sda_remap1_pb9 {
+		pinmux = < 0x50864 >;
 		drive-open-drain;
 	};
 	spi1_miso_master_pa6: spi1_miso_master_pa6 {
@@ -144,9 +145,6 @@
 	spi2_mosi_master_pb15: spi2_mosi_master_pb15 {
 		pinmux = < 0x7c >;
 	};
-	spi1_nss_master_pa4: spi1_nss_master_pa4 {
-		pinmux = < 0x10010 >;
-	};
 	spi2_nss_master_pb12: spi2_nss_master_pb12 {
 		pinmux = < 0x70 >;
 	};
@@ -156,14 +154,20 @@
 	spi2_sck_master_pb13: spi2_sck_master_pb13 {
 		pinmux = < 0x74 >;
 	};
+	tim2_ch2_pwm_in_pa1: tim2_ch2_pwm_in_pa1 {
+		pinmux = < 0x34005 >;
+	};
+	tim1_ch1_pwm_out_pa8: tim1_ch1_pwm_out_pa8 {
+		pinmux = < 0x33020 >;
+	};
 	usart1_rx_pa10: usart1_rx_pa10 {
 		pinmux = < 0x11029 >;
 	};
 	usart2_rx_pa3: usart2_rx_pa3 {
 		pinmux = < 0x1180d >;
 	};
-	usart3_rx_remap1_pc11: usart3_rx_remap1_pc11 {
-		pinmux = < 0x720ad >;
+	usart3_rx_pb11: usart3_rx_pb11 {
+		pinmux = < 0x3206d >;
 	};
 	usart1_tx_pa9: usart1_tx_pa9 {
 		pinmux = < 0x11024 >;
@@ -171,13 +175,7 @@
 	usart2_tx_pa2: usart2_tx_pa2 {
 		pinmux = < 0x11808 >;
 	};
-	usart3_tx_remap1_pc10: usart3_tx_remap1_pc10 {
-		pinmux = < 0x720a8 >;
-	};
-	usb_dm_pa11: usb_dm_pa11 {
-		pinmux = < 0x2d >;
-	};
-	usb_dp_pa12: usb_dp_pa12 {
-		pinmux = < 0x31 >;
+	usart3_tx_pb10: usart3_tx_pb10 {
+		pinmux = < 0x32068 >;
 	};
 };

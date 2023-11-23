@@ -6,16 +6,29 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioe{
+&i2c0{
+	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
+};
+&gpiof{
 	status = "okay";
 };
-&gpioa{
+&leuart0{
 	status = "okay";
+	current-speed = < 0x2580 >;
+	location-rx = < 0x1 0x1 0xe >;
+	location-tx = < 0x1 0x1 0xd >;
 };
-&gpiod{
+&i2c1{
 	status = "okay";
+	location-sda = < 0x0 0x2 0x4 >;
+	location-scl = < 0x0 0x2 0x5 >;
 };
 &gpioc{
+	status = "okay";
+};
+&gpiob{
 	status = "okay";
 };
 &usart4{
@@ -24,26 +37,13 @@
 	location-rx = < 0x0 0x1 0x8 >;
 	location-tx = < 0x0 0x1 0x7 >;
 };
-&leuart0{
-	status = "okay";
-	current-speed = < 0x2580 >;
-	location-rx = < 0x1 0x1 0xe >;
-	location-tx = < 0x1 0x1 0xd >;
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0x4 0x2 0x0 >;
-	location-scl = < 0x4 0x2 0x1 >;
-};
-&gpiob{
+&gpiod{
 	status = "okay";
 };
-&i2c1{
+&gpioa{
 	status = "okay";
-	location-sda = < 0x0 0x2 0x4 >;
-	location-scl = < 0x0 0x2 0x5 >;
 };
-&gpiof{
+&gpioe{
 	status = "okay";
 };
 &usart0{

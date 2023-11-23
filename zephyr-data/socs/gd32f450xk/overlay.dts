@@ -1,21 +1,13 @@
 / {
-	compatible = "gd,gd32f450z-eval";
+	compatible = "gd,gd32f450v-start";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&i2c0{
+&gpioa{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&spi5{
-	status = "okay";
-	pinctrl-0 = < &spi5_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiog 0x9 0x1 >;
 };
 &gpioc{
 	status = "okay";
@@ -26,24 +18,32 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&gpiog{
+&gpiod{
 	status = "okay";
 };
-&gpiob{
+&i2c0{
 	status = "okay";
-};
-&gpioa{
-	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
 };
 &dac{
 	status = "okay";
 	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
-&gpiod{
+&gpiob{
 	status = "okay";
 };
-&gpiof{
+&spi5{
+	status = "okay";
+	pinctrl-0 = < &spi5_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiog 0x9 0x1 >;
+};
+&gpiog{
+	status = "okay";
+};
+&gpioi{
 	status = "okay";
 };
 &adc0{
@@ -51,10 +51,10 @@
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&gpioe{
+&gpiof{
 	status = "okay";
 };
-&gpioi{
+&gpioe{
 	status = "okay";
 };
 &pinctrl{
@@ -79,7 +79,7 @@
 		reg = < 0x40020400 0x400 >;
 		clocks = < &cctl 0xc01 >;
 		resets = < &rctl 0x401 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpioc: gpio@40020800 {
 		compatible = "gd,gd32-gpio";
@@ -97,7 +97,7 @@
 		reg = < 0x40020c00 0x400 >;
 		clocks = < &cctl 0xc03 >;
 		resets = < &rctl 0x403 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpioe: gpio@40021000 {
 		compatible = "gd,gd32-gpio";
@@ -124,7 +124,7 @@
 		reg = < 0x40021800 0x400 >;
 		clocks = < &cctl 0xc06 >;
 		resets = < &rctl 0x406 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpioh: gpio@40021c00 {
 		compatible = "gd,gd32-gpio";
@@ -146,28 +146,12 @@
 	};
 	usart0_default: usart0_default {
 		group1 {
-			pinmux = < 0x790 >, < 0x7a0 >;
+			pinmux = < 0x761 >, < 0x771 >;
 		};
 	};
-	dac_default: dac_default {
+	pwm2_default: pwm2_default {
 		group1 {
-			pinmux = < 0x1040 >;
-		};
-	};
-	pwm1_default: pwm1_default {
-		group1 {
-			pinmux = < 0x1a1 >;
-		};
-	};
-	i2c0_default: i2c0_default {
-		group1 {
-			pinmux = < 0x461 >, < 0x471 >;
-			drive-open-drain;
-		};
-	};
-	spi5_default: spi5_default {
-		group1 {
-			pinmux = < 0x5d6 >, < 0x5e6 >, < 0x5c6 >, < 0x5a6 >, < 0x5b6 >;
+			pinmux = < 0x262 >;
 		};
 	};
 };

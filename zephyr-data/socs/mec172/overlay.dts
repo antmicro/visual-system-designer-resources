@@ -6,15 +6,21 @@
 		zephyr,flash = &flash0;
 	};
 };
-&espi0{
-	status = "okay";
-	pinctrl-0 = < &espi_reset_n_gpio061 &espi_cs_n_gpio066 &espi_alert_n_gpio063 &espi_clk_gpio065 &espi_io0_gpio070 &espi_io1_gpio071 &espi_io2_gpio072 &espi_io3_gpio073 >;
-	pinctrl-names = "default";
-};
 &uart1{
 	current-speed = < 0x1c200 >;
 	status = "okay";
 	pinctrl-0 = < &uart1_tx_gpio170 &uart1_rx_gpio171 >;
+	pinctrl-names = "default";
+};
+&i2c_smb_0{
+	status = "okay";
+	port_sel = < 0x0 >;
+	pinctrl-0 = < &i2c00_scl_gpio004 &i2c00_sda_gpio003 >;
+	pinctrl-names = "default";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_gpio053 >;
 	pinctrl-names = "default";
 };
 &tach0{
@@ -27,6 +33,11 @@
 	pinctrl-0 = < &ps2_clk0a_gpio114 &ps2_dat0a_gpio115 >;
 	pinctrl-names = "default";
 };
+&espi0{
+	status = "okay";
+	pinctrl-0 = < &espi_reset_n_gpio061 &espi_cs_n_gpio066 &espi_alert_n_gpio063 &espi_clk_gpio065 &espi_io0_gpio070 &espi_io1_gpio071 &espi_io2_gpio072 &espi_io3_gpio073 >;
+	pinctrl-names = "default";
+};
 &i2c_smb_2{
 	status = "okay";
 	port_sel = < 0x7 >;
@@ -36,17 +47,6 @@
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc00_gpio200 &adc03_gpio203 &adc04_gpio204 &adc05_gpio205 >;
-	pinctrl-names = "default";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_gpio053 >;
-	pinctrl-names = "default";
-};
-&i2c_smb_0{
-	status = "okay";
-	port_sel = < 0x0 >;
-	pinctrl-0 = < &i2c00_scl_gpio004 &i2c00_sda_gpio003 >;
 	pinctrl-names = "default";
 };
 &kscan0{

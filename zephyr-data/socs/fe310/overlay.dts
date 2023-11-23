@@ -1,17 +1,19 @@
 / {
-	compatible = "sifive,hifive1-revb";
+	compatible = "sifive,hifive1";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &dtim;
 	};
 };
-&i2c0{
+&spi1{
 	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c0_0_default &i2c0_1_default >;
+	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
 	pinctrl-names = "default";
 };
-&pwm1{
+&spi2{
+	status = "okay";
+};
+&pwm0{
 	status = "okay";
 };
 &uart0{
@@ -20,32 +22,32 @@
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
 	pinctrl-names = "default";
 };
-&coreclk{
-	status = "okay";
-};
 &pwm2{
 	status = "okay";
+	pinctrl-0 = < &pwm2_1_default &pwm2_2_default &pwm2_3_default >;
+	pinctrl-names = "default";
 };
-&uart1{
+&i2c0{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-};
-&spi0{
-	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi1_cs2_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_0_default &i2c0_1_default >;
 	pinctrl-names = "default";
 };
 &gpio0{
 	status = "okay";
 };
-&spi1{
+&pwm1{
 	status = "okay";
-	pinctrl-0 = < &spi1_cs0_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
+	pinctrl-0 = < &pwm1_1_default &pwm1_2_default &pwm1_3_default >;
 	pinctrl-names = "default";
 };
-&pwm0{
+&spi0{
+	reg = < 0x10014000 0x1000 0x20400000 0xc00000 >;
+};
+&coreclk{
 	status = "okay";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
 };

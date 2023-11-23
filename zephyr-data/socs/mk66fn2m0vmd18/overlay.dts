@@ -10,9 +10,6 @@
 	pinctrl-0 = < &enet_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
-	status = "okay";
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_default >;
@@ -21,6 +18,9 @@
 	cs-gpios = < &gpioe 0x4 0x1 >;
 };
 &gpiob{
+	status = "okay";
+};
+&gpioa{
 	status = "okay";
 };
 &gpioe{

@@ -1,20 +1,10 @@
 / {
 	compatible = "vendor,dragino";
 	chosen {
-		zephyr,console = &usart2;
+		zephyr,console = &usart1;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x1e84800 >;
 };
 &usart2{
 	status = "okay";
@@ -31,7 +21,20 @@
 	mul = < 0x4 >;
 	clocks = < &clk_hsi >;
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x1e84800 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &clk_hsi48{
+	status = "okay";
+};
+&clk_lse{
 	status = "okay";
 };
 &i2c1{
@@ -40,13 +43,10 @@
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&usb{
+&spi2{
 	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
-};
-&clk_lse{
-	status = "okay";
 };
 &spi1{
 	status = "okay";
@@ -54,9 +54,9 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioa 0xf 0x1 >;
 };
-&spi2{
+&usb{
 	status = "okay";
-	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

@@ -5,21 +5,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&flash0{
-	reg = < 0x10000000 0x800000 >;
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x61a80 >;
-};
 &spi0{
 	status = "okay";
 	pinctrl-0 = < &spi0_default >;
@@ -32,21 +17,36 @@
 &usbd{
 	status = "okay";
 };
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&flash0{
+	reg = < 0x10000000 0x800000 >;
+};
 &adc{
 	status = "okay";
 	pinctrl-0 = < &adc_default >;
 	pinctrl-names = "default";
 };
-&pwm{
-	pinctrl-0 = < &pwm_ch4b_default >;
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
-	divider-int-0 = < 0xff >;
+	clock-frequency = < 0x61a80 >;
 };
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
+};
+&pwm{
+	pinctrl-0 = < &pwm_ch4b_default >;
+	pinctrl-names = "default";
+	divider-int-0 = < 0xff >;
 };
 &pinctrl{
 	compatible = "raspberrypi,pico-pinctrl";

@@ -6,18 +6,23 @@
 		zephyr,flash = &flash0;
 	};
 };
-&espi0{
-	status = "okay";
-	io_girq = < 0x13 >;
-	vw_girqs = < 0x18 0x19 >;
-	pc_girq = < 0xf >;
-	pinctrl-0 = < &espi_reset_n_gpio061 &espi_cs_n_gpio066 &espi_alert_n_gpio063 &espi_clk_gpio065 &espi_io0_gpio070 &espi_io1_gpio071 &espi_io2_gpio072 &espi_io3_gpio073 >;
-	pinctrl-names = "default";
-};
 &uart1{
 	current-speed = < 0x1c200 >;
 	status = "okay";
 	pinctrl-0 = < &uart1_tx_gpio170 &uart1_rx_gpio171 >;
+	pinctrl-names = "default";
+};
+&i2c_smb_0{
+	status = "okay";
+	port_sel = < 0x0 >;
+	sda-gpios = < &gpio_000_036 0x3 0x0 >;
+	scl-gpios = < &gpio_000_036 0x4 0x0 >;
+	pinctrl-0 = < &i2c00_scl_gpio004 &i2c00_sda_gpio003 >;
+	pinctrl-names = "default";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_gpio053 >;
 	pinctrl-names = "default";
 };
 &tach0{
@@ -31,6 +36,14 @@
 	pinctrl-1 = < &ps2_clk0b_gpio007_sleep &ps2_dat0b_gpio010_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&espi0{
+	status = "okay";
+	io_girq = < 0x13 >;
+	vw_girqs = < 0x18 0x19 >;
+	pc_girq = < 0xf >;
+	pinctrl-0 = < &espi_reset_n_gpio061 &espi_cs_n_gpio066 &espi_alert_n_gpio063 &espi_clk_gpio065 &espi_io0_gpio070 &espi_io1_gpio071 &espi_io2_gpio072 &espi_io3_gpio073 >;
+	pinctrl-names = "default";
+};
 &ps2_1{
 	status = "okay";
 	pinctrl-0 = < &ps2_clk1b_gpio154 &ps2_dat1b_gpio155 >;
@@ -40,19 +53,6 @@
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc04_gpio204 &adc05_gpio205 &adc06_gpio206 &adc07_gpio207 &vref2_adc_gpio067 >;
-	pinctrl-names = "default";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_gpio053 >;
-	pinctrl-names = "default";
-};
-&i2c_smb_0{
-	status = "okay";
-	port_sel = < 0x0 >;
-	sda-gpios = < &gpio_000_036 0x3 0x0 >;
-	scl-gpios = < &gpio_000_036 0x4 0x0 >;
-	pinctrl-0 = < &i2c00_scl_gpio004 &i2c00_sda_gpio003 >;
 	pinctrl-names = "default";
 };
 &kscan0{

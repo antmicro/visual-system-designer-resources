@@ -15,47 +15,8 @@
 	pinctrl-0 = < &sercom4_default >;
 	pinctrl-names = "default";
 };
-&sercom5{
-	compatible = "atmel,sam0-spi";
-	status = "okay";
-	dipo = < 0x0 >;
-	dopo = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom5_default >;
-	pinctrl-names = "default";
-};
-&adc{
-	status = "okay";
-};
 &usb0{
 	status = "okay";
-};
-&sercom3{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom3_default >;
-	pinctrl-names = "default";
-};
-&sercom1{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x3 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom1_default >;
-	pinctrl-names = "default";
-};
-&tcc0{
-	compatible = "atmel,sam0-tcc-pwm";
-	status = "okay";
-	prescaler = < 0x4 >;
-	#pwm-cells = < 0x2 >;
-	pinctrl-0 = < &tcc0_default >;
-	pinctrl-names = "default";
 };
 &sercom0{
 	compatible = "atmel,sam0-spi";
@@ -67,6 +28,35 @@
 	pinctrl-0 = < &sercom0_default >;
 	pinctrl-names = "default";
 };
+&adc{
+	status = "okay";
+};
+&tcc0{
+	compatible = "atmel,sam0-tcc-pwm";
+	status = "okay";
+	prescaler = < 0x4 >;
+	#pwm-cells = < 0x2 >;
+	pinctrl-0 = < &tcc0_default >;
+	pinctrl-names = "default";
+};
+&sercom1{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom1_default >;
+	pinctrl-names = "default";
+};
+&sercom3{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom3_default >;
+	pinctrl-names = "default";
+};
 &sercom2{
 	compatible = "atmel,sam0-i2c";
 	status = "okay";
@@ -74,5 +64,15 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom2_default >;
+	pinctrl-names = "default";
+};
+&sercom5{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	dipo = < 0x0 >;
+	dopo = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom5_default >;
 	pinctrl-names = "default";
 };

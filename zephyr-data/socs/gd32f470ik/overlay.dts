@@ -11,16 +11,36 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioi{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
 &spi5{
 	status = "okay";
 	pinctrl-0 = < &spi5_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpioi 0x8 0x1 >;
 };
-&gpiof{
-	status = "okay";
-};
-&gpioc{
+&gpiog{
 	status = "okay";
 };
 &usart0{
@@ -28,26 +48,6 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpiog{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
-};
-&gpioe{
-	status = "okay";
-};
-&gpioi{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

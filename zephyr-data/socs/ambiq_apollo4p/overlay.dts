@@ -6,6 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
+&mspi0{
+	status = "okay";
+	pinctrl-0 = < &mspi0_default >;
+	pinctrl-names = "default";
+};
 &iom1{
 	status = "okay";
 	compatible = "ambiq,spi";
@@ -24,11 +29,6 @@
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&mspi0{
-	status = "okay";
-	pinctrl-0 = < &mspi0_default >;
 	pinctrl-names = "default";
 };
 &pinctrl{

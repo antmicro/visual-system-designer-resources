@@ -1215,7 +1215,54 @@
             }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/Crosslink/Crosslink SDI-MIPI Bridge",
+            "category": "FPGA/Lattice Semiconductor/Crosslink/CrossLink NX",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "Hard D-PHY 0",
+                    "side": "left",
+                    "type": "csi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "Hard D-PHY 1",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "array": [
+                        0,
+                        5
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "left"
+                },
+                {
+                    "array": [
+                        6,
+                        8
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "right"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "bank[5]/Soft MIPI CSI-2",
+                    "side": "left",
+                    "type": "csi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "FPGA/Lattice Semiconductor/Crosslink/Crosslink",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2077,6 +2124,21 @@
             "isCategory": true
         },
         {
+            "abstract": false,
+            "description": "Flash Memory, Serial NOR, 32 Mbit, 4M x 8bit, SPI, SOIC, 8 Pins\n\n### Additional information\n\n*Datasheet*: [w25q32jv_revg_03272018_plus-1489806.pdf](https://www.mouser.com/datasheet/2/949/w25q32jv_revg_03272018_plus-1489806.pdf)",
+            "extends": [
+                "SPI Flash"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/soic-8-w5-3mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "GigaDevice W25Q32JVSSIQ",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/949/w25q32jv_revg_03272018_plus-1489806.pdf",
+                "hwp": "components/gigadevice-w25q32jvssiq"
+            }
+        },
+        {
             "category": "Memory/DDR/H5AN8G8NAFR-UH",
             "description": "SK-Hynix H5AN8G8NAFR-UH DDR4 x32 SDRAM Memory, 8GB",
             "extends": [
@@ -2489,6 +2551,13 @@
         },
         {
             "abstract": false,
+            "extends": [
+                "SPI Flash"
+            ],
+            "name": "IS25WX064"
+        },
+        {
+            "abstract": false,
             "description": "Thunderbolt™ 3 Controller, I/O\n\n### Additional information\n\n*Datasheet*: [18-241_ThunderboltController_Brief_HI.pdf](https://www.thunderbolttechnology.net/sites/default/files/18-241_ThunderboltController_Brief_HI.pdf)",
             "extends": [
                 "Thunderbolt 3 controller"
@@ -2567,21 +2636,36 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Pin Header, Right Angle, Wire-to-Board, 1 mm, 1 Rows, 6 Contacts, Surface Mount Right Angle, SR\n\n### Additional information\n\n*Datasheet*: [eGH.pdf](https://www.jst-mfg.com/product/pdf/eng/eGH.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-gh-1x6-sm06b-srss-tb-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors SM06B-SRSS-TB(LF)(SN)",
+            "urls": {
+                "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf",
+                "hwp": "components/jst-automotive-connectors-sm06b-srss-tb-lf-sn"
+            }
+        },
+        {
             "category": "Connector/JTAG/JTAG",
             "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio",
-                    "side": "right",
-                    "type": "gpio"
-                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "jtag",
                     "side": "left",
                     "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "wire to board",
+                    "side": "right",
+                    "type": "wire to board"
                 }
             ],
             "isCategory": true
@@ -3139,7 +3223,7 @@
             "abstract": false,
             "description": "FPGA, CrossLink, PLL37 I/O, 400 MHz, 5936 Cells, 1.14 V to 1.26 V, CTFBGA-80\n\n### Additional information\n\n*Datasheet*: [view_document?document_id=51662](https://www.latticesemi.com/view_document?document_id=51662)",
             "extends": [
-                "Crosslink SDI-MIPI Bridge"
+                "Crosslink"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-80pin-ckfbga80-7-0x7-0mm/previews/isoF_thumbnail_64x64.webp"
@@ -3148,6 +3232,21 @@
             "urls": {
                 "datasheet": "https://www.latticesemi.com/view_document?document_id=51662",
                 "hwp": "components/lattice-semiconductor-lif-md6000-6jmg80i"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "CrossLink-NX™ Field Programmable Gate Array (FPGA) IC 163 1548288 39000 256-LFBGA\n\n### Additional information\n\n*Datasheet*: [FPGA-DS-02007-2-1-CrossLink-Family-Data-Sheet.ashx?document_id=51662](https://www.latticesemi.com/-/media/LatticeSemi/Documents/DataSheets/CrossLink/FPGA-DS-02007-2-1-CrossLink-Family-Data-Sheet.ashx?document_id=51662)",
+            "extends": [
+                "CrossLink NX"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-256-14x14mm-layout16x16-p0-8x0-8mm-lattice/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Lattice Semiconductor LIFCL-40-9BG256C",
+            "urls": {
+                "datasheet": "https://www.latticesemi.com/-/media/LatticeSemi/Documents/DataSheets/CrossLink/FPGA-DS-02007-2-1-CrossLink-Family-Data-Sheet.ashx?document_id=51662",
+                "hwp": "components/lattice-semiconductor-lifcl-40-9bg256c"
             }
         },
         {
@@ -3472,9 +3571,22 @@
             }
         },
         {
-            "category": "Memory/Flash/SPI Flash/MT25QL",
+            "abstract": false,
             "extends": [
                 "SPI Flash"
+            ],
+            "name": "MT25QL"
+        },
+        {
+            "category": "Memory/DDR/DDR3/MT41K",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ddr",
+                    "side": "left",
+                    "type": "ddr"
+                }
             ],
             "isCategory": true
         },
@@ -3629,7 +3741,7 @@
             "abstract": false,
             "description": "NOR Flash Serial-SPI 3.3V 1G-bit 1G/512M/256M x 1/2-bit/4-bit 6ns 16-Pin SOP-II T/R\n\n### Additional information\n\n*Datasheet*: [mict_s_a0005338280_1-2290790.pdf](https://www.mouser.com/datasheet/2/671/mict_s_a0005338280_1-2290790.pdf)",
             "extends": [
-                "MT25QL"
+                "SPI Flash"
             ],
             "icon": {
                 "hw-icon": "/blender-models/sop2-16-7-5x10-3mm/previews/isoF_thumbnail_64x64.webp"
@@ -3638,6 +3750,21 @@
             "urls": {
                 "datasheet": "https://www.mouser.com/datasheet/2/671/mict_s_a0005338280_1-2290790.pdf",
                 "hwp": "components/micron-technology-mt25ql01gbbb8esf-0sit"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "SDRAM - DDR3L Memory IC 2Gbit Parallel 800 MHz 13.75 ns 96-FBGA (8x14)\n\n### Additional information\n\n*Datasheet*: [mict_s_a0002296722_1-2290882.pdf](https://www.mouser.com/datasheet/2/671/mict_s_a0002296722_1-2290882.pdf)",
+            "extends": [
+                "MT41K"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-96-48-8x14mm-layout16x9-p0-8mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Micron Technology MT41K128M16JT-125:K",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/671/mict_s_a0002296722_1-2290882.pdf",
+                "hwp": "components/micron-technology-mt41k128m16jt-125-k"
             }
         },
         {
@@ -3837,6 +3964,36 @@
             "urls": {
                 "datasheet": "https://www.nxp.com/docs/en/data-sheet/PCA9547.pdf",
                 "hwp": "components/nxp-pca9547bs-118"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "I²C Controller SPI Interface 16-TSSOP\n\n### Additional information\n\n*Datasheet*: [SC18IS602B.pdf](https://www.nxp.com/docs/en/data-sheet/SC18IS602B.pdf)",
+            "extends": [
+                "i2c to spi"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tssop-16-4-4x5mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "NXP SC18IS602BIPW",
+            "urls": {
+                "datasheet": "https://www.nxp.com/docs/en/data-sheet/SC18IS602B.pdf",
+                "hwp": "components/nxp-sc18is602bipw"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Slide switch\n\n### Additional information\n\n*Datasheet*: [cvs-1827291.pdf](https://www.mouser.com/datasheet/2/972/cvs-1827291.pdf)",
+            "extends": [
+                "Slide Switch"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sw-dip-spstx02-slide-copal-cvs-02xb-w5-9mm-p1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Nidec Components CVS-02B",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/972/cvs-1827291.pdf",
+                "hwp": "components/nidec-components-cvs-02b"
             }
         },
         {
@@ -4072,8 +4229,7 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "control",
-                    "side": "right",
-                    "type": "gpio"
+                    "side": "right"
                 },
                 {
                     "direction": "output",
@@ -4086,8 +4242,7 @@
                     "direction": "output",
                     "maxConnectionsCount": -1,
                     "name": "parallel",
-                    "side": "left",
-                    "type": "gpio"
+                    "side": "left"
                 },
                 {
                     "direction": "input",
@@ -4102,6 +4257,12 @@
                     "name": "sdi loopback",
                     "side": "left",
                     "type": "sdi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "status",
+                    "side": "right"
                 }
             ],
             "isCategory": true
@@ -4180,6 +4341,13 @@
         },
         {
             "abstract": false,
+            "extends": [
+                "Wire to Board"
+            ],
+            "name": "Samtec FTSH-105-01-F-DV-K"
+        },
+        {
+            "abstract": false,
             "description": "Pin Header, Right Angle, Board-to-Board, 2.54 mm, 2 Rows, 10 Contacts, Through Hole Right Angle\n\n### Additional information\n\n*Datasheet*: [htsw_th-2854340.pdf](https://www.mouser.com/datasheet/2/527/htsw_th-2854340.pdf)",
             "extends": [
                 "IO Header"
@@ -4192,6 +4360,13 @@
                 "datasheet": "https://www.mouser.com/datasheet/2/527/htsw_th-2854340.pdf",
                 "hwp": "components/samtec-htsw-105-08-f-d"
             }
+        },
+        {
+            "abstract": false,
+            "extends": [
+                "JTAG"
+            ],
+            "name": "Samtec SHF-105-01-L-D-SM"
         },
         {
             "abstract": false,
@@ -4342,6 +4517,18 @@
                 "datasheet": "https://www.mouser.com/datasheet/2/368/Si7021_A20-1397917.pdf",
                 "hwp": "components/silicon-labs-si7021-a20-gm1r"
             }
+        },
+        {
+            "category": "IO/Slide Switch",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "io",
+                    "side": "left"
+                }
+            ],
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -10709,7 +10896,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cy8c6347bzi",
-                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/dts/arm/cypress/psoc6_cm4.dtsi"
+                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/dts/arm/cypress/psoc6_cm0.dtsi"
             }
         },
         {
@@ -17591,6 +17778,14 @@
             }
         },
         {
+            "category": "Interfacing/i2c to spi",
+            "extends": [
+                "spi-device",
+                "i2c-device"
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": true,
             "interfaces": [
                 {
@@ -17834,7 +18029,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/icm42688/icm42688_emul.c"
+                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/icm42688/icm42688.c"
             }
         },
         {
@@ -32500,7 +32695,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9160",
-                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/dts/arm/nordic/nrf9160ns_sica.dtsi"
+                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/dts/arm/nordic/nrf9160_sica.dtsi"
             }
         },
         {

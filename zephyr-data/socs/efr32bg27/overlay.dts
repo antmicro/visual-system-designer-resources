@@ -6,10 +6,20 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c0{
+&usart1{
 	status = "okay";
-	location-sda = < 0x3 0x3 0x2 >;
-	location-scl = < 0x3 0x3 0x3 >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
 };
 &usart0{
 	status = "okay";
@@ -20,20 +30,10 @@
 &gpioc{
 	status = "okay";
 };
-&adc0{
+&i2c0{
 	status = "okay";
-};
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
+	location-sda = < 0x3 0x3 0x2 >;
+	location-scl = < 0x3 0x3 0x3 >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

@@ -12,12 +12,6 @@
 	status = "okay";
 	clock-frequency = < 0xb71b00 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xa037a00 >;
-	apb1-prescaler = < 0x4 >;
-	apb2-prescaler = < 0x2 >;
-};
 &pll{
 	status = "okay";
 	div-m = < 0x6 >;
@@ -25,6 +19,12 @@
 	div-p = < 0x2 >;
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

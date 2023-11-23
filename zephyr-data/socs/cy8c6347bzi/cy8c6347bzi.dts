@@ -15,15 +15,15 @@
 		ranges;
 		nvic: interrupt-controller@e000e100 {
 			#address-cells = < 0x1 >;
-			compatible = "arm,v7m-nvic";
+			compatible = "arm,v6m-nvic";
 			reg = < 0xe000e100 0xc00 >;
 			interrupt-controller;
 			#interrupt-cells = < 0x2 >;
-			arm,num-irq-priority-bits = < 0x3 >;
+			arm,num-irq-priority-bits = < 0x2 >;
 			phandle = < 0x1 >;
 		};
 		systick: timer@e000e010 {
-			compatible = "arm,armv7m-systick";
+			compatible = "arm,armv6m-systick";
 			reg = < 0xe000e010 0x10 >;
 		};
 		pinctrl@40310000 {
@@ -856,14 +856,278 @@
 			reg = < 0x16000600 0xb >;
 			status = "okay";
 		};
+		intmux: intmux@40210020 {
+			compatible = "cypress,psoc6-intmux";
+			reg = < 0x40210020 0x20 >;
+			ranges = < 0x0 0x40210020 0x20 >;
+			status = "okay";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			intmux_ch0: interrupt-controller@0 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x0 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x0 0x3 >;
+				status = "okay";
+			};
+			intmux_ch1: interrupt-controller@1 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1 0x3 >;
+				status = "okay";
+			};
+			intmux_ch2: interrupt-controller@2 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x2 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x2 0x3 >;
+				status = "okay";
+			};
+			intmux_ch3: interrupt-controller@3 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x3 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x3 0x3 >;
+				status = "okay";
+			};
+			intmux_ch4: interrupt-controller@4 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x4 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x4 0x3 >;
+				status = "okay";
+			};
+			intmux_ch5: interrupt-controller@5 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x5 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x5 0x3 >;
+				status = "okay";
+			};
+			intmux_ch6: interrupt-controller@6 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x6 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x6 0x3 >;
+				status = "okay";
+			};
+			intmux_ch7: interrupt-controller@7 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x7 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x7 0x3 >;
+				status = "okay";
+			};
+			intmux_ch8: interrupt-controller@8 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x8 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x8 0x3 >;
+				status = "okay";
+			};
+			intmux_ch9: interrupt-controller@9 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x9 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x9 0x3 >;
+				status = "okay";
+			};
+			intmux_ch10: interrupt-controller@a {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xa 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xa 0x3 >;
+				status = "okay";
+			};
+			intmux_ch11: interrupt-controller@b {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xb 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xb 0x3 >;
+				status = "okay";
+			};
+			intmux_ch12: interrupt-controller@c {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xc 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xc 0x3 >;
+				status = "okay";
+			};
+			intmux_ch13: interrupt-controller@d {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xd 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xd 0x3 >;
+				status = "okay";
+			};
+			intmux_ch14: interrupt-controller@e {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xe 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xe 0x3 >;
+				status = "okay";
+			};
+			intmux_ch15: interrupt-controller@f {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xf 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xf 0x3 >;
+				status = "okay";
+			};
+			intmux_ch16: interrupt-controller@10 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x10 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x10 0x3 >;
+				status = "okay";
+			};
+			intmux_ch17: interrupt-controller@11 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x11 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x11 0x3 >;
+				status = "okay";
+			};
+			intmux_ch18: interrupt-controller@12 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x12 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x12 0x3 >;
+				status = "okay";
+			};
+			intmux_ch19: interrupt-controller@13 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x13 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x13 0x3 >;
+				status = "okay";
+			};
+			intmux_ch20: interrupt-controller@14 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x14 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x14 0x3 >;
+				status = "okay";
+			};
+			intmux_ch21: interrupt-controller@15 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x15 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x15 0x3 >;
+				status = "okay";
+			};
+			intmux_ch22: interrupt-controller@16 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x16 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x16 0x3 >;
+				status = "okay";
+			};
+			intmux_ch23: interrupt-controller@17 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x17 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x17 0x3 >;
+				status = "okay";
+			};
+			intmux_ch24: interrupt-controller@18 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x18 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x18 0x3 >;
+				status = "okay";
+			};
+			intmux_ch25: interrupt-controller@19 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x19 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x19 0x3 >;
+				status = "okay";
+			};
+			intmux_ch26: interrupt-controller@1a {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1a 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1a 0x3 >;
+				status = "okay";
+			};
+			intmux_ch27: interrupt-controller@1b {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1b 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1b 0x3 >;
+				status = "okay";
+			};
+			intmux_ch28: interrupt-controller@1c {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1c 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1c 0x3 >;
+				status = "okay";
+			};
+			intmux_ch29: interrupt-controller@1d {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1d 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1d 0x3 >;
+				status = "okay";
+			};
+			intmux_ch30: interrupt-controller@1e {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1e 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1e 0x3 >;
+				status = "okay";
+			};
+			intmux_ch31: interrupt-controller@1f {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1f 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1f 0x3 >;
+				status = "okay";
+			};
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@1 {
+		cpu@0 {
 			device_type = "cpu";
-			compatible = "arm,cortex-m4f";
-			reg = < 0x1 >;
+			compatible = "arm,cortex-m0+";
+			reg = < 0x0 >;
 		};
 	};
 	flash-controller@40250000 {

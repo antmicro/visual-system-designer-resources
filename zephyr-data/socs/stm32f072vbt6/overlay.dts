@@ -6,10 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
@@ -25,6 +21,10 @@
 	prediv = < 0x1 >;
 	mul = < 0x6 >;
 	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

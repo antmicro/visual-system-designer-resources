@@ -1,52 +1,18 @@
 / {
-	compatible = "atmel,samd20e16", "atmel,samd20";
+	compatible = "atsamd20,xpro", "atmel,samd20j18", "atmel,samd20";
 	chosen {
-		zephyr,console = &sercom1;
+		zephyr,console = &sercom3;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&sram0{
-	reg = < 0x20000000 0x2000 >;
-};
-&flash0{
-	reg = < 0x0 0x10000 >;
-};
-&sercom1{
+&sercom3{
 	compatible = "atmel,sam0-uart";
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	rxpo = < 0x3 >;
 	txpo = < 0x1 >;
-	pinctrl-0 = < &sercom1_uart_default >;
-	pinctrl-names = "default";
-};
-&sercom3{
-	compatible = "atmel,sam0-i2c";
-	status = "okay";
-	clock-frequency = < 0x33e140 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom3_i2c_default >;
-	pinctrl-names = "default";
-};
-&adc{
-	prescaler = < 0x20 >;
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &adc_default >;
-	pinctrl-names = "default";
-};
-&sercom0{
-	compatible = "atmel,sam0-spi";
-	status = "okay";
-	dipo = < 0x0 >;
-	dopo = < 0x2 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	cs-gpios = < &porta 0xa 0x1 >;
-	pinctrl-0 = < &sercom0_spi_default >;
+	pinctrl-0 = < &sercom3_uart_default >;
 	pinctrl-names = "default";
 };
 &sercom2{
@@ -58,6 +24,17 @@
 	pinctrl-0 = < &sercom2_i2c_default >;
 	pinctrl-names = "default";
 };
+&sercom0{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	dipo = < 0x0 >;
+	dopo = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	cs-gpios = < &porta 0x5 0x1 >;
+	pinctrl-0 = < &sercom0_spi_default >;
+	pinctrl-names = "default";
+};
 &sercom4{
 	compatible = "atmel,sam0-uart";
 	status = "okay";
@@ -65,5 +42,22 @@
 	rxpo = < 0x1 >;
 	txpo = < 0x0 >;
 	pinctrl-0 = < &sercom4_uart_default >;
+	pinctrl-names = "default";
+};
+&adc{
+	prescaler = < 0x20 >;
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &adc_default >;
+	pinctrl-names = "default";
+};
+&sercom1{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x1 >;
+	pinctrl-0 = < &sercom1_uart_default >;
 	pinctrl-names = "default";
 };

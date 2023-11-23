@@ -1,26 +1,10 @@
 / {
-	compatible = "nordic,blueclover-plt-demo-v2-nrf52832";
+	compatible = "vng,vbluno52";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-1 = < &spi1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&gpio0{
-	status = "okay";
-};
-&i2c0{
-	compatible = "nordic,nrf-twi";
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &uart0{
 	compatible = "nordic,nrf-uart";
@@ -29,6 +13,16 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&i2c0{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
 };
 &pwm0{
 	status = "okay";
@@ -39,15 +33,20 @@
 &adc{
 	status = "okay";
 };
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
 &spi0{
-	cs-gpios = < &gpio0 0x16 0x1 >;
+	cs-gpios = < &arduino_header 0x10 0x1 >;
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-1 = < &spi0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
+	compatible = "nordic,nrf-twi";
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
@@ -63,46 +62,23 @@
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x6 >, < 0x10008 >;
+			psels = < 0x6 >, < 0x10008 >, < 0x20005 >, < 0x30007 >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x6 >, < 0x10008 >;
+			psels = < 0x6 >, < 0x10008 >, < 0x20005 >, < 0x30007 >;
 			low-power-enable;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			psels = < 0xc000c >, < 0xb000e >;
+			psels = < 0xc001a >, < 0xb001b >;
 		};
 	};
 	i2c0_sleep: i2c0_sleep {
 		group1 {
-			psels = < 0xc000c >, < 0xb000e >;
-			low-power-enable;
-		};
-	};
-	pwm0_default: pwm0_default {
-		group1 {
-			psels = < 0x160016 >;
-			nordic,invert;
-		};
-	};
-	pwm0_sleep: pwm0_sleep {
-		group1 {
-			psels = < 0x160016 >;
-			low-power-enable;
-		};
-	};
-	spi1_default: spi1_default {
-		group1 {
-			psels = < 0x40002 >, < 0x50003 >, < 0x6001b >;
-		};
-	};
-	spi1_sleep: spi1_sleep {
-		group1 {
-			psels = < 0x40002 >, < 0x50003 >, < 0x6001b >;
+			psels = < 0xc001a >, < 0xb001b >;
 			low-power-enable;
 		};
 	};

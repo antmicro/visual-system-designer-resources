@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x44aa200 >;
-	apb1-prescaler = < 0x2 >;
-	apb2-prescaler = < 0x2 >;
-};
 &clk_lsi{
 	status = "okay";
 };
@@ -30,6 +24,12 @@
 	prediv = < 0x1 >;
 	mul = < 0x9 >;
 	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x44aa200 >;
+	apb1-prescaler = < 0x2 >;
+	apb2-prescaler = < 0x2 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
