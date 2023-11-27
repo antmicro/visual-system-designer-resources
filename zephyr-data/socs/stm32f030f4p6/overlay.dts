@@ -6,9 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
+&usart1{
 	status = "okay";
-	clock-frequency = < 0x7a1200 >;
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pll{
 	status = "okay";
@@ -20,11 +22,9 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x2dc6c00 >;
 };
-&usart1{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

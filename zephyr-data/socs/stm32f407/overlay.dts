@@ -6,24 +6,30 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_lsi{
-	status = "okay";
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
-	pinctrl-names = "default";
-	current-speed = < 0x2580 >;
-};
 &usbotg_fs{
 	status = "okay";
 	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
-&i2c2{
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
+};
+&usart3{
 	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
+	current-speed = < 0x2580 >;
+};
+&pll{
+	status = "okay";
+	div-m = < 0x19 >;
+	mul-n = < 0x150 >;
+	div-p = < 0x2 >;
+	div-q = < 0x7 >;
+	clocks = < &clk_hse >;
 };
 &adc1{
 	status = "okay";
@@ -43,40 +49,34 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioe 0x8 0x1 >;
 };
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x17d7840 >;
-};
-&pll{
-	status = "okay";
-	div-m = < 0x19 >;
-	mul-n = < 0x150 >;
-	div-p = < 0x2 >;
-	div-q = < 0x7 >;
-	clocks = < &clk_hse >;
-};
-&i2c3{
-	status = "okay";
-	pinctrl-0 = < &i2c3_scl_pa8 &i2c3_sda_pc9 >;
-	pinctrl-names = "default";
-};
 &uart4{
 	status = "okay";
 	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&usart3{
+&i2c3{
 	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-0 = < &i2c3_scl_pa8 &i2c3_sda_pc9 >;
+	pinctrl-names = "default";
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x2580 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xa037a00 >;
-	apb1-prescaler = < 0x4 >;
-	apb2-prescaler = < 0x2 >;
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-names = "default";
+};
+&clk_lsi{
+	status = "okay";
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x17d7840 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

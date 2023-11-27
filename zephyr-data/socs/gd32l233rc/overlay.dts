@@ -6,31 +6,31 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
+&usart1{
 	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
 };
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&gpioc{
+&gpiod{
 	status = "okay";
 };
 &gpiof{
 	status = "okay";
 };
-&usart1{
+&gpiob{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
+};
+&gpioc{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

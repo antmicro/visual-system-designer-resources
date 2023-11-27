@@ -6,75 +6,13 @@
 		zephyr,flash = &m0_flash;
 	};
 };
-&lpuart1{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x16 >;
-	pinctrl-0 = < &lpuart1_default >;
-	pinctrl-names = "default";
-};
-&lpspi2{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x14 >;
-};
-&gpioc{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x1b >;
-};
-&lpi2c2{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0xf >;
-};
 &tpm3{
 	interrupt-parent = < &event1 >;
 	interrupts = < 0xf >;
 };
-&tpm0{
+&gpiob{
 	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x8 >;
-};
-&lpspi0{
-	status = "okay";
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x12 >;
-	pinctrl-0 = < &lpspi0_default >;
-	pinctrl-names = "default";
-};
-&gpiod{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x1c >;
-};
-&tpm1{
-	interrupt-parent = < &intmux1_ch0 >;
-};
-&lpi2c3{
-	status = "okay";
-	interrupt-parent = < &event1 >;
-	interrupts = < 0x10 >;
-	pinctrl-0 = < &lpi2c3_default >;
-	pinctrl-names = "default";
-};
-&lpi2c0{
-	status = "okay";
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0xd >;
-	pinctrl-0 = < &lpi2c0_default >;
-	pinctrl-names = "default";
-};
-&gpioa{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x19 >;
-};
-&lpi2c1{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0xe >;
-};
-&lpuart3{
-	interrupt-parent = < &event1 >;
-	interrupts = < 0x14 >;
-};
-&gpioe{
-	interrupt-parent = < &event1 >;
-	interrupts = < 0x15 >;
+	interrupts = < 0x1a >;
 };
 &tpm2{
 	status = "okay";
@@ -82,13 +20,19 @@
 	pinctrl-0 = < &tpm2_default >;
 	pinctrl-names = "default";
 };
-&lpspi3{
-	interrupt-parent = < &event1 >;
-	interrupts = < 0x13 >;
-};
-&gpiob{
+&tpm0{
 	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x1a >;
+	interrupts = < 0x8 >;
+};
+&tpm1{
+	interrupt-parent = < &intmux1_ch0 >;
+};
+&lpi2c0{
+	status = "okay";
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0xd >;
+	pinctrl-0 = < &lpi2c0_default >;
+	pinctrl-names = "default";
 };
 &lpspi1{
 	status = "okay";
@@ -98,6 +42,10 @@
 	pinctrl-0 = < &lpspi1_default >;
 	pinctrl-names = "default";
 };
+&gpioa{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x19 >;
+};
 &lpuart0{
 	status = "okay";
 	interrupt-parent = < &intmux1_ch0 >;
@@ -106,7 +54,59 @@
 	pinctrl-0 = < &lpuart0_default >;
 	pinctrl-names = "default";
 };
+&lpspi2{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x14 >;
+};
+&lpi2c3{
+	status = "okay";
+	interrupt-parent = < &event1 >;
+	interrupts = < 0x10 >;
+	pinctrl-0 = < &lpi2c3_default >;
+	pinctrl-names = "default";
+};
 &lpuart2{
 	interrupt-parent = < &intmux1_ch0 >;
 	interrupts = < 0x17 >;
+};
+&gpiod{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x1c >;
+};
+&gpioe{
+	interrupt-parent = < &event1 >;
+	interrupts = < 0x15 >;
+};
+&lpi2c2{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0xf >;
+};
+&lpspi0{
+	status = "okay";
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x12 >;
+	pinctrl-0 = < &lpspi0_default >;
+	pinctrl-names = "default";
+};
+&lpi2c1{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0xe >;
+};
+&lpuart1{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x16 >;
+	pinctrl-0 = < &lpuart1_default >;
+	pinctrl-names = "default";
+};
+&gpioc{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x1b >;
+};
+&lpspi3{
+	interrupt-parent = < &event1 >;
+	interrupts = < 0x13 >;
+};
+&lpuart3{
+	interrupt-parent = < &event1 >;
+	interrupts = < 0x14 >;
 };

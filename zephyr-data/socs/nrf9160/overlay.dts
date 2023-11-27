@@ -6,14 +6,7 @@
 		zephyr,sram = &sram0;
 	};
 };
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
-	pinctrl-1 = < &i2c2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&gpio0{
+&adc{
 	status = "okay";
 };
 &uart0{
@@ -23,10 +16,11 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm0{
+&spi3{
 	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
+	cs-gpios = < &gpio0 0x18 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &spi1{
@@ -35,14 +29,20 @@
 	pinctrl-1 = < &neopixel_spi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi3{
+&pwm0{
 	status = "okay";
-	cs-gpios = < &gpio0 0x18 0x1 >;
-	pinctrl-0 = < &spi3_default >;
-	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
 	status = "okay";
 };
 &uart1{
@@ -55,16 +55,16 @@
 &sram0{
 	reg = < 0x20000000 0x10000 >;
 };
-&pwm1{
-	status = "okay";
-	pinctrl-0 = < &pwm1_default >;
-	pinctrl-1 = < &pwm1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &uart2{
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-1 = < &uart2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm1{
+	status = "okay";
+	pinctrl-0 = < &pwm1_default >;
+	pinctrl-1 = < &pwm1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c1{

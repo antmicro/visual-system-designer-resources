@@ -5,34 +5,22 @@
 		zephyr,sram = &dtcm;
 	};
 };
-&lpi2c1{
+&lpuart1{
 	status = "okay";
-	pinctrl-0 = < &pinmux_lpi2c1 >;
-	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_lpuart1 >;
+	pinctrl-1 = < &pinmux_lpuart1_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &lpuart4{
 	pinctrl-0 = < &pinmux_lpuart4 >;
 	pinctrl-1 = < &pinmux_lpuart4_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc1{
+&lpi2c1{
 	status = "okay";
-	pinctrl-0 = < &pinmux_adc1 >;
+	pinctrl-0 = < &pinmux_lpi2c1 >;
 	pinctrl-names = "default";
-};
-&flexspi{
-	reg = < 0x402a8000 0x4000 >, < 0x60000000 0x1000000 >;
-};
-&usb1{
-	status = "okay";
-};
-&gpio2{
-	pinmux = < &iomuxc_gpio_emc_04_gpio2_io04 >, < &iomuxc_gpio_emc_05_gpio2_io05 >, < &iomuxc_gpio_emc_06_gpio2_io06 >, < &iomuxc_gpio_emc_07_gpio2_io07 >, < &iomuxc_gpio_emc_08_gpio2_io08 >, < &iomuxc_gpio_emc_09_gpio2_io09 >, < &iomuxc_gpio_emc_16_gpio2_io16 >, < &iomuxc_gpio_emc_17_gpio2_io17 >, < &iomuxc_gpio_emc_18_gpio2_io18 >, < &iomuxc_gpio_emc_19_gpio2_io19 >, < &iomuxc_gpio_emc_20_gpio2_io20 >, < &iomuxc_gpio_emc_21_gpio2_io21 >, < &iomuxc_gpio_emc_22_gpio2_io22 >, < &iomuxc_gpio_emc_23_gpio2_io23 >, < &iomuxc_gpio_emc_24_gpio2_io24 >, < &iomuxc_gpio_emc_25_gpio2_io25 >, < &iomuxc_gpio_emc_26_gpio2_io26 >, < &iomuxc_gpio_emc_27_gpio2_io27 >;
-	gpio-reserved-ranges = < 0x0 0x4 >, < 0xa 0x6 >;
-};
-&gpio1{
-	pinmux = < &iomuxc_gpio_ad_b0_00_gpio1_io00 >, < &iomuxc_gpio_ad_b0_01_gpio1_io01 >, < &iomuxc_gpio_ad_b0_02_gpio1_io02 >, < &iomuxc_gpio_ad_b0_03_gpio1_io03 >, < &iomuxc_gpio_ad_b0_04_gpio1_io04 >, < &iomuxc_gpio_ad_b0_05_gpio1_io05 >, < &iomuxc_gpio_ad_b0_06_gpio1_io06 >, < &iomuxc_gpio_ad_b0_07_gpio1_io07 >, < &iomuxc_gpio_ad_b0_08_gpio1_io08 >, < &iomuxc_gpio_ad_b0_09_gpio1_io09 >, < &iomuxc_gpio_ad_b0_10_gpio1_io10 >, < &iomuxc_gpio_ad_b0_11_gpio1_io11 >, < &iomuxc_gpio_ad_b0_12_gpio1_io12 >, < &iomuxc_gpio_ad_b0_13_gpio1_io13 >, < &iomuxc_gpio_ad_b0_14_gpio1_io14 >, < &iomuxc_gpio_ad_b0_15_gpio1_io15 >, < &iomuxc_gpio_ad_b1_10_gpio1_io26 >, < &iomuxc_gpio_ad_b1_11_gpio1_io27 >, < &iomuxc_gpio_ad_b1_12_gpio1_io28 >, < &iomuxc_gpio_ad_b1_13_gpio1_io29 >, < &iomuxc_gpio_ad_b1_14_gpio1_io30 >, < &iomuxc_gpio_ad_b1_15_gpio1_io31 >;
-	gpio-reserved-ranges = < 0x10 0xa >;
 };
 &gpio3{
 	pinmux = < &iomuxc_gpio_emc_32_gpio3_io00 >, < &iomuxc_gpio_emc_33_gpio3_io01 >, < &iomuxc_gpio_emc_34_gpio3_io02 >, < &iomuxc_gpio_emc_35_gpio3_io03 >, < &iomuxc_gpio_sd_b1_00_gpio3_io20 >, < &iomuxc_gpio_sd_b1_01_gpio3_io21 >, < &iomuxc_gpio_sd_b1_02_gpio3_io22 >, < &iomuxc_gpio_sd_b1_03_gpio3_io23 >, < &iomuxc_gpio_sd_b1_04_gpio3_io24 >, < &iomuxc_gpio_sd_b1_05_gpio3_io25 >, < &iomuxc_gpio_sd_b1_06_gpio3_io26 >, < &iomuxc_gpio_sd_b1_07_gpio3_io27 >, < &iomuxc_gpio_sd_b1_08_gpio3_io28 >, < &iomuxc_gpio_sd_b1_09_gpio3_io29 >, < &iomuxc_gpio_sd_b1_10_gpio3_io30 >, < &iomuxc_gpio_sd_b1_11_gpio3_io31 >;
@@ -45,14 +33,26 @@
 	pinctrl-0 = < &pinmux_lpspi1 >;
 	pinctrl-names = "default";
 };
+&flexspi{
+	reg = < 0x402a8000 0x4000 >, < 0x60000000 0x1000000 >;
+};
 &gpio5{
 	pinmux = < &iomuxc_snvs_pmic_on_req_gpio5_io01 >;
 	gpio-reserved-ranges = < 0x0 0x1 >;
 };
-&lpuart1{
+&gpio2{
+	pinmux = < &iomuxc_gpio_emc_04_gpio2_io04 >, < &iomuxc_gpio_emc_05_gpio2_io05 >, < &iomuxc_gpio_emc_06_gpio2_io06 >, < &iomuxc_gpio_emc_07_gpio2_io07 >, < &iomuxc_gpio_emc_08_gpio2_io08 >, < &iomuxc_gpio_emc_09_gpio2_io09 >, < &iomuxc_gpio_emc_16_gpio2_io16 >, < &iomuxc_gpio_emc_17_gpio2_io17 >, < &iomuxc_gpio_emc_18_gpio2_io18 >, < &iomuxc_gpio_emc_19_gpio2_io19 >, < &iomuxc_gpio_emc_20_gpio2_io20 >, < &iomuxc_gpio_emc_21_gpio2_io21 >, < &iomuxc_gpio_emc_22_gpio2_io22 >, < &iomuxc_gpio_emc_23_gpio2_io23 >, < &iomuxc_gpio_emc_24_gpio2_io24 >, < &iomuxc_gpio_emc_25_gpio2_io25 >, < &iomuxc_gpio_emc_26_gpio2_io26 >, < &iomuxc_gpio_emc_27_gpio2_io27 >;
+	gpio-reserved-ranges = < 0x0 0x4 >, < 0xa 0x6 >;
+};
+&adc1{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_lpuart1 >;
-	pinctrl-1 = < &pinmux_lpuart1_sleep >;
-	pinctrl-names = "default", "sleep";
+	pinctrl-0 = < &pinmux_adc1 >;
+	pinctrl-names = "default";
+};
+&gpio1{
+	pinmux = < &iomuxc_gpio_ad_b0_00_gpio1_io00 >, < &iomuxc_gpio_ad_b0_01_gpio1_io01 >, < &iomuxc_gpio_ad_b0_02_gpio1_io02 >, < &iomuxc_gpio_ad_b0_03_gpio1_io03 >, < &iomuxc_gpio_ad_b0_04_gpio1_io04 >, < &iomuxc_gpio_ad_b0_05_gpio1_io05 >, < &iomuxc_gpio_ad_b0_06_gpio1_io06 >, < &iomuxc_gpio_ad_b0_07_gpio1_io07 >, < &iomuxc_gpio_ad_b0_08_gpio1_io08 >, < &iomuxc_gpio_ad_b0_09_gpio1_io09 >, < &iomuxc_gpio_ad_b0_10_gpio1_io10 >, < &iomuxc_gpio_ad_b0_11_gpio1_io11 >, < &iomuxc_gpio_ad_b0_12_gpio1_io12 >, < &iomuxc_gpio_ad_b0_13_gpio1_io13 >, < &iomuxc_gpio_ad_b0_14_gpio1_io14 >, < &iomuxc_gpio_ad_b0_15_gpio1_io15 >, < &iomuxc_gpio_ad_b1_10_gpio1_io26 >, < &iomuxc_gpio_ad_b1_11_gpio1_io27 >, < &iomuxc_gpio_ad_b1_12_gpio1_io28 >, < &iomuxc_gpio_ad_b1_13_gpio1_io29 >, < &iomuxc_gpio_ad_b1_14_gpio1_io30 >, < &iomuxc_gpio_ad_b1_15_gpio1_io31 >;
+	gpio-reserved-ranges = < 0x10 0xa >;
+};
+&usb1{
+	status = "okay";
 };

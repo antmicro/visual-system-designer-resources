@@ -679,6 +679,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Jack Modular Connector 8p8c (RJ45, Ethernet) 90° Angle (Right) Shielded, EMI Finger Cat5e\n\n### Additional information\n\n*Datasheet*: [dr-STW-SS-74800-144.pdf](https://www.belfuse.com/resources/drawings/stewartconnector/dr-STW-SS-74800-144.pdf)",
+            "extends": [
+                "RJ45 Ethernet"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/ethernet-jack-ss-74800-144/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Bel SS-74800-144",
+            "urls": {
+                "datasheet": "https://www.belfuse.com/resources/drawings/stewartconnector/dr-STW-SS-74800-144.pdf",
+                "hwp": "components/bel-ss-74800-144"
+            }
+        },
+        {
             "category": "Power/Board power distribution",
             "interfaces": [
                 {
@@ -1760,6 +1775,21 @@
             "urls": {
                 "datasheet": "http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT230X.pdf",
                 "hwp": "components/ftdi-chip-ft230xq-r"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Interface Bridges, USB to UART, 2.97 V, 5.5 V, DFN, 12 Pins, -40 °C\n\n### Additional information\n\n*Datasheet*: [DS_FT234XD.pdf](http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT234XD.pdf)",
+            "extends": [
+                "USB to UART bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/dfn-12-1ep-3x3mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "FTDI Chip FT234XD-R",
+            "urls": {
+                "datasheet": "http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT234XD.pdf",
+                "hwp": "components/ftdi-chip-ft234xd-r"
             }
         },
         {
@@ -4191,6 +4221,113 @@
             "isCategory": true
         },
         {
+            "category": "SoM/RaspberryPi/Raspberry Pi Compute Module 4",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dsi",
+                    "side": "left",
+                    "type": "dsi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "left",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "right",
+                    "type": "hdmi"
+                },
+                {
+                    "array": [
+                        0,
+                        5
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie",
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "side": "right",
+                    "type": "sdio"
+                },
+                {
+                    "array": [
+                        0,
+                        5
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "array": [
+                        0,
+                        5
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Memory/Flash/SD Card",
             "interfaces": [
                 {
@@ -4209,6 +4346,13 @@
         {
             "category": "Connector/SD Card socket",
             "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "micro-sd",
+                    "side": "right",
+                    "type": "micro-sd"
+                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
@@ -4364,6 +4508,13 @@
         {
             "abstract": false,
             "extends": [
+                "Scalenode CM4 expansion connector"
+            ],
+            "name": "Samtec LSHM-130-01-L-RH-A-S-K-TR"
+        },
+        {
+            "abstract": false,
+            "extends": [
                 "JTAG"
             ],
             "name": "Samtec SHF-105-01-L-D-SM"
@@ -4382,6 +4533,44 @@
                 "datasheet": "https://datasheet.lcsc.com/lcsc/2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf",
                 "hwp": "components/sandisk-sdinbdg4-8g"
             }
+        },
+        {
+            "category": "Connector/Board to Board/Scalenode CM4 expansion connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Scalenode CM4 expansion interface",
+                    "side": "right",
+                    "type": "scalenode-cm4-expansion"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "right",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -4694,6 +4883,21 @@
         },
         {
             "abstract": false,
+            "description": "Power Over Ethernet (POE) Controller, 57 V/ 500 µA, 40 V UVLO Threshold, SOIC-8\n\n### Additional information\n\n*Datasheet*: [tps2378.pdf](http://www.ti.com/lit/ds/symlink/tps2378.pdf)",
+            "extends": [
+                "PoE Controller"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/soic-8-1ep-3-9x4-9x1-75mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments TPS2378DDA",
+            "urls": {
+                "datasheet": "http://www.ti.com/lit/ds/symlink/tps2378.pdf",
+                "hwp": "components/texas-instruments-tps2378dda"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Fixed LDO Voltage Regulator, 2.375 V to 3.5 V, 0.8 V Dropout, 1.25 V / 3 A out, VSON-10\n\n### Additional information\n\n*Datasheet*: [tps51200.pdf?ts=1685420125657](https://www.ti.com/lit/ds/symlink/tps51200.pdf?ts=1685420125657)",
             "extends": [
                 "TPS51200"
@@ -4743,6 +4947,21 @@
                 "Video switch"
             ],
             "name": "Texas Instruments TS3DV642RUARQ1"
+        },
+        {
+            "abstract": false,
+            "description": "Special purpose interface switch\n\n### Additional information\n\n*Datasheet*: [suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fts3usb30e](http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fts3usb30e)",
+            "extends": [
+                "USB mux"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/msop-10-w3mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments TS3USB30EDGSR",
+            "urls": {
+                "datasheet": "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fts3usb30e",
+                "hwp": "components/texas-instruments-ts3usb30edgsr"
+            }
         },
         {
             "abstract": false,
@@ -4829,6 +5048,30 @@
                     "name": "usb micro",
                     "side": "right",
                     "type": "usb micro"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/USB/USB mux",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
                 }
             ],
             "isCategory": true
@@ -15096,7 +15339,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/f75303/f75303.c"
+                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/f75303/f75303_emul.c"
             }
         },
         {
@@ -18029,7 +18272,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/icm42688/icm42688.c"
+                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/icm42688/icm42688_emul.c"
             }
         },
         {

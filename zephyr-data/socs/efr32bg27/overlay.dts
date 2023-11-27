@@ -6,6 +6,15 @@
 		zephyr,flash = &flash0;
 	};
 };
+&usart0{
+	status = "okay";
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioc 0x3 0x1 >;
+};
+&gpiob{
+	status = "okay";
+};
 &usart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -17,15 +26,6 @@
 };
 &gpioa{
 	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&usart0{
-	status = "okay";
-	pinctrl-0 = < &usart0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioc 0x3 0x1 >;
 };
 &gpioc{
 	status = "okay";

@@ -6,17 +6,17 @@
 		zephyr,flash = &flash0;
 	};
 };
-&dac0{
-	voltage-reference = < 0x2 >;
+&gpioe{
 	status = "okay";
 };
 &uart2{
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
 };
-&usbotg{
-	num-bidir-endpoints = < 0x8 >;
+&i2c0{
 	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
 };
 &gpiod{
 	status = "okay";
@@ -24,10 +24,19 @@
 &gpioc{
 	status = "okay";
 };
-&adc0{
+&dac0{
+	voltage-reference = < 0x2 >;
 	status = "okay";
 };
-&gpiob{
+&gpioa{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&adc0{
 	status = "okay";
 };
 &uart1{
@@ -36,19 +45,10 @@
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
 };
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&gpioa{
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };
-&gpioe{
+&gpiob{
 	status = "okay";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
 };

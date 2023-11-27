@@ -6,14 +6,17 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_lsi{
+&usart1{
 	status = "okay";
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x9 >;
+	clocks = < &clk_hse >;
 };
 &i2c1{
 	status = "okay";
@@ -26,32 +29,29 @@
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_mosi_pa7 &spi1_miso_pa6 &spi1_sck_pa5 >;
 	pinctrl-names = "default";
 };
-&pll{
+&usart2{
 	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x9 >;
-	clocks = < &clk_hse >;
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_lsi{
+	status = "okay";
 };
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x44aa200 >;
 	apb1-prescaler = < 0x2 >;
 };
-&usart1{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -11,40 +11,40 @@
 	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
-&gpioe{
+&usart0{
 	status = "okay";
-};
-&gpiob{
-	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
 };
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&spi0{
+&gpiod{
 	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0x1 0x1 >;
 };
-&gpioa{
+&gpiob{
 	status = "okay";
 };
 &gpioc{
 	status = "okay";
 };
+&gpioe{
+	status = "okay";
+};
 &gpiof{
 	status = "okay";
 };
-&gpiod{
+&gpioa{
 	status = "okay";
 };
-&usart0{
+&spi0{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart0_default >;
+	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0x1 0x1 >;
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

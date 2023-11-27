@@ -6,6 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
+&adc0{
+	status = "okay";
+};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -26,7 +29,4 @@
 	pinctrl-0 = < &i2c0_scl_default &i2c0_sda_default >;
 	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&adc0{
-	status = "okay";
 };
