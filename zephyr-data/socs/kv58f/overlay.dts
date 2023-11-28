@@ -6,13 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioe{
+&gpioa{
 	status = "okay";
 };
-&gpiod{
-	status = "okay";
-};
-&gpioc{
+&gpiob{
 	status = "okay";
 };
 &uart0{
@@ -21,14 +18,17 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
+&gpioc{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&gpiod{
 	status = "okay";
 };
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
 };

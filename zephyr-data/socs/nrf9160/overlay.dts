@@ -1,38 +1,16 @@
 / {
-	compatible = "actinius,icarus_som_dk";
+	compatible = "actinius,icarus_som";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
 };
-&adc{
-	status = "okay";
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&spi3{
-	status = "okay";
-	cs-gpios = < &gpio0 0x18 0x1 >;
-	pinctrl-0 = < &spi3_default >;
-	pinctrl-1 = < &spi3_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &neopixel_spi_default >;
-	pinctrl-1 = < &neopixel_spi_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c2{
@@ -45,20 +23,40 @@
 &gpio0{
 	status = "okay";
 };
-&uart1{
+&adc{
 	status = "okay";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi3{
+	status = "okay";
+	cs-gpios = < &arduino_header 0x10 0x1 >, < &gpio0 0x19 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart1{
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&uart2{
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-1 = < &uart2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
 &sram0{
 	reg = < 0x20000000 0x10000 >;
 };
-&uart2{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart2_default >;
-	pinctrl-1 = < &uart2_sleep >;
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &neopixel_spi_default >;
+	pinctrl-1 = < &neopixel_spi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &pwm1{
@@ -94,40 +92,6 @@
 	i2c2_sleep: i2c2_sleep {
 		group1 {
 			psels = < 0xc000a >, < 0xb000b >;
-			low-power-enable;
-		};
-	};
-	spi3_default: spi3_default {
-		group1 {
-			psels = < 0x40016 >, < 0x50019 >, < 0x60015 >;
-		};
-	};
-	spi3_sleep: spi3_sleep {
-		group1 {
-			psels = < 0x40016 >, < 0x50019 >, < 0x60015 >;
-			low-power-enable;
-		};
-	};
-	neopixel_spi_default: neopixel_spi_default {
-		group1 {
-			psels = < 0x40000 >, < 0x50008 >, < 0x60000 >;
-		};
-	};
-	neopixel_spi_sleep: neopixel_spi_sleep {
-		group1 {
-			psels = < 0x40000 >, < 0x50008 >, < 0x60000 >;
-			low-power-enable;
-		};
-	};
-	pwm0_default: pwm0_default {
-		group1 {
-			psels = < 0x160003 >;
-			nordic,invert;
-		};
-	};
-	pwm0_sleep: pwm0_sleep {
-		group1 {
-			psels = < 0x160003 >;
 			low-power-enable;
 		};
 	};

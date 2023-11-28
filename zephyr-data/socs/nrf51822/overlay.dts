@@ -1,5 +1,5 @@
 / {
-	compatible = "nordic,nrf51-dongle-nrf51422";
+	compatible = "vng,vbluno51";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
@@ -13,45 +13,58 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
-};
-&spi1{
-	compatible = "nordic,nrf-spis";
-	status = "okay";
-	def-char = < 0x0 >;
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-};
 &i2c0{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&spi0{
+	cs-gpios = < &gpio0 0x4 0x1 >;
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-1 = < &spi0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi1{
+	status = "okay";
+	cs-gpios = < &gpio0 0x2 0x11 >, < &gpio0 0x8 0x11 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
 };
 &i2c1{
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi0{
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-1 = < &spi0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x9 >, < 0x1000b >, < 0x20008 >, < 0x3000a >;
+			psels = < 0xa >, < 0x1000b >, < 0x2000c >, < 0x3000d >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x9 >, < 0x1000b >, < 0x20008 >, < 0x3000a >;
+			psels = < 0xa >, < 0x1000b >, < 0x2000c >, < 0x3000d >;
+			low-power-enable;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0xc001d >, < 0xb001e >;
+		};
+	};
+	i2c0_sleep: i2c0_sleep {
+		group1 {
+			psels = < 0xc001d >, < 0xb001e >;
 			low-power-enable;
 		};
 	};

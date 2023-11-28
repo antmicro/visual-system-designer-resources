@@ -6,6 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
 &pll{
 	status = "okay";
 	mul = < 0x9 >;
@@ -22,11 +27,6 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x44aa200 >;
 	apb1-prescaler = < 0x2 >;
-};
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32f1-pinctrl";

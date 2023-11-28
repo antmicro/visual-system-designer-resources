@@ -40,6 +40,34 @@
     },
     "nodes": [
         {
+            "category": "Connector/USB/2x USB A 3.2",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb a",
+                    "side": "right",
+                    "type": "usb a"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/USB/2xUART MPSSE Bridge",
             "interfaces": [
                 {
@@ -65,6 +93,21 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Plug-In Module, XCK26-SFVC784-2LV-C, Kria SOM Carrier Card\n\n### Additional information\n\n*Datasheet*: [ds987_k26_som-2329045.pdf](https://eu.mouser.com/datasheet/2/903/ds987_k26_som-2329045.pdf)",
+            "extends": [
+                "Kria K26"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/xilinx-kria-k26/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "AMD-Xilinx SM-K26-XCL2GC",
+            "urls": {
+                "datasheet": "https://eu.mouser.com/datasheet/2/903/ds987_k26_som-2329045.pdf",
+                "hwp": "components/amd-xilinx-sm-k26-xcl2gc"
+            }
         },
         {
             "abstract": false,
@@ -477,6 +520,21 @@
             "urls": {
                 "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/inputoutput/io_micro_sdcard.pdf",
                 "hwp": "components/amphenol-1140084168"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB-A (USB TYPE-A) USB 3.2 Gen 1 (USB 3.1 Gen 1, Superspeed (USB 3.0)) Receptacle Connector 5 Position Through Hole, Right Angle\n\n### Additional information\n\n*Datasheet*: [gsb311231hr.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/gsb311231hr.pdf)",
+            "extends": [
+                "2x USB A 3.2"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-a-receptacle-amphenol-gsb3112311hr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol GSB3112311HR",
+            "urls": {
+                "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/gsb311231hr.pdf",
+                "hwp": "components/amphenol-gsb3112311hr"
             }
         },
         {
@@ -1337,6 +1395,26 @@
             }
         },
         {
+            "category": "Connector/Display Port/Display Port",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dp",
+                    "side": "left",
+                    "type": "dp"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "dp",
+                    "side": "right",
+                    "type": "dp"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/Video/Display Port 1:3 bridge",
             "interfaces": [
                 {
@@ -1796,7 +1874,7 @@
             "abstract": false,
             "description": "Interface Bridges, USB to UART, MPSSE, 1.62 V, 1.98 V, VQFN, 56 Pins, -40 °C\n\n### Additional information\n\n*Datasheet*: [DS_FT4232H.pdf](https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT4232H.pdf)",
             "extends": [
-                "USB to 4x UART bridge"
+                "USB to 4x UART 2x MPSSE bridge"
             ],
             "icon": {
                 "hw-icon": "/blender-models/qfn-56-1ep-8x8mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
@@ -3139,6 +3217,86 @@
             "isCategory": true
         },
         {
+            "category": "SoM/Xilinx/Kria K26",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dp",
+                    "side": "right",
+                    "type": "dp"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gbe phy",
+                    "side": "left",
+                    "type": "gbe phy"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "right",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie",
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "side": "right",
+                    "type": "sdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ulpi",
+                    "side": "left",
+                    "type": "ulpi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "Barrel audio connector\n\n### Additional information\n\n*Datasheet*: [KLPX.pdf](https://www.kycon.com/2013Catalogpage/RCA/KLPX.pdf)",
             "extends": [
@@ -3754,6 +3912,36 @@
         },
         {
             "abstract": false,
+            "description": "USB interface\n\n### Additional information\n\n*Datasheet*: [00002363A.pdf](https://ww1.microchip.com/downloads/en/DeviceDoc/00002363A.pdf)",
+            "extends": [
+                "USB Phy"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-24-1ep-4x4mm-p0-5mm-ep2-6x2-6mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology USB3310C-CP",
+            "urls": {
+                "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/00002363A.pdf",
+                "hwp": "components/microchip-technology-usb3310c-cp"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB hub controller\n\n### Additional information\n\n*Datasheet*: [USB7016-Data-Sheet-DS00003740B.pdf](https://ww1.microchip.com/downloads/en/DeviceDoc/USB7016-Data-Sheet-DS00003740B.pdf)",
+            "extends": [
+                "USB Hub 3.0"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/vqfn-100-1ep-12x12x0-85mm-p0-4mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology USB7016/KDX",
+            "urls": {
+                "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/USB7016-Data-Sheet-DS00003740B.pdf",
+                "hwp": "components/microchip-technology-usb7016-kdx"
+            }
+        },
+        {
+            "abstract": false,
             "description": "VSC8662 Series 1.25 Gbps Dual Port 10/100/1000 BASE-T & 100/1000BX PHY - BGA-256\n\n### Additional information\n\n*Datasheet*: [MCHP_S_A0008366719_1-2513824.pdf](https://www.mouser.com/datasheet/2/268/MCHP_S_A0008366719_1-2513824.pdf)",
             "extends": [
                 "GbE Phy"
@@ -3890,6 +4078,21 @@
             "urls": {
                 "datasheet": "https://tools.molex.com/pdm_docs/sd/1054500101_sd.pdf",
                 "hwp": "components/molex-1054500101"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "DisplayPort Receptacle Connector 20 Position Surface Mount, Right Angle; Through Hole\n\n### Additional information\n\n*Datasheet*: [472720001](https://www.molex.com/en-us/products/part-detail/472720001)",
+            "extends": [
+                "Display Port"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/displayport-receptacle-molex-472720001/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 472720001",
+            "urls": {
+                "datasheet": "https://www.molex.com/en-us/products/part-detail/472720001",
+                "hwp": "components/molex-472720001"
             }
         },
         {
@@ -4521,6 +4724,21 @@
         },
         {
             "abstract": false,
+            "description": "PCB Receptacle, Board-to-Board, 2.54 mm, 2 Rows, 12 Contacts, Through Hole Mount Right Angle, SSW\n\n### Additional information\n\n*Datasheet*: [ssw-1xx-xx-xxx-x-xx-xxx-xx-mkt.pdf](https://suddendocs.samtec.com/prints/ssw-1xx-xx-xxx-x-xx-xxx-xx-mkt.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinsocket-2x6-p2-54mm-drill1-04mm-horizontal/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Samtec SSW-106-02-G-D-RA",
+            "urls": {
+                "datasheet": "https://suddendocs.samtec.com/prints/ssw-1xx-xx-xxx-x-xx-xxx-xx-mkt.pdf",
+                "hwp": "components/samtec-ssw-106-02-g-d-ra"
+            }
+        },
+        {
+            "abstract": false,
             "description": "NAND Flash Serial e-MMC 64G-bit SanDisk iNAND 7250 Industrial\n\n### Additional information\n\n*Datasheet*: [2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf](https://datasheet.lcsc.com/lcsc/2006081112_SANDISK-SDINBDG4-8G-XI1_C577445.pdf)",
             "extends": [
                 "eMMC"
@@ -4781,6 +4999,21 @@
         },
         {
             "abstract": false,
+            "description": "PCI connector\n\n### Additional information\n\n*Datasheet*: [product-1-2199119-6.datasheet.pdf](https://www.te.com/usa-en/product-1-2199119-6.datasheet.pdf)",
+            "extends": [
+                "M.2 key E"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bus-m-2-socket-key-e-te-1-2199119-6/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TE Connectivity 2199119-6",
+            "urls": {
+                "datasheet": "https://www.te.com/usa-en/product-1-2199119-6.datasheet.pdf",
+                "hwp": "components/te-connectivity-2199119-6"
+            }
+        },
+        {
+            "abstract": false,
             "description": "PCI connector\n\n### Additional information\n\n*Datasheet*: [product-2199230-4.html](https://www.te.com/usa-en/product-2199230-4.html)",
             "extends": [
                 "M.2 key E"
@@ -4807,6 +5040,21 @@
             "urls": {
                 "datasheet": "https://www.mouser.com/datasheet/2/418/7/ENG_CD_2309409_5-2032664.pdf",
                 "hwp": "components/te-connectivity-2309409-1"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Modular Connector, RJ45 Jack, 1 x 1 (Port), 8P8C, Cat5e, Through Hole Mount\n\n### Additional information\n\n*Datasheet*: [DDEController?Action=showdoc&DocId=Customer+Drawing%7F5-2337992-8%7FA%7Fpdf%7FEnglish%7FENG_CD_5-2337992-8_A.pdf%7F5-2337992-8](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F5-2337992-8%7FA%7Fpdf%7FEnglish%7FENG_CD_5-2337992-8_A.pdf%7F5-2337992-8)",
+            "extends": [
+                "RJ45 Ethernet"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/rj45-5-2337992-8-horizontal/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TE Connectivity 5-2337992-8",
+            "urls": {
+                "datasheet": "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F5-2337992-8%7FA%7Fpdf%7FEnglish%7FENG_CD_5-2337992-8_A.pdf%7F5-2337992-8",
+                "hwp": "components/te-connectivity-5-2337992-8"
             }
         },
         {
@@ -4850,6 +5098,21 @@
                 "ddr-device"
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Robust, High Immunity 10/100/1000 Ethernet Physical Layer Transceiver\n\n### Additional information\n\n*Datasheet*: [dp83867ir.pdf?ts=1647232328899&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDP83867IR](https://www.ti.com/lit/ds/symlink/dp83867ir.pdf?ts=1647232328899&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDP83867IR)",
+            "extends": [
+                "GbE Phy"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-48-1ep-7x7mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments DP83867CRRGZR",
+            "urls": {
+                "datasheet": "https://www.ti.com/lit/ds/symlink/dp83867ir.pdf?ts=1647232328899&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDP83867IR",
+                "hwp": "components/texas-instruments-dp83867crrgzr"
+            }
         },
         {
             "abstract": false,
@@ -5033,6 +5296,37 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/USB/USB Hub 3.0",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb 2.0",
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "array": [
+                        0,
+                        5
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb 3.0",
+                    "side": "right",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/USB/USB Micro",
             "interfaces": [
                 {
@@ -5048,6 +5342,26 @@
                     "name": "usb micro",
                     "side": "right",
                     "type": "usb micro"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/USB/USB Phy",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ulpi",
+                    "side": "left",
+                    "type": "ulpi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
                 }
             ],
             "isCategory": true
@@ -15339,7 +15653,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/drivers/sensor/f75303/f75303.c"
             }
         },
         {
@@ -32938,7 +33252,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9160",
-                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/dts/arm/nordic/nrf9160_sica.dtsi"
+                "zephyr": "blob/1282194ac549fea1990ea0a028af4ecc870093fc/dts/arm/nordic/nrf9160ns_sica.dtsi"
             }
         },
         {

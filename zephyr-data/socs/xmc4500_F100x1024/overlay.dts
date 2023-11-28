@@ -6,6 +6,19 @@
 		zephyr,flash = &flash0;
 	};
 };
+&usic1ch1{
+	status = "okay";
+	compatible = "infineon,xmc4xxx-uart";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart_tx_p0_1_u1c1 &uart_rx_p0_0_u1c1 >;
+	pinctrl-names = "default";
+	input-src = "DX0D";
+	interrupts = < 0x5a 0x1 0x5b 0x1 >;
+	interrupt-names = "tx", "rx";
+	fifo-start-offset = < 0x0 >;
+	fifo-tx-size = < 0x10 >;
+	fifo-rx-size = < 0x10 >;
+};
 &adc2{
 	vref-internal-mv = < 0xce4 >;
 };
@@ -20,17 +33,4 @@
 };
 &adc3{
 	vref-internal-mv = < 0xce4 >;
-};
-&usic1ch1{
-	status = "okay";
-	compatible = "infineon,xmc4xxx-uart";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart_tx_p0_1_u1c1 &uart_rx_p0_0_u1c1 >;
-	pinctrl-names = "default";
-	input-src = "DX0D";
-	interrupts = < 0x5a 0x1 0x5b 0x1 >;
-	interrupt-names = "tx", "rx";
-	fifo-start-offset = < 0x0 >;
-	fifo-tx-size = < 0x10 >;
-	fifo-rx-size = < 0x10 >;
 };

@@ -5,24 +5,15 @@
 		zephyr,flash = &flash0;
 	};
 };
-&tach1{
+&adc0{
 	status = "okay";
-	pinctrl-0 = < &ta1_1_in_gp40 >;
+	pinctrl-0 = < &adc0_chan0_gp45 &adc0_chan2_gp43 >;
 	pinctrl-names = "default";
-	port = < 0x0 >;
-	sample-clk = < 0x8000 >;
-	pulses-per-round = < 0x1 >;
 };
 &espi0{
 	status = "okay";
 	pinctrl-0 = < &espi_lpc_gp46_47_51_52_53_54_55_57 >;
 	pinctrl-names = "default";
-};
-&i2c0_0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_0_sda_scl_gpb4_b5 >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x61a80 >;
 };
 &uart1{
 	status = "okay";
@@ -35,8 +26,17 @@
 	pinctrl-0 = < &pwm6_gpc0 >;
 	pinctrl-names = "default";
 };
-&adc0{
+&i2c0_0{
 	status = "okay";
-	pinctrl-0 = < &adc0_chan0_gp45 &adc0_chan2_gp43 >;
+	pinctrl-0 = < &i2c0_0_sda_scl_gpb4_b5 >;
 	pinctrl-names = "default";
+	clock-frequency = < 0x61a80 >;
+};
+&tach1{
+	status = "okay";
+	pinctrl-0 = < &ta1_1_in_gp40 >;
+	pinctrl-names = "default";
+	port = < 0x0 >;
+	sample-clk = < 0x8000 >;
+	pulses-per-round = < 0x1 >;
 };

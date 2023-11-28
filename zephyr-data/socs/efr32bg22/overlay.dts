@@ -1,16 +1,25 @@
 / {
-	compatible = "silabs,efr32bg22c224f512im40", "silabs,efr32bg_brd4184a", "silabs,efr32bg22";
+	compatible = "silabs,efr32bg22c224f512im40", "silabs,efr32bg_brd4184b", "silabs,efr32bg22";
 	chosen {
 		zephyr,console = &usart1;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
+&gpioc{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+};
 &usart0{
 	status = "okay";
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpioc 0x3 0x1 >;
+};
+&gpioa{
+	status = "okay";
 };
 &gpiob{
 	status = "okay";
@@ -20,15 +29,6 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
-};
-&adc0{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
 };
 &i2c0{
 	status = "okay";

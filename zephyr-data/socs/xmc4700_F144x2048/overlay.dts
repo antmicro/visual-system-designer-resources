@@ -6,8 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpio5{
+&gpio3{
 	status = "okay";
+};
+&gpio14{
+	status = "okay";
+};
+&adc2{
+	vref-internal-mv = < 0xce4 >;
 };
 &usic0ch0{
 	status = "okay";
@@ -25,19 +31,16 @@
 &gpio0{
 	status = "okay";
 };
-&adc2{
-	vref-internal-mv = < 0xce4 >;
+&gpio2{
+	status = "okay";
 };
 &adc0{
 	vref-internal-mv = < 0xce4 >;
 };
+&gpio5{
+	status = "okay";
+};
 &gpio1{
-	status = "okay";
-};
-&gpio14{
-	status = "okay";
-};
-&gpio3{
 	status = "okay";
 };
 &adc1{
@@ -45,7 +48,4 @@
 };
 &adc3{
 	vref-internal-mv = < 0xce4 >;
-};
-&gpio2{
-	status = "okay";
 };

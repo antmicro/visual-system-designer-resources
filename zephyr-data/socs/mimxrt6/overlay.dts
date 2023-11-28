@@ -5,19 +5,6 @@
 		zephyr,sram = &sram0;
 	};
 };
-&sc_timer{
-	status = "okay";
-	pinctrl-0 = < &pinmux_sctimer >;
-	pinctrl-names = "default";
-};
-&i3c0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_i3c >;
-	pinctrl-names = "default";
-};
-&usbhs{
-	status = "okay";
-};
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
 	status = "okay";
@@ -27,7 +14,13 @@
 	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
 	dma-names = "rx", "tx";
 };
+&gpio0{
+	status = "okay";
+};
 &gpio1{
+	status = "okay";
+};
+&gpio2{
 	status = "okay";
 };
 &pmic_i2c{
@@ -38,14 +31,21 @@
 	pinctrl-0 = < &pinmux_pmic_i2c >;
 	pinctrl-names = "default";
 };
+&usbhs{
+	status = "okay";
+};
+&sc_timer{
+	status = "okay";
+	pinctrl-0 = < &pinmux_sctimer >;
+	pinctrl-names = "default";
+};
+&i3c0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-names = "default";
+};
 &flexspi{
 	status = "okay";
 	pinctrl-0 = < &pinmux_flexspi >;
 	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
-};
-&gpio2{
-	status = "okay";
 };

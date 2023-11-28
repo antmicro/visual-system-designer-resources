@@ -6,19 +6,38 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hsi48{
+&octospi1{
 	status = "okay";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-0 = < &octospim_p1_clk_pe10 &octospim_p1_ncs_pe11 &octospim_p1_io0_pe12 &octospim_p1_io1_pe13 &octospim_p1_io2_pe14 &octospim_p1_io3_pe15 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	dmas = < &dma1 0x0 0x28 0x480 >;
+	dma-names = "tx_rx";
+};
+&spi3{
+	status = "okay";
+	pinctrl-0 = < &spi3_sck_pc10 &spi3_miso_pc11 &spi3_mosi_pc12 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiod 0xd 0x11 >, < &gpioe 0x0 0x1 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0x2 0x11 >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
 };
 &usbotg_fs{
 	status = "okay";
 	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 &usb_otg_fs_id_pa10 >;
 	pinctrl-names = "default";
+};
+&clk_lsi{
+	status = "okay";
 };
 &pll{
 	status = "okay";
@@ -28,38 +47,13 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hsi >;
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
-};
-&spi3{
-	status = "okay";
-	pinctrl-0 = < &spi3_sck_pc10 &spi3_miso_pc11 &spi3_mosi_pc12 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiod 0xd 0x11 >, < &gpioe 0x0 0x1 >;
-};
-&clk_hsi{
-	status = "okay";
-};
-&octospi1{
-	status = "okay";
-	pinctrl-0 = < &octospim_p1_clk_pe10 &octospim_p1_ncs_pe11 &octospim_p1_io0_pe12 &octospim_p1_io1_pe13 &octospim_p1_io2_pe14 &octospim_p1_io3_pe15 >;
-	pinctrl-names = "default";
-	dmas = < &dma1 0x0 0x28 0x480 >;
-	dma-names = "tx_rx";
-};
 &uart4{
 	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi1{
+&clk_hsi48{
 	status = "okay";
-	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0x2 0x11 >;
 };
 &i2c2{
 	clock-frequency = < 0x61a80 >;
@@ -67,12 +61,18 @@
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
 	pinctrl-names = "default";
 };
-&clk_lsi{
+&clk_hsi{
 	status = "okay";
 };
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x4c4b400 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
