@@ -1,32 +1,71 @@
 / {
-	compatible = "st,b-u585i-iot02a";
+	compatible = "st,sensortile-box-pro";
 	chosen {
-		zephyr,console = &usart1;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,console = &usart1;
 	};
+};
+&clk_msis{
+	status = "okay";
+	msi-pll-mode;
+};
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_lse{
+	status = "okay";
+};
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac1_out1_pa4 >;
+	pinctrl-names = "default";
 };
 &clk_hsi48{
 	status = "okay";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0x2 0x1 >;
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_ph4 &i2c2_sda_ph5 >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pi1 &spi2_miso_pi2 &spi2_mosi_pi3 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioi 0x5 0x1 >, < &gpioi 0x7 0x1 >;
 };
 &usbotg_fs{
 	status = "okay";
 	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
-&rcc{
-	clocks = < &pll1 >;
-	clock-frequency = < 0x9896800 >;
-};
-&spi1{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &spi1_nss_pe12 &spi1_sck_pe13 &spi1_miso_pe14 &spi1_mosi_pe15 >;
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&uart4{
+	status = "okay";
+	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
 &pll1{
@@ -37,25 +76,8 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_msis >;
 };
-&clk_lse{
+&gpioi{
 	status = "okay";
-};
-&octospi2{
-	status = "okay";
-	pinctrl-0 = < &octospim_p2_clk_pf4 &octospim_p2_ncs_pi5 &octospim_p2_io0_pf0 &octospim_p2_io1_pf1 &octospim_p2_io2_pf2 &octospim_p2_io3_pf3 &octospim_p2_io4_ph9 &octospim_p2_io5_ph10 &octospim_p2_io6_ph11 &octospim_p2_io7_ph12 &octospim_p2_dqs_pf12 >;
-	pinctrl-names = "default";
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_ph4 &i2c2_sda_ph5 >;
-	pinctrl-names = "default";
 };
 &adc1{
 	status = "okay";
@@ -63,41 +85,20 @@
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x4 >;
 };
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac1_out1_pa4 >;
-	pinctrl-names = "default";
-};
-&clk_msis{
-	status = "okay";
-	msi-pll-mode;
-};
 &adc4{
 	status = "okay";
 	pinctrl-0 = < &adc4_in19_pb1 >;
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x4 >;
 };
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+&rcc{
+	clocks = < &pll1 >;
+	clock-frequency = < 0x9896800 >;
 };
-&spi2{
+&octospi2{
 	status = "okay";
-	pinctrl-0 = < &spi2_sck_pi1 &spi2_miso_pi2 &spi2_mosi_pi3 >;
+	pinctrl-0 = < &octospim_p2_clk_pf4 &octospim_p2_ncs_pi5 &octospim_p2_io0_pf0 &octospim_p2_io1_pf1 &octospim_p2_io2_pf2 &octospim_p2_io3_pf3 &octospim_p2_io4_ph9 &octospim_p2_io5_ph10 &octospim_p2_io6_ph11 &octospim_p2_io7_ph12 &octospim_p2_dqs_pf12 >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpioi 0x5 0x1 >;
-};
-&uart4{
-	status = "okay";
-	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&gpioi{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
@@ -166,6 +167,12 @@
 		#gpio-cells = < 0x2 >;
 		reg = < 0x42022000 0x400 >;
 		clocks = < &rcc 0x8c 0x100 >;
+		status = "okay";
+		mcu-sel-gpios {
+			gpio-hog;
+			gpios = < 0x0 0x0 >;
+			output-low;
+		};
 	};
 	adc1_in15_pb0: adc1_in15_pb0 {
 		pinmux = < 0x210 >;
@@ -176,8 +183,8 @@
 	dac1_out1_pa4: dac1_out1_pa4 {
 		pinmux = < 0x90 >;
 	};
-	i2c1_scl_pb8: i2c1_scl_pb8 {
-		pinmux = < 0x304 >;
+	i2c1_scl_pb6: i2c1_scl_pb6 {
+		pinmux = < 0x2c4 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
@@ -186,8 +193,8 @@
 		bias-pull-up;
 		drive-open-drain;
 	};
-	i2c1_sda_pb9: i2c1_sda_pb9 {
-		pinmux = < 0x324 >;
+	i2c1_sda_pb7: i2c1_sda_pb7 {
+		pinmux = < 0x2e4 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
@@ -196,64 +203,79 @@
 		bias-pull-up;
 		drive-open-drain;
 	};
-	octospim_p2_io0_pf0: octospim_p2_io0_pf0 {
-		pinmux = < 0xa05 >;
+	sdmmc1_ckin_pb8: sdmmc1_ckin_pb8 {
+		pinmux = < 0x308 >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_io1_pf1: octospim_p2_io1_pf1 {
-		pinmux = < 0xa25 >;
+	sdmmc1_cdir_pb9: sdmmc1_cdir_pb9 {
+		pinmux = < 0x328 >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_io2_pf2: octospim_p2_io2_pf2 {
-		pinmux = < 0xa45 >;
+	sdmmc1_d0dir_pc6: sdmmc1_d0dir_pc6 {
+		pinmux = < 0x4c8 >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_io3_pf3: octospim_p2_io3_pf3 {
-		pinmux = < 0xa65 >;
+	sdmmc1_d123dir_pc7: sdmmc1_d123dir_pc7 {
+		pinmux = < 0x4e8 >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_clk_pf4: octospim_p2_clk_pf4 {
-		pinmux = < 0xa85 >;
+	sdmmc1_d0_pc8: sdmmc1_d0_pc8 {
+		pinmux = < 0x50c >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_dqs_pf12: octospim_p2_dqs_pf12 {
-		pinmux = < 0xb85 >;
+	sdmmc1_d1_pc9: sdmmc1_d1_pc9 {
+		pinmux = < 0x52c >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_io4_ph9: octospim_p2_io4_ph9 {
-		pinmux = < 0xf25 >;
+	sdmmc1_d2_pc10: sdmmc1_d2_pc10 {
+		pinmux = < 0x54c >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_io5_ph10: octospim_p2_io5_ph10 {
-		pinmux = < 0xf45 >;
+	sdmmc1_d3_pc11: sdmmc1_d3_pc11 {
+		pinmux = < 0x56c >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_io6_ph11: octospim_p2_io6_ph11 {
-		pinmux = < 0xf65 >;
+	sdmmc1_ck_pc12: sdmmc1_ck_pc12 {
+		pinmux = < 0x58c >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_io7_ph12: octospim_p2_io7_ph12 {
-		pinmux = < 0xf85 >;
+	sdmmc1_cmd_pd2: sdmmc1_cmd_pd2 {
+		pinmux = < 0x64c >;
+		bias-pull-up;
 		slew-rate = "very-high-speed";
 	};
-	octospim_p2_ncs_pi5: octospim_p2_ncs_pi5 {
-		pinmux = < 0x10a5 >;
-		slew-rate = "very-high-speed";
-	};
-	spi1_miso_pe14: spi1_miso_pe14 {
-		pinmux = < 0x9c5 >;
+	spi1_miso_pa6: spi1_miso_pa6 {
+		pinmux = < 0xc5 >;
 		bias-pull-down;
 	};
-	spi1_mosi_pe15: spi1_mosi_pe15 {
-		pinmux = < 0x9e5 >;
+	spi2_miso_pi2: spi2_miso_pi2 {
+		pinmux = < 0x1045 >;
 		bias-pull-down;
 	};
-	spi1_nss_pe12: spi1_nss_pe12 {
-		pinmux = < 0x985 >;
+	spi1_mosi_pa7: spi1_mosi_pa7 {
+		pinmux = < 0xe5 >;
+		bias-pull-down;
+	};
+	spi2_mosi_pi3: spi2_mosi_pi3 {
+		pinmux = < 0x1065 >;
+		bias-pull-down;
+	};
+	spi1_sck_pa5: spi1_sck_pa5 {
+		pinmux = < 0xa5 >;
+		slew-rate = "very-high-speed";
 		bias-pull-up;
 	};
-	spi1_sck_pe13: spi1_sck_pe13 {
-		pinmux = < 0x9a5 >;
+	spi2_sck_pi1: spi2_sck_pi1 {
+		pinmux = < 0x1025 >;
 		bias-pull-down;
 		slew-rate = "very-high-speed";
 	};
@@ -269,12 +291,19 @@
 	usart3_rx_pd9: usart3_rx_pd9 {
 		pinmux = < 0x727 >;
 	};
+	uart4_rx_pa1: uart4_rx_pa1 {
+		pinmux = < 0x28 >;
+	};
 	usart1_tx_pa9: usart1_tx_pa9 {
 		pinmux = < 0x127 >;
 		bias-pull-up;
 	};
 	usart3_tx_pd8: usart3_tx_pd8 {
 		pinmux = < 0x707 >;
+		bias-pull-up;
+	};
+	uart4_tx_pa0: uart4_tx_pa0 {
+		pinmux = < 0x8 >;
 		bias-pull-up;
 	};
 	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {

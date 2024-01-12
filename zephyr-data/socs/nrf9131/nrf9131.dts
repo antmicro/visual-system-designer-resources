@@ -273,6 +273,7 @@
 				#gpio-cells = < 0x2 >;
 				status = "disabled";
 				port = < 0x0 >;
+				gpiote-instance = < &gpiote >;
 			};
 			rtc0: rtc@14000 {
 				compatible = "nordic,nrf-rtc";
@@ -301,22 +302,23 @@
 			power: power@5000 {
 				compatible = "nordic,nrf-power";
 				reg = < 0x5000 0x1000 >;
+				ranges = < 0x0 0x5000 0x1000 >;
 				interrupts = < 0x5 0x1 >;
 				status = "okay";
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x1 >;
-				gpregret1: gpregret1@551c {
+				gpregret1: gpregret1@51c {
 					#address-cells = < 0x1 >;
 					#size-cells = < 0x1 >;
 					compatible = "nordic,nrf-gpregret";
-					reg = < 0x551c 0x1 >;
+					reg = < 0x51c 0x1 >;
 					status = "okay";
 				};
-				gpregret2: gpregret2@5520 {
+				gpregret2: gpregret2@520 {
 					#address-cells = < 0x1 >;
 					#size-cells = < 0x1 >;
 					compatible = "nordic,nrf-gpregret";
-					reg = < 0x5520 0x1 >;
+					reg = < 0x520 0x1 >;
 					status = "okay";
 				};
 			};
@@ -343,7 +345,7 @@
 				max-bit-width = < 0x20 >;
 				interrupts = < 0x10 0x1 >;
 				prescaler = < 0x0 >;
-				phandle = < 0x2 >;
+				phandle = < 0x3 >;
 			};
 			timer2: timer@11000 {
 				compatible = "nordic,nrf-timer";
@@ -355,11 +357,13 @@
 				prescaler = < 0x0 >;
 			};
 		};
-		gpiote: gpiote@40031000 {
+		gpiote: gpiote1: gpiote@40031000 {
 			compatible = "nordic,nrf-gpiote";
 			reg = < 0x40031000 0x1000 >;
 			interrupts = < 0x31 0x5 >;
 			status = "disabled";
+			instance = < 0x1 >;
+			phandle = < 0x2 >;
 		};
 	};
 	pinctrl: pin-controller {
@@ -388,7 +392,6 @@
 			mpu: mpu@e000ed90 {
 				compatible = "arm,armv8m-mpu";
 				reg = < 0xe000ed90 0x40 >;
-				arm,num-mpu-regions = < 0x10 >;
 			};
 		};
 	};

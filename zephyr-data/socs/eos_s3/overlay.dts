@@ -1,15 +1,9 @@
 / {
 	compatible = "quicklogic,eos_s3";
 	chosen {
-		zephyr,console = &uart1;
+		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
 	};
-};
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_rx_default &uart1_tx_default &usb_pu_default &usb_dn_default &usb_dp_default >;
-	pinctrl-names = "default";
 };
 &gpio{
 	status = "okay";
@@ -18,5 +12,11 @@
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart_rx_default &uart_tx_default >;
+	pinctrl-names = "default";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_rx_default &uart1_tx_default &usb_pu_default &usb_dn_default &usb_dp_default >;
 	pinctrl-names = "default";
 };

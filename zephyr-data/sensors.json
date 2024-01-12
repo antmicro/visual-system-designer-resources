@@ -165,8 +165,8 @@
         ],
         "description": "Asahi Kasei AKM09918C Magnetometer. See datasheet at\nhttps://www.akm.com/content/dam/documents/products/electronic-compass/ak09918c/ak09918c-en-datasheet.pdf\n",
         "driver": [
-            "drivers/sensor/akm09918c/akm09918c_emul.c",
-            "drivers/sensor/akm09918c/akm09918c.c"
+            "drivers/sensor/akm09918c/akm09918c.c",
+            "drivers/sensor/akm09918c/akm09918c_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -185,8 +185,8 @@
         ],
         "description": "AMD SB Temperature Sensor Interface.",
         "driver": [
-            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c",
-            "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+            "drivers/sensor/amd_sb_tsi/sb_tsi.c",
+            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1600,6 +1600,31 @@
         "rdp-compat": "st,lis2ds12",
         "renode-model": "Sensors.LIS2DS12"
     },
+    "lis2du12": {
+        "category": "Other",
+        "compatible": [
+            "st,lis2du12"
+        ],
+        "description": "STMicroelectronics LIS2DU12 3-axis ultra-low power accelerometer sensor\naccessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lis2du12/lis2du12.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "int2": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lis2du12"
+    },
     "lis2dw12": {
         "category": "Motion/Accelerometer",
         "compatible": [
@@ -1731,7 +1756,7 @@
         ],
         "description": "STMicroelectronics LPS22DF pressure and temperature sensor connected to I3C\nbus\n",
         "driver": [
-            "drivers/sensor/lps22df/lps22df.c"
+            "drivers/sensor/lps2xdf/lps2xdf.c"
         ],
         "interfaces": {
             "drdy": "gpio",
@@ -1811,6 +1836,27 @@
             }
         },
         "rdp-compat": "st,lps25hb-press"
+    },
+    "lps28dfw": {
+        "category": "Environmental",
+        "compatible": [
+            "st,lps28dfw"
+        ],
+        "description": "STMicroelectronics LPS28DFW pressure and temperature sensor connected to\nI3C bus\n",
+        "driver": [
+            "drivers/sensor/lps2xdf/lps2xdf.c"
+        ],
+        "interfaces": {
+            "drdy": "gpio",
+            "i2c": "i2c",
+            "i3c": "i3c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lps28dfw"
     },
     "lsm303agr_accel": {
         "category": "Motion/Accelerometer",

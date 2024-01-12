@@ -227,6 +227,20 @@
 			interrupts = < 0x0 0x1 >;
 			status = "disabled";
 		};
+		ethernet@5000c000 {
+			reg = < 0x5000c000 0x3fff >;
+			eth: ethernet {
+				compatible = "infineon,xmc4xxx-ethernet";
+				interrupts = < 0x6c 0x1 >;
+				status = "disabled";
+			};
+			mdio: mdio {
+				compatible = "infineon,xmc4xxx-mdio";
+				status = "disabled";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

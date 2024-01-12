@@ -6,24 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpio_prt0{
-	status = "okay";
-	interrupt-parent = < &intmux_ch20 >;
-};
-&gpio_prt9{
-	status = "okay";
-};
-&gpio_prt13{
-	status = "okay";
-};
 &uart5{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	interrupt-parent = < &intmux_ch21 >;
 	pinctrl-0 = < &p5_0_uart5_rx &p5_1_uart5_tx >;
-};
-&gpio_prt6{
-	status = "okay";
 };
 &spi6{
 	status = "okay";
@@ -34,12 +21,24 @@
 &gpio_prt5{
 	status = "okay";
 };
+&gpio_prt6{
+	status = "okay";
+};
+&gpio_prt0{
+	status = "okay";
+	interrupt-parent = < &intmux_ch20 >;
+};
 &gpio_prt12{
+	status = "okay";
+};
+&gpio_prt9{
+	status = "okay";
+};
+&gpio_prt13{
 	status = "okay";
 };
 &uart6{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	interrupt-parent = < &intmux_ch21 >;
 	pinctrl-0 = < &p13_0_uart6_rx &p13_1_uart6_tx >;
 };

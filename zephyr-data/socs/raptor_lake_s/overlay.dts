@@ -1,0 +1,10 @@
+/ {
+	compatible = "intel,raptor-lake-crb";
+	chosen {
+		zephyr,console = &uart_ec_0;
+		zephyr,sram = &dram0;
+	};
+};
+&dram0{
+	reg = < 0x0 0x80000000 >;
+};

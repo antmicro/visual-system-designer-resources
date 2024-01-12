@@ -144,6 +144,7 @@
 			interrupts = < 0x1e 0x0 >, < 0x1f 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x9 >;
 		};
 		i2c3: i2c@40005c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -155,6 +156,7 @@
 			interrupts = < 0x20 0x0 >, < 0x21 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xa >;
 		};
 		rtc: rtc@40002800 {
 			compatible = "st,stm32-rtc";
@@ -492,5 +494,19 @@
 	ble_rf: ble_rf {
 		compatible = "st,stm32wb-rf";
 		clocks = < &rcc 0x50 0x100000 >, < &rcc 0x3 0x16e94 >;
+	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
+		status = "disabled";
+	};
+	smbus3: smbus3 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c3 >;
+		status = "disabled";
 	};
 };

@@ -293,5 +293,50 @@
 			status = "okay";
 			phandle = < 0x2 >;
 		};
+		regulators {
+			compatible = "renesas,smartbond-regulator";
+			vdd: VDD {
+				regulator-init-microvolt = < 0xdbba0 >;
+				regulator-boot-on;
+				renesas,regulator-sleep-ldo;
+				renesas,regulator-dcdc-vbat-high;
+				renesas,regulator-dcdc-vbat-low;
+			};
+			vdd_clamp: VDD_CLAMP {
+				regulator-boot-on;
+				regulator-always-on;
+				regulator-init-microvolt = < 0xac5d0 >;
+			};
+			vdd_sleep: VDD_SLEEP {
+				regulator-boot-on;
+				regulator-init-microvolt = < 0xb71b0 >;
+			};
+			v14: V14 {
+				regulator-init-microvolt = < 0x155cc0 >;
+				regulator-boot-on;
+				renesas,regulator-dcdc-vbat-high;
+				renesas,regulator-dcdc-vbat-low;
+			};
+			v18: V18 {
+				regulator-init-microvolt = < 0x1b7740 >;
+				regulator-boot-on;
+				renesas,regulator-dcdc-vbat-high;
+			};
+			v18p: V18P {
+				regulator-init-microvolt = < 0x1b7740 >;
+				regulator-boot-on;
+				renesas,regulator-sleep-ldo;
+				renesas,regulator-dcdc-vbat-high;
+			};
+			v30: V30 {
+				regulator-init-microvolt = < 0x2dc6c0 >;
+				regulator-boot-on;
+				renesas,regulator-sleep-ldo;
+				renesas,regulator-v30-vbus;
+				renesas,regulator-v30-vbat;
+				renesas,regulator-v30-clamp;
+				renesas,regulator-v30-ref-bandgap;
+			};
+		};
 	};
 };

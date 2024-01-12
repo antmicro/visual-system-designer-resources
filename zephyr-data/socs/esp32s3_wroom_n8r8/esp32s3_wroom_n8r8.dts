@@ -9,6 +9,7 @@
 		zephyr,flash-controller = &flash;
 	};
 	aliases {
+		die-temp0 = &coretemp;
 	};
 	soc {
 		#address-cells = < 0x1 >;
@@ -67,7 +68,7 @@
 			device_type = "memory";
 			compatible = "mmio-sram";
 			reg = < 0x3c000000 0x800000 >;
-			status = "disabled";
+			status = "okay";
 		};
 		ipm0: ipm@3fcc1400 {
 			compatible = "espressif,esp32-ipm";
@@ -132,6 +133,13 @@
 				phandle = < 0x5 >;
 			};
 		};
+		touch: touch@6000885c {
+			compatible = "espressif,esp32-touch";
+			reg = < 0x6000885c 0x88 0x60008908 0x18 >;
+			interrupts = < 0x27 >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
 		i2c0: i2c@60013000 {
 			compatible = "espressif,esp32-i2c";
 			#address-cells = < 0x1 >;
@@ -170,6 +178,12 @@
 			clocks = < &rtc 0x16 >;
 			dma-clk = < 0x25 >;
 			dma-host = < 0x1 >;
+			status = "disabled";
+		};
+		coretemp: coretemp@60008800 {
+			compatible = "espressif,esp32-temp";
+			friendly-name = "coretemp";
+			reg = < 0x60008800 0x4 >;
 			status = "disabled";
 		};
 		adc0: adc@60040000 {

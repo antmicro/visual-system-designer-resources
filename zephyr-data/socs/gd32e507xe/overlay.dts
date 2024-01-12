@@ -1,12 +1,18 @@
 / {
-	compatible = "gd,gd32e507v-start";
+	compatible = "gd,gd32e507z-eval";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
+&gpiog{
+	status = "okay";
+};
 &gpioa{
+	status = "okay";
+};
+&gpiof{
 	status = "okay";
 };
 &usart0{
@@ -16,12 +22,6 @@
 	pinctrl-names = "default";
 };
 &gpioc{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
-&gpiog{
 	status = "okay";
 };
 &pinctrl{
@@ -82,7 +82,7 @@
 		reg = < 0x40011c00 0x400 >;
 		clocks = < &cctl 0x607 >;
 		resets = < &rctl 0x307 >;
-		status = "disabled";
+		status = "okay";
 	};
 	gpiog: gpio@40012000 {
 		compatible = "gd,gd32-gpio";
@@ -91,16 +91,16 @@
 		reg = < 0x40012000 0x400 >;
 		clocks = < &cctl 0x608 >;
 		resets = < &rctl 0x308 >;
-		status = "disabled";
+		status = "okay";
 	};
 	usart0_default: usart0_default {
 		group1 {
-			pinmux = < 0x51261 >, < 0x51171 >;
+			pinmux = < 0x11290 >, < 0x111a0 >;
 		};
 	};
-	pwm2_default: pwm2_default {
+	pwm0_default: pwm0_default {
 		group1 {
-			pinmux = < 0xf5262 >;
+			pinmux = < 0x33280 >;
 		};
 	};
 };

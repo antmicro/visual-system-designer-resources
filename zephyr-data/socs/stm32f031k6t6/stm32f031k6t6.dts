@@ -126,6 +126,7 @@
 			interrupts = < 0x17 0x0 >;
 			interrupt-names = "combined";
 			status = "disabled";
+			phandle = < 0x5 >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32-spi-fifo", "st,stm32-spi";
@@ -295,7 +296,7 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@0 {
+		cpu0: cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,cortex-m0";
 			reg = < 0x0 >;
@@ -347,6 +348,13 @@
 		vrefint-cal-addr = < 0x1ffff7ba >;
 		vrefint-cal-mv = < 0xce4 >;
 		io-channels = < &adc1 0x11 >;
+		status = "disabled";
+	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
 		status = "disabled";
 	};
 	die_temp: dietemp {

@@ -77,4 +77,172 @@
 		clocks = < &ccm 0x301 0x6c 0x18 >;
 		status = "disabled";
 	};
+	lpi2c1: i2c@44340000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x44340000 0x4000 >;
+		interrupts = < 0x0 0xd 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x400 0x70 0x6 >;
+		status = "disabled";
+	};
+	lpi2c2: i2c@44350000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x44350000 0x4000 >;
+		interrupts = < 0x0 0xe 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x401 0x70 0x8 >;
+		status = "disabled";
+	};
+	lpi2c3: i2c@42530000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x42530000 0x4000 >;
+		interrupts = < 0x0 0x3e 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x402 0x70 0xa >;
+		status = "disabled";
+	};
+	lpi2c4: i2c@42540000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x42540000 0x4000 >;
+		interrupts = < 0x0 0x3f 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x403 0x80 0x18 >;
+		status = "disabled";
+	};
+	lpi2c5: i2c@426b0000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x426b0000 0x4000 >;
+		interrupts = < 0x0 0xc3 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x404 0x80 0x18 >;
+		status = "disabled";
+	};
+	lpi2c6: i2c@426c0000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x426c0000 0x4000 >;
+		interrupts = < 0x0 0xc4 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x405 0x80 0x18 >;
+		status = "disabled";
+	};
+	lpi2c7: i2c@426d0000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x426d0000 0x4000 >;
+		interrupts = < 0x0 0xc5 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x406 0x80 0x18 >;
+		status = "disabled";
+	};
+	lpi2c8: i2c@426e0000 {
+		compatible = "nxp,imx-lpi2c";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x426e0000 0x4000 >;
+		interrupts = < 0x0 0xc6 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x407 0x80 0x18 >;
+		status = "disabled";
+	};
+	lpspi1: spi@44360000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x44360000 0x4000 >;
+		interrupts = < 0x0 0x10 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x500 0x6c 0x0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
+	lpspi2: spi@44370000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x44370000 0x4000 >;
+		interrupts = < 0x0 0x11 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x501 0x6c 0x2 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
+	lpspi3: spi@42550000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x42550000 0x4000 >;
+		interrupts = < 0x0 0x41 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x502 0x6c 0x4 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
+	lpspi4: spi@42560000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x42560000 0x4000 >;
+		interrupts = < 0x0 0x42 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x503 0x6c 0x6 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
+	lpspi5: spi@426f0000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x426f0000 0x4000 >;
+		interrupts = < 0x0 0xbf 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x504 0x6c 0x6 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
+	lpspi6: spi@42700000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x42700000 0x4000 >;
+		interrupts = < 0x0 0xc0 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x505 0x6c 0x6 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
+	lpspi7: spi@42710000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x42710000 0x4000 >;
+		interrupts = < 0x0 0xc1 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x506 0x6c 0x0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
+	lpspi8: spi@42720000 {
+		compatible = "nxp,imx-lpspi";
+		reg = < 0x42720000 0x4000 >;
+		interrupts = < 0x0 0xc2 0x2 0xa0 >;
+		interrupt-parent = < &gic >;
+		status = "disabled";
+		clocks = < &ccm 0x507 0x6c 0x2 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+	};
 };

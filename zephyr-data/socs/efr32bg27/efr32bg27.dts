@@ -154,6 +154,14 @@
 			#io-channel-cells = < 0x1 >;
 		};
 	};
+	clocks {
+		clk_hfxo: clk-hfxo {
+			#clock-cells = < 0x0 >;
+			compatible = "silabs,hfxo";
+			clock-frequency = < 0x249f000 >;
+			ctune = < 0x78 >;
+		};
+	};
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;

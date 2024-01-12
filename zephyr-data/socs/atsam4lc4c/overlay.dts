@@ -6,6 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
+&usbc{
+	status = "okay";
+	pinctrl-0 = < &usbc_default >;
+	pinctrl-names = "default";
+};
 &usart2{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -32,9 +37,4 @@
 	hs-data-slew-lim = < 0x0 >;
 	hs-data-strength-low = "0.5";
 	hs-master-code = < 0x0 >;
-};
-&usbc{
-	status = "okay";
-	pinctrl-0 = < &usbc_default >;
-	pinctrl-names = "default";
 };

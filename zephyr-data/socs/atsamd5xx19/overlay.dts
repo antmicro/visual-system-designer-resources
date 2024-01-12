@@ -5,15 +5,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom2{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom2_uart_default >;
-	pinctrl-names = "default";
-};
 &sercom3{
 	compatible = "atmel,sam0-i2c";
 	status = "okay";
@@ -23,6 +14,17 @@
 	pinctrl-0 = < &sercom3_i2c_default >;
 	pinctrl-names = "default";
 };
+&sercom7{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	dipo = < 0x2 >;
+	dopo = < 0x3 >;
+	pinctrl-0 = < &sercom7_spi_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &portb 0x15 0x1 >;
+};
 &sercom4{
 	compatible = "atmel,sam0-i2c";
 	status = "okay";
@@ -31,17 +33,6 @@
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom4_i2c_default >;
 	pinctrl-names = "default";
-};
-&sercom5{
-	compatible = "atmel,sam0-spi";
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	dipo = < 0x2 >;
-	dopo = < 0x0 >;
-	pinctrl-0 = < &sercom5_spi_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &portb 0x1 0x1 >;
 };
 &sercom6{
 	compatible = "atmel,sam0-spi";
@@ -54,16 +45,16 @@
 	pinctrl-names = "default";
 	cs-gpios = < &portc 0x13 0x1 >;
 };
-&sercom7{
+&sercom0{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	dipo = < 0x2 >;
-	dopo = < 0x3 >;
-	pinctrl-0 = < &sercom7_spi_default >;
+	dopo = < 0x0 >;
+	pinctrl-0 = < &sercom0_spi_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &portb 0x15 0x1 >;
+	cs-gpios = < &portc 0x19 0x1 >;
 };
 &usb0{
 	status = "okay";
@@ -79,14 +70,23 @@
 	pinctrl-0 = < &sercom1_uart_default >;
 	pinctrl-names = "default";
 };
-&sercom0{
+&sercom2{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom2_uart_default >;
+	pinctrl-names = "default";
+};
+&sercom5{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	dipo = < 0x2 >;
 	dopo = < 0x0 >;
-	pinctrl-0 = < &sercom0_spi_default >;
+	pinctrl-0 = < &sercom5_spi_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &portc 0x19 0x1 >;
+	cs-gpios = < &portb 0x1 0x1 >;
 };

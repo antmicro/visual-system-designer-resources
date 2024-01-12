@@ -1,0 +1,113 @@
+/ {
+	compatible = "nordic,nrf9151-dk-nrf9151";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,flash = &flash0;
+	};
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi3{
+	status = "okay";
+	cs-gpios = < &arduino_header 0x10 0x1 >, < &gpio0 0x14 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart0_default: uart0_default {
+		group1 {
+			psels = < 0x1b >, < 0x2000e >;
+		};
+		group2 {
+			psels = < 0x1001a >, < 0x3000f >;
+			bias-pull-up;
+		};
+	};
+	uart0_sleep: uart0_sleep {
+		group1 {
+			psels = < 0x1b >, < 0x1001a >, < 0x2000e >, < 0x3000f >;
+			low-power-enable;
+		};
+	};
+	uart1_default: uart1_default {
+		group1 {
+			psels = < 0x1d >, < 0x20010 >;
+		};
+		group2 {
+			psels = < 0x1001c >, < 0x30011 >;
+			bias-pull-up;
+		};
+	};
+	uart1_sleep: uart1_sleep {
+		group1 {
+			psels = < 0x1d >, < 0x1001c >, < 0x20010 >, < 0x30011 >;
+			low-power-enable;
+		};
+	};
+	i2c2_default: i2c2_default {
+		group1 {
+			psels = < 0xc001e >, < 0xb001f >;
+		};
+	};
+	i2c2_sleep: i2c2_sleep {
+		group1 {
+			psels = < 0xc001e >, < 0xb001f >;
+			low-power-enable;
+		};
+	};
+	pwm0_default: pwm0_default {
+		group1 {
+			psels = < 0x160000 >;
+		};
+	};
+	pwm0_sleep: pwm0_sleep {
+		group1 {
+			psels = < 0x160000 >;
+			low-power-enable;
+		};
+	};
+	spi3_default: spi3_default {
+		group1 {
+			psels = < 0x4000d >, < 0x6000c >, < 0x5000b >;
+			nordic,drive-mode = < 0x3 >;
+		};
+	};
+	spi3_sleep: spi3_sleep {
+		group1 {
+			psels = < 0x4000d >, < 0x6000c >, < 0x5000b >;
+			low-power-enable;
+		};
+	};
+};

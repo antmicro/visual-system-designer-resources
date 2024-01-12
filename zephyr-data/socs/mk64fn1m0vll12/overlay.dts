@@ -11,56 +11,8 @@
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioe 0x4 0x1 >;
-};
-&uart2{
-	pinctrl-0 = < &uart2_default >;
-	pinctrl-names = "default";
-};
-&enet{
-	status = "okay";
-	pinctrl-0 = < &enet_default >;
-	pinctrl-names = "default";
-};
-&flexcan0{
-	status = "okay";
-	pinctrl-0 = < &flexcan0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&gpioa{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_default >;
-	pinctrl-names = "default";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&gpioc{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
-};
-&gpiod{
+&dac0{
+	voltage-reference = < 0x2 >;
 	status = "okay";
 };
 &uart3{
@@ -69,16 +21,64 @@
 	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
-&usbotg{
-	num-bidir-endpoints = < 0x8 >;
+&enet{
 	status = "okay";
+	pinctrl-0 = < &enet_default >;
+	pinctrl-names = "default";
 };
-&dac0{
-	voltage-reference = < 0x2 >;
+&spi0{
 	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioe 0x4 0x1 >;
 };
 &i2c0{
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
+};
+&gpioc{
+	status = "okay";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_default >;
+	pinctrl-names = "default";
+};
+&gpiod{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&uart2{
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&gpioe{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&flexcan0{
+	status = "okay";
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
 };

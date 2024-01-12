@@ -9,15 +9,15 @@
 &gpioe{
 	status = "okay";
 };
-&gpioa{
-	status = "okay";
-};
 &i2c0{
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&gpiob{
+&gpiod{
+	status = "okay";
+};
+&gpioc{
 	status = "okay";
 };
 &dac{
@@ -25,7 +25,10 @@
 	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
-&gpioc{
+&gpioa{
+	status = "okay";
+};
+&gpiob{
 	status = "okay";
 };
 &usart0{
@@ -33,9 +36,6 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpiod{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-afio";

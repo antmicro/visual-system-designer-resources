@@ -427,6 +427,91 @@
 			clocks = < &pcc 0xfe05 0x0 0x0 >;
 			status = "disabled";
 		};
+		i2c0: i2c@40080000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40080000 0x1000 >;
+			interrupts = < 0x26 0x0 >;
+			resets = < &rst 0x4000008 >;
+			clocks = < &pcc 0x20000008 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		i2c1: i2c@40081000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40081000 0x1000 >;
+			interrupts = < 0x27 0x0 >;
+			resets = < &rst 0x4000009 >;
+			clocks = < &pcc 0x20000009 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		i2c2: i2c@40082000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40082000 0x1000 >;
+			interrupts = < 0x52 0x0 >;
+			resets = < &rst 0x400000a >;
+			clocks = < &pcc 0x2000000a 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		i2c3: i2c@40083000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40083000 0x1000 >;
+			interrupts = < 0x53 0x0 >;
+			resets = < &rst 0x400000b >;
+			clocks = < &pcc 0x2000000b 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		i2c4: i2c@40084000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40084000 0x1000 >;
+			interrupts = < 0x76 0x0 >;
+			resets = < &rst 0x8000003 >;
+			clocks = < &pcc 0x40000003 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		eadc0: eadc@40043000 {
+			compatible = "nuvoton,numaker-adc";
+			reg = < 0x40043000 0xffc >;
+			interrupts = < 0x2a 0x0 >;
+			resets = < &rst 0x400001c >;
+			clocks = < &pcc 0x20d43e1c 0x800 0xb0000 >;
+			channels = < 0x13 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
+		eadc1: eadc@4004b000 {
+			compatible = "nuvoton,numaker-adc";
+			reg = < 0x4004b000 0xffc >;
+			interrupts = < 0x68 0x0 >;
+			resets = < &rst 0x800001f >;
+			clocks = < &pcc 0x40d8001f 0x2000 0xb000000 >;
+			channels = < 0x13 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
+		eadc2: eadc@40097000 {
+			compatible = "nuvoton,numaker-adc";
+			reg = < 0x40097000 0xffc >;
+			interrupts = < 0x7c 0x0 >;
+			resets = < &rst 0x18000006 >;
+			clocks = < &pcc 0x60dcbf06 0x8000 0xb000000 >;
+			channels = < 0x13 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

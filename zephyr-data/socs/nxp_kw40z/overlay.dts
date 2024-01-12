@@ -5,7 +5,15 @@
 		zephyr,flash = &flash0;
 	};
 };
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
 &gpioc{
+	status = "okay";
+};
+&gpioa{
 	status = "okay";
 };
 &lpuart0{
@@ -13,12 +21,4 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &lpuart0_default >;
 	pinctrl-names = "default";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&gpioa{
-	status = "okay";
 };

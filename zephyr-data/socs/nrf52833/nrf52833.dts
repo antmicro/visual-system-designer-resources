@@ -138,11 +138,13 @@
 			interrupts = < 0x5 0x1 >;
 			status = "okay";
 		};
-		gpiote: gpiote@40006000 {
+		gpiote: gpiote0: gpiote@40006000 {
 			compatible = "nordic,nrf-gpiote";
 			reg = < 0x40006000 0x1000 >;
 			interrupts = < 0x6 0x5 >;
 			status = "disabled";
+			instance = < 0x0 >;
+			phandle = < 0x2 >;
 		};
 		adc: adc@40007000 {
 			compatible = "nordic,nrf-saadc";
@@ -168,7 +170,7 @@
 			max-bit-width = < 0x20 >;
 			interrupts = < 0x9 0x1 >;
 			prescaler = < 0x0 >;
-			phandle = < 0x2 >;
+			phandle = < 0x3 >;
 		};
 		timer2: timer@4000a000 {
 			compatible = "nordic,nrf-timer";
@@ -421,6 +423,7 @@
 			#gpio-cells = < 0x2 >;
 			status = "disabled";
 			port = < 0x0 >;
+			gpiote-instance = < &gpiote >;
 		};
 		gpio1: gpio@50000300 {
 			compatible = "nordic,nrf-gpio";
@@ -430,6 +433,7 @@
 			ngpios = < 0xa >;
 			status = "disabled";
 			port = < 0x1 >;
+			gpiote-instance = < &gpiote >;
 		};
 	};
 	pinctrl: pin-controller {

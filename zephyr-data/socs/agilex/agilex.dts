@@ -121,6 +121,29 @@
 		interrupts = < 0x0 0x74 0x2 0xa0 >;
 		reg = < 0xffd00100 0x100 >;
 		clock-frequency = < 0x5f5e100 >;
+	};
+	watchdog0: watchdog@ffd00200 {
+		compatible = "snps,designware-watchdog";
+		reg = < 0xffd00200 0x100 >;
+		clocks = < &clock 0x1 >;
+		status = "disabled";
+	};
+	watchdog1: watchdog@ffd00300 {
+		compatible = "snps,designware-watchdog";
+		reg = < 0xffd00300 0x100 >;
+		clocks = < &clock 0x1 >;
+		status = "disabled";
+	};
+	watchdog2: watchdog@ffd00400 {
+		compatible = "snps,designware-watchdog";
+		reg = < 0xffd00400 0x100 >;
+		clocks = < &clock 0x1 >;
+		status = "disabled";
+	};
+	watchdog3: watchdog@ffd00500 {
+		compatible = "snps,designware-watchdog";
+		reg = < 0xffd00500 0x100 >;
+		clocks = < &clock 0x1 >;
 		status = "disabled";
 	};
 };

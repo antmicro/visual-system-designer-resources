@@ -6,6 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
+&flash0{
+	reg = < 0x0 0x10000 >;
+};
 &sercom0{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
@@ -20,15 +23,6 @@
 &sram0{
 	reg = < 0x20000000 0x2000 >;
 };
-&sercom3{
-	compatible = "atmel,sam0-i2c";
-	status = "okay";
-	clock-frequency = < 0x33e140 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom3_i2c_default >;
-	pinctrl-names = "default";
-};
 &adc{
 	prescaler = < 0x20 >;
 	status = "okay";
@@ -37,8 +31,14 @@
 	pinctrl-0 = < &adc_default >;
 	pinctrl-names = "default";
 };
-&flash0{
-	reg = < 0x0 0x10000 >;
+&sercom3{
+	compatible = "atmel,sam0-i2c";
+	status = "okay";
+	clock-frequency = < 0x33e140 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom3_i2c_default >;
+	pinctrl-names = "default";
 };
 &sercom1{
 	compatible = "atmel,sam0-uart";

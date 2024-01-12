@@ -266,6 +266,7 @@
 			interrupts = < 0x17 0x0 >;
 			interrupt-names = "combined";
 			status = "disabled";
+			phandle = < 0x8 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -277,6 +278,7 @@
 			interrupts = < 0x18 0x0 >;
 			interrupt-names = "combined";
 			status = "disabled";
+			phandle = < 0x9 >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32-spi-fifo", "st,stm32-spi";
@@ -504,6 +506,7 @@
 			interrupts = < 0x18 0x0 >;
 			interrupt-names = "combined";
 			status = "disabled";
+			phandle = < 0xa >;
 		};
 		spi3: spi@40003c00 {
 			compatible = "st,stm32-spi-fifo", "st,stm32-spi";
@@ -621,9 +624,30 @@
 		io-channels = < &adc1 0xe >;
 		status = "disabled";
 	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
+		status = "disabled";
+	};
+	smbus2: smbus2 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c2 >;
+		status = "disabled";
+	};
 	usb_fs_phy: usbphy {
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
 		phandle = < 0x4 >;
+	};
+	smbus3: smbus3 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c3 >;
+		status = "disabled";
 	};
 };

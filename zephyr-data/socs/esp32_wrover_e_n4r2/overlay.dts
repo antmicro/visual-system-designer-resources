@@ -9,19 +9,6 @@
 &gpio1{
 	status = "okay";
 };
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spim2_default >;
-	pinctrl-names = "default";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
@@ -33,20 +20,33 @@
 &flash0{
 	status = "okay";
 };
-&uart1{
+&spi2{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
+	pinctrl-0 = < &spim2_default >;
 	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
 };
 &twai{
 	status = "okay";
 	pinctrl-0 = < &twai_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
+};
+&gpio0{
+	status = "okay";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

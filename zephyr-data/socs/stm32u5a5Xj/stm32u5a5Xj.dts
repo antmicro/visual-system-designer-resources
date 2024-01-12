@@ -250,6 +250,7 @@
 			interrupts = < 0x37 0x0 >, < 0x38 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x9 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -261,6 +262,7 @@
 			interrupts = < 0x39 0x0 >, < 0x3a 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xa >;
 		};
 		i2c3: i2c@46002800 {
 			compatible = "st,stm32-i2c-v2";
@@ -272,6 +274,7 @@
 			interrupts = < 0x58 0x0 >, < 0x59 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xb >;
 		};
 		i2c4: i2c@40008400 {
 			compatible = "st,stm32-i2c-v2";
@@ -283,6 +286,7 @@
 			interrupts = < 0x65 0x0 >, < 0x64 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xc >;
 		};
 		lptim1: timers@46004400 {
 			compatible = "st,stm32-lptim";
@@ -292,7 +296,6 @@
 			clocks = < &rcc 0xa8 0x800 >;
 			interrupts = < 0x43 0x1 >;
 			interrupt-names = "wakeup";
-			st,static-prescaler;
 			status = "disabled";
 		};
 		lptim2: timers@40009400 {
@@ -303,7 +306,6 @@
 			clocks = < &rcc 0xa0 0x20 >;
 			interrupts = < 0x44 0x0 >;
 			interrupt-names = "global";
-			st,static-prescaler;
 			status = "disabled";
 		};
 		lptim3: timers@46004800 {
@@ -314,7 +316,6 @@
 			clocks = < &rcc 0xa8 0x1000 >;
 			interrupts = < 0x62 0x0 >;
 			interrupt-names = "global";
-			st,static-prescaler;
 			status = "disabled";
 		};
 		lptim4: timers@46004c00 {
@@ -325,7 +326,6 @@
 			clocks = < &rcc 0xa8 0x2000 >;
 			interrupts = < 0x6e 0x0 >;
 			interrupt-names = "global";
-			st,static-prescaler;
 			status = "disabled";
 		};
 		rtc: rtc@46007800 {
@@ -656,6 +656,7 @@
 			interrupts = < 0x80 0x0 >, < 0x7f 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xd >;
 		};
 		i2c6: i2c@40009c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -667,6 +668,31 @@
 			interrupts = < 0x82 0x0 >, < 0x81 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xe >;
+		};
+		adc2: adc@42028100 {
+			compatible = "st,stm32-adc";
+			reg = < 0x42028100 0x400 >;
+			clocks = < &rcc 0x8c 0x400 >;
+			interrupts = < 0x25 0x0 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+			resolutions = < 0x70620c 0x61620c 0x52620c 0x43620c >;
+			sampling-times = < 0x5 0x6 0xc 0x14 0x24 0x44 0x187 0x32e >;
+			st,adc-clock-source = < 0x2 >;
+			st,adc-sequencer = < 0x1 >;
+		};
+		adc1_2: adc@42028300 {
+			compatible = "st,stm32-adc";
+			reg = < 0x42028300 0x400 >;
+			clocks = < &rcc 0x8c 0x400 >;
+			interrupts = < 0x25 0x0 >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+			resolutions = < 0x70620c 0x61620c 0x52620c 0x43620c >;
+			sampling-times = < 0x5 0x6 0xc 0x14 0x24 0x44 0x187 0x32e >;
+			st,adc-clock-source = < 0x2 >;
+			st,adc-sequencer = < 0x1 >;
 		};
 	};
 	cpus {
@@ -682,7 +708,6 @@
 			mpu: mpu@e000ed90 {
 				compatible = "arm,armv8m-mpu";
 				reg = < 0xe000ed90 0x40 >;
-				arm,num-mpu-regions = < 0x8 >;
 			};
 		};
 		power-states {
@@ -807,6 +832,48 @@
 		compatible = "st,stm32-vbat";
 		ratio = < 0x4 >;
 		io-channels = < &adc4 0xe >;
+		status = "disabled";
+	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
+		status = "disabled";
+	};
+	smbus2: smbus2 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c2 >;
+		status = "disabled";
+	};
+	smbus3: smbus3 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c3 >;
+		status = "disabled";
+	};
+	smbus4: smbus4 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c4 >;
+		status = "disabled";
+	};
+	smbus5: smbus5 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c5 >;
+		status = "disabled";
+	};
+	smbus6: smbus6 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c6 >;
 		status = "disabled";
 	};
 	sram1: memory@28000000 {

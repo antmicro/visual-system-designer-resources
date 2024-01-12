@@ -9,8 +9,9 @@
 &adc0{
 	status = "okay";
 };
-&uart2{
-	pinctrl-0 = < &uart2_default >;
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
 };
 &uart1{
@@ -19,36 +20,35 @@
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
-	status = "okay";
-};
 &dac0{
 	voltage-reference = < 0x2 >;
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-};
-&gpioc{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&usbotg{
-	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };
 &i2c0{
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&uart2{
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&gpioe{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
 };

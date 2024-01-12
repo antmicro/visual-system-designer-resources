@@ -4,6 +4,16 @@
 		zephyr,console = &uart0;
 	};
 };
+&gpio_out{
+	status = "okay";
+};
+&eth0{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};
 &spi0{
 	status = "okay";
 };
@@ -13,16 +23,6 @@
 &i2c0{
 	status = "okay";
 };
-&eth0{
-	status = "okay";
-};
 &gpio_in{
 	status = "okay";
-};
-&gpio_out{
-	status = "okay";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
 };

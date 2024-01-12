@@ -157,6 +157,7 @@
 			interrupts = < 0x1f 0x0 >, < 0x20 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x6 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v1";
@@ -168,6 +169,7 @@
 			interrupts = < 0x21 0x0 >, < 0x22 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x7 >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32-spi";
@@ -429,7 +431,7 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@0 {
+		cpu0: cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,cortex-m3";
 			reg = < 0x0 >;
@@ -476,6 +478,20 @@
 		avgslope = < 0x2b >;
 		v25 = < 0x596 >;
 		ntc;
+	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
+		status = "disabled";
+	};
+	smbus2: smbus2 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c2 >;
+		status = "disabled";
 	};
 	usb_fs_phy: usbphy {
 		compatible = "usb-nop-xceiv";

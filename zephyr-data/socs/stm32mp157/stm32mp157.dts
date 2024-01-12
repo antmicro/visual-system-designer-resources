@@ -282,6 +282,7 @@
 			interrupt-names = "event", "error";
 			interrupts = < 0x6b 0x0 >, < 0x6c 0x0 >;
 			status = "disabled";
+			phandle = < 0x4 >;
 		};
 		timers3: timers@40001000 {
 			compatible = "st,stm32-timers";
@@ -341,7 +342,7 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@0 {
+		cpu0: cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,cortex-m4";
 			reg = < 0x0 >;
@@ -354,5 +355,12 @@
 	mcusram: memory1@10000000 {
 		compatible = "mmio-sram";
 		reg = < 0x10000000 0x50000 >;
+	};
+	smbus5: smbus5 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c5 >;
+		status = "disabled";
 	};
 };

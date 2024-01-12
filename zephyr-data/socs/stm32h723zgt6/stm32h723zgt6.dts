@@ -262,6 +262,7 @@
 			interrupts = < 0x1f 0x0 >, < 0x20 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x7 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -273,6 +274,7 @@
 			interrupts = < 0x21 0x0 >, < 0x22 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x8 >;
 		};
 		i2c3: i2c@40005c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -284,6 +286,7 @@
 			interrupts = < 0x48 0x0 >, < 0x49 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x9 >;
 		};
 		i2c4: i2c@58001c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -295,6 +298,7 @@
 			interrupts = < 0x5f 0x0 >, < 0x60 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xa >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32h7-spi", "st,stm32-spi-fifo", "st,stm32-spi";
@@ -348,6 +352,39 @@
 			reg = < 0x58001400 0x400 >;
 			clocks = < &rcc 0xf4 0x20 >;
 			interrupts = < 0x56 0x0 >;
+			status = "disabled";
+		};
+		i2s1: i2s@40013000 {
+			compatible = "st,stm32h7-i2s", "st,stm32-i2s";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40013000 0x400 >;
+			clocks = < &rcc 0xf0 0x1000 >, < &rcc 0x2 0xec50 >;
+			dmas = < &dmamux1 0x0 0x26 0x20440 &dmamux1 0x1 0x25 0x20480 >;
+			dma-names = "tx", "rx";
+			interrupts = < 0x23 0x3 >;
+			status = "disabled";
+		};
+		i2s2: i2s@40003800 {
+			compatible = "st,stm32h7-i2s", "st,stm32-i2s";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40003800 0x400 >;
+			clocks = < &rcc 0xe8 0x4000 >, < &rcc 0x2 0xec50 >;
+			dmas = < &dmamux1 0x0 0x28 0x20440 &dmamux1 0x1 0x27 0x20480 >;
+			dma-names = "tx", "rx";
+			interrupts = < 0x24 0x0 >;
+			status = "disabled";
+		};
+		i2s3: i2s@40003c00 {
+			compatible = "st,stm32h7-i2s", "st,stm32-i2s";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40003c00 0x400 >;
+			clocks = < &rcc 0xe8 0x8000 >, < &rcc 0x2 0xec50 >;
+			dmas = < &dmamux1 0x0 0x3e 0x20440 &dmamux1 0x1 0x3d 0x20480 >;
+			dma-names = "tx", "rx";
+			interrupts = < 0x33 0x0 >;
 			status = "disabled";
 		};
 		fdcan1: can@4000a000 {
@@ -675,7 +712,7 @@
 			resolutions = < 0x60630c 0x51630c 0x42630c 0x33630c >;
 			sampling-times = < 0x3 0x7 0xd 0x19 0x30 0x5d 0xf8 0x281 >;
 			st,adc-sequencer = < 0x1 >;
-			phandle = < 0x5 >;
+			phandle = < 0x6 >;
 		};
 		dac1: dac@40007400 {
 			compatible = "st,stm32-dac";
@@ -727,6 +764,7 @@
 			dma-generators = < 0x8 >;
 			status = "disabled";
 			dma-requests = < 0x81 >;
+			phandle = < 0x4 >;
 		};
 		dmamux2: dmamux@58025800 {
 			compatible = "st,stm32-dmamux";
@@ -881,7 +919,6 @@
 			mpu: mpu@e000ed90 {
 				compatible = "arm,armv7m-mpu";
 				reg = < 0xe000ed90 0x40 >;
-				arm,num-mpu-regions = < 0x10 >;
 			};
 		};
 	};
@@ -978,6 +1015,34 @@
 		status = "disabled";
 		io-channels = < &adc3 0x12 >;
 	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
+		status = "disabled";
+	};
+	smbus2: smbus2 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c2 >;
+		status = "disabled";
+	};
+	smbus3: smbus3 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c3 >;
+		status = "disabled";
+	};
+	smbus4: smbus4 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c4 >;
+		status = "disabled";
+	};
 	sram0: memory@24000000 {
 		reg = < 0x24000000 0x50000 >;
 		compatible = "mmio-sram";
@@ -1010,6 +1075,6 @@
 	otghs_fs_phy: otghs_fs_phy {
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
-		phandle = < 0x4 >;
+		phandle = < 0x5 >;
 	};
 };

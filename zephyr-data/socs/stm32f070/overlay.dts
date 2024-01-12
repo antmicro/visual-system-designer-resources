@@ -13,16 +13,9 @@
 	dmas = < &dma1 0x3 0x20440 >, < &dma1 0x2 0x20480 >;
 	dma-names = "tx", "rx";
 };
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
-&pll{
-	status = "okay";
-	clocks = < &clk_hsi >;
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &spi2{
 	status = "okay";
@@ -33,15 +26,22 @@
 &clk_hsi{
 	status = "okay";
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	clocks = < &clk_hsi >;
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

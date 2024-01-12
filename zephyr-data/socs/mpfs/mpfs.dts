@@ -15,7 +15,7 @@
 			compatible = "riscv";
 			device_type = "cpu";
 			reg = < 0x0 >;
-			riscv,isa = "rv64imac_zicsr_zfencei";
+			riscv,isa = "rv64imac_zicsr_zifencei";
 			hlic0: interrupt-controller {
 				compatible = "riscv,cpu-intc";
 				#address-cells = < 0x0 >;
@@ -105,10 +105,10 @@
 			#interrupt-cells = < 0x2 >;
 			#address-cells = < 0x1 >;
 			interrupt-controller;
-			interrupts-extended = < &hlic0 0xb &hlic1 0xb >;
+			interrupts-extended = < &hlic0 0xb &hlic1 0xb &hlic1 0x9 &hlic2 0xb &hlic2 0x9 &hlic3 0xb &hlic3 0x9 &hlic4 0xb &hlic4 0x9 >;
 			reg = < 0xc000000 0x4000000 >;
 			riscv,max-priority = < 0x7 >;
-			riscv,ndev = < 0xbb >;
+			riscv,ndev = < 0xba >;
 			phandle = < 0x6 >;
 		};
 		uart0: uart@20000000 {

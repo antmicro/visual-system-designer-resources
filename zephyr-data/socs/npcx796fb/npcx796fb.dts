@@ -1594,15 +1594,8 @@
 			#size-cells = < 0x0 >;
 			#vw-cells = < 0x3 >;
 			status = "disabled";
-		};
-		shi0: shi@4000f000 {
-			compatible = "nuvoton,npcx-shi";
-			reg = < 0x4000f000 0x120 >;
-			interrupts = < 0x12 0x1 >;
-			clocks = < &pcc 0x7 0x4 0x1 >;
-			status = "disabled";
-			buffer-rx-size = < 0x80 >;
-			buffer-tx-size = < 0x80 >;
+			rx-plsize = < 0x40 >;
+			tx-plsize = < 0x10 >;
 		};
 		host_sub: lpc@400c1000 {
 			compatible = "nuvoton,npcx-host-sub";
@@ -1770,6 +1763,16 @@
 			clocks = < &pcc 0x6 0x6 0x6 >;
 			uart-rx = < &wui_cr_sin2 >;
 			status = "disabled";
+		};
+		shi0: shi@4000f000 {
+			compatible = "nuvoton,npcx-shi";
+			reg = < 0x4000f000 0x120 >;
+			interrupts = < 0x12 0x1 >;
+			clocks = < &pcc 0x7 0x4 0x1 >;
+			status = "disabled";
+			buffer-rx-size = < 0x80 >;
+			buffer-tx-size = < 0x80 >;
+			shi-cs-wui = < &wui_io53 >;
 		};
 	};
 	cpus {

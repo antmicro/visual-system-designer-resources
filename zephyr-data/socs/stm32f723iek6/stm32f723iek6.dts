@@ -245,6 +245,7 @@
 			interrupts = < 0x21 0x0 >, < 0x22 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x7 >;
 		};
 		i2c3: i2c@40005c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -256,6 +257,7 @@
 			interrupts = < 0x48 0x0 >, < 0x49 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x8 >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32-spi-fifo", "st,stm32-spi";
@@ -688,12 +690,6 @@
 			clocks = < &rcc 0x38 0x2 >;
 			status = "disabled";
 		};
-		usbphyc: usbphyc@40017c00 {
-			compatible = "st,stm32-usbphyc";
-			reg = < 0x40017c00 0x400 >;
-			#phy-cells = < 0x0 >;
-			phandle = < 0x5 >;
-		};
 		sdmmc2: sdmmc@40011c00 {
 			compatible = "st,stm32-sdmmc";
 			reg = < 0x40011c00 0x400 >;
@@ -702,11 +698,17 @@
 			interrupts = < 0x67 0x0 >;
 			status = "disabled";
 		};
+		usbphyc: usbphyc@40017c00 {
+			compatible = "st,stm32-usbphyc";
+			reg = < 0x40017c00 0x400 >;
+			#phy-cells = < 0x0 >;
+			phandle = < 0x5 >;
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@0 {
+		cpu0: cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,cortex-m7";
 			reg = < 0x0 >;
@@ -715,7 +717,6 @@
 			mpu: mpu@e000ed90 {
 				compatible = "arm,armv7m-mpu";
 				reg = < 0xe000ed90 0x40 >;
-				arm,num-mpu-regions = < 0x8 >;
 			};
 		};
 	};
@@ -768,7 +769,7 @@
 	};
 	vref: vref {
 		compatible = "st,stm32-vref";
-		vrefint-cal-addr = < 0x1fff7a2a >;
+		vrefint-cal-addr = < 0x1ff07a2a >;
 		vrefint-cal-mv = < 0xce4 >;
 		io-channels = < &adc1 0x11 >;
 		status = "disabled";
@@ -784,9 +785,31 @@
 		#phy-cells = < 0x0 >;
 		phandle = < 0x4 >;
 	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c2 >;
+		status = "disabled";
+	};
+	smbus2: smbus2 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c2 >;
+		status = "disabled";
+	};
+	smbus3: smbus3 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c3 >;
+		status = "disabled";
+	};
 	sram0: memory@20010000 {
-		compatible = "mmio-sram";
+		compatible = "zephyr,memory-region", "mmio-sram";
 		reg = < 0x20010000 0x30000 >;
+		zephyr,memory-region = "SRAM0";
 	};
 	dtcm: memory@20000000 {
 		compatible = "zephyr,memory-region", "arm,dtcm";

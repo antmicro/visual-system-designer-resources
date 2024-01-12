@@ -5,22 +5,20 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c1{
+&spi0{
 	status = "okay";
-	pinctrl-0 = < &i2c1_default >;
+	clock-frequency = < 0x7a1200 >;
+	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
-	clock-frequency = < 0x61a80 >;
-};
-&flash0{
-	reg = < 0x10000000 0x800000 >;
-};
-&adc{
-	status = "okay";
-	pinctrl-0 = < &adc_default >;
-	pinctrl-names = "default";
+	cs-gpios = < &gpio0 0x11 0x1 >;
 };
 &usbd{
 	status = "okay";
+};
+&pwm{
+	pinctrl-0 = < &pwm_ch4b_default >;
+	pinctrl-names = "default";
+	divider-int-0 = < 0xff >;
 };
 &uart0{
 	status = "okay";
@@ -28,25 +26,33 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&gpio0{
-	status = "okay";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x7a1200 >;
-};
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&pwm{
-	pinctrl-0 = < &pwm_ch4b_default >;
+&flash0{
+	reg = < 0x10000000 0x1000000 >;
+};
+&gpio0{
+	status = "okay";
+};
+&adc{
+	status = "okay";
+	pinctrl-0 = < &adc_default >;
 	pinctrl-names = "default";
-	divider-int-0 = < 0xff >;
+};
+&i2c1{
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x61a80 >;
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "raspberrypi,pico-pinctrl";
@@ -59,26 +65,32 @@
 			input-enable;
 		};
 	};
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = < 0x43 >, < 0x53 >;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
 	i2c1_default: i2c1_default {
 		group1 {
-			pinmux = < 0x23 >;
+			pinmux = < 0x63 >, < 0x73 >;
 			input-enable;
-		};
-		group2 {
-			pinmux = < 0x33 >;
-			input-enable;
+			input-schmitt-enable;
 		};
 	};
 	spi0_default: spi0_default {
 		group1 {
-			pinmux = < 0x131 >;
+			pinmux = < 0x111 >, < 0x121 >, < 0x131 >;
 		};
 		group2 {
-			pinmux = < 0x141 >;
+			pinmux = < 0x101 >;
 			input-enable;
 		};
-		group3 {
-			pinmux = < 0x121 >;
+	};
+	pwm_ch4b_default: pwm_ch4b_default {
+		group1 {
+			pinmux = < 0x194 >;
 		};
 	};
 	adc_default: adc_default {
@@ -86,5 +98,7 @@
 			pinmux = < 0x1af >, < 0x1bf >, < 0x1cf >, < 0x1df >;
 			input-enable;
 		};
+	};
+	clocks_default: clocks_default {
 	};
 };

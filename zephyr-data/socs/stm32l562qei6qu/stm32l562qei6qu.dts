@@ -243,6 +243,7 @@
 			interrupts = < 0x37 0x0 >, < 0x38 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x9 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -254,6 +255,7 @@
 			interrupts = < 0x39 0x0 >, < 0x3a 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0xa >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32-spi-fifo", "st,stm32-spi";
@@ -550,7 +552,6 @@
 			mpu: mpu@e000ed90 {
 				compatible = "arm,armv8m-mpu";
 				reg = < 0xe000ed90 0x40 >;
-				arm,num-mpu-regions = < 0x8 >;
 			};
 		};
 		power-states {
@@ -651,5 +652,19 @@
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
 		phandle = < 0x4 >;
+	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
+		status = "disabled";
+	};
+	smbus2: smbus2 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c2 >;
+		status = "disabled";
 	};
 };

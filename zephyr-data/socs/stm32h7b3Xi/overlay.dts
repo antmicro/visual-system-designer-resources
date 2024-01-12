@@ -6,35 +6,17 @@
 		zephyr,flash = &flash0;
 	};
 };
-&pll{
-	status = "okay";
-	div-m = < 0xc >;
-	mul-n = < 0x118 >;
-	div-p = < 0x2 >;
-	div-q = < 0x7 >;
-	div-r = < 0x2 >;
-	clocks = < &clk_hse >;
-};
 &clk_hsi48{
 	status = "okay";
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x16e3600 >;
 };
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_sck_pa12 &spi2_miso_pb14 &spi2_mosi_pb15 &spi2_nss_pi0 >;
 	pinctrl-names = "default";
 };
-&octospi1{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &octospim_p1_clk_pb2 &octospim_p1_ncs_pg6 &octospim_p1_io0_pd11 &octospim_p1_io1_pf9 &octospim_p1_io2_pf7 &octospim_p1_io3_pf6 &octospim_p1_io4_pc1 &octospim_p1_io5_ph3 &octospim_p1_io6_pg9 &octospim_p1_io7_pd7 &octospim_p1_dqs_pc5 >;
-	pinctrl-names = "default";
-};
-&uart4{
-	status = "okay";
-	pinctrl-0 = < &uart4_tx_ph13 &uart4_rx_ph14 >;
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -54,17 +36,31 @@
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
 };
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &i2c4{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c4_scl_pd12 &i2c4_sda_pd13 >;
 	pinctrl-names = "default";
+};
+&uart4{
+	status = "okay";
+	pinctrl-0 = < &uart4_tx_ph13 &uart4_rx_ph14 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&octospi1{
+	status = "okay";
+	pinctrl-0 = < &octospim_p1_clk_pb2 &octospim_p1_ncs_pg6 &octospim_p1_io0_pd11 &octospim_p1_io1_pf9 &octospim_p1_io2_pf7 &octospim_p1_io3_pf6 &octospim_p1_io4_pc1 &octospim_p1_io5_ph3 &octospim_p1_io6_pg9 &octospim_p1_io7_pd7 &octospim_p1_dqs_pc5 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	div-m = < 0xc >;
+	mul-n = < 0x118 >;
+	div-p = < 0x2 >;
+	div-q = < 0x7 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hse >;
 };
 &ltdc{
 	status = "okay";
@@ -88,6 +84,10 @@
 	div-q = < 0x2 >;
 	div-r = < 0x14 >;
 	clocks = < &clk_hse >;
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x16e3600 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

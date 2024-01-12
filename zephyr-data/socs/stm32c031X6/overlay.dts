@@ -6,14 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart2{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clocks = < &clk_hse >;
 	clock-frequency = < 0x2dc6c00 >;
 };
 &i2c1{
@@ -32,8 +26,14 @@
 &clk_lse{
 	status = "okay";
 };
-&clk_hse{
+&usart2{
 	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&rcc{
+	clocks = < &clk_hse >;
 	clock-frequency = < 0x2dc6c00 >;
 };
 &usart1{

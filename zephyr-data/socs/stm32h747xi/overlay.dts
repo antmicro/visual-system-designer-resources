@@ -1,44 +1,39 @@
 / {
-	compatible = "arduino,portenta-h7";
+	compatible = "arduino,opta-m4";
 	chosen {
-		zephyr,console = &usart1;
 		zephyr,sram = &sram1;
 		zephyr,flash = &flash1;
+		zephyr,console = &usart2;
 	};
 };
-&usart6{
-	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+&rcc{
+	hpre = < 0x2 >;
+	d1ppre = < 0x2 >;
+	d2ppre1 = < 0x2 >;
+	d2ppre2 = < 0x2 >;
+	d3ppre = < 0x2 >;
+	clock-frequency = < 0xe4e1c00 >;
 };
-&uart8{
-	pinctrl-0 = < &uart8_tx_pj8 &uart8_rx_pj9 >;
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
 &clk_hsi48{
 	status = "okay";
 };
-&i2c3{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c3_scl_ph7 &i2c3_sda_ph8 >;
-	pinctrl-names = "default";
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
 &spi2{
 	pinctrl-0 = < &spi2_nss_pi0 &spi2_sck_pi1 &spi2_miso_pc2 &spi2_mosi_pc3 >;
 	pinctrl-names = "default";
 };
-&usbotg_fs{
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+&usart6{
+	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
-&uart4{
-	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pi9 >;
+&usart1{
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -46,12 +41,8 @@
 	pinctrl-0 = < &fdcan1_rx_pb8 &fdcan1_tx_ph13 >;
 	pinctrl-names = "default";
 };
-&rcc{
-	d2ppre2 = < 0x2 >;
-	clock-frequency = < 0x5b8d800 >;
-};
-&usart1{
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+&uart8{
+	pinctrl-0 = < &uart8_tx_pj8 &uart8_rx_pj9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -60,11 +51,24 @@
 	pinctrl-0 = < &i2c4_scl_ph11 &i2c4_sda_ph12 >;
 	pinctrl-names = "default";
 };
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
+&uart4{
+	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pi9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&i2c3{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c3_scl_ph7 &i2c3_sda_ph8 >;
+	pinctrl-names = "default";
+};
+&usbotg_fs{
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &spi5{
 	pinctrl-0 = < &spi5_nss_pk1 &spi5_sck_pk0 &spi5_miso_pj11 &spi5_mosi_pj10 >;
@@ -151,92 +155,5 @@
 		#gpio-cells = < 0x2 >;
 		reg = < 0x58022800 0x400 >;
 		clocks = < &rcc 0xe0 0x400 >;
-	};
-	fdcan1_rx_pb8: fdcan1_rx_pb8 {
-		pinmux = < 0x309 >;
-	};
-	fdcan1_tx_ph13: fdcan1_tx_ph13 {
-		pinmux = < 0xfa9 >;
-	};
-	i2c1_scl_pb6: i2c1_scl_pb6 {
-		pinmux = < 0x2c4 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c3_scl_ph7: i2c3_scl_ph7 {
-		pinmux = < 0xee4 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c4_scl_ph11: i2c4_scl_ph11 {
-		pinmux = < 0xf64 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c1_sda_pb7: i2c1_sda_pb7 {
-		pinmux = < 0x2e4 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c3_sda_ph8: i2c3_sda_ph8 {
-		pinmux = < 0xf04 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c4_sda_ph12: i2c4_sda_ph12 {
-		pinmux = < 0xf84 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	spi2_miso_pc2: spi2_miso_pc2 {
-		pinmux = < 0x445 >;
-		bias-pull-down;
-	};
-	spi2_mosi_pc3: spi2_mosi_pc3 {
-		pinmux = < 0x465 >;
-		bias-pull-down;
-	};
-	spi2_nss_pi0: spi2_nss_pi0 {
-		pinmux = < 0x1005 >;
-		bias-pull-up;
-	};
-	spi2_sck_pi1: spi2_sck_pi1 {
-		pinmux = < 0x1025 >;
-		bias-pull-down;
-		slew-rate = "very-high-speed";
-	};
-	usart1_rx_pa10: usart1_rx_pa10 {
-		pinmux = < 0x147 >;
-	};
-	uart4_rx_pi9: uart4_rx_pi9 {
-		pinmux = < 0x1128 >;
-	};
-	usart6_rx_pg9: usart6_rx_pg9 {
-		pinmux = < 0xd27 >;
-	};
-	uart8_rx_pj9: uart8_rx_pj9 {
-		pinmux = < 0x1328 >;
-	};
-	usart1_tx_pa9: usart1_tx_pa9 {
-		pinmux = < 0x127 >;
-		bias-pull-up;
-	};
-	uart4_tx_pa0: uart4_tx_pa0 {
-		pinmux = < 0x8 >;
-		bias-pull-up;
-	};
-	usart6_tx_pg14: usart6_tx_pg14 {
-		pinmux = < 0xdc7 >;
-		bias-pull-up;
-	};
-	uart8_tx_pj8: uart8_tx_pj8 {
-		pinmux = < 0x1308 >;
-		bias-pull-up;
-	};
-	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {
-		pinmux = < 0x16a >;
-	};
-	usb_otg_fs_dp_pa12: usb_otg_fs_dp_pa12 {
-		pinmux = < 0x18a >;
 	};
 };

@@ -1,82 +1,92 @@
 / {
-	compatible = "silabs,efm32gg_slwstk6121a", "silabs,efm32gg11b";
+	compatible = "silabs,efm32gg_stk3701a", "silabs,efm32gg11b";
 	chosen {
-		zephyr,console = &leuart0;
+		zephyr,console = &usart4;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
-	status = "okay";
-};
-&leuart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x0 0x0 0x1 >;
-	location-tx = < 0x0 0x0 0x0 >;
-};
-&gpioc{
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0x4 0x0 0x0 >;
-	location-scl = < 0x4 0x0 0x1 >;
-};
-&eth0{
-	status = "okay";
-	phy-address = < 0x0 >;
-	location-mdio = < 0x3 >;
-	location-phy_mdc = < 0x3 0x0 0x6 >;
-	location-phy_mdio = < 0x3 0x0 0xf >;
-	location-rmii = < 0x0 >;
-	location-rmii_refclk = < 0x0 0x0 0x3 >;
-	location-rmii_crs_dv = < 0x0 0x0 0x4 >;
-	location-rmii_txd0 = < 0x0 0x4 0xf >;
-	location-rmii_txd1 = < 0x0 0x4 0xe >;
-	location-rmii_tx_en = < 0x0 0x0 0x0 >;
-	location-rmii_rxd0 = < 0x0 0x0 0x2 >;
-	location-rmii_rxd1 = < 0x0 0x0 0x1 >;
-	location-rmii_rx_er = < 0x0 0x0 0x5 >;
-};
-&gpiob{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
-&usart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x1 0x4 0x6 >;
-	location-tx = < 0x1 0x4 0x7 >;
-};
-&i2c1{
-	status = "okay";
-	location-sda = < 0x1 0x1 0xb >;
-	location-scl = < 0x1 0x1 0xc >;
-};
-&gpioe{
-	status = "okay";
-};
 &gpiod{
-	status = "okay";
-};
-&usart4{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x4 0x7 0x5 >;
-	location-tx = < 0x4 0x7 0x4 >;
-};
-&gpioi{
 	status = "okay";
 };
 &gpiog{
 	status = "okay";
 };
+&usart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart4_default >;
+	pinctrl-names = "default";
+};
+&gpiof{
+	status = "okay";
+};
 &gpioh{
 	status = "okay";
 };
+&leuart0{
+	status = "okay";
+	current-speed = < 0x2580 >;
+	location-rx = < 0x12 0x3 0xb >;
+	location-tx = < 0x12 0x3 0xa >;
+};
+&gpioi{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
+};
+&gpioc{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&eth0{
+	status = "okay";
+	phy-address = < 0x0 >;
+	location-mdio = < 0x1 >;
+	location-phy_mdc = < 0x1 0x3 0xe >;
+	location-phy_mdio = < 0x1 0x3 0xd >;
+	location-rmii = < 0x1 >;
+	location-rmii_refclk = < 0x5 0x3 0xa >;
+	location-rmii_crs_dv = < 0x1 0x3 0xb >;
+	location-rmii_txd0 = < 0x1 0x5 0x7 >;
+	location-rmii_txd1 = < 0x1 0x5 0x6 >;
+	location-rmii_tx_en = < 0x1 0x5 0x8 >;
+	location-rmii_rxd0 = < 0x1 0x3 0x9 >;
+	location-rmii_rxd1 = < 0x1 0x5 0x9 >;
+	location-rmii_rx_er = < 0x1 0x3 0xc >;
+};
+&i2c1{
+	status = "okay";
+	location-sda = < 0x0 0x2 0x4 >;
+	location-scl = < 0x0 0x2 0x5 >;
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+};
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";
+	usart0_default: usart0_default {
+		group1 {
+			psels = < 0x0 >, < 0x1000001 >, < 0x5000000 >, < 0x4000000 >;
+		};
+	};
+	usart4_default: usart4_default {
+		group1 {
+			psels = < 0x704 >, < 0x1000705 >, < 0x5000004 >, < 0x4000004 >;
+		};
+	};
 };

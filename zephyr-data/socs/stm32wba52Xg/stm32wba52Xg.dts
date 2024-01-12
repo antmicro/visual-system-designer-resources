@@ -174,6 +174,7 @@
 			interrupts = < 0x2b 0x0 >, < 0x2c 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x6 >;
 		};
 		i2c3: i2c@46002800 {
 			compatible = "st,stm32-i2c-v2";
@@ -185,6 +186,7 @@
 			interrupts = < 0x36 0x0 >, < 0x37 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
+			phandle = < 0x7 >;
 		};
 		timers1: timers@40012c00 {
 			compatible = "st,stm32-timers";
@@ -316,7 +318,7 @@
 			compatible = "st,stm32-rng";
 			reg = < 0x520c0800 0x400 >;
 			interrupts = < 0x3b 0x0 >;
-			clocks = < &rcc 0x8c 0x40000 >, < &rcc 0x2 0x36ce4 >;
+			clocks = < &rcc 0x8c 0x40000 >, < &rcc 0x7 0x26ce4 >;
 			nist-config = < 0xf00d >;
 			health-test-config = < 0xaac7 >;
 			status = "disabled";
@@ -346,7 +348,6 @@
 			mpu: mpu@e000ed90 {
 				compatible = "arm,armv8m-mpu";
 				reg = < 0xe000ed90 0x40 >;
-				arm,num-mpu-regions = < 0x8 >;
 			};
 		};
 		power-states {
@@ -369,6 +370,13 @@
 	sram0: memory@20000000 {
 		compatible = "mmio-sram";
 		reg = < 0x20000000 0x20000 >;
+	};
+	sram6: memory@48028000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0x48028000 0x4000 >;
+		device_type = "memory";
+		zephyr,memory-region = "SRAM6";
+		zephyr,memory-attr = < 0x200000 >;
 	};
 	clocks {
 		clk_hse: clk-hse {
@@ -401,5 +409,19 @@
 			compatible = "st,stm32wba-pll-clock";
 			status = "disabled";
 		};
+	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
+		status = "disabled";
+	};
+	smbus3: smbus3 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c3 >;
+		status = "disabled";
 	};
 };

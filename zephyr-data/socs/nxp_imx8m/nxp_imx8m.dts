@@ -12,13 +12,6 @@
 		#size-cells = < 0x1 >;
 		compatible = "simple-bus";
 		ranges;
-		interrupt-parent = < &irqsteer >;
-		irqsteer: interrupt-controller {
-			compatible = "nxp,irqsteer-intc";
-			interrupt-controller;
-			#interrupt-cells = < 0x2 >;
-			phandle = < 0x1 >;
-		};
 		ccm: ccm@30380000 {
 			compatible = "nxp,imx-ccm";
 			reg = < 0x30380000 0x10000 >;
@@ -37,13 +30,16 @@
 		uart4: uart@30a60000 {
 			compatible = "nxp,imx-iuart";
 			reg = < 0x30a60000 0x10000 >;
+			interrupt-parent = < &clic >;
+			interrupts = < 0x1d 0x0 0x0 >;
 			clocks = < &ccm 0x803 0x6c 0x18 >;
 			status = "disabled";
 		};
 		mailbox0: mailbox@30e70000 {
 			compatible = "nxp,imx-mu";
 			reg = < 0x30e70000 0x10000 >;
-			interrupts = < 0x7 0x0 >;
+			interrupt-parent = < &clic >;
+			interrupts = < 0x7 0x0 0x0 >;
 			rdc = < 0x0 >;
 			status = "disabled";
 		};
@@ -55,6 +51,15 @@
 			device_type = "cpu";
 			compatible = "cdns,tensilica-xtensa-lx6";
 			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			clic: interrupt-controller@0 {
+				compatible = "cdns,xtensa-core-intc";
+				reg = < 0x0 >;
+				interrupt-controller;
+				#interrupt-cells = < 0x3 >;
+				phandle = < 0x1 >;
+			};
 		};
 	};
 	sram0: memory@92400000 {

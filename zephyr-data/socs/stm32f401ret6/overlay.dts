@@ -6,19 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart6{
+&i2c2{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0xf42400 >;
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
 	pinctrl-names = "default";
 };
 &spi1{
@@ -26,39 +17,19 @@
 	pinctrl-0 = < &spi1_miso_pa6 &spi1_mosi_pa7 &spi1_sck_pa5 &spi1_nss_pa4 >;
 	pinctrl-names = "default";
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
 &clk_lsi{
 	status = "okay";
-};
-&pll{
-	status = "okay";
-	div-m = < 0x10 >;
-	mul-n = < 0x150 >;
-	div-p = < 0x4 >;
-	div-q = < 0x7 >;
-	clocks = < &clk_hse >;
 };
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
 };
-&usart2{
+&usart6{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
-	pinctrl-names = "default";
 };
 &usart1{
 	status = "okay";
@@ -70,6 +41,35 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x501bd00 >;
 	apb1-prescaler = < 0x2 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	div-m = < 0x10 >;
+	mul-n = < 0x150 >;
+	div-p = < 0x4 >;
+	div-q = < 0x7 >;
+	clocks = < &clk_hse >;
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0xf42400 >;
 };
 &adc1{
 	status = "okay";

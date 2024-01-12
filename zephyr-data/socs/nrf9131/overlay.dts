@@ -12,11 +12,23 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&adc{
+	status = "okay";
+};
 &i2c2{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c2_default >;
 	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio0{
+	status = "okay";
+};
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &pwm0{
@@ -31,18 +43,6 @@
 	pinctrl-0 = < &spi3_default >;
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&gpio0{
-	status = "okay";
-};
-&uart1{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-1 = < &uart1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&adc{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

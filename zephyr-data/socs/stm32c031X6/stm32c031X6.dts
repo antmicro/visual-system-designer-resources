@@ -229,6 +229,7 @@
 			interrupts = < 0x17 0x0 >;
 			interrupt-names = "combined";
 			status = "disabled";
+			phandle = < 0x5 >;
 		};
 		adc1: adc@40012400 {
 			compatible = "st,stm32-adc";
@@ -318,6 +319,13 @@
 		vrefint-cal-addr = < 0x1fff756a >;
 		vrefint-cal-mv = < 0xbb8 >;
 		io-channels = < &adc1 0xa >;
+		status = "disabled";
+	};
+	smbus1: smbus1 {
+		compatible = "st,stm32-smbus";
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		i2c = < &i2c1 >;
 		status = "disabled";
 	};
 };

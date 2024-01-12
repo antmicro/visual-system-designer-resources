@@ -5,6 +5,13 @@
 		zephyr,flash = &flash0;
 	};
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
+};
+&clk_hsi{
+	status = "okay";
+};
 &adc1{
 	status = "okay";
 	#address-cells = < 0x1 >;
@@ -22,13 +29,6 @@
 	div-q = < 0x2 >;
 	div-r = < 0x2 >;
 	clocks = < &clk_hsi >;
-};
-&clk_hsi{
-	status = "okay";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x3d09000 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -1,0 +1,34 @@
+/ {
+	compatible = "renesas,spider-cr52";
+	chosen {
+		zephyr,console = &scif0;
+		zephyr,sram = &sram0;
+	};
+};
+&scif0{
+	status = "okay";
+	pinctrl-0 = < &scif0_data_tx_default &scif0_data_rx_default >;
+	pinctrl-names = "default";
+};
+&gpio4{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&pfc{
+	compatible = "renesas,rcar-pfc";
+	reg = < 0xe6050000 0x16c >, < 0xe6050800 0x16c >, < 0xe6051000 0x16c >, < 0xe6051800 0x16c >, < 0xdfd90000 0x16c >, < 0xdfd90800 0x16c >, < 0xdfd91000 0x16c >, < 0xdfd91800 0x16c >;
+	scif0_data_tx_default: scif0_data_tx_default {
+		pin = < 0x6 0x180 >;
+	};
+	scif0_data_rx_default: scif0_data_rx_default {
+		pin = < 0x7 0x1c0 >;
+	};
+	scif3_data_tx_default: scif3_data_tx_default {
+		pin = < 0x3 0xc1 >;
+	};
+	scif3_data_rx_default: scif3_data_rx_default {
+		pin = < 0x2 0x81 >;
+	};
+};

@@ -2,18 +2,18 @@
 	compatible = "infineon,xmc4700", "infineon,xmc4xxx";
 	chosen {
 		zephyr,console = &usic0ch0;
-		zephyr,sram = &psram1;
+		zephyr,sram = &dsram_joined;
 		zephyr,flash = &flash0;
 	};
 };
-&gpio3{
+&gpio5{
 	status = "okay";
 };
-&gpio14{
+&mdio{
 	status = "okay";
-};
-&adc2{
-	vref-internal-mv = < 0xce4 >;
+	mdi-port-ctrl = "P2_0";
+	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
+	pinctrl-names = "default";
 };
 &usic0ch0{
 	status = "okay";
@@ -28,16 +28,28 @@
 	fifo-tx-size = < 0x10 >;
 	fifo-rx-size = < 0x10 >;
 };
-&gpio0{
-	status = "okay";
-};
-&gpio2{
-	status = "okay";
-};
 &adc0{
 	vref-internal-mv = < 0xce4 >;
 };
-&gpio5{
+&adc2{
+	vref-internal-mv = < 0xce4 >;
+};
+&adc3{
+	vref-internal-mv = < 0xce4 >;
+};
+&eth{
+	status = "okay";
+	pinctrl-0 = < &eth_p2_4_rxer &eth_p2_2_rxd0 &eth_p2_3_rxd1 &eth_p15_8_clk_rmii &eth_p15_9_crs_dv &eth_p2_5_tx_en &eth_p2_8_txd0 &eth_p2_9_txd1 >;
+	pinctrl-names = "default";
+	rxer-port-ctrl = "P2_4";
+	rxd0-port-ctrl = "P2_2";
+	rxd1-port-ctrl = "P2_3";
+	rmii-rx-clk-port-ctrl = "P15_8";
+	crs-rx-dv-port-ctrl = "P15_9";
+	phy-connection-type = "rmii";
+	phy-handle = < &phy >;
+};
+&gpio0{
 	status = "okay";
 };
 &gpio1{
@@ -46,6 +58,12 @@
 &adc1{
 	vref-internal-mv = < 0xce4 >;
 };
-&adc3{
-	vref-internal-mv = < 0xce4 >;
+&gpio14{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
+&gpio3{
+	status = "okay";
 };

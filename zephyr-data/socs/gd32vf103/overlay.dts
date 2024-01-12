@@ -1,41 +1,10 @@
 / {
-	compatible = "sipeed,longan_nano";
+	compatible = "gd,gd32vf103c-starter";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
-};
-&gpioa{
-	status = "okay";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0x2 0x1 >;
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0xc 0x1 >;
-};
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
 };
 &usart0{
 	status = "okay";
@@ -45,6 +14,37 @@
 };
 &gpioe{
 	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0x2 0x1 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0xc 0x1 >;
 };
 &usart1{
 	status = "okay";
@@ -101,36 +101,16 @@
 		#gpio-cells = < 0x2 >;
 		clocks = < &cctl 0x606 >;
 		resets = < &rctl 0x306 >;
-		status = "disabled";
+		status = "okay";
 	};
 	usart0_default: usart0_default {
 		group1 {
-			pinmux = < 0x11290 >, < 0x111a0 >;
+			pinmux = < 0x111a0 >, < 0x11290 >;
 		};
 	};
-	pwm1_default: pwm1_default {
+	pwm2_default: pwm2_default {
 		group1 {
-			pinmux = < 0x34210 >, < 0x34220 >;
-		};
-	};
-	dac_default: dac_default {
-		group1 {
-			pinmux = < 0x40 >;
-		};
-	};
-	spi0_default: spi0_default {
-		group1 {
-			pinmux = < 0x10240 >, < 0x10250 >, < 0x10160 >, < 0x10270 >;
-		};
-	};
-	spi1_default: spi1_default {
-		group1 {
-			pinmux = < 0x1e1 >, < 0x2d1 >, < 0x2f1 >, < 0x2c1 >;
-		};
-	};
-	adc0_default: adc0_default {
-		group1 {
-			pinmux = < 0x0 >;
+			pinmux = < 0x35270 >;
 		};
 	};
 };

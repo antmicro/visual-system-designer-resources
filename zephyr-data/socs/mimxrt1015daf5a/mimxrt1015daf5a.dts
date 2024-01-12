@@ -37,8 +37,8 @@
 			#size-cells = < 0x1 >;
 			status = "okay";
 			flexram,bank-size = < 0x20 >;
-			flexram,num-ram-banks = < 0x4 >;
-			flexram,bank-spec = < 0x1 >, < 0x1 >, < 0x2 >, < 0x3 >;
+			flexram,num-ram-banks = < 0x5 >;
+			flexram,bank-spec = < 0x1 >, < 0x1 >, < 0x2 >, < 0x2 >, < 0x3 >;
 			itcm: itcm@0 {
 				compatible = "zephyr,memory-region", "nxp,imx-itcm";
 				reg = < 0x0 0x8000 >;
@@ -46,7 +46,7 @@
 			};
 			dtcm: dtcm@20000000 {
 				compatible = "zephyr,memory-region", "nxp,imx-dtcm";
-				reg = < 0x20000000 0x8000 >;
+				reg = < 0x20000000 0x10000 >;
 				zephyr,memory-region = "DTCM";
 			};
 			ocram: ocram@20200000 {
@@ -854,7 +854,6 @@
 			mpu: mpu@e000ed90 {
 				compatible = "arm,armv7m-mpu";
 				reg = < 0xe000ed90 0x40 >;
-				arm,num-mpu-regions = < 0x10 >;
 			};
 			itm: itm@e0000000 {
 				compatible = "arm,armv7m-itm";
