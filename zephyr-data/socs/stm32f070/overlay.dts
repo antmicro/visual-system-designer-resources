@@ -23,8 +23,11 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0xc 0x1 >;
 };
-&clk_hsi{
+&pll{
 	status = "okay";
+	clocks = < &clk_hsi >;
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
 };
 &usart1{
 	status = "okay";
@@ -37,11 +40,8 @@
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
-&pll{
+&clk_hsi{
 	status = "okay";
-	clocks = < &clk_hsi >;
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

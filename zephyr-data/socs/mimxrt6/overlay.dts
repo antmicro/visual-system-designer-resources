@@ -5,21 +5,31 @@
 		zephyr,sram = &sram0;
 	};
 };
+&gpio1{
+	status = "okay";
+};
 &i3c0{
 	status = "okay";
 	pinctrl-0 = < &pinmux_i3c >;
 	pinctrl-names = "default";
 };
-&gpio2{
+&pmic_i2c{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &pinmux_pmic_i2c >;
+	pinctrl-names = "default";
+};
+&flexspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexspi >;
+	pinctrl-names = "default";
+};
+&usbhs{
 	status = "okay";
 };
 &gpio0{
-	status = "okay";
-};
-&gpio1{
-	status = "okay";
-};
-&usbhs{
 	status = "okay";
 };
 &flexcomm0{
@@ -36,16 +46,6 @@
 	pinctrl-0 = < &pinmux_sctimer >;
 	pinctrl-names = "default";
 };
-&flexspi{
+&gpio2{
 	status = "okay";
-	pinctrl-0 = < &pinmux_flexspi >;
-	pinctrl-names = "default";
-};
-&pmic_i2c{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &pinmux_pmic_i2c >;
-	pinctrl-names = "default";
 };

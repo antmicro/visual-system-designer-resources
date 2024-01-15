@@ -21,14 +21,18 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x3d09000 >;
 };
-&clk_hsi{
-	status = "okay";
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&pll{
+	status = "okay";
+	div-m = < 0x1 >;
+	mul-n = < 0x8 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hsi >;
 };
 &usart1{
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
@@ -41,12 +45,8 @@
 	pinctrl-0 = < &i2c1_scl_pa9 &i2c1_sda_pa10 >;
 	pinctrl-names = "default";
 };
-&pll{
+&clk_hsi{
 	status = "okay";
-	div-m = < 0x1 >;
-	mul-n = < 0x8 >;
-	div-r = < 0x2 >;
-	clocks = < &clk_hsi >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -6,16 +6,35 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc0{
+&adc2{
 	vref-internal-mv = < 0xce4 >;
+};
+&mdio{
+	status = "okay";
+	mdi-port-ctrl = "P2_0";
+	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
+	pinctrl-names = "default";
 };
 &gpio1{
 	status = "okay";
 };
-&adc1{
+&usic1ch1{
+	status = "okay";
+	compatible = "infineon,xmc4xxx-uart";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart_tx_p0_1_u1c1 &uart_rx_p0_0_u1c1 >;
+	pinctrl-names = "default";
+	input-src = "DX0D";
+	interrupts = < 0x5a 0x1 0x5b 0x1 >;
+	interrupt-names = "tx", "rx";
+	fifo-start-offset = < 0x0 >;
+	fifo-tx-size = < 0x10 >;
+	fifo-rx-size = < 0x10 >;
+};
+&adc0{
 	vref-internal-mv = < 0xce4 >;
 };
-&adc2{
+&adc1{
 	vref-internal-mv = < 0xce4 >;
 };
 &adc3{
@@ -32,23 +51,4 @@
 	crs-rx-dv-port-ctrl = "P15_9";
 	phy-connection-type = "rmii";
 	phy-handle = < &phy >;
-};
-&mdio{
-	status = "okay";
-	mdi-port-ctrl = "P2_0";
-	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
-	pinctrl-names = "default";
-};
-&usic1ch1{
-	status = "okay";
-	compatible = "infineon,xmc4xxx-uart";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart_tx_p0_1_u1c1 &uart_rx_p0_0_u1c1 >;
-	pinctrl-names = "default";
-	input-src = "DX0D";
-	interrupts = < 0x5a 0x1 0x5b 0x1 >;
-	interrupt-names = "tx", "rx";
-	fifo-start-offset = < 0x0 >;
-	fifo-tx-size = < 0x10 >;
-	fifo-rx-size = < 0x10 >;
 };

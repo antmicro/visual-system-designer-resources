@@ -6,14 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
+&clk_lsi{
+	status = "okay";
+};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x44aa200 >;
 	apb1-prescaler = < 0x2 >;
 	apb2-prescaler = < 0x2 >;
-};
-&clk_lsi{
-	status = "okay";
 };
 &usart2{
 	status = "okay";

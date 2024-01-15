@@ -11,14 +11,7 @@
 	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
-};
 &clk_lsi{
-	status = "okay";
-};
-&clk_hsi{
 	status = "okay";
 };
 &adc1{
@@ -27,6 +20,16 @@
 	pinctrl-names = "default";
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
+};
+&pll{
+	status = "okay";
+	prediv = < 0x4 >;
+	mul = < 0xc >;
+	clocks = < &clk_hsi >;
 };
 &usart1{
 	status = "okay";
@@ -40,11 +43,8 @@
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
-&pll{
+&clk_hsi{
 	status = "okay";
-	prediv = < 0x4 >;
-	mul = < 0xc >;
-	clocks = < &clk_hsi >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

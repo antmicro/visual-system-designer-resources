@@ -11,9 +11,6 @@
 	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 };
-&subghzspi{
-	status = "okay";
-};
 &i2c2{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -23,8 +20,9 @@
 &clk_lsi{
 	status = "okay";
 };
-&clk_hsi{
-	status = "okay";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &adc1{
 	status = "okay";
@@ -38,15 +36,8 @@
 	pinctrl-0 = < &dac_out1_pa10 >;
 	pinctrl-names = "default";
 };
-&lpuart1{
+&subghzspi{
 	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pa2 &lpuart1_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
 };
 &pll{
 	status = "okay";
@@ -55,6 +46,15 @@
 	div-r = < 0x2 >;
 	div-q = < 0x2 >;
 	clocks = < &clk_hsi >;
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pa2 &lpuart1_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_hsi{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

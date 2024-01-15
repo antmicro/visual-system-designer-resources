@@ -6,23 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
-	pinctrl-names = "default";
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_miso_pa6 &spi1_mosi_pa7 &spi1_sck_pa5 &spi1_nss_pa4 >;
-	pinctrl-names = "default";
-};
-&clk_lsi{
-	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
 };
 &usart6{
@@ -31,11 +17,14 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&usart1{
+&i2c2{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+};
+&clk_lsi{
+	status = "okay";
 };
 &rcc{
 	clocks = < &pll >;
@@ -48,10 +37,9 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
+&spi2{
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
 };
 &pll{
@@ -66,6 +54,18 @@
 	status = "okay";
 	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &clk_hse{
 	status = "okay";

@@ -21,6 +21,12 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&pll{
+	status = "okay";
+	clocks = < &clk_hse >;
+	mul = < 0x8 >;
+	div = < 0x2 >;
+};
 &usart1{
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
@@ -31,12 +37,6 @@
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
-};
-&pll{
-	status = "okay";
-	clocks = < &clk_hse >;
-	mul = < 0x8 >;
-	div = < 0x2 >;
 };
 &clk_hse{
 	status = "okay";

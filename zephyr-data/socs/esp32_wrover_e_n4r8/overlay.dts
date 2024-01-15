@@ -6,41 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpio1{
-	status = "okay";
-};
 &uart2{
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
-};
-&i2c0{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	sda-gpios = < &gpio0 0x15 0x6 >;
-	scl-gpios = < &gpio0 0x16 0x6 >;
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&flash0{
-	status = "okay";
-};
-&spi2{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim2_default >;
-	pinctrl-names = "default";
-};
-&spi3{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim3_default >;
-	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
 };
 &uart1{
 	current-speed = < 0x1c200 >;
@@ -51,6 +20,37 @@
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&spi3{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
+	pinctrl-names = "default";
+};
+&flash0{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	sda-gpios = < &gpio0 0x15 0x6 >;
+	scl-gpios = < &gpio0 0x16 0x6 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&gpio1{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&spi2{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim2_default >;
 	pinctrl-names = "default";
 };
 &eth{

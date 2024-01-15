@@ -10,9 +10,9 @@
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
 };
-&lpspi3{
-	clock-frequency = < 0xf4240 >;
-	pinctrl-0 = < &spi3_default >;
+&lpuart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
 };
 &lpi2c1{
@@ -20,13 +20,13 @@
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 };
-&lpuart1{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-names = "default";
-};
 &lpi2c2{
 	clock-frequency = < 0x61a80 >;
 	pinctrl-0 = < &i2c2_default >;
+	pinctrl-names = "default";
+};
+&lpspi3{
+	clock-frequency = < 0xf4240 >;
+	pinctrl-0 = < &spi3_default >;
 	pinctrl-names = "default";
 };

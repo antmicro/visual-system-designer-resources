@@ -6,14 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&fdcan1{
-	clocks = < &rcc 0x3c 0x1000 >, < &rcc 0xa 0x16858 >;
-	status = "okay";
-	pinctrl-0 = < &fdcan1_rx_pa11 &fdcan1_tx_pa12 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_nss_pb0 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
@@ -25,25 +17,8 @@
 	pinctrl-0 = < &i2c2_scl_pa11 &i2c2_sda_pa12 >;
 	pinctrl-names = "default";
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x3d09000 >;
-};
 &clk_lsi{
 	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_nss_pd0 &spi2_sck_pd1 &spi2_miso_pd3 &spi2_mosi_pd4 >;
-	pinctrl-names = "default";
-};
-&clk_hsi{
-	status = "okay";
-};
-&usb{
-	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
 };
 &adc1{
 	status = "okay";
@@ -52,20 +27,38 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac1_out1_pa4 >;
-	pinctrl-names = "default";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
 };
 &clk_hsi48{
 	status = "okay";
 	crs-usb-sof;
+};
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac1_out1_pa4 >;
+	pinctrl-names = "default";
 };
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_nss_pd0 &spi2_sck_pd1 &spi2_miso_pd3 &spi2_mosi_pd4 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	div-m = < 0x1 >;
+	mul-n = < 0x8 >;
+	div-p = < 0x2 >;
+	div-q = < 0x2 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hsi >;
 };
 &usart1{
 	status = "okay";
@@ -79,14 +72,21 @@
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&pll{
+&usb{
 	status = "okay";
-	div-m = < 0x1 >;
-	mul-n = < 0x8 >;
-	div-p = < 0x2 >;
-	div-q = < 0x2 >;
-	div-r = < 0x2 >;
-	clocks = < &clk_hsi >;
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&fdcan1{
+	clocks = < &rcc 0x3c 0x1000 >, < &rcc 0xa 0x16858 >;
+	status = "okay";
+	pinctrl-0 = < &fdcan1_rx_pa11 &fdcan1_tx_pa12 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&clk_hsi{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

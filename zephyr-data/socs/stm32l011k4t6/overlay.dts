@@ -15,20 +15,11 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x1e84800 >;
 };
-&clk_hsi{
-	status = "okay";
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa15 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pa4 &i2c1_sda_pa10 >;
-	pinctrl-names = "default";
 };
 &flash0{
 	reg = < 0x8000000 0x5000 >;
@@ -38,6 +29,15 @@
 	div = < 0x2 >;
 	mul = < 0x4 >;
 	clocks = < &clk_hsi >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pa4 &i2c1_sda_pa10 >;
+	pinctrl-names = "default";
+};
+&clk_hsi{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

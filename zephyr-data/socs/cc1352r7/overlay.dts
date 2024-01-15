@@ -6,12 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c0{
-	clock-frequency = < 0x61a80 >;
+&uart0{
 	status = "okay";
-	pinctrl-0 = < &i2c0_scl_default &i2c0_sda_default >;
-	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
-	pinctrl-names = "default", "sleep";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
+	pinctrl-names = "default";
+};
+&gpio0{
+	status = "okay";
 };
 &spi0{
 	status = "okay";
@@ -19,18 +21,16 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpio0 0x8 0x1 >, < &gpio0 0x1c 0x1 >, < &gpio0 0x1b 0x1 >;
 };
-&uart0{
+&i2c0{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
-	pinctrl-names = "default";
+	pinctrl-0 = < &i2c0_scl_default &i2c0_sda_default >;
+	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &uart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart1_rx_default &uart1_tx_default >;
 	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
 };

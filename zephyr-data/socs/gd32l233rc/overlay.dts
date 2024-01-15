@@ -6,11 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
 &gpiod{
 	status = "okay";
 };
@@ -20,17 +15,22 @@
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
 };
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
 &gpioa{
 	status = "okay";
 };
 &gpiof{
 	status = "okay";
 };
-&gpioc{
+&adc0{
 	status = "okay";
-};
-&gpiob{
-	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-af";

@@ -10,6 +10,12 @@
 	pinctrl-0 = < &enet_default >;
 	pinctrl-names = "default";
 };
+&gpiob{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_default >;
@@ -17,12 +23,6 @@
 	clock-frequency = < 0x29f6300 >;
 	cs-gpios = < &gpioe 0x4 0x1 >;
 };
-&gpioe{
-	status = "okay";
-};
 &gpioa{
-	status = "okay";
-};
-&gpiob{
 	status = "okay";
 };

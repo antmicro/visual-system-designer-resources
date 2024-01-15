@@ -6,22 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
+&clk_lsi{
+	status = "okay";
+};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x2dc6c00 >;
 };
-&clk_lsi{
-	status = "okay";
-};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -30,6 +24,12 @@
 	prediv = < 0x1 >;
 	mul = < 0x6 >;
 	clocks = < &clk_hse >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &clk_hse{
 	status = "okay";

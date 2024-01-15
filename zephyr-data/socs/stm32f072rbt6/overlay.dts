@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&can1{
-	status = "okay";
-	pinctrl-0 = < &can_rx_pb8 &can_tx_pb9 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
@@ -27,8 +21,11 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x2dc6c00 >;
 };
-&clk_hsi{
+&pll{
 	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hsi >;
 };
 &usart1{
 	status = "okay";
@@ -42,11 +39,14 @@
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&pll{
+&can1{
 	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hsi >;
+	pinctrl-0 = < &can_rx_pb8 &can_tx_pb9 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&clk_hsi{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

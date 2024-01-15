@@ -16,9 +16,6 @@
 	clocks = < &clk_hsi >;
 	clock-frequency = < 0x7a1200 >;
 };
-&clk_hsi{
-	status = "okay";
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
@@ -30,6 +27,9 @@
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
+};
+&clk_hsi{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

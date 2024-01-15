@@ -6,9 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_lse{
-	status = "okay";
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_nss_pa12 &spi1_sck_pb4 &spi1_miso_pb3 &spi1_mosi_pa15 >;
@@ -16,29 +13,6 @@
 };
 &clk_lsi{
 	status = "okay";
-};
-&clk_hsi{
-	status = "okay";
-};
-&usart1{
-	clocks = < &rcc 0xa4 0x4000 >, < &rcc 0x7 0x260e0 >;
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb12 &usart1_rx_pa8 >;
-	pinctrl-1 = < &analog_pb12 &analog_pa8 >;
-	pinctrl-names = "default", "sleep";
-	current-speed = < 0x1c200 >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb2 &i2c1_sda_pb1 >;
-	pinctrl-names = "default";
-};
-&lpuart1{
-	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pb5 &lpuart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &adc4{
 	status = "okay";
@@ -51,6 +25,32 @@
 	clock-frequency = < 0xf42400 >;
 	ahb5-prescaler = < 0x2 >;
 	apb2-prescaler = < 0x2 >;
+};
+&usart1{
+	clocks = < &rcc 0xa4 0x4000 >, < &rcc 0x7 0x260e0 >;
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb12 &usart1_rx_pa8 >;
+	pinctrl-1 = < &analog_pb12 &analog_pa8 >;
+	pinctrl-names = "default", "sleep";
+	current-speed = < 0x1c200 >;
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pb5 &lpuart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb2 &i2c1_sda_pb1 >;
+	pinctrl-names = "default";
+};
+&clk_lse{
+	status = "okay";
+};
+&clk_hsi{
+	status = "okay";
 };
 &clk_hse{
 	status = "okay";

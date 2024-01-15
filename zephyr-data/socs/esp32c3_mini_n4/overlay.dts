@@ -6,21 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi2{
+&usb_serial{
 	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim2_default >;
-	pinctrl-names = "default";
 };
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
 };
 &twai{
 	pinctrl-0 = < &twai_default >;
@@ -36,8 +29,15 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&usb_serial{
+&gpio0{
 	status = "okay";
+};
+&spi2{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim2_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

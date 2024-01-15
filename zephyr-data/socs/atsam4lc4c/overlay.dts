@@ -17,12 +17,6 @@
 	pinctrl-0 = < &usart2_default >;
 	pinctrl-names = "default";
 };
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0x2 0x1 >, < &gpioc 0x0 0x1 >;
-};
 &twim0{
 	status = "okay";
 	pinctrl-0 = < &twi0_default >;
@@ -37,4 +31,10 @@
 	hs-data-slew-lim = < 0x0 >;
 	hs-data-strength-low = "0.5";
 	hs-master-code = < 0x0 >;
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0x2 0x1 >, < &gpioc 0x0 0x1 >;
 };

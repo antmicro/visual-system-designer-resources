@@ -6,31 +6,28 @@
 		zephyr,flash = &flash0;
 	};
 };
-&hs_lspi{
-	status = "okay";
-	pinctrl-0 = < &pinmux_hs_lspi_default >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x2 >, < &dma0 0x3 >;
-	dma-names = "rx", "tx";
-	cs-gpios = < &gpio1 0x1 0x1 >;
-};
-&gpio0{
-	status = "okay";
-};
-&gpio1{
-	status = "okay";
-};
-&usbfs{
-	pinctrl-0 = < &pinmux_usbfs >;
-	pinctrl-names = "default";
-};
 &sc_timer{
 	status = "okay";
 	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
-&usbhs{
+&gpio1{
 	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_lpadc0 >;
+	pinctrl-names = "default";
+};
+&sram0{
+	reg = < 0x20000000 0x30000 >;
+};
+&usbfs{
+	pinctrl-0 = < &pinmux_usbfs >;
+	pinctrl-names = "default";
 };
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
@@ -41,11 +38,14 @@
 	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
 };
-&sram0{
-	reg = < 0x20000000 0x30000 >;
-};
-&adc0{
+&usbhs{
 	status = "okay";
-	pinctrl-0 = < &pinmux_lpadc0 >;
+};
+&hs_lspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_hs_lspi_default >;
 	pinctrl-names = "default";
+	dmas = < &dma0 0x2 >, < &dma0 0x3 >;
+	dma-names = "rx", "tx";
+	cs-gpios = < &gpio1 0x1 0x1 >;
 };

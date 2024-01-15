@@ -5,16 +5,16 @@
 		zephyr,sram = &sram0;
 	};
 };
-&scif0{
+&gpio0{
 	status = "okay";
-	pinctrl-0 = < &scif0_data_tx_default &scif0_data_rx_default >;
-	pinctrl-names = "default";
 };
 &gpio4{
 	status = "okay";
 };
-&gpio0{
+&scif0{
 	status = "okay";
+	pinctrl-0 = < &scif0_data_tx_default &scif0_data_rx_default >;
+	pinctrl-names = "default";
 };
 &pfc{
 	compatible = "renesas,rcar-pfc";
