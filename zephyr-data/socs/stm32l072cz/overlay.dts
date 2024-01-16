@@ -10,12 +10,6 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x1e84800 >;
 };
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &pll{
 	status = "okay";
 	div = < 0x2 >;
@@ -31,13 +25,27 @@
 &clk_hsi{
 	status = "okay";
 };
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_nss_pa15 &spi1_sck_pb3 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpioa 0xf 0x1 >;
 };
+&usb{
+	status = "okay";
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
+};
 &clk_hsi48{
+	status = "okay";
+};
+&clk_lse{
 	status = "okay";
 };
 &spi2{
@@ -50,14 +58,6 @@
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
-};
-&usb{
-	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&clk_lse{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -1,10 +1,10 @@
 {
     "graph": {
-        "name": "EFR32BG22 Thunderboard Kit",
         "additionalData": {
             "renodepedia_link": "https://zephyr-dashboard.renode.io/renodepedia/boards/efr32bg22_brd4184a"
         },
         "id": "9e0b050b-cae0-4ab2-b0c3-ba818483ad4b",
+        "name": "EFR32BG22 Thunderboard Kit",
         "nodes": [
             {
                 "id": "59b05c7d-9122-4123-828a-e187fe716311",
@@ -116,39 +116,11 @@
                 "twoColumn": true,
                 "interfaces": [
                     {
-                        "name": "rf",
-                        "id": "4bf31a73-bf6e-4a3c-8342-d04e972433f8",
+                        "name": "adc0",
+                        "id": "d35a7ce4-2203-4cee-8525-0aca999d53e8",
                         "direction": "inout",
                         "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "swd",
-                        "id": "4bafd471-f0c7-40ab-afb3-c4c047e27d5a",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "msc",
-                        "id": "b9f4e5f6-c655-4756-9770-8a68461e7309",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "usart1",
-                        "id": "a5ed29f9-e1d7-4a24-8aab-9e5440bf54b9",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "i2c1",
-                        "id": "b92cf610-55b8-4af1-a0b1-d54eb1ec7abc",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 2
+                        "sidePosition": 4
                     },
                     {
                         "name": "gpiob",
@@ -165,11 +137,32 @@
                         "sidePosition": 3
                     },
                     {
-                        "name": "adc0",
-                        "id": "d35a7ce4-2203-4cee-8525-0aca999d53e8",
+                        "name": "i2c0",
+                        "id": "1b1b235c-279e-4d51-8e55-30902bd418b8",
                         "direction": "inout",
                         "side": "left",
-                        "sidePosition": 4
+                        "sidePosition": 6
+                    },
+                    {
+                        "name": "msc",
+                        "id": "b9f4e5f6-c655-4756-9770-8a68461e7309",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "pti",
+                        "id": "143e8f6b-137b-4c48-ab68-c45b9e34da70",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "rf",
+                        "id": "4bf31a73-bf6e-4a3c-8342-d04e972433f8",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
                     },
                     {
                         "name": "usart0",
@@ -177,13 +170,6 @@
                         "direction": "inout",
                         "side": "left",
                         "sidePosition": 5
-                    },
-                    {
-                        "name": "i2c0",
-                        "id": "1b1b235c-279e-4d51-8e55-30902bd418b8",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 6
                     },
                     {
                         "name": "gpioa",
@@ -207,10 +193,10 @@
                         "sidePosition": 4
                     },
                     {
-                        "name": "pti",
-                        "id": "143e8f6b-137b-4c48-ab68-c45b9e34da70",
+                        "name": "i2c1",
+                        "id": "b92cf610-55b8-4af1-a0b1-d54eb1ec7abc",
                         "direction": "inout",
-                        "side": "right",
+                        "side": "left",
                         "sidePosition": 2
                     },
                     {
@@ -219,6 +205,20 @@
                         "direction": "inout",
                         "side": "right",
                         "sidePosition": 7
+                    },
+                    {
+                        "name": "swd",
+                        "id": "4bafd471-f0c7-40ab-afb3-c4c047e27d5a",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "usart1",
+                        "id": "a5ed29f9-e1d7-4a24-8aab-9e5440bf54b9",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
                     }
                 ],
                 "properties": [],
@@ -327,28 +327,6 @@
                 "instanceName": "Temperature sensor"
             },
             {
-                "id": "9b7cfa15-626d-4152-9230-df98aeaf3ecc",
-                "position": {
-                    "x": 1300,
-                    "y": -100
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "usb",
-                        "id": "610842ee-1bb6-4ba8-a322-b7575945a48c",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Amphenol 10118194-0001LF",
-                "instanceName": "Amphenol 10118194-0001LF"
-            },
-            {
                 "id": "8ed7c79b-c8de-4045-b12f-0720d16684ca",
                 "position": {
                     "x": 1900,
@@ -358,20 +336,6 @@
                 "twoColumn": true,
                 "interfaces": [
                     {
-                        "name": "usb",
-                        "id": "979e96ce-b26f-4852-97f4-35b5e34f2cc2",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "serial",
-                        "id": "d65053d2-efd4-4d2e-b1e5-39611382a24e",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    },
-                    {
                         "name": "swd",
                         "id": "2ad88c95-71b8-4a91-b2ae-15669bd06185",
                         "direction": "inout",
@@ -379,52 +343,90 @@
                         "sidePosition": 2
                     },
                     {
+                        "name": "usb",
+                        "id": "979e96ce-b26f-4852-97f4-35b5e34f2cc2",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
                         "name": "pti",
                         "id": "0fe92bd7-62f9-474c-a343-63f3624e02e3",
                         "direction": "inout",
                         "side": "left",
                         "sidePosition": 3
+                    },
+                    {
+                        "name": "serial",
+                        "id": "d65053d2-efd4-4d2e-b1e5-39611382a24e",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
                     }
                 ],
                 "properties": [],
                 "enabledInterfaceGroups": [],
                 "name": "Silicon Labs EFM32GG12B410F1024GL120-AR",
                 "instanceName": "J-Link Debugger"
+            },
+            {
+                "id": "f81e378f-f06c-4cf5-932f-05cacc00104b",
+                "position": {
+                    "x": 1300,
+                    "y": -100
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "usb",
+                        "id": "7935c673-8b3e-4e8c-9a26-3176e879133c",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "usb micro",
+                        "id": "3ec61c98-e1ee-4c1f-9b6b-356d85745501",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Amphenol 10118192-0001LF",
+                "instanceName": "Amphenol 10118192-0001LF"
             }
         ],
         "connections": [
             {
-                "id": "f0c8f3f5-73d3-4a5b-8ef8-c754e551cd20",
+                "id": "d55bb82d-acc8-46db-95c6-745ab675e12d",
                 "from": "e8a30e48-80d8-423c-af7d-4af3bafa520a",
                 "to": "0d859300-22df-4f14-965a-53fb1fef4cbd"
             },
             {
-                "id": "b6a3a6d9-9299-48de-a898-e618c0877f52",
+                "id": "a89dd1c3-4ddd-4281-89ff-d6748862de1e",
                 "from": "ccfb5877-ead9-4e0a-9b4c-46eb76b1685a",
                 "to": "0d859300-22df-4f14-965a-53fb1fef4cbd"
             },
             {
-                "id": "09e17763-2708-4fd6-bb3d-929f5856730e",
+                "id": "31e35aaf-6d6f-4bf8-9d11-25894fd1bd94",
                 "from": "e910ef74-f777-40b4-b901-6213f9671975",
                 "to": "1b1b235c-279e-4d51-8e55-30902bd418b8"
             },
             {
-                "id": "70c4a512-6a20-433f-af3b-7617795a659d",
+                "id": "4804a406-f08b-410f-aecd-7aa7917aee49",
                 "from": "cf5c8ab4-f80a-4f8a-8be3-a9394693fcaa",
                 "to": "1b1b235c-279e-4d51-8e55-30902bd418b8"
             },
             {
-                "id": "43f1c125-02a3-4489-9e72-5bb647842857",
+                "id": "b5b1b505-2c33-47d7-9891-3b1a7ea95469",
                 "from": "a0c54d57-b9a3-4561-ba2a-b1a8b906445b",
                 "to": "1b1b235c-279e-4d51-8e55-30902bd418b8"
             },
             {
-                "id": "6952a02f-fb88-4941-900e-6eb6bb22e86d",
-                "from": "610842ee-1bb6-4ba8-a322-b7575945a48c",
-                "to": "979e96ce-b26f-4852-97f4-35b5e34f2cc2"
-            },
-            {
-                "id": "631801c9-51e3-4552-ac19-f4f378cfb47f",
+                "id": "11650686-727e-4ac9-9ea3-bc9c40506c5a",
                 "from": "d65053d2-efd4-4d2e-b1e5-39611382a24e",
                 "to": "a5ed29f9-e1d7-4a24-8aab-9e5440bf54b9",
                 "anchors": [
@@ -435,27 +437,27 @@
                 ]
             },
             {
-                "id": "3c9c36b6-8290-499e-b6a1-824e86efdc79",
+                "id": "e17a2e1a-41b5-4abb-9055-6352231a0254",
                 "from": "2ad88c95-71b8-4a91-b2ae-15669bd06185",
                 "to": "4bafd471-f0c7-40ab-afb3-c4c047e27d5a"
             },
             {
-                "id": "bc5ebae6-c1bc-41f3-8f64-d7115c278604",
+                "id": "43d09eda-14b2-448b-a187-b0247d86198b",
                 "from": "143e8f6b-137b-4c48-ab68-c45b9e34da70",
                 "to": "0fe92bd7-62f9-474c-a343-63f3624e02e3"
             },
             {
-                "id": "ff32d56c-3243-4515-95c4-3339f7eb26b3",
+                "id": "01179fdf-b0f9-4369-876c-966711f45c8e",
                 "from": "fe34a1b7-0659-4493-a81d-35259f7128b2",
                 "to": "e7d4c8f1-f36e-4eec-bd72-79f8b669705d"
             },
             {
-                "id": "61b6f71a-cf48-413d-a38b-8e3f953a2ad4",
+                "id": "00087ab8-f954-464e-86bb-b17380be8d89",
                 "from": "bdc4bf07-2676-46d8-b781-714f59773728",
                 "to": "e7d4c8f1-f36e-4eec-bd72-79f8b669705d"
             },
             {
-                "id": "d88b2ea8-d34b-4a07-a1a6-a2c23436a879",
+                "id": "4d1a9fce-ec39-4c67-aaa1-930df5ba1b06",
                 "from": "d271250c-4ae1-4811-8052-aa2cd649ba81",
                 "to": "4bf31a73-bf6e-4a3c-8342-d04e972433f8",
                 "anchors": [
@@ -464,6 +466,11 @@
                         "y": 330
                     }
                 ]
+            },
+            {
+                "id": "520c372f-fcbc-4bee-9230-4be94b6ad66a",
+                "from": "7935c673-8b3e-4e8c-9a26-3176e879133c",
+                "to": "979e96ce-b26f-4852-97f4-35b5e34f2cc2"
             }
         ]
     },

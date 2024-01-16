@@ -15,8 +15,10 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
 };
-&clk_lsi{
+&clk_hse{
 	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &mac{
 	status = "okay";
@@ -26,16 +28,14 @@
 &clk_hsi48{
 	status = "okay";
 };
-&clk_hse{
+&clk_lsi{
 	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
+&usart3{
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &rcc{
 	hpre = < 0x2 >;
@@ -46,11 +46,11 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x1c9c3800 >;
 };
-&usart3{
+&i2c1{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

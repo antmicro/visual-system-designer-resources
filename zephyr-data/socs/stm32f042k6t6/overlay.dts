@@ -12,8 +12,9 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioa 0xb 0x11 >;
 };
-&clk_lsi{
-	status = "okay";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &adc1{
 	status = "okay";
@@ -22,9 +23,17 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hsi >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&clk_hsi{
+	status = "okay";
 };
 &usart2{
 	status = "okay";
@@ -32,20 +41,11 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&pll{
-	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hsi >;
-};
 &i2c1{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
-};
-&clk_hsi{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

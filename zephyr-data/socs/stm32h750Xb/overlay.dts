@@ -20,6 +20,12 @@
 	clock-frequency = < 0x17d7840 >;
 	hse-bypass;
 };
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x1c9c3800 >;
@@ -28,12 +34,6 @@
 	d2ppre1 = < 0x2 >;
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -17,12 +17,6 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x2dc6c00 >;
 };
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0xc 0x1 >;
-};
 &pll{
 	status = "okay";
 	clocks = < &clk_hsi >;
@@ -35,13 +29,19 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&clk_hsi{
+	status = "okay";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0xc 0x1 >;
+};
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
-};
-&clk_hsi{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

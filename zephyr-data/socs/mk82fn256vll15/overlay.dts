@@ -6,44 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usbotg{
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-};
-&lpuart4{
-	status = "okay";
-	pinctrl-0 = < &lpuart4_default >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&gpiob{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
 &i2c3{
 	status = "okay";
 	pinctrl-0 = < &i2c3_default >;
@@ -53,9 +15,47 @@
 	pinctrl-0 = < &lpuart0_default >;
 	pinctrl-names = "default";
 };
+&gpiod{
+	status = "okay";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
 &gpioa{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpioe{
 	status = "okay";
 };
 &gpioc{
 	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&usbotg{
+	status = "okay";
+};
+&lpuart4{
+	status = "okay";
+	pinctrl-0 = < &lpuart4_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };

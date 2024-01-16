@@ -12,10 +12,10 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&adc0{
+&gpiof{
 	status = "okay";
 };
-&gpioa{
+&adc0{
 	status = "okay";
 };
 &gpiod{
@@ -24,7 +24,12 @@
 &gpiob{
 	status = "okay";
 };
-&gpiof{
+&i2c0{
+	status = "okay";
+	location-sda = < 0xf 0x2 0xa >;
+	location-scl = < 0xf 0x2 0xb >;
+};
+&gpioa{
 	status = "okay";
 };
 &leuart0{
@@ -32,11 +37,6 @@
 	current-speed = < 0x2580 >;
 	location-rx = < 0x12 0x3 0xb >;
 	location-tx = < 0x12 0x3 0xa >;
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0xf 0x2 0xa >;
-	location-scl = < 0xf 0x2 0xb >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

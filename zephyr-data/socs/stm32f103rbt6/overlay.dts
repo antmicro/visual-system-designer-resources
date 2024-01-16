@@ -12,18 +12,39 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0x6 0x11 >;
 };
-&clk_lsi{
+&clk_hse{
 	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x44aa200 >;
+	apb1-prescaler = < 0x2 >;
 };
 &adc1{
 	status = "okay";
 	pinctrl-0 = < &adc1_in0_pa0 >;
 	pinctrl-names = "default";
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x44aa200 >;
-	apb1-prescaler = < 0x2 >;
+&pll{
+	status = "okay";
+	mul = < 0x9 >;
+	clocks = < &clk_hse >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&usart3{
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &usart2{
 	status = "okay";
@@ -36,42 +57,21 @@
 	pinctrl-0 = < &spi2_nss_master_pb12 &spi2_sck_master_pb13 &spi2_miso_master_pb14 &spi2_mosi_master_pb15 >;
 	pinctrl-names = "default";
 };
-&pll{
-	status = "okay";
-	mul = < 0x9 >;
-	clocks = < &clk_hse >;
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &i2c1{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_remap1_pb8 &i2c1_sda_remap1_pb9 >;
 	pinctrl-names = "default";
 };
-&usart3{
-	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+&usb{
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
+	disconnect-gpios = < &gpioc 0xb 0x1 >;
 };
 &i2c2{
 	clock-frequency = < 0x61a80 >;
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
 	pinctrl-names = "default";
-};
-&usb{
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
-	disconnect-gpios = < &gpioc 0xb 0x1 >;
 };
 &can1{
 	status = "okay";

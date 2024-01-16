@@ -6,54 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usbotg{
-	num-bidir-endpoints = < 0x8 >;
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-};
-&flexcan0{
-	status = "okay";
-	pinctrl-0 = < &flexcan0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	phys = < &transceiver0 >;
-};
-&uart1{
+&uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
+	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
-};
-&uart4{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart4_default >;
-	pinctrl-names = "default";
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-names = "default";
-};
-&adc1{
-	status = "okay";
-};
-&enet{
-	status = "okay";
-	pinctrl-0 = < &enet_default >;
-	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
 };
 &flexcan1{
 	status = "okay";
@@ -62,20 +19,24 @@
 	bus-speed = < 0x1e848 >;
 	phys = < &transceiver1 >;
 };
-&gpioe{
+&lpuart0{
 	status = "okay";
-};
-&dac0{
-	voltage-reference = < 0x2 >;
-	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
 };
 &gpiod{
 	status = "okay";
 };
-&uart2{
+&uart4{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart2_default >;
+	pinctrl-0 = < &uart4_default >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_default >;
 	pinctrl-names = "default";
 };
 &spi1{
@@ -85,29 +46,68 @@
 	cs-gpios = < &gpiob 0xa 0x1 >, < &gpiob 0x9 0x1 >;
 	clock-frequency = < 0xf4240 >;
 };
-&adc0{
-	status = "okay";
-};
-&lpuart0{
+&uart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
 };
-&spi2{
+&i2c1{
 	status = "okay";
-	pinctrl-0 = < &spi2_default >;
+	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 };
-&uart0{
+&i2c0{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
+	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
 &gpioa{
 	status = "okay";
 };
+&adc0{
+	status = "okay";
+};
+&flexcan0{
+	status = "okay";
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	phys = < &transceiver0 >;
+};
+&adc1{
+	status = "okay";
+};
+&uart2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&gpioe{
+	status = "okay";
+};
+&dac0{
+	voltage-reference = < 0x2 >;
+	status = "okay";
+};
 &gpioc{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&enet{
+	status = "okay";
+	pinctrl-0 = < &enet_default >;
+	pinctrl-names = "default";
+};
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };

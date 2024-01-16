@@ -11,18 +11,9 @@
 	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
 };
-&clk_lsi{
-	status = "okay";
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x4c4b400 >;
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0xb 0x11 >;
 };
 &pll{
 	status = "okay";
@@ -33,22 +24,8 @@
 	div-r = < 0x4 >;
 	clocks = < &clk_hsi >;
 };
-&usart1{
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&lpuart1{
+&clk_lsi{
 	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pa2 &lpuart1_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
 };
 &can1{
 	status = "okay";
@@ -56,8 +33,31 @@
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
+&usart1{
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &clk_hsi{
 	status = "okay";
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pa2 &lpuart1_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0xb 0x11 >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

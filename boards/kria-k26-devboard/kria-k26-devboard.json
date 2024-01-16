@@ -100,13 +100,6 @@
                 "twoColumn": true,
                 "interfaces": [
                     {
-                        "name": "usb",
-                        "id": "54109422-d44a-4fdb-94bf-9101a303d3f1",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
                         "name": "uart/mpsse[0]",
                         "id": "1d9e09f2-f6ec-4f23-be6e-00b19df5ebcf",
                         "direction": "inout",
@@ -119,6 +112,13 @@
                         "direction": "inout",
                         "side": "right",
                         "sidePosition": 1
+                    },
+                    {
+                        "name": "usb",
+                        "id": "54109422-d44a-4fdb-94bf-9101a303d3f1",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
                     },
                     {
                         "name": "uart[2]",
@@ -139,28 +139,6 @@
                 "enabledInterfaceGroups": [],
                 "name": "FTDI Chip FT4232HPQ-TRAY",
                 "instanceName": "USB to 4x UART bridge"
-            },
-            {
-                "id": "7a1ecf85-43a9-4001-9e63-46f8105ebe3e",
-                "position": {
-                    "x": 2150,
-                    "y": 800
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "sdio",
-                        "id": "ced504cc-a72d-4653-a879-a6d37c3ad78e",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Amphenol 1140084168",
-                "instanceName": "Micro SD Card"
             },
             {
                 "id": "9f5ce1c6-65ad-46ab-ae77-087d94ad3b23",
@@ -337,8 +315,8 @@
             {
                 "id": "62fea7ec-929b-460b-b430-d254987ffa76",
                 "position": {
-                    "x": 3160,
-                    "y": 461
+                    "x": 3150,
+                    "y": 450
                 },
                 "width": 200,
                 "twoColumn": true,
@@ -604,103 +582,132 @@
                 "enabledInterfaceGroups": [],
                 "name": "Amphenol GSB3112311HR",
                 "instanceName": "2x USB A"
+            },
+            {
+                "id": "fd20c43c-1c8f-44e0-a649-e0bf32969676",
+                "position": {
+                    "x": 2150,
+                    "y": 800
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "sdio",
+                        "id": "faed7e4f-e6b0-4b07-a496-1dbed3f73277",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "micro sd-card",
+                        "id": "de78e256-34d7-4680-a570-0c09e71dacef",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Amphenol 1140084168",
+                "instanceName": "Micro SD Card"
             }
         ],
         "connections": [
             {
-                "id": "89ccb588-3f14-443f-9b44-e9451891c3a5",
+                "id": "5ad288e5-f77f-49b1-bf1c-d9a724633163",
                 "from": "76076f09-8d43-4ab9-83d1-fffe4475c719",
                 "to": "0f353130-b0a2-47e3-b08d-4e1410ab480a"
             },
             {
-                "id": "9906f921-8208-4ecc-8176-dd30d67d8b3a",
+                "id": "01d86fe4-6e47-42c1-bf00-7330b9ded9c5",
                 "from": "c807cbe5-aad0-46f0-8571-548fe9711791",
                 "to": "5853d258-1679-426c-8823-2c1768909b70"
             },
             {
-                "id": "ee42a938-8faf-4863-8eea-412dd2c29097",
+                "id": "b181b154-f258-468a-98bc-f6b221d10f48",
                 "from": "7d7f370b-b8a8-47aa-b3c8-ff7bc81aeaa0",
                 "to": "54109422-d44a-4fdb-94bf-9101a303d3f1"
             },
             {
-                "id": "d78e9f01-da66-46a6-976b-c468cceaf8fe",
-                "from": "ced504cc-a72d-4653-a879-a6d37c3ad78e",
-                "to": "2270ab24-c70b-4e8d-98d2-684bb179626b"
-            },
-            {
-                "id": "3ec938b9-ec06-4418-a596-4afdb5de9aec",
+                "id": "553501f1-e35f-4083-a3f6-8013bd25a0e4",
                 "from": "b6dbde26-ea64-487e-95dc-a7d2c27e14a6",
                 "to": "cefb4048-d1bf-4e3d-ab06-a3af98f4ca81"
             },
             {
-                "id": "7880e27b-b1a6-452c-abb6-95925793bf66",
+                "id": "0460ecf0-251d-4de6-98ab-2f1442529311",
                 "from": "88524958-1ec5-4214-b07f-2cd3bf49d03c",
                 "to": "b72c3441-c928-4c6d-82b0-0b5d9e8135fe"
             },
             {
-                "id": "eb52c2b7-047b-42a7-9ba9-049c8d657492",
+                "id": "e7b09610-49ea-4afa-a7e3-9493c0942974",
                 "from": "9fff0695-be60-4e57-b97b-99fc1d4a5aa5",
                 "to": "737727ab-a50c-4ca0-85bc-8260e6aaf7fc"
             },
             {
-                "id": "8e06000b-ae8b-482f-a367-12d1635b6c93",
+                "id": "a86c496d-3eab-40d3-ad0b-826bd5559ea1",
                 "from": "68e842ab-cd88-47d0-9d72-c4b4b873951d",
                 "to": "57dd5ca6-0274-4dc2-88e2-901769cc4eba"
             },
             {
-                "id": "20906c5a-576b-41b3-ba68-2674ac46ce7a",
+                "id": "069fdcdd-7139-4b68-919f-c7ffb32320f5",
                 "from": "4c7792dc-5024-4026-a33a-4f1f204be38f",
                 "to": "c4d0b108-90d3-43ea-b1e3-8a8c989945f2"
             },
             {
-                "id": "e40ea4de-e8d0-431e-bd94-23bc6a652b50",
+                "id": "21956661-5ae9-4758-ac86-36bafaee482c",
                 "from": "98340804-1a67-4b7d-86d8-50d64f888c5e",
                 "to": "fa61e16b-c1a0-4b17-afb7-e19697621a6d"
             },
             {
-                "id": "fc106bc4-a083-456e-b23d-2b0262726f27",
+                "id": "ead456cd-d053-46cc-b369-88f97f803875",
                 "from": "08603231-b63a-463b-8545-aaabe0080449",
                 "to": "b3a1dbfe-5c9f-4ab7-8415-43baf2fc3e59"
             },
             {
-                "id": "17ac3ea0-9073-4a57-821b-c0f94a2d3967",
+                "id": "cff3ada5-7860-4111-b01d-44f7a7d9c829",
                 "from": "5e19afab-33c1-40ea-a4ca-adcde06ac4f0",
                 "to": "5e47e0c6-cb9b-494b-b3b0-bdcadb3d3dc9"
             },
             {
-                "id": "3d42673b-52dc-42bd-aae8-9043ce554042",
+                "id": "aada9078-0957-4d35-bc10-1a450cbd98b4",
                 "from": "71a7d4f7-a30c-433e-b794-be0554ee37f9",
                 "to": "56cb7799-ab81-4316-a1b6-1c0f1d2cfa6d"
             },
             {
-                "id": "d7f8dfee-c5d8-4819-b811-49f94f9f79fb",
+                "id": "11751137-b449-40bf-8b7f-a0fb1735f5b0",
                 "from": "4513219f-c4c9-4386-a60c-bb34ebf41233",
                 "to": "8767d39d-7193-4303-89fa-0c058683a3db"
             },
             {
-                "id": "d6bbfb75-d5e3-4fd8-a2f2-98f36f4e02e4",
+                "id": "017ed981-f893-4e8f-bef4-03d382ddbacc",
                 "from": "da963026-db24-45c2-b7fc-3298c05e6dd1",
                 "to": "b9377a9b-66aa-4c8e-b791-661587b19c4b"
             },
             {
-                "id": "577b4cfe-4b92-423c-a568-7a2e7e5563ff",
+                "id": "8e156498-1311-42d0-a05a-47a76b5ee867",
                 "from": "a6520cdb-f447-4423-9639-697ccb13bcd9",
                 "to": "120b3cbb-ee49-4849-ac2f-e89f6da3dfc9"
             },
             {
-                "id": "2650fd00-2e6d-4f49-9b36-158dfb2f2e55",
+                "id": "90cb3e30-ae62-40af-820f-331e13bc37be",
                 "from": "555555be-26c9-49bb-979a-407d95206d0d",
                 "to": "22695e5d-619c-4eb3-a4a7-580dab6df4ef"
             },
             {
-                "id": "93a2a96e-53bf-41a8-bd9c-629341821c70",
+                "id": "fce270f1-d3f9-4dcc-8142-9c4e3c1061d5",
                 "from": "6b226a44-488f-47ab-beda-8756004864d4",
                 "to": "b452e993-8d90-497c-9d09-4fb36c709d25"
             },
             {
-                "id": "b54df479-d966-4d2c-9e39-d1059ae1b3c9",
+                "id": "c6cd65be-b4bb-4b46-b277-93e377e0352b",
                 "from": "f87a116a-8641-43f0-9397-0ae875ceb817",
                 "to": "1d9e09f2-f6ec-4f23-be6e-00b19df5ebcf"
+            },
+            {
+                "id": "cbdf7aef-2b6e-4637-80fe-c40b8b932d25",
+                "from": "faed7e4f-e6b0-4b07-a496-1dbed3f73277",
+                "to": "2270ab24-c70b-4e8d-98d2-684bb179626b"
             }
         ]
     },

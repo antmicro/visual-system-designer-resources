@@ -231,91 +231,6 @@
                 "instanceName": "RTC Battery"
             },
             {
-                "id": "7a522f39-0330-4f3a-9a11-bd35e75eb4b4",
-                "position": {
-                    "x": 1750,
-                    "y": 600
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "i2c",
-                        "id": "a809855c-7fab-48c7-b3e3-640c71f82195",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Fujitsu MB85RC1MTPNF-G-JNERE1",
-                "instanceName": "FRAM"
-            },
-            {
-                "id": "57e17b60-ebf8-45a8-98e3-580a7976ce65",
-                "position": {
-                    "x": 1749,
-                    "y": 800
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "i2c",
-                        "id": "f4a55760-3025-47b2-a199-3d2e4161ae93",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [
-                    {
-                        "name": "repeatability",
-                        "id": "9a6b0d78-8164-4d42-9ea6-4cc864b17eb6",
-                        "value": 0
-                    }
-                ],
-                "enabledInterfaceGroups": [],
-                "name": "Sensirion SHT45-AD1B-R2",
-                "instanceName": "Humidity and Temperature sensor"
-            },
-            {
-                "id": "5ef50e63-a902-4fec-8197-2a0a3c6ee169",
-                "position": {
-                    "x": 1750,
-                    "y": 1050
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "i2c",
-                        "id": "2b856f17-bb16-448b-bc8a-9a06762f38c8",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "spi",
-                        "id": "08bf73f0-e886-4bbc-b54f-06b67eaf4b44",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    }
-                ],
-                "properties": [
-                    {
-                        "name": "spi-max-frequency",
-                        "id": "126293db-b475-4ba2-8567-e6bc0a1994ad",
-                        "value": 0
-                    }
-                ],
-                "enabledInterfaceGroups": [],
-                "name": "Bosch BME280",
-                "instanceName": "Humidity and Pressure sensor"
-            },
-            {
                 "id": "bfa45509-11f0-4756-9276-faf6734dd534",
                 "position": {
                     "x": 1755,
@@ -343,48 +258,149 @@
                 "enabledInterfaceGroups": [],
                 "name": "JST Automotive Connectors SM04B-SRSS-TB(LF)(SN)",
                 "instanceName": "QWIIC header"
+            },
+            {
+                "id": "ee2eb874-b9c2-406f-8407-ccf74e0f3399",
+                "position": {
+                    "x": 1754,
+                    "y": 550
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c",
+                        "id": "9080f112-bc05-4ffb-a234-63da77d287ac",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (i2c)",
+                        "id": "b35b74df-69df-498c-8c81-fc5bb58d89d6",
+                        "value": ""
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Fujitsu MB85RC1MTPNF-G-JNERE1",
+                "instanceName": "FRAM"
+            },
+            {
+                "id": "8e9d73c2-c2b6-461d-9a03-b82ecd1c28d7",
+                "position": {
+                    "x": 1748,
+                    "y": 800
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c",
+                        "id": "1ca8b994-563d-4e59-a9c1-587dd681a856",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (i2c)",
+                        "id": "bbc855da-6a03-4fed-9f68-a29625287c1b",
+                        "value": ""
+                    },
+                    {
+                        "name": "repeatability",
+                        "id": "59b25c42-e6bf-4018-a009-9ce70f829405",
+                        "value": 0
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Sensirion SHT45-AD1B-R2",
+                "instanceName": "Humidity and Temperature sensor"
+            },
+            {
+                "id": "5c8d6fd0-4192-4794-bf3f-4ce0e190d5f1",
+                "position": {
+                    "x": 1750,
+                    "y": 1050
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c",
+                        "id": "30038a26-2717-4abc-8b46-aa416c2147c7",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "spi",
+                        "id": "91341bdb-9a0a-41b3-8184-cb5f7aaad96e",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (i2c)",
+                        "id": "5bb79708-2da2-41b3-aeda-b1d023497c33",
+                        "value": ""
+                    },
+                    {
+                        "name": "spi-max-frequency",
+                        "id": "18f61ebc-e8a6-4819-b4ae-231014da7918",
+                        "value": 0
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Bosch BME280",
+                "instanceName": "Humidity and Pressure sensor"
             }
         ],
         "connections": [
             {
-                "id": "ccc49632-3cdb-45bf-9d04-37626c4ab3df",
+                "id": "a196200e-f0a6-4f26-8ee9-77a353d843f9",
                 "from": "c9689a46-e9b9-46ca-8360-a536d53a7e6a",
                 "to": "8958ecf4-9753-4f64-8781-330c080e17af"
             },
             {
-                "id": "fd92aeb2-b5e8-41e1-82a6-1d7f86655070",
+                "id": "1d4ce30e-11af-4319-9c67-ea3768ae9ad8",
                 "from": "452db981-7c90-401d-a25c-d563162576a1",
                 "to": "eea576ea-a675-443b-9209-6c8ddd9fae68"
             },
             {
-                "id": "2981a81a-2330-4c1a-9d23-70f6f3fece60",
+                "id": "bf09a2d2-daad-4470-9407-77181f6a6e7f",
                 "from": "f57ce2a6-b944-4808-99b4-b273b1ce5ade",
                 "to": "64f5c647-ff38-4be2-b8cd-e4eee3f21706"
             },
             {
-                "id": "42b61cef-0f27-4922-bf26-e8442c19dfed",
+                "id": "a1883829-780c-4e7c-9edf-715f2cd3fd5a",
                 "from": "f86e5f55-c892-4101-b74c-6d3c0da757a9",
                 "to": "134e383d-ec08-4fe6-b48f-35401ba19200"
             },
             {
-                "id": "eda60e86-cffa-414b-9b60-1a20826fdf0e",
-                "from": "148c6c18-32f5-4e4d-9f7a-f4a1781f534e",
-                "to": "a809855c-7fab-48c7-b3e3-640c71f82195"
-            },
-            {
-                "id": "1c27bad3-ae21-4cc9-a438-785398c26451",
-                "from": "148c6c18-32f5-4e4d-9f7a-f4a1781f534e",
-                "to": "f4a55760-3025-47b2-a199-3d2e4161ae93"
-            },
-            {
-                "id": "16b10f5a-f9b9-4c44-9556-d0582ba7ec03",
-                "from": "148c6c18-32f5-4e4d-9f7a-f4a1781f534e",
-                "to": "2b856f17-bb16-448b-bc8a-9a06762f38c8"
-            },
-            {
-                "id": "df0131e6-d1d1-4345-a476-e27520b808bb",
+                "id": "b0737c90-8619-4b94-9483-460d7cd9d4e7",
                 "from": "7e48d3f0-9a20-4d8f-977d-8eb3832bc3f4",
                 "to": "148c6c18-32f5-4e4d-9f7a-f4a1781f534e"
+            },
+            {
+                "id": "d0f0b224-3b5c-4ae2-aa12-125a312c9ad1",
+                "from": "148c6c18-32f5-4e4d-9f7a-f4a1781f534e",
+                "to": "9080f112-bc05-4ffb-a234-63da77d287ac"
+            },
+            {
+                "id": "95105743-5512-4ceb-926c-49b9f23b96fe",
+                "from": "148c6c18-32f5-4e4d-9f7a-f4a1781f534e",
+                "to": "1ca8b994-563d-4e59-a9c1-587dd681a856"
+            },
+            {
+                "id": "d4fa1e4f-ed5d-427e-bdf3-f62f60bbbfad",
+                "from": "148c6c18-32f5-4e4d-9f7a-f4a1781f534e",
+                "to": "30038a26-2717-4abc-8b46-aa416c2147c7"
             }
         ]
     },

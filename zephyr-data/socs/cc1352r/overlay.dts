@@ -12,14 +12,14 @@
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
 	pinctrl-names = "default";
 };
-&adc0{
-	status = "okay";
-};
 &gpio0{
 	status = "okay";
 };
-&radio{
+&i2c0{
 	status = "okay";
+	pinctrl-0 = < &i2c0_scl_default &i2c0_sda_default >;
+	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &spi0{
 	status = "okay";
@@ -27,9 +27,9 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpio0 0xb 0x1 >;
 };
-&i2c0{
+&radio{
 	status = "okay";
-	pinctrl-0 = < &i2c0_scl_default &i2c0_sda_default >;
-	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
-	pinctrl-names = "default", "sleep";
+};
+&adc0{
+	status = "okay";
 };

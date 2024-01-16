@@ -5,6 +5,10 @@
 		zephyr,flash = &flash0;
 	};
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
+};
 &adc1{
 	status = "okay";
 	#address-cells = < 0x1 >;
@@ -13,10 +17,6 @@
 	pinctrl-names = "default";
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x3d09000 >;
 };
 &pll{
 	status = "okay";

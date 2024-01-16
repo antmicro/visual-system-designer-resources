@@ -5,17 +5,9 @@
 		zephyr,flash = &flash0;
 	};
 };
-&tach1{
+&pwm6{
 	status = "okay";
-	pinctrl-0 = < &ta1_1_in_gp40 >;
-	pinctrl-names = "default";
-	port = < 0x0 >;
-	sample-clk = < 0x8000 >;
-	pulses-per-round = < 0x1 >;
-};
-&espi0{
-	status = "okay";
-	pinctrl-0 = < &espi_lpc_gp46_47_51_52_53_54_55_57 >;
+	pinctrl-0 = < &pwm6_gpc0 >;
 	pinctrl-names = "default";
 };
 &i2c0_0{
@@ -30,13 +22,21 @@
 	pinctrl-0 = < &uart1_2_sin_gp64 &uart1_2_sout_gp65 >;
 	pinctrl-names = "default";
 };
+&tach1{
+	status = "okay";
+	pinctrl-0 = < &ta1_1_in_gp40 >;
+	pinctrl-names = "default";
+	port = < 0x0 >;
+	sample-clk = < 0x8000 >;
+	pulses-per-round = < 0x1 >;
+};
+&espi0{
+	status = "okay";
+	pinctrl-0 = < &espi_lpc_gp46_47_51_52_53_54_55_57 >;
+	pinctrl-names = "default";
+};
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_chan0_gp45 &adc0_chan2_gp43 >;
-	pinctrl-names = "default";
-};
-&pwm6{
-	status = "okay";
-	pinctrl-0 = < &pwm6_gpc0 >;
 	pinctrl-names = "default";
 };

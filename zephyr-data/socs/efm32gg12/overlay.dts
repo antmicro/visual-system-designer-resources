@@ -6,14 +6,23 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpiof{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
 &usart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpiod{
-	status = "okay";
 };
 &gpioc{
 	status = "okay";
@@ -24,16 +33,10 @@
 	location-rx = < 0x0 0x1 0x8 >;
 	location-tx = < 0x0 0x1 0x7 >;
 };
-&i2c1{
+&i2c0{
 	status = "okay";
-	location-sda = < 0x0 0x2 0x4 >;
-	location-scl = < 0x0 0x2 0x5 >;
-};
-&gpiob{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
 };
 &leuart0{
 	status = "okay";
@@ -41,16 +44,13 @@
 	location-rx = < 0x1 0x1 0xe >;
 	location-tx = < 0x1 0x1 0xd >;
 };
-&i2c0{
-	status = "okay";
-	location-sda = < 0x4 0x2 0x0 >;
-	location-scl = < 0x4 0x2 0x1 >;
-};
 &gpioa{
 	status = "okay";
 };
-&gpioe{
+&i2c1{
 	status = "okay";
+	location-sda = < 0x0 0x2 0x4 >;
+	location-scl = < 0x0 0x2 0x5 >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

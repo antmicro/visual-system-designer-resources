@@ -24,11 +24,6 @@
 	mboxes = < &mru4 0x0 >;
 	mbox-names = "rx";
 };
-&uart0{
-	status = "okay";
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
 &can1{
 	pinctrl-0 = < &can1_default >;
 	pinctrl-names = "default";
@@ -36,6 +31,11 @@
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
+};
+&uart0{
+	status = "okay";
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };
 &emdio{
 	status = "okay";

@@ -6,9 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&pinctrl{
-	remap-pa11;
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x3d09000 >;
@@ -30,6 +27,9 @@
 };
 &clk_hsi{
 	status = "okay";
+};
+&pinctrl{
+	remap-pa11;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

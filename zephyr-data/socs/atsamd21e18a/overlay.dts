@@ -15,6 +15,14 @@
 	pinctrl-0 = < &sercom2_uart_default >;
 	pinctrl-names = "default";
 };
+&tcc0{
+	compatible = "atmel,sam0-tcc-pwm";
+	status = "okay";
+	prescaler = < 0x4 >;
+	#pwm-cells = < 0x2 >;
+	pinctrl-0 = < &pwm_default >;
+	pinctrl-names = "default";
+};
 &usb0{
 	status = "okay";
 	pinctrl-0 = < &usb_dc_default >;
@@ -27,14 +35,6 @@
 	rxpo = < 0x3 >;
 	txpo = < 0x1 >;
 	pinctrl-0 = < &sercom0_uart_default >;
-	pinctrl-names = "default";
-};
-&tcc0{
-	compatible = "atmel,sam0-tcc-pwm";
-	status = "okay";
-	prescaler = < 0x4 >;
-	#pwm-cells = < 0x2 >;
-	pinctrl-0 = < &pwm_default >;
 	pinctrl-names = "default";
 };
 &sercom1{
