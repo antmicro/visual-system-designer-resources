@@ -6,9 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x3d09000 >;
+&clk_hsi{
+	status = "okay";
+};
+&pinctrl{
+	remap-pa11;
 };
 &pll{
 	status = "okay";
@@ -25,11 +27,9 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_hsi{
-	status = "okay";
-};
-&pinctrl{
-	remap-pa11;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

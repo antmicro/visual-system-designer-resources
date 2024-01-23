@@ -214,6 +214,10 @@
 				reg = < 0x30000 0x1000 >;
 				interrupts = < 0x20 0x0 >;
 				status = "disabled";
+				rtc_highres: rtc_highres {
+					compatible = "nxp,lpc-rtc-highres";
+					status = "disabled";
+				};
 			};
 			trng: random@138000 {
 				compatible = "nxp,kinetis-trng";

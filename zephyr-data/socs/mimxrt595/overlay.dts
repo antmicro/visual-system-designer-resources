@@ -5,25 +5,10 @@
 		zephyr,sram = &sram0;
 	};
 };
-&pmic_i2c{
+&gpio4{
 	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &pinmux_pmic_i2c >;
-	pinctrl-names = "default";
-};
-&flexcomm0{
-	compatible = "nxp,lpc-usart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_flexcomm0_usart >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
-	dma-names = "rx", "tx";
-};
-&usbhs{
-	status = "okay";
+	int-source = "int-b";
+	interrupts = < 0x3 0x0 >;
 };
 &flexspi2{
 	status = "okay";
@@ -35,33 +20,49 @@
 	ahb-cacheable;
 	ahb-read-addr-opt;
 };
-&i3c0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_i3c >;
-	pinctrl-names = "default";
-};
-&hs_lspi1{
-	status = "okay";
-	pinctrl-0 = < &pinmux_flexcomm16_spi >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
-	dma-names = "rx", "tx";
-};
 &gpio5{
 	status = "okay";
 };
-&gpio4{
+&pmic_i2c{
 	status = "okay";
-	int-source = "int-b";
-	interrupts = < 0x3 0x0 >;
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &pinmux_pmic_i2c >;
+	pinctrl-names = "default";
+};
+&usbhs{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
 };
 &sc_timer{
 	status = "okay";
 	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
+&flexcomm0{
+	compatible = "nxp,lpc-usart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
+	dma-names = "rx", "tx";
+};
 &gpio1{
 	status = "okay";
+};
+&gpio3{
+	status = "okay";
+	int-source = "int-a";
+	interrupts = < 0x2 0x0 >;
+};
+&i3c0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-names = "default";
 };
 &flexspi{
 	status = "okay";
@@ -69,13 +70,12 @@
 	pinctrl-1 = < &pinmux_flexspi_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio3{
+&hs_lspi1{
 	status = "okay";
-	int-source = "int-a";
-	interrupts = < 0x2 0x0 >;
-};
-&gpio2{
-	status = "okay";
+	pinctrl-0 = < &pinmux_flexcomm16_spi >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
+	dma-names = "rx", "tx";
 };
 &gpio6{
 	status = "okay";

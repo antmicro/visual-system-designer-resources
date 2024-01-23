@@ -6,9 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x4c4b400 >;
+&clk_hsi{
+	status = "okay";
 };
 &pll{
 	status = "okay";
@@ -22,8 +21,9 @@
 &clk_lsi{
 	status = "okay";
 };
-&clk_hsi{
-	status = "okay";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x4c4b400 >;
 };
 &usart2{
 	status = "okay";

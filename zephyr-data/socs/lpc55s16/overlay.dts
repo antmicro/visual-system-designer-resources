@@ -6,14 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usbhs{
-	status = "okay";
-};
-&hs_lspi{
-	status = "okay";
-	pinctrl-0 = < &pinmux_hs_lspi >;
-	pinctrl-names = "default";
-};
 &can0{
 	status = "okay";
 	bus-speed = < 0x1e848 >;
@@ -27,4 +19,12 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
+};
+&hs_lspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_hs_lspi >;
+	pinctrl-names = "default";
+};
+&usbhs{
+	status = "okay";
 };

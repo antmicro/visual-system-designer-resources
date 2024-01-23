@@ -373,7 +373,7 @@
 			compatible = "st,stm32-rng";
 			reg = < 0x50060800 0x400 >;
 			interrupts = < 0x50 0x0 >;
-			clocks = < &rcc 0x4c 0x40000 >, < &rcc 0x5 0x37a88 >;
+			clocks = < &rcc 0x4c 0x40000 >, < &rcc 0x6 0x37a88 >;
 			status = "disabled";
 		};
 		usart3: serial@40004800 {
@@ -547,7 +547,7 @@
 		sdmmc1: sdmmc@40012800 {
 			compatible = "st,stm32-sdmmc";
 			reg = < 0x40012800 0x400 >;
-			clocks = < &rcc 0x60 0x400 >, < &rcc 0x5 0x37a88 >;
+			clocks = < &rcc 0x60 0x400 >, < &rcc 0x6 0x37a88 >;
 			resets = < &rctl 0x80a >;
 			interrupts = < 0x31 0x0 >;
 			status = "disabled";
@@ -576,7 +576,7 @@
 			ram-size = < 0x500 >;
 			maximum-speed = "full-speed";
 			phys = < &otgfs_phy >;
-			clocks = < &rcc 0x4c 0x1000 >, < &rcc 0x5 0x37a88 >;
+			clocks = < &rcc 0x4c 0x1000 >, < &rcc 0x6 0x37a88 >;
 			status = "disabled";
 		};
 	};

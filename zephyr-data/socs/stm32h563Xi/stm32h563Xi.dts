@@ -353,7 +353,7 @@
 			reg = < 0x4000a400 0x400 >, < 0x4000ac00 0x350 >;
 			reg-names = "m_can", "message_ram";
 			interrupts = < 0x27 0x0 >, < 0x28 0x0 >;
-			interrupt-names = "LINE_0", "LINE_1";
+			interrupt-names = "int0", "int1";
 			clocks = < &rcc 0xa0 0x200 >;
 			bosch,mram-cfg = < 0x0 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
 			sample-point = < 0x36b >;
@@ -407,7 +407,7 @@
 			num-bidir-endpoints = < 0x8 >;
 			ram-size = < 0x800 >;
 			phys = < &usb_fs_phy >;
-			clocks = < &rcc 0xa4 0x1000000 >, < &rcc 0xf 0x364e4 >;
+			clocks = < &rcc 0xa4 0x1000000 >, < &rcc 0x7 0x364e4 >;
 			status = "disabled";
 		};
 		uart4: serial@40004c00 {
@@ -514,7 +514,7 @@
 			reg = < 0x47001400 0x400 >;
 			interrupts = < 0x4e 0x0 >;
 			clock-names = "ospix", "ospi-ker";
-			clocks = < &rcc 0x94 0x100000 >, < &rcc 0x2 0x160e4 >;
+			clocks = < &rcc 0x94 0x100000 >, < &rcc 0x9 0x160e4 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			status = "disabled";
@@ -633,7 +633,7 @@
 			reg = < 0x4000a800 0x400 >, < 0x4000ac00 0x6a0 >;
 			reg-names = "m_can", "message_ram";
 			interrupts = < 0x6d 0x0 >, < 0x6e 0x0 >;
-			interrupt-names = "LINE_0", "LINE_1";
+			interrupt-names = "int0", "int1";
 			clocks = < &rcc 0xa0 0x200 >;
 			bosch,mram-cfg = < 0x350 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
 			sample-point = < 0x36b >;

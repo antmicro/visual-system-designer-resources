@@ -1,30 +1,9 @@
 / {
-	compatible = "arrow,stm32mp157a-avenger96";
+	compatible = "st,stm32mp157c-dk2";
 	chosen {
 		zephyr,sram = &mcusram;
 		zephyr,flash = &retram;
 	};
-};
-&uart4{
-	status = "okay";
-	pinctrl-0 = < &uart4_tx_pd1 &uart4_rx_pb2 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&uart7{
-	status = "okay";
-	pinctrl-0 = < &uart7_tx_pe8 &uart7_rx_pe7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clock-frequency = < 0xc751640 >;
-};
-&i2c5{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c5_scl_pa11 &i2c5_sda_pa12 >;
-	pinctrl-names = "default";
 };
 &usart3{
 	status = "okay";
@@ -37,10 +16,31 @@
 	pinctrl-0 = < &spi5_nss_pf6 &spi5_sck_pf7 &spi5_miso_pf8 &spi5_mosi_pf9 >;
 	pinctrl-names = "default";
 };
+&i2c5{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c5_scl_pa11 &i2c5_sda_pa12 >;
+	pinctrl-names = "default";
+};
+&uart7{
+	status = "okay";
+	pinctrl-0 = < &uart7_tx_pe8 &uart7_rx_pe7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&rcc{
+	clock-frequency = < 0xc751640 >;
+};
 &spi4{
 	status = "okay";
 	pinctrl-0 = < &spi4_nss_pe11 &spi4_sck_pe12 &spi4_miso_pe13 &spi4_mosi_pe14 >;
 	pinctrl-names = "default";
+};
+&uart4{
+	status = "okay";
+	pinctrl-0 = < &uart4_tx_pd1 &uart4_rx_pb2 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
@@ -124,14 +124,60 @@
 		#gpio-cells = < 0x2 >;
 		clocks = < &rcc 0x7 0x400 >;
 	};
-	uart4_rx_pb2: uart4_rx_pb2 {
-		pinmux = < 0x248 >;
+	i2c5_scl_pa11: i2c5_scl_pa11 {
+		pinmux = < 0x164 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c5_sda_pa12: i2c5_sda_pa12 {
+		pinmux = < 0x184 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	spi4_miso_pe13: spi4_miso_pe13 {
+		pinmux = < 0x9a5 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	spi5_miso_pf8: spi5_miso_pf8 {
+		pinmux = < 0xb05 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	spi4_mosi_pe14: spi4_mosi_pe14 {
+		pinmux = < 0x9c5 >;
+		bias-pull-down;
+	};
+	spi5_mosi_pf9: spi5_mosi_pf9 {
+		pinmux = < 0xb25 >;
+		bias-pull-down;
+	};
+	spi4_nss_pe11: spi4_nss_pe11 {
+		pinmux = < 0x965 >;
+		bias-pull-up;
+	};
+	spi5_nss_pf6: spi5_nss_pf6 {
+		pinmux = < 0xac5 >;
+		bias-pull-up;
+	};
+	spi4_sck_pe12: spi4_sck_pe12 {
+		pinmux = < 0x985 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	spi5_sck_pf7: spi5_sck_pf7 {
+		pinmux = < 0xae5 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	usart3_rx_pb12: usart3_rx_pb12 {
+		pinmux = < 0x388 >;
 	};
 	uart7_rx_pe7: uart7_rx_pe7 {
 		pinmux = < 0x8e7 >;
 	};
-	uart4_tx_pd1: uart4_tx_pd1 {
-		pinmux = < 0x628 >;
+	usart3_tx_pb10: usart3_tx_pb10 {
+		pinmux = < 0x347 >;
 		bias-pull-up;
 	};
 	uart7_tx_pe8: uart7_tx_pe8 {

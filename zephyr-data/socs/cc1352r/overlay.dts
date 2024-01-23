@@ -1,5 +1,5 @@
 / {
-	compatible = "ti,launchxl-cc1352r1";
+	compatible = "ti,sensortag-cc1352r";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
@@ -12,6 +12,18 @@
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
 	pinctrl-names = "default";
 };
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpio0 0xb 0x1 >;
+};
+&adc0{
+	status = "okay";
+};
+&radio{
+	status = "okay";
+};
 &gpio0{
 	status = "okay";
 };
@@ -20,16 +32,4 @@
 	pinctrl-0 = < &i2c0_scl_default &i2c0_sda_default >;
 	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default &spi0_cs_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpio0 0xb 0x1 >;
-};
-&radio{
-	status = "okay";
-};
-&adc0{
-	status = "okay";
 };

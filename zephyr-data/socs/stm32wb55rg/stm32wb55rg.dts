@@ -334,7 +334,7 @@
 			num-bidir-endpoints = < 0x8 >;
 			ram-size = < 0x400 >;
 			phys = < &usb_fs_phy >;
-			clocks = < &rcc 0x58 0x4000000 >, < &rcc 0x2 0x7a88 >;
+			clocks = < &rcc 0x58 0x4000000 >, < &rcc 0x5 0x7a88 >;
 			status = "disabled";
 		};
 		quadspi: quadspi@a0001000 {
@@ -493,7 +493,7 @@
 	};
 	ble_rf: ble_rf {
 		compatible = "st,stm32wb-rf";
-		clocks = < &rcc 0x50 0x100000 >, < &rcc 0x3 0x16e94 >;
+		clocks = < &rcc 0x50 0x100000 >, < &rcc 0x2 0x16e94 >;
 	};
 	smbus1: smbus1 {
 		compatible = "st,stm32-smbus";

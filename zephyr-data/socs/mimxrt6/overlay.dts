@@ -13,6 +13,12 @@
 	pinctrl-0 = < &pinmux_pmic_i2c >;
 	pinctrl-names = "default";
 };
+&usbhs{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
 	status = "okay";
@@ -22,7 +28,7 @@
 	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
 	dma-names = "rx", "tx";
 };
-&usbhs{
+&gpio1{
 	status = "okay";
 };
 &i3c0{
@@ -30,21 +36,15 @@
 	pinctrl-0 = < &pinmux_i3c >;
 	pinctrl-names = "default";
 };
-&sc_timer{
-	status = "okay";
-	pinctrl-0 = < &pinmux_sctimer >;
-	pinctrl-names = "default";
-};
-&gpio1{
-	status = "okay";
-};
 &flexspi{
 	status = "okay";
 	pinctrl-0 = < &pinmux_flexspi >;
 	pinctrl-names = "default";
 };
-&gpio2{
+&sc_timer{
 	status = "okay";
+	pinctrl-0 = < &pinmux_sctimer >;
+	pinctrl-names = "default";
 };
 &gpio0{
 	status = "okay";

@@ -1,16 +1,33 @@
 / {
-	compatible = "sparkfun,thing-plus-nrf9160";
+	compatible = "circuitdojo,feather-nrf9160";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
 };
-&spi3{
+&pwm0{
 	status = "okay";
-	cs-gpios = < &gpio0 0x7 0x1 >;
-	pinctrl-0 = < &spi3_default >;
-	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart0{
@@ -20,33 +37,16 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&spi3{
+	status = "okay";
+	cs-gpios = < &gpio0 0x7 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
+};
 &uart2{
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-1 = < &uart2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-1 = < &i2c1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&adc{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
-};
-&uart1{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c2{
@@ -56,11 +56,8 @@
 	pinctrl-1 = < &i2c2_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &neopixel_spi_default >;
-	pinctrl-1 = < &neopixel_spi_sleep >;
-	pinctrl-names = "default", "sleep";
+&sram0{
+	reg = < 0x20000000 0x10000 >;
 };
 &pwm1{
 	status = "okay";
@@ -68,8 +65,11 @@
 	pinctrl-1 = < &pwm1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&sram0{
-	reg = < 0x20000000 0x10000 >;
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &neopixel_spi_default >;
+	pinctrl-1 = < &neopixel_spi_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
@@ -120,7 +120,6 @@
 	pwm0_default: pwm0_default {
 		group1 {
 			psels = < 0x160003 >;
-			nordic,invert;
 		};
 	};
 	pwm0_sleep: pwm0_sleep {

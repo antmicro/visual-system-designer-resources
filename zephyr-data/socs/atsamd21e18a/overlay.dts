@@ -1,7 +1,7 @@
 / {
-	compatible = "adafruit,trinket-m0", "atmel,samd21e18a", "atmel,samd21";
+	compatible = "arturo182,serpente";
 	chosen {
-		zephyr,console = &sercom0;
+		zephyr,console = &sercom2;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
@@ -15,6 +15,11 @@
 	pinctrl-0 = < &sercom2_uart_default >;
 	pinctrl-names = "default";
 };
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb_dc_default >;
+	pinctrl-names = "default";
+};
 &tcc0{
 	compatible = "atmel,sam0-tcc-pwm";
 	status = "okay";
@@ -23,18 +28,17 @@
 	pinctrl-0 = < &pwm_default >;
 	pinctrl-names = "default";
 };
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
 &sercom0{
-	compatible = "atmel,sam0-uart";
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x3 >;
-	txpo = < 0x1 >;
-	pinctrl-0 = < &sercom0_uart_default >;
+};
+&sercom3{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	dipo = < 0x1 >;
+	dopo = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom3_spi_default >;
 	pinctrl-names = "default";
 };
 &sercom1{
@@ -45,15 +49,5 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom1_spi_default >;
-	pinctrl-names = "default";
-};
-&sercom3{
-	compatible = "atmel,sam0-spi";
-	status = "okay";
-	dipo = < 0x1 >;
-	dopo = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom3_spi_default >;
 	pinctrl-names = "default";
 };

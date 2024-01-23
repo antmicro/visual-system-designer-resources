@@ -139,6 +139,24 @@
         },
         "rdp-compat": "adi,adxl372"
     },
+    "ags10": {
+        "category": "Other",
+        "compatible": [
+            "aosong,ags10"
+        ],
+        "description": "AOSONG AGS10 a high-performance TVOC Sensor With I2C Interface.\nSee: http://www.aosong.com/en/products-86.html\n",
+        "driver": [
+            "drivers/sensor/ags10/ags10.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
+    },
     "ak8975": {
         "category": "Magnetometer",
         "compatible": [
@@ -165,8 +183,8 @@
         ],
         "description": "Asahi Kasei AKM09918C Magnetometer. See datasheet at\nhttps://www.akm.com/content/dam/documents/products/electronic-compass/ak09918c/ak09918c-en-datasheet.pdf\n",
         "driver": [
-            "drivers/sensor/akm09918c/akm09918c_emul.c",
-            "drivers/sensor/akm09918c/akm09918c.c"
+            "drivers/sensor/akm09918c/akm09918c.c",
+            "drivers/sensor/akm09918c/akm09918c_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -185,8 +203,8 @@
         ],
         "description": "AMD SB Temperature Sensor Interface.",
         "driver": [
-            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c",
-            "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+            "drivers/sensor/amd_sb_tsi/sb_tsi.c",
+            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -292,6 +310,25 @@
             }
         },
         "rdp-compat": "bosch,bma280"
+    },
+    "bma4xx": {
+        "category": "Motion",
+        "compatible": [
+            "bosch,bma4xx"
+        ],
+        "description": "Bosch BMA4xx 3-axis acceleration sensors in I2C mode.  See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/accelerometers/\n",
+        "driver": [
+            "drivers/sensor/bma4xx/bma4xx.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "bosch,bma4xx"
     },
     "bmc150_magn": {
         "category": "Magnetometer",
@@ -757,8 +794,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303_emul.c",
-            "drivers/sensor/f75303/f75303.c"
+            "drivers/sensor/f75303/f75303.c",
+            "drivers/sensor/f75303/f75303_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"

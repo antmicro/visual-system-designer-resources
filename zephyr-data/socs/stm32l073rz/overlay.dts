@@ -1,22 +1,15 @@
 / {
-	compatible = "ronoth,lodev";
+	compatible = "st,stm32l073rz-nucleo";
 	chosen {
-		zephyr,console = &usart1;
+		zephyr,console = &usart2;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&spi1{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
-	pinctrl-names = "default";
-};
-&clk_hsi48{
-	status = "okay";
-};
-&rcc{
-	clocks = < &clk_hsi >;
-	clock-frequency = < 0xf42400 >;
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &adc1{
 	status = "okay";
@@ -25,16 +18,47 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&clk_lsi{
+&dac1{
 	status = "okay";
+	pinctrl-0 = < &dac_out1_pa4 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	div = < 0x2 >;
+	mul = < 0x8 >;
+	clocks = < &clk_hse >;
 };
 &usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_hsi{
+&clk_lsi{
+	status = "okay";
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-names = "default";
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x1e84800 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&clk_hsi48{
 	status = "okay";
 };
 &usart2{
@@ -43,39 +67,14 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&clk_hsi{
+	status = "okay";
+};
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0xc 0x1 >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac_out1_pa4 >;
-	pinctrl-names = "default";
-};
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
-};
-&pll{
-	status = "okay";
-	div = < 0x2 >;
-	mul = < 0x8 >;
-	clocks = < &clk_hse >;
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
-	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
@@ -130,13 +129,23 @@
 	dac_out1_pa4: dac_out1_pa4 {
 		pinmux = < 0x90 >;
 	};
-	i2c1_scl_pb6: i2c1_scl_pb6 {
-		pinmux = < 0x2c1 >;
+	i2c1_scl_pb8: i2c1_scl_pb8 {
+		pinmux = < 0x304 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
-	i2c1_sda_pb7: i2c1_sda_pb7 {
-		pinmux = < 0x2e1 >;
+	i2c2_scl_pb10: i2c2_scl_pb10 {
+		pinmux = < 0x346 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c1_sda_pb9: i2c1_sda_pb9 {
+		pinmux = < 0x324 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c2_sda_pb11: i2c2_sda_pb11 {
+		pinmux = < 0x366 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
@@ -144,40 +153,26 @@
 		pinmux = < 0xc0 >;
 		bias-pull-down;
 	};
-	spi2_miso_pb14: spi2_miso_pb14 {
-		pinmux = < 0x3c0 >;
-		bias-pull-down;
-	};
 	spi1_mosi_pa7: spi1_mosi_pa7 {
 		pinmux = < 0xe0 >;
 		bias-pull-down;
-	};
-	spi2_mosi_pb15: spi2_mosi_pb15 {
-		pinmux = < 0x3e0 >;
-		bias-pull-down;
-	};
-	spi1_nss_pa4: spi1_nss_pa4 {
-		pinmux = < 0x80 >;
-		bias-pull-up;
 	};
 	spi1_sck_pa5: spi1_sck_pa5 {
 		pinmux = < 0xa0 >;
 		bias-pull-down;
 		slew-rate = "very-high-speed";
 	};
-	spi2_sck_pb13: spi2_sck_pb13 {
-		pinmux = < 0x3a0 >;
-		bias-pull-down;
-		slew-rate = "very-high-speed";
+	tim2_ch1_pa5: tim2_ch1_pa5 {
+		pinmux = < 0xa5 >;
 	};
-	usart1_rx_pa10: usart1_rx_pa10 {
-		pinmux = < 0x144 >;
+	usart1_rx_pb7: usart1_rx_pb7 {
+		pinmux = < 0x2e0 >;
 	};
 	usart2_rx_pa3: usart2_rx_pa3 {
 		pinmux = < 0x64 >;
 	};
-	usart1_tx_pa9: usart1_tx_pa9 {
-		pinmux = < 0x124 >;
+	usart1_tx_pb6: usart1_tx_pb6 {
+		pinmux = < 0x2c0 >;
 		bias-pull-up;
 	};
 	usart2_tx_pa2: usart2_tx_pa2 {

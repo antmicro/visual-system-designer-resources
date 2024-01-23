@@ -5,40 +5,8 @@
 		zephyr,sram = &ocram;
 	};
 };
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &pinmux_adc1 >;
-	pinctrl-names = "default";
-};
-&lpuart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_lpuart1 >;
-	pinctrl-1 = < &pinmux_lpuart1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &gpio2{
 	pinmux = < &iomuxc_gpio_sd_00_gpio2_io00 >, < &iomuxc_gpio_sd_01_gpio2_io01 >, < &iomuxc_gpio_sd_02_gpio2_io02 >, < &iomuxc_gpio_sd_03_gpio2_io03 >, < &iomuxc_gpio_sd_04_gpio2_io04 >, < &iomuxc_gpio_sd_05_gpio2_io05 >, < &iomuxc_gpio_sd_06_gpio2_io06 >, < &iomuxc_gpio_sd_07_gpio2_io07 >, < &iomuxc_gpio_sd_08_gpio2_io08 >, < &iomuxc_gpio_sd_09_gpio2_io09 >, < &iomuxc_gpio_sd_10_gpio2_io10 >, < &iomuxc_gpio_sd_11_gpio2_io11 >, < &iomuxc_gpio_sd_12_gpio2_io12 >, < &iomuxc_gpio_sd_13_gpio2_io13 >;
-};
-&lpi2c1{
-	status = "okay";
-	pinctrl-0 = < &pinmux_lpi2c1 >;
-	pinctrl-names = "default";
-};
-&flexspi{
-	reg = < 0x400a0000 0x4000 >, < 0x60000000 0x1000000 >;
-	status = "okay";
-};
-&usb1{
-	status = "okay";
-};
-&lpuart4{
-	pinctrl-0 = < &pinmux_lpuart4 >;
-	pinctrl-1 = < &pinmux_lpuart4_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&gpio5{
-	pinmux = < &iomuxc_snvs_pmic_on_req_gpio5_io00 >;
 };
 &gpio1{
 	pinmux = < &iomuxc_gpio_00_gpiomux_io00 >, < &iomuxc_gpio_01_gpiomux_io01 >, < &iomuxc_gpio_02_gpiomux_io02 >, < &iomuxc_gpio_03_gpiomux_io03 >, < &iomuxc_gpio_04_gpiomux_io04 >, < &iomuxc_gpio_05_gpiomux_io05 >, < &iomuxc_gpio_06_gpiomux_io06 >, < &iomuxc_gpio_07_gpiomux_io07 >, < &iomuxc_gpio_08_gpiomux_io08 >, < &iomuxc_gpio_09_gpiomux_io09 >, < &iomuxc_gpio_10_gpiomux_io10 >, < &iomuxc_gpio_11_gpiomux_io11 >, < &iomuxc_gpio_12_gpiomux_io12 >, < &iomuxc_gpio_13_gpiomux_io13 >, < &iomuxc_gpio_ad_00_gpiomux_io14 >, < &iomuxc_gpio_ad_01_gpiomux_io15 >, < &iomuxc_gpio_ad_02_gpiomux_io16 >, < &iomuxc_gpio_ad_03_gpiomux_io17 >, < &iomuxc_gpio_ad_04_gpiomux_io18 >, < &iomuxc_gpio_ad_05_gpiomux_io19 >, < &iomuxc_gpio_ad_06_gpiomux_io20 >, < &iomuxc_gpio_ad_07_gpiomux_io21 >, < &iomuxc_gpio_ad_08_gpiomux_io22 >, < &iomuxc_gpio_ad_09_gpiomux_io23 >, < &iomuxc_gpio_ad_10_gpiomux_io24 >, < &iomuxc_gpio_ad_11_gpiomux_io25 >, < &iomuxc_gpio_ad_12_gpiomux_io26 >, < &iomuxc_gpio_ad_13_gpiomux_io27 >, < &iomuxc_gpio_ad_14_gpiomux_io28 >;
@@ -49,4 +17,36 @@
 	dma-names = "rx", "tx";
 	pinctrl-0 = < &pinmux_lpspi1 >;
 	pinctrl-names = "default";
+};
+&lpuart4{
+	pinctrl-0 = < &pinmux_lpuart4 >;
+	pinctrl-1 = < &pinmux_lpuart4_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&lpi2c1{
+	status = "okay";
+	pinctrl-0 = < &pinmux_lpi2c1 >;
+	pinctrl-names = "default";
+};
+&usb1{
+	status = "okay";
+};
+&gpio5{
+	pinmux = < &iomuxc_snvs_pmic_on_req_gpio5_io00 >;
+};
+&lpuart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_lpuart1 >;
+	pinctrl-1 = < &pinmux_lpuart1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &pinmux_adc1 >;
+	pinctrl-names = "default";
+};
+&flexspi{
+	reg = < 0x400a0000 0x4000 >, < 0x60000000 0x1000000 >;
+	status = "okay";
 };

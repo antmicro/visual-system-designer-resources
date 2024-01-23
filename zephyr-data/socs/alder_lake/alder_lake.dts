@@ -62,6 +62,12 @@
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
+		uart1_dma: uart1_dma {
+			compatible = "intel,lpss";
+			#dma-cells = < 0x1 >;
+			status = "disabled";
+			phandle = < 0x2 >;
+		};
 		uart1: uart1 {
 			compatible = "ns16550";
 			vendor-id = < 0x8086 >;
@@ -71,7 +77,15 @@
 			reg-shift = < 0x2 >;
 			interrupts = < 0xfffffff 0xa100 0x3 >;
 			interrupt-parent = < &intc >;
+			dmas = < &uart1_dma 0x0 >, < &uart1_dma 0x1 >;
+			dma-names = "tx", "rx";
 			status = "disabled";
+		};
+		uart2_dma: uart2_dma {
+			compatible = "intel,lpss";
+			#dma-cells = < 0x1 >;
+			status = "disabled";
+			phandle = < 0x3 >;
 		};
 		uart2: uart2 {
 			compatible = "ns16550";
@@ -82,6 +96,8 @@
 			reg-shift = < 0x2 >;
 			interrupts = < 0xfffffff 0xa100 0x3 >;
 			interrupt-parent = < &intc >;
+			dmas = < &uart2_dma 0x0 >, < &uart2_dma 0x1 >;
+			dma-names = "tx", "rx";
 			status = "disabled";
 		};
 		i2c0: i2c0 {
@@ -305,7 +321,7 @@
 			ngpios = < 0x14 >;
 			pin-offset = < 0x31 >;
 			status = "okay";
-			phandle = < 0x4 >;
+			phandle = < 0x6 >;
 		};
 		gpio_4_c: gpio@fd6a0700 {
 			compatible = "intel,gpio";
@@ -330,7 +346,7 @@
 			ngpios = < 0x18 >;
 			pin-offset = < 0x18 >;
 			status = "okay";
-			phandle = < 0x3 >;
+			phandle = < 0x5 >;
 		};
 		gpio_4_e: gpio@fd6a0a70 {
 			compatible = "intel,gpio";
@@ -343,7 +359,7 @@
 			ngpios = < 0x18 >;
 			pin-offset = < 0x39 >;
 			status = "okay";
-			phandle = < 0x2 >;
+			phandle = < 0x4 >;
 		};
 		gpio_5_r: gpio@fd690700 {
 			compatible = "intel,gpio";

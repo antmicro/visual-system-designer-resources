@@ -6,16 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom4{
-	compatible = "atmel,sam0-spi";
+&usb0{
 	status = "okay";
-	dipo = < 0x0 >;
-	dopo = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom4_spi_default >;
+	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &portb 0x1f 0x1 >;
 };
 &tcc0{
 	compatible = "atmel,sam0-tcc-pwm";
@@ -23,20 +17,6 @@
 	prescaler = < 0x4 >;
 	#pwm-cells = < 0x2 >;
 	pinctrl-0 = < &pwm_default >;
-	pinctrl-names = "default";
-};
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
-&sercom0{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom0_uart_default >;
 	pinctrl-names = "default";
 };
 &sercom1{
@@ -48,6 +28,15 @@
 	pinctrl-0 = < &sercom1_i2c_default >;
 	pinctrl-names = "default";
 };
+&sercom0{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-names = "default";
+};
 &sercom5{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
@@ -57,4 +46,15 @@
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom5_spi_default >;
 	pinctrl-names = "default";
+};
+&sercom4{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	dipo = < 0x0 >;
+	dopo = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom4_spi_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &portb 0x1f 0x1 >;
 };

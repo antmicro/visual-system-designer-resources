@@ -282,7 +282,7 @@
 			reg = < 0x40006400 0x400 >, < 0x4000a400 0x350 >;
 			reg-names = "m_can", "message_ram";
 			interrupts = < 0x15 0x0 >, < 0x16 0x0 >;
-			interrupt-names = "LINE_0", "LINE_1";
+			interrupt-names = "int0", "int1";
 			clocks = < &rcc 0x58 0x2000000 >;
 			bosch,mram-cfg = < 0x0 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
 			sample-point = < 0x36b >;
@@ -486,7 +486,7 @@
 			num-bidir-endpoints = < 0x8 >;
 			ram-size = < 0x400 >;
 			phys = < &usb_fs_phy >;
-			clocks = < &rcc 0x58 0x800000 >, < &rcc 0x2 0x7a88 >;
+			clocks = < &rcc 0x58 0x800000 >, < &rcc 0x5 0x7a88 >;
 			status = "disabled";
 		};
 		dma1: dma@40020000 {

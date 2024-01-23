@@ -9,15 +9,10 @@
 &gpiod{
 	status = "okay";
 };
+&adc0{
+	status = "okay";
+};
 &gpiob{
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0x5 0x2 0x5 >;
-	location-scl = < 0x5 0x2 0x4 >;
-};
-&gpioa{
 	status = "okay";
 };
 &usart0{
@@ -26,10 +21,15 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&adc0{
+&i2c0{
 	status = "okay";
+	location-sda = < 0x5 0x2 0x5 >;
+	location-scl = < 0x5 0x2 0x4 >;
 };
 &gpioc{
+	status = "okay";
+};
+&gpioa{
 	status = "okay";
 };
 &pinctrl{

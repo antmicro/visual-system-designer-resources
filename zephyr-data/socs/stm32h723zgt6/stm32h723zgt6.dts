@@ -305,7 +305,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x40013000 0x400 >;
-			clocks = < &rcc 0xf0 0x1000 >, < &rcc 0x2 0xec50 >;
+			clocks = < &rcc 0xf0 0x1000 >, < &rcc 0x9 0xec50 >;
 			interrupts = < 0x23 0x0 >;
 			status = "disabled";
 		};
@@ -314,7 +314,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x40003800 0x400 >;
-			clocks = < &rcc 0xe8 0x4000 >, < &rcc 0x2 0xec50 >;
+			clocks = < &rcc 0xe8 0x4000 >, < &rcc 0x9 0xec50 >;
 			interrupts = < 0x24 0x0 >;
 			status = "disabled";
 		};
@@ -323,7 +323,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x40003c00 0x400 >;
-			clocks = < &rcc 0xe8 0x8000 >, < &rcc 0x2 0xec50 >;
+			clocks = < &rcc 0xe8 0x8000 >, < &rcc 0x9 0xec50 >;
 			interrupts = < 0x33 0x0 >;
 			status = "disabled";
 		};
@@ -359,7 +359,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x40013000 0x400 >;
-			clocks = < &rcc 0xf0 0x1000 >, < &rcc 0x2 0xec50 >;
+			clocks = < &rcc 0xf0 0x1000 >, < &rcc 0x9 0xec50 >;
 			dmas = < &dmamux1 0x0 0x26 0x20440 &dmamux1 0x1 0x25 0x20480 >;
 			dma-names = "tx", "rx";
 			interrupts = < 0x23 0x3 >;
@@ -370,7 +370,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x40003800 0x400 >;
-			clocks = < &rcc 0xe8 0x4000 >, < &rcc 0x2 0xec50 >;
+			clocks = < &rcc 0xe8 0x4000 >, < &rcc 0x9 0xec50 >;
 			dmas = < &dmamux1 0x0 0x28 0x20440 &dmamux1 0x1 0x27 0x20480 >;
 			dma-names = "tx", "rx";
 			interrupts = < 0x24 0x0 >;
@@ -381,7 +381,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x40003c00 0x400 >;
-			clocks = < &rcc 0xe8 0x8000 >, < &rcc 0x2 0xec50 >;
+			clocks = < &rcc 0xe8 0x8000 >, < &rcc 0x9 0xec50 >;
 			dmas = < &dmamux1 0x0 0x3e 0x20440 &dmamux1 0x1 0x3d 0x20480 >;
 			dma-names = "tx", "rx";
 			interrupts = < 0x33 0x0 >;
@@ -393,7 +393,7 @@
 			reg-names = "m_can", "message_ram";
 			clocks = < &rcc 0xec 0x100 >;
 			interrupts = < 0x13 0x0 >, < 0x15 0x0 >, < 0x3f 0x0 >;
-			interrupt-names = "LINE_0", "LINE_1", "CALIB";
+			interrupt-names = "int0", "int1", "calib";
 			bosch,mram-cfg = < 0x0 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
 			sample-point = < 0x36b >;
 			sample-point-data = < 0x36b >;
@@ -405,7 +405,7 @@
 			reg-names = "m_can", "message_ram";
 			clocks = < &rcc 0xec 0x100 >;
 			interrupts = < 0x14 0x0 >, < 0x16 0x0 >, < 0x3f 0x0 >;
-			interrupt-names = "LINE_0", "LINE_1", "CALIB";
+			interrupt-names = "int0", "int1", "calib";
 			bosch,mram-cfg = < 0x350 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
 			sample-point = < 0x36b >;
 			sample-point-data = < 0x36b >;
@@ -789,7 +789,7 @@
 		sdmmc1: sdmmc@52007000 {
 			compatible = "st,stm32-sdmmc";
 			reg = < 0x52007000 0x400 >;
-			clocks = < &rcc 0xd4 0x10000 >, < &rcc 0x2 0x304c >;
+			clocks = < &rcc 0xd4 0x10000 >, < &rcc 0x9 0x304c >;
 			resets = < &rctl 0xf90 >;
 			interrupts = < 0x31 0x0 >;
 			status = "disabled";
@@ -797,7 +797,7 @@
 		sdmmc2: sdmmc@48022400 {
 			compatible = "st,stm32-sdmmc";
 			reg = < 0x48022400 0x400 >;
-			clocks = < &rcc 0xdc 0x200 >, < &rcc 0x2 0x304c >;
+			clocks = < &rcc 0xdc 0x200 >, < &rcc 0x9 0x304c >;
 			resets = < &rctl 0x1089 >;
 			interrupts = < 0x7c 0x0 >;
 			status = "disabled";
@@ -862,7 +862,7 @@
 			num-bidir-endpoints = < 0x9 >;
 			ram-size = < 0x1000 >;
 			maximum-speed = "full-speed";
-			clocks = < &rcc 0xd8 0x2000000 >, < &rcc 0xd 0x37454 >;
+			clocks = < &rcc 0xd8 0x2000000 >, < &rcc 0x5 0x37454 >;
 			phys = < &otghs_fs_phy >;
 			status = "disabled";
 		};
@@ -879,7 +879,7 @@
 			reg = < 0x52005000 0x1000 >;
 			interrupts = < 0x5c 0x0 >;
 			clock-names = "ospix", "ospi-ker";
-			clocks = < &rcc 0xd4 0x4000 >, < &rcc 0x2 0x1644c >;
+			clocks = < &rcc 0xd4 0x4000 >, < &rcc 0x9 0x1644c >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			status = "disabled";
@@ -889,7 +889,7 @@
 			reg = < 0x5200a000 0x1000 >;
 			interrupts = < 0x96 0x0 >;
 			clock-names = "ospix", "ospi-ker";
-			clocks = < &rcc 0xd4 0x80000 >, < &rcc 0x2 0x1644c >;
+			clocks = < &rcc 0xd4 0x80000 >, < &rcc 0x9 0x1644c >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			status = "disabled";
@@ -900,7 +900,7 @@
 			reg-names = "m_can", "message_ram";
 			clocks = < &rcc 0xec 0x100 >;
 			interrupts = < 0x9f 0x0 >, < 0xa0 0x0 >, < 0x3f 0x0 >;
-			interrupt-names = "LINE_0", "LINE_1", "CALIB";
+			interrupt-names = "int0", "int1", "calib";
 			bosch,mram-cfg = < 0x6a0 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
 			sample-point = < 0x36b >;
 			sample-point-data = < 0x36b >;

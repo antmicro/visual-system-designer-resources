@@ -12,26 +12,26 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&i2c0{
+&gpiod{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
 };
 &gpiob{
-	status = "okay";
-};
-&gpioa{
 	status = "okay";
 };
 &usbotg{
 	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };
+&gpioa{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
-};
-&gpiod{
-	status = "okay";
 };

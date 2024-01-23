@@ -1,0 +1,10 @@
+/ {
+	compatible = "espressif,esp32_appcpu";
+	chosen {
+		zephyr,sram = &sram0;
+	};
+};
+&pinctrl{
+	compatible = "espressif,esp32-pinctrl";
+	status = "okay";
+};

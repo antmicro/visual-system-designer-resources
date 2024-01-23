@@ -1,10 +1,16 @@
 / {
-	compatible = "lairdconnect,rm1xx_dvk";
+	compatible = "seeed,carbon_nrf51";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &uart0{
 	status = "okay";
@@ -13,26 +19,22 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&spi1{
+	compatible = "nordic,nrf-spis";
+	status = "okay";
+	def-char = < 0x0 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+};
 &gpio0{
 	status = "okay";
 };
+&adc{
+	status = "okay";
+};
 &spi0{
-	cs-gpios = < &gpio0 0x4 0x1 >;
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-1 = < &spi0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&spi1{
-	status = "okay";
-	cs-gpios = < &gpio0 0x2 0x11 >, < &gpio0 0x8 0x11 >;
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-1 = < &spi1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c1{
@@ -40,53 +42,33 @@
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&adc{
-	status = "okay";
-};
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
 	i2c0_default: i2c0_default {
 		group1 {
-			psels = < 0xc001e >, < 0xb001d >;
+			psels = < 0xc001c >, < 0xb0002 >;
 		};
 	};
 	i2c0_sleep: i2c0_sleep {
 		group1 {
-			psels = < 0xc001e >, < 0xb001d >;
-			low-power-enable;
-		};
-	};
-	spi0_default: spi0_default {
-		group1 {
-			psels = < 0x40000 >, < 0x50003 >, < 0x60011 >;
-		};
-	};
-	spi0_sleep: spi0_sleep {
-		group1 {
-			psels = < 0x40000 >, < 0x50003 >, < 0x60011 >;
-			low-power-enable;
-		};
-	};
-	spi1_default: spi1_default {
-		group1 {
-			psels = < 0x4000b >, < 0x50009 >, < 0x6000a >;
-		};
-	};
-	spi1_sleep: spi1_sleep {
-		group1 {
-			psels = < 0x4000b >, < 0x50009 >, < 0x6000a >;
+			psels = < 0xc001c >, < 0xb0002 >;
 			low-power-enable;
 		};
 	};
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x15 >, < 0x10016 >, < 0x20017 >, < 0x30018 >;
+			psels = < 0x1d >, < 0x1000b >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x15 >, < 0x10016 >, < 0x20017 >, < 0x30018 >;
+			psels = < 0x1d >, < 0x1000b >;
 			low-power-enable;
+		};
+	};
+	spi1_default: spi1_default {
+		group1 {
+			psels = < 0x70007 >, < 0x80000 >, < 0x9001e >, < 0xa0019 >;
 		};
 	};
 };

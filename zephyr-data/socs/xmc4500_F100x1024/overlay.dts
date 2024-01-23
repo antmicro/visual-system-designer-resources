@@ -6,11 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&mdio{
+&gpio1{
 	status = "okay";
-	mdi-port-ctrl = "P2_0";
-	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
-	pinctrl-names = "default";
 };
 &adc3{
 	vref-internal-mv = < 0xce4 >;
@@ -40,15 +37,18 @@
 	phy-connection-type = "rmii";
 	phy-handle = < &phy >;
 };
-&adc1{
-	vref-internal-mv = < 0xce4 >;
-};
 &adc2{
 	vref-internal-mv = < 0xce4 >;
+};
+&mdio{
+	status = "okay";
+	mdi-port-ctrl = "P2_0";
+	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
+	pinctrl-names = "default";
 };
 &adc0{
 	vref-internal-mv = < 0xce4 >;
 };
-&gpio1{
-	status = "okay";
+&adc1{
+	vref-internal-mv = < 0xce4 >;
 };

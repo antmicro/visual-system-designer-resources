@@ -11,16 +11,16 @@
 	hse-bypass;
 	clock-frequency = < 0x7a1200 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x44aa200 >;
-	apb1-prescaler = < 0x2 >;
-};
 &pll{
 	status = "okay";
 	mul = < 0x9 >;
 	prediv = < 0x1 >;
 	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x44aa200 >;
+	apb1-prescaler = < 0x2 >;
 };
 &usart2{
 	status = "okay";
