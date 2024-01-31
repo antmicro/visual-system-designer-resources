@@ -6,6 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpio1{
+	status = "okay";
+};
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
 	status = "okay";
@@ -20,7 +23,7 @@
 	pinctrl-0 = < &pinmux_lpadc0 >;
 	pinctrl-names = "default";
 };
-&gpio1{
+&usbhs{
 	status = "okay";
 };
 &hs_lspi{
@@ -31,8 +34,5 @@
 	dma-names = "rx", "tx";
 };
 &gpio0{
-	status = "okay";
-};
-&usbhs{
 	status = "okay";
 };

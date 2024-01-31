@@ -6,8 +6,20 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpio1{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
 &adc3{
 	vref-internal-mv = < 0xce4 >;
+};
+&gpio3{
+	status = "okay";
 };
 &usic0ch0{
 	status = "okay";
@@ -22,6 +34,21 @@
 	fifo-tx-size = < 0x10 >;
 	fifo-rx-size = < 0x10 >;
 };
+&adc2{
+	vref-internal-mv = < 0xce4 >;
+};
+&mdio{
+	status = "okay";
+	mdi-port-ctrl = "P2_0";
+	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
+	pinctrl-names = "default";
+};
+&gpio14{
+	status = "okay";
+};
+&adc0{
+	vref-internal-mv = < 0xce4 >;
+};
 &eth{
 	status = "okay";
 	pinctrl-0 = < &eth_p2_4_rxer &eth_p2_2_rxd0 &eth_p2_3_rxd1 &eth_p15_8_clk_rmii &eth_p15_9_crs_dv &eth_p2_5_tx_en &eth_p2_8_txd0 &eth_p2_9_txd1 >;
@@ -34,36 +61,9 @@
 	phy-connection-type = "rmii";
 	phy-handle = < &phy >;
 };
-&adc2{
-	vref-internal-mv = < 0xce4 >;
-};
-&adc1{
-	vref-internal-mv = < 0xce4 >;
-};
-&adc0{
-	vref-internal-mv = < 0xce4 >;
-};
-&gpio1{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
-};
-&mdio{
-	status = "okay";
-	mdi-port-ctrl = "P2_0";
-	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
-	pinctrl-names = "default";
-};
 &gpio5{
 	status = "okay";
 };
-&gpio14{
-	status = "okay";
-};
-&gpio2{
-	status = "okay";
-};
-&gpio3{
-	status = "okay";
+&adc1{
+	vref-internal-mv = < 0xce4 >;
 };

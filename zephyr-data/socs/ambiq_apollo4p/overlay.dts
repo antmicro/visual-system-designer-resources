@@ -6,6 +6,20 @@
 		zephyr,flash = &flash0;
 	};
 };
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&gpio96_127{
+	status = "okay";
+};
+&mspi0{
+	status = "okay";
+	pinctrl-0 = < &mspi0_default >;
+	pinctrl-names = "default";
+};
 &iom1{
 	status = "okay";
 	compatible = "ambiq,spi";
@@ -13,16 +27,8 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0xf4240 >;
 };
-&uart0{
+&gpio64_95{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&mspi0{
-	status = "okay";
-	pinctrl-0 = < &mspi0_default >;
-	pinctrl-names = "default";
 };
 &gpio0_31{
 	status = "okay";
@@ -35,12 +41,6 @@
 	clock-frequency = < 0x186a0 >;
 };
 &gpio32_63{
-	status = "okay";
-};
-&gpio96_127{
-	status = "okay";
-};
-&gpio64_95{
 	status = "okay";
 };
 &pinctrl{

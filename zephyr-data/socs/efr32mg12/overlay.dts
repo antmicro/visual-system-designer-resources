@@ -15,7 +15,13 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
+&gpioa{
+	status = "okay";
+};
 &gpiob{
+	status = "okay";
+};
+&gpioc{
 	status = "okay";
 };
 &usart1{
@@ -29,12 +35,6 @@
 	cs-gpios = < &gpioa 0x4 0x1 >;
 };
 &gpiof{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpioc{
 	status = "okay";
 };
 &pinctrl{

@@ -6,6 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
+&twai{
+	pinctrl-0 = < &twai_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
@@ -22,18 +27,13 @@
 	pinctrl-0 = < &spim2_default >;
 	pinctrl-names = "default";
 };
-&twai{
-	pinctrl-0 = < &twai_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
+&flash0{
+	status = "okay";
 };
 &uart0{
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
-};
-&flash0{
-	status = "okay";
 };
 &usb_serial{
 	status = "okay";

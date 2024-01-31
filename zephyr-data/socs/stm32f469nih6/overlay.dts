@@ -10,11 +10,6 @@
 	status = "okay";
 	clock-frequency = < 0x7a1200 >;
 };
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
 &clk_lsi{
 	status = "okay";
 };
@@ -25,6 +20,17 @@
 	div-p = < 0x2 >;
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
+};
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
 };
 &rcc{
 	clocks = < &pll >;
@@ -38,15 +44,9 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioh 0x6 0x11 >;
 };
-&usart3{
+&usbotg_fs{
 	status = "okay";
-	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &usart6{

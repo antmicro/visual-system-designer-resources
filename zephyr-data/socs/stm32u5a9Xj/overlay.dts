@@ -10,13 +10,16 @@
 	status = "okay";
 	clock-frequency = < 0xf42400 >;
 };
-&adc1{
+&i2c2{
 	status = "okay";
-	pinctrl-0 = < &adc1_in5_pa0 &adc1_in14_pc5 >;
+	pinctrl-0 = < &i2c2_scl_pf1 &i2c2_sda_pf0 >;
 	pinctrl-names = "default";
-	st,adc-prescaler = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
+};
+&spi3{
+	status = "okay";
+	pinctrl-0 = < &spi3_sck_pg9 &spi3_miso_pg10 &spi3_mosi_pg11 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiog 0xf 0x11 >;
 };
 &adc4{
 	status = "okay";
@@ -25,17 +28,6 @@
 	st,adc-prescaler = < 0x1 >;
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
-};
-&lpuart1{
-	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pg7 &lpuart1_rx_pg8 >;
-	pinctrl-names = "default";
-	current-speed = < 0x2580 >;
-};
-&i2c6{
-	status = "okay";
-	pinctrl-0 = < &i2c6_scl_pd1 &i2c6_sda_pd0 >;
-	pinctrl-names = "default";
 };
 &pll1{
 	status = "okay";
@@ -46,29 +38,12 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_msis >;
 };
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&clk_hsi48{
-	status = "okay";
-};
-&i2c2{
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pf1 &i2c2_sda_pf0 >;
-	pinctrl-names = "default";
-};
 &clk_msis{
 	status = "okay";
 	msi-pll-mode;
 };
-&spi2{
+&clk_hsi48{
 	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pd3 &spi2_mosi_pd4 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0xc 0x11 >;
 };
 &usart3{
 	status = "okay";
@@ -81,11 +56,36 @@
 	pinctrl-0 = < &i2c1_scl_pg14 &i2c1_sda_pg13 >;
 	pinctrl-names = "default";
 };
-&spi3{
+&i2c6{
 	status = "okay";
-	pinctrl-0 = < &spi3_sck_pg9 &spi3_miso_pg10 &spi3_mosi_pg11 >;
+	pinctrl-0 = < &i2c6_scl_pd1 &i2c6_sda_pd0 >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpiog 0xf 0x11 >;
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pd3 &spi2_mosi_pd4 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0xc 0x11 >;
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pg7 &lpuart1_rx_pg8 >;
+	pinctrl-names = "default";
+	current-speed = < 0x2580 >;
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in5_pa0 &adc1_in14_pc5 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &rcc{
 	clocks = < &pll1 >;

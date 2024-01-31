@@ -6,19 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usb{
+&clk_lsi{
 	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&adc2{
-	status = "okay";
-	pinctrl-0 = < &adc2_in8_pc2 >;
-	pinctrl-names = "default";
-	st,adc-clock-source = < 0x1 >;
-	st,adc-prescaler = < 0x4 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
 };
 &clk_hsi{
 	status = "okay";
@@ -32,15 +21,13 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hsi >;
 };
-&clk_lsi{
+&usb{
 	status = "okay";
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &clk_hsi48{
 	status = "okay";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x7a12000 >;
 };
 &usart3{
 	status = "okay";
@@ -48,6 +35,19 @@
 	pinctrl-1 = < &analog_pc10 &analog_pc11 >;
 	pinctrl-names = "default", "sleep";
 	current-speed = < 0x1c200 >;
+};
+&adc2{
+	status = "okay";
+	pinctrl-0 = < &adc2_in8_pc2 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x1 >;
+	st,adc-prescaler = < 0x4 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x7a12000 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

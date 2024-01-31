@@ -1,15 +1,38 @@
 / {
-	compatible = "m5stack,core2";
+	compatible = "espressif,esp32";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
+&gpio0{
+	status = "okay";
+};
+&spi3{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpio0 0x12 0x1 >;
+};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_tx_gpio1 &uart0_rx_gpio3 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&flash0{
+	reg = < 0x0 0x800000 >;
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	sda-gpios = < &gpio0 0x4 0x6 >;
+	scl-gpios = < &gpio0 0xf 0x6 >;
+	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
 &i2c1{
@@ -24,76 +47,35 @@
 	pinctrl-0 = < &uart1_rx_gpio33 &uart1_tx_gpio32 >;
 	pinctrl-names = "default";
 };
-&flash0{
-	status = "okay";
-	reg = < 0x0 0x1000000 >;
-};
 &gpio1{
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	sda-gpios = < &gpio0 0x15 0x6 >;
-	scl-gpios = < &gpio0 0x16 0x6 >;
-	pinctrl-0 = < &i2c0_default >;
-	scl-timeout-us = < 0x0 >;
-	pinctrl-names = "default";
-};
-&spi3{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim3_default >;
-	pinctrl-names = "default";
-	dma-enabled;
-	clock-frequency = < 0x1312d00 >;
-	cs-gpios = < &gpio0 0x5 0x1 >, < &gpio0 0x4 0x1 >;
-};
-&gpio0{
 	status = "okay";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";
 	status = "okay";
-	uart0_tx_gpio1: uart0_tx_gpio1 {
-		pinmux = < 0x77fc1 >;
-	};
-	uart0_rx_gpio3: uart0_rx_gpio3 {
-		pinmux = < 0xff8383 >;
-		bias-pull-up;
-	};
-	uart1_rx_gpio33: uart1_rx_gpio33 {
-		pinmux = < 0xff8461 >;
-	};
-	uart2_rx_gpio13: uart2_rx_gpio13 {
-		pinmux = < 0xffb18d >;
-	};
-	uart2_tx_gpio14: uart2_rx_gpio14 {
-		pinmux = < 0x637fce >;
-	};
-	uart1_tx_gpio32: uart1_tx_gpio32 {
-		pinmux = < 0x8ffe0 >;
+	uart0_default: uart0_default {
+		group1 {
+			pinmux = < 0x77fc1 >;
+			output-high;
+		};
+		group2 {
+			pinmux = < 0xff8383 >;
+			bias-pull-up;
+		};
 	};
 	spim3_default: spim3_default {
 		group1 {
-			pinmux = < 0xff9026 >, < 0x1fffd2 >;
+			pinmux = < 0xff9013 >, < 0x1fffc5 >;
 		};
 		group2 {
-			pinmux = < 0x20ffd7 >;
+			pinmux = < 0x20ffdb >;
 			output-low;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			pinmux = < 0xf0795 >, < 0xe8756 >;
-			drive-open-drain;
-			output-high;
-		};
-	};
-	i2c1_default: i2c1_default {
-		group1 {
-			pinmux = < 0x301820 >, < 0x2f97e1 >;
+			pinmux = < 0xf0784 >, < 0xe874f >;
+			bias-pull-up;
 			drive-open-drain;
 			output-high;
 		};

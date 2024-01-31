@@ -6,15 +6,19 @@
 		zephyr,flash = &flash0;
 	};
 };
-&mdio{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &mdio_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
 };
-&afec1{
+&twihs2{
 	status = "okay";
-	pinctrl-0 = < &afec1_default >;
+	pinctrl-0 = < &twihs2_default >;
 	pinctrl-names = "default";
+};
+&piob{
+	status = "okay";
 };
 &can1{
 	status = "okay";
@@ -23,10 +27,16 @@
 	bus-speed = < 0x1e848 >;
 	bus-speed-data = < 0xf4240 >;
 };
-&usart1{
+&pioa{
+	status = "okay";
+};
+&pioc{
+	status = "okay";
+};
+&uart3{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
+	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
 &spi0{
@@ -40,40 +50,30 @@
 &pioe{
 	status = "okay";
 };
-&usbhs{
+&mdio{
 	status = "okay";
+	pinctrl-0 = < &mdio_default >;
+	pinctrl-names = "default";
 };
 &twihs0{
 	status = "okay";
 	pinctrl-0 = < &twihs0_default >;
 	pinctrl-names = "default";
 };
-&twihs2{
+&piod{
 	status = "okay";
-	pinctrl-0 = < &twihs2_default >;
-	pinctrl-names = "default";
 };
-&uart3{
+&afec1{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart3_default >;
+	pinctrl-0 = < &afec1_default >;
 	pinctrl-names = "default";
-};
-&pioa{
-	status = "okay";
 };
 &afec0{
 	status = "okay";
 	pinctrl-0 = < &afec0_default >;
 	pinctrl-names = "default";
 };
-&piod{
-	status = "okay";
-};
-&pioc{
-	status = "okay";
-};
-&piob{
+&usbhs{
 	status = "okay";
 };
 &gmac{

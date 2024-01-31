@@ -9,12 +9,8 @@
 		reg-names = "mem";
 	};
 };
-&spi1{
+&gpio0{
 	status = "okay";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
 };
 &spi0{
 	reg = < 0x10040000 0x1000 0x20000000 0x2000000 >;
@@ -22,6 +18,10 @@
 &spi2{
 	status = "okay";
 };
-&gpio0{
+&spi1{
 	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
 };

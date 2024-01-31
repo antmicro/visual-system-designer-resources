@@ -9,6 +9,9 @@
 	status = "okay";
 	clock-frequency = < 0xb71b00 >;
 };
+&clk_lsi{
+	status = "okay";
+};
 &pll{
 	status = "okay";
 	div-m = < 0x6 >;
@@ -16,9 +19,6 @@
 	div-p = < 0x2 >;
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
-};
-&clk_lsi{
-	status = "okay";
 };
 &rcc{
 	clocks = < &pll >;

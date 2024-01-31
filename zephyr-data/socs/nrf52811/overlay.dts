@@ -1,25 +1,16 @@
 / {
-	compatible = "u-blox,ubx-bmd360eval-nrf52811";
+	compatible = "nordic,nrf52840-dk-nrf52811";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&i2c0{
-	compatible = "nordic,nrf-twi";
+&spi0{
+	compatible = "nordic,nrf-spi";
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&adc{
-	status = "okay";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-1 = < &spi0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart0{
@@ -29,12 +20,10 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&spi0{
-	compatible = "nordic,nrf-spi";
+&pwm0{
 	status = "okay";
-	cs-gpios = < &arduino_header 0x10 0x1 >;
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-1 = < &spi0_sleep >;
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &gpio0{
@@ -46,11 +35,25 @@
 	pinctrl-1 = < &spi1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&i2c0{
+	compatible = "nordic,nrf-twi";
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x6 >, < 0x10008 >, < 0x20005 >, < 0x30007 >;
+			psels = < 0x6 >, < 0x20005 >;
+		};
+		group2 {
+			psels = < 0x10008 >, < 0x30007 >;
+			bias-pull-up;
 		};
 	};
 	uart0_sleep: uart0_sleep {
@@ -72,24 +75,35 @@
 	};
 	pwm0_default: pwm0_default {
 		group1 {
-			psels = < 0x160011 >;
+			psels = < 0x16000d >;
 			nordic,invert;
 		};
 	};
 	pwm0_sleep: pwm0_sleep {
 		group1 {
-			psels = < 0x160011 >;
+			psels = < 0x16000d >;
 			low-power-enable;
 		};
 	};
 	spi0_default: spi0_default {
 		group1 {
-			psels = < 0x40019 >, < 0x50017 >, < 0x60018 >;
+			psels = < 0x40000 >, < 0x50001 >, < 0x60009 >;
 		};
 	};
 	spi0_sleep: spi0_sleep {
 		group1 {
-			psels = < 0x40019 >, < 0x50017 >, < 0x60018 >;
+			psels = < 0x40000 >, < 0x50001 >, < 0x60009 >;
+			low-power-enable;
+		};
+	};
+	spi1_default: spi1_default {
+		group1 {
+			psels = < 0x40013 >, < 0x50014 >, < 0x60016 >;
+		};
+	};
+	spi1_sleep: spi1_sleep {
+		group1 {
+			psels = < 0x40013 >, < 0x50014 >, < 0x60016 >;
 			low-power-enable;
 		};
 	};

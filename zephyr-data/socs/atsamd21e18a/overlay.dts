@@ -15,9 +15,14 @@
 	pinctrl-0 = < &sercom2_uart_default >;
 	pinctrl-names = "default";
 };
-&usb0{
+&sercom3{
+	compatible = "atmel,sam0-spi";
 	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
+	dipo = < 0x1 >;
+	dopo = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom3_spi_default >;
 	pinctrl-names = "default";
 };
 &tcc0{
@@ -31,14 +36,9 @@
 &sercom0{
 	status = "okay";
 };
-&sercom3{
-	compatible = "atmel,sam0-spi";
+&usb0{
 	status = "okay";
-	dipo = < 0x1 >;
-	dopo = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom3_spi_default >;
+	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
 };
 &sercom1{

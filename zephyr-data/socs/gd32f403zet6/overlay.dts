@@ -6,6 +6,15 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpioc{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
@@ -16,15 +25,6 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpioc{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-afio";

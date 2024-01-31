@@ -10,6 +10,15 @@
 	status = "okay";
 	clock-frequency = < 0xf42400 >;
 };
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_sda_pb3 &i2c2_scl_pb10 >;
+	pinctrl-names = "default";
+};
+&clk_lsi{
+	status = "okay";
+};
 &pll{
 	status = "okay";
 	div-m = < 0x10 >;
@@ -24,30 +33,10 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_lsi{
-	status = "okay";
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_sda_pb3 &i2c2_scl_pb10 >;
-	pinctrl-names = "default";
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x501bd00 >;
 	apb1-prescaler = < 0x2 >;
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in1_pa1 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x2 >;
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -58,6 +47,17 @@
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in1_pa1 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x2 >;
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &pinctrl{
