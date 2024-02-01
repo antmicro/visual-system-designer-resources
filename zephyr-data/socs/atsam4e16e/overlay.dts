@@ -12,25 +12,6 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&afec1{
-	status = "okay";
-	pinctrl-0 = < &afec1_default >;
-	pinctrl-names = "default";
-};
-&uart1{
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-names = "default";
-};
-&mdio{
-	status = "okay";
-	pinctrl-0 = < &mdio_default >;
-	pinctrl-names = "default";
-};
-&afec0{
-	status = "okay";
-	pinctrl-0 = < &afec0_default >;
-	pinctrl-names = "default";
-};
 &pwm0{
 	status = "okay";
 	pinctrl-0 = < &pwm0_default >;
@@ -42,11 +23,21 @@
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
 };
+&mdio{
+	status = "okay";
+	pinctrl-0 = < &mdio_default >;
+	pinctrl-names = "default";
+};
 &spi0{
 	status = "okay";
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &piob 0xe 0x1 >, < &piod 0x17 0x1 >, < &piod 0x1e 0x1 >;
+};
+&afec1{
+	status = "okay";
+	pinctrl-0 = < &afec1_default >;
+	pinctrl-names = "default";
 };
 &twi0{
 	status = "okay";
@@ -59,4 +50,13 @@
 	pinctrl-names = "default";
 	zephyr,random-mac-address;
 	phy-handle = < &phy >;
+};
+&afec0{
+	status = "okay";
+	pinctrl-0 = < &afec0_default >;
+	pinctrl-names = "default";
+};
+&uart1{
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
 };

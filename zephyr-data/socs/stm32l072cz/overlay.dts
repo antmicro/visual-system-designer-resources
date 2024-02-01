@@ -9,11 +9,9 @@
 &clk_hsi{
 	status = "okay";
 };
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x1e84800 >;
 };
 &pll{
 	status = "okay";
@@ -21,29 +19,17 @@
 	mul = < 0x4 >;
 	clocks = < &clk_hsi >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x1e84800 >;
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_nss_pa15 &spi1_sck_pb3 &spi1_miso_pa6 &spi1_mosi_pa7 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioa 0xf 0x1 >;
-};
-&clk_lse{
-	status = "okay";
-};
-&usb{
-	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -54,9 +40,23 @@
 &clk_hsi48{
 	status = "okay";
 };
+&clk_lse{
+	status = "okay";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_nss_pa15 &spi1_sck_pb3 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioa 0xf 0x1 >;
+};
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
+};
+&usb{
+	status = "okay";
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

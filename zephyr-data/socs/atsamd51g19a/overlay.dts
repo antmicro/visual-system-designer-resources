@@ -6,15 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom3{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom3_uart_default >;
-	pinctrl-names = "default";
-};
 &usb0{
 	status = "okay";
 	pinctrl-0 = < &usb_dc_default >;
@@ -26,6 +17,15 @@
 	prescaler = < 0x8 >;
 	#pwm-cells = < 0x2 >;
 	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};
+&sercom3{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom3_uart_default >;
 	pinctrl-names = "default";
 };
 &sercom1{

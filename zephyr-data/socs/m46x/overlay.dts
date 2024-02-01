@@ -6,11 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiob{
+&emac{
 	status = "okay";
-};
-&gpioh{
-	status = "okay";
+	pinctrl-0 = < &emac_default >;
+	pinctrl-names = "default";
 };
 &uart0{
 	status = "okay";
@@ -18,10 +17,11 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&emac{
+&gpiob{
 	status = "okay";
-	pinctrl-0 = < &emac_default >;
-	pinctrl-names = "default";
+};
+&gpioh{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "nuvoton,numaker-pinctrl";

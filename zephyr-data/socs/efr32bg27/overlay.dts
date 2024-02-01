@@ -6,22 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc0{
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0x3 0x3 0x2 >;
-	location-scl = < 0x3 0x3 0x3 >;
-};
-&gpioc{
-	status = "okay";
-};
 &usart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x3 0x3 0x2 >;
+	location-scl = < 0x3 0x3 0x3 >;
 };
 &usart0{
 	status = "okay";
@@ -29,10 +23,16 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioc 0x3 0x1 >;
 };
-&gpioa{
+&gpioc{
+	status = "okay";
+};
+&adc0{
 	status = "okay";
 };
 &gpiob{
+	status = "okay";
+};
+&gpioa{
 	status = "okay";
 };
 &pinctrl{

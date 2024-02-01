@@ -8,6 +8,10 @@
 &clk_hsi{
 	status = "okay";
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
+};
 &pll{
 	status = "okay";
 	div-m = < 0x1 >;
@@ -25,10 +29,6 @@
 	pinctrl-names = "default";
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x3d09000 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

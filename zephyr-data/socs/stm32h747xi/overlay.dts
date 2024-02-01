@@ -14,11 +14,6 @@
 	d3ppre = < 0x2 >;
 	clock-frequency = < 0xe4e1c00 >;
 };
-&usart1{
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &spi5{
 	pinctrl-0 = < &spi5_nss_pk1 &spi5_sck_pk0 &spi5_miso_pj11 &spi5_mosi_pj10 >;
 	pinctrl-names = "default";
@@ -29,16 +24,27 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c4{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c4_scl_ph11 &i2c4_sda_ph12 >;
+&usart1{
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usbotg_fs{
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
-&clk_hsi48{
-	status = "okay";
+&i2c3{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c3_scl_ph7 &i2c3_sda_ph8 >;
+	pinctrl-names = "default";
 };
 &uart4{
 	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pi9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart6{
+	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -47,27 +53,21 @@
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
-&spi2{
-	pinctrl-0 = < &spi2_nss_pi0 &spi2_sck_pi1 &spi2_miso_pc2 &spi2_mosi_pc3 >;
+&i2c4{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c4_scl_ph11 &i2c4_sda_ph12 >;
 	pinctrl-names = "default";
 };
-&usbotg_fs{
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+&clk_hsi48{
+	status = "okay";
+};
+&spi2{
+	pinctrl-0 = < &spi2_nss_pi0 &spi2_sck_pi1 &spi2_miso_pc2 &spi2_mosi_pc3 >;
 	pinctrl-names = "default";
 };
 &fdcan1{
 	clocks = < &rcc 0xec 0x100 >, < &rcc 0x9 0x17c50 >;
 	pinctrl-0 = < &fdcan1_rx_pb8 &fdcan1_tx_ph13 >;
-	pinctrl-names = "default";
-};
-&usart6{
-	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&i2c3{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c3_scl_ph7 &i2c3_sda_ph8 >;
 	pinctrl-names = "default";
 };
 &usart2{

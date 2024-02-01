@@ -5,10 +5,18 @@
 		zephyr,sram = &dtim;
 	};
 };
+&spi0{
+	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
+};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
 	pinctrl-names = "default";
 };
 &i2c0{
@@ -17,14 +25,6 @@
 	pinctrl-0 = < &i2c0_0_default &i2c0_1_default >;
 	pinctrl-names = "default";
 };
-&spi0{
-	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
-};
 &gpio0{
 	status = "okay";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
-	pinctrl-names = "default";
 };

@@ -6,10 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiog{
+&gpioc{
 	status = "okay";
 };
-&gpiob{
+&gpioe{
 	status = "okay";
 };
 &spi5{
@@ -20,13 +20,10 @@
 	dmas = < &dma1 0x5 0x1 0x0 0x0 >, < &dma1 0x6 0x1 0x0 0x0 >;
 	dma-names = "tx", "rx";
 };
-&gpioi{
+&gpiof{
 	status = "okay";
 };
-&gpioe{
-	status = "okay";
-};
-&gpioc{
+&gpiob{
 	status = "okay";
 };
 &i2c0{
@@ -39,8 +36,10 @@
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
+&dac{
 	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
 };
 &usart0{
 	status = "okay";
@@ -48,12 +47,13 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&dac{
+&gpiog{
 	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
 };
-&gpiof{
+&gpioi{
+	status = "okay";
+};
+&gpioa{
 	status = "okay";
 };
 &gpiod{

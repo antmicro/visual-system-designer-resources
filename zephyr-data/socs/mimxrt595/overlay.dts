@@ -5,34 +5,22 @@
 		zephyr,sram = &sram0;
 	};
 };
-&gpio3{
-	status = "okay";
-	int-source = "int-a";
-	interrupts = < 0x2 0x0 >;
-};
-&flexspi2{
-	status = "okay";
-	pinctrl-0 = < &pinmux_flexspi2 >;
-	pinctrl-names = "default";
-	rx-clock-source = < 0x3 >;
-	ahb-prefetch;
-	ahb-bufferable;
-	ahb-cacheable;
-	ahb-read-addr-opt;
-};
-&gpio6{
-	status = "okay";
-};
 &gpio1{
 	status = "okay";
 };
-&usbhs{
+&sc_timer{
 	status = "okay";
-};
-&i3c0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
+};
+&flexspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexspi >;
+	pinctrl-1 = < &pinmux_flexspi_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&gpio5{
+	status = "okay";
 };
 &pmic_i2c{
 	status = "okay";
@@ -42,15 +30,7 @@
 	pinctrl-0 = < &pinmux_pmic_i2c >;
 	pinctrl-names = "default";
 };
-&sc_timer{
-	status = "okay";
-	pinctrl-0 = < &pinmux_sctimer_default >;
-	pinctrl-names = "default";
-};
-&gpio5{
-	status = "okay";
-};
-&gpio0{
+&usbhs{
 	status = "okay";
 };
 &flexcomm0{
@@ -62,7 +42,38 @@
 	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
 	dma-names = "rx", "tx";
 };
+&gpio6{
+	status = "okay";
+};
+&flexspi2{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexspi2 >;
+	pinctrl-names = "default";
+	rx-clock-source = < 0x3 >;
+	ahb-prefetch;
+	ahb-bufferable;
+	ahb-cacheable;
+	ahb-read-addr-opt;
+};
 &gpio2{
+	status = "okay";
+};
+&i3c0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-names = "default";
+};
+&gpio4{
+	status = "okay";
+	int-source = "int-b";
+	interrupts = < 0x3 0x0 >;
+};
+&gpio3{
+	status = "okay";
+	int-source = "int-a";
+	interrupts = < 0x2 0x0 >;
+};
+&gpio0{
 	status = "okay";
 };
 &hs_lspi1{
@@ -71,15 +82,4 @@
 	pinctrl-names = "default";
 	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
 	dma-names = "rx", "tx";
-};
-&gpio4{
-	status = "okay";
-	int-source = "int-b";
-	interrupts = < 0x3 0x0 >;
-};
-&flexspi{
-	status = "okay";
-	pinctrl-0 = < &pinmux_flexspi >;
-	pinctrl-1 = < &pinmux_flexspi_sleep >;
-	pinctrl-names = "default", "sleep";
 };

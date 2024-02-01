@@ -5,12 +5,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_default >;
@@ -25,4 +19,10 @@
 	status = "okay";
 	pinctrl-0 = < &enet_default >;
 	pinctrl-names = "default";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
 };

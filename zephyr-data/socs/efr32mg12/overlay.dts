@@ -6,7 +6,7 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpiod{
+&gpiob{
 	status = "okay";
 };
 &usart0{
@@ -14,15 +14,6 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpioa{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
 };
 &usart1{
 	compatible = "silabs,gecko-spi-usart";
@@ -34,7 +25,16 @@
 	location-clk = < 0xb 0x2 0x8 >;
 	cs-gpios = < &gpioa 0x4 0x1 >;
 };
+&gpioa{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
 &gpiof{
+	status = "okay";
+};
+&gpioc{
 	status = "okay";
 };
 &pinctrl{

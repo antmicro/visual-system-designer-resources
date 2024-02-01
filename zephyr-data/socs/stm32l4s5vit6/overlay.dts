@@ -6,11 +6,46 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi3{
+&clk_hsi{
 	status = "okay";
-	pinctrl-0 = < &spi3_sck_pc10 &spi3_miso_pc11 &spi3_mosi_pc12 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x4c4b400 >;
+};
+&octospi1{
+	status = "okay";
+	pinctrl-0 = < &octospim_p1_clk_pe10 &octospim_p1_ncs_pe11 &octospim_p1_io0_pe12 &octospim_p1_io1_pe13 &octospim_p1_io2_pe14 &octospim_p1_io3_pe15 >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpiod 0xd 0x1 >, < &gpioe 0x0 0x1 >;
+	dmas = < &dma1 0x0 0x28 0x480 >;
+	dma-names = "tx_rx";
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 &usb_otg_fs_id_pa10 >;
+	pinctrl-names = "default";
+};
+&uart4{
+	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&pll{
+	status = "okay";
+	div-m = < 0x4 >;
+	mul-n = < 0x28 >;
+	div-q = < 0x2 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hsi >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&clk_hsi48{
+	status = "okay";
 };
 &spi1{
 	status = "okay";
@@ -27,52 +62,17 @@
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
 	pinctrl-names = "default";
 };
-&clk_hsi{
-	status = "okay";
-};
-&pll{
-	status = "okay";
-	div-m = < 0x4 >;
-	mul-n = < 0x28 >;
-	div-q = < 0x2 >;
-	div-r = < 0x2 >;
-	clocks = < &clk_hsi >;
-};
-&uart4{
-	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
-};
-&clk_hsi48{
-	status = "okay";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x4c4b400 >;
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 &usb_otg_fs_id_pa10 >;
-	pinctrl-names = "default";
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&octospi1{
+&spi3{
 	status = "okay";
-	pinctrl-0 = < &octospim_p1_clk_pe10 &octospim_p1_ncs_pe11 &octospim_p1_io0_pe12 &octospim_p1_io1_pe13 &octospim_p1_io2_pe14 &octospim_p1_io3_pe15 >;
+	pinctrl-0 = < &spi3_sck_pc10 &spi3_miso_pc11 &spi3_mosi_pc12 >;
 	pinctrl-names = "default";
-	dmas = < &dma1 0x0 0x28 0x480 >;
-	dma-names = "tx_rx";
+	cs-gpios = < &gpiod 0xd 0x1 >, < &gpioe 0x0 0x1 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

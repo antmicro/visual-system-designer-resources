@@ -5,21 +5,36 @@
 		zephyr,flash = &flash0;
 	};
 };
+&spi0{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&usbd{
+	status = "okay";
+};
+&adc{
+	status = "okay";
+	pinctrl-0 = < &adc_default >;
+	pinctrl-names = "default";
+};
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&i2c1{
-	pinctrl-0 = < &i2c1_default >;
+&pwm{
+	pinctrl-0 = < &pwm_ch4b_default >;
 	pinctrl-names = "default";
-	clock-frequency = < 0x61a80 >;
+	divider-int-0 = < 0xff >;
 };
-&adc{
+&flash0{
+	reg = < 0x10000000 0x200000 >;
+};
+&gpio0{
 	status = "okay";
-	pinctrl-0 = < &adc_default >;
-	pinctrl-names = "default";
 };
 &uart0{
 	status = "okay";
@@ -27,25 +42,10 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&spi0{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
-	pinctrl-0 = < &spi0_default >;
+&i2c1{
+	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
-};
-&flash0{
-	reg = < 0x10000000 0x200000 >;
-};
-&pwm{
-	pinctrl-0 = < &pwm_ch4b_default >;
-	pinctrl-names = "default";
-	divider-int-0 = < 0xff >;
-};
-&usbd{
-	status = "okay";
+	clock-frequency = < 0x61a80 >;
 };
 &uart1{
 	status = "okay";

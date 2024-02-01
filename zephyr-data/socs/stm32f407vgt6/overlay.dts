@@ -6,18 +6,15 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
+&usbotg_fs{
 	status = "okay";
-	clock-frequency = < 0x7a1200 >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+};
+&can1{
+	pinctrl-0 = < &can1_rx_pb8 &can1_tx_pb9 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
 };
 &pll{
 	status = "okay";
@@ -26,6 +23,21 @@
 	div-p = < 0x2 >;
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&can2{
+	status = "okay";
+	pinctrl-0 = < &can2_rx_pb5 &can2_tx_pb13 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
 };
 &usart1{
 	status = "okay";
@@ -39,21 +51,9 @@
 	apb1-prescaler = < 0x4 >;
 	apb2-prescaler = < 0x2 >;
 };
-&can1{
-	pinctrl-0 = < &can1_rx_pb8 &can1_tx_pb9 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&usbotg_fs{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&can2{
-	status = "okay";
-	pinctrl-0 = < &can2_rx_pb5 &can2_tx_pb13 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
+	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -6,26 +6,9 @@
 		zephyr,flash = &flash;
 	};
 };
-&i2c{
+&gpioc{
+	interrupts = < 0x19 0x1 >;
 	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c_scl_pe1_default &i2c_sda_pe3_default >;
-	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_tx_pb2_default &uart0_rx_pb3_default >;
-	pinctrl-names = "default";
-};
-&hspi{
-	cs0-pin = "HSPI_CSN_PA1";
-	status = "okay";
-	pinctrl-0 = < &hspi_clk_pa2_default &hspi_miso_pa3_default &hspi_mosi_pa4_default >;
-	pinctrl-names = "default";
 };
 &pspi{
 	cs0-pin = "PSPI_CSN_PC4";
@@ -33,24 +16,41 @@
 	pinctrl-0 = < &pspi_clk_pc5_default &pspi_miso_pc6_default &pspi_mosi_pc7_default >;
 	pinctrl-names = "default";
 };
-&pwm0{
-	status = "okay";
-	clock-frequency = < 0x16e36 >;
-	pinctrl-0 = < &pwm_ch0_pb4_default >;
-	pinctrl-names = "default";
+&ram_dlm{
+	reg = < 0x80000 0x20000 >;
 };
-&gpioc{
-	interrupts = < 0x19 0x1 >;
+&i2c{
 	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c_scl_pe1_default &i2c_sda_pe3_default >;
+	pinctrl-names = "default";
 };
 &adc{
 	status = "okay";
 	vref-internal-mv = < 0x4b0 >;
 	sample-freq = < 0x17700 >;
 };
-&ram_dlm{
-	reg = < 0x80000 0x20000 >;
+&gpiob{
+	status = "okay";
+};
+&hspi{
+	cs0-pin = "HSPI_CSN_PA1";
+	status = "okay";
+	pinctrl-0 = < &hspi_clk_pa2_default &hspi_miso_pa3_default &hspi_mosi_pa4_default >;
+	pinctrl-names = "default";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_tx_pb2_default &uart0_rx_pb3_default >;
+	pinctrl-names = "default";
 };
 &flash{
 	reg = < 0x20000000 0x100000 >;
+};
+&pwm0{
+	status = "okay";
+	clock-frequency = < 0x16e36 >;
+	pinctrl-0 = < &pwm_ch0_pb4_default >;
+	pinctrl-names = "default";
 };

@@ -6,6 +6,12 @@
 		zephyr,flash = &flash1;
 	};
 };
+&uart8{
+	status = "okay";
+	pinctrl-0 = < &uart8_tx_pe1 &uart8_rx_pe0 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &rcc{
 	hpre = < 0x2 >;
 	d1ppre = < 0x2 >;
@@ -13,12 +19,6 @@
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
 	clock-frequency = < 0xe4e1c00 >;
-};
-&uart8{
-	status = "okay";
-	pinctrl-0 = < &uart8_tx_pe1 &uart8_rx_pe0 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

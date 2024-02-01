@@ -9,6 +9,12 @@
 &gpioa{
 	status = "okay";
 };
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x1 0x4 0x1 >;
+	location-tx = < 0x1 0x4 0x0 >;
+};
 &gpioe{
 	status = "okay";
 };
@@ -17,12 +23,6 @@
 };
 &gpiof{
 	status = "okay";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x1 0x4 0x1 >;
-	location-tx = < 0x1 0x4 0x0 >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

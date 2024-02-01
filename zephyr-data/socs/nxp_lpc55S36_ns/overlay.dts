@@ -6,9 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc0{
+&flexcomm0{
+	compatible = "nxp,lpc-usart";
 	status = "okay";
-	pinctrl-0 = < &pinmux_lpadc0 >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
 };
 &dac0{
@@ -16,11 +18,9 @@
 	pinctrl-0 = < &pinmux_dac0 >;
 	pinctrl-names = "default";
 };
-&flexcomm0{
-	compatible = "nxp,lpc-usart";
+&adc0{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-0 = < &pinmux_lpadc0 >;
 	pinctrl-names = "default";
 };
 &usbfs{

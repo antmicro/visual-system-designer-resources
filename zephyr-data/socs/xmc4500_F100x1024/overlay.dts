@@ -6,8 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc1{
-	vref-internal-mv = < 0xce4 >;
+&gpio1{
+	status = "okay";
 };
 &usic1ch1{
 	status = "okay";
@@ -22,8 +22,8 @@
 	fifo-tx-size = < 0x10 >;
 	fifo-rx-size = < 0x10 >;
 };
-&gpio1{
-	status = "okay";
+&adc2{
+	vref-internal-mv = < 0xce4 >;
 };
 &adc0{
 	vref-internal-mv = < 0xce4 >;
@@ -49,6 +49,6 @@
 	phy-connection-type = "rmii";
 	phy-handle = < &phy >;
 };
-&adc2{
+&adc1{
 	vref-internal-mv = < 0xce4 >;
 };

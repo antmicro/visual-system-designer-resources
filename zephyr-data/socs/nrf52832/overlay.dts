@@ -16,6 +16,9 @@
 	pinctrl-1 = < &spi0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&adc{
+	status = "okay";
+};
 &uart0{
 	compatible = "nordic,nrf-uart";
 	status = "okay";
@@ -23,9 +26,6 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
-};
-&adc{
-	status = "okay";
 };
 &spi1{
 	status = "okay";

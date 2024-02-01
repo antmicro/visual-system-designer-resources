@@ -15,22 +15,22 @@
 &pfc{
 	reg = < 0x0 0xe6060000 0x0 0x50c >;
 };
-&gpio6{
-	status = "okay";
-};
 &can0{
 	status = "okay";
 	pinctrl-0 = < &can0_data_a_tx_default &can0_data_a_rx_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
+&i2c4{
+	status = "okay";
+};
+&gpio6{
+	status = "okay";
+};
 &scif1{
 	status = "okay";
 	pinctrl-0 = < &scif1_data_a_tx_default &scif1_data_a_rx_default >;
 	pinctrl-names = "default";
-};
-&i2c4{
-	status = "okay";
 };
 &i2c2{
 	status = "okay";

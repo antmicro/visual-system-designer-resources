@@ -6,19 +6,23 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart0{
+&iom0{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
+	compatible = "ambiq,i2c";
+	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
-};
-&gpio96_127{
-	status = "okay";
+	clock-frequency = < 0x186a0 >;
 };
 &mspi0{
 	status = "okay";
 	pinctrl-0 = < &mspi0_default >;
 	pinctrl-names = "default";
+};
+&gpio0_31{
+	status = "okay";
+};
+&gpio96_127{
+	status = "okay";
 };
 &iom1{
 	status = "okay";
@@ -30,15 +34,11 @@
 &gpio64_95{
 	status = "okay";
 };
-&gpio0_31{
+&uart0{
 	status = "okay";
-};
-&iom0{
-	status = "okay";
-	compatible = "ambiq,i2c";
-	pinctrl-0 = < &i2c0_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
-	clock-frequency = < 0x186a0 >;
 };
 &gpio32_63{
 	status = "okay";

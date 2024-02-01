@@ -6,20 +6,20 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpio0 0xb 0x1 >;
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
 	pinctrl-names = "default";
 };
-&gpio0{
+&radio{
 	status = "okay";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpio0 0xb 0x1 >;
 };
 &i2c0{
 	status = "okay";
@@ -27,7 +27,7 @@
 	pinctrl-1 = < &i2c0_scl_sleep &i2c0_sda_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&radio{
+&gpio0{
 	status = "okay";
 };
 &adc0{
