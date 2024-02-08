@@ -1,5 +1,5 @@
 / {
-	compatible = "nordic,nrf51-dk-nrf51422";
+	compatible = "seeed,carbon_nrf51";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
@@ -10,9 +10,23 @@
 	status = "okay";
 };
 &spi1{
+	compatible = "nordic,nrf-spis";
 	status = "okay";
+	def-char = < 0x0 >;
 	pinctrl-0 = < &spi1_default >;
-	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-names = "default";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &spi0{
@@ -23,79 +37,38 @@
 &adc{
 	status = "okay";
 };
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &i2c1{
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-1 = < &uart0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
-	uart0_default: uart0_default {
-		group1 {
-			psels = < 0x9 >, < 0x1000b >, < 0x20008 >, < 0x3000a >;
-		};
-	};
-	uart0_sleep: uart0_sleep {
-		group1 {
-			psels = < 0x9 >, < 0x1000b >, < 0x20008 >, < 0x3000a >;
-			low-power-enable;
-		};
-	};
 	i2c0_default: i2c0_default {
 		group1 {
-			psels = < 0xc001e >, < 0xb0007 >;
+			psels = < 0xc001c >, < 0xb0002 >;
 		};
 	};
 	i2c0_sleep: i2c0_sleep {
 		group1 {
-			psels = < 0xc001e >, < 0xb0007 >;
+			psels = < 0xc001c >, < 0xb0002 >;
 			low-power-enable;
 		};
 	};
-	i2c1_default: i2c1_default {
+	uart0_default: uart0_default {
 		group1 {
-			psels = < 0xc0005 >, < 0xb0006 >;
+			psels = < 0x1d >, < 0x1000b >;
 		};
 	};
-	i2c1_sleep: i2c1_sleep {
+	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0xc0005 >, < 0xb0006 >;
-			low-power-enable;
-		};
-	};
-	spi0_default: spi0_default {
-		group1 {
-			psels = < 0x40007 >, < 0x5001d >, < 0x6001e >;
-		};
-	};
-	spi0_sleep: spi0_sleep {
-		group1 {
-			psels = < 0x40007 >, < 0x5001d >, < 0x6001e >;
+			psels = < 0x1d >, < 0x1000b >;
 			low-power-enable;
 		};
 	};
 	spi1_default: spi1_default {
 		group1 {
-			psels = < 0x40006 >, < 0x50005 >, < 0x60004 >;
-		};
-	};
-	spi1_sleep: spi1_sleep {
-		group1 {
-			psels = < 0x40006 >, < 0x50005 >, < 0x60004 >;
-			low-power-enable;
+			psels = < 0x70007 >, < 0x80000 >, < 0x9001e >, < 0xa0019 >;
 		};
 	};
 };

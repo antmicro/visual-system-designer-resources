@@ -9,10 +9,6 @@
 &clk_hsi{
 	status = "okay";
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x3d09000 >;
-};
 &pll{
 	status = "okay";
 	div-m = < 0x1 >;
@@ -22,14 +18,18 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hsi >;
 };
-&pinctrl{
-	remap-pa11;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
 };
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&pinctrl{
+	remap-pa11;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

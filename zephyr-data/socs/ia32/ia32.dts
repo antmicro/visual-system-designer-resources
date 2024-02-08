@@ -1,0 +1,80 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "intel,x86";
+			d-cache-line-size = < 0x40 >;
+			reg = < 0x0 >;
+		};
+	};
+	intc: ioapic@fec00000 {
+		compatible = "intel,ioapic";
+		#address-cells = < 0x1 >;
+		#interrupt-cells = < 0x3 >;
+		reg = < 0xfec00000 0x1000 >;
+		interrupt-controller;
+		phandle = < 0x1 >;
+	};
+	intc_loapic: loapic@fee00000 {
+		compatible = "intel,loapic";
+		reg = < 0xfee00000 0x1000 >;
+		interrupt-controller;
+		#interrupt-cells = < 0x3 >;
+		#address-cells = < 0x1 >;
+	};
+	dram0: memory@0 {
+		device_type = "memory";
+		reg = < 0x64 0x64 >;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		uart0: uart@3f8 {
+			compatible = "ns16550";
+			reg = < 0x3f8 0x100 >;
+			io-mapped;
+			clock-frequency = < 0x1c2000 >;
+			interrupts = < 0x4 0x100 0x3 >;
+			interrupt-parent = < &intc >;
+			reg-shift = < 0x0 >;
+			status = "disabled";
+		};
+		uart1: uart@2f8 {
+			compatible = "ns16550";
+			reg = < 0x2f8 0x100 >;
+			io-mapped;
+			clock-frequency = < 0x1c2000 >;
+			interrupts = < 0x3 0x100 0x3 >;
+			interrupt-parent = < &intc >;
+			reg-shift = < 0x0 >;
+			status = "disabled";
+		};
+		hpet: hpet@fed00000 {
+			compatible = "intel,hpet";
+			reg = < 0xfed00000 0x400 >;
+			interrupts = < 0x2 0x0 0x4 >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
+		rtc: counter: rtc@70 {
+			compatible = "motorola,mc146818";
+			reg = < 0x70 0xd 0x71 0xd >;
+			interrupts = < 0x8 0x100 0x3 >;
+			interrupt-parent = < &intc >;
+			alarms-count = < 0x1 >;
+			status = "okay";
+		};
+	};
+};

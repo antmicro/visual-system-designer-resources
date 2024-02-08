@@ -5,6 +5,9 @@
 		zephyr,flash = &retram;
 	};
 };
+&rcc{
+	clock-frequency = < 0xc751640 >;
+};
 &uart7{
 	status = "okay";
 	pinctrl-0 = < &uart7_tx_pe8 &uart7_rx_pe7 >;
@@ -17,18 +20,15 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&rcc{
-	clock-frequency = < 0xc751640 >;
-};
-&spi4{
-	status = "okay";
-	pinctrl-0 = < &spi4_nss_pe11 &spi4_sck_pe12 &spi4_miso_pe13 &spi4_mosi_pe14 >;
-	pinctrl-names = "default";
-};
 &i2c5{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c5_scl_pa11 &i2c5_sda_pa12 >;
+	pinctrl-names = "default";
+};
+&spi5{
+	status = "okay";
+	pinctrl-0 = < &spi5_nss_pf6 &spi5_sck_pf7 &spi5_miso_pf8 &spi5_mosi_pf9 >;
 	pinctrl-names = "default";
 };
 &usart3{
@@ -37,9 +37,9 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi5{
+&spi4{
 	status = "okay";
-	pinctrl-0 = < &spi5_nss_pf6 &spi5_sck_pf7 &spi5_miso_pf8 &spi5_mosi_pf9 >;
+	pinctrl-0 = < &spi4_nss_pe11 &spi4_sck_pe12 &spi4_miso_pe13 &spi4_mosi_pe14 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

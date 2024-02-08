@@ -6,78 +6,22 @@
 		zephyr,flash = &flash0;
 	};
 };
-&lpi2c0{
-	pinctrl-0 = < &lpi2c0_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x186a0 >;
-};
-&lpspi4{
-	pinctrl-0 = < &lpspi4_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
-};
-&lpi2c1{
-	pinctrl-0 = < &lpi2c1_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x186a0 >;
-};
-&lpspi1{
-	pinctrl-0 = < &lpspi1_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
-};
 &lpuart1{
 	pinctrl-0 = < &lpuart1_default >;
 	pinctrl-names = "default";
 	dmas = < &edma0 0x2 0x27 >, < &edma0 0x3 0x28 >;
 	dma-names = "tx", "rx";
 };
-&gpioe_l{
-	status = "okay";
-};
-&flexcan4{
-	pinctrl-0 = < &flexcan4_default >;
+&lpuart13{
+	pinctrl-0 = < &lpuart13_default >;
 	pinctrl-names = "default";
-	phys = < &can_phy4 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&gpioe_h{
-	status = "okay";
-};
-&lpuart2{
-	status = "okay";
-	pinctrl-0 = < &lpuart2_default >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-	dmas = < &edma0 0x10 0x26 >, < &edma0 0x11 0x27 >;
+	dmas = < &edma0 0x14 0x2c >, < &edma0 0x15 0x2d >;
 	dma-names = "tx", "rx";
 };
-&flexcan0{
-	status = "okay";
-	pinctrl-0 = < &flexcan0_default >;
+&flexcan1{
+	pinctrl-0 = < &flexcan1_default >;
 	pinctrl-names = "default";
-	phys = < &can_phy0 >;
-	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
-	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
-};
-&lpuart0{
-	pinctrl-0 = < &lpuart0_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x0 0x25 >, < &edma0 0x1 0x26 >;
-	dma-names = "tx", "rx";
-};
-&gpiob_l{
-	status = "okay";
-};
-&flexcan3{
-	pinctrl-0 = < &flexcan3_default >;
-	pinctrl-names = "default";
-	phys = < &can_phy3 >;
+	phys = < &can_phy1 >;
 	bus-speed = < 0x1e848 >;
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
@@ -88,15 +32,13 @@
 	pinctrl-0 = < &mdio0_default >;
 	pinctrl-names = "default";
 };
-&lpspi2{
-	pinctrl-0 = < &lpspi2_default >;
-	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
+&gpioc_h{
+	status = "okay";
 };
-&lpuart13{
-	pinctrl-0 = < &lpuart13_default >;
+&lpuart9{
+	pinctrl-0 = < &lpuart9_default >;
 	pinctrl-names = "default";
-	dmas = < &edma0 0x14 0x2c >, < &edma0 0x15 0x2d >;
+	dmas = < &edma0 0x4 0x27 >, < &edma0 0x5 0x28 >;
 	dma-names = "tx", "rx";
 };
 &flexcan2{
@@ -108,20 +50,47 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
-&gpioc_h{
-	status = "okay";
-};
-&gpiod_l{
-	status = "okay";
-};
-&flexcan1{
-	pinctrl-0 = < &flexcan1_default >;
+&lpspi2{
+	pinctrl-0 = < &lpspi2_default >;
 	pinctrl-names = "default";
-	phys = < &can_phy1 >;
+	data-pin-config = "sdo-in,sdi-out";
+};
+&gpioe_l{
+	status = "okay";
+};
+&flexcan3{
+	pinctrl-0 = < &flexcan3_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy3 >;
 	bus-speed = < 0x1e848 >;
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
+};
+&flexcan0{
+	status = "okay";
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy0 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
+};
+&lpspi4{
+	pinctrl-0 = < &lpspi4_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
+&lpspi5{
+	pinctrl-0 = < &lpspi5_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
+};
+&lpspi1{
+	pinctrl-0 = < &lpspi1_default >;
+	pinctrl-names = "default";
+	data-pin-config = "sdo-in,sdi-out";
 };
 &flexcan5{
 	pinctrl-0 = < &flexcan5_default >;
@@ -131,12 +100,6 @@
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
-};
-&lpuart10{
-	pinctrl-0 = < &lpuart10_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x12 0x26 >, < &edma0 0x13 0x27 >;
-	dma-names = "tx", "rx";
 };
 &emac0{
 	status = "okay";
@@ -151,17 +114,25 @@
 	pinctrl-names = "default";
 	data-pin-config = "sdo-in,sdi-out";
 };
-&lpuart14{
-	pinctrl-0 = < &lpuart14_default >;
-	pinctrl-names = "default";
-	dmas = < &edma0 0x16 0x2e >, < &edma0 0x17 0x2f >;
-	dma-names = "tx", "rx";
+&gpiob_l{
+	status = "okay";
 };
-&lpuart9{
-	pinctrl-0 = < &lpuart9_default >;
+&gpioe_h{
+	status = "okay";
+};
+&lpi2c0{
+	pinctrl-0 = < &lpi2c0_default >;
 	pinctrl-names = "default";
-	dmas = < &edma0 0x4 0x27 >, < &edma0 0x5 0x28 >;
-	dma-names = "tx", "rx";
+	clock-frequency = < 0x186a0 >;
+};
+&flexcan4{
+	pinctrl-0 = < &flexcan4_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy4 >;
+	bus-speed = < 0x1e848 >;
+	sample-point = < 0x36b >;
+	bus-speed-data = < 0xf4240 >;
+	sample-point-data = < 0x36b >;
 };
 &qspi0{
 	status = "okay";
@@ -177,10 +148,39 @@
 &gpioa_h{
 	status = "okay";
 };
-&lpspi5{
-	pinctrl-0 = < &lpspi5_default >;
+&gpiod_l{
+	status = "okay";
+};
+&lpuart0{
+	pinctrl-0 = < &lpuart0_default >;
 	pinctrl-names = "default";
-	data-pin-config = "sdo-in,sdi-out";
+	dmas = < &edma0 0x0 0x25 >, < &edma0 0x1 0x26 >;
+	dma-names = "tx", "rx";
+};
+&lpuart14{
+	pinctrl-0 = < &lpuart14_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x16 0x2e >, < &edma0 0x17 0x2f >;
+	dma-names = "tx", "rx";
+};
+&lpuart10{
+	pinctrl-0 = < &lpuart10_default >;
+	pinctrl-names = "default";
+	dmas = < &edma0 0x12 0x26 >, < &edma0 0x13 0x27 >;
+	dma-names = "tx", "rx";
+};
+&lpi2c1{
+	pinctrl-0 = < &lpi2c1_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x186a0 >;
+};
+&lpuart2{
+	status = "okay";
+	pinctrl-0 = < &lpuart2_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+	dmas = < &edma0 0x10 0x26 >, < &edma0 0x11 0x27 >;
+	dma-names = "tx", "rx";
 };
 &gpiod_h{
 	status = "okay";

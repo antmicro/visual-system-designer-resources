@@ -7,12 +7,11 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		timebase-frequency = < 0x989680 >;
 		cpu@0 {
 			device_type = "cpu";
 			reg = < 0x0 >;
 			status = "okay";
-			compatible = "riscv";
+			compatible = "lowrisc,ibex", "riscv";
 			riscv,isa = "rv32imcb_zicsr_zifencei";
 			hlic: interrupt-controller {
 				#interrupt-cells = < 0x1 >;

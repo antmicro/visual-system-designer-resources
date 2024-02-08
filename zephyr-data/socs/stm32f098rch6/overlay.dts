@@ -9,9 +9,11 @@
 &clk_hsi{
 	status = "okay";
 };
-&rcc{
-	clocks = < &clk_hsi >;
-	clock-frequency = < 0x7a1200 >;
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pa11 &i2c2_sda_pa12 >;
+	pinctrl-names = "default";
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -19,11 +21,9 @@
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pa11 &i2c2_sda_pa12 >;
-	pinctrl-names = "default";
+&rcc{
+	clocks = < &clk_hsi >;
+	clock-frequency = < 0x7a1200 >;
 };
 &usart1{
 	status = "okay";

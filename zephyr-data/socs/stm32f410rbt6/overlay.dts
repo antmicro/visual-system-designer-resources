@@ -6,6 +6,45 @@
 		zephyr,flash = &flash0;
 	};
 };
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
+	pinctrl-names = "default";
+};
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac_out1_pa5 >;
+	pinctrl-names = "default";
+};
 &pll{
 	status = "okay";
 	div-m = < 0x8 >;
@@ -14,52 +53,13 @@
 	div-q = < 0x8 >;
 	clocks = < &clk_hse >;
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac_out1_pa5 >;
-	pinctrl-names = "default";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
-	pinctrl-names = "default";
-};
-&clk_lsi{
-	status = "okay";
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
-	pinctrl-names = "default";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x5b8d800 >;
 	apb1-prescaler = < 0x2 >;
 };
-&clk_hse{
+&clk_lsi{
 	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

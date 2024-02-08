@@ -6,37 +6,36 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x44aa200 >;
-	apb1-prescaler = < 0x2 >;
-};
-&can1{
-	pinctrl-0 = < &can_rx_remap1_pb8 &can_tx_remap1_pb9 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&pll{
+&spi2{
 	status = "okay";
-	mul = < 0x9 >;
-	clocks = < &clk_hse >;
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in0_pa0 >;
+	pinctrl-0 = < &spi2_nss_master_pb12 &spi2_sck_master_pb13 &spi2_miso_master_pb14 &spi2_mosi_master_pb15 >;
 	pinctrl-names = "default";
 };
-&i2c1{
-	clock-frequency = < 0x61a80 >;
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &i2c1_sda_pb7 &i2c1_scl_pb6 >;
-	pinctrl-names = "default";
+	clock-frequency = < 0x7a1200 >;
 };
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&can1{
+	pinctrl-0 = < &can_rx_remap1_pb8 &can_tx_remap1_pb9 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&usb{
+	status = "okay";
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
+	disconnect-gpios = < &gpiog 0xf 0x0 >;
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_in0_pa0 >;
+	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -49,26 +48,27 @@
 	pinctrl-0 = < &i2c2_sda_pb11 &i2c2_scl_pb10 >;
 	pinctrl-names = "default";
 };
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_sda_pb7 &i2c1_scl_pb6 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	mul = < 0x9 >;
+	clocks = < &clk_hse >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x44aa200 >;
+	apb1-prescaler = < 0x2 >;
+};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_nss_master_pb12 &spi2_sck_master_pb13 &spi2_miso_master_pb14 &spi2_mosi_master_pb15 >;
-	pinctrl-names = "default";
-};
-&usb{
-	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
-	disconnect-gpios = < &gpiog 0xf 0x0 >;
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32f1-pinctrl";

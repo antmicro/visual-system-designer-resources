@@ -50,11 +50,14 @@
 			clocks = < &pmc 0x2 0x6 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
+			#erase-block-cells = < 0x2 >;
+			phandle = < 0x3 >;
 			flash0: flash@400000 {
-				compatible = "soc-nv-flash";
+				compatible = "atmel,sam-flash", "soc-nv-flash";
 				write-block-size = < 0x10 >;
 				erase-block-size = < 0x2000 >;
 				reg = < 0x400000 0x200000 >;
+				erase-blocks = < &eefc 0x8 0x800 >, < &eefc 0xfc 0x2000 >;
 			};
 		};
 		wdt: watchdog@400e1850 {

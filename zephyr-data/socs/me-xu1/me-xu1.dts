@@ -13,6 +13,10 @@
 		compatible = "simple-bus";
 		ranges;
 		interrupt-parent = < &gic >;
+		pinctrl: pinctrl@ff180000 {
+			reg = < 0xff180000 0xc80 >;
+			compatible = "xlnx,pinctrl-zynqmp";
+		};
 		flash0: flash@c0000000 {
 			compatible = "soc-nv-flash";
 			reg = < 0xc0000000 0x2000000 >;

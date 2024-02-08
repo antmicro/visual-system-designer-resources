@@ -6,22 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart3{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x5b8d800 >;
 };
 &pll{
 	status = "okay";
@@ -32,26 +24,22 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
 };
-&mac{
-	status = "okay";
-	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
-	pinctrl-names = "default";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x5b8d800 >;
-};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pb5 >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpiod 0xe 0x11 >;
 };
-&clk_lsi{
+&i2c1{
+	clock-frequency = < 0x61a80 >;
 	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
 };
-&clk_hsi48{
+&mac{
 	status = "okay";
+	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
+	pinctrl-names = "default";
 };
 &fdcan1{
 	status = "okay";
@@ -60,6 +48,17 @@
 	bus-speed = < 0x1e848 >;
 	bus-speed-data = < 0xf4240 >;
 };
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &adc1{
 	status = "okay";
 	pinctrl-0 = < &adc1_inp15_pa3 >;
@@ -67,10 +66,11 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&clk_hse{
+&clk_hsi48{
 	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
+};
+&clk_lsi{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

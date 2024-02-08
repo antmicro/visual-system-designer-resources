@@ -1,45 +1,10 @@
 / {
-	compatible = "gd,gd32f450i-eval";
+	compatible = "gd,gd32f450v-start";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
-};
-&gpioc{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
-};
-&spi5{
-	status = "okay";
-	pinctrl-0 = < &spi5_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioi 0x8 0x1 >;
-	dmas = < &dma1 0x5 0x1 0x0 0x0 >, < &dma1 0x6 0x1 0x0 0x0 >;
-	dma-names = "tx", "rx";
-};
-&gpiof{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
 };
 &usart0{
 	status = "okay";
@@ -47,16 +12,49 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&gpiog{
-	status = "okay";
-};
-&gpioi{
+&gpioc{
 	status = "okay";
 };
 &gpioa{
 	status = "okay";
 };
+&gpiob{
+	status = "okay";
+};
+&spi5{
+	status = "okay";
+	pinctrl-0 = < &spi5_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiog 0x9 0x1 >;
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
+};
+&gpiog{
+	status = "okay";
+};
 &gpiod{
+	status = "okay";
+};
+&gpioi{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpioe{
+	status = "okay";
+};
+&gpiof{
 	status = "okay";
 };
 &pinctrl{
@@ -81,7 +79,7 @@
 		reg = < 0x40020400 0x400 >;
 		clocks = < &cctl 0xc01 >;
 		resets = < &rctl 0x401 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpioc: gpio@40020800 {
 		compatible = "gd,gd32-gpio";
@@ -108,7 +106,7 @@
 		reg = < 0x40021000 0x400 >;
 		clocks = < &cctl 0xc04 >;
 		resets = < &rctl 0x404 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpiof: gpio@40021400 {
 		compatible = "gd,gd32-gpio";
@@ -117,7 +115,7 @@
 		reg = < 0x40021400 0x400 >;
 		clocks = < &cctl 0xc05 >;
 		resets = < &rctl 0x405 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpiog: gpio@40021800 {
 		compatible = "gd,gd32-gpio";
@@ -126,7 +124,7 @@
 		reg = < 0x40021800 0x400 >;
 		clocks = < &cctl 0xc06 >;
 		resets = < &rctl 0x406 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpioh: gpio@40021c00 {
 		compatible = "gd,gd32-gpio";
@@ -144,37 +142,16 @@
 		reg = < 0x40022000 0x400 >;
 		clocks = < &cctl 0xc08 >;
 		resets = < &rctl 0x408 >;
-		status = "okay";
+		status = "disabled";
 	};
 	usart0_default: usart0_default {
 		group1 {
-			pinmux = < 0x790 >, < 0x7a0 >;
+			pinmux = < 0x761 >, < 0x771 >;
 		};
 	};
-	adc0_default: adc0_default {
+	pwm2_default: pwm2_default {
 		group1 {
-			pinmux = < 0x1032 >;
-		};
-	};
-	dac_default: dac_default {
-		group1 {
-			pinmux = < 0x1040 >;
-		};
-	};
-	pwm1_default: pwm1_default {
-		group1 {
-			pinmux = < 0x1a1 >;
-		};
-	};
-	i2c0_default: i2c0_default {
-		group1 {
-			pinmux = < 0x461 >, < 0x471 >;
-			drive-open-drain;
-		};
-	};
-	spi5_default: spi5_default {
-		group1 {
-			pinmux = < 0x5d6 >, < 0x5e6 >, < 0x5c6 >, < 0x5a6 >, < 0x5b6 >;
+			pinmux = < 0x262 >;
 		};
 	};
 };

@@ -16,30 +16,20 @@
 	pinctrl-0 = < &sercom4_spi_default >;
 	pinctrl-names = "default";
 };
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
-&tcc0{
-	compatible = "atmel,sam0-tcc-pwm";
-	status = "okay";
-	prescaler = < 0x8 >;
-	#pwm-cells = < 0x2 >;
-	pinctrl-0 = < &pwm_default >;
-	pinctrl-names = "default";
-};
-&mdio{
-	status = "okay";
-	pinctrl-0 = < &mdio_default >;
-	pinctrl-names = "default";
-};
 &gmac{
 	status = "okay";
 	pinctrl-0 = < &gmac_rmii >;
 	pinctrl-names = "default";
 	mac-eeprom = < &eeprom >;
 	phy-handle = < &phy >;
+};
+&adc0{
+	status = "okay";
+};
+&mdio{
+	status = "okay";
+	pinctrl-0 = < &mdio_default >;
+	pinctrl-names = "default";
 };
 &sercom2{
 	compatible = "atmel,sam0-uart";
@@ -52,6 +42,14 @@
 	pinctrl-0 = < &sercom2_uart_default >;
 	pinctrl-names = "default";
 };
+&tcc0{
+	compatible = "atmel,sam0-tcc-pwm";
+	status = "okay";
+	prescaler = < 0x8 >;
+	#pwm-cells = < 0x2 >;
+	pinctrl-0 = < &pwm_default >;
+	pinctrl-names = "default";
+};
 &sercom7{
 	compatible = "atmel,sam0-i2c";
 	status = "okay";
@@ -61,6 +59,8 @@
 	pinctrl-0 = < &sercom7_i2c_default >;
 	pinctrl-names = "default";
 };
-&adc0{
+&usb0{
 	status = "okay";
+	pinctrl-0 = < &usb_dc_default >;
+	pinctrl-names = "default";
 };

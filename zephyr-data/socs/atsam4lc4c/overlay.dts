@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart2_default >;
-	pinctrl-names = "default";
-};
 &spi0{
 	status = "okay";
 	pinctrl-0 = < &spi0_default >;
@@ -37,4 +31,10 @@
 	hs-data-slew-lim = < 0x0 >;
 	hs-data-strength-low = "0.5";
 	hs-master-code = < 0x0 >;
+};
+&usart2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart2_default >;
+	pinctrl-names = "default";
 };

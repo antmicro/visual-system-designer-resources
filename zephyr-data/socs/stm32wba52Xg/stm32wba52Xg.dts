@@ -6,6 +6,7 @@
 	chosen {
 		zephyr,entropy = &rng;
 		zephyr,flash-controller = &flash;
+		st,lptim-stdby-timer = &rtc;
 	};
 	aliases {
 	};
@@ -102,6 +103,46 @@
 				reg = < 0x42021c00 0x400 >;
 				clocks = < &rcc 0x8c 0x80 >;
 			};
+			analog_pa13: analog_pa13 {
+				pinmux = < 0x1b0 >;
+				phandle = < 0xc >;
+			};
+			analog_pa14: analog_pa14 {
+				pinmux = < 0x1d0 >;
+				phandle = < 0xd >;
+			};
+			analog_pa15: analog_pa15 {
+				pinmux = < 0x1f0 >;
+				phandle = < 0xe >;
+			};
+			analog_pb3: analog_pb3 {
+				pinmux = < 0x270 >;
+				phandle = < 0xf >;
+			};
+			analog_pb4: analog_pb4 {
+				pinmux = < 0x290 >;
+				phandle = < 0x10 >;
+			};
+			debug_jtms_swdio_pa13: debug_jtms_swdio_pa13 {
+				pinmux = < 0x1a0 >;
+				phandle = < 0x7 >;
+			};
+			debug_jtck_swclk_pa14: debug_jtck_swclk_pa14 {
+				pinmux = < 0x1c0 >;
+				phandle = < 0x8 >;
+			};
+			debug_jtdi_pa15: debug_jtdi_pa15 {
+				pinmux = < 0x1e0 >;
+				phandle = < 0x9 >;
+			};
+			debug_jtdo_swo_pb3: debug_jtdo_swo_pb3 {
+				pinmux = < 0x260 >;
+				phandle = < 0xa >;
+			};
+			debug_jtrst_pb4: debug_jtrst_pb4 {
+				pinmux = < 0x280 >;
+				phandle = < 0xb >;
+			};
 		};
 		rtc: rtc@46007800 {
 			compatible = "st,stm32-rtc";
@@ -174,7 +215,7 @@
 			interrupts = < 0x2b 0x0 >, < 0x2c 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x6 >;
+			phandle = < 0x11 >;
 		};
 		i2c3: i2c@46002800 {
 			compatible = "st,stm32-i2c-v2";
@@ -186,7 +227,7 @@
 			interrupts = < 0x36 0x0 >, < 0x37 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x7 >;
+			phandle = < 0x12 >;
 		};
 		timers1: timers@40012c00 {
 			compatible = "st,stm32-timers";
@@ -342,7 +383,7 @@
 			device_type = "cpu";
 			compatible = "arm,cortex-m33";
 			reg = < 0x0 >;
-			cpu-power-states = < &stop0 &stop1 >;
+			cpu-power-states = < &stop0 &stop1 &standby >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			mpu: mpu@e000ed90 {
@@ -364,6 +405,14 @@
 				substate-id = < 0x2 >;
 				min-residency-us = < 0x1f4 >;
 				phandle = < 0x5 >;
+			};
+			standby: state2 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-ram";
+				substate-id = < 0x1 >;
+				min-residency-us = < 0x3e8 >;
+				exit-latency-us = < 0x32 >;
+				phandle = < 0x6 >;
 			};
 		};
 	};
@@ -409,6 +458,12 @@
 			compatible = "st,stm32wba-pll-clock";
 			status = "disabled";
 		};
+	};
+	swj_port: swj_port {
+		compatible = "swj-connector";
+		pinctrl-0 = < &debug_jtms_swdio_pa13 &debug_jtck_swclk_pa14 &debug_jtdi_pa15 &debug_jtdo_swo_pb3 &debug_jtrst_pb4 >;
+		pinctrl-1 = < &analog_pa13 &analog_pa14 &analog_pa15 &analog_pb3 &analog_pb4 >;
+		pinctrl-names = "default", "sleep";
 	};
 	smbus1: smbus1 {
 		compatible = "st,stm32-smbus";

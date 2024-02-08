@@ -6,11 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
 &sercom0{
 	compatible = "atmel,sam0-uart";
 	status = "okay";
@@ -48,5 +43,10 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom7_spi_default >;
+	pinctrl-names = "default";
+};
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
 };

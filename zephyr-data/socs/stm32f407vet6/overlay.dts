@@ -6,15 +6,42 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usbotg_fs{
+&spi2{
 	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-0 = < &spi2_sck_pb10 &spi2_miso_pc2 &spi2_mosi_pc3 >;
 	pinctrl-names = "default";
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &can1{
 	pinctrl-0 = < &can1_rx_pd0 &can1_tx_pd1 >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0x0 0x1 >;
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &pll{
 	status = "okay";
@@ -24,25 +51,11 @@
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
 };
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0x0 0x1 >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb10 &spi2_miso_pc2 &spi2_mosi_pc3 >;
-	pinctrl-names = "default";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
 };
 &can2{
 	status = "okay";
@@ -50,21 +63,8 @@
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
-&usart1{
+&clk_lsi{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xa037a00 >;
-	apb1-prescaler = < 0x4 >;
-	apb2-prescaler = < 0x2 >;
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

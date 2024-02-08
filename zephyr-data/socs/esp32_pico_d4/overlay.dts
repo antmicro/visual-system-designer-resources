@@ -6,6 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpio0{
+	status = "okay";
+};
 &i2c0{
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
@@ -14,9 +17,6 @@
 	pinctrl-0 = < &i2c0_sda_gpio21 &i2c0_scl_gpio22 >;
 	pinctrl-names = "default";
 };
-&gpio1{
-	status = "okay";
-};
 &spi3{
 	status = "okay";
 	#address-cells = < 0x1 >;
@@ -24,14 +24,17 @@
 	pinctrl-0 = < &spim3_miso_gpio25 &spim3_mosi_gpio15 &spim3_sclk_gpio13 &spim3_csel_gpio5 >;
 	pinctrl-names = "default";
 };
-&gpio0{
-	status = "okay";
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_tx_gpio1 &uart0_rx_gpio3 >;
 	pinctrl-names = "default";
+};
+&flash0{
+	status = "okay";
+};
+&gpio1{
+	status = "okay";
 };
 &spi2{
 	status = "okay";
@@ -39,9 +42,6 @@
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &spim2_miso_gpio12 &spim2_mosi_gpio11 &spim2_sclk_gpio14 &spim2_csel_gpio16 >;
 	pinctrl-names = "default";
-};
-&flash0{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

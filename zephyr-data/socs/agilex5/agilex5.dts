@@ -186,4 +186,15 @@
 		status = "disabled";
 		zephyr,num-clients = < 0x2 >;
 	};
+	nand: nand@10B80000 {
+		compatible = "cdns,nand";
+		reg = < 0x10b80000 0x10000 >, < 0x10840000 0x10000 >;
+		reg-names = "nand_reg", "sdma";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x61 0x2 0xa0 >;
+		resets = < &reset 0x125 >, < &reset 0x126 >;
+		block-size = < 0x20000 >;
+		data-rate-mode = < 0x0 >;
+		status = "disabled";
+	};
 };

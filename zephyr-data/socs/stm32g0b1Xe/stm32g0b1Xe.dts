@@ -457,6 +457,18 @@
 			sample-point-data = < 0x36b >;
 			status = "disabled";
 		};
+		fdcan2: can@40006800 {
+			compatible = "st,stm32-fdcan";
+			reg = < 0x40006800 0x400 >, < 0x4000b750 0x350 >;
+			reg-names = "m_can", "message_ram";
+			interrupts = < 0x15 0x0 >, < 0x16 0x0 >;
+			interrupt-names = "int0", "int1";
+			clocks = < &rcc 0x3c 0x1000 >;
+			bosch,mram-cfg = < 0x0 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
+			sample-point = < 0x36b >;
+			sample-point-data = < 0x36b >;
+			status = "disabled";
+		};
 		usart5: serial@40005000 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40005000 0x400 >;

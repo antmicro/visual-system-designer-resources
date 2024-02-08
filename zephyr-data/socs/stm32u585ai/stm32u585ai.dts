@@ -138,6 +138,46 @@
 				reg = < 0x42022000 0x400 >;
 				clocks = < &rcc 0x8c 0x100 >;
 			};
+			analog_pa13: analog_pa13 {
+				pinmux = < 0x1b0 >;
+				phandle = < 0xd >;
+			};
+			analog_pa14: analog_pa14 {
+				pinmux = < 0x1d0 >;
+				phandle = < 0xe >;
+			};
+			analog_pa15: analog_pa15 {
+				pinmux = < 0x1f0 >;
+				phandle = < 0xf >;
+			};
+			analog_pb3: analog_pb3 {
+				pinmux = < 0x270 >;
+				phandle = < 0x10 >;
+			};
+			analog_pb4: analog_pb4 {
+				pinmux = < 0x290 >;
+				phandle = < 0x11 >;
+			};
+			debug_jtms_swdio_pa13: debug_jtms_swdio_pa13 {
+				pinmux = < 0x1a0 >;
+				phandle = < 0x8 >;
+			};
+			debug_jtck_swclk_pa14: debug_jtck_swclk_pa14 {
+				pinmux = < 0x1c0 >;
+				phandle = < 0x9 >;
+			};
+			debug_jtdi_pa15: debug_jtdi_pa15 {
+				pinmux = < 0x1e0 >;
+				phandle = < 0xa >;
+			};
+			debug_jtdo_swo_pb3: debug_jtdo_swo_pb3 {
+				pinmux = < 0x260 >;
+				phandle = < 0xb >;
+			};
+			debug_jtrst_pb4: debug_jtrst_pb4 {
+				pinmux = < 0x280 >;
+				phandle = < 0xc >;
+			};
 		};
 		iwdg: watchdog@40003000 {
 			compatible = "st,stm32-watchdog";
@@ -243,7 +283,7 @@
 			interrupts = < 0x37 0x0 >, < 0x38 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0xa >;
+			phandle = < 0x14 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -255,7 +295,7 @@
 			interrupts = < 0x39 0x0 >, < 0x3a 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0xb >;
+			phandle = < 0x15 >;
 		};
 		i2c3: i2c@46002800 {
 			compatible = "st,stm32-i2c-v2";
@@ -267,7 +307,7 @@
 			interrupts = < 0x58 0x0 >, < 0x59 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0xc >;
+			phandle = < 0x16 >;
 		};
 		i2c4: i2c@40008400 {
 			compatible = "st,stm32-i2c-v2";
@@ -279,7 +319,7 @@
 			interrupts = < 0x65 0x0 >, < 0x64 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0xd >;
+			phandle = < 0x17 >;
 		};
 		lptim1: timers@46004400 {
 			compatible = "st,stm32-lptim";
@@ -573,7 +613,7 @@
 			sampling-times = < 0x5 0x6 0xc 0x14 0x24 0x44 0x187 0x32e >;
 			st,adc-clock-source = < 0x2 >;
 			st,adc-sequencer = < 0x1 >;
-			phandle = < 0x8 >;
+			phandle = < 0x12 >;
 		};
 		adc4: adc@46021000 {
 			compatible = "st,stm32-adc";
@@ -587,7 +627,7 @@
 			num-sampling-time-common-channels = < 0x2 >;
 			st,adc-clock-source = < 0x2 >;
 			st,adc-sequencer = < 0x0 >;
-			phandle = < 0x9 >;
+			phandle = < 0x13 >;
 		};
 		fdcan1: can@4000a400 {
 			compatible = "st,stm32-fdcan";
@@ -745,6 +785,12 @@
 			compatible = "st,stm32u5-pll-clock";
 			status = "disabled";
 		};
+	};
+	swj_port: swj_port {
+		compatible = "swj-connector";
+		pinctrl-0 = < &debug_jtms_swdio_pa13 &debug_jtck_swclk_pa14 &debug_jtdi_pa15 &debug_jtdo_swo_pb3 &debug_jtrst_pb4 >;
+		pinctrl-1 = < &analog_pa13 &analog_pa14 &analog_pa15 &analog_pb3 &analog_pb4 >;
+		pinctrl-names = "default", "sleep";
 	};
 	die_temp: dietemp {
 		compatible = "st,stm32-temp-cal";

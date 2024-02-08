@@ -5,34 +5,6 @@
 		zephyr,sram = &sram0;
 	};
 };
-&gpio1{
-	status = "okay";
-};
-&sc_timer{
-	status = "okay";
-	pinctrl-0 = < &pinmux_sctimer_default >;
-	pinctrl-names = "default";
-};
-&flexspi{
-	status = "okay";
-	pinctrl-0 = < &pinmux_flexspi >;
-	pinctrl-1 = < &pinmux_flexspi_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&gpio5{
-	status = "okay";
-};
-&pmic_i2c{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &pinmux_pmic_i2c >;
-	pinctrl-names = "default";
-};
-&usbhs{
-	status = "okay";
-};
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
 	status = "okay";
@@ -42,8 +14,46 @@
 	dmas = < &dma0 0x0 >, < &dma0 0x1 >;
 	dma-names = "rx", "tx";
 };
+&gpio4{
+	status = "okay";
+	int-source = "int-b";
+	interrupts = < 0x3 0x0 >;
+};
+&usbhs{
+	status = "okay";
+};
+&i3c0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-names = "default";
+};
 &gpio6{
 	status = "okay";
+};
+&gpio1{
+	status = "okay";
+};
+&gpio3{
+	status = "okay";
+	int-source = "int-a";
+	interrupts = < 0x2 0x0 >;
+};
+&pmic_i2c{
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &pinmux_pmic_i2c >;
+	pinctrl-names = "default";
+};
+&gpio0{
+	status = "okay";
+};
+&flexspi{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexspi >;
+	pinctrl-1 = < &pinmux_flexspi_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &flexspi2{
 	status = "okay";
@@ -55,25 +65,12 @@
 	ahb-cacheable;
 	ahb-read-addr-opt;
 };
-&gpio2{
+&sc_timer{
 	status = "okay";
-};
-&i3c0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
-&gpio4{
-	status = "okay";
-	int-source = "int-b";
-	interrupts = < 0x3 0x0 >;
-};
-&gpio3{
-	status = "okay";
-	int-source = "int-a";
-	interrupts = < 0x2 0x0 >;
-};
-&gpio0{
+&gpio5{
 	status = "okay";
 };
 &hs_lspi1{
@@ -82,4 +79,7 @@
 	pinctrl-names = "default";
 	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
 	dma-names = "rx", "tx";
+};
+&gpio2{
+	status = "okay";
 };

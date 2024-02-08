@@ -43,7 +43,8 @@
 	pcie0: pcie0 {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x1 >;
-		compatible = "intel,pcie";
+		compatible = "pcie-controller";
+		acpi-hid = "PNP0A08";
 		ranges;
 		ptm_root0: ptm_root0 {
 			compatible = "ptm-root";

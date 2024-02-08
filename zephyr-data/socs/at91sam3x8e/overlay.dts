@@ -6,9 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&twi1{
+&uart{
 	status = "okay";
-	pinctrl-0 = < &twi1_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart_default >;
 	pinctrl-names = "default";
 };
 &pwm0{
@@ -16,14 +17,13 @@
 	pinctrl-0 = < &pwm0_default >;
 	pinctrl-names = "default";
 };
-&uart{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart_default >;
-	pinctrl-names = "default";
-};
 &twi0{
 	status = "okay";
 	pinctrl-0 = < &twi0_default >;
+	pinctrl-names = "default";
+};
+&twi1{
+	status = "okay";
+	pinctrl-0 = < &twi1_default >;
 	pinctrl-names = "default";
 };

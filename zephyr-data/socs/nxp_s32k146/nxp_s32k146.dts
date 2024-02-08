@@ -6,6 +6,7 @@
 	chosen {
 	};
 	aliases {
+		watchdog0 = &wdog;
 	};
 	soc {
 		#address-cells = < 0x1 >;
@@ -129,6 +130,14 @@
 			reg = < 0x4004d000 0x1000 >;
 			clocks = < &clock 0x58 >;
 			phandle = < 0x7 >;
+		};
+		wdog: watchdog@40052000 {
+			compatible = "nxp,kinetis-wdog32";
+			reg = < 0x40052000 0x1000 >;
+			interrupts = < 0x16 0x0 >;
+			clocks = < &clock 0x1 >;
+			clk-source = < 0x1 >;
+			clk-divider = < 0x100 >;
 		};
 		clock: clock-controller@40064000 {
 			compatible = "nxp,s32-clock";

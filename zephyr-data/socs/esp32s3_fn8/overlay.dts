@@ -1,10 +1,35 @@
 / {
-	compatible = "m5stack,atoms3_lite";
+	compatible = "m5stack,stamps3";
 	chosen {
 		zephyr,console = &usb_serial;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
+};
+&usb_serial{
+	status = "okay";
+};
+&i2c1{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
+};
+&flash0{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim2_default >;
+	pinctrl-names = "default";
 };
 &uart0{
 	status = "okay";
@@ -15,50 +40,25 @@
 &gpio0{
 	status = "okay";
 };
-&i2c1{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-names = "default";
-};
-&i2c0{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&usb_serial{
-	status = "okay";
-};
 &spi3{
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	line-idle-low;
-	pinctrl-0 = < &spim3_ws2812_led >;
+	pinctrl-0 = < &spim3_default >;
 	pinctrl-names = "default";
 };
 &gpio1{
 	status = "okay";
 };
-&flash0{
+&adc1{
 	status = "okay";
-};
-&spi2{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim2_default >;
-	pinctrl-names = "default";
 };
 &uart1{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
-};
-&adc1{
-	status = "okay";
 };
 &twai{
 	pinctrl-0 = < &twai_default >;
@@ -80,7 +80,7 @@
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			pinmux = < 0x2d16a6 >, < 0x2c9667 >;
+			pinmux = < 0x2d168d >, < 0x2c964f >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
@@ -88,16 +88,45 @@
 	};
 	i2c1_default: i2c1_default {
 		group1 {
-			pinmux = < 0x2e1702 >, < 0x2d96c1 >;
+			pinmux = < 0x2e170b >, < 0x2d96cc >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
 		};
 	};
-	spim3_ws2812_led: spim3_ws2812_led {
+	spim2_default: spim2_default {
 		group1 {
-			pinmux = < 0x227fe3 >;
+			pinmux = < 0x32ffc6 >, < 0x377fc7 >;
+		};
+		group2 {
+			pinmux = < 0x33ffc5 >;
 			output-low;
+		};
+	};
+	spim3_default: spim3_default {
+		group1 {
+			pinmux = < 0x227fd5 >;
+			output-low;
+		};
+	};
+	ledc0_default: ledc0_default {
+		group1 {
+			pinmux = < 0x24ffc9 >;
+			output-enable;
+		};
+		group2 {
+			pinmux = < 0x257fc3 >;
+			output-enable;
+		};
+	};
+	mcpwm0_default: mcpwm0_default {
+		group1 {
+			pinmux = < 0x507fc9 >;
+			output-enable;
+		};
+		group2 {
+			pinmux = < 0x517fc3 >;
+			output-enable;
 		};
 	};
 };

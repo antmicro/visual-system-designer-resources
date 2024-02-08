@@ -1,15 +1,32 @@
 / {
-	compatible = "gd,gd32vf103c-starter";
+	compatible = "gd,gd32vf103v-eval";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&gpiob{
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpioa{
 	status = "okay";
 };
-&gpioe{
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioe 0x3 0x11 >;
+};
+&gpiob{
 	status = "okay";
 };
 &usart0{
@@ -18,16 +35,11 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
+&gpioe{
+	status = "okay";
+};
 &gpioc{
 	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -35,21 +47,9 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0xc 0x1 >;
 };
-&adc0{
+&dac{
 	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0x2 0x1 >;
-};
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
+	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
 &pinctrl{
@@ -108,9 +108,24 @@
 			pinmux = < 0x111a0 >, < 0x11290 >;
 		};
 	};
-	pwm2_default: pwm2_default {
+	usart1_default: usart1_default {
 		group1 {
-			pinmux = < 0x35270 >;
+			pinmux = < 0x11930 >, < 0x11a20 >;
+		};
+	};
+	pwm0_default: pwm0_default {
+		group1 {
+			pinmux = < 0x33280 >;
+		};
+	};
+	spi0_default: spi0_default {
+		group1 {
+			pinmux = < 0x10250 >, < 0x10270 >, < 0x10260 >;
+		};
+	};
+	adc0_default: adc0_default {
+		group1 {
+			pinmux = < 0x32 >;
 		};
 	};
 };

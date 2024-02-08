@@ -618,6 +618,23 @@
         },
         "rdp-compat": "bosch,bmp388"
     },
+    "bmp581": {
+        "category": "Other",
+        "compatible": [
+            "bosch,bmp581"
+        ],
+        "description": "The BMP581 is a Barometric pressure sensor. See more info at:\nhttps://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp581/\n",
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "bosch,bmp581"
+    },
     "bq274xx": {
         "category": "Fuel gauge",
         "compatible": [
@@ -795,8 +812,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303.c",
-            "drivers/sensor/f75303/f75303_emul.c"
+            "drivers/sensor/f75303/f75303_emul.c",
+            "drivers/sensor/f75303/f75303.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1571,6 +1588,31 @@
             }
         },
         "rdp-compat": "we,wsen-itds"
+    },
+    "lis2de12": {
+        "category": "Other",
+        "compatible": [
+            "st,lis2de12"
+        ],
+        "description": "STMicroelectronics LIS2DE12 3-axis ultra-low power accelerometer sensor\naccessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lis2de12/lis2de12.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "int2": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "st,lis2de12"
     },
     "lis2dh": {
         "category": "Motion/Accelerometer",

@@ -249,6 +249,50 @@
 				#size-cells = < 0x0 >;
 			};
 		};
+		can: can@48014000 {
+			compatible = "infineon,xmc4xxx-can";
+			reg = < 0x48014000 0x4000 >;
+			clock-prescaler = < 0x1 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			message-objects = < 0x100 >;
+			can_node0: can_node0@48014200 {
+				compatible = "infineon,xmc4xxx-can-node";
+				reg = < 0x48014200 0x100 >;
+				interrupts = < 0x4c 0x1 >;
+				status = "disabled";
+			};
+			can_node1: can_node1@48014300 {
+				compatible = "infineon,xmc4xxx-can-node";
+				reg = < 0x48014300 0x100 >;
+				interrupts = < 0x4d 0x1 >;
+				status = "disabled";
+			};
+			can_node2: can_node2@48014400 {
+				compatible = "infineon,xmc4xxx-can-node";
+				reg = < 0x48014400 0x100 >;
+				interrupts = < 0x4e 0x1 >;
+				status = "disabled";
+			};
+			can_node3: can_node3@48014500 {
+				compatible = "infineon,xmc4xxx-can-node";
+				reg = < 0x48014500 0x100 >;
+				interrupts = < 0x4f 0x1 >;
+				status = "disabled";
+			};
+			can_node4: can_node4@48014600 {
+				compatible = "infineon,xmc4xxx-can-node";
+				reg = < 0x48014600 0x100 >;
+				interrupts = < 0x50 0x1 >;
+				status = "disabled";
+			};
+			can_node5: can_node5@48014700 {
+				compatible = "infineon,xmc4xxx-can-node";
+				reg = < 0x48014700 0x100 >;
+				interrupts = < 0x51 0x1 >;
+				status = "disabled";
+			};
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

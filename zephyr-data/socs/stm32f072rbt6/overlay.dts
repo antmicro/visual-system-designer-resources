@@ -9,27 +9,11 @@
 &clk_hsi{
 	status = "okay";
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
-};
 &can1{
 	status = "okay";
 	pinctrl-0 = < &can_rx_pb8 &can_tx_pb9 >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
-};
-&pll{
-	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hsi >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -41,6 +25,22 @@
 	status = "okay";
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
 	pinctrl-names = "default";
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hsi >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &usart1{
 	status = "okay";

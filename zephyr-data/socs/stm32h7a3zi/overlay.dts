@@ -6,20 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart3{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&pll{
-	status = "okay";
-	div-m = < 0x1 >;
-	mul-n = < 0x23 >;
-	div-p = < 0x1 >;
-	div-q = < 0x5 >;
-	div-r = < 0x2 >;
-	clocks = < &clk_hse >;
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &usbotg_hs{
 	status = "okay";
@@ -34,8 +24,20 @@
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
 };
-&clk_hsi48{
+&pll{
 	status = "okay";
+	div-m = < 0x1 >;
+	mul-n = < 0x23 >;
+	div-p = < 0x1 >;
+	div-q = < 0x5 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hse >;
+};
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &adc1{
 	status = "okay";
@@ -44,10 +46,8 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
-&clk_hse{
+&clk_hsi48{
 	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -1,30 +1,13 @@
 / {
-	compatible = "actinius,icarus_som";
+	compatible = "circuitdojo,feather-nrf9160";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
 };
-&adc{
-	status = "okay";
-};
 &gpio0{
 	status = "okay";
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
-	pinctrl-1 = < &i2c2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-1 = < &uart0_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &spi3{
 	status = "okay";
@@ -32,6 +15,9 @@
 	pinctrl-0 = < &spi3_default >;
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
 };
 &uart1{
 	current-speed = < 0x1c200 >;
@@ -45,15 +31,29 @@
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&uart2{
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-1 = < &uart2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0xf4240 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
 &pwm0{
 	status = "okay";
 	pinctrl-0 = < &pwm0_default >;
 	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart2{
-	pinctrl-0 = < &uart2_default >;
-	pinctrl-1 = < &uart2_sleep >;
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &spi1{
@@ -75,23 +75,67 @@
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x9 >, < 0x10006 >;
+			psels = < 0x6 >, < 0x10005 >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x9 >, < 0x10006 >;
+			psels = < 0x6 >, < 0x10005 >;
 			low-power-enable;
 		};
 	};
-	i2c2_default: i2c2_default {
+	uart1_default: uart1_default {
 		group1 {
-			psels = < 0xc000a >, < 0xb000b >;
+			psels = < 0x0 >, < 0x10001 >;
 		};
 	};
-	i2c2_sleep: i2c2_sleep {
+	uart1_sleep: uart1_sleep {
 		group1 {
-			psels = < 0xc000a >, < 0xb000b >;
+			psels = < 0x0 >, < 0x10001 >;
+			low-power-enable;
+		};
+	};
+	uart2_default: uart2_default {
+		group1 {
+			psels = < 0x18 >, < 0x10017 >;
+		};
+	};
+	uart2_sleep: uart2_sleep {
+		group1 {
+			psels = < 0x18 >, < 0x10017 >;
+			low-power-enable;
+		};
+	};
+	i2c1_default: i2c1_default {
+		group1 {
+			psels = < 0xc001a >, < 0xb001b >;
+		};
+	};
+	i2c1_sleep: i2c1_sleep {
+		group1 {
+			psels = < 0xc001a >, < 0xb001b >;
+			low-power-enable;
+		};
+	};
+	pwm0_default: pwm0_default {
+		group1 {
+			psels = < 0x160003 >;
+		};
+	};
+	pwm0_sleep: pwm0_sleep {
+		group1 {
+			psels = < 0x160003 >;
+			low-power-enable;
+		};
+	};
+	spi3_default: spi3_default {
+		group1 {
+			psels = < 0x4000b >, < 0x50009 >, < 0x6001c >;
+		};
+	};
+	spi3_sleep: spi3_sleep {
+		group1 {
+			psels = < 0x4000b >, < 0x50009 >, < 0x6001c >;
 			low-power-enable;
 		};
 	};

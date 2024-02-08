@@ -1,18 +1,12 @@
 / {
-	compatible = "m5stack,stamp_c3";
+	compatible = "seeed,xiao-esp32c3";
 	chosen {
-		zephyr,console = &uart0;
+		zephyr,console = &usb_serial;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
 };
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&usb_serial{
+&gpio0{
 	status = "okay";
 };
 &i2c0{
@@ -21,13 +15,17 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&gpio0{
-	status = "okay";
-};
 &twai{
+	status = "okay";
 	pinctrl-0 = < &twai_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };
 &spi2{
 	status = "okay";
@@ -36,7 +34,7 @@
 	pinctrl-0 = < &spim2_default >;
 	pinctrl-names = "default";
 };
-&flash0{
+&usb_serial{
 	status = "okay";
 };
 &pinctrl{
@@ -54,16 +52,16 @@
 	};
 	spim2_default: spim2_default {
 		group1 {
-			pinmux = < 0xff9005 >, < 0x1fffc4 >, < 0x227fc7 >;
+			pinmux = < 0xff9009 >, < 0x1fffc8 >;
 		};
 		group2 {
-			pinmux = < 0x20ffc6 >;
+			pinmux = < 0x20ffca >;
 			output-low;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			pinmux = < 0x1b0d88 >, < 0x1a8d49 >;
+			pinmux = < 0x1b0d86 >, < 0x1a8d47 >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
@@ -71,7 +69,7 @@
 	};
 	twai_default: twai_default {
 		group1 {
-			pinmux = < 0x257fc0 >, < 0xff9281 >;
+			pinmux = < 0x257fc2 >, < 0xff9283 >;
 		};
 	};
 };

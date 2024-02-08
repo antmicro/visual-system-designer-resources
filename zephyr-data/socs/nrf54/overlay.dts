@@ -1,0 +1,63 @@
+/ {
+	compatible = "nordic,nrf54l15pdk_nrf54l15-cpuapp";
+	chosen {
+		zephyr,console = &uart20;
+		zephyr,sram = &sram0;
+		zephyr,flash = &rram0;
+	};
+};
+&uart20{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart20_default >;
+	pinctrl-1 = < &uart20_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&hfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3a98 >;
+};
+&gpio2{
+	status = "okay";
+};
+&gpio1{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&uart30{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart30_default >;
+	pinctrl-1 = < &uart30_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&lfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3c8c >;
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart20_default: uart20_default {
+		group1 {
+			psels = < 0x24 >, < 0x10025 >;
+		};
+	};
+	uart20_sleep: uart20_sleep {
+		group1 {
+			psels = < 0x24 >, < 0x10025 >;
+			low-power-enable;
+		};
+	};
+	uart30_default: uart30_default {
+		group1 {
+			psels = < 0x0 >, < 0x10001 >;
+		};
+	};
+	uart30_sleep: uart30_sleep {
+		group1 {
+			psels = < 0x0 >, < 0x10001 >;
+			low-power-enable;
+		};
+	};
+};
