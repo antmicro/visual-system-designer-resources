@@ -6,37 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0xb71b00 >;
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&usbotg_fs{
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
 &usart6{
 	status = "okay";
 	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&pll{
-	status = "okay";
-	div-m = < 0xc >;
-	mul-n = < 0x150 >;
-	div-p = < 0x2 >;
-	div-q = < 0x7 >;
-	clocks = < &clk_hse >;
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -46,19 +18,47 @@
 	apb1-prescaler = < 0x4 >;
 	apb2-prescaler = < 0x2 >;
 };
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usbotg_fs{
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
 &clk_lsi{
 	status = "okay";
 };
-&spi2{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb10 &spi2_miso_pc2 &spi2_mosi_pc3 >;
+	clock-frequency = < 0xb71b00 >;
+};
+&pll{
+	status = "okay";
+	div-m = < 0xc >;
+	mul-n = < 0x150 >;
+	div-p = < 0x2 >;
+	div-q = < 0x7 >;
+	clocks = < &clk_hse >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pb10 &spi2_miso_pc2 &spi2_mosi_pc3 >;
+	pinctrl-names = "default";
 };
 &can1{
 	pinctrl-0 = < &can1_rx_pd0 &can1_tx_pd1 >;
@@ -71,14 +71,14 @@
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
-&usbotg_hs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_hs_dm_pb14 &usb_otg_hs_dp_pb15 >;
-	pinctrl-names = "default";
-};
 &mac{
 	status = "okay";
 	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_col_pa3 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pg14 >;
+	pinctrl-names = "default";
+};
+&usbotg_hs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_hs_dm_pb14 &usb_otg_hs_dp_pb15 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

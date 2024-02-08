@@ -6,6 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
+&gpioa{
+	status = "okay";
+};
 &usart0{
 	status = "okay";
 	pinctrl-0 = < &usart0_default >;
@@ -17,9 +20,6 @@
 	location-sda = < 0x3 0x3 0x2 >;
 	location-scl = < 0x3 0x3 0x3 >;
 };
-&gpioc{
-	status = "okay";
-};
 &gpiob{
 	status = "okay";
 };
@@ -29,10 +29,10 @@
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
+&adc0{
 	status = "okay";
 };
-&adc0{
+&gpioc{
 	status = "okay";
 };
 &burtc0{

@@ -6,6 +6,22 @@
 		zephyr,flash = &flash0;
 	};
 };
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&rcc{
+	clocks = < &clk_hse >;
+	clock-frequency = < 0x2dc6c00 >;
+};
 &adc1{
 	status = "okay";
 	pinctrl-0 = < &adc1_in0_pa0 &adc1_in1_pa1 &adc1_in4_pa4 >;
@@ -16,22 +32,6 @@
 &clk_hse{
 	status = "okay";
 	clock-frequency = < 0x2dc6c00 >;
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clocks = < &clk_hse >;
-	clock-frequency = < 0x2dc6c00 >;
-};
-&i2c1{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
 };
 &clk_lse{
 	status = "okay";

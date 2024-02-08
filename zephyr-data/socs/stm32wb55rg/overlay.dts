@@ -12,30 +12,6 @@
 	pinctrl-names = "default";
 	current-speed = < 0x186a0 >;
 };
-&clk_hse{
-	status = "okay";
-};
-&clk48{
-	clocks = < &rcc 0x5 0x7a88 >;
-};
-&clk_lse{
-	status = "okay";
-};
-&rcc{
-	clocks = < &clk_hse >;
-	clock-frequency = < 0x1e84800 >;
-};
-&usb{
-	status = "okay";
-	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &adc1{
 	status = "okay";
 	pinctrl-0 = < &adc1_in3_pc2 >;
@@ -43,11 +19,32 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
+&usb{
+	status = "okay";
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&clk48{
+	clocks = < &rcc 0x5 0x7a88 >;
+};
+&rcc{
+	clocks = < &clk_hse >;
+	clock-frequency = < 0x1e84800 >;
+};
 &clk_hsi48{
 	status = "okay";
 };
-&clk_lsi1{
+&clk_hse{
 	status = "okay";
+};
+&clk_lse{
+	status = "okay";
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &i2c3{
 	clock-frequency = < 0x61a80 >;
@@ -65,6 +62,9 @@
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
+};
+&clk_lsi1{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

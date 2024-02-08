@@ -6,13 +6,19 @@
 		zephyr,flash = &flash0;
 	};
 };
-&sercom0{
-	compatible = "atmel,sam0-uart";
+&sercom7{
+	compatible = "atmel,sam0-spi";
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom0_uart_default >;
+	dipo = < 0x3 >;
+	dopo = < 0x0 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom7_spi_default >;
+	pinctrl-names = "default";
+};
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
 };
 &sercom3{
@@ -35,18 +41,12 @@
 	pinctrl-names = "default";
 	cs-gpios = < &portb 0x1c 0x1 >;
 };
-&sercom7{
-	compatible = "atmel,sam0-spi";
+&sercom0{
+	compatible = "atmel,sam0-uart";
 	status = "okay";
-	dipo = < 0x3 >;
-	dopo = < 0x0 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom7_spi_default >;
-	pinctrl-names = "default";
-};
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom0_uart_default >;
 	pinctrl-names = "default";
 };

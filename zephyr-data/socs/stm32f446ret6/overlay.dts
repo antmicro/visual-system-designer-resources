@@ -6,34 +6,22 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&can1{
-	status = "okay";
-	pinctrl-0 = < &can1_rx_pb8 &can1_tx_pb9 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
 &i2c3{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c3_scl_pa8 &i2c3_sda_pb4 >;
 	pinctrl-names = "default";
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
+	pinctrl-names = "default";
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x5b8d800 >;
+	apb1-prescaler = < 0x2 >;
 };
 &spi1{
 	status = "okay";
@@ -46,11 +34,19 @@
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
 };
-&i2c2{
-	clock-frequency = < 0x61a80 >;
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &pll{
 	status = "okay";
@@ -60,19 +56,23 @@
 	div-q = < 0x8 >;
 	clocks = < &clk_hse >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x5b8d800 >;
-	apb1-prescaler = < 0x2 >;
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&can1{
+	status = "okay";
+	pinctrl-0 = < &can1_rx_pb8 &can1_tx_pb9 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
 };
 &can2{
 	status = "okay";
 	pinctrl-0 = < &can2_rx_pb12 &can2_tx_pb13 >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
-};
-&clk_lsi{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -6,18 +6,21 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpio0{
-	status = "okay";
-};
-&adc{
-	status = "okay";
-};
 &spi0{
 	compatible = "nordic,nrf-spi";
 	status = "okay";
 	cs-gpios = < &arduino_header 0x10 0x1 >;
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-1 = < &spi0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart0{
@@ -27,11 +30,8 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&pwm0{
+&gpio0{
 	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &i2c0{
 	compatible = "nordic,nrf-twi";

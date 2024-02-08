@@ -9,6 +9,22 @@
 &gpio64_95{
 	status = "okay";
 };
+&gpio96_127{
+	status = "okay";
+};
+&gpio32_63{
+	status = "okay";
+};
+&mspi0{
+	status = "okay";
+	pinctrl-0 = < &mspi0_default >;
+	pinctrl-names = "default";
+};
+&mspi2{
+	status = "okay";
+	pinctrl-0 = < &mspi2_default >;
+	pinctrl-names = "default";
+};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -18,26 +34,10 @@
 &gpio0_31{
 	status = "okay";
 };
-&mspi2{
-	status = "okay";
-	pinctrl-0 = < &mspi2_default >;
-	pinctrl-names = "default";
-};
-&gpio32_63{
-	status = "okay";
-};
 &mspi1{
 	status = "okay";
 	pinctrl-0 = < &mspi1_default >;
 	pinctrl-names = "default";
-};
-&mspi0{
-	status = "okay";
-	pinctrl-0 = < &mspi0_default >;
-	pinctrl-names = "default";
-};
-&gpio96_127{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "ambiq,apollo4-pinctrl";

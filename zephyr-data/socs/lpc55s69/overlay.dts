@@ -6,15 +6,15 @@
 		zephyr,console = &flexcomm0;
 	};
 };
-&sc_timer{
-	pinctrl-0 = < &pinmux_sctimer_default >;
-	pinctrl-names = "default";
-};
 &sram3{
 	reg = < 0x20030000 0x14000 >;
 };
 &gpio1{
 	status = "okay";
+};
+&sc_timer{
+	pinctrl-0 = < &pinmux_sctimer_default >;
+	pinctrl-names = "default";
 };
 &hs_lspi{
 	pinctrl-0 = < &pinmux_hs_lspi_default >;

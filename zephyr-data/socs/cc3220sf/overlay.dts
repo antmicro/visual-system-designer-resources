@@ -12,7 +12,13 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&gpioa0{
+&i2c0{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&gpioa2{
 	status = "okay";
 };
 &gpioa3{
@@ -21,16 +27,10 @@
 &adc0{
 	status = "okay";
 };
-&i2c0{
-	clock-frequency = < 0x61a80 >;
+&gpioa0{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
 };
 &gpioa1{
-	status = "okay";
-};
-&gpioa2{
 	status = "okay";
 };
 &pinctrl{

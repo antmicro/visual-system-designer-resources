@@ -15,6 +15,17 @@
 	pinctrl-0 = < &sercom0_uart_default >;
 	pinctrl-names = "default";
 };
+&sercom4{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	dipo = < 0x0 >;
+	dopo = < 0x1 >;
+	pinctrl-0 = < &sercom4_spi_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &porta 0x6 0x1 >;
+};
 &usb0{
 	status = "okay";
 	pinctrl-0 = < &usb_dc_default >;
@@ -29,17 +40,6 @@
 	pinctrl-0 = < &sercom3_i2c_default >;
 	pinctrl-names = "default";
 };
-&sercom4{
-	compatible = "atmel,sam0-spi";
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	dipo = < 0x0 >;
-	dopo = < 0x1 >;
-	pinctrl-0 = < &sercom4_spi_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &porta 0x6 0x1 >;
-};
 &sercom5{
 	compatible = "atmel,sam0-uart";
 	status = "okay";
@@ -47,11 +47,6 @@
 	rxpo = < 0x3 >;
 	txpo = < 0x1 >;
 	pinctrl-0 = < &sercom5_uart_default >;
-	pinctrl-names = "default";
-};
-&dac0{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
 &tcc2{
@@ -62,14 +57,9 @@
 	pinctrl-0 = < &pwm_default >;
 	pinctrl-names = "default";
 };
-&sercom1{
-	compatible = "atmel,sam0-spi";
+&dac0{
 	status = "okay";
-	dipo = < 0x3 >;
-	dopo = < 0x0 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom1_spi_default >;
+	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
 &sercom2{
@@ -82,4 +72,14 @@
 	pinctrl-0 = < &sercom2_spi_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &porta 0xe 0x1 >;
+};
+&sercom1{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	dipo = < 0x3 >;
+	dopo = < 0x0 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom1_spi_default >;
+	pinctrl-names = "default";
 };

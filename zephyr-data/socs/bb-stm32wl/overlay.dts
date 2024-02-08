@@ -27,6 +27,9 @@
 	clocks = < &pll >;
 	clock-frequency = < 0x2dc6c00 >;
 };
+&clk_lsi{
+	status = "okay";
+};
 &pll{
 	status = "okay";
 	div-m = < 0x1 >;
@@ -40,9 +43,6 @@
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&clk_lsi{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

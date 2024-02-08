@@ -6,10 +6,17 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_hse{
+&usart3{
 	status = "okay";
-	clock-frequency = < 0x17d7840 >;
-	hse-bypass;
+	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&quadspi{
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = < &quadspi_clk_pf10 &quadspi_bk1_ncs_pg6 &quadspi_bk1_io0_pd11 &quadspi_bk1_io1_pf9 &quadspi_bk1_io2_pf7 &quadspi_bk1_io3_pf6 &quadspi_bk2_io0_ph2 &quadspi_bk2_io1_ph3 &quadspi_bk2_io2_pg9 &quadspi_bk2_io3_pg14 >;
+	flash-id = < 0x1 >;
 };
 &rcc{
 	clocks = < &pll >;
@@ -20,6 +27,11 @@
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
 };
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x17d7840 >;
+	hse-bypass;
+};
 &pll{
 	status = "okay";
 	div-m = < 0x5 >;
@@ -28,18 +40,6 @@
 	div-q = < 0x4 >;
 	div-r = < 0x4 >;
 	clocks = < &clk_hse >;
-};
-&quadspi{
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = < &quadspi_clk_pf10 &quadspi_bk1_ncs_pg6 &quadspi_bk1_io0_pd11 &quadspi_bk1_io1_pf9 &quadspi_bk1_io2_pf7 &quadspi_bk1_io3_pf6 &quadspi_bk2_io0_ph2 &quadspi_bk2_io1_ph3 &quadspi_bk2_io2_pg9 &quadspi_bk2_io3_pg14 >;
-	flash-id = < 0x1 >;
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

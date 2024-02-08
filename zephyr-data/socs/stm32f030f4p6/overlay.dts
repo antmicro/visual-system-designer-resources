@@ -6,6 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
+};
 &clk_hse{
 	status = "okay";
 	clock-frequency = < 0x7a1200 >;
@@ -16,18 +20,14 @@
 	mul = < 0x6 >;
 	clocks = < &clk_hse >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
-};
-&flash0{
-	reg = < 0x8000000 0x5000 >;
-};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&flash0{
+	reg = < 0x8000000 0x5000 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

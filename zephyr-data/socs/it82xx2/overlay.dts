@@ -6,65 +6,9 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c0{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c0_clk_gpb3_default &i2c0_data_gpb4_default >;
-	pinctrl-names = "default";
-};
-&i2c1{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c1_clk_gpc1_default &i2c1_data_gpc2_default >;
-	pinctrl-names = "default";
-};
-&uart1{
-	status = "okay";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_ch3_gpi3_default >;
-	pinctrl-names = "default";
-};
-&i2c4{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c4_clk_gpe0_default &i2c4_data_gpe7_default >;
-	pinctrl-names = "default";
-};
-&pwm0{
-	status = "okay";
-	prescaler-cx = < 0x2 >;
-	pwm-output-frequency = < 0x144 >;
-	pinctrl-0 = < &pwm0_gpa0_default >;
-	pinctrl-names = "default";
-};
-&ite_uart1_wrapper{
-	status = "okay";
-	pinctrl-0 = < &uart1_rx_gpb0_default &uart1_tx_gpb1_default >;
-	pinctrl-names = "default";
-};
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb0_dm_gph5_default &usb0_dp_gph6_default >;
-	pinctrl-names = "default";
-};
-&pwm7{
-	status = "okay";
-	prescaler-cx = < 0x1 >;
-	pwm-output-frequency = < 0x7530 >;
-	pinctrl-0 = < &pwm7_gpa7_default >;
-	pinctrl-names = "default";
-};
 &ite_uart2_wrapper{
 	status = "okay";
 	pinctrl-0 = < &uart2_rx_gpf0_default &uart2_tx_gpf1_default >;
-	pinctrl-names = "default";
-};
-&i2c2{
-	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c2_clk_gpf6_default &i2c2_data_gpf7_default >;
 	pinctrl-names = "default";
 };
 &i2c3{
@@ -73,11 +17,54 @@
 	pinctrl-0 = < &i2c3_clk_gph1_default &i2c3_data_gph2_default >;
 	pinctrl-names = "default";
 };
+&uart1{
+	status = "okay";
+};
+&i2c4{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c4_clk_gpe0_default &i2c4_data_gpe7_default >;
+	pinctrl-names = "default";
+};
+&ite_uart1_wrapper{
+	status = "okay";
+	pinctrl-0 = < &uart1_rx_gpb0_default &uart1_tx_gpb1_default >;
+	pinctrl-names = "default";
+};
 &tach0{
 	status = "okay";
 	channel = < 0x0 >;
 	pulses-per-round = < 0x2 >;
 	pinctrl-0 = < &tach0a_gpd6_default >;
+	pinctrl-names = "default";
+};
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb0_dm_gph5_default &usb0_dp_gph6_default >;
+	pinctrl-names = "default";
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_ch3_gpi3_default >;
+	pinctrl-names = "default";
+};
+&i2c1{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c1_clk_gpc1_default &i2c1_data_gpc2_default >;
+	pinctrl-names = "default";
+};
+&i2c2{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c2_clk_gpf6_default &i2c2_data_gpf7_default >;
+	pinctrl-names = "default";
+};
+&pwm0{
+	status = "okay";
+	prescaler-cx = < 0x2 >;
+	pwm-output-frequency = < 0x144 >;
+	pinctrl-0 = < &pwm0_gpa0_default >;
 	pinctrl-names = "default";
 };
 &i2c5{
@@ -88,6 +75,19 @@
 };
 &uart2{
 	status = "okay";
+};
+&pwm7{
+	status = "okay";
+	prescaler-cx = < 0x1 >;
+	pwm-output-frequency = < 0x7530 >;
+	pinctrl-0 = < &pwm7_gpa7_default >;
+	pinctrl-names = "default";
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_clk_gpb3_default &i2c0_data_gpb4_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "ite,it8xxx2-pinctrl";
