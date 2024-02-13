@@ -6,23 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usb_serial{
+&gpio1{
 	status = "okay";
-};
-&twai{
-	pinctrl-0 = < &twai_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&uart0{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
-&i2c0{
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
 };
 &spi2{
 	status = "okay";
@@ -39,8 +24,10 @@
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 };
-&gpio0{
-	status = "okay";
+&i2c0{
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
 };
 &spi3{
 	status = "okay";
@@ -49,8 +36,21 @@
 	pinctrl-0 = < &spim3_default >;
 	pinctrl-names = "default";
 };
-&gpio1{
+&usb_serial{
 	status = "okay";
+};
+&twai{
+	pinctrl-0 = < &twai_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&gpio0{
+	status = "okay";
+};
+&uart0{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

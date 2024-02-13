@@ -6,26 +6,13 @@
 		zephyr,flash = &flash0;
 	};
 };
-&i2c{
-	status = "okay";
-	pinctrl-0 = < &i2c_default >;
-	pinctrl-names = "default";
-};
 &spi{
 	status = "okay";
 	pinctrl-0 = < &spi_controller >;
 	pinctrl-names = "default";
 };
-&usbd{
-	status = "okay";
-};
 &gpio1{
 	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_controller >;
-	pinctrl-names = "default";
 };
 &uart3{
 	status = "okay";
@@ -33,19 +20,10 @@
 	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
-&i2c2{
+&i2c{
 	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
+	pinctrl-0 = < &i2c_default >;
 	pinctrl-names = "default";
-};
-&uart2{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart2_default >;
-	pinctrl-names = "default";
-};
-&gpio0{
-	status = "okay";
 };
 &flash0{
 	reg = < 0x16000000 0x100000 >;
@@ -54,6 +32,28 @@
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart_default >;
+	pinctrl-names = "default";
+};
+&usbd{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_controller >;
+	pinctrl-names = "default";
+};
+&uart2{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
 	pinctrl-names = "default";
 };
 &pinctrl{

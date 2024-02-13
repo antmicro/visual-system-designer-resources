@@ -15,10 +15,8 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&gpioe{
-	status = "okay";
-};
-&gpiod{
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };
 &uart1{
@@ -27,10 +25,11 @@
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
 };
-&gpiob{
+&dac0{
+	voltage-reference = < 0x2 >;
 	status = "okay";
 };
-&gpioa{
+&gpioc{
 	status = "okay";
 };
 &spi0{
@@ -38,17 +37,18 @@
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
 };
-&gpioc{
-	status = "okay";
-};
-&usbotg{
-	num-bidir-endpoints = < 0x8 >;
-	status = "okay";
-};
-&dac0{
-	voltage-reference = < 0x2 >;
-	status = "okay";
-};
 &adc0{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioa{
 	status = "okay";
 };

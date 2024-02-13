@@ -6,37 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usic1ch1{
-	status = "okay";
-	compatible = "infineon,xmc4xxx-uart";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart_tx_p0_1_u1c1 &uart_rx_p0_0_u1c1 >;
-	pinctrl-names = "default";
-	input-src = "DX0D";
-	interrupts = < 0x5a 0x1 0x5b 0x1 >;
-	interrupt-names = "tx", "rx";
-	fifo-start-offset = < 0x0 >;
-	fifo-tx-size = < 0x10 >;
-	fifo-rx-size = < 0x10 >;
-};
-&adc0{
-	vref-internal-mv = < 0xce4 >;
-};
-&gpio1{
-	status = "okay";
-};
-&mdio{
-	status = "okay";
-	mdi-port-ctrl = "P2_0";
-	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
-	pinctrl-names = "default";
-};
-&adc1{
-	vref-internal-mv = < 0xce4 >;
-};
-&adc3{
-	vref-internal-mv = < 0xce4 >;
-};
 &eth{
 	status = "okay";
 	pinctrl-0 = < &eth_p2_4_rxer &eth_p2_2_rxd0 &eth_p2_3_rxd1 &eth_p15_8_clk_rmii &eth_p15_9_crs_dv &eth_p2_5_tx_en &eth_p2_8_txd0 &eth_p2_9_txd1 >;
@@ -49,6 +18,37 @@
 	phy-connection-type = "rmii";
 	phy-handle = < &phy >;
 };
+&adc3{
+	vref-internal-mv = < 0xce4 >;
+};
+&mdio{
+	status = "okay";
+	mdi-port-ctrl = "P2_0";
+	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
+	pinctrl-names = "default";
+};
+&adc1{
+	vref-internal-mv = < 0xce4 >;
+};
+&adc0{
+	vref-internal-mv = < 0xce4 >;
+};
+&gpio1{
+	status = "okay";
+};
 &adc2{
 	vref-internal-mv = < 0xce4 >;
+};
+&usic1ch1{
+	status = "okay";
+	compatible = "infineon,xmc4xxx-uart";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart_tx_p0_1_u1c1 &uart_rx_p0_0_u1c1 >;
+	pinctrl-names = "default";
+	input-src = "DX0D";
+	interrupts = < 0x5a 0x1 0x5b 0x1 >;
+	interrupt-names = "tx", "rx";
+	fifo-start-offset = < 0x0 >;
+	fifo-tx-size = < 0x10 >;
+	fifo-rx-size = < 0x10 >;
 };

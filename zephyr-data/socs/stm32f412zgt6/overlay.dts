@@ -6,11 +6,43 @@
 		zephyr,flash = &flash0;
 	};
 };
+&pll{
+	status = "okay";
+	div-m = < 0x8 >;
+	mul-n = < 0x180 >;
+	div-p = < 0x4 >;
+	div-q = < 0x8 >;
+	clocks = < &clk_hse >;
+};
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
 &usart6{
 	status = "okay";
 	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x5b8d800 >;
+	apb1-prescaler = < 0x2 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -24,47 +56,15 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&i2c1{
+&i2c2{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
-	pinctrl-names = "default";
-};
-&pll{
-	status = "okay";
-	div-m = < 0x8 >;
-	mul-n = < 0x180 >;
-	div-p = < 0x4 >;
-	div-q = < 0x8 >;
-	clocks = < &clk_hse >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x5b8d800 >;
-	apb1-prescaler = < 0x2 >;
-};
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb9 >;
 	pinctrl-names = "default";
 };
 &quadspi{
 	status = "okay";
 	pinctrl-0 = < &quadspi_clk_pb2 &quadspi_bk1_ncs_pg6 &quadspi_bk1_io0_pf8 &quadspi_bk1_io1_pf9 &quadspi_bk1_io2_pf7 &quadspi_bk1_io3_pf6 >;
-	pinctrl-names = "default";
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb9 >;
 	pinctrl-names = "default";
 };
 &usart2{

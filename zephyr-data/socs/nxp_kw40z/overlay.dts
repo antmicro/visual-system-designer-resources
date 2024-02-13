@@ -5,10 +5,12 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
+&adc0{
 	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
 };
-&gpioc{
+&gpioa{
 	status = "okay";
 };
 &lpuart0{
@@ -17,8 +19,6 @@
 	pinctrl-0 = < &lpuart0_default >;
 	pinctrl-names = "default";
 };
-&adc0{
+&gpioc{
 	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
 };

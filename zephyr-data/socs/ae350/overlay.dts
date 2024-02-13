@@ -8,10 +8,6 @@
 &i2c0{
 	status = "okay";
 };
-&spi1{
-	status = "okay";
-	cs-gpios = < &gpio0 0x7 0x1 >;
-};
 &gpio0{
 	status = "okay";
 };
@@ -19,6 +15,10 @@
 	status = "okay";
 	clock-frequency = < 0x12c0000 >;
 	current-speed = < 0x1c200 >;
+};
+&spi1{
+	status = "okay";
+	cs-gpios = < &gpio0 0x7 0x1 >;
 };
 &spi0{
 	status = "okay";

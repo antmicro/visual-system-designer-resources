@@ -5,30 +5,17 @@
 		zephyr,flash = &flash0;
 	};
 };
-&adc{
-	status = "okay";
-};
-&spi3{
-	status = "okay";
-	cs-gpios = < &arduino_header 0x10 0x1 >, < &gpio0 0x14 0x1 >;
-	pinctrl-0 = < &spi3_default >;
-	pinctrl-1 = < &spi3_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&gpio0{
-	status = "okay";
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
-	pinctrl-1 = < &i2c2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &pwm0{
 	status = "okay";
 	pinctrl-0 = < &pwm0_default >;
 	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart1{
@@ -38,12 +25,25 @@
 	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart0{
+&spi3{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-1 = < &uart0_sleep >;
+	cs-gpios = < &arduino_header 0x10 0x1 >, < &gpio0 0x14 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-1 = < &i2c2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&adc{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

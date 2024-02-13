@@ -6,16 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&lpi2c0{
-	status = "okay";
-	pinctrl-0 = < &lpi2c0_default >;
-	pinctrl-names = "default";
-	scl-gpios = < &gpioa 0x3 0x0 >;
-	sda-gpios = < &gpioa 0x2 0x0 >;
-};
-&gpioe{
-	status = "okay";
-};
 &flexcan0{
 	status = "okay";
 	pinctrl-0 = < &flexcan0_default >;
@@ -26,8 +16,23 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
-&gpiod{
+&lpi2c0{
 	status = "okay";
+	pinctrl-0 = < &lpi2c0_default >;
+	pinctrl-names = "default";
+	scl-gpios = < &gpioa 0x3 0x0 >;
+	sda-gpios = < &gpioa 0x2 0x0 >;
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&lpuart0{
+	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &flexcan1{
 	status = "okay";
@@ -39,16 +44,7 @@
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
 };
-&lpuart1{
-	status = "okay";
-	pinctrl-0 = < &lpuart1_default >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&gpiob{
-	status = "okay";
-};
-&gpioa{
+&gpioc{
 	status = "okay";
 };
 &lpspi0{
@@ -56,11 +52,15 @@
 	pinctrl-0 = < &lpspi0_default >;
 	pinctrl-names = "default";
 };
-&gpioc{
+&gpioe{
 	status = "okay";
 };
-&lpuart0{
-	pinctrl-0 = < &lpuart0_default >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+&gpiob{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
 };

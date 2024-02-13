@@ -6,29 +6,16 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart6{
-	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&clk_hsi{
-	status = "okay";
-	hsi-div = < 0x8 >;
-};
 &uart4{
 	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pi9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&fdcan1{
-	clocks = < &rcc 0xec 0x100 >, < &rcc 0x9 0x17c50 >;
-	pinctrl-0 = < &fdcan1_rx_pb8 &fdcan1_tx_ph13 >;
-	pinctrl-names = "default";
-};
-&usbotg_fs{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -36,10 +23,28 @@
 	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
 	pinctrl-names = "default";
 };
-&rcc{
-	d2ppre2 = < 0x2 >;
-	clocks = < &pll >;
-	clock-frequency = < 0x5b8d800 >;
+&clk_hsi{
+	status = "okay";
+	hsi-div = < 0x8 >;
+};
+&fdcan1{
+	clocks = < &rcc 0xec 0x100 >, < &rcc 0x9 0x17c50 >;
+	pinctrl-0 = < &fdcan1_rx_pb8 &fdcan1_tx_ph13 >;
+	pinctrl-names = "default";
+};
+&uart8{
+	pinctrl-0 = < &uart8_tx_pj8 &uart8_rx_pj9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart6{
+	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&spi2{
+	pinctrl-0 = < &spi2_nss_pi0 &spi2_sck_pi1 &spi2_miso_pc2 &spi2_mosi_pc3 >;
+	pinctrl-names = "default";
 };
 &i2c3{
 	clock-frequency = < 0x61a80 >;
@@ -55,33 +60,47 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hsi >;
 };
-&uart8{
-	pinctrl-0 = < &uart8_tx_pj8 &uart8_rx_pj9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&spi2{
-	pinctrl-0 = < &spi2_nss_pi0 &spi2_sck_pi1 &spi2_miso_pc2 &spi2_mosi_pc3 >;
-	pinctrl-names = "default";
-};
 &clk_hsi48{
 	status = "okay";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &i2c4{
 	clock-frequency = < 0x61a80 >;
 	pinctrl-0 = < &i2c4_scl_ph11 &i2c4_sda_ph12 >;
 	pinctrl-names = "default";
 };
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&rcc{
+	d2ppre2 = < 0x2 >;
+	clocks = < &pll >;
+	clock-frequency = < 0x5b8d800 >;
+};
+&uart7{
+	status = "okay";
+	pinctrl-0 = < &uart7_tx_pf7 &uart7_rx_pa8 &uart7_cts_pf9 &uart7_rts_pf8 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+	hw-flow-control;
+};
 &dac1{
 	status = "okay";
 	pinctrl-0 = < &dac1_out1_pa4 &dac1_out2_pa5 >;
 	pinctrl-names = "default";
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c2_scl_ph4 &i2c2_sda_pb11 >;
+	pinctrl-names = "default";
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0xf42400 >;
+};
+&clk_lse{
+	status = "okay";
 };
 &fdcan2{
 	clocks = < &rcc 0xec 0x100 >, < &rcc 0x9 0x17c50 >;
@@ -91,28 +110,9 @@
 	bus-speed = < 0x1e848 >;
 	bus-speed-data = < 0xf4240 >;
 };
-&clk_lse{
-	status = "okay";
-};
-&uart7{
-	status = "okay";
-	pinctrl-0 = < &uart7_tx_pf7 &uart7_rx_pa8 &uart7_cts_pf9 &uart7_rts_pf8 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-	hw-flow-control;
-};
 &quadspi{
 	status = "okay";
 	pinctrl-0 = < &quadspi_clk_pf10 &quadspi_bk1_ncs_pg6 &quadspi_bk1_io0_pd11 &quadspi_bk1_io1_pd12 &quadspi_bk1_io2_pe2 &quadspi_bk1_io3_pf6 >;
-	pinctrl-names = "default";
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0xf42400 >;
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c2_scl_ph4 &i2c2_sda_pb11 >;
 	pinctrl-names = "default";
 };
 &spi5{

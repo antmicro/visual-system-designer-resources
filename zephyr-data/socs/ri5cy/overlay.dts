@@ -6,15 +6,20 @@
 		zephyr,flash = &m4_flash;
 	};
 };
-&lpi2c3{
-	status = "okay";
-	pinctrl-0 = < &lpi2c3_default >;
-	pinctrl-names = "default";
-};
 &lpuart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
+};
+&lpi2c0{
+	status = "okay";
+	pinctrl-0 = < &lpi2c0_default >;
+	pinctrl-names = "default";
+};
+&lpspi0{
+	status = "okay";
+	pinctrl-0 = < &lpspi0_default >;
 	pinctrl-names = "default";
 };
 &lpspi1{
@@ -23,77 +28,72 @@
 	pinctrl-0 = < &lpspi1_default >;
 	pinctrl-names = "default";
 };
-&tpm2{
+&lpi2c3{
 	status = "okay";
-	pinctrl-0 = < &tpm2_default >;
-	pinctrl-names = "default";
-};
-&lpi2c0{
-	status = "okay";
-	pinctrl-0 = < &lpi2c0_default >;
+	pinctrl-0 = < &lpi2c3_default >;
 	pinctrl-names = "default";
 };
 &lpuart1{
 	pinctrl-0 = < &lpuart1_default >;
 	pinctrl-names = "default";
 };
-&lpspi0{
+&tpm2{
 	status = "okay";
-	pinctrl-0 = < &lpspi0_default >;
+	pinctrl-0 = < &tpm2_default >;
 	pinctrl-names = "default";
-};
-&gpiod{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x1c >;
-};
-&gpiob{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x1a >;
 };
 &lpuart2{
 	interrupt-parent = < &intmux1_ch0 >;
 	interrupts = < 0x17 >;
 };
-&lpspi3{
-	interrupt-parent = < &event1 >;
-	interrupts = < 0x13 >;
-};
-&gpioa{
+&lpi2c1{
 	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x19 >;
-};
-&lpspi2{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x14 >;
-};
-&tpm0{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x8 >;
+	interrupts = < 0xe >;
 };
 &tpm1{
 	interrupt-parent = < &intmux1_ch0 >;
+};
+&lpspi3{
+	interrupt-parent = < &event1 >;
+	interrupts = < 0x13 >;
 };
 &tpm3{
 	interrupt-parent = < &event1 >;
 	interrupts = < 0xf >;
 };
+&gpioc{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x1b >;
+};
+&gpiob{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x1a >;
+};
+&gpioa{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x19 >;
+};
 &lpuart3{
 	interrupt-parent = < &event1 >;
 	interrupts = < 0x14 >;
-};
-&lpi2c1{
-	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0xe >;
-};
-&gpioe{
-	interrupt-parent = < &event1 >;
-	interrupts = < 0x15 >;
 };
 &lpi2c2{
 	interrupt-parent = < &intmux1_ch0 >;
 	interrupts = < 0xf >;
 };
-&gpioc{
+&gpioe{
+	interrupt-parent = < &event1 >;
+	interrupts = < 0x15 >;
+};
+&lpspi2{
 	interrupt-parent = < &intmux1_ch0 >;
-	interrupts = < 0x1b >;
+	interrupts = < 0x14 >;
+};
+&gpiod{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x1c >;
+};
+&tpm0{
+	interrupt-parent = < &intmux1_ch0 >;
+	interrupts = < 0x8 >;
 };

@@ -12,10 +12,6 @@
 	mul = < 0x6 >;
 	clocks = < &clk_hse >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
-};
 &clk_hse{
 	status = "okay";
 	clock-frequency = < 0x7a1200 >;
@@ -25,6 +21,10 @@
 	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

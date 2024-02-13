@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0x0 0x1 >;
-};
 &pll{
 	status = "okay";
 	div-m = < 0x8 >;
@@ -20,39 +14,11 @@
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
 };
-&clk_lsi{
-	status = "okay";
-};
-&can1{
-	pinctrl-0 = < &can1_rx_pd0 &can1_tx_pd1 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xa037a00 >;
-	apb1-prescaler = < 0x4 >;
-	apb2-prescaler = < 0x2 >;
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
-};
 &can2{
 	status = "okay";
 	pinctrl-0 = < &can2_rx_pb12 &can2_tx_pb13 >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb10 &spi2_miso_pc2 &spi2_mosi_pc3 >;
-	pinctrl-names = "default";
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
 };
 &usart1{
 	status = "okay";
@@ -60,11 +26,45 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pb10 &spi2_miso_pc2 &spi2_mosi_pc3 >;
+	pinctrl-names = "default";
+};
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&can1{
+	pinctrl-0 = < &can1_rx_pd0 &can1_tx_pd1 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0x0 0x1 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

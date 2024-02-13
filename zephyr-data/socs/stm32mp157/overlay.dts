@@ -5,18 +5,18 @@
 		zephyr,flash = &retram;
 	};
 };
-&uart4{
+&uart7{
 	status = "okay";
-	pinctrl-0 = < &uart4_tx_pd1 &uart4_rx_pb2 >;
+	pinctrl-0 = < &uart7_tx_pe8 &uart7_rx_pe7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
 &rcc{
 	clock-frequency = < 0xc751640 >;
 };
-&uart7{
+&uart4{
 	status = "okay";
-	pinctrl-0 = < &uart7_tx_pe8 &uart7_rx_pe7 >;
+	pinctrl-0 = < &uart4_tx_pd1 &uart4_rx_pb2 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -31,16 +31,16 @@
 	pinctrl-0 = < &i2c5_scl_pa11 &i2c5_sda_pa12 >;
 	pinctrl-names = "default";
 };
+&spi4{
+	status = "okay";
+	pinctrl-0 = < &spi4_nss_pe11 &spi4_sck_pe12 &spi4_miso_pe13 &spi4_mosi_pe14 >;
+	pinctrl-names = "default";
+};
 &usart3{
 	status = "okay";
 	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb12 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&spi4{
-	status = "okay";
-	pinctrl-0 = < &spi4_nss_pe11 &spi4_sck_pe12 &spi4_miso_pe13 &spi4_mosi_pe14 >;
-	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
