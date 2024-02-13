@@ -21,6 +21,15 @@
 	pinctrl-0 = < &usb_dc_default >;
 	pinctrl-names = "default";
 };
+&sercom0{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-names = "default";
+};
 &sercom3{
 	compatible = "atmel,sam0-i2c";
 	status = "okay";
@@ -40,13 +49,4 @@
 	pinctrl-0 = < &sercom2_spi_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &portb 0x1c 0x1 >;
-};
-&sercom0{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom0_uart_default >;
-	pinctrl-names = "default";
 };

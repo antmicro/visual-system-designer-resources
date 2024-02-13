@@ -6,19 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&uart3{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart3_default >;
-	pinctrl-names = "default";
-};
 &i2c2{
 	status = "okay";
 	pinctrl-0 = < &i2c2_default >;
 	pinctrl-names = "default";
-};
-&usbd{
-	status = "okay";
 };
 &uart2{
 	status = "okay";
@@ -26,13 +17,14 @@
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
 };
-&spi2{
+&uart3{
 	status = "okay";
-	pinctrl-0 = < &spi2_controller >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
-&flash0{
-	reg = < 0x16000000 0x100000 >;
+&gpio1{
+	status = "okay";
 };
 &uart{
 	status = "okay";
@@ -40,12 +32,9 @@
 	pinctrl-0 = < &uart_default >;
 	pinctrl-names = "default";
 };
-&gpio1{
+&spi2{
 	status = "okay";
-};
-&spi{
-	status = "okay";
-	pinctrl-0 = < &spi_controller >;
+	pinctrl-0 = < &spi2_controller >;
 	pinctrl-names = "default";
 };
 &i2c{
@@ -55,6 +44,17 @@
 };
 &gpio0{
 	status = "okay";
+};
+&spi{
+	status = "okay";
+	pinctrl-0 = < &spi_controller >;
+	pinctrl-names = "default";
+};
+&usbd{
+	status = "okay";
+};
+&flash0{
+	reg = < 0x16000000 0x100000 >;
 };
 &pinctrl{
 	compatible = "renesas,smartbond-pinctrl";

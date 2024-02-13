@@ -14,19 +14,6 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&flash0{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
-};
-&spi3{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim3_default >;
-	pinctrl-names = "default";
-};
 &gpio1{
 	status = "okay";
 };
@@ -35,6 +22,19 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
+};
+&spi3{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
+	pinctrl-names = "default";
+};
+&flash0{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

@@ -6,12 +6,6 @@
 		zephyr,flash = &flash0;
 	};
 };
-&usart6{
-	status = "okay";
-	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &i2c2{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -24,28 +18,23 @@
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x2 >;
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xa037a00 >;
-	apb1-prescaler = < 0x4 >;
-	apb2-prescaler = < 0x2 >;
-};
 &usart3{
 	status = "okay";
 	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac_out1_pa4 >;
-	pinctrl-names = "default";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
 };
-&spi1{
+&usart2{
 	status = "okay";
-	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpiod 0xe 0x11 >;
+	current-speed = < 0x1c200 >;
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -58,14 +47,6 @@
 	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 &usb_otg_fs_id_pa10 >;
 	pinctrl-names = "default";
 };
-&clk_lsi{
-	status = "okay";
-};
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
-};
 &pll{
 	status = "okay";
 	div-m = < 0x8 >;
@@ -74,22 +55,41 @@
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
 };
-&usart2{
+&clk_lsi{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
 };
 &can1{
 	status = "okay";
 	pinctrl-0 = < &can1_rx_pd0 &can1_tx_pd1 >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
+};
+&usart6{
+	status = "okay";
+	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac_out1_pa4 >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiod 0xe 0x11 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

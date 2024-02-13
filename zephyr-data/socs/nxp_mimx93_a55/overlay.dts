@@ -10,26 +10,23 @@
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
 };
+&lpi2c1{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
+};
+&gpio2{
+	status = "okay";
+};
 &gpio1{
 	status = "okay";
 };
 &gpio4{
 	status = "okay";
 };
-&gpio2{
-	status = "okay";
-};
-&gpio3{
-	status = "okay";
-};
-&lpi2c1{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-names = "default";
-};
-&lpi2c2{
-	clock-frequency = < 0x61a80 >;
-	pinctrl-0 = < &i2c2_default >;
+&lpspi3{
+	clock-frequency = < 0xf4240 >;
+	pinctrl-0 = < &spi3_default >;
 	pinctrl-names = "default";
 };
 &lpuart1{
@@ -37,8 +34,11 @@
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
 };
-&lpspi3{
-	clock-frequency = < 0xf4240 >;
-	pinctrl-0 = < &spi3_default >;
+&gpio3{
+	status = "okay";
+};
+&lpi2c2{
+	clock-frequency = < 0x61a80 >;
+	pinctrl-0 = < &i2c2_default >;
 	pinctrl-names = "default";
 };

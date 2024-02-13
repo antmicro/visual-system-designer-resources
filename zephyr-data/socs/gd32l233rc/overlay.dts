@@ -9,6 +9,12 @@
 &gpiod{
 	status = "okay";
 };
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
+};
 &gpioc{
 	status = "okay";
 };
@@ -22,12 +28,6 @@
 };
 &gpiof{
 	status = "okay";
-};
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
 };
 &gpiob{
 	status = "okay";

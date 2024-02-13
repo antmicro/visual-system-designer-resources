@@ -6,9 +6,11 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_msis{
+&uart4{
 	status = "okay";
-	msi-pll-mode;
+	pinctrl-0 = < &uart4_tx_pc10 &uart4_rx_pc11 >;
+	pinctrl-names = "default";
+	current-speed = < 0x186a0 >;
 };
 &i2c2{
 	clock-frequency = < 0x61a80 >;
@@ -16,19 +18,21 @@
 	pinctrl-0 = < &i2c2_scl_ph4 &i2c2_sda_ph5 >;
 	pinctrl-names = "default";
 };
+&adc4{
+	status = "okay";
+	pinctrl-0 = < &adc4_in19_pb1 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x4 >;
+};
 &usart3{
 	status = "okay";
 	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&rcc{
-	clocks = < &pll1 >;
-	clock-frequency = < 0x9896800 >;
-};
-&spi1{
+&usbotg_fs{
 	status = "okay";
-	pinctrl-0 = < &spi1_nss_pe12 &spi1_sck_pe13 &spi1_miso_pe14 &spi1_mosi_pe15 >;
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &i2c1{
@@ -36,23 +40,6 @@
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 	pinctrl-names = "default";
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
-&clk_hsi48{
-	status = "okay";
-};
-&uart4{
-	status = "okay";
-	pinctrl-0 = < &uart4_tx_pc10 &uart4_rx_pc11 >;
-	pinctrl-names = "default";
-	current-speed = < 0x186a0 >;
-};
-&clk_lse{
-	status = "okay";
 };
 &pll1{
 	status = "okay";
@@ -62,17 +49,30 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_msis >;
 };
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac1_out1_pa4 >;
+	pinctrl-names = "default";
+};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&adc4{
+&rcc{
+	clocks = < &pll1 >;
+	clock-frequency = < 0x9896800 >;
+};
+&clk_hsi48{
 	status = "okay";
-	pinctrl-0 = < &adc4_in19_pb1 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x4 >;
+};
+&clk_msis{
+	status = "okay";
+	msi-pll-mode;
+};
+&clk_lse{
+	status = "okay";
 };
 &octospi2{
 	status = "okay";
@@ -85,9 +85,9 @@
 	pinctrl-names = "default";
 	st,adc-prescaler = < 0x4 >;
 };
-&dac1{
+&spi1{
 	status = "okay";
-	pinctrl-0 = < &dac1_out1_pa4 >;
+	pinctrl-0 = < &spi1_nss_pe12 &spi1_sck_pe13 &spi1_miso_pe14 &spi1_mosi_pe15 >;
 	pinctrl-names = "default";
 };
 &gpioi{

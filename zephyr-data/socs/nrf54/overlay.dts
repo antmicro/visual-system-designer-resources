@@ -6,12 +6,8 @@
 		zephyr,flash = &rram0;
 	};
 };
-&gpio1{
+&gpio0{
 	status = "okay";
-};
-&lfxo{
-	load-capacitors = "internal";
-	load-capacitance-femtofarad = < 0x3c8c >;
 };
 &uart20{
 	status = "okay";
@@ -20,8 +16,11 @@
 	pinctrl-1 = < &uart20_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio0{
-	status = "okay";
+&uart30{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart30_default >;
+	pinctrl-1 = < &uart30_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &gpio2{
 	status = "okay";
@@ -30,11 +29,12 @@
 	load-capacitors = "internal";
 	load-capacitance-femtofarad = < 0x3a98 >;
 };
-&uart30{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart30_default >;
-	pinctrl-1 = < &uart30_sleep >;
-	pinctrl-names = "default", "sleep";
+&lfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3c8c >;
+};
+&gpio1{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

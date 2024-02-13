@@ -11,10 +11,11 @@
 	clock-frequency = < 0x44aa200 >;
 	apb1-prescaler = < 0x2 >;
 };
-&clk_hse{
+&usart2{
 	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
+	pinctrl-0 = < &usart2_tx_remap1_pd5 &usart2_rx_remap1_pd6 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pll{
 	status = "okay";
@@ -22,11 +23,10 @@
 	prediv = < 0x1 >;
 	clocks = < &clk_hse >;
 };
-&usart2{
+&clk_hse{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_remap1_pd5 &usart2_rx_remap1_pd6 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
 };
 &pinctrl{
 	compatible = "st,stm32f1-pinctrl";

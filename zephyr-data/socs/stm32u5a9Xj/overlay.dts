@@ -6,29 +6,24 @@
 		zephyr,flash = &flash0;
 	};
 };
-&clk_msis{
-	status = "okay";
-	msi-pll-mode;
-};
 &i2c2{
 	status = "okay";
 	pinctrl-0 = < &i2c2_scl_pf1 &i2c2_sda_pf0 >;
 	pinctrl-names = "default";
+};
+&adc4{
+	status = "okay";
+	pinctrl-0 = < &adc4_in5_pf14 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
 };
 &usart3{
 	status = "okay";
 	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&i2c6{
-	status = "okay";
-	pinctrl-0 = < &i2c6_scl_pd1 &i2c6_sda_pd0 >;
-	pinctrl-names = "default";
-};
-&rcc{
-	clocks = < &pll1 >;
-	clock-frequency = < 0x9896800 >;
 };
 &lpuart1{
 	status = "okay";
@@ -41,19 +36,6 @@
 	pinctrl-0 = < &i2c1_scl_pg14 &i2c1_sda_pg13 >;
 	pinctrl-names = "default";
 };
-&spi3{
-	status = "okay";
-	pinctrl-0 = < &spi3_sck_pg9 &spi3_miso_pg10 &spi3_mosi_pg11 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiog 0xf 0x11 >;
-};
-&clk_hsi48{
-	status = "okay";
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0xf42400 >;
-};
 &pll1{
 	status = "okay";
 	div-m = < 0x1 >;
@@ -63,19 +45,37 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_msis >;
 };
+&spi3{
+	status = "okay";
+	pinctrl-0 = < &spi3_sck_pg9 &spi3_miso_pg10 &spi3_mosi_pg11 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiog 0xf 0x11 >;
+};
+&i2c6{
+	status = "okay";
+	pinctrl-0 = < &i2c6_scl_pd1 &i2c6_sda_pd0 >;
+	pinctrl-names = "default";
+};
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&adc4{
+&rcc{
+	clocks = < &pll1 >;
+	clock-frequency = < 0x9896800 >;
+};
+&clk_hsi48{
 	status = "okay";
-	pinctrl-0 = < &adc4_in5_pf14 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
+};
+&clk_msis{
+	status = "okay";
+	msi-pll-mode;
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0xf42400 >;
 };
 &spi2{
 	status = "okay";

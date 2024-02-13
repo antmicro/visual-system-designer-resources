@@ -9,8 +9,10 @@
 &gpioa{
 	status = "okay";
 };
-&gpiof{
+&adc0{
 	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
 };
 &usart0{
 	status = "okay";
@@ -18,10 +20,8 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&adc0{
+&gpiof{
 	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
 };
 &gpioc{
 	status = "okay";

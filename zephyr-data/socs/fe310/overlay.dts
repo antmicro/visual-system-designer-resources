@@ -5,13 +5,37 @@
 		zephyr,sram = &dtim;
 	};
 };
-&spi0{
-	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
+&pwm0{
+	status = "okay";
 };
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_cs0_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
 	pinctrl-names = "default";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi1_cs2_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
+	pinctrl-names = "default";
+};
+&pwm2{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
+	pinctrl-names = "default";
+};
+&gpio0{
+	status = "okay";
+};
+&spi0{
+	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
 };
 &i2c0{
 	status = "okay";
@@ -21,30 +45,6 @@
 };
 &pwm1{
 	status = "okay";
-};
-&gpio0{
-	status = "okay";
-};
-&pwm0{
-	status = "okay";
-};
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_rx_default &uart0_tx_default >;
-	pinctrl-names = "default";
-};
-&pwm2{
-	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi1_cs2_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
-	pinctrl-names = "default";
-};
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
 };
 &coreclk{
 	status = "okay";

@@ -15,12 +15,13 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioc 0x3 0x1 >;
 };
-&i2c0{
-	status = "okay";
-	location-sda = < 0x3 0x3 0x2 >;
-	location-scl = < 0x3 0x3 0x3 >;
-};
 &gpiob{
+	status = "okay";
+};
+&adc0{
+	status = "okay";
+};
+&gpioc{
 	status = "okay";
 };
 &usart1{
@@ -29,11 +30,10 @@
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
 };
-&adc0{
+&i2c0{
 	status = "okay";
-};
-&gpioc{
-	status = "okay";
+	location-sda = < 0x3 0x3 0x2 >;
+	location-scl = < 0x3 0x3 0x3 >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";
