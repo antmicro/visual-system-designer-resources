@@ -6,15 +6,8 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x4c4b400 >;
-};
-&usart2{
+&clk_hsi{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &pll{
 	status = "okay";
@@ -28,8 +21,15 @@
 &clk_lsi{
 	status = "okay";
 };
-&clk_hsi{
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x4c4b400 >;
+};
+&usart2{
 	status = "okay";
+	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

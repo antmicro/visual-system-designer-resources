@@ -9,13 +9,21 @@
 &gpioc{
 	status = "okay";
 };
-&gpioa{
-	status = "okay";
-};
 &usart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+};
+&gpioa{
+	status = "okay";
+};
+&gpiog{
+	status = "okay";
+};
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
 	pinctrl-names = "default";
 };
 &i2c0{
@@ -26,24 +34,16 @@
 &gpiod{
 	status = "okay";
 };
+&gpiob{
+	status = "okay";
+};
 &spi5{
 	status = "okay";
 	pinctrl-0 = < &spi5_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpiog 0x9 0x1 >;
 };
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
-};
-&gpiog{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioe{
+&gpioi{
 	status = "okay";
 };
 &gpiof{
@@ -54,7 +54,7 @@
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
-&gpioi{
+&gpioe{
 	status = "okay";
 };
 &pinctrl{

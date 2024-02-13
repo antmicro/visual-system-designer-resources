@@ -10,16 +10,15 @@
 	int-source = "int-b";
 	interrupts = < 0x3 0x0 >;
 };
-&usbhs{
-	status = "okay";
-};
 &sc_timer{
 	status = "okay";
 	pinctrl-0 = < &pinmux_sctimer_default >;
 	pinctrl-names = "default";
 };
-&gpio5{
+&i3c0{
 	status = "okay";
+	pinctrl-0 = < &pinmux_i3c >;
+	pinctrl-names = "default";
 };
 &flexspi{
 	status = "okay";
@@ -37,15 +36,31 @@
 	ahb-cacheable;
 	ahb-read-addr-opt;
 };
-&gpio6{
+&usbhs{
 	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&gpio5{
+	status = "okay";
+};
+&hs_lspi1{
+	status = "okay";
+	pinctrl-0 = < &pinmux_flexcomm16_spi >;
+	pinctrl-names = "default";
+	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
+	dma-names = "rx", "tx";
 };
 &gpio3{
 	status = "okay";
 	int-source = "int-a";
 	interrupts = < 0x2 0x0 >;
 };
-&gpio1{
+&gpio6{
+	status = "okay";
+};
+&gpio2{
 	status = "okay";
 };
 &pmic_i2c{
@@ -56,22 +71,7 @@
 	pinctrl-0 = < &pinmux_pmic_i2c >;
 	pinctrl-names = "default";
 };
-&gpio2{
-	status = "okay";
-};
-&hs_lspi1{
-	status = "okay";
-	pinctrl-0 = < &pinmux_flexcomm16_spi >;
-	pinctrl-names = "default";
-	dmas = < &dma0 0x1c >, < &dma0 0x1d >;
-	dma-names = "rx", "tx";
-};
-&i3c0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_i3c >;
-	pinctrl-names = "default";
-};
-&gpio0{
+&gpio1{
 	status = "okay";
 };
 &flexcomm0{

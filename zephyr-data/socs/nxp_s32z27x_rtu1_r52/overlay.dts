@@ -5,6 +5,16 @@
 		zephyr,sram = &sram1;
 	};
 };
+&enetc_psi0{
+	status = "okay";
+	local-mac-address = [ 00 00 00 01 02 00 ];
+	pinctrl-0 = < &eth0_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x11e1a300 >;
+	phy-handle = < &phy0 >;
+	mboxes = < &mru4 0x0 >;
+	mbox-names = "rx";
+};
 &can0{
 	status = "okay";
 	pinctrl-0 = < &can0_default >;
@@ -21,16 +31,6 @@
 	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
 	sample-point-data = < 0x36b >;
-};
-&enetc_psi0{
-	status = "okay";
-	local-mac-address = [ 00 00 00 01 02 00 ];
-	pinctrl-0 = < &eth0_default >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x11e1a300 >;
-	phy-handle = < &phy0 >;
-	mboxes = < &mru4 0x0 >;
-	mbox-names = "rx";
 };
 &emdio{
 	status = "okay";

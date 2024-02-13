@@ -11,30 +11,30 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &p5_0_uart5_rx &p5_1_uart5_tx >;
 };
-&gpio_prt12{
+&uart6{
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &p13_0_uart6_rx &p13_1_uart6_tx >;
 };
-&gpio_prt13{
+&gpio_prt12{
 	status = "okay";
 };
 &gpio_prt0{
 	status = "okay";
 };
-&uart6{
+&gpio_prt5{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &p13_0_uart6_rx &p13_1_uart6_tx >;
+};
+&gpio_prt6{
+	status = "okay";
+};
+&gpio_prt13{
+	status = "okay";
 };
 &spi6{
 	cs-gpios = < &gpio_prt12 0x3 0x11 >, < &gpio_prt13 0x0 0x11 >;
 	pinctrl-0 = < &p12_0_spi6_mosi &p12_1_spi6_miso &p12_2_spi6_clk >;
 };
 &gpio_prt9{
-	status = "okay";
-};
-&gpio_prt6{
-	status = "okay";
-};
-&gpio_prt5{
 	status = "okay";
 };

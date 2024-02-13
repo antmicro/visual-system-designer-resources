@@ -1,0 +1,179 @@
+{
+    "graph": {
+        "id": "89e5d675-9a27-49d5-bd2c-825867c96bbf",
+        "name": "GMSL Serializer",
+        "nodes": [
+            {
+                "id": "34a64306-490d-47f3-abea-1e0bd806ffb6",
+                "position": {
+                    "x": 1950,
+                    "y": 400
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gmsl",
+                        "id": "ba9551eb-e169-4168-b86c-e476d19b58d8",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "fakra",
+                        "id": "d0e582ce-a112-4b4e-ac1c-ab809628ad8c",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Rosenberger 59S2AQ-40MT5-Z_1",
+                "instanceName": "FAKRA connector"
+            },
+            {
+                "id": "c4430e54-8ef2-446b-911c-70c892979fb7",
+                "position": {
+                    "x": 650,
+                    "y": 400
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "Antmicro Dual Camera interface",
+                        "id": "c973a0f7-1453-4f2c-90fa-2499a600c735",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "mipi csi-2 x4[0]",
+                        "id": "57931e92-202c-4e31-86b6-22f78bec260e",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "mipi csi-2 x4[1]",
+                        "id": "cdbc35d8-21de-4f9a-9dbd-61fb153ac481",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "i2c",
+                        "id": "61e79b33-e1ea-44b2-bc6b-1ad14587d3af",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 2
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Würth Elektronik 68715014522",
+                "instanceName": "50-pin Antmicro Dual Camera interface"
+            },
+            {
+                "id": "09d7ebf7-bfc1-4f54-8dbb-2e69407fb5f9",
+                "position": {
+                    "x": 1150,
+                    "y": 400
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c",
+                        "id": "b4e710bd-fa71-4d23-94e1-50a2094250ad",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "mipi csi-2 x4",
+                        "id": "b7bfdef3-37fb-472b-93c2-f074e5595938",
+                        "direction": "input",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "mfp",
+                        "id": "b53d7ae3-16a9-4777-84f0-8dad1087aa81",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "gmsl",
+                        "id": "b9ea04db-c8f2-41ce-a257-8342b19e40f4",
+                        "direction": "output",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "Maxim Integrated Products MAX9295A",
+                "instanceName": "GMSL serializer"
+            },
+            {
+                "id": "7da6ecfa-f233-4e6b-94e4-ef74957b20e9",
+                "position": {
+                    "x": 1550,
+                    "y": 400
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "data",
+                        "id": "10e54b2c-d35b-4655-9396-f69976fb732e",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "data + power",
+                        "id": "c77f37a4-7070-4111-8528-6fc98d7e48a1",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "PoC circuit",
+                "instanceName": "PoC filter"
+            }
+        ],
+        "connections": [
+            {
+                "id": "57f4fcd9-01eb-4104-948e-124f371057fd",
+                "from": "61e79b33-e1ea-44b2-bc6b-1ad14587d3af",
+                "to": "b4e710bd-fa71-4d23-94e1-50a2094250ad"
+            },
+            {
+                "id": "8d357a91-e8c4-4bbc-9e91-6acdbe616711",
+                "from": "ba9551eb-e169-4168-b86c-e476d19b58d8",
+                "to": "c77f37a4-7070-4111-8528-6fc98d7e48a1"
+            },
+            {
+                "id": "f6175ea2-8541-4f26-a125-9a142e48e790",
+                "from": "b9ea04db-c8f2-41ce-a257-8342b19e40f4",
+                "to": "10e54b2c-d35b-4655-9396-f69976fb732e"
+            },
+            {
+                "id": "99bc0297-9d2e-436d-99df-8d48df22dca5",
+                "from": "cdbc35d8-21de-4f9a-9dbd-61fb153ac481",
+                "to": "b7bfdef3-37fb-472b-93c2-f074e5595938"
+            }
+        ]
+    },
+    "version": "20230830.11",
+    "metadata": {
+        "connectionStyle": "curved",
+        "movementStep": 50
+    }
+}

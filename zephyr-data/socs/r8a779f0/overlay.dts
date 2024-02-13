@@ -5,9 +5,6 @@
 		zephyr,sram = &sram0;
 	};
 };
-&gpio4{
-	status = "okay";
-};
 &gpio0{
 	status = "okay";
 };
@@ -15,6 +12,9 @@
 	status = "okay";
 	pinctrl-0 = < &scif0_data_tx_default &scif0_data_rx_default >;
 	pinctrl-names = "default";
+};
+&gpio4{
+	status = "okay";
 };
 &pfc{
 	compatible = "renesas,rcar-pfc";

@@ -6,8 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&gpioa{
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
 };
 &gpiob{
 	status = "okay";
@@ -18,20 +24,14 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&i2c0{
+&gpioa{
 	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
+};
+&gpiod{
+	status = "okay";
 };
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
-};
-&gpiod{
-	status = "okay";
-};
-&usbotg{
-	num-bidir-endpoints = < 0x8 >;
-	status = "okay";
 };

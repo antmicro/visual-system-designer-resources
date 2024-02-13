@@ -5,9 +5,13 @@
 		zephyr,sram = &dtim;
 	};
 };
-&spi1{
+&spi0{
+	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
+};
+&i2c0{
 	status = "okay";
-	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_0_default &i2c0_1_default >;
 	pinctrl-names = "default";
 };
 &uart0{
@@ -19,12 +23,8 @@
 &gpio0{
 	status = "okay";
 };
-&spi0{
-	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
-};
-&i2c0{
+&spi1{
 	status = "okay";
-	clock-frequency = < 0x186a0 >;
-	pinctrl-0 = < &i2c0_0_default &i2c0_1_default >;
+	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
 	pinctrl-names = "default";
 };

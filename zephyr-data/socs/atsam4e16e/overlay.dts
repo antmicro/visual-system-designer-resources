@@ -6,14 +6,30 @@
 		zephyr,flash = &flash0;
 	};
 };
+&twi0{
+	status = "okay";
+	pinctrl-0 = < &twi0_default >;
+	pinctrl-names = "default";
+};
+&gmac{
+	status = "okay";
+	pinctrl-0 = < &gmac_mii >;
+	pinctrl-names = "default";
+	zephyr,random-mac-address;
+	phy-handle = < &phy >;
+};
+&uart1{
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
+};
 &afec1{
 	status = "okay";
 	pinctrl-0 = < &afec1_default >;
 	pinctrl-names = "default";
 };
-&afec0{
+&pwm0{
 	status = "okay";
-	pinctrl-0 = < &afec0_default >;
+	pinctrl-0 = < &pwm0_default >;
 	pinctrl-names = "default";
 };
 &uart0{
@@ -27,15 +43,9 @@
 	pinctrl-0 = < &mdio_default >;
 	pinctrl-names = "default";
 };
-&twi0{
+&afec0{
 	status = "okay";
-	pinctrl-0 = < &twi0_default >;
-	pinctrl-names = "default";
-};
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
+	pinctrl-0 = < &afec0_default >;
 	pinctrl-names = "default";
 };
 &spi0{
@@ -44,19 +54,9 @@
 	pinctrl-names = "default";
 	cs-gpios = < &piob 0xe 0x1 >, < &piod 0x17 0x1 >, < &piod 0x1e 0x1 >;
 };
-&uart1{
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-names = "default";
-};
-&pwm0{
+&usart1{
 	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
-};
-&gmac{
-	status = "okay";
-	pinctrl-0 = < &gmac_mii >;
-	pinctrl-names = "default";
-	zephyr,random-mac-address;
-	phy-handle = < &phy >;
 };

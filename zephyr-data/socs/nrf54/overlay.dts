@@ -9,12 +9,12 @@
 &gpio0{
 	status = "okay";
 };
-&uart20{
+&gpio2{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart20_default >;
-	pinctrl-1 = < &uart20_sleep >;
-	pinctrl-names = "default", "sleep";
+};
+&lfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3c8c >;
 };
 &uart30{
 	current-speed = < 0x1c200 >;
@@ -22,19 +22,19 @@
 	pinctrl-1 = < &uart30_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&gpio2{
+&gpio1{
 	status = "okay";
 };
 &hfxo{
 	load-capacitors = "internal";
 	load-capacitance-femtofarad = < 0x3a98 >;
 };
-&lfxo{
-	load-capacitors = "internal";
-	load-capacitance-femtofarad = < 0x3c8c >;
-};
-&gpio1{
+&uart20{
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart20_default >;
+	pinctrl-1 = < &uart20_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";

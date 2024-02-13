@@ -9,6 +9,20 @@
 &gpiob{
 	status = "okay";
 };
+&i2c1{
+	status = "okay";
+	location-sda = < 0x0 0x2 0x4 >;
+	location-scl = < 0x0 0x2 0x5 >;
+};
+&gpiof{
+	status = "okay";
+};
+&usart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	location-rx = < 0x0 0x1 0x8 >;
+	location-tx = < 0x0 0x1 0x7 >;
+};
 &gpiod{
 	status = "okay";
 };
@@ -18,27 +32,13 @@
 	location-rx = < 0x1 0x1 0xe >;
 	location-tx = < 0x1 0x1 0xd >;
 };
+&gpioc{
+	status = "okay";
+};
 &i2c0{
 	status = "okay";
 	location-sda = < 0x4 0x2 0x0 >;
 	location-scl = < 0x4 0x2 0x1 >;
-};
-&gpioe{
-	status = "okay";
-};
-&i2c1{
-	status = "okay";
-	location-sda = < 0x0 0x2 0x4 >;
-	location-scl = < 0x0 0x2 0x5 >;
-};
-&gpioc{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
 };
 &usart0{
 	status = "okay";
@@ -46,11 +46,11 @@
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
-&usart4{
+&gpioa{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	location-rx = < 0x0 0x1 0x8 >;
-	location-tx = < 0x0 0x1 0x7 >;
+};
+&gpioe{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

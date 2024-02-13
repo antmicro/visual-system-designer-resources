@@ -12,6 +12,15 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x1c9c3800 >;
+	hpre = < 0x2 >;
+	d1ppre = < 0x2 >;
+	d2ppre1 = < 0x2 >;
+	d2ppre2 = < 0x2 >;
+	d3ppre = < 0x2 >;
+};
 &quadspi{
 	status = "okay";
 	pinctrl-names = "default";
@@ -31,15 +40,6 @@
 	status = "okay";
 	clock-frequency = < 0x17d7840 >;
 	hse-bypass;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x1c9c3800 >;
-	hpre = < 0x2 >;
-	d1ppre = < 0x2 >;
-	d2ppre1 = < 0x2 >;
-	d2ppre2 = < 0x2 >;
-	d3ppre = < 0x2 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

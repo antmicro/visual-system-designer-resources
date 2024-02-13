@@ -857,6 +857,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "ADI GMSL2/1 Tunneling Quad Deserializer 6GHz with 2x4 or 4x2 MIPI DPHY/CPHY Outputs\n\n### Additional information\n\n*Datasheet*: [max96724-3135154.pdf](https://www.mouser.com/datasheet/2/609/max96724-3135154.pdf)",
+            "extends": [
+                "GMSL to MIPI CSI-2"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-56-1ep-8x8mm-p0-5mm-ep4-8x4-8mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Analog Devices MAX96724GTN/VY+",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/609/max96724-3135154.pdf",
+                "hwp": "components/analog-devices-max96724gtn-vy"
+            }
+        },
+        {
             "category": "Antenna",
             "interfaces": [
                 {
@@ -2329,6 +2344,26 @@
             "isCategory": true
         },
         {
+            "category": "Connector/GMSL/FAKRA",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fakra",
+                    "side": "right",
+                    "type": "fakra"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gmsl",
+                    "side": "left",
+                    "type": "gmsl"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/Board to Board/FMC HPC",
             "interfaces": [
                 {
@@ -2810,6 +2845,47 @@
                 "datasheet": "https://gct.co/files/drawings/usb4105.pdf",
                 "hwp": "components/gct-usb4105-gf-a"
             }
+        },
+        {
+            "category": "Interfacing/Video/GMSL to MIPI CSI-2",
+            "interfaces": [
+                {
+                    "array": [
+                        1,
+                        5
+                    ],
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "gmsl",
+                    "side": "left",
+                    "type": "gmsl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mfp",
+                    "side": "right"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "mipi csi-2 x4",
+                    "side": "right",
+                    "type": "csi"
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "Interfacing/Ethernet/GbE Phy",
@@ -4401,6 +4477,39 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/Video/MIPI CSI-2 to GMSL",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "gmsl",
+                    "side": "left",
+                    "type": "gmsl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mfp",
+                    "side": "right"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "mipi csi-2 x4",
+                    "side": "right",
+                    "type": "csi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/Video/MIPI DSI to HDMI converter",
             "interfaces": [
                 {
@@ -4708,6 +4817,21 @@
             "urls": {
                 "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/max3421e.pdf",
                 "hwp": "components/maxim-integrated-products-max3421eetj"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "CSI-2 to GMSL2/GMSL1 Serializer\n\n### Additional information\n\n*Datasheet*: [gigabit-multimedia-serial-link.html](https://www.analog.com/en/product-category/gigabit-multimedia-serial-link.html)",
+            "extends": [
+                "MIPI CSI-2 to GMSL"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-32-1ep-5x5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Maxim Integrated Products MAX9295A",
+            "urls": {
+                "datasheet": "https://www.analog.com/en/product-category/gigabit-multimedia-serial-link.html",
+                "hwp": "components/maxim-integrated-products-max9295a"
             }
         },
         {
@@ -5538,6 +5662,24 @@
             "isCategory": true
         },
         {
+            "category": "Power/PoC circuit",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "data",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "data + power",
+                    "side": "right"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Power/PoE Controller",
             "interfaces": [
                 {
@@ -5828,6 +5970,21 @@
             "urls": {
                 "datasheet": "https://datasheet.lcsc.com/lcsc/2108141930_Realtek-Semicon-RTL8111H-CG_C2761340.pdf",
                 "hwp": "components/realtek-rtl8111h"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "FAKRA GEN 2 PCB, SMD, Right angle plug, 50 Ohm, Z Key Code\n\n### Additional information\n\n*Datasheet*: [59s2aq-40mt5-z-1-right-angle-plug-pcb-w.-housing](https://products.rosenberger.com/radio-frequency/connectors/288881/59s2aq-40mt5-z-1-right-angle-plug-pcb-w.-housing)",
+            "extends": [
+                "FAKRA"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-fakra-59s2aq-40mt5-z-1/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Rosenberger 59S2AQ-40MT5-Z_1",
+            "urls": {
+                "datasheet": "https://products.rosenberger.com/radio-frequency/connectors/288881/59s2aq-40mt5-z-1-right-angle-plug-pcb-w.-housing",
+                "hwp": "components/rosenberger-59s2aq-40mt5-z-1"
             }
         },
         {
@@ -8505,7 +8662,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "blob/044529d0cd06c9bcaf64a78ade7a123e7fb8c9a3/drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "blob/044529d0cd06c9bcaf64a78ade7a123e7fb8c9a3/drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -21530,7 +21687,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "blob/044529d0cd06c9bcaf64a78ade7a123e7fb8c9a3/drivers/sensor/icm42688/icm42688.c"
+                "zephyr": "blob/044529d0cd06c9bcaf64a78ade7a123e7fb8c9a3/drivers/sensor/icm42688/icm42688_emul.c"
             }
         },
         {

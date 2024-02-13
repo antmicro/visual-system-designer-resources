@@ -6,55 +6,10 @@
 		zephyr,flash = &flash0;
 	};
 };
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &piod 0x19 0x1 >, < &piod 0x1b 0x1 >;
-	dmas = < &xdmac 0x1 0x1 >, < &xdmac 0x2 0x2 >;
-	dma-names = "tx", "rx";
-};
-&pioe{
-	status = "okay";
-};
-&uart3{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart3_default >;
-	pinctrl-names = "default";
-};
-&piob{
-	status = "okay";
-};
-&twihs0{
-	status = "okay";
-	pinctrl-0 = < &twihs0_default >;
-	pinctrl-names = "default";
-};
-&can1{
-	status = "okay";
-	pinctrl-0 = < &can1_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
-};
-&pioc{
-	status = "okay";
-};
 &pioa{
 	status = "okay";
 };
-&afec0{
-	status = "okay";
-	pinctrl-0 = < &afec0_default >;
-	pinctrl-names = "default";
-};
-&twihs2{
-	status = "okay";
-	pinctrl-0 = < &twihs2_default >;
-	pinctrl-names = "default";
-};
-&usbhs{
+&pioc{
 	status = "okay";
 };
 &usart1{
@@ -63,9 +18,57 @@
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
 };
+&twihs0{
+	status = "okay";
+	pinctrl-0 = < &twihs0_default >;
+	pinctrl-names = "default";
+};
+&usbhs{
+	status = "okay";
+};
+&can1{
+	status = "okay";
+	pinctrl-0 = < &can1_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &piod 0x19 0x1 >, < &piod 0x1b 0x1 >;
+	dmas = < &xdmac 0x1 0x1 >, < &xdmac 0x2 0x2 >;
+	dma-names = "tx", "rx";
+};
+&piob{
+	status = "okay";
+};
+&afec0{
+	status = "okay";
+	pinctrl-0 = < &afec0_default >;
+	pinctrl-names = "default";
+};
+&pioe{
+	status = "okay";
+};
+&piod{
+	status = "okay";
+};
+&twihs2{
+	status = "okay";
+	pinctrl-0 = < &twihs2_default >;
+	pinctrl-names = "default";
+};
 &afec1{
 	status = "okay";
 	pinctrl-0 = < &afec1_default >;
+	pinctrl-names = "default";
+};
+&uart3{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
 &mdio{
@@ -79,7 +82,4 @@
 	pinctrl-names = "default";
 	mac-eeprom = < &eeprom >;
 	phy-handle = < &phy >;
-};
-&piod{
-	status = "okay";
 };

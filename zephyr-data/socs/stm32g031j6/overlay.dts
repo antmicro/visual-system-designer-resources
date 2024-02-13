@@ -6,12 +6,14 @@
 		zephyr,flash = &flash0;
 	};
 };
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x3d09000 >;
+&clk_hsi{
+	status = "okay";
 };
-&pinctrl{
-	remap-pa11;
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pb7 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pll{
 	status = "okay";
@@ -22,14 +24,12 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hsi >;
 };
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+&pinctrl{
+	remap-pa11;
 };
-&clk_hsi{
-	status = "okay";
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x3d09000 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
