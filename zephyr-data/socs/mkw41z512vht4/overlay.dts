@@ -2,27 +2,31 @@
 	compatible = "nxp,kw41z", "nxp,mkw41z4";
 	chosen {
 		zephyr,console = &lpuart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&tpm2{
-	status = "okay";
-	pinctrl-0 = < &tmp2_default >;
-	pinctrl-names = "default";
 };
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc0_default >;
 	pinctrl-names = "default";
 };
+&gpioa{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
+&lpuart0{
 	status = "okay";
+	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &spi0{
 	status = "okay";
@@ -34,12 +38,8 @@
 	pinctrl-0 = < &tpm0_default >;
 	pinctrl-names = "default";
 };
-&lpuart0{
+&tpm2{
 	status = "okay";
-	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-0 = < &tmp2_default >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&gpioc{
-	status = "okay";
 };

@@ -1,42 +1,15 @@
 / {
-	compatible = "atmel,sam_v71b_xult", "atmel,samv71q21b", "atmel,samv71b";
+	compatible = "atmel,sam_v71b_xult", "atmel,samv71b", "atmel,samv71q21b";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&uart3{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart3_default >;
-	pinctrl-names = "default";
-};
-&twihs0{
-	status = "okay";
-	pinctrl-0 = < &twihs0_default >;
-	pinctrl-names = "default";
-};
-&spi0{
-	status = "okay";
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &piod 0x19 0x1 >, < &piod 0x1b 0x1 >;
-	dmas = < &xdmac 0x1 0x1 >, < &xdmac 0x2 0x2 >;
-	dma-names = "tx", "rx";
 };
 &afec0{
 	status = "okay";
 	pinctrl-0 = < &afec0_default >;
 	pinctrl-names = "default";
-};
-&mdio{
-	status = "okay";
-	pinctrl-0 = < &mdio_default >;
-	pinctrl-names = "default";
-};
-&piod{
-	status = "okay";
 };
 &afec1{
 	status = "okay";
@@ -50,15 +23,6 @@
 	bus-speed = < 0x1e848 >;
 	bus-speed-data = < 0xf4240 >;
 };
-&pioc{
-	status = "okay";
-};
-&pioe{
-	status = "okay";
-};
-&pioa{
-	status = "okay";
-};
 &gmac{
 	status = "okay";
 	pinctrl-0 = < &gmac_rmii >;
@@ -66,12 +30,48 @@
 	mac-eeprom = < &eeprom >;
 	phy-handle = < &phy >;
 };
-&usbhs{
+&mdio{
 	status = "okay";
+	pinctrl-0 = < &mdio_default >;
+	pinctrl-names = "default";
+};
+&pioa{
+	status = "okay";
+};
+&piob{
+	status = "okay";
+};
+&pioc{
+	status = "okay";
+};
+&piod{
+	status = "okay";
+};
+&pioe{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &piod 0x19 0x1 >, < &piod 0x1b 0x1 >;
+	dmas = < &xdmac 0x1 0x1 >, < &xdmac 0x2 0x2 >;
+	dma-names = "tx", "rx";
+};
+&twihs0{
+	status = "okay";
+	pinctrl-0 = < &twihs0_default >;
+	pinctrl-names = "default";
 };
 &twihs2{
 	status = "okay";
 	pinctrl-0 = < &twihs2_default >;
+	pinctrl-names = "default";
+};
+&uart3{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
 };
 &usart1{
@@ -80,6 +80,6 @@
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
 };
-&piob{
+&usbhs{
 	status = "okay";
 };

@@ -2,23 +2,27 @@
 	compatible = "st,stm32f4discovery";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&pll{
+&adc1{
 	status = "okay";
-	div-m = < 0x8 >;
-	mul-n = < 0x150 >;
-	div-p = < 0x2 >;
-	div-q = < 0x7 >;
-	clocks = < &clk_hse >;
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-0 = < &adc1_in0_pa0 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	st,adc-prescaler = < 0x2 >;
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&dac1{
+	status = "okay";
+	pinctrl-0 = < &dac_out1_pa4 >;
+	pinctrl-names = "default";
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -30,15 +34,6 @@
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
-	pinctrl-names = "default";
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
-};
-&usbotg_hs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_hs_dm_pb14 &usb_otg_hs_dp_pb15 &usb_otg_hs_id_pb12 >;
 	pinctrl-names = "default";
 };
 &i2c3{
@@ -59,42 +54,24 @@
 	def-back-color-green = < 0xff >;
 	def-back-color-blue = < 0xff >;
 };
+&mac{
+	status = "okay";
+	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
+	pinctrl-names = "default";
+};
+&pll{
+	status = "okay";
+	div-m = < 0x8 >;
+	mul-n = < 0x150 >;
+	div-p = < 0x2 >;
+	div-q = < 0x7 >;
+	clocks = < &clk_hse >;
+};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0xa037a00 >;
 	apb1-prescaler = < 0x4 >;
 	apb2-prescaler = < 0x2 >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&spi5{
-	status = "okay";
-	pinctrl-0 = < &spi5_nss_pf6 &spi5_sck_pf7 &spi5_miso_pf8 &spi5_mosi_pf9 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioc 0x2 0x1 >;
-};
-&dac1{
-	status = "okay";
-	pinctrl-0 = < &dac_out1_pa4 >;
-	pinctrl-names = "default";
-};
-&usart6{
-	status = "okay";
-	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in0_pa0 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x2 >;
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
 };
 &spi1{
 	status = "okay";
@@ -102,15 +79,38 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiod 0xe 0x11 >;
 };
+&spi5{
+	status = "okay";
+	pinctrl-0 = < &spi5_nss_pf6 &spi5_sck_pf7 &spi5_miso_pf8 &spi5_mosi_pf9 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioc 0x2 0x1 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
 &usart3{
 	status = "okay";
 	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&mac{
+&usart6{
 	status = "okay";
-	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pb13 >;
+	pinctrl-0 = < &usart6_tx_pg14 &usart6_rx_pg9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&usbotg_hs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_hs_dm_pb14 &usb_otg_hs_dp_pb15 &usb_otg_hs_id_pb12 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

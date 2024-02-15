@@ -1,30 +1,21 @@
 / {
-	compatible = "silabs,efr32bg27c140f768im40", "silabs,efr32bg27_brd2602a", "silabs,efr32bg27";
+	compatible = "silabs,efr32bg27", "silabs,efr32bg27_brd2602a", "silabs,efr32bg27c140f768im40";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&usart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart1_default >;
-	pinctrl-names = "default";
 };
 &adc0{
 	status = "okay";
 };
-&gpioc{
-	status = "okay";
-};
-&usart0{
-	status = "okay";
-	pinctrl-0 = < &usart0_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioc 0x3 0x1 >;
-};
 &gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
 	status = "okay";
 };
 &i2c0{
@@ -32,8 +23,17 @@
 	location-sda = < 0x3 0x3 0x2 >;
 	location-scl = < 0x3 0x3 0x3 >;
 };
-&gpiob{
+&usart0{
 	status = "okay";
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioc 0x3 0x1 >;
+};
+&usart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart1_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

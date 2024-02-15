@@ -1,14 +1,38 @@
 / {
-	compatible = "atmel,sam_e70_xplained", "atmel,same70q21", "atmel,same70";
+	compatible = "atmel,sam_e70_xplained", "atmel,same70", "atmel,same70q21";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&twihs0{
+&afec0{
 	status = "okay";
-	pinctrl-0 = < &twihs0_default >;
+	pinctrl-0 = < &afec0_default >;
+	pinctrl-names = "default";
+};
+&afec1{
+	status = "okay";
+	pinctrl-0 = < &afec1_default >;
+	pinctrl-names = "default";
+};
+&can0{
+	status = "okay";
+	pinctrl-0 = < &can0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&gmac{
+	status = "okay";
+	pinctrl-0 = < &gmac_rmii >;
+	pinctrl-names = "default";
+	mac-eeprom = < &eeprom >;
+	phy-handle = < &phy >;
+};
+&mdio{
+	status = "okay";
+	pinctrl-0 = < &mdio_default >;
 	pinctrl-names = "default";
 };
 &spi0{
@@ -19,37 +43,10 @@
 	dmas = < &xdmac 0x1 0x1 >, < &xdmac 0x2 0x2 >;
 	dma-names = "tx", "rx";
 };
-&afec0{
+&twihs0{
 	status = "okay";
-	pinctrl-0 = < &afec0_default >;
+	pinctrl-0 = < &twihs0_default >;
 	pinctrl-names = "default";
-};
-&mdio{
-	status = "okay";
-	pinctrl-0 = < &mdio_default >;
-	pinctrl-names = "default";
-};
-&afec1{
-	status = "okay";
-	pinctrl-0 = < &afec1_default >;
-	pinctrl-names = "default";
-};
-&gmac{
-	status = "okay";
-	pinctrl-0 = < &gmac_rmii >;
-	pinctrl-names = "default";
-	mac-eeprom = < &eeprom >;
-	phy-handle = < &phy >;
-};
-&usbhs{
-	status = "okay";
-};
-&can0{
-	status = "okay";
-	pinctrl-0 = < &can0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
 };
 &twihs2{
 	status = "okay";
@@ -61,4 +58,7 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart1_default >;
 	pinctrl-names = "default";
+};
+&usbhs{
+	status = "okay";
 };

@@ -2,15 +2,18 @@
 	compatible = "st,stm32f072b-disco";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&pll{
+&can1{
 	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hsi >;
+	pinctrl-0 = < &can_rx_pb8 &can_tx_pb9 >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&clk_hsi{
+	status = "okay";
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -24,29 +27,26 @@
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
 	pinctrl-names = "default";
 };
-&clk_hsi{
+&pll{
 	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hsi >;
 };
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x2dc6c00 >;
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
+	pinctrl-names = "default";
 };
 &usart1{
 	status = "okay";
 	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&can1{
-	status = "okay";
-	pinctrl-0 = < &can_rx_pb8 &can_tx_pb9 >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5 >;
-	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

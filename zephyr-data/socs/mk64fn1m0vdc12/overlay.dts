@@ -2,19 +2,39 @@
 	compatible = "nxp,hexiwear", "nxp,k64f", "nxp,k6x";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&adc0{
+	status = "okay";
+};
+&adc1{
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
 };
 &i2c0{
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&uart4{
+&i2c1{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart4_default >;
+	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 };
 &uart0{
@@ -23,29 +43,9 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&gpioc{
+&uart4{
 	status = "okay";
-};
-&adc0{
-	status = "okay";
-};
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart4_default >;
 	pinctrl-names = "default";
-};
-&gpioe{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&adc1{
-	status = "okay";
 };

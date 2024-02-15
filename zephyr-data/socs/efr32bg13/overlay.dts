@@ -2,9 +2,15 @@
 	compatible = "silabs,efr32_radio_brd4104a", "silabs,efr32bg13p";
 	chosen {
 		zephyr,console = &usart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
 };
 &gpioc{
 	status = "okay";
@@ -13,12 +19,6 @@
 	status = "okay";
 };
 &gpiof{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioa{
 	status = "okay";
 };
 &usart0{

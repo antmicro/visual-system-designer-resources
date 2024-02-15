@@ -2,9 +2,24 @@
 	compatible = "infineon,xmc4700", "infineon,xmc4xxx";
 	chosen {
 		zephyr,console = &usic0ch0;
-		zephyr,sram = &dsram_joined;
 		zephyr,flash = &flash0;
+		zephyr,sram = &dsram_joined;
 	};
+};
+&adc0{
+	vref-internal-mv = < 0xce4 >;
+};
+&adc1{
+	vref-internal-mv = < 0xce4 >;
+};
+&adc2{
+	vref-internal-mv = < 0xce4 >;
+};
+&adc3{
+	vref-internal-mv = < 0xce4 >;
+};
+&can{
+	clock-prescaler = < 0x6 >;
 };
 &eth{
 	status = "okay";
@@ -18,44 +33,29 @@
 	phy-connection-type = "rmii";
 	phy-handle = < &phy >;
 };
-&adc3{
-	vref-internal-mv = < 0xce4 >;
+&gpio0{
+	status = "okay";
+};
+&gpio1{
+	status = "okay";
+};
+&gpio14{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
+&gpio3{
+	status = "okay";
+};
+&gpio5{
+	status = "okay";
 };
 &mdio{
 	status = "okay";
 	mdi-port-ctrl = "P2_0";
 	pinctrl-0 = < &eth_p2_0_mdo &eth_p2_7_mdc >;
 	pinctrl-names = "default";
-};
-&adc1{
-	vref-internal-mv = < 0xce4 >;
-};
-&can{
-	clock-prescaler = < 0x6 >;
-};
-&gpio14{
-	status = "okay";
-};
-&gpio3{
-	status = "okay";
-};
-&adc0{
-	vref-internal-mv = < 0xce4 >;
-};
-&gpio0{
-	status = "okay";
-};
-&gpio2{
-	status = "okay";
-};
-&gpio5{
-	status = "okay";
-};
-&gpio1{
-	status = "okay";
-};
-&adc2{
-	vref-internal-mv = < 0xce4 >;
 };
 &usic0ch0{
 	status = "okay";

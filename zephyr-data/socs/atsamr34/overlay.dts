@@ -1,15 +1,13 @@
 / {
-	compatible = "atmel,atsamr34xpro", "atmel,samr34j18b", "atmel,samr34";
+	compatible = "atmel,atsamr34xpro", "atmel,samr34", "atmel,samr34j18b";
 	chosen {
 		zephyr,console = &sercom0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&usb0{
+&adc{
 	status = "okay";
-	pinctrl-0 = < &usb0_default >;
-	pinctrl-names = "default";
 };
 &sercom0{
 	compatible = "atmel,sam0-uart";
@@ -18,16 +16,6 @@
 	rxpo = < 0x1 >;
 	txpo = < 0x0 >;
 	pinctrl-0 = < &sercom0_default >;
-	pinctrl-names = "default";
-};
-&sercom5{
-	compatible = "atmel,sam0-spi";
-	status = "okay";
-	dipo = < 0x0 >;
-	dopo = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom5_default >;
 	pinctrl-names = "default";
 };
 &sercom1{
@@ -42,8 +30,15 @@
 &sercom4{
 	status = "okay";
 };
-&adc{
+&sercom5{
+	compatible = "atmel,sam0-spi";
 	status = "okay";
+	dipo = < 0x0 >;
+	dopo = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom5_default >;
+	pinctrl-names = "default";
 };
 &tcc0{
 	compatible = "atmel,sam0-tcc-pwm";
@@ -51,5 +46,10 @@
 	prescaler = < 0x4 >;
 	#pwm-cells = < 0x2 >;
 	pinctrl-0 = < &tcc0_default >;
+	pinctrl-names = "default";
+};
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb0_default >;
 	pinctrl-names = "default";
 };

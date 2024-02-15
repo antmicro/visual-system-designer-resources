@@ -1,9 +1,20 @@
 / {
 	compatible = "seeed,wio-terminal";
 	chosen {
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&sercom0{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	dipo = < 0x2 >;
+	dopo = < 0x0 >;
+	pinctrl-0 = < &sercom0_spi_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &portc 0x19 0x1 >;
 };
 &sercom1{
 	compatible = "atmel,sam0-uart";
@@ -41,32 +52,16 @@
 	pinctrl-0 = < &sercom4_i2c_default >;
 	pinctrl-names = "default";
 };
-&sercom7{
-	compatible = "atmel,sam0-spi";
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	dipo = < 0x2 >;
-	dopo = < 0x3 >;
-	pinctrl-0 = < &sercom7_spi_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &portb 0x15 0x1 >;
-};
-&sercom0{
+&sercom5{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	dipo = < 0x2 >;
 	dopo = < 0x0 >;
-	pinctrl-0 = < &sercom0_spi_default >;
+	pinctrl-0 = < &sercom5_spi_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &portc 0x19 0x1 >;
-};
-&usb0{
-	status = "okay";
-	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
+	cs-gpios = < &portb 0x1 0x1 >;
 };
 &sercom6{
 	compatible = "atmel,sam0-spi";
@@ -79,14 +74,19 @@
 	pinctrl-names = "default";
 	cs-gpios = < &portc 0x13 0x1 >;
 };
-&sercom5{
+&sercom7{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	dipo = < 0x2 >;
-	dopo = < 0x0 >;
-	pinctrl-0 = < &sercom5_spi_default >;
+	dopo = < 0x3 >;
+	pinctrl-0 = < &sercom7_spi_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &portb 0x1 0x1 >;
+	cs-gpios = < &portb 0x15 0x1 >;
+};
+&usb0{
+	status = "okay";
+	pinctrl-0 = < &usb_dc_default >;
+	pinctrl-names = "default";
 };

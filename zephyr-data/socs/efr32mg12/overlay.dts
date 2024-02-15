@@ -2,9 +2,15 @@
 	compatible = "silabs,efr32_radio_brd4170a", "silabs,efr32mg12p";
 	chosen {
 		zephyr,console = &usart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
 };
 &gpioc{
 	status = "okay";
@@ -12,10 +18,7 @@
 &gpiod{
 	status = "okay";
 };
-&gpiob{
-	status = "okay";
-};
-&gpioa{
+&gpiof{
 	status = "okay";
 };
 &usart0{
@@ -33,9 +36,6 @@
 	location-tx = < 0xb 0x2 0x6 >;
 	location-clk = < 0xb 0x2 0x8 >;
 	cs-gpios = < &gpioa 0x4 0x1 >;
-};
-&gpiof{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

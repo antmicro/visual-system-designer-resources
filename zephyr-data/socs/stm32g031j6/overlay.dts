@@ -2,9 +2,15 @@
 	compatible = "st,stm32g0316-disco";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&clk_hsi{
+	status = "okay";
+};
+&pinctrl{
+	remap-pa11;
 };
 &pll{
 	status = "okay";
@@ -15,9 +21,6 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hsi >;
 };
-&clk_hsi{
-	status = "okay";
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x3d09000 >;
@@ -27,9 +30,6 @@
 	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&pinctrl{
-	remap-pa11;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

@@ -1,8 +1,8 @@
 / {
-	compatible = "nxp,mk66f18", "nxp,k66f", "nxp,k6x";
+	compatible = "nxp,k66f", "nxp,k6x", "nxp,mk66f18";
 	chosen {
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
 &enet{
@@ -10,19 +10,19 @@
 	pinctrl-0 = < &enet_default >;
 	pinctrl-names = "default";
 };
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
 &spi1{
 	status = "okay";
 	pinctrl-0 = < &spi1_default >;
 	pinctrl-names = "default";
 	clock-frequency = < 0x29f6300 >;
 	cs-gpios = < &gpioe 0x4 0x1 >;
-};
-&gpioe{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
 };

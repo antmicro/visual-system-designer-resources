@@ -1,24 +1,12 @@
 / {
-	compatible = "ti,cc3220sf-launchxl", "ti,cc3220sf", "ti,cc32xx";
+	compatible = "ti,cc3220sf", "ti,cc3220sf-launchxl", "ti,cc32xx";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash1;
+		zephyr,sram = &sram0;
 	};
 };
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
-};
 &adc0{
-	status = "okay";
-};
-&gpioa2{
-	status = "okay";
-};
-&gpioa3{
 	status = "okay";
 };
 &gpioa0{
@@ -27,10 +15,22 @@
 &gpioa1{
 	status = "okay";
 };
+&gpioa2{
+	status = "okay";
+};
+&gpioa3{
+	status = "okay";
+};
 &i2c0{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
 &pinctrl{

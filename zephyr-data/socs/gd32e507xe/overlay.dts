@@ -2,11 +2,20 @@
 	compatible = "gd,gd32e507z-eval";
 	chosen {
 		zephyr,console = &usart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
+&gpioa{
+	status = "okay";
+};
 &gpioc{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&gpiog{
 	status = "okay";
 };
 &usart0{
@@ -14,15 +23,6 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpioa{
-	status = "okay";
-};
-&gpiog{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "gd,gd32-pinctrl-afio";

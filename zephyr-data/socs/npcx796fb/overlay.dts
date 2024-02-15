@@ -1,20 +1,9 @@
 / {
 	chosen {
 		zephyr,console = &uart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&pwm6{
-	status = "okay";
-	pinctrl-0 = < &pwm6_gpc0 >;
-	pinctrl-names = "default";
-};
-&i2c0_0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_0_sda_scl_gpb4_b5 >;
-	pinctrl-names = "default";
-	clock-frequency = < 0x61a80 >;
 };
 &adc0{
 	status = "okay";
@@ -24,6 +13,20 @@
 &espi0{
 	status = "okay";
 	pinctrl-0 = < &espi_lpc_gp46_47_51_52_53_54_55_57 >;
+	pinctrl-names = "default";
+};
+&i2c0_0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_0_sda_scl_gpb4_b5 >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x61a80 >;
+};
+&i2c_ctrl0{
+	status = "okay";
+};
+&pwm6{
+	status = "okay";
+	pinctrl-0 = < &pwm6_gpc0 >;
 	pinctrl-names = "default";
 };
 &tach1{
@@ -39,7 +42,4 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart1_2_sin_sout_gp64_65 >;
 	pinctrl-names = "default";
-};
-&i2c_ctrl0{
-	status = "okay";
 };

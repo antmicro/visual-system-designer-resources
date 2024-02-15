@@ -2,9 +2,26 @@
 	compatible = "gd,gd32f470i-eval";
 	chosen {
 		zephyr,console = &usart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
 };
 &gpiof{
 	status = "okay";
@@ -12,36 +29,19 @@
 &gpiog{
 	status = "okay";
 };
-&spi5{
+&gpioi{
 	status = "okay";
-	pinctrl-0 = < &spi5_default >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpioi 0x8 0x1 >;
-};
-&dac{
-	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
 };
 &i2c0{
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&gpioe{
+&spi5{
 	status = "okay";
-};
-&gpioi{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpioa{
-	status = "okay";
-};
-&gpioc{
-	status = "okay";
+	pinctrl-0 = < &spi5_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioi 0x8 0x1 >;
 };
 &usart0{
 	status = "okay";

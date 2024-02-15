@@ -1,20 +1,10 @@
 / {
-	compatible = "nxp,lpc55xxx", "nxp,lpc";
+	compatible = "nxp,lpc", "nxp,lpc55xxx";
 	chosen {
 		zephyr,console = &flexcomm0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&dac0{
-	status = "okay";
-	pinctrl-0 = < &pinmux_dac0 >;
-	pinctrl-names = "default";
-};
-&usbfs{
-	status = "okay";
-	pinctrl-0 = < &pinmux_usbfs >;
-	pinctrl-names = "default";
 };
 &adc0{
 	status = "okay";
@@ -28,10 +18,20 @@
 	pinctrl-0 = < &pinmux_mcan_can0 >;
 	pinctrl-names = "default";
 };
+&dac0{
+	status = "okay";
+	pinctrl-0 = < &pinmux_dac0 >;
+	pinctrl-names = "default";
+};
 &flexcomm0{
 	compatible = "nxp,lpc-usart";
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-names = "default";
+};
+&usbfs{
+	status = "okay";
+	pinctrl-0 = < &pinmux_usbfs >;
 	pinctrl-names = "default";
 };

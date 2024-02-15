@@ -2,15 +2,15 @@
 	compatible = "st,stm32l1discovery";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&pll{
+&clk_hsi{
 	status = "okay";
-	div = < 0x4 >;
-	mul = < 0x8 >;
-	clocks = < &clk_hsi >;
+};
+&clk_lsi{
+	status = "okay";
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -24,26 +24,25 @@
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
 	pinctrl-names = "default";
 };
-&clk_hsi{
+&pll{
 	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-};
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	div = < 0x4 >;
+	mul = < 0x8 >;
+	clocks = < &clk_hsi >;
 };
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x1e84800 >;
 };
-&clk_lsi{
+&spi1{
 	status = "okay";
+	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_nss_pb12 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
 };
 &usart1{
 	status = "okay";
@@ -51,10 +50,11 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&spi1{
+&usart2{
 	status = "okay";
-	pinctrl-0 = < &spi1_nss_pa4 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &usart3{
 	status = "okay";

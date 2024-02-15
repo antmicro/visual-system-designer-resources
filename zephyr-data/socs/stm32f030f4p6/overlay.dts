@@ -2,15 +2,9 @@
 	compatible = "stm32f030-demo";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&pll{
-	status = "okay";
-	prediv = < 0x1 >;
-	mul = < 0x6 >;
-	clocks = < &clk_hse >;
 };
 &clk_hse{
 	status = "okay";
@@ -18,6 +12,12 @@
 };
 &flash0{
 	reg = < 0x8000000 0x5000 >;
+};
+&pll{
+	status = "okay";
+	prediv = < 0x1 >;
+	mul = < 0x6 >;
+	clocks = < &clk_hse >;
 };
 &rcc{
 	clocks = < &pll >;

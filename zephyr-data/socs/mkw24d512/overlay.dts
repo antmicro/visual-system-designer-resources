@@ -1,16 +1,27 @@
 / {
-	compatible = "nxp,usb-kw24d512", "nxp,kw24d512", "nxp,kw2xd";
+	compatible = "nxp,kw24d512", "nxp,kw2xd", "nxp,usb-kw24d512";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
 &adc0{
 	status = "okay";
 };
-&usbd{
-	num-bidir-endpoints = < 0x8 >;
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioe{
 	status = "okay";
 };
 &uart0{
@@ -19,18 +30,7 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
-&gpioa{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
-};
-&gpiob{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&gpioc{
+&usbd{
+	num-bidir-endpoints = < 0x8 >;
 	status = "okay";
 };

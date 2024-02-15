@@ -2,9 +2,13 @@
 	compatible = "st,stm32f072-eval";
 	chosen {
 		zephyr,console = &usart2;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
 };
 &pll{
 	status = "okay";
@@ -12,19 +16,15 @@
 	mul = < 0x6 >;
 	clocks = < &clk_hse >;
 };
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x2dc6c00 >;
 };
 &usart2{
 	status = "okay";
 	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x2dc6c00 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

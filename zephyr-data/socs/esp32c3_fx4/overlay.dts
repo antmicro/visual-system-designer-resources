@@ -2,19 +2,9 @@
 	compatible = "seeed,xiao-esp32c3";
 	chosen {
 		zephyr,console = &usb_serial;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&spi2{
-	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim2_default >;
-	pinctrl-names = "default";
-};
-&usb_serial{
-	status = "okay";
 };
 &gpio0{
 	status = "okay";
@@ -23,6 +13,13 @@
 	status = "okay";
 	clock-frequency = < 0x186a0 >;
 	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim2_default >;
 	pinctrl-names = "default";
 };
 &twai{
@@ -36,6 +33,9 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
+};
+&usb_serial{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

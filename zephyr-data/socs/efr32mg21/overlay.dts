@@ -1,15 +1,21 @@
 / {
-	compatible = "silabs,efr32mg21_brd4180a", "silabs,efr32mg21";
+	compatible = "silabs,efr32mg21", "silabs,efr32mg21_brd4180a";
 	chosen {
 		zephyr,console = &usart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
 &gpioa{
 	status = "okay";
 };
+&gpiob{
+	status = "okay";
+};
 &gpioc{
+	status = "okay";
+};
+&gpiod{
 	status = "okay";
 };
 &usart0{
@@ -17,12 +23,6 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

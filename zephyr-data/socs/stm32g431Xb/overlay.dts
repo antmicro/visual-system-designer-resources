@@ -2,9 +2,27 @@
 	compatible = "weact,stm32g431-core";
 	chosen {
 		zephyr,console = &usart2;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&adc2{
+	pinctrl-0 = < &adc2_in12_pb2 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x1 >;
+	st,adc-prescaler = < 0x4 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
+};
+&clk_lse{
+	status = "okay";
+};
+&clk_lsi{
+	status = "okay";
 };
 &pll{
 	status = "okay";
@@ -15,9 +33,9 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
 };
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0x8954400 >;
 };
 &usart2{
 	status = "okay";
@@ -25,29 +43,11 @@
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&clk_lsi{
-	status = "okay";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0x8954400 >;
-};
-&adc2{
-	pinctrl-0 = < &adc2_in12_pb2 >;
-	pinctrl-names = "default";
-	st,adc-clock-source = < 0x1 >;
-	st,adc-prescaler = < 0x4 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-};
 &usb{
 	clocks = < &rcc 0x58 0x800000 >, < &rcc 0xa 0x27a88 >;
 	status = "okay";
 	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
 	pinctrl-names = "default";
-};
-&clk_lse{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

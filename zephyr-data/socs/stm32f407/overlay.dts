@@ -2,15 +2,32 @@
 	compatible = "mikroe,stm32-e407", "st,stm32f407";
 	chosen {
 		zephyr,console = &uart4;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&uart4{
+&adc1{
 	status = "okay";
-	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
+	pinctrl-0 = < &adc1_in2_pa2 &adc1_in3_pa3 >;
 	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
+	st,adc-prescaler = < 0x2 >;
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x17d7840 >;
+};
+&clk_lsi{
+	status = "okay";
+};
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
+	pinctrl-names = "default";
+};
+&i2c3{
+	status = "okay";
+	pinctrl-0 = < &i2c3_scl_pa8 &i2c3_sda_pc9 >;
+	pinctrl-names = "default";
 };
 &pll{
 	status = "okay";
@@ -20,14 +37,11 @@
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
 };
-&i2c2{
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb11 >;
-	pinctrl-names = "default";
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x17d7840 >;
+&rcc{
+	clocks = < &pll >;
+	clock-frequency = < 0xa037a00 >;
+	apb1-prescaler = < 0x4 >;
+	apb2-prescaler = < 0x2 >;
 };
 &spi2{
 	status = "okay";
@@ -35,48 +49,34 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpioe 0xb 0x1 >;
 };
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
-	pinctrl-names = "default";
-	current-speed = < 0x2580 >;
-};
-&i2c3{
-	status = "okay";
-	pinctrl-0 = < &i2c3_scl_pa8 &i2c3_sda_pc9 >;
-	pinctrl-names = "default";
-};
-&rcc{
-	clocks = < &pll >;
-	clock-frequency = < 0xa037a00 >;
-	apb1-prescaler = < 0x4 >;
-	apb2-prescaler = < 0x2 >;
-};
-&clk_lsi{
-	status = "okay";
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in2_pa2 &adc1_in3_pa3 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x2 >;
-};
-&usbotg_fs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
-	pinctrl-names = "default";
-};
 &spi3{
 	status = "okay";
 	pinctrl-0 = < &spi3_sck_pc10 &spi3_miso_pc11 &spi3_mosi_pc12 >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpioe 0x8 0x1 >;
 };
+&uart4{
+	status = "okay";
+	pinctrl-0 = < &uart4_tx_pa0 &uart4_rx_pa1 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usart2{
+	status = "okay";
+	pinctrl-0 = < &usart2_tx_pd5 &usart2_rx_pd6 >;
+	pinctrl-names = "default";
+	current-speed = < 0x2580 >;
+};
 &usart3{
 	status = "okay";
 	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x2580 >;
+};
+&usbotg_fs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

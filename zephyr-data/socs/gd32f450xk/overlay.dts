@@ -2,24 +2,48 @@
 	compatible = "gd,gd32f450v-start";
 	chosen {
 		zephyr,console = &usart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&dac{
+	status = "okay";
+	pinctrl-0 = < &dac_default >;
+	pinctrl-names = "default";
+};
 &gpioa{
+	status = "okay";
+};
+&gpiob{
 	status = "okay";
 };
 &gpioc{
 	status = "okay";
 };
-&usart0{
+&gpiod{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart0_default >;
-	pinctrl-names = "default";
+};
+&gpioe{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
 };
 &gpiog{
 	status = "okay";
+};
+&gpioi{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
 };
 &spi5{
 	status = "okay";
@@ -27,34 +51,10 @@
 	pinctrl-names = "default";
 	cs-gpios = < &gpiog 0x9 0x1 >;
 };
-&dac{
+&usart0{
 	status = "okay";
-	pinctrl-0 = < &dac_default >;
-	pinctrl-names = "default";
-};
-&i2c0{
-	status = "okay";
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-names = "default";
-};
-&gpiob{
-	status = "okay";
-};
-&gpiod{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
-&gpioe{
-	status = "okay";
-};
-&gpioi{
-	status = "okay";
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
 	pinctrl-names = "default";
 };
 &pinctrl{

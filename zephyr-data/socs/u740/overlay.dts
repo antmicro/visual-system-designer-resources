@@ -1,5 +1,5 @@
 / {
-	compatible = "sifive,FU740-C000", "fu740-dev", "sifive-dev";
+	compatible = "fu740-dev", "sifive,FU740-C000", "sifive-dev";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &l2lim;
@@ -16,10 +16,10 @@
 &spi1{
 	status = "okay";
 };
+&spi2{
+	status = "okay";
+};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
-};
-&spi2{
-	status = "okay";
 };

@@ -2,15 +2,13 @@
 	compatible = "espressif,esp32s2";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&uart0{
+&flash0{
+	reg = < 0x0 0x400000 >;
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-names = "default";
 };
 &gpio0{
 	status = "okay";
@@ -18,9 +16,11 @@
 &gpio1{
 	status = "okay";
 };
-&flash0{
-	reg = < 0x0 0x400000 >;
+&uart0{
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

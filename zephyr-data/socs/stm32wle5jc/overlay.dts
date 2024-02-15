@@ -2,38 +2,9 @@
 	compatible = "seeed,lora-e5-mini";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&rcc{
-	clocks = < &clk_msi >;
-	clock-frequency = < 0x2dc6c00 >;
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_scl_pb15 &i2c2_sda_pa15 >;
-	pinctrl-names = "default";
-};
-&clk_hse{
-	hse-tcxo;
-};
-&subghzspi{
-	status = "okay";
-};
-&clk_msi{
-	msi-range = < 0xb >;
-	status = "okay";
-};
-&clk_lsi{
-	status = "okay";
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &adc1{
 	status = "okay";
@@ -42,20 +13,49 @@
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
 };
+&clk_hse{
+	hse-tcxo;
+};
+&clk_lsi{
+	status = "okay";
+};
+&clk_msi{
+	msi-range = < 0xb >;
+	status = "okay";
+};
+&i2c2{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c2_scl_pb15 &i2c2_sda_pa15 >;
+	pinctrl-names = "default";
+};
+&lpuart1{
+	status = "okay";
+	pinctrl-0 = < &lpuart1_tx_pc1 &lpuart1_rx_pc0 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&rcc{
+	clocks = < &clk_msi >;
+	clock-frequency = < 0x2dc6c00 >;
+};
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_nss_pb9 &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pa10 >;
 	pinctrl-names = "default";
 };
-&usart2{
+&subghzspi{
 	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
-&lpuart1{
+&usart2{
 	status = "okay";
-	pinctrl-0 = < &lpuart1_tx_pc1 &lpuart1_rx_pc0 >;
+	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };

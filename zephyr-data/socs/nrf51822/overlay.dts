@@ -2,16 +2,12 @@
 	compatible = "seeed,carbon_nrf51";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&spi1{
-	compatible = "nordic,nrf-spis";
+&adc{
 	status = "okay";
-	def-char = < 0x0 >;
-	pinctrl-0 = < &spi1_default >;
-	pinctrl-names = "default";
 };
 &gpio0{
 	status = "okay";
@@ -22,16 +18,6 @@
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart0_default >;
-	pinctrl-1 = < &uart0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&adc{
-	status = "okay";
-};
 &i2c1{
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-1 = < &i2c1_sleep >;
@@ -40,6 +26,20 @@
 &spi0{
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-1 = < &spi0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi1{
+	compatible = "nordic,nrf-spis";
+	status = "okay";
+	def-char = < 0x0 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &pinctrl{

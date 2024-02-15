@@ -2,18 +2,36 @@
 	compatible = "st,stm32u5a9j-dk";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&pll1{
+&adc1{
 	status = "okay";
-	div-m = < 0x1 >;
-	mul-n = < 0x50 >;
-	div-p = < 0x2 >;
-	div-q = < 0x2 >;
-	div-r = < 0x2 >;
-	clocks = < &clk_msis >;
+	pinctrl-0 = < &adc1_in5_pa0 &adc1_in14_pc5 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+};
+&adc4{
+	status = "okay";
+	pinctrl-0 = < &adc4_in5_pf14 >;
+	pinctrl-names = "default";
+	st,adc-prescaler = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0xf42400 >;
+};
+&clk_hsi48{
+	status = "okay";
+};
+&clk_msis{
+	status = "okay";
+	msi-pll-mode;
 };
 &i2c1{
 	status = "okay";
@@ -25,32 +43,10 @@
 	pinctrl-0 = < &i2c2_scl_pf1 &i2c2_sda_pf0 >;
 	pinctrl-names = "default";
 };
-&spi3{
-	status = "okay";
-	pinctrl-0 = < &spi3_sck_pg9 &spi3_miso_pg10 &spi3_mosi_pg11 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiog 0xf 0x11 >;
-};
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0xf42400 >;
-};
 &i2c6{
 	status = "okay";
 	pinctrl-0 = < &i2c6_scl_pd1 &i2c6_sda_pd0 >;
 	pinctrl-names = "default";
-};
-&adc1{
-	status = "okay";
-	pinctrl-0 = < &adc1_in5_pa0 &adc1_in14_pc5 >;
-	pinctrl-names = "default";
-	st,adc-prescaler = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-};
-&rcc{
-	clocks = < &pll1 >;
-	clock-frequency = < 0x9896800 >;
 };
 &lpuart1{
 	status = "okay";
@@ -58,22 +54,30 @@
 	pinctrl-names = "default";
 	current-speed = < 0x2580 >;
 };
+&pll1{
+	status = "okay";
+	div-m = < 0x1 >;
+	mul-n = < 0x50 >;
+	div-p = < 0x2 >;
+	div-q = < 0x2 >;
+	div-r = < 0x2 >;
+	clocks = < &clk_msis >;
+};
+&rcc{
+	clocks = < &pll1 >;
+	clock-frequency = < 0x9896800 >;
+};
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pd3 &spi2_mosi_pd4 >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpiob 0xc 0x11 >;
 };
-&clk_hsi48{
+&spi3{
 	status = "okay";
-};
-&adc4{
-	status = "okay";
-	pinctrl-0 = < &adc4_in5_pf14 >;
+	pinctrl-0 = < &spi3_sck_pg9 &spi3_miso_pg10 &spi3_mosi_pg11 >;
 	pinctrl-names = "default";
-	st,adc-prescaler = < 0x1 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
+	cs-gpios = < &gpiog 0xf 0x11 >;
 };
 &usart1{
 	status = "okay";
@@ -86,10 +90,6 @@
 	pinctrl-0 = < &usart3_tx_pb10 &usart3_rx_pb11 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
-};
-&clk_msis{
-	status = "okay";
-	msi-pll-mode;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

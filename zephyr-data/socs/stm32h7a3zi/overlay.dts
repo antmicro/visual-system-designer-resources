@@ -2,19 +2,9 @@
 	compatible = "st,stm32h7a3zi-q-nucleo";
 	chosen {
 		zephyr,console = &usart3;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&clk_hse{
-	status = "okay";
-	hse-bypass;
-	clock-frequency = < 0x7a1200 >;
-};
-&usbotg_hs{
-	status = "okay";
-	pinctrl-0 = < &usb_otg_hs_dm_pa11 &usb_otg_hs_dp_pa12 >;
-	pinctrl-names = "default";
 };
 &adc1{
 	status = "okay";
@@ -22,6 +12,14 @@
 	pinctrl-names = "default";
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
+};
+&clk_hse{
+	status = "okay";
+	hse-bypass;
+	clock-frequency = < 0x7a1200 >;
+};
+&clk_hsi48{
+	status = "okay";
 };
 &pll{
 	status = "okay";
@@ -32,15 +30,6 @@
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
 };
-&clk_hsi48{
-	status = "okay";
-};
-&usart3{
-	status = "okay";
-	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x10b07600 >;
@@ -48,6 +37,17 @@
 	d2ppre1 = < 0x2 >;
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
+};
+&usart3{
+	status = "okay";
+	pinctrl-0 = < &usart3_tx_pd8 &usart3_rx_pd9 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
+};
+&usbotg_hs{
+	status = "okay";
+	pinctrl-0 = < &usb_otg_hs_dm_pa11 &usb_otg_hs_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

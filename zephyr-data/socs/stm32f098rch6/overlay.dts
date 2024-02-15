@@ -2,9 +2,12 @@
 	compatible = "google,kukui-ec", "st,stm32f098";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&clk_hsi{
+	status = "okay";
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -17,9 +20,6 @@
 	status = "okay";
 	pinctrl-0 = < &i2c2_scl_pa11 &i2c2_sda_pa12 >;
 	pinctrl-names = "default";
-};
-&clk_hsi{
-	status = "okay";
 };
 &rcc{
 	clocks = < &clk_hsi >;

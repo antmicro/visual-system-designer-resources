@@ -1,50 +1,10 @@
 / {
-	compatible = "silabs,efm32gg_stk3701a", "silabs,efm32gg11b";
+	compatible = "silabs,efm32gg11b", "silabs,efm32gg_stk3701a";
 	chosen {
 		zephyr,console = &usart4;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&gpioe{
-	status = "okay";
-};
-&gpioi{
-	status = "okay";
-};
-&gpiof{
-	status = "okay";
-};
-&i2c1{
-	status = "okay";
-	location-sda = < 0x0 0x2 0x4 >;
-	location-scl = < 0x0 0x2 0x5 >;
-};
-&i2c0{
-	status = "okay";
-	location-sda = < 0x4 0x2 0x0 >;
-	location-scl = < 0x4 0x2 0x1 >;
-};
-&gpiog{
-	status = "okay";
-};
-&leuart0{
-	status = "okay";
-	current-speed = < 0x2580 >;
-	location-rx = < 0x12 0x3 0xb >;
-	location-tx = < 0x12 0x3 0xa >;
-};
-&gpioc{
-	status = "okay";
-};
-&usart0{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart0_default >;
-	pinctrl-names = "default";
-};
-&gpiod{
-	status = "okay";
 };
 &eth0{
 	status = "okay";
@@ -65,11 +25,51 @@
 &gpioa{
 	status = "okay";
 };
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&gpiog{
+	status = "okay";
+};
 &gpioh{
 	status = "okay";
 };
-&gpiob{
+&gpioi{
 	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0x4 0x2 0x0 >;
+	location-scl = < 0x4 0x2 0x1 >;
+};
+&i2c1{
+	status = "okay";
+	location-sda = < 0x0 0x2 0x4 >;
+	location-scl = < 0x0 0x2 0x5 >;
+};
+&leuart0{
+	status = "okay";
+	current-speed = < 0x2580 >;
+	location-rx = < 0x12 0x3 0xb >;
+	location-tx = < 0x12 0x3 0xa >;
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
 };
 &usart4{
 	status = "okay";

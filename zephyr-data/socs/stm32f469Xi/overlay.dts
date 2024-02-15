@@ -2,9 +2,16 @@
 	compatible = "adi,sdp-k1";
 	chosen {
 		zephyr,console = &uart5;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&clk_hse{
+	status = "okay";
+	clock-frequency = < 0x7a1200 >;
+};
+&clk_lsi{
+	status = "okay";
 };
 &pll{
 	status = "okay";
@@ -14,24 +21,17 @@
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
 };
-&clk_hse{
-	status = "okay";
-	clock-frequency = < 0x7a1200 >;
-};
-&uart5{
-	status = "okay";
-	pinctrl-0 = < &uart5_tx_pc12 &uart5_rx_pd2 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0xa037a00 >;
 	apb1-prescaler = < 0x4 >;
 	apb2-prescaler = < 0x2 >;
 };
-&clk_lsi{
+&uart5{
 	status = "okay";
+	pinctrl-0 = < &uart5_tx_pc12 &uart5_rx_pd2 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

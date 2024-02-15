@@ -1,10 +1,19 @@
 / {
-	compatible = "atsamr21,xpro", "atmel,samr21g18a", "atmel,samr21";
+	compatible = "atmel,samr21", "atmel,samr21g18a", "atsamr21,xpro";
 	chosen {
 		zephyr,console = &sercom0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&sercom0{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-names = "default";
 };
 &sercom1{
 	compatible = "atmel,sam0-i2c";
@@ -47,14 +56,5 @@
 &usb0{
 	status = "okay";
 	pinctrl-0 = < &usb_dc_default >;
-	pinctrl-names = "default";
-};
-&sercom0{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom0_uart_default >;
 	pinctrl-names = "default";
 };

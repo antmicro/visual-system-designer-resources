@@ -1,35 +1,27 @@
 / {
-	compatible = "silabs,efr32mg_sltb004a", "silabs,efr32mg";
+	compatible = "silabs,efr32mg", "silabs,efr32mg_sltb004a";
 	chosen {
 		zephyr,console = &usart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
-};
-&gpiod{
-	status = "okay";
 };
 &gpioa{
 	status = "okay";
 };
-&usart2{
-	compatible = "silabs,gecko-spi-usart";
+&gpiod{
 	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	location-rx = < 0x1e 0xa 0x2 >;
-	location-tx = < 0x1d 0xa 0x0 >;
-	location-clk = < 0x12 0x5 0x7 >;
-	cs-gpios = < &gpiok 0x1 0x1 >;
 };
-&usart0{
+&gpiof{
 	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &usart0_default >;
-	pinctrl-names = "default";
 };
 &gpiok{
 	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	location-sda = < 0xf 0x2 0xa >;
+	location-scl = < 0xf 0x2 0xb >;
 };
 &i2c1{
 	status = "okay";
@@ -42,13 +34,21 @@
 	location-rx = < 0x1b 0x5 0x4 >;
 	location-tx = < 0x1b 0x5 0x3 >;
 };
-&gpiof{
+&usart0{
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
 };
-&i2c0{
+&usart2{
+	compatible = "silabs,gecko-spi-usart";
 	status = "okay";
-	location-sda = < 0xf 0x2 0xa >;
-	location-scl = < 0xf 0x2 0xb >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	location-rx = < 0x1e 0xa 0x2 >;
+	location-tx = < 0x1d 0xa 0x0 >;
+	location-clk = < 0x12 0x5 0x7 >;
+	cs-gpios = < &gpiok 0x1 0x1 >;
 };
 &pinctrl{
 	compatible = "silabs,gecko-pinctrl";

@@ -2,47 +2,43 @@
 	compatible = "renesas,da14695_dk_usb";
 	chosen {
 		zephyr,console = &uart;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&spi{
+&flash0{
+	reg = < 0x16000000 0x100000 >;
+};
+&gpio0{
 	status = "okay";
-	pinctrl-0 = < &spi_controller >;
-	pinctrl-names = "default";
 };
 &gpio1{
 	status = "okay";
-};
-&uart3{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart3_default >;
-	pinctrl-names = "default";
 };
 &i2c{
 	status = "okay";
 	pinctrl-0 = < &i2c_default >;
 	pinctrl-names = "default";
 };
-&flash0{
-	reg = < 0x16000000 0x100000 >;
+&i2c2{
+	status = "okay";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-names = "default";
+};
+&spi{
+	status = "okay";
+	pinctrl-0 = < &spi_controller >;
+	pinctrl-names = "default";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_controller >;
+	pinctrl-names = "default";
 };
 &uart{
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart_default >;
-	pinctrl-names = "default";
-};
-&usbd{
-	status = "okay";
-};
-&gpio0{
-	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_controller >;
 	pinctrl-names = "default";
 };
 &uart2{
@@ -51,10 +47,14 @@
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
 };
-&i2c2{
+&uart3{
 	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart3_default >;
 	pinctrl-names = "default";
+};
+&usbd{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "renesas,smartbond-pinctrl";

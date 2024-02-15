@@ -2,9 +2,17 @@
 	compatible = "legend25_hdd", "seagate,legend25_hdd";
 	chosen {
 		zephyr,console = &usart1;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&clk_hsi{
+	status = "okay";
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
 };
 &pll{
 	status = "okay";
@@ -12,29 +20,9 @@
 	prediv = < 0x1 >;
 	mul = < 0x6 >;
 };
-&i2c1{
-	status = "okay";
-	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
-	pinctrl-names = "default";
-};
-&clk_hsi{
-	status = "okay";
-};
-&spi2{
-	status = "okay";
-	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
-	pinctrl-names = "default";
-	cs-gpios = < &gpiob 0xc 0x1 >;
-};
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0x2dc6c00 >;
-};
-&usart1{
-	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
 };
 &spi1{
 	status = "okay";
@@ -42,6 +30,18 @@
 	pinctrl-names = "default";
 	dmas = < &dma1 0x3 0x20440 >, < &dma1 0x2 0x20480 >;
 	dma-names = "tx", "rx";
+};
+&spi2{
+	status = "okay";
+	pinctrl-0 = < &spi2_sck_pb13 &spi2_miso_pb14 &spi2_mosi_pb15 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiob 0xc 0x1 >;
+};
+&usart1{
+	status = "okay";
+	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-names = "default";
+	current-speed = < 0x1c200 >;
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";

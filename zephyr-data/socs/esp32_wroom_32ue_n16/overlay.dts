@@ -2,18 +2,17 @@
 	compatible = "espressif,esp32";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
 };
-&spi3{
+&flash0{
 	status = "okay";
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &spim3_default >;
-	pinctrl-names = "default";
 };
 &gpio0{
+	status = "okay";
+};
+&gpio1{
 	status = "okay";
 };
 &i2c0{
@@ -24,16 +23,18 @@
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
-&uart1{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-names = "default";
-};
 &spi2{
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &spim2_default >;
+	pinctrl-names = "default";
+};
+&spi3{
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &spim3_default >;
 	pinctrl-names = "default";
 };
 &uart0{
@@ -42,16 +43,15 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
+};
 &uart2{
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart2_default >;
 	pinctrl-names = "default";
-};
-&flash0{
-	status = "okay";
-};
-&gpio1{
-	status = "okay";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";

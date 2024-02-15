@@ -1,10 +1,41 @@
 / {
-	compatible = "atsamc21n,xpro", "atmel,samc21n18a", "atmel,samc21";
+	compatible = "atmel,samc21", "atmel,samc21n18a", "atsamc21n,xpro";
 	chosen {
 		zephyr,console = &sercom4;
-		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
 	};
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&adc1{
+	pinctrl-0 = < &adc1_default >;
+	pinctrl-names = "default";
+};
+&can0{
+	status = "okay";
+	pinctrl-0 = < &can0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&can1{
+	pinctrl-0 = < &can1_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+	bus-speed-data = < 0xf4240 >;
+};
+&sercom0{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x2580 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-names = "default";
 };
 &sercom1{
 	compatible = "atmel,sam0-i2c";
@@ -24,8 +55,13 @@
 	pinctrl-0 = < &sercom2_uart_default >;
 	pinctrl-names = "default";
 };
-&adc1{
-	pinctrl-0 = < &adc1_default >;
+&sercom4{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x1 >;
+	pinctrl-0 = < &sercom4_uart_default >;
 	pinctrl-names = "default";
 };
 &sercom5{
@@ -38,17 +74,6 @@
 	pinctrl-0 = < &sercom5_spi_default >;
 	pinctrl-names = "default";
 };
-&can1{
-	pinctrl-0 = < &can1_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
-};
-&adc0{
-	status = "okay";
-	pinctrl-0 = < &adc0_default >;
-	pinctrl-names = "default";
-};
 &tcc2{
 	compatible = "atmel,sam0-tcc-pwm";
 	status = "okay";
@@ -56,29 +81,4 @@
 	#pwm-cells = < 0x2 >;
 	pinctrl-0 = < &pwm_default >;
 	pinctrl-names = "default";
-};
-&sercom0{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x2580 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom0_uart_default >;
-	pinctrl-names = "default";
-};
-&sercom4{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x3 >;
-	txpo = < 0x1 >;
-	pinctrl-0 = < &sercom4_uart_default >;
-	pinctrl-names = "default";
-};
-&can0{
-	status = "okay";
-	pinctrl-0 = < &can0_default >;
-	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
 };
