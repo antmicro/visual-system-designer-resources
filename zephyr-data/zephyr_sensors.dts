@@ -876,6 +876,21 @@
 				accel-range = < 0x3 >;
 				accel-odr = < 0x5 >;
 			};
+			test_i2c_vishay_vcnl36825t: vcnl36825t@81 {
+				compatible = "vishay,vcnl36825t";
+				reg = < 0x81 >;
+				proximity-it = "3.5";
+				multi-pulse = < 0x8 >;
+				low-power;
+			};
+			test_i2c_tmag5273: tmag5273@82 {
+				compatible = "ti,tmag5273";
+				status = "okay";
+				reg = < 0x82 >;
+				int-gpios = < &test_gpio 0xf 0x1 >;
+				operation-mode = < 0x0 >;
+				angle-magnitude-axis = < 0x1 >;
+			};
 		};
 		test_spi: spi@33334444 {
 			#address-cells = < 0x1 >;

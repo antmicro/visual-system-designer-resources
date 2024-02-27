@@ -544,6 +544,7 @@
 			interrupts = < 0x2a 0x0 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
+			clocks = < &clkctl1 0x24 >;
 		};
 		flexspi2: spi@13C000 {
 			reg = < 0x5013c000 0x1000 >, < 0x38000000 0x8000000 >;
@@ -552,6 +553,7 @@
 			interrupts = < 0x2a 0x0 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
+			clocks = < &clkctl1 0x25 >;
 		};
 		nvic: interrupt-controller@e000e100 {
 			#address-cells = < 0x1 >;

@@ -23,6 +23,11 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
+&usbd{
+	status = "okay";
+	pinctrl-0 = < &usbd_default >;
+	pinctrl-names = "default";
+};
 &pinctrl{
 	compatible = "nuvoton,numaker-pinctrl";
 	reg = < 0x40000080 0x28 0x40000500 0xa0 >;
@@ -46,6 +51,11 @@
 	emac_default: emac_default {
 		group0 {
 			pinmux = < 0x48000003 >, < 0x49000003 >, < 0x4a000003 >, < 0x4b000003 >, < 0x4c000003 >, < 0x28000003 >, < 0x27000003 >, < 0x26000003 >, < 0x7000003 >, < 0x6000003 >, < 0x16000003 >;
+		};
+	};
+	usbd_default: usbd_default {
+		group0 {
+			pinmux = < 0xc00000e >, < 0xd00000e >, < 0xe00000e >, < 0xf00000e >;
 		};
 	};
 };

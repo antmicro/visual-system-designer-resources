@@ -44,10 +44,8 @@
 			clk32kmon-valid-min = < 0x4 >;
 			xtal-enable-delay-ms = < 0x12c >;
 			pll-lock-timeout-ms = < 0x1e >;
-			pinctrl-0 = < &clk_32khz_in_gpio165 >;
-			pinctrl-names = "default";
 			#clock-cells = < 0x3 >;
-			phandle = < 0x3 >;
+			phandle = < 0x2 >;
 		};
 		ecia: ecia@4000e000 {
 			compatible = "microchip,xec-ecia";
@@ -268,10 +266,6 @@
 				port-id = < 0x5 >;
 				girq-id = < 0x1a >;
 				#gpio-cells = < 0x2 >;
-			};
-			clk_32khz_in_gpio165: clk_32khz_in_gpio165 {
-				pinmux = < 0x353 >;
-				phandle = < 0x2 >;
 			};
 			peci_dat_gpio042_sleep: peci_dat_gpio042_sleep {
 				pinmux = < 0x221 >;
@@ -1376,13 +1370,13 @@
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				min-residency-us = < 0xf4240 >;
-				phandle = < 0x4 >;
+				phandle = < 0x3 >;
 			};
 			suspend_to_ram: suspend_to_ram {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-ram";
 				min-residency-us = < 0x1e8480 >;
-				phandle = < 0x5 >;
+				phandle = < 0x4 >;
 			};
 		};
 	};

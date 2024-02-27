@@ -319,6 +319,7 @@
         ],
         "description": "Bosch BMA4xx 3-axis acceleration sensors in I2C mode.  See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/accelerometers/\n",
         "driver": [
+            "drivers/sensor/bma4xx/bma4xx_emul.c",
             "drivers/sensor/bma4xx/bma4xx.c"
         ],
         "interfaces": {
@@ -3011,6 +3012,25 @@
         },
         "rdp-compat": "ti,tmag5170"
     },
+    "tmag5273": {
+        "category": "Other",
+        "compatible": [
+            "ti,tmag5273"
+        ],
+        "description": "Texas Instruments TMAG5273 Low-Power Linear 3D Hall-Effect Sensor with an I2C interface.\n\nSee the specification for the default I2C address.\n\nThe specification of the sensor can be found at:\n  https://www.ti.com/lit/ds/symlink/tmag5273.pdf\n\n  When setting the enum properties in a .dts or .dtsi file you may\n  include tmag5273.h and use the macros defined there.\n\n  Example:\n  #include <zephyr/dt-bindings/sensor/tmag5273.h>\n\n  tmag5273: tmag5273@0 {\n    ...\n    axis = <TMAG5273_DT_AXIS_XYZ>;\n    range = <TMAG5273_DT_AXIS_RANGE_HIGH>;\n  };\n",
+        "driver": [
+            "drivers/sensor/tmag5273/tmag5273.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
+    },
     "tmd2620": {
         "category": "Position/Distance",
         "compatible": [
@@ -3212,6 +3232,24 @@
             }
         },
         "rdp-compat": "vishay,veml7700"
+    },
+    "vishay_vcnl36825t": {
+        "category": "Position/Distance",
+        "compatible": [
+            "vishay,vcnl36825t"
+        ],
+        "description": "VCNL36825T proximity and ambient light sensor.  See datasheet at\nhttps://www.vishay.com/docs/84274/vcnl36825t.pdf\n",
+        "driver": [
+            "drivers/sensor/vcnl36825t/vcnl36825t.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
     },
     "vl53l0x": {
         "category": "Position/Distance",

@@ -34,7 +34,7 @@
             "zephyr": {
                 "icon": "icons_zephyr.svg",
                 "name": "Zephyr",
-                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/044529d0cd06c9bcaf64a78ade7a123e7fb8c9a3/"
+                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/5dad8d72ee739df5ef1b0369a5cf45ff800dec12/"
             }
         }
     },
@@ -4556,42 +4556,42 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "can0",
-                    "side": "left",
+                    "side": "right",
                     "type": "can phy"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "can1",
-                    "side": "right",
+                    "side": "left",
                     "type": "can phy"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "ddr ctrl",
-                    "side": "left",
+                    "side": "right",
                     "type": "lpddr"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "expansion",
-                    "side": "left",
+                    "side": "right",
                     "type": "gpio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gbe0",
-                    "side": "left",
+                    "side": "right",
                     "type": "gbe phy"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gbe1",
-                    "side": "right",
+                    "side": "left",
                     "type": "gbe phy"
                 },
                 {
@@ -4633,14 +4633,14 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "jtag",
-                    "side": "right",
+                    "side": "left",
                     "type": "jtag"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "pcie",
-                    "side": "right",
+                    "side": "left",
                     "type": "pcie"
                 },
                 {
@@ -4654,14 +4654,14 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "sdio",
-                    "side": "left",
+                    "side": "right",
                     "type": "sdio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi0",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
@@ -4674,43 +4674,50 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart0",
+                    "name": "syscontroller_qspi",
                     "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart1",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart2",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart3",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart4",
                     "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usb-otg",
+                    "name": "uart4",
                     "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-otg",
+                    "side": "right",
                     "type": "usb"
                 }
             ],
@@ -12640,7 +12647,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/bosch_bma4xx",
-                "zephyr": "drivers/sensor/bma4xx/bma4xx.c"
+                "zephyr": "drivers/sensor/bma4xx/bma4xx_emul.c"
             }
         },
         {
@@ -21186,6 +21193,20 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "spim0",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spim1",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "uart0",
                     "side": "left",
                     "type": "serial"
@@ -26161,6 +26182,13 @@
                     "name": "uart9",
                     "side": "left",
                     "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usbd",
+                    "side": "right",
+                    "type": "usb"
                 }
             ],
             "isCategory": true,
@@ -62521,6 +62549,20 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "uart7",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart8",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "uart9",
                     "side": "left",
                     "type": "serial"
@@ -62868,6 +62910,20 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart5",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart7",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart8",
                     "side": "right",
                     "type": "serial"
                 },
