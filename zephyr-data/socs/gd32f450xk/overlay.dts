@@ -1,5 +1,5 @@
 / {
-	compatible = "gd,gd32f450v-start";
+	compatible = "gd,gd32f450z-eval";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,flash = &flash0;
@@ -79,7 +79,7 @@
 		reg = < 0x40020400 0x400 >;
 		clocks = < &cctl 0xc01 >;
 		resets = < &rctl 0x401 >;
-		status = "disabled";
+		status = "okay";
 	};
 	gpioc: gpio@40020800 {
 		compatible = "gd,gd32-gpio";
@@ -97,7 +97,7 @@
 		reg = < 0x40020c00 0x400 >;
 		clocks = < &cctl 0xc03 >;
 		resets = < &rctl 0x403 >;
-		status = "disabled";
+		status = "okay";
 	};
 	gpioe: gpio@40021000 {
 		compatible = "gd,gd32-gpio";
@@ -124,7 +124,7 @@
 		reg = < 0x40021800 0x400 >;
 		clocks = < &cctl 0xc06 >;
 		resets = < &rctl 0x406 >;
-		status = "disabled";
+		status = "okay";
 	};
 	gpioh: gpio@40021c00 {
 		compatible = "gd,gd32-gpio";
@@ -146,12 +146,28 @@
 	};
 	usart0_default: usart0_default {
 		group1 {
-			pinmux = < 0x761 >, < 0x771 >;
+			pinmux = < 0x790 >, < 0x7a0 >;
 		};
 	};
-	pwm2_default: pwm2_default {
+	dac_default: dac_default {
 		group1 {
-			pinmux = < 0x262 >;
+			pinmux = < 0x1040 >;
+		};
+	};
+	pwm1_default: pwm1_default {
+		group1 {
+			pinmux = < 0x1a1 >;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = < 0x461 >, < 0x471 >;
+			drive-open-drain;
+		};
+	};
+	spi5_default: spi5_default {
+		group1 {
+			pinmux = < 0x5d6 >, < 0x5e6 >, < 0x5c6 >, < 0x5a6 >, < 0x5b6 >;
 		};
 	};
 };

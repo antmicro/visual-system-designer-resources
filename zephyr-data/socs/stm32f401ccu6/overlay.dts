@@ -1,5 +1,5 @@
 / {
-	compatible = "st,flight-controller-board";
+	compatible = "weact,blackpill-f401ce";
 	chosen {
 		zephyr,console = &usart1;
 		zephyr,flash = &flash0;
@@ -14,7 +14,7 @@
 };
 &clk_hse{
 	status = "okay";
-	clock-frequency = < 0xf42400 >;
+	clock-frequency = < 0x17d7840 >;
 };
 &clk_lsi{
 	status = "okay";
@@ -33,7 +33,7 @@
 };
 &pll{
 	status = "okay";
-	div-m = < 0x10 >;
+	div-m = < 0x19 >;
 	mul-n = < 0x150 >;
 	div-p = < 0x4 >;
 	div-q = < 0x7 >;
@@ -121,18 +121,41 @@
 		reg = < 0x40021c00 0x400 >;
 		clocks = < &rcc 0x30 0x80 >;
 	};
-	i2c2_scl_pb10: i2c2_scl_pb10 {
-		pinmux = < 0x344 >;
+	adc1_in1_pa1: adc1_in1_pa1 {
+		pinmux = < 0x30 >;
+	};
+	i2c1_scl_pb8: i2c1_scl_pb8 {
+		pinmux = < 0x304 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
-	i2c2_sda_pb3: i2c2_sda_pb3 {
-		pinmux = < 0x269 >;
+	i2c1_sda_pb9: i2c1_sda_pb9 {
+		pinmux = < 0x324 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
-	tim2_ch1_pa0: tim2_ch1_pa0 {
-		pinmux = < 0x1 >;
+	spi1_miso_pa6: spi1_miso_pa6 {
+		pinmux = < 0xc5 >;
+		bias-pull-down;
+	};
+	spi1_mosi_pa7: spi1_mosi_pa7 {
+		pinmux = < 0xe5 >;
+		bias-pull-down;
+	};
+	spi1_nss_pa4: spi1_nss_pa4 {
+		pinmux = < 0x85 >;
+		bias-pull-up;
+	};
+	spi1_sck_pa5: spi1_sck_pa5 {
+		pinmux = < 0xa5 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	tim4_ch1_pb6: tim4_ch1_pb6 {
+		pinmux = < 0x2c2 >;
+	};
+	tim4_ch2_pb7: tim4_ch2_pb7 {
+		pinmux = < 0x2e2 >;
 	};
 	usart1_rx_pa10: usart1_rx_pa10 {
 		pinmux = < 0x147 >;
@@ -140,5 +163,11 @@
 	usart1_tx_pa9: usart1_tx_pa9 {
 		pinmux = < 0x127 >;
 		bias-pull-up;
+	};
+	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {
+		pinmux = < 0x16a >;
+	};
+	usb_otg_fs_dp_pa12: usb_otg_fs_dp_pa12 {
+		pinmux = < 0x18a >;
 	};
 };

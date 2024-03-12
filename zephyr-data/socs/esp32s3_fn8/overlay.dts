@@ -1,5 +1,5 @@
 / {
-	compatible = "m5stack,stamps3";
+	compatible = "m5stack,atoms3_lite";
 	chosen {
 		zephyr,console = &usb_serial;
 		zephyr,flash = &flash0;
@@ -42,7 +42,7 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	line-idle-low;
-	pinctrl-0 = < &spim3_default >;
+	pinctrl-0 = < &spim3_ws2812_led >;
 	pinctrl-names = "default";
 };
 &twai{
@@ -80,7 +80,7 @@
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			pinmux = < 0x2d168d >, < 0x2c964f >;
+			pinmux = < 0x2d16a6 >, < 0x2c9667 >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
@@ -88,45 +88,16 @@
 	};
 	i2c1_default: i2c1_default {
 		group1 {
-			pinmux = < 0x2e170b >, < 0x2d96cc >;
+			pinmux = < 0x2e1702 >, < 0x2d96c1 >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
 		};
 	};
-	spim2_default: spim2_default {
+	spim3_ws2812_led: spim3_ws2812_led {
 		group1 {
-			pinmux = < 0x32ffc6 >, < 0x377fc7 >;
-		};
-		group2 {
-			pinmux = < 0x33ffc5 >;
+			pinmux = < 0x227fe3 >;
 			output-low;
-		};
-	};
-	spim3_default: spim3_default {
-		group1 {
-			pinmux = < 0x227fd5 >;
-			output-low;
-		};
-	};
-	ledc0_default: ledc0_default {
-		group1 {
-			pinmux = < 0x24ffc9 >;
-			output-enable;
-		};
-		group2 {
-			pinmux = < 0x257fc3 >;
-			output-enable;
-		};
-	};
-	mcpwm0_default: mcpwm0_default {
-		group1 {
-			pinmux = < 0x507fc9 >;
-			output-enable;
-		};
-		group2 {
-			pinmux = < 0x517fc3 >;
-			output-enable;
 		};
 	};
 };

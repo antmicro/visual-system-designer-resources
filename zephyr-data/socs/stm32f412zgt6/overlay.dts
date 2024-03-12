@@ -1,7 +1,7 @@
 / {
-	compatible = "st,stm32f412zg-nucleo";
+	compatible = "st,stm32f412g-disco";
 	chosen {
-		zephyr,console = &usart3;
+		zephyr,console = &usart2;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
@@ -28,9 +28,9 @@
 };
 &pll{
 	status = "okay";
-	div-m = < 0x8 >;
-	mul-n = < 0x180 >;
-	div-p = < 0x4 >;
+	div-m = < 0x4 >;
+	mul-n = < 0x64 >;
+	div-p = < 0x2 >;
 	div-q = < 0x8 >;
 	clocks = < &clk_hse >;
 };
@@ -41,14 +41,13 @@
 };
 &rcc{
 	clocks = < &pll >;
-	clock-frequency = < 0x5b8d800 >;
+	clock-frequency = < 0x5f5e100 >;
 	apb1-prescaler = < 0x2 >;
 };
 &spi1{
 	status = "okay";
-	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
+	pinctrl-0 = < &spi1_nss_pa15 &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7 >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpiod 0xe 0x11 >;
 };
 &usart2{
 	status = "okay";
@@ -134,15 +133,39 @@
 		reg = < 0x40021c00 0x400 >;
 		clocks = < &rcc 0x30 0x80 >;
 	};
-	i2c1_scl_pb8: i2c1_scl_pb8 {
-		pinmux = < 0x304 >;
+	i2c2_scl_pb10: i2c2_scl_pb10 {
+		pinmux = < 0x344 >;
 		bias-pull-up;
 		drive-open-drain;
 	};
-	i2c1_sda_pb9: i2c1_sda_pb9 {
-		pinmux = < 0x324 >;
+	i2c2_sda_pb9: i2c2_sda_pb9 {
+		pinmux = < 0x329 >;
 		bias-pull-up;
 		drive-open-drain;
+	};
+	quadspi_clk_pb2: quadspi_clk_pb2 {
+		pinmux = < 0x249 >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io3_pf6: quadspi_bk1_io3_pf6 {
+		pinmux = < 0xac9 >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io2_pf7: quadspi_bk1_io2_pf7 {
+		pinmux = < 0xae9 >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io0_pf8: quadspi_bk1_io0_pf8 {
+		pinmux = < 0xb0a >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_io1_pf9: quadspi_bk1_io1_pf9 {
+		pinmux = < 0xb2a >;
+		slew-rate = "very-high-speed";
+	};
+	quadspi_bk1_ncs_pg6: quadspi_bk1_ncs_pg6 {
+		pinmux = < 0xcca >;
+		slew-rate = "very-high-speed";
 	};
 	spi1_miso_pa6: spi1_miso_pa6 {
 		pinmux = < 0xc5 >;
@@ -152,32 +175,27 @@
 		pinmux = < 0xe5 >;
 		bias-pull-down;
 	};
+	spi1_nss_pa15: spi1_nss_pa15 {
+		pinmux = < 0x1e5 >;
+		bias-pull-up;
+	};
 	spi1_sck_pa5: spi1_sck_pa5 {
 		pinmux = < 0xa5 >;
 		bias-pull-down;
 		slew-rate = "very-high-speed";
 	};
-	tim2_ch1_pa0: tim2_ch1_pa0 {
-		pinmux = < 0x1 >;
-	};
-	usart3_rx_pd9: usart3_rx_pd9 {
-		pinmux = < 0x727 >;
+	usart2_rx_pa3: usart2_rx_pa3 {
+		pinmux = < 0x67 >;
 	};
 	usart6_rx_pg9: usart6_rx_pg9 {
 		pinmux = < 0xd28 >;
 	};
-	usart3_tx_pd8: usart3_tx_pd8 {
-		pinmux = < 0x707 >;
+	usart2_tx_pa2: usart2_tx_pa2 {
+		pinmux = < 0x47 >;
 		bias-pull-up;
 	};
 	usart6_tx_pg14: usart6_tx_pg14 {
 		pinmux = < 0xdc8 >;
 		bias-pull-up;
-	};
-	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {
-		pinmux = < 0x16a >;
-	};
-	usb_otg_fs_dp_pa12: usb_otg_fs_dp_pa12 {
-		pinmux = < 0x18a >;
 	};
 };

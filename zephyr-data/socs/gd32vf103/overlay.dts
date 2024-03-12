@@ -1,5 +1,5 @@
 / {
-	compatible = "gd,gd32vf103v-eval";
+	compatible = "gd,gd32vf103c-starter";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,flash = &flash0;
@@ -32,7 +32,7 @@
 	status = "okay";
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpioe 0x3 0x11 >;
+	cs-gpios = < &gpiob 0x2 0x1 >;
 };
 &spi1{
 	status = "okay";
@@ -108,24 +108,9 @@
 			pinmux = < 0x111a0 >, < 0x11290 >;
 		};
 	};
-	usart1_default: usart1_default {
+	pwm2_default: pwm2_default {
 		group1 {
-			pinmux = < 0x11930 >, < 0x11a20 >;
-		};
-	};
-	pwm0_default: pwm0_default {
-		group1 {
-			pinmux = < 0x33280 >;
-		};
-	};
-	spi0_default: spi0_default {
-		group1 {
-			pinmux = < 0x10250 >, < 0x10270 >, < 0x10260 >;
-		};
-	};
-	adc0_default: adc0_default {
-		group1 {
-			pinmux = < 0x32 >;
+			pinmux = < 0x35270 >;
 		};
 	};
 };

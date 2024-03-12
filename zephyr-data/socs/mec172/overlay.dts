@@ -1,5 +1,5 @@
 / {
-	compatible = "microchip,mec172xevb_assy6906", "microchip,mec172xnsz";
+	compatible = "microchip,mec172xmodular_assy6930", "microchip,mec172xnsz";
 	chosen {
 		zephyr,console = &uart1;
 		zephyr,flash = &flash0;
@@ -9,8 +9,7 @@
 &adc0{
 	status = "okay";
 	pinctrl-0 = < &adc00_gpio200 &adc03_gpio203 &adc04_gpio204 &adc05_gpio205 >;
-	pinctrl-1 = < &adc00_gpio200_sleep &adc03_gpio203_sleep &adc04_gpio204_sleep &adc05_gpio205_sleep >;
-	pinctrl-names = "default", "sleep";
+	pinctrl-names = "default";
 };
 &espi0{
 	status = "okay";
@@ -44,8 +43,7 @@
 &ps2_0{
 	status = "okay";
 	pinctrl-0 = < &ps2_clk0a_gpio114 &ps2_dat0a_gpio115 >;
-	pinctrl-1 = < &ps2_clk0a_gpio114_sleep &ps2_dat0a_gpio115_sleep >;
-	pinctrl-names = "default", "sleep";
+	pinctrl-names = "default";
 };
 &pwm0{
 	status = "okay";

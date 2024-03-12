@@ -1,13 +1,19 @@
 / {
-	compatible = "arturo182,serpente";
+	compatible = "adafruit,trinket-m0", "atmel,samd21", "atmel,samd21e18a";
 	chosen {
-		zephyr,console = &sercom2;
+		zephyr,console = &sercom0;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
 };
 &sercom0{
+	compatible = "atmel,sam0-uart";
 	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x1 >;
+	pinctrl-0 = < &sercom0_uart_default >;
+	pinctrl-names = "default";
 };
 &sercom1{
 	compatible = "atmel,sam0-spi";

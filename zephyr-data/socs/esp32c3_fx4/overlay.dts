@@ -1,10 +1,13 @@
 / {
-	compatible = "seeed,xiao-esp32c3";
+	compatible = "espressif,esp32c3";
 	chosen {
 		zephyr,console = &usb_serial;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
+};
+&flash0{
+	status = "okay";
 };
 &gpio0{
 	status = "okay";
@@ -23,13 +26,11 @@
 	pinctrl-names = "default";
 };
 &twai{
-	status = "okay";
 	pinctrl-0 = < &twai_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
 &uart0{
-	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
@@ -47,29 +48,22 @@
 		};
 		group2 {
 			pinmux = < 0xff8194 >;
-			bias-pull-up;
 		};
 	};
 	spim2_default: spim2_default {
 		group1 {
-			pinmux = < 0xff9009 >, < 0x1fffc8 >;
+			pinmux = < 0xff9004 >, < 0x1fffc5 >, < 0x227fc6 >;
 		};
 		group2 {
-			pinmux = < 0x20ffca >;
+			pinmux = < 0x20ffc7 >;
 			output-low;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			pinmux = < 0x1b0d86 >, < 0x1a8d47 >;
-			bias-pull-up;
+			pinmux = < 0x1b0d82 >, < 0x1a8d48 >;
 			drive-open-drain;
 			output-high;
-		};
-	};
-	twai_default: twai_default {
-		group1 {
-			pinmux = < 0x257fc2 >, < 0xff9283 >;
 		};
 	};
 };

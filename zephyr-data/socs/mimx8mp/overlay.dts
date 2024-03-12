@@ -2,8 +2,8 @@
 	compatible = "nxp,mimx8mp_evk";
 	chosen {
 		zephyr,console = &uart4;
-		zephyr,flash = &itcm;
-		zephyr,sram = &dtcm;
+		zephyr,flash = &ddr_code;
+		zephyr,sram = &ddr_sys;
 	};
 };
 &gpio1{

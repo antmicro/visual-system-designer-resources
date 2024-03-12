@@ -73,6 +73,24 @@
 			bias-pull-up;
 		};
 	};
+	uart1_default: uart1_default {
+		group1 {
+			pinmux = < 0x8ffca >;
+		};
+		group2 {
+			pinmux = < 0xff8449 >;
+			bias-pull-up;
+		};
+	};
+	uart2_default: uart2_default {
+		group1 {
+			pinmux = < 0x637fd1 >;
+		};
+		group2 {
+			pinmux = < 0xffb190 >;
+			bias-pull-up;
+		};
+	};
 	spim2_default: spim2_default {
 		group1 {
 			pinmux = < 0xff824c >, < 0x47fce >, < 0x5ffcf >;
@@ -82,9 +100,21 @@
 			output-low;
 		};
 	};
-	mdio_default: mdio_default {
+	spim3_default: spim3_default {
 		group1 {
-			pinmux = < 0x647fd7 >, < 0x64b252 >;
+			pinmux = < 0xff9013 >, < 0x1fffd2 >, < 0x227fc5 >;
+		};
+		group2 {
+			pinmux = < 0x20ffd7 >;
+			output-low;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = < 0xf0795 >, < 0xe8756 >;
+			bias-pull-up;
+			drive-open-drain;
+			output-high;
 		};
 	};
 };

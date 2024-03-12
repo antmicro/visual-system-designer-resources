@@ -3,403 +3,6 @@
 / {
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x1 >;
-	chosen {
-		zephyr,flash-controller = &rram_controller;
-	};
-	aliases {
-	};
-	soc {
-		#address-cells = < 0x1 >;
-		#size-cells = < 0x1 >;
-		compatible = "simple-bus";
-		interrupt-parent = < &nvic >;
-		ranges;
-		nvic: interrupt-controller@e000e100 {
-			#address-cells = < 0x1 >;
-			compatible = "arm,v8m-nvic";
-			reg = < 0xe000e100 0xc00 >;
-			interrupt-controller;
-			#interrupt-cells = < 0x2 >;
-			arm,num-irq-priority-bits = < 0x3 >;
-			phandle = < 0x1 >;
-		};
-		systick: timer@e000e010 {
-			compatible = "arm,armv8m-systick";
-			reg = < 0xe000e010 0x10 >;
-			status = "disabled";
-		};
-		rram_controller: rram-controller@5004b000 {
-			compatible = "nordic,rram-controller";
-			reg = < 0x5004b000 0x1000 >;
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x1 >;
-			interrupts = < 0x4b 0x1 >;
-			rram0: rram@0 {
-				compatible = "soc-nv-flash";
-				erase-block-size = < 0x1000 >;
-				write-block-size = < 0x1 >;
-				reg = < 0x0 0x17d000 >;
-			};
-		};
-		uicr: uicr@ffd000 {
-			compatible = "nordic,nrf-uicr";
-			reg = < 0xffd000 0x1000 >;
-		};
-		ficr: ficr@ffc000 {
-			compatible = "nordic,nrf-ficr";
-			reg = < 0xffc000 0x1000 >;
-			#nordic,ficr-cells = < 0x1 >;
-		};
-		sram0: memory@20000000 {
-			compatible = "mmio-sram";
-			reg = < 0x20000000 0x40000 >;
-		};
-		peripheral@50000000 {
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x1 >;
-			ranges = < 0x0 0x50000000 0x10000000 >;
-			dppic00: dppic@42000 {
-				compatible = "nordic,nrf-dppic";
-				reg = < 0x42000 0x808 >;
-				status = "disabled";
-			};
-			spi00: spi@4a000 {
-				compatible = "nordic,nrf-spim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0x4a000 0x1000 >;
-				interrupts = < 0x4a 0x1 >;
-				max-frequency = < 0x1e84800 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			uart00: uart@4a000 {
-				compatible = "nordic,nrf-uarte";
-				reg = < 0x4a000 0x1000 >;
-				interrupts = < 0x4a 0x1 >;
-				status = "disabled";
-			};
-			gpio2: gpio@50400 {
-				compatible = "nordic,nrf-gpio";
-				gpio-controller;
-				reg = < 0x50400 0x300 >;
-				#gpio-cells = < 0x2 >;
-				ngpios = < 0xb >;
-				status = "disabled";
-				port = < 0x2 >;
-			};
-			timer00: timer@55000 {
-				compatible = "nordic,nrf-timer";
-				status = "disabled";
-				reg = < 0x55000 0x1000 >;
-				cc-num = < 0x6 >;
-				max-bit-width = < 0x20 >;
-				interrupts = < 0x55 0x1 >;
-				prescaler = < 0x0 >;
-			};
-			dppic10: dppic@82000 {
-				compatible = "nordic,nrf-dppic";
-				reg = < 0x82000 0x808 >;
-				status = "disabled";
-			};
-			timer10: timer@85000 {
-				compatible = "nordic,nrf-timer";
-				status = "disabled";
-				reg = < 0x85000 0x1000 >;
-				cc-num = < 0x8 >;
-				max-bit-width = < 0x20 >;
-				interrupts = < 0x85 0x1 >;
-				prescaler = < 0x0 >;
-			};
-			egu10: egu@87000 {
-				compatible = "nordic,nrf-egu";
-				reg = < 0x87000 0x1000 >;
-				interrupts = < 0x87 0x1 >;
-				status = "disabled";
-			};
-			radio: radio@8a000 {
-				compatible = "nordic,nrf-radio";
-				reg = < 0x8a000 0x1000 >;
-				interrupts = < 0x8a 0x1 >;
-				status = "disabled";
-				dfe-supported;
-				ieee802154-supported;
-				ble-2mbps-supported;
-				ble-coded-phy-supported;
-				ieee802154: ieee802154 {
-					compatible = "nordic,nrf-ieee802154";
-					status = "disabled";
-				};
-			};
-			dppic20: dppic@c2000 {
-				compatible = "nordic,nrf-dppic";
-				reg = < 0xc2000 0x808 >;
-				status = "disabled";
-			};
-			i2c20: i2c@c6000 {
-				compatible = "nordic,nrf-twim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xc6000 0x1000 >;
-				clock-frequency = < 0x186a0 >;
-				interrupts = < 0xc6 0x1 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			spi20: spi@c6000 {
-				compatible = "nordic,nrf-spim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xc6000 0x1000 >;
-				interrupts = < 0xc6 0x1 >;
-				max-frequency = < 0x7a1200 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			uart20: uart@c6000 {
-				compatible = "nordic,nrf-uarte";
-				reg = < 0xc6000 0x1000 >;
-				interrupts = < 0xc6 0x1 >;
-				status = "disabled";
-			};
-			i2c21: i2c@c7000 {
-				compatible = "nordic,nrf-twim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xc7000 0x1000 >;
-				clock-frequency = < 0x186a0 >;
-				interrupts = < 0xc7 0x1 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			spi21: spi@c7000 {
-				compatible = "nordic,nrf-spim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xc7000 0x1000 >;
-				interrupts = < 0xc7 0x1 >;
-				max-frequency = < 0x7a1200 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			uart21: uart@c7000 {
-				compatible = "nordic,nrf-uarte";
-				reg = < 0xc7000 0x1000 >;
-				interrupts = < 0xc7 0x1 >;
-				status = "disabled";
-			};
-			i2c22: i2c@c8000 {
-				compatible = "nordic,nrf-twim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xc8000 0x1000 >;
-				clock-frequency = < 0x186a0 >;
-				interrupts = < 0xc8 0x1 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			spi22: spi@c8000 {
-				compatible = "nordic,nrf-spim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xc8000 0x1000 >;
-				interrupts = < 0xc8 0x1 >;
-				max-frequency = < 0x7a1200 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			uart22: uart@c8000 {
-				compatible = "nordic,nrf-uarte";
-				reg = < 0xc8000 0x1000 >;
-				interrupts = < 0xc8 0x1 >;
-				status = "disabled";
-			};
-			egu20: egu@c9000 {
-				compatible = "nordic,nrf-egu";
-				reg = < 0xc9000 0x1000 >;
-				interrupts = < 0xc9 0x1 >;
-				status = "disabled";
-			};
-			timer20: timer@ca000 {
-				compatible = "nordic,nrf-timer";
-				status = "disabled";
-				reg = < 0xca000 0x1000 >;
-				cc-num = < 0x6 >;
-				max-bit-width = < 0x20 >;
-				interrupts = < 0xca 0x1 >;
-				prescaler = < 0x0 >;
-			};
-			timer21: timer@cb000 {
-				compatible = "nordic,nrf-timer";
-				status = "disabled";
-				reg = < 0xcb000 0x1000 >;
-				cc-num = < 0x6 >;
-				max-bit-width = < 0x20 >;
-				interrupts = < 0xcb 0x1 >;
-				prescaler = < 0x0 >;
-				phandle = < 0x4 >;
-			};
-			timer22: timer@cc000 {
-				compatible = "nordic,nrf-timer";
-				status = "disabled";
-				reg = < 0xcc000 0x1000 >;
-				cc-num = < 0x6 >;
-				max-bit-width = < 0x20 >;
-				interrupts = < 0xcc 0x1 >;
-				prescaler = < 0x0 >;
-			};
-			timer23: timer@cd000 {
-				compatible = "nordic,nrf-timer";
-				status = "disabled";
-				reg = < 0xcd000 0x1000 >;
-				cc-num = < 0x6 >;
-				max-bit-width = < 0x20 >;
-				interrupts = < 0xcd 0x1 >;
-				prescaler = < 0x0 >;
-			};
-			timer24: timer@ce000 {
-				compatible = "nordic,nrf-timer";
-				status = "disabled";
-				reg = < 0xce000 0x1000 >;
-				cc-num = < 0x6 >;
-				max-bit-width = < 0x20 >;
-				interrupts = < 0xce 0x1 >;
-				prescaler = < 0x0 >;
-			};
-			adc: adc@d5000 {
-				compatible = "nordic,nrf-saadc";
-				reg = < 0xd5000 0x1000 >;
-				interrupts = < 0xd5 0x1 >;
-				status = "disabled";
-				#io-channel-cells = < 0x1 >;
-			};
-			nfct: nfct@d6000 {
-				compatible = "nordic,nrf-nfct";
-				reg = < 0xd6000 0x1000 >;
-				interrupts = < 0xd6 0x1 >;
-				status = "disabled";
-			};
-			temp: temp@d7000 {
-				compatible = "nordic,nrf-temp";
-				reg = < 0xd7000 0x1000 >;
-				interrupts = < 0xd7 0x1 >;
-				status = "disabled";
-			};
-			gpio1: gpio@d8200 {
-				compatible = "nordic,nrf-gpio";
-				gpio-controller;
-				reg = < 0xd8200 0x300 >;
-				#gpio-cells = < 0x2 >;
-				ngpios = < 0x10 >;
-				status = "disabled";
-				port = < 0x1 >;
-				gpiote-instance = < &gpiote20 >;
-			};
-			gpiote20: gpiote@da000 {
-				compatible = "nordic,nrf-gpiote";
-				reg = < 0xda000 0x1000 >;
-				interrupts = < 0xdb 0x1 >;
-				status = "disabled";
-				instance = < 0x14 >;
-				phandle = < 0x2 >;
-			};
-			i2s20: i2s@dd000 {
-				compatible = "nordic,nrf-i2s";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xdd000 0x1000 >;
-				interrupts = < 0xdd 0x1 >;
-				status = "disabled";
-			};
-			qdec20: qdec@e0000 {
-				compatible = "nordic,nrf-qdec";
-				reg = < 0xe0000 0x1000 >;
-				interrupts = < 0xe0 0x1 >;
-				status = "disabled";
-			};
-			qdec21: qdec@e1000 {
-				compatible = "nordic,nrf-qdec";
-				reg = < 0xe1000 0x1000 >;
-				interrupts = < 0xe1 0x1 >;
-				status = "disabled";
-			};
-			grtc: grtc@e2000 {
-				compatible = "nordic,nrf-grtc";
-				reg = < 0xe2000 0x1000 >;
-				cc-num = < 0xc >;
-				owned-channels = < 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xb >;
-				interrupts = < 0xe4 0x1 >;
-				status = "disabled";
-			};
-			dppic30: dppic@102000 {
-				compatible = "nordic,nrf-dppic";
-				reg = < 0x102000 0x808 >;
-				status = "disabled";
-			};
-			i2c30: i2c@104000 {
-				compatible = "nordic,nrf-twim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0x104000 0x1000 >;
-				clock-frequency = < 0x186a0 >;
-				interrupts = < 0x104 0x1 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			spi30: spi@104000 {
-				compatible = "nordic,nrf-spim";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0x104000 0x1000 >;
-				interrupts = < 0x104 0x1 >;
-				max-frequency = < 0x7a1200 >;
-				easydma-maxcnt-bits = < 0x10 >;
-				status = "disabled";
-			};
-			uart30: uart@104000 {
-				compatible = "nordic,nrf-uarte";
-				reg = < 0x104000 0x1000 >;
-				interrupts = < 0x104 0x1 >;
-				status = "disabled";
-			};
-			wdt30: watchdog@108000 {
-				compatible = "nordic,nrf-wdt";
-				reg = < 0x108000 0x620 >;
-				interrupts = < 0x108 0x1 >;
-				status = "disabled";
-			};
-			wdt31: watchdog@109000 {
-				compatible = "nordic,nrf-wdt";
-				reg = < 0x109000 0x620 >;
-				interrupts = < 0x109 0x1 >;
-				status = "disabled";
-			};
-			gpio0: gpio@10a000 {
-				compatible = "nordic,nrf-gpio";
-				gpio-controller;
-				reg = < 0x10a000 0x300 >;
-				#gpio-cells = < 0x2 >;
-				ngpios = < 0x5 >;
-				status = "disabled";
-				port = < 0x0 >;
-				gpiote-instance = < &gpiote30 >;
-			};
-			gpiote30: gpiote@10c000 {
-				compatible = "nordic,nrf-gpiote";
-				reg = < 0x10c000 0x1000 >;
-				interrupts = < 0x10d 0x1 >;
-				status = "disabled";
-				instance = < 0x1e >;
-				phandle = < 0x3 >;
-			};
-			clock: clock@10e000 {
-				compatible = "nordic,nrf-clock";
-				reg = < 0x10e000 0x1000 >;
-				interrupts = < 0x10e 0x1 >;
-				status = "disabled";
-			};
-		};
-	};
 	pinctrl: pin-controller {
 		compatible = "nordic,nrf-pinctrl";
 	};
@@ -407,40 +10,639 @@
 		compatible = "zephyr,bt-hci-entropy";
 		status = "okay";
 	};
-	sw_pwm: sw-pwm {
-		compatible = "nordic,nrf-sw-pwm";
-		status = "disabled";
-		generator = < &timer21 >;
-		clock-prescaler = < 0x0 >;
-		#pwm-cells = < 0x3 >;
-	};
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu: cpu@0 {
-			clock-frequency = < 0x7a12000 >;
+		cpurad: cpu: cpu@3 {
+			compatible = "arm,cortex-m33";
+			reg = < 0x3 >;
 			device_type = "cpu";
-			compatible = "arm,cortex-m33f";
-			reg = < 0x0 >;
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x1 >;
-			itm: itm@e0000000 {
-				compatible = "arm,armv8m-itm";
-				reg = < 0xe0000000 0x1000 >;
-				swo-ref-frequency = < 0x7a12000 >;
-			};
+			clock-frequency = < 0xf424000 >;
+		};
+	};
+	reserved-memory {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		cpurad_uicr_ext: memory@e1ff000 {
+			reg = < 0xe1ff000 0x800 >;
+			phandle = < 0x3 >;
+		};
+		cpuapp_uicr_ext: memory@e1ff800 {
+			reg = < 0xe1ff800 0x800 >;
+			phandle = < 0x2 >;
 		};
 	};
 	clocks {
-		lfxo: lfxo {
-			compatible = "nordic,nrf-lfxo";
+		fll16m: fll16m {
+			compatible = "fixed-clock";
 			#clock-cells = < 0x0 >;
-			clock-frequency = < 0x8000 >;
+			clock-frequency = < 0xf42400 >;
+			phandle = < 0x4 >;
 		};
-		hfxo: hfxo {
-			compatible = "nordic,nrf-hfxo";
-			#clock-cells = < 0x0 >;
-			clock-frequency = < 0x1e84800 >;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &cpurad_nvic >;
+		ranges;
+		mram1x: mram@e000000 {
+			compatible = "nordic,mram";
+			reg = < 0xe000000 0x200000 >;
+			write-block-size = < 0x10 >;
+		};
+		cpuapp_uicr: uicr@fff8000 {
+			compatible = "nordic,nrf-uicr-v2";
+			reg = < 0xfff8000 0x800 >;
+			domain = < 0x2 >;
+			ptr-ext-uicr = < &cpuapp_uicr_ext >;
+		};
+		cpurad_uicr: uicr@fffa000 {
+			compatible = "nordic,nrf-uicr-v2";
+			reg = < 0xfffa000 0x800 >;
+			domain = < 0x3 >;
+			ptr-ext-uicr = < &cpurad_uicr_ext >;
+		};
+		ficr: ficr@fffe000 {
+			compatible = "nordic,nrf-ficr";
+			reg = < 0xfffe000 0x800 >;
+			#nordic,ficr-cells = < 0x1 >;
+			phandle = < 0x5 >;
+		};
+		cpurad_ram0: sram@23000000 {
+			compatible = "mmio-sram";
+			reg = < 0x23000000 0x10000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ranges = < 0x0 0x23000000 0x10000 >;
+		};
+		cpurad_peripherals: peripheral@53000000 {
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ranges = < 0x0 0x53000000 0x1000000 >;
+			cpurad_hsfll: clock@d000 {
+				compatible = "nordic,nrf-hsfll";
+				#clock-cells = < 0x0 >;
+				reg = < 0xd000 0x1000 >;
+				clocks = < &fll16m >;
+				clock-frequency = < 0xf424000 >;
+				nordic,ficrs = < &ficr 0x418 >, < &ficr 0x420 >, < &ficr 0x438 >;
+				nordic,ficr-names = "vsup", "coarse", "fine";
+			};
+			egu020: egu@25000 {
+				compatible = "nordic,nrf-egu";
+				reg = < 0x25000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x25 0x1 >;
+			};
+			timer020: timer@28000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x28000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x8 >;
+				interrupts = < 0x28 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			timer021: timer@29000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x29000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x8 >;
+				interrupts = < 0x29 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			timer022: timer@2a000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x2a000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x8 >;
+				interrupts = < 0x2a 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			rtc: rtc@2b000 {
+				compatible = "nordic,nrf-rtc";
+				reg = < 0x2b000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x4 >;
+				clock-frequency = < 0x8000 >;
+				interrupts = < 0x2b 0x1 >;
+				prescaler = < 0x1 >;
+			};
+			radio: radio@2c000 {
+				compatible = "nordic,nrf-radio";
+				reg = < 0x2c000 0x1000 >;
+				status = "disabled";
+				ble-2mbps-supported;
+				ble-coded-phy-supported;
+				dfe-supported;
+				ieee802154-supported;
+				interrupts = < 0x2c 0x1 >;
+				cpurad_ieee802154: ieee802154 {
+					compatible = "nordic,nrf-ieee802154";
+					status = "disabled";
+				};
+			};
+			ecb030: ecb@3b000 {
+				compatible = "nordic,nrf-ecb";
+				reg = < 0x3b000 0x1000 >;
+				interrupts = < 0x3b 0x1 >;
+				status = "disabled";
+			};
+		};
+		global_peripherals: peripheral@5f000000 {
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ranges = < 0x0 0x5f000000 0x1000000 >;
+			timer120: timer@8e2000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x8e2000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0xe2 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			timer121: timer@8e3000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x8e3000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0xe3 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			uart120: uart@8e5000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x8e5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0xe5 0x1 >;
+			};
+			spi120: spi@8e6000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x8e6000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0xe6 0x1 >;
+				max-frequency = < 0x1e84800 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi121: spi@8e7000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x8e7000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0xe7 0x1 >;
+				max-frequency = < 0x1e84800 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			cpuppr_vpr: vpr@908000 {
+				compatible = "nordic,nrf-vpr-coprocessor";
+				reg = < 0x908000 0x1000 >;
+				status = "disabled";
+				cpu = < 0xd >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x1 >;
+				ranges = < 0x0 0x908000 0x4000 >;
+				cpuppr_clic: interrupt-controller@1000 {
+					compatible = "nordic,nrf-clic";
+					reg = < 0x1000 0x3000 >;
+					status = "disabled";
+					#interrupt-cells = < 0x2 >;
+					interrupt-controller;
+					#address-cells = < 0x1 >;
+				};
+			};
+			rtc130: rtc@928000 {
+				compatible = "nordic,nrf-rtc";
+				reg = < 0x928000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x4 >;
+				clock-frequency = < 0x8000 >;
+				interrupts = < 0x128 0x1 >;
+				prescaler = < 0x1 >;
+			};
+			rtc131: rtc@929000 {
+				compatible = "nordic,nrf-rtc";
+				reg = < 0x929000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x4 >;
+				clock-frequency = < 0x8000 >;
+				interrupts = < 0x129 0x1 >;
+				prescaler = < 0x1 >;
+			};
+			wdt131: watchdog@92b000 {
+				compatible = "nordic,nrf-wdt";
+				reg = < 0x92b000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x12b 0x1 >;
+			};
+			wdt132: watchdog@92c000 {
+				compatible = "nordic,nrf-wdt";
+				reg = < 0x92c000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x12c 0x1 >;
+			};
+			gpiote130: gpiote@934000 {
+				compatible = "nordic,nrf-gpiote";
+				reg = < 0x934000 0x1000 >;
+				status = "disabled";
+				instance = < 0x82 >;
+				interrupts = < 0x69 0x1 >;
+				phandle = < 0x6 >;
+			};
+			gpio0: gpio@938000 {
+				compatible = "nordic,nrf-gpio";
+				reg = < 0x938000 0x200 >;
+				status = "disabled";
+				#gpio-cells = < 0x2 >;
+				gpio-controller;
+				gpiote-instance = < &gpiote130 >;
+				ngpios = < 0xc >;
+				port = < 0x0 >;
+			};
+			gpio1: gpio@938200 {
+				compatible = "nordic,nrf-gpio";
+				reg = < 0x938200 0x200 >;
+				status = "disabled";
+				#gpio-cells = < 0x2 >;
+				gpio-controller;
+				gpiote-instance = < &gpiote130 >;
+				ngpios = < 0xc >;
+				port = < 0x1 >;
+			};
+			gpio2: gpio@938400 {
+				compatible = "nordic,nrf-gpio";
+				reg = < 0x938400 0x200 >;
+				status = "disabled";
+				#gpio-cells = < 0x2 >;
+				gpio-controller;
+				gpiote-instance = < &gpiote130 >;
+				ngpios = < 0xc >;
+				port = < 0x2 >;
+			};
+			gpio6: gpio@938c00 {
+				compatible = "nordic,nrf-gpio";
+				reg = < 0x938c00 0x200 >;
+				status = "disabled";
+				#gpio-cells = < 0x2 >;
+				gpio-controller;
+				ngpios = < 0xe >;
+				port = < 0x6 >;
+			};
+			gpio7: gpio@938e00 {
+				compatible = "nordic,nrf-gpio";
+				reg = < 0x938e00 0x200 >;
+				status = "disabled";
+				#gpio-cells = < 0x2 >;
+				gpio-controller;
+				ngpios = < 0x8 >;
+				port = < 0x7 >;
+			};
+			gpio9: gpio@939200 {
+				compatible = "nordic,nrf-gpio";
+				reg = < 0x939200 0x200 >;
+				status = "disabled";
+				#gpio-cells = < 0x2 >;
+				gpio-controller;
+				gpiote-instance = < &gpiote130 >;
+				ngpios = < 0x6 >;
+				port = < 0x9 >;
+			};
+			comp: comparator@983000 {
+				compatible = "nordic,nrf-comp";
+				reg = < 0x983000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x183 0x1 >;
+				#io-channel-cells = < 0x1 >;
+			};
+			temp: temperature-sensor@984000 {
+				compatible = "nordic,nrf-temp";
+				reg = < 0x984000 0x1000 >;
+				interrupts = < 0x184 0x1 >;
+				status = "disabled";
+			};
+			nfct: nfct@985000 {
+				compatible = "nordic,nrf-nfct";
+				reg = < 0x985000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x185 0x1 >;
+			};
+			qdec130: qdec@994000 {
+				compatible = "nordic,nrf-qdec";
+				reg = < 0x994000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x194 0x1 >;
+			};
+			qdec131: qdec@995000 {
+				compatible = "nordic,nrf-qdec";
+				reg = < 0x995000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x195 0x1 >;
+			};
+			grtc: grtc@99c000 {
+				compatible = "nordic,nrf-grtc";
+				reg = < 0x99c000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x10 >;
+				interrupts = < 0x6d 0x1 >;
+			};
+			timer130: timer@9a2000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9a2000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1a2 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			timer131: timer@9a3000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9a3000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1a3 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			i2c130: i2c@9a5000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9a5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1a5 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi130: spi@9a5000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9a5000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1a5 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart130: uart@9a5000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9a5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1a5 0x1 >;
+			};
+			i2c131: i2c@9a6000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9a6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1a6 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi131: spi@9a6000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9a6000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1a6 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart131: uart@9a6000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9a6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1a6 0x1 >;
+			};
+			timer132: timer@9b2000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9b2000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1b2 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			timer133: timer@9b3000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9b3000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1b3 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			i2c132: i2c@9b5000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9b5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1b5 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi132: spi@9b5000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9b5000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1b5 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart132: uart@9b5000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9b5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1b5 0x1 >;
+			};
+			i2c133: i2c@9b6000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9b6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1b6 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi133: spi@9b6000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9b6000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1b6 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart133: uart@9b6000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9b6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1b6 0x1 >;
+			};
+			timer134: timer@9c2000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9c2000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1c2 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			timer135: timer@9c3000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9c3000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1c3 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			i2c134: i2c@9c5000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9c5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1c5 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi134: spi@9c5000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9c5000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1c5 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart134: uart@9c5000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9c5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1c5 0x1 >;
+			};
+			i2c135: i2c@9c6000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9c6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1c6 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi135: spi@9c6000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9c6000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1c6 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart135: uart@9c6000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9c6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1c6 0x1 >;
+			};
+			timer136: timer@9d2000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9d2000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1d2 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			timer137: timer@9d3000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x9d3000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x6 >;
+				interrupts = < 0x1d3 0x1 >;
+				max-bit-width = < 0x20 >;
+				prescaler = < 0x0 >;
+			};
+			i2c136: i2c@9d5000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9d5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1d5 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi136: spi@9d5000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9d5000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1d5 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart136: uart@9d5000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9d5000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1d5 0x1 >;
+			};
+			i2c137: i2c@9d6000 {
+				compatible = "nordic,nrf-twim";
+				reg = < 0x9d6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1d6 0x1 >;
+				easydma-maxcnt-bits = < 0xf >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			spi137: spi@9d6000 {
+				compatible = "nordic,nrf-spim";
+				reg = < 0x9d6000 0x1000 >;
+				status = "disabled";
+				easydma-maxcnt-bits = < 0xf >;
+				interrupts = < 0x1d6 0x1 >;
+				max-frequency = < 0x7a1200 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			uart137: uart@9d6000 {
+				compatible = "nordic,nrf-uarte";
+				reg = < 0x9d6000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1d6 0x1 >;
+			};
+		};
+	};
+	cpurad_ppb: cpurad-ppb-bus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+		cpurad_systick: systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+			status = "disabled";
+		};
+		cpurad_nvic: nvic: interrupt-controller@e000e100 {
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			#interrupt-cells = < 0x2 >;
+			interrupt-controller;
+			#address-cells = < 0x1 >;
+			phandle = < 0x1 >;
 		};
 	};
 };

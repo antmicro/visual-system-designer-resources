@@ -204,8 +204,8 @@
         ],
         "description": "AMD SB Temperature Sensor Interface.",
         "driver": [
-            "drivers/sensor/amd_sb_tsi/sb_tsi.c",
-            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
+            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c",
+            "drivers/sensor/amd_sb_tsi/sb_tsi.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -319,8 +319,8 @@
         ],
         "description": "Bosch BMA4xx 3-axis acceleration sensors in I2C mode.  See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/accelerometers/\n",
         "driver": [
-            "drivers/sensor/bma4xx/bma4xx_emul.c",
-            "drivers/sensor/bma4xx/bma4xx.c"
+            "drivers/sensor/bma4xx/bma4xx.c",
+            "drivers/sensor/bma4xx/bma4xx_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -756,6 +756,29 @@
             }
         }
     },
+    "ens160": {
+        "category": "Gas",
+        "compatible": [
+            "sciosense,ens160"
+        ],
+        "description": "ScioSense ENS160 Digital Metal Oxide Multi-Gas Sensor on SPI bus\n",
+        "driver": [
+            "drivers/sensor/ens160/ens160.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        }
+    },
     "ens210": {
         "category": "Environmental",
         "compatible": [
@@ -813,8 +836,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303_emul.c",
-            "drivers/sensor/f75303/f75303.c"
+            "drivers/sensor/f75303/f75303.c",
+            "drivers/sensor/f75303/f75303_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -3029,7 +3052,8 @@
             "address (i2c)": {
                 "type": "string"
             }
-        }
+        },
+        "rdp-compat": "ti,tmag5273"
     },
     "tmd2620": {
         "category": "Position/Distance",
@@ -3249,7 +3273,8 @@
             "address (i2c)": {
                 "type": "string"
             }
-        }
+        },
+        "rdp-compat": "vishay,vcnl36825t"
     },
     "vl53l0x": {
         "category": "Position/Distance",

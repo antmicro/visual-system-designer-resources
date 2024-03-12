@@ -1,5 +1,5 @@
 / {
-	compatible = "ti,sensortag-cc1352r";
+	compatible = "ti,launchxl-cc1352r1";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,flash = &flash0;
@@ -23,7 +23,7 @@
 };
 &spi0{
 	status = "okay";
-	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default >;
+	pinctrl-0 = < &spi0_sck_default &spi0_mosi_default &spi0_miso_default &spi0_cs_default >;
 	pinctrl-names = "default";
 	cs-gpios = < &gpio0 0xb 0x1 >;
 };

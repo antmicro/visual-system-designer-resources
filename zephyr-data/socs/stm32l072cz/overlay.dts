@@ -1,5 +1,5 @@
 / {
-	compatible = "st,stm32l072z-lrwan1";
+	compatible = "vendor,dragino";
 	chosen {
 		zephyr,console = &usart2;
 		zephyr,flash = &flash0;
@@ -44,7 +44,7 @@
 };
 &usart1{
 	status = "okay";
-	pinctrl-0 = < &usart1_tx_pa9 &usart1_rx_pa10 >;
+	pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
 };
@@ -106,68 +106,18 @@
 		reg = < 0x50001000 0x400 >;
 		clocks = < &rcc 0x2c 0x10 >;
 	};
-	i2c1_scl_pb8: i2c1_scl_pb8 {
-		pinmux = < 0x304 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	i2c1_sda_pb9: i2c1_sda_pb9 {
-		pinmux = < 0x324 >;
-		bias-pull-up;
-		drive-open-drain;
-	};
-	spi1_miso_pa6: spi1_miso_pa6 {
-		pinmux = < 0xc0 >;
-		bias-pull-down;
-	};
-	spi2_miso_pb14: spi2_miso_pb14 {
-		pinmux = < 0x3c0 >;
-		bias-pull-down;
-	};
-	spi1_mosi_pa7: spi1_mosi_pa7 {
-		pinmux = < 0xe0 >;
-		bias-pull-down;
-	};
-	spi2_mosi_pb15: spi2_mosi_pb15 {
-		pinmux = < 0x3e0 >;
-		bias-pull-down;
-	};
-	spi1_nss_pa15: spi1_nss_pa15 {
-		pinmux = < 0x1e0 >;
-		bias-pull-up;
-	};
-	spi2_nss_pb12: spi2_nss_pb12 {
-		pinmux = < 0x380 >;
-		bias-pull-up;
-	};
-	spi1_sck_pb3: spi1_sck_pb3 {
-		pinmux = < 0x260 >;
-		bias-pull-down;
-		slew-rate = "very-high-speed";
-	};
-	spi2_sck_pb13: spi2_sck_pb13 {
-		pinmux = < 0x3a0 >;
-		bias-pull-down;
-		slew-rate = "very-high-speed";
-	};
-	usart1_rx_pa10: usart1_rx_pa10 {
-		pinmux = < 0x144 >;
+	usart1_rx_pb7: usart1_rx_pb7 {
+		pinmux = < 0x2e0 >;
 	};
 	usart2_rx_pa3: usart2_rx_pa3 {
 		pinmux = < 0x64 >;
 	};
-	usart1_tx_pa9: usart1_tx_pa9 {
-		pinmux = < 0x124 >;
+	usart1_tx_pb6: usart1_tx_pb6 {
+		pinmux = < 0x2c0 >;
 		bias-pull-up;
 	};
 	usart2_tx_pa2: usart2_tx_pa2 {
 		pinmux = < 0x44 >;
 		bias-pull-up;
-	};
-	usb_dm_pa11: usb_dm_pa11 {
-		pinmux = < 0x170 >;
-	};
-	usb_dp_pa12: usb_dp_pa12 {
-		pinmux = < 0x190 >;
 	};
 };
