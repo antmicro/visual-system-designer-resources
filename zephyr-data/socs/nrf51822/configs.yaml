@@ -1,4 +1,8 @@
 architecture: arm
-defconfig_file: boards/arm/rm1xx_dvk/rm1xx_dvk_defconfig
+board_socs:
+- name: stm32f401xe
+- name: nrf51822
+defconfig_file: boards/96boards/carbon/96b_carbon_nrf51822_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_RM1XX_DVK
+- CONFIG_BOARD_96B_CARBON_NRF51822
+vendor: 96boards

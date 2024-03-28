@@ -97,8 +97,9 @@
 };
 &lpuart3{
 	pinctrl-0 = < &pinmux_lpuart3 >;
-	pinctrl-1 = < &pinmux_lpuart3_sleep >;
-	pinctrl-names = "default", "sleep";
+	pinctrl-1 = < &pinmux_lpuart3_flow_control >;
+	pinctrl-2 = < &pinmux_lpuart3_sleep >;
+	pinctrl-names = "default", "flowcontrol", "sleep";
 };
 &usb1{
 	status = "okay";

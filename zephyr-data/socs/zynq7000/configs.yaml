@@ -1,4 +1,7 @@
 architecture: arm
-defconfig_file: boards/arm/zybo/zybo_defconfig
+board_socs:
+- name: xc7z007s
+defconfig_file: boards/qemu/cortex_a9/qemu_cortex_a9_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ZYBO
+- CONFIG_BOARD_QEMU_CORTEX_A9
+vendor: qemu

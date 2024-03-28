@@ -1,5 +1,5 @@
 / {
-	compatible = "arduino,opta-m4";
+	compatible = "arduino,giga-r1";
 	chosen {
 		zephyr,console = &usart2;
 		zephyr,flash = &flash1;
@@ -51,7 +51,6 @@
 	current-speed = < 0x1c200 >;
 };
 &uart8{
-	status = "okay";
 	pinctrl-0 = < &uart8_tx_pj8 &uart8_rx_pj9 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
@@ -157,5 +156,12 @@
 		#gpio-cells = < 0x2 >;
 		reg = < 0x58022800 0x400 >;
 		clocks = < &rcc 0xe0 0x400 >;
+	};
+	usart2_rx_pd6: usart2_rx_pd6 {
+		pinmux = < 0x6c7 >;
+	};
+	usart2_tx_pd5: usart2_tx_pd5 {
+		pinmux = < 0x6a7 >;
+		bias-pull-up;
 	};
 };

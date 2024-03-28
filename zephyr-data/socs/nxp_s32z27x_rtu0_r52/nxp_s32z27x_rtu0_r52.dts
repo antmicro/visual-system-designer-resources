@@ -545,8 +545,8 @@
 		};
 		can0: can@4741b000 {
 			compatible = "nxp,s32-canxl";
-			reg = < 0x4741b000 0x1000 >, < 0x47426000 0x1000 >, < 0x47424000 0x1000 >, < 0x47423000 0x1000 >, < 0x47425000 0x1000 >;
-			reg-names = "sic", "grp_ctrl", "dsc_ctrl", "rx_fifo", "rx_fifo_ctrl";
+			reg = < 0x4741b000 0x1000 >, < 0x47423000 0x1000 >, < 0x47425000 0x1000 >;
+			reg-names = "sic", "rx_fifo", "rx_fifo_ctrl";
 			status = "disabled";
 			interrupts = < 0x0 0xe0 0x2 0xa0 >, < 0x0 0xe1 0x2 0xa0 >;
 			interrupt-names = "rx_tx", "error";
@@ -554,8 +554,8 @@
 		};
 		can1: can@4751b000 {
 			compatible = "nxp,s32-canxl";
-			reg = < 0x4751b000 0x1000 >, < 0x47526000 0x1000 >, < 0x47524000 0x1000 >, < 0x47523000 0x1000 >, < 0x47525000 0x1000 >;
-			reg-names = "sic", "grp_ctrl", "dsc_ctrl", "rx_fifo", "rx_fifo_ctrl";
+			reg = < 0x4751b000 0x1000 >, < 0x47523000 0x1000 >, < 0x47525000 0x1000 >;
+			reg-names = "sic", "rx_fifo", "rx_fifo_ctrl";
 			status = "disabled";
 			interrupts = < 0x0 0xe2 0x2 0xa0 >, < 0x0 0xe3 0x2 0xa0 >;
 			interrupt-names = "rx_tx", "error";
@@ -625,12 +625,44 @@
 			status = "disabled";
 		};
 		pit0: pit@76150000 {
-			compatible = "nxp,kinetis-pit";
+			compatible = "nxp,pit";
 			reg = < 0x76150000 0x10000 >;
 			interrupts = < 0x0 0x13 0x2 0xa0 >;
 			clocks = < &clock 0xae >;
 			max-load-value = < 0xffffff >;
 			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			pit0_channel0: pit0_channel@0 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x0 >;
+				status = "disabled";
+			};
+			pit0_channel1: pit0_channel@1 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x1 >;
+				status = "disabled";
+			};
+			pit0_channel2: pit0_channel@2 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x2 >;
+				status = "disabled";
+			};
+			pit0_channel3: pit0_channel@3 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x3 >;
+				status = "disabled";
+			};
+			pit0_channel4: pit0_channel@4 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x4 >;
+				status = "disabled";
+			};
+			pit0_channel5: pit0_channel@5 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x5 >;
+				status = "disabled";
+			};
 		};
 	};
 	cpus {

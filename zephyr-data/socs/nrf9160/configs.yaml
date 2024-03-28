@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/circuitdojo_feather_nrf9160/circuitdojo_feather_nrf9160_ns_defconfig
+board_socs:
+- name: nrf9160
+  variants:
+  - name: ns
+defconfig_file: boards/actinius/icarus/actinius_icarus_nrf9160_ns_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_CIRCUITDOJO_FEATHER_NRF9160_NS
+- CONFIG_BOARD_ACTINIUS_ICARUS_1_4_0_NRF9160
+vendor: actinius

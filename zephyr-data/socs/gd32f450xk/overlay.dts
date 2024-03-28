@@ -1,5 +1,5 @@
 / {
-	compatible = "gd,gd32f450z-eval";
+	compatible = "gd,gd32f450i-eval";
 	chosen {
 		zephyr,console = &usart0;
 		zephyr,flash = &flash0;
@@ -49,7 +49,9 @@
 	status = "okay";
 	pinctrl-0 = < &spi5_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &gpiog 0x9 0x1 >;
+	cs-gpios = < &gpioi 0x8 0x1 >;
+	dmas = < &dma1 0x5 0x1 0x0 0x0 >, < &dma1 0x6 0x1 0x0 0x0 >;
+	dma-names = "tx", "rx";
 };
 &usart0{
 	status = "okay";
@@ -97,7 +99,7 @@
 		reg = < 0x40020c00 0x400 >;
 		clocks = < &cctl 0xc03 >;
 		resets = < &rctl 0x403 >;
-		status = "okay";
+		status = "disabled";
 	};
 	gpioe: gpio@40021000 {
 		compatible = "gd,gd32-gpio";
@@ -106,7 +108,7 @@
 		reg = < 0x40021000 0x400 >;
 		clocks = < &cctl 0xc04 >;
 		resets = < &rctl 0x404 >;
-		status = "disabled";
+		status = "okay";
 	};
 	gpiof: gpio@40021400 {
 		compatible = "gd,gd32-gpio";
@@ -115,7 +117,7 @@
 		reg = < 0x40021400 0x400 >;
 		clocks = < &cctl 0xc05 >;
 		resets = < &rctl 0x405 >;
-		status = "disabled";
+		status = "okay";
 	};
 	gpiog: gpio@40021800 {
 		compatible = "gd,gd32-gpio";
@@ -142,11 +144,16 @@
 		reg = < 0x40022000 0x400 >;
 		clocks = < &cctl 0xc08 >;
 		resets = < &rctl 0x408 >;
-		status = "disabled";
+		status = "okay";
 	};
 	usart0_default: usart0_default {
 		group1 {
 			pinmux = < 0x790 >, < 0x7a0 >;
+		};
+	};
+	adc0_default: adc0_default {
+		group1 {
+			pinmux = < 0x1032 >;
 		};
 	};
 	dac_default: dac_default {

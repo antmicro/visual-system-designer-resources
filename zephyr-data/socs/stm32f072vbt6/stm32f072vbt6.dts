@@ -360,14 +360,6 @@
 			status = "disabled";
 			#io-channel-cells = < 0x1 >;
 		};
-		clocks {
-			clk_hsi48: clk-hsi48 {
-				#clock-cells = < 0x0 >;
-				compatible = "fixed-clock";
-				clock-frequency = < 0x2dc6c00 >;
-				status = "disabled";
-			};
-		};
 		usart3: serial@40004800 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40004800 0x400 >;
@@ -400,7 +392,6 @@
 			interrupts = < 0x1e 0x0 >;
 			clocks = < &rcc 0x1c 0x2000000 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
 		};
 		usb: usb@40005c00 {
 			compatible = "st,stm32-usb";
@@ -461,6 +452,12 @@
 		pll: pll {
 			#clock-cells = < 0x0 >;
 			compatible = "st,stm32f0-pll-clock";
+			status = "disabled";
+		};
+		clk_hsi48: clk-hsi48 {
+			#clock-cells = < 0x0 >;
+			compatible = "fixed-clock";
+			clock-frequency = < 0x2dc6c00 >;
 			status = "disabled";
 		};
 	};

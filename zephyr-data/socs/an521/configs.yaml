@@ -1,4 +1,11 @@
 architecture: arm
-defconfig_file: boards/arm/mps2_an521/mps2_an521_remote_defconfig
+board_socs:
+- name: an385
+- name: an521
+  variants:
+  - cpucluster: cpu0
+    name: ns
+defconfig_file: boards/arm/mps2/mps2_an521_cpu0_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_MPS2_AN521_REMOTE
+- CONFIG_BOARD_MPS2_AN521_CPU0
+vendor: arm

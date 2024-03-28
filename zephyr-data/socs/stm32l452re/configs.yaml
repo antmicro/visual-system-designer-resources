@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/nucleo_l452re/nucleo_l452re_p_defconfig
+board_socs:
+- name: stm32l452xx
+  variants:
+  - name: p
+defconfig_file: boards/st/nucleo_l452re/nucleo_l452re_stm32l452xx_p_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_NUCLEO_L452RE_P
+- CONFIG_BOARD_NUCLEO_L452RE_STM32L452XX_P
+vendor: st

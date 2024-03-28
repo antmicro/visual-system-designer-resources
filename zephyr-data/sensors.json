@@ -184,8 +184,8 @@
         ],
         "description": "Asahi Kasei AKM09918C Magnetometer. See datasheet at\nhttps://www.akm.com/content/dam/documents/products/electronic-compass/ak09918c/ak09918c-en-datasheet.pdf\n",
         "driver": [
-            "drivers/sensor/akm09918c/akm09918c.c",
-            "drivers/sensor/akm09918c/akm09918c_emul.c"
+            "drivers/sensor/akm09918c/akm09918c_emul.c",
+            "drivers/sensor/akm09918c/akm09918c.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -273,6 +273,33 @@
         },
         "rdp-compat": "ams,as5600"
     },
+    "bd8lb600fs": {
+        "category": "Other",
+        "compatible": [
+            "rohm,bd8lb600fs"
+        ],
+        "description": "Rohm BD8LB600FS SPI Gpio Expander MFD",
+        "interfaces": {
+            "reset": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "instance-count": {
+                "default": 1,
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "type": "int"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "rohm,bd8lb600fs"
+    },
     "bh1750": {
         "category": "Environmental/Light",
         "compatible": [
@@ -319,8 +346,8 @@
         ],
         "description": "Bosch BMA4xx 3-axis acceleration sensors in I2C mode.  See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/accelerometers/\n",
         "driver": [
-            "drivers/sensor/bma4xx/bma4xx_emul.c",
-            "drivers/sensor/bma4xx/bma4xx.c"
+            "drivers/sensor/bma4xx/bma4xx.c",
+            "drivers/sensor/bma4xx/bma4xx_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -777,7 +804,8 @@
             "spi-max-frequency": {
                 "type": "int"
             }
-        }
+        },
+        "rdp-compat": "sciosense,ens160"
     },
     "ens210": {
         "category": "Environmental",
@@ -836,8 +864,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303_emul.c",
-            "drivers/sensor/f75303/f75303.c"
+            "drivers/sensor/f75303/f75303.c",
+            "drivers/sensor/f75303/f75303_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1223,8 +1251,8 @@
         ],
         "description": "ICM-42688 motion tracking device",
         "driver": [
-            "drivers/sensor/icm42688/icm42688.c",
-            "drivers/sensor/icm42688/icm42688_emul.c"
+            "drivers/sensor/icm42688/icm42688_emul.c",
+            "drivers/sensor/icm42688/icm42688.c"
         ],
         "interfaces": {
             "spi": "spi"
@@ -2291,6 +2319,22 @@
         },
         "rdp-compat": "maxim,max30101"
     },
+    "max31790": {
+        "category": "Other",
+        "compatible": [
+            "maxim,max31790"
+        ],
+        "description": "Maxim MAX31790 6-channel I2C-bus PWM controller, MFD device",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "maxim,max31790"
+    },
     "max31855": {
         "category": "Environmental/Temperature",
         "compatible": [
@@ -3217,6 +3261,26 @@
             }
         },
         "rdp-compat": "ams,tsl2561"
+    },
+    "tsl2591": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "ams,tsl2591"
+        ],
+        "description": "OSRAM ams TSL2591 ambient light sensor.\n",
+        "driver": [
+            "drivers/sensor/tsl2591/tsl2591.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "ams,tsl2591"
     },
     "vcnl4040": {
         "category": "Position/Distance",

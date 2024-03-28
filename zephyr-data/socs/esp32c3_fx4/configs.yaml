@@ -1,4 +1,7 @@
-architecture: riscv32
-defconfig_file: boards/riscv/icev_wireless/icev_wireless_defconfig
+architecture: riscv
+board_socs:
+- name: esp32c3
+defconfig_file: boards/others/icev_wireless/icev_wireless_defconfig
 remove_defconfig_flags:
 - CONFIG_BOARD_ICEV_WIRELESS
+vendor: others

@@ -5,7 +5,6 @@
 	};
 };
 &enet{
-	status = "okay";
 	pinctrl-0 = < &pinmux_enet >;
 	pinctrl-names = "default";
 	int-gpios = < &gpio9 0xb 0x0 >;
@@ -25,7 +24,7 @@
 	bus-speed-data = < 0xf4240 >;
 };
 &flexspi{
-	reg = < 0x400cc000 0x4000 >, < 0x30000000 0x1000000 >;
+	reg = < 0x400cc000 0x4000 >, < 0x30000000 0x4000000 >;
 	status = "okay";
 	pinctrl-0 = < &pinmux_flexspi1 >;
 	pinctrl-names = "default";

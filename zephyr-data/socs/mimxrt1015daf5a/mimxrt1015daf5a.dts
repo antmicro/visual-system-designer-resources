@@ -669,7 +669,6 @@
 			interrupt-names = "common";
 			clocks = < &ccm 0x900 0x68 0xe >;
 			clk-source = < 0x2 >;
-			sample-point = < 0x36b >;
 			status = "disabled";
 		};
 		flexcan2: can@401d4000 {
@@ -679,7 +678,6 @@
 			interrupt-names = "common";
 			clocks = < &ccm 0x900 0x68 0x12 >;
 			clk-source = < 0x2 >;
-			sample-point = < 0x36b >;
 			status = "disabled";
 		};
 		flexcan3: can@401d8000 {
@@ -689,8 +687,6 @@
 			interrupt-names = "common";
 			clocks = < &ccm 0x900 0x84 0x6 >;
 			clk-source = < 0x2 >;
-			sample-point = < 0x36b >;
-			sample-point-data = < 0x36b >;
 			status = "disabled";
 		};
 		wdog0: wdog@400b8000 {
@@ -839,6 +835,43 @@
 			compatible = "nxp,tempmon";
 			reg = < 0x400d8000 0x2a0 >;
 			status = "disabled";
+		};
+		pit0: pit@40084000 {
+			compatible = "nxp,pit";
+			reg = < 0x40084000 0x1000 >;
+			clocks = < &ccm 0x1000 0x0 0x0 >;
+			interrupts = < 0x7a 0x0 >;
+			max-load-value = < 0xffffffff >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			pit0_channel0: pit0_channel@0 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x0 >;
+				status = "disabled";
+			};
+			pit0_channel1: pit0_channel@1 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x1 >;
+				status = "disabled";
+			};
+			pit0_channel2: pit0_channel@2 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x2 >;
+				status = "disabled";
+			};
+			pit0_channel3: pit0_channel@3 {
+				compatible = "nxp,pit-channel";
+				reg = < 0x3 >;
+				status = "disabled";
+			};
+		};
+		flexio1: flexio@401ac000 {
+			compatible = "nxp,flexio";
+			reg = < 0x401ac000 0x4000 >;
+			status = "disabled";
+			interrupts = < 0x5a 0x0 >;
+			clocks = < &ccm 0x1100 0x0 0x0 >;
 		};
 	};
 	cpus {

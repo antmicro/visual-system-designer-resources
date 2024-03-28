@@ -1,4 +1,7 @@
-architecture: riscv32
-defconfig_file: boards/riscv/esp32c3_luatos_core/esp32c3_luatos_core_usb_defconfig
+architecture: riscv
+board_socs:
+- name: esp32c3
+defconfig_file: boards/espressif/esp32c3_devkitm/esp32c3_devkitm_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ESP32C3_LUATOS_CORE_USB
+- CONFIG_BOARD_ESP32C3_DEVKITM
+vendor: espressif

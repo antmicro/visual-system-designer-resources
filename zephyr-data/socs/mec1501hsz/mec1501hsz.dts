@@ -330,6 +330,22 @@
 				pinmux = < 0x603 >;
 				low-power-enable;
 			};
+			led0_gpio156_sleep: led0_gpio156_sleep {
+				pinmux = < 0x2e3 >;
+				low-power-enable;
+			};
+			led1_gpio157_sleep: led1_gpio157_sleep {
+				pinmux = < 0x2f3 >;
+				low-power-enable;
+			};
+			led2_gpio153_sleep: led2_gpio153_sleep {
+				pinmux = < 0x2b3 >;
+				low-power-enable;
+			};
+			led3_gpio035_sleep: led3_gpio035_sleep {
+				pinmux = < 0x9d0 >;
+				low-power-enable;
+			};
 		};
 		rtimer: timer@40007400 {
 			compatible = "microchip,xec-rtos-timer";
@@ -603,8 +619,8 @@
 			#io-channel-cells = < 0x1 >;
 			clktime = < 0x20 >;
 		};
-		kscan0: kscan@40009c00 {
-			compatible = "microchip,xec-kscan";
+		kbd0: kbd@40009c00 {
+			compatible = "microchip,xec-kbd";
 			reg = < 0x40009c00 0x18 >;
 			interrupts = < 0x87 0x0 >;
 			girqs = < 0x15 0x19 >;

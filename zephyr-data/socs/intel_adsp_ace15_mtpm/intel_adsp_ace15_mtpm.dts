@@ -235,39 +235,39 @@
 				bit-position = < 0xf >;
 				phandle = < 0x2 >;
 			};
-			hub_hp_domain: hub_hp_domain {
+			ml1_domain: ml1_domain {
 				compatible = "intel,adsp-power-domain";
-				bit-position = < 0x6 >;
+				bit-position = < 0xd >;
+			};
+			ml0_domain: ml0_domain {
+				compatible = "intel,adsp-power-domain";
+				bit-position = < 0xc >;
+			};
+			io3_domain: io3_domain {
+				compatible = "intel,adsp-power-domain";
+				bit-position = < 0xb >;
+			};
+			io2_domain: io2_domain {
+				compatible = "intel,adsp-power-domain";
+				bit-position = < 0xa >;
+			};
+			io1_domain: io1_domain {
+				compatible = "intel,adsp-power-domain";
+				bit-position = < 0x9 >;
 			};
 			io0_domain: io0_domain {
 				compatible = "intel,adsp-power-domain";
 				bit-position = < 0x8 >;
 				phandle = < 0x4 >;
 			};
-			io1_domain: io1_domain {
+			hub_hp_domain: hub_hp_domain {
 				compatible = "intel,adsp-power-domain";
-				bit-position = < 0x9 >;
-			};
-			io2_domain: io2_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xa >;
-			};
-			io3_domain: io3_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xb >;
+				bit-position = < 0x6 >;
 			};
 			hst_domain: hst_domain {
 				compatible = "intel,adsp-power-domain";
 				bit-position = < 0x4 >;
 				phandle = < 0x6 >;
-			};
-			ml0_domain: ml0_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xc >;
-			};
-			ml1_domain: ml1_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xd >;
 			};
 		};
 		ace_comm_widget: ace_comm_widget@71c00 {
@@ -307,7 +307,7 @@
 			dma-buf-addr-alignment = < 0x80 >;
 			dma-buf-size-alignment = < 0x20 >;
 			dma-copy-alignment = < 0x20 >;
-			power-domain = < &hst_domain >;
+			power-domain = < &io0_domain >;
 			status = "okay";
 		};
 		hda_link_in: dma@72600 {
@@ -318,7 +318,7 @@
 			dma-buf-addr-alignment = < 0x80 >;
 			dma-buf-size-alignment = < 0x20 >;
 			dma-copy-alignment = < 0x20 >;
-			power-domain = < &hst_domain >;
+			power-domain = < &io0_domain >;
 			status = "okay";
 		};
 		hda_host_out: dma@72800 {

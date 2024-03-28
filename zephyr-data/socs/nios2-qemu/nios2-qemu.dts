@@ -1,0 +1,51 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu: cpu@0 {
+			device_type = "cpu";
+			compatible = "qemu,nios2-zephyr";
+			reg = < 0x0 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			phandle = < 0x1 >;
+		};
+	};
+	flash0: flash@420000 {
+		compatible = "soc-nv-flash";
+		reg = < 0x420000 0x20000 >;
+	};
+	sram0: memory@400000 {
+		compatible = "mmio-sram";
+		reg = < 0x400000 0x20000 >;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &cpu >;
+		ranges;
+		jtag_uart: uart@201000 {
+			compatible = "altr,jtag-uart";
+			reg = < 0x201000 0x400 >;
+			interrupts = < 0x0 >;
+			status = "disabled";
+		};
+		ns16550_uart: uart@440000 {
+			compatible = "ns16550";
+			reg = < 0x440000 0x400 >;
+			interrupts = < 0x1 >;
+			clock-frequency = < 0x2faf080 >;
+			reg-shift = < 0x2 >;
+			status = "disabled";
+		};
+	};
+};

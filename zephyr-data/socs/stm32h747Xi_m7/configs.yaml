@@ -1,4 +1,7 @@
 architecture: arm
-defconfig_file: boards/arm/arduino_portenta_h7/arduino_portenta_h7_m7_defconfig
+board_socs:
+- name: stm32h747xx
+defconfig_file: boards/arduino/giga_r1/arduino_giga_r1_stm32h747xx_m7_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ARDUINO_PORTENTA_H7_M7
+- CONFIG_BOARD_ARDUINO_GIGA_R1_STM32H747XX_M7
+vendor: arduino

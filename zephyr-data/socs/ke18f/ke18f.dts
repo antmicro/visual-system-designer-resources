@@ -307,7 +307,6 @@
 			interrupt-names = "warning", "error", "wake-up", "mb-0-15";
 			clocks = < &scg 0x1 >;
 			clk-source = < 0x1 >;
-			sample-point = < 0x36b >;
 			status = "disabled";
 		};
 		flexcan1: can@40025000 {
@@ -317,7 +316,6 @@
 			interrupt-names = "warning", "error", "wake-up", "mb-0-15";
 			clocks = < &scg 0x1 >;
 			clk-source = < 0x1 >;
-			sample-point = < 0x36b >;
 			status = "disabled";
 		};
 		porta: pinmux@40049000 {
@@ -483,6 +481,13 @@
 			clocks = < &scg 0x1 >;
 			status = "disabled";
 			#io-channel-cells = < 0x2 >;
+		};
+		flexio1: flexio@4005a000 {
+			compatible = "nxp,flexio";
+			reg = < 0x4005a000 0x1000 >;
+			status = "disabled";
+			interrupts = < 0x45 0x0 >;
+			clocks = < &pcc 0x168 0x3 >;
 		};
 	};
 	cpus {

@@ -1,7 +1,7 @@
 / {
 	compatible = "nxp,s32z270";
 	chosen {
-		zephyr,console = &uart0;
+		zephyr,console = &uart9;
 		zephyr,sram = &sram0;
 	};
 };
@@ -10,17 +10,13 @@
 	pinctrl-0 = < &can0_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
 };
 &can1{
 	pinctrl-0 = < &can1_default >;
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
-	sample-point = < 0x36b >;
 	bus-speed-data = < 0xf4240 >;
-	sample-point-data = < 0x36b >;
 };
 &emdio{
 	status = "okay";
@@ -40,5 +36,10 @@
 &uart0{
 	status = "okay";
 	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&uart9{
+	status = "okay";
+	pinctrl-0 = < &uart9_default >;
 	pinctrl-names = "default";
 };

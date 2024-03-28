@@ -1,4 +1,7 @@
 architecture: xtensa
-defconfig_file: boards/xtensa/odroid_go/odroid_go_defconfig
+board_socs:
+- name: esp32
+defconfig_file: boards/hardkernel/odroid_go/odroid_go_esp32_appcpu_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ODROID_GO
+- CONFIG_BOARD_ODROID_GO_ESP32_APPCPU
+vendor: hardkernel

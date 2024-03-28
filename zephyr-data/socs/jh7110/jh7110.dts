@@ -1,0 +1,200 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x2 >;
+	#size-cells = < 0x2 >;
+	compatible = "starfive,jh7110";
+	model = "starfive,jh7110";
+	apb2clk: apb2clk {
+		#clock-cells = < 0x0 >;
+		compatible = "fixed-clock";
+		clock-frequency = < 0x7735940 >;
+		phandle = < 0x9 >;
+	};
+	uartclk: uartclk {
+		#clock-cells = < 0x0 >;
+		compatible = "fixed-clock";
+		clock-frequency = < 0x5f5e100 >;
+		phandle = < 0x8 >;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		S7_0: cpu@0 {
+			compatible = "sifive,s7", "riscv";
+			device_type = "cpu";
+			reg = < 0x0 >;
+			riscv,isa = "rv64imac_zicsr_zifencei";
+			status = "okay";
+			cpu0_intc: interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				interrupt-controller;
+				#interrupt-cells = < 0x1 >;
+				phandle = < 0x2 >;
+			};
+		};
+		U74_1: cpu@1 {
+			compatible = "sifive,u74", "riscv";
+			device_type = "cpu";
+			d-cache-block-size = < 0x40 >;
+			d-cache-sets = < 0x40 >;
+			d-cache-size = < 0x8000 >;
+			d-tlb-sets = < 0x1 >;
+			d-tlb-size = < 0x28 >;
+			i-cache-block-size = < 0x40 >;
+			i-cache-sets = < 0x40 >;
+			i-cache-size = < 0x8000 >;
+			i-tlb-sets = < 0x1 >;
+			i-tlb-size = < 0x28 >;
+			mmu-type = "riscv,sv39";
+			next-level-cache = < &ccache >;
+			reg = < 0x1 >;
+			riscv,isa = "rv64imafdcg";
+			tlb-spilt;
+			cpu1_intc: interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#interrupt-cells = < 0x1 >;
+				interrupt-controller;
+				phandle = < 0x3 >;
+			};
+		};
+		U74_2: cpu@2 {
+			compatible = "sifive,u74", "riscv";
+			device_type = "cpu";
+			d-cache-block-size = < 0x40 >;
+			d-cache-sets = < 0x40 >;
+			d-cache-size = < 0x8000 >;
+			d-tlb-sets = < 0x1 >;
+			d-tlb-size = < 0x28 >;
+			i-cache-block-size = < 0x40 >;
+			i-cache-sets = < 0x40 >;
+			i-cache-size = < 0x8000 >;
+			i-tlb-sets = < 0x1 >;
+			i-tlb-size = < 0x28 >;
+			mmu-type = "riscv,sv39";
+			next-level-cache = < &ccache >;
+			reg = < 0x2 >;
+			riscv,isa = "rv64imafdcg";
+			tlb-split;
+			cpu2_intc: interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#interrupt-cells = < 0x1 >;
+				interrupt-controller;
+				phandle = < 0x4 >;
+			};
+		};
+		U74_3: cpu@3 {
+			compatible = "sifive,u74", "riscv";
+			device_type = "cpu";
+			d-cache-block-size = < 0x40 >;
+			d-cache-sets = < 0x40 >;
+			d-cache-size = < 0x8000 >;
+			d-tlb-sets = < 0x1 >;
+			d-tlb-size = < 0x28 >;
+			i-cache-block-size = < 0x40 >;
+			i-cache-sets = < 0x40 >;
+			i-cache-size = < 0x8000 >;
+			i-tlb-sets = < 0x1 >;
+			i-tlb-size = < 0x28 >;
+			mmu-type = "riscv,sv39";
+			next-level-cache = < &ccache >;
+			reg = < 0x3 >;
+			riscv,isa = "rv64imafdcg";
+			tlb-split;
+			cpu3_intc: interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#interrupt-cells = < 0x1 >;
+				interrupt-controller;
+				phandle = < 0x5 >;
+			};
+		};
+		U74_4: cpu@4 {
+			compatible = "sifive,u74", "riscv";
+			device_type = "cpu";
+			d-cache-block-size = < 0x40 >;
+			d-cache-sets = < 0x40 >;
+			d-cache-size = < 0x8000 >;
+			d-tlb-sets = < 0x1 >;
+			d-tlb-size = < 0x28 >;
+			i-cache-block-size = < 0x40 >;
+			i-cache-sets = < 0x40 >;
+			i-cache-size = < 0x8000 >;
+			i-tlb-sets = < 0x1 >;
+			i-tlb-size = < 0x28 >;
+			mmu-type = "riscv,sv39";
+			next-level-cache = < &ccache >;
+			reg = < 0x4 >;
+			riscv,isa = "rv64imafdcg";
+			tlb-split;
+			cpu4_intc: interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#interrupt-cells = < 0x1 >;
+				interrupt-controller;
+				phandle = < 0x6 >;
+			};
+		};
+	};
+	ram0: memory@8000000 {
+		device_type = "memory";
+		reg = < 0x0 0x8000000 0x1 0x0 >;
+	};
+	soc {
+		#address-cells = < 0x2 >;
+		#size-cells = < 0x2 >;
+		#clock-cells = < 0x1 >;
+		compatible = "starfive,jh7110", "simple-bus";
+		ranges;
+		clint: timer@2000000 {
+			compatible = "starfive,jh7110-clint", "sifive,clint0";
+			interrupts-extended = < &cpu0_intc 0x3 &cpu0_intc 0x7 &cpu1_intc 0x3 &cpu1_intc 0x7 &cpu2_intc 0x3 &cpu2_intc 0x7 &cpu3_intc 0x3 &cpu3_intc 0x7 &cpu4_intc 0x3 &cpu4_intc 0x7 >;
+			reg = < 0x0 0x2000000 0x0 0x10000 >;
+		};
+		ccache: cache-controller@2010000 {
+			cache-block-size = < 0x40 >;
+			cache-level = < 0x2 >;
+			cache-sets = < 0x800 >;
+			cache-size = < 0x200000 >;
+			cache-unified;
+			compatible = "starfive,jh7110-ccache", "sifive,ccache0", "cache";
+			interrupt-parent = < &plic >;
+			interrupts = < 0x1 >, < 0x3 >, < 0x4 >, < 0x2 >;
+			reg = < 0x0 0x2010000 0x0 0x4000 >;
+			phandle = < 0x1 >;
+		};
+		plic: interrupt-controller@c000000 {
+			compatible = "starfive,jh7110-plic", "sifive,plic-1.0.0";
+			#address-cells = < 0x0 >;
+			#interrupt-cells = < 0x2 >;
+			interrupt-controller;
+			interrupts-extended = < &cpu0_intc 0xb >, < &cpu1_intc 0xb >, < &cpu1_intc 0x9 >, < &cpu2_intc 0xb >, < &cpu2_intc 0x9 >, < &cpu3_intc 0xb >, < &cpu3_intc 0x9 >, < &cpu4_intc 0xb >, < &cpu4_intc 0x9 >;
+			reg = < 0x0 0xc000000 0x0 0x4000000 >;
+			riscv,max-priority = < 0x7 >;
+			riscv,ndev = < 0x34 >;
+			phandle = < 0x7 >;
+		};
+		uart0: serial@10000000 {
+			compatible = "ns16550", "snps,dw-apb-uart";
+			clocks = < &uartclk >, < &apb2clk >;
+			clock-names = "baudclk", "apb_pclk";
+			clock-frequency = < 0x5f5e100 >;
+			current-speed = < 0x1c200 >;
+			interrupt-parent = < &plic >;
+			interrupts = < 0x20 0x1 >;
+			reg = < 0x0 0x10000000 0x0 0x10000 >;
+			reg-shift = < 0x2 >;
+			status = "disabled";
+		};
+		uart1: serial@10010000 {
+			compatible = "ns16550", "snps,dw-apb-uart";
+			clocks = < &uartclk >, < &apb2clk >;
+			clock-names = "baudclk", "apb_pclk";
+			clock-frequency = < 0x5f5e100 >;
+			current-speed = < 0x1c200 >;
+			interrupt-parent = < &plic >;
+			interrupts = < 0x21 0x1 >;
+			reg = < 0x0 0x10010000 0x0 0x10000 >;
+			reg-shift = < 0x2 >;
+			status = "disabled";
+		};
+	};
+};

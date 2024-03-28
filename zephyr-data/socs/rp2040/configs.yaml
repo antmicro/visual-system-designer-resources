@@ -1,4 +1,7 @@
 architecture: arm
-defconfig_file: boards/arm/rpi_pico/rpi_pico_defconfig
+board_socs:
+- name: rp2040
+defconfig_file: boards/adafruit/kb2040/adafruit_kb2040_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_RPI_PICO
+- CONFIG_BOARD_ADAFRUIT_KB2040
+vendor: adafruit

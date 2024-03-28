@@ -1,0 +1,10 @@
+architecture: arm
+board_socs:
+- name: nrf5340
+  variants:
+  - cpucluster: cpuapp
+    name: ns
+defconfig_file: boards/lairdconnect/bl5340_dvk/bl5340_dvk_nrf5340_cpuapp_defconfig
+remove_defconfig_flags:
+- CONFIG_BOARD_BL5340_DVK_NRF5340_CPUAPP
+vendor: lairdconnect

@@ -1,0 +1,16 @@
+/ {
+	compatible = "qemu,nios2";
+	chosen {
+		zephyr,console = &ns16550_uart;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&jtag_uart{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};
+&ns16550_uart{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};

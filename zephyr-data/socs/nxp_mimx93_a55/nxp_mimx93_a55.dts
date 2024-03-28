@@ -713,4 +713,28 @@
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
 	};
+	edma4: dma@42000000 {
+		compatible = "nxp,edma";
+		reg = < 0x42000000 0x200000 >;
+		valid-channels = < 0x0 >, < 0x1 >;
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x80 0x2 0xa0 >, < 0x0 0x80 0x2 0xa0 >;
+		#dma-cells = < 0x2 >;
+		hal-cfg-index = < 0x1 >;
+		status = "disabled";
+		phandle = < 0x6f >;
+	};
+	sai3: dai@42660000 {
+		compatible = "nxp,dai-sai";
+		reg = < 0x42660000 0x10000 >;
+		mclk-is-output;
+		clocks = < &ccm 0x2002 0x0 0x0 >;
+		clock-names = "mclk1";
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0xab 0x2 0xa0 >;
+		dai-index = < 0x3 >;
+		dmas = < &edma4 0x0 0x3c >, < &edma4 0x1 0x3d >;
+		dma-names = "tx", "rx";
+		status = "disabled";
+	};
 };

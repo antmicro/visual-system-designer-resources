@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/b_u585i_iot02a/b_u585i_iot02a_defconfig
+board_socs:
+- name: stm32u585xx
+  variants:
+  - name: ns
+defconfig_file: boards/st/b_u585i_iot02a/b_u585i_iot02a_defconfig
 remove_defconfig_flags:
 - CONFIG_BOARD_B_U585I_IOT02A
+vendor: st

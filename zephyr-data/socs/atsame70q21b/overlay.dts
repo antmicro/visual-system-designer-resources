@@ -1,7 +1,7 @@
 / {
-	compatible = "atmel,sam_e70b_xplained", "atmel,same70b", "atmel,same70q21b";
+	compatible = "atmel,same70", "atmel,same70q21b", "tdk,robokit1";
 	chosen {
-		zephyr,console = &usart1;
+		zephyr,console = &uart2;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
@@ -39,9 +39,9 @@
 	status = "okay";
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
-	cs-gpios = < &piod 0x19 0x1 >, < &piod 0x1b 0x1 >;
-	dmas = < &xdmac 0x1 0x1 >, < &xdmac 0x2 0x2 >;
+	dmas = < &xdmac 0x0 0x1 >, < &xdmac 0x1 0x2 >;
 	dma-names = "tx", "rx";
+	cs-gpios = < &pioa 0x1f 0x1 >, < &pioc 0x1f 0x1 >;
 };
 &spi1{
 	status = "okay";

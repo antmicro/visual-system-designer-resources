@@ -60,14 +60,14 @@
 				compatible = "soc-nv-flash";
 				erase-block-size = < 0x1000 >;
 				write-block-size = < 0x4 >;
-				reg = < 0x0 0x1000000 >;
+				reg = < 0x0 0x400000 >;
 			};
 		};
 		psram0: psram@3f800000 {
 			device_type = "memory";
 			compatible = "mmio-sram";
-			reg = < 0x3f800000 0x400000 >;
-			status = "okay";
+			reg = < 0x3f800000 0x200000 >;
+			status = "disabled";
 		};
 		ipm0: ipm@3ffed238 {
 			compatible = "espressif,esp32-ipm";
@@ -164,7 +164,7 @@
 				interrupts = < 0x16 >;
 				interrupt-parent = < &intc >;
 				ngpios = < 0x20 >;
-				gpio-reserved-ranges = < 0x6 0x6 >, < 0x10 0x2 >, < 0x14 0x1 >, < 0x18 0x1 >, < 0x1c 0x4 >;
+				gpio-reserved-ranges = < 0x14 0x1 >, < 0x18 0x1 >, < 0x1c 0x4 >;
 				phandle = < 0x4 >;
 			};
 			gpio1: gpio@3ff44800 {
@@ -175,7 +175,6 @@
 				interrupts = < 0x16 >;
 				interrupt-parent = < &intc >;
 				ngpios = < 0x8 >;
-				gpio-reserved-ranges = < 0x6 0x2 >;
 				phandle = < 0x5 >;
 			};
 		};
@@ -253,7 +252,6 @@
 			interrupts = < 0x2d >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x16 >;
-			sample-point = < 0x36b >;
 			status = "disabled";
 		};
 		timer0: counter@3ff5f000 {

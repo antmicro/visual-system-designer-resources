@@ -1,4 +1,8 @@
 architecture: arm
-defconfig_file: boards/arm/sam_v71_xult/sam_v71_xult_defconfig
+board_socs:
+- name: samv71q21
+- name: samv71q21b
+defconfig_file: boards/atmel/sam/sam_v71_xult/sam_v71_xult_samv71q21_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_SAM_V71_XULT
+- CONFIG_BOARD_SAM_V71_XULT_SAMV71Q21
+vendor: atmel

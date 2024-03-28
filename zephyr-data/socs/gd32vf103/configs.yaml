@@ -1,4 +1,7 @@
-architecture: riscv32
-defconfig_file: boards/riscv/gd32vf103c_starter/gd32vf103c_starter_defconfig
+architecture: riscv
+board_socs:
+- name: gd32vf103
+defconfig_file: boards/gd/gd32vf103c_starter/gd32vf103c_starter_defconfig
 remove_defconfig_flags:
 - CONFIG_BOARD_GD32VF103C_STARTER
+vendor: gd

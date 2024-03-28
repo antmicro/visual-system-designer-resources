@@ -1,5 +1,5 @@
 / {
-	compatible = "we,we-proteus3ev-nrf52840";
+	compatible = "adafruit,feather-nrf52840";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,flash = &flash0;
@@ -17,12 +17,13 @@
 };
 &i2c0{
 	compatible = "nordic,nrf-twi";
+	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c1{
-	compatible = "nordic,nrf-twi";
+	status = "okay";
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
@@ -62,6 +63,7 @@
 };
 &spi0{
 	compatible = "nordic,nrf-spi";
+	cs-gpios = < &gpio1 0xc 0x1 >;
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-1 = < &spi0_sleep >;
 	pinctrl-names = "default", "sleep";
@@ -69,25 +71,26 @@
 &spi1{
 	compatible = "nordic,nrf-spi";
 	status = "okay";
-	cs-gpios = < &gpio0 0x19 0x0 >, < &gpio0 0x1f 0x0 >;
 	pinctrl-0 = < &spi1_default >;
 	pinctrl-1 = < &spi1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &spi2{
 	compatible = "nordic,nrf-spi";
+	status = "okay";
 	pinctrl-0 = < &spi2_default >;
 	pinctrl-1 = < &spi2_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &spi3{
 	status = "okay";
-	cs-gpios = < &arduino_header 0x10 0x1 >;
+	cs-gpios = < &gpio0 0x15 0x1 >;
 	pinctrl-0 = < &spi3_default >;
 	pinctrl-1 = < &spi3_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart0{
+	compatible = "nordic,nrf-uart";
 	status = "okay";
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
@@ -108,38 +111,45 @@
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x28 >, < 0x2000b >;
-		};
-		group2 {
-			psels = < 0x10029 >, < 0x3000c >;
-			bias-pull-up;
+			psels = < 0x19 >, < 0x10018 >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x28 >, < 0x10029 >, < 0x2000b >, < 0x3000c >;
+			psels = < 0x19 >, < 0x10018 >;
 			low-power-enable;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			psels = < 0xc0029 >, < 0xb0028 >;
+			psels = < 0xc000c >, < 0xb000b >;
 		};
 	};
 	i2c0_sleep: i2c0_sleep {
 		group1 {
-			psels = < 0xc0029 >, < 0xb0028 >;
+			psels = < 0xc000c >, < 0xb000b >;
 			low-power-enable;
 		};
 	};
-	spi0_default: spi0_default {
+	spi1_default: spi1_default {
 		group1 {
-			psels = < 0x4000c >, < 0x50028 >, < 0x60029 >;
+			psels = < 0x4000e >, < 0x5000d >, < 0x6000f >;
 		};
 	};
-	spi0_sleep: spi0_sleep {
+	spi1_sleep: spi1_sleep {
 		group1 {
-			psels = < 0x4000c >, < 0x50028 >, < 0x60029 >;
+			psels = < 0x4000e >, < 0x5000d >, < 0x6000f >;
+			low-power-enable;
+		};
+	};
+	qspi_default: qspi_default {
+		group1 {
+			psels = < 0x1d0013 >, < 0x1f0011 >, < 0x200016 >, < 0x210017 >, < 0x220015 >, < 0x1e0014 >;
+		};
+	};
+	qspi_sleep: qspi_sleep {
+		group1 {
+			psels = < 0x1d0013 >, < 0x1f0011 >, < 0x200016 >, < 0x210017 >, < 0x220015 >, < 0x1e0014 >;
 			low-power-enable;
 		};
 	};

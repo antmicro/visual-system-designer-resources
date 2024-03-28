@@ -1,4 +1,10 @@
 architecture: arm
-defconfig_file: boards/arm/mimx8mm_evk/mimx8mm_evk_defconfig
+board_socs:
+- name: mimx8mm6
+  variants:
+  - cpucluster: a53
+    name: smp
+defconfig_file: boards/nxp/imx8mm_evk/imx8mm_evk_mimx8mm6_m4_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_MIMX8MM_EVK
+- CONFIG_BOARD_IMX8MM_EVK_MIMX8MM6_M4
+vendor: nxp

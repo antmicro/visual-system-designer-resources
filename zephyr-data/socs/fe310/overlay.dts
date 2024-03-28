@@ -1,12 +1,9 @@
 / {
-	compatible = "sifive,hifive1-revb";
+	compatible = "sifive,hifive1";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &dtim;
 	};
-};
-&coreclk{
-	status = "okay";
 };
 &gpio0{
 	status = "okay";
@@ -22,22 +19,24 @@
 };
 &pwm1{
 	status = "okay";
+	pinctrl-0 = < &pwm1_1_default &pwm1_2_default &pwm1_3_default >;
+	pinctrl-names = "default";
 };
 &pwm2{
 	status = "okay";
+	pinctrl-0 = < &pwm2_1_default &pwm2_2_default &pwm2_3_default >;
+	pinctrl-names = "default";
 };
 &spi0{
-	reg = < 0x10014000 0x1000 0x20010000 0x3c0900 >;
+	reg = < 0x10014000 0x1000 0x20400000 0xc00000 >;
 };
 &spi1{
 	status = "okay";
-	pinctrl-0 = < &spi1_cs0_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
+	pinctrl-0 = < &spi1_cs0_default &spi1_cs2_default &spi1_cs3_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
 	pinctrl-names = "default";
 };
 &spi2{
 	status = "okay";
-	pinctrl-0 = < &spi1_cs2_default &spi1_mosi_default &spi1_miso_default &spi1_sck_default >;
-	pinctrl-names = "default";
 };
 &uart0{
 	status = "okay";

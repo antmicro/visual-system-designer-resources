@@ -1,4 +1,7 @@
 architecture: xtensa
-defconfig_file: boards/xtensa/m5stickc_plus/m5stickc_plus_defconfig
+board_socs:
+- name: esp32
+defconfig_file: boards/m5stack/m5stickc_plus/m5stickc_plus_esp32_procpu_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_M5STICKC_PLUS
+- CONFIG_BOARD_M5STICKC_PLUS_ESP32_PROCPU
+vendor: m5stack

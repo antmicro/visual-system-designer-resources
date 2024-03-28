@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/mps3_an547/mps3_an547_ns_defconfig
+board_socs:
+- name: an547
+  variants:
+  - name: ns
+defconfig_file: boards/arm/mps3/mps3_an547_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_MPS3_AN547_NS
+- CONFIG_BOARD_MPS3_AN547
+vendor: arm

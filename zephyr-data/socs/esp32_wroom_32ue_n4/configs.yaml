@@ -1,4 +1,7 @@
 architecture: xtensa
-defconfig_file: boards/xtensa/esp32_devkitc_wroom/esp32_devkitc_wroom_defconfig
+board_socs:
+- name: esp32
+defconfig_file: boards/espressif/esp32_devkitc_wroom/esp32_devkitc_wroom_esp32_procpu_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ESP32_DEVKITC_WROOM
+- CONFIG_BOARD_ESP32_DEVKITC_WROOM_ESP32_PROCPU
+vendor: espressif

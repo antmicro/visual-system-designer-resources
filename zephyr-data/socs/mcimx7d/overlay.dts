@@ -1,7 +1,7 @@
 / {
-	compatible = "nxp,mcimx7d_m4";
+	compatible = "novtech,imx7d-meerkat96";
 	chosen {
-		zephyr,console = &uart2;
+		zephyr,console = &uart1;
 		zephyr,flash = &tcml_code;
 		zephyr,sram = &tcmu_sys;
 	};
@@ -11,7 +11,6 @@
 	pinmux = < &mx7d_pad_lpsr_gpio1_io00__gpio1_io0 >, < &mx7d_pad_lpsr_gpio1_io01__gpio1_io1 >, < &mx7d_pad_lpsr_gpio1_io02__gpio1_io2 >, < &mx7d_pad_lpsr_gpio1_io03__gpio1_io3 >, < &mx7d_pad_lpsr_gpio1_io04__gpio1_io4 >, < &mx7d_pad_lpsr_gpio1_io05__gpio1_io5 >, < &mx7d_pad_lpsr_gpio1_io06__gpio1_io6 >, < &mx7d_pad_lpsr_gpio1_io07__gpio1_io7 >, < &mx7d_pad_gpio1_io08__gpio1_io8 >, < &mx7d_pad_gpio1_io09__gpio1_io9 >, < &mx7d_pad_gpio1_io10__gpio1_io10 >, < &mx7d_pad_gpio1_io11__gpio1_io11 >, < &mx7d_pad_gpio1_io12__gpio1_io12 >, < &mx7d_pad_gpio1_io13__gpio1_io13 >, < &mx7d_pad_gpio1_io14__gpio1_io14 >, < &mx7d_pad_gpio1_io15__gpio1_io15 >;
 };
 &gpio2{
-	status = "okay";
 	pinmux = < &mx7d_pad_epdc_data00__gpio2_io0 >, < &mx7d_pad_epdc_data01__gpio2_io1 >, < &mx7d_pad_epdc_data02__gpio2_io2 >, < &mx7d_pad_epdc_data03__gpio2_io3 >, < &mx7d_pad_epdc_data04__gpio2_io4 >, < &mx7d_pad_epdc_data05__gpio2_io5 >, < &mx7d_pad_epdc_data06__gpio2_io6 >, < &mx7d_pad_epdc_data07__gpio2_io7 >, < &mx7d_pad_epdc_data08__gpio2_io8 >, < &mx7d_pad_epdc_data09__gpio2_io9 >, < &mx7d_pad_epdc_data10__gpio2_io10 >, < &mx7d_pad_epdc_data11__gpio2_io11 >, < &mx7d_pad_epdc_data12__gpio2_io12 >, < &mx7d_pad_epdc_data13__gpio2_io13 >, < &mx7d_pad_epdc_data14__gpio2_io14 >, < &mx7d_pad_epdc_data15__gpio2_io15 >, < &mx7d_pad_epdc_sdclk__gpio2_io16 >, < &mx7d_pad_epdc_sdle__gpio2_io17 >, < &mx7d_pad_epdc_sdoe__gpio2_io18 >, < &mx7d_pad_epdc_sdshr__gpio2_io19 >, < &mx7d_pad_epdc_sdce0__gpio2_io20 >, < &mx7d_pad_epdc_sdce1__gpio2_io21 >, < &mx7d_pad_epdc_sdce2__gpio2_io22 >, < &mx7d_pad_epdc_sdce3__gpio2_io23 >, < &mx7d_pad_epdc_gdclk__gpio2_io24 >, < &mx7d_pad_epdc_gdoe__gpio2_io25 >, < &mx7d_pad_epdc_gdrl__gpio2_io26 >, < &mx7d_pad_epdc_gdsp__gpio2_io27 >, < &mx7d_pad_epdc_bdr0__gpio2_io28 >, < &mx7d_pad_epdc_bdr1__gpio2_io29 >, < &mx7d_pad_epdc_pwr_com__gpio2_io30 >, < &mx7d_pad_epdc_pwr_stat__gpio2_io31 >;
 };
 &gpio3{

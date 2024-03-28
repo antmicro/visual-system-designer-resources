@@ -1,0 +1,26 @@
+/ {
+	chosen {
+		zephyr,console = &flexcomm3;
+		zephyr,sram = &sram_data;
+	};
+};
+&flexcomm3{
+	compatible = "nxp,lpc-usart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm3_usart >;
+	pinctrl-names = "default";
+};
+&flexspi{
+	status = "okay";
+	ahb-bufferable;
+	ahb-prefetch;
+	ahb-cacheable;
+	ahb-read-addr-opt;
+	rx-clock-source = < 0x1 >;
+	pinctrl-0 = < &pinmux_flexspi >;
+	pinctrl-names = "default";
+};
+&hsgpio0{
+	status = "okay";
+};

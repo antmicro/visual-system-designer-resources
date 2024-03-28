@@ -111,63 +111,63 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x86000 0x1000 >;
 				interrupts = < 0xe 0x0 >;
-				clocks = < &syscon 0x0 >;
+				clocks = < &syscon 0x100 >;
 				status = "disabled";
 			};
 			flexcomm1: flexcomm@87000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x87000 0x1000 >;
 				interrupts = < 0xf 0x0 >;
-				clocks = < &syscon 0x1 >;
+				clocks = < &syscon 0x101 >;
 				status = "disabled";
 			};
 			flexcomm2: flexcomm@88000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x88000 0x1000 >;
 				interrupts = < 0x10 0x0 >;
-				clocks = < &syscon 0x2 >;
+				clocks = < &syscon 0x102 >;
 				status = "disabled";
 			};
 			flexcomm3: flexcomm@89000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x89000 0x1000 >;
 				interrupts = < 0x11 0x0 >;
-				clocks = < &syscon 0x3 >;
+				clocks = < &syscon 0x103 >;
 				status = "disabled";
 			};
 			flexcomm4: flexcomm@8a000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x8a000 0x1000 >;
 				interrupts = < 0x12 0x0 >;
-				clocks = < &syscon 0x4 >;
+				clocks = < &syscon 0x104 >;
 				status = "disabled";
 			};
 			flexcomm5: flexcomm@96000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x96000 0x1000 >;
 				interrupts = < 0x13 0x0 >;
-				clocks = < &syscon 0x5 >;
+				clocks = < &syscon 0x105 >;
 				status = "disabled";
 			};
 			flexcomm6: flexcomm@97000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x97000 0x1000 >;
 				interrupts = < 0x14 0x0 >;
-				clocks = < &syscon 0x6 >;
+				clocks = < &syscon 0x106 >;
 				status = "disabled";
 			};
 			flexcomm7: flexcomm@98000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x98000 0x1000 >;
 				interrupts = < 0x15 0x0 >;
-				clocks = < &syscon 0x7 >;
+				clocks = < &syscon 0x107 >;
 				status = "disabled";
 			};
 			hs_lspi: spi@9f000 {
 				compatible = "nxp,lpc-spi";
 				reg = < 0x9f000 0x1000 >;
 				interrupts = < 0x3b 0x0 >;
-				clocks = < &syscon 0xe >;
+				clocks = < &syscon 0x10e >;
 				status = "disabled";
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
@@ -177,10 +177,8 @@
 				reg = < 0x9d000 0x1000 >;
 				interrupts = < 0x2b 0x0 >, < 0x2c 0x0 >;
 				interrupt-names = "int0", "int1";
-				clocks = < &syscon 0x1b >;
+				clocks = < &syscon 0x300 >;
 				bosch,mram-cfg = < 0x0 0xf 0xf 0x8 0x8 0x0 0xf 0xf >;
-				sample-point = < 0x36b >;
-				sample-point-data = < 0x36b >;
 				status = "disabled";
 			};
 			rng: rng@3a000 {

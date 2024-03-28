@@ -395,8 +395,6 @@
 			interrupts = < 0x13 0x0 >, < 0x15 0x0 >, < 0x3f 0x0 >;
 			interrupt-names = "int0", "int1", "calib";
 			bosch,mram-cfg = < 0x0 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
-			sample-point = < 0x36b >;
-			sample-point-data = < 0x36b >;
 			status = "disabled";
 		};
 		fdcan2: can@4000a400 {
@@ -407,8 +405,6 @@
 			interrupts = < 0x14 0x0 >, < 0x16 0x0 >, < 0x3f 0x0 >;
 			interrupt-names = "int0", "int1", "calib";
 			bosch,mram-cfg = < 0x350 0x1c 0x8 0x3 0x3 0x0 0x3 0x3 >;
-			sample-point = < 0x36b >;
-			sample-point-data = < 0x36b >;
 			status = "disabled";
 		};
 		timers1: timers@40010000 {
@@ -901,10 +897,10 @@
 			};
 		};
 	};
-	quadspi_memory: memory@90000000 {
-		compatible = "zephyr,memory-region", "mmio-sram";
+	ext_memory: memory@90000000 {
+		compatible = "zephyr,memory-region";
 		reg = < 0x90000000 0x10000000 >;
-		zephyr,memory-region = "QSPI";
+		zephyr,memory-region = "EXTMEM";
 		zephyr,memory-attr = < 0x2000000 >;
 	};
 	clocks {

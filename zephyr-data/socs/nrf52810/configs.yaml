@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/ubx_bmd330eval_nrf52810/ubx_bmd330eval_nrf52810_defconfig
+board_socs:
+- name: nrf52805
+- name: nrf52810
+- name: nrf52832
+defconfig_file: boards/nordic/nrf52dk/nrf52dk_nrf52810_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_UBX_BMD330EVAL_NRF52810
+- CONFIG_BOARD_NRF52DK_NRF52810
+vendor: nordic

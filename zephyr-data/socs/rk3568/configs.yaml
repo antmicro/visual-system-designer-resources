@@ -1,4 +1,9 @@
 architecture: arm64
-defconfig_file: boards/arm64/roc_rk3568_pc/roc_rk3568_pc_smp_defconfig
+board_socs:
+- name: rk3568
+  variants:
+  - name: smp
+defconfig_file: boards/firefly/roc_rk3568_pc/roc_rk3568_pc_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ROC_RK3568_PC_SMP
+- CONFIG_BOARD_ROC_RK3568_PC
+vendor: firefly

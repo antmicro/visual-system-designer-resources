@@ -1,0 +1,202 @@
+/ {
+	compatible = "ene,kb1200";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&gpio0x1x{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c0_clk_gpio2c &i2c0_dat_gpio2d >;
+	pinctrl-names = "default";
+};
+&i2c8{
+	status = "okay";
+	clock-frequency = < 0x186a0 >;
+	pinctrl-0 = < &i2c8_clk_gpio70 &i2c8_dat_gpio71 >;
+	pinctrl-names = "default";
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_gpio3a >;
+	pinctrl-names = "default";
+};
+&pwm4{
+	status = "okay";
+	pinctrl-0 = < &pwm4_gpio31 >;
+	pinctrl-names = "default";
+};
+&pwm5{
+	status = "okay";
+	pinctrl-0 = < &pwm5_gpio30 >;
+	pinctrl-names = "default";
+};
+&pwm6{
+	status = "okay";
+	pinctrl-0 = < &pwm6_gpio37 >;
+	pinctrl-names = "default";
+};
+&tach0{
+	status = "okay";
+	pinctrl-0 = < &tach0_gpio48 >;
+	pinctrl-names = "default";
+	pulses-per-round = < 0x2 >;
+	sample-time-us = < 0x2 >;
+};
+&tach1{
+	status = "okay";
+	pinctrl-0 = < &tach1_gpio4e >;
+	pinctrl-names = "default";
+	pulses-per-round = < 0x1 >;
+	sample-time-us = < 0x8 >;
+};
+&tach2{
+	status = "okay";
+	pinctrl-0 = < &tach2_gpio0e >;
+	pinctrl-names = "default";
+	pulses-per-round = < 0x2 >;
+	sample-time-us = < 0x10 >;
+};
+&tach3{
+	status = "okay";
+	pinctrl-0 = < &tach3_gpio43 >;
+	pinctrl-names = "default";
+	pulses-per-round = < 0x1 >;
+	sample-time-us = < 0x40 >;
+};
+&uart0{
+	status = "okay";
+	pinctrl-0 = < &uart0_tx_gpio03 &uart0_rx_gpio01 >;
+	pinctrl-names = "default";
+};
+&uart1{
+	status = "okay";
+	pinctrl-0 = < &uart1_tx_gpio36 &uart1_rx_gpio28 >;
+	pinctrl-names = "default";
+};
+&uart2{
+	status = "okay";
+	pinctrl-0 = < &uart2_tx_gpio04 &uart2_rx_gpio55 >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	compatible = "ene,kb1200-pinctrl";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	reg = < 0x50000000 0x100 >;
+	status = "okay";
+	gpio0x1x: gpio@50000000 {
+		compatible = "ene,kb1200-gpio";
+		reg = < 0x50000000 0x4 >, < 0x50010000 0x4 >;
+		interrupts = < 0x2 0x3 >, < 0x3 0x3 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		ngpios = < 0x20 >;
+		status = "okay";
+	};
+	gpio2x3x: gpio@50000004 {
+		compatible = "ene,kb1200-gpio";
+		reg = < 0x50000004 0x4 >, < 0x50010004 0x4 >;
+		interrupts = < 0x4 0x3 >, < 0x5 0x3 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		ngpios = < 0x20 >;
+		status = "disabled";
+	};
+	gpio4x5x: gpio@50000008 {
+		compatible = "ene,kb1200-gpio";
+		reg = < 0x50000008 0x4 >, < 0x50010008 0x4 >;
+		interrupts = < 0x6 0x3 >, < 0x7 0x3 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		ngpios = < 0x20 >;
+		status = "disabled";
+	};
+	gpio6x7x: gpio@5000000c {
+		compatible = "ene,kb1200-gpio";
+		reg = < 0x5000000c 0x4 >, < 0x5001000c 0x4 >;
+		interrupts = < 0x8 0x3 >, < 0x9 0x3 >;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		ngpios = < 0x20 >;
+		status = "disabled";
+	};
+	uart0_tx_gpio03: uart0_tx_gpio03 {
+		pinmux = < 0x103 >;
+		output-enable;
+	};
+	uart0_rx_gpio01: uart0_rx_gpio01 {
+		pinmux = < 0x1 >;
+	};
+	uart1_tx_gpio36: uart1_tx_gpio36 {
+		pinmux = < 0x236 >;
+		output-enable;
+	};
+	uart1_rx_gpio28: uart1_rx_gpio28 {
+		pinmux = < 0x28 >;
+	};
+	uart2_tx_gpio04: uart2_tx_gpio04 {
+		pinmux = < 0x104 >;
+		output-enable;
+	};
+	uart2_rx_gpio55: uart2_rx_gpio55 {
+		pinmux = < 0x55 >;
+	};
+	adc0_gpio0a: adc0_gpio0a {
+		pinmux = < 0xa >;
+	};
+	adc1_gpio0b: adc1_gpio0b {
+		pinmux = < 0xb >;
+	};
+	adc2_gpio0c: adc2_gpio0c {
+		pinmux = < 0xc >;
+	};
+	adc3_gpio0d: adc3_gpio0d {
+		pinmux = < 0xd >;
+	};
+	pwm0_gpio3a: pwm0_gpio3a {
+		pinmux = < 0x13a >;
+	};
+	pwm4_gpio31: pwm4_gpio31 {
+		pinmux = < 0x131 >;
+	};
+	pwm5_gpio30: pwm5_gpio30 {
+		pinmux = < 0x130 >;
+	};
+	pwm6_gpio37: pwm6_gpio37 {
+		pinmux = < 0x137 >;
+	};
+	tach0_gpio48: tach0_gpio48 {
+		pinmux = < 0x48 >;
+	};
+	tach1_gpio4e: tach1_gpio4e {
+		pinmux = < 0x4e >;
+	};
+	tach2_gpio0e: tach2_gpio0e {
+		pinmux = < 0xe >;
+	};
+	tach3_gpio43: tach3_gpio43 {
+		pinmux = < 0x43 >;
+	};
+	i2c0_clk_gpio2c: i2c0_clk_gpio2c {
+		pinmux = < 0x12c >;
+		bias-pull-up;
+	};
+	i2c0_dat_gpio2d: i2c0_dat_gpio2d {
+		pinmux = < 0x12d >;
+		bias-pull-up;
+	};
+	i2c8_clk_gpio70: i2c8_clk_gpio70 {
+		pinmux = < 0x170 >;
+		bias-pull-up;
+	};
+	i2c8_dat_gpio71: i2c8_dat_gpio71 {
+		pinmux = < 0x171 >;
+		bias-pull-up;
+	};
+};

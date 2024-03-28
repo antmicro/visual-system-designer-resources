@@ -1,4 +1,7 @@
 architecture: arm
-defconfig_file: boards/arm/dragino_nbsn95/dragino_nbsn95_defconfig
+board_socs:
+- name: stm32l072xx
+defconfig_file: boards/st/b_l072z_lrwan1/b_l072z_lrwan1_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_DRAGINO_NBSN95
+- CONFIG_BOARD_B_L072Z_LRWAN1
+vendor: st

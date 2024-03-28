@@ -1,4 +1,7 @@
-architecture: riscv32
-defconfig_file: boards/riscv/hifive1_revb/hifive1_revb_defconfig
+architecture: riscv
+board_socs:
+- name: fe310
+defconfig_file: boards/sifive/hifive1/hifive1_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_HIFIVE1_REVB
+- CONFIG_BOARD_HIFIVE1
+vendor: sifive

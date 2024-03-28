@@ -140,7 +140,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x86000 0x1000 >;
 				interrupts = < 0xe 0x0 >;
-				clocks = < &syscon 0x0 >;
+				clocks = < &syscon 0x100 >;
 				dmas = < &dma0 0x4 >, < &dma0 0x5 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -149,7 +149,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x87000 0x1000 >;
 				interrupts = < 0xf 0x0 >;
-				clocks = < &syscon 0x1 >;
+				clocks = < &syscon 0x101 >;
 				dmas = < &dma0 0x6 >, < &dma0 0x7 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -158,7 +158,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x88000 0x1000 >;
 				interrupts = < 0x10 0x0 >;
-				clocks = < &syscon 0x2 >;
+				clocks = < &syscon 0x102 >;
 				dmas = < &dma0 0xa >, < &dma0 0xb >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -167,7 +167,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x89000 0x1000 >;
 				interrupts = < 0x11 0x0 >;
-				clocks = < &syscon 0x3 >;
+				clocks = < &syscon 0x103 >;
 				dmas = < &dma0 0x8 >, < &dma0 0x9 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -176,7 +176,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x8a000 0x1000 >;
 				interrupts = < 0x12 0x0 >;
-				clocks = < &syscon 0x4 >;
+				clocks = < &syscon 0x104 >;
 				dmas = < &dma0 0xc >, < &dma0 0xd >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -185,7 +185,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x96000 0x1000 >;
 				interrupts = < 0x13 0x0 >;
-				clocks = < &syscon 0x5 >;
+				clocks = < &syscon 0x105 >;
 				dmas = < &dma0 0xe >, < &dma0 0xf >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -194,7 +194,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x97000 0x1000 >;
 				interrupts = < 0x14 0x0 >;
-				clocks = < &syscon 0x6 >;
+				clocks = < &syscon 0x106 >;
 				dmas = < &dma0 0x10 >, < &dma0 0x11 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -203,7 +203,7 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x98000 0x1000 >;
 				interrupts = < 0x15 0x0 >;
-				clocks = < &syscon 0x7 >;
+				clocks = < &syscon 0x107 >;
 				dmas = < &dma0 0x12 >, < &dma0 0x13 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -212,7 +212,7 @@
 				compatible = "nxp,lpc-spi";
 				reg = < 0x9f000 0x1000 >;
 				interrupts = < 0x3b 0x0 >;
-				clocks = < &syscon 0xe >;
+				clocks = < &syscon 0x10e >;
 				dmas = < &dma0 0x2 >, < &dma0 0x3 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -270,10 +270,8 @@
 				reg = < 0x4009d000 0x1000 >;
 				interrupts = < 0x2b 0x0 >, < 0x2c 0x0 >;
 				interrupt-names = "int0", "int1";
-				clocks = < &syscon 0x1b >;
+				clocks = < &syscon 0x300 >;
 				bosch,mram-cfg = < 0x0 0xf 0xf 0x8 0x8 0x0 0xf 0xf >;
-				sample-point = < 0x36b >;
-				sample-point-data = < 0x36b >;
 				status = "disabled";
 			};
 			flexpwm0: flexpwm@400C3000 {
@@ -287,7 +285,7 @@
 					interrupt-names = "COMPARE-SUB0", "RELOAD-SUB0";
 					interrupts = < 0x53 0x0 >, < 0x54 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -298,7 +296,7 @@
 					interrupt-names = "COMPARE-SUB1", "RELOAD-SUB1";
 					interrupts = < 0x55 0x0 >, < 0x56 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -309,7 +307,7 @@
 					interrupt-names = "COMPARE-SUB2", "RELOAD-SUB2";
 					interrupts = < 0x57 0x0 >, < 0x58 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -320,7 +318,7 @@
 					interrupt-names = "COMPARE-SUB3", "RELOAD-SUB3";
 					interrupts = < 0x59 0x0 >, < 0x5a 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -337,7 +335,7 @@
 					interrupt-names = "COMPARE-SUB0", "RELOAD-SUB0";
 					interrupts = < 0x5e 0x0 >, < 0x5f 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -348,7 +346,7 @@
 					interrupt-names = "COMPARE-SUB1", "RELOAD-SUB1";
 					interrupts = < 0x60 0x0 >, < 0x61 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -359,7 +357,7 @@
 					interrupt-names = "COMPARE-SUB2", "RELOAD-SUB2";
 					interrupts = < 0x62 0x0 >, < 0x63 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -370,7 +368,7 @@
 					interrupt-names = "COMPARE-SUB3", "RELOAD-SUB3";
 					interrupts = < 0x64 0x0 >, < 0x65 0x0 >;
 					#pwm-cells = < 0x3 >;
-					clocks = < &syscon 0x1c 0x0 0x0 >;
+					clocks = < &syscon 0x400 0x0 0x0 >;
 					nxp,prescaler = < 0x80 >;
 					status = "disabled";
 					run-in-wait;
@@ -389,7 +387,7 @@
 				reg = < 0x85000 0x1000 >;
 				interrupts = < 0xc 0x0 >;
 				status = "disabled";
-				clocks = < &syscon 0x22 0x0 0x0 >;
+				clocks = < &syscon 0x900 0x0 0x0 >;
 				prescaler = < 0x2 >;
 				#pwm-cells = < 0x3 >;
 			};

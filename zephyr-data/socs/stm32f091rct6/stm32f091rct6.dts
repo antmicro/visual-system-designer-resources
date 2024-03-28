@@ -360,14 +360,6 @@
 			status = "disabled";
 			#io-channel-cells = < 0x1 >;
 		};
-		clocks {
-			clk_hsi48: clk-hsi48 {
-				#clock-cells = < 0x0 >;
-				compatible = "fixed-clock";
-				clock-frequency = < 0x2dc6c00 >;
-				status = "disabled";
-			};
-		};
 		usart3: serial@40004800 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40004800 0x400 >;
@@ -418,7 +410,7 @@
 			interrupts = < 0x1d 0x0 >;
 			status = "disabled";
 		};
-		usart8: serial@40011C00 {
+		usart8: serial@40011c00 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40011c00 0x400 >;
 			clocks = < &rcc 0x18 0x80 >;
@@ -432,7 +424,6 @@
 			interrupts = < 0x1e 0x0 >;
 			clocks = < &rcc 0x1c 0x2000000 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
 		};
 		dma2: dma@40020400 {
 			compatible = "st,stm32-dma-v2bis";
@@ -490,6 +481,12 @@
 		pll: pll {
 			#clock-cells = < 0x0 >;
 			compatible = "st,stm32f0-pll-clock";
+			status = "disabled";
+		};
+		clk_hsi48: clk-hsi48 {
+			#clock-cells = < 0x0 >;
+			compatible = "fixed-clock";
+			clock-frequency = < 0x2dc6c00 >;
 			status = "disabled";
 		};
 	};

@@ -29,6 +29,11 @@
 	pinctrl-0 = < &dac1_out2_pa5 >;
 	pinctrl-names = "default";
 };
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
+	pinctrl-names = "default";
+};
 &lpuart1{
 	status = "okay";
 	pinctrl-0 = < &lpuart1_tx_pb6 &lpuart1_rx_pb7 >;
@@ -52,6 +57,7 @@
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0xe4e1c00 >;
+	apb1-prescaler = < 0x2 >;
 };
 &spi1{
 	status = "okay";
@@ -182,6 +188,16 @@
 	eth_tx_en_pg11: eth_tx_en_pg11 {
 		pinmux = < 0xd6b >;
 		slew-rate = "very-high-speed";
+	};
+	i2c1_scl_pb8: i2c1_scl_pb8 {
+		pinmux = < 0x304 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c1_sda_pb9: i2c1_sda_pb9 {
+		pinmux = < 0x324 >;
+		bias-pull-up;
+		drive-open-drain;
 	};
 	spi1_miso_pg9: spi1_miso_pg9 {
 		pinmux = < 0xd25 >;

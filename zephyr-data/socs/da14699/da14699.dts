@@ -183,6 +183,12 @@
 			periph-clock-config = < 0x800 >;
 			interrupts = < 0x9 0x0 >;
 		};
+		lcdc: lcdc@30030000 {
+			compatible = "renesas,smartbond-display";
+			reg = < 0x30030000 0x18c >;
+			interrupts = < 0x20 0x0 >;
+			status = "disabled";
+		};
 		spi: spi@50020300 {
 			compatible = "renesas,smartbond-spi";
 			#address-cells = < 0x1 >;
@@ -221,6 +227,9 @@
 			block-count = < 0x1 >;
 			#dma-cells = < 0x0 >;
 		};
+	};
+	lvgl_pointer {
+		compatible = "zephyr,lvgl-pointer-input";
 	};
 	cpus: cpus {
 		#address-cells = < 0x1 >;

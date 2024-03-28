@@ -36,7 +36,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			flash0: flash@8000000 {
-				compatible = "st,stm32-nv-flash", "soc-nv-flash";
+				compatible = "st,stm32f4-nv-flash", "st,stm32-nv-flash", "soc-nv-flash";
 				write-block-size = < 0x1 >;
 				max-erase-time = < 0xfa0 >;
 				reg = < 0x8000000 0x100000 >;
@@ -665,7 +665,6 @@
 			interrupt-names = "TX", "RX0", "RX1", "SCE";
 			clocks = < &rcc 0x40 0x2000000 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
 		};
 		can2: can@40006800 {
 			compatible = "st,stm32-bxcan";
@@ -675,7 +674,6 @@
 			clocks = < &rcc 0x40 0x6000000 >;
 			master-can-reg = < 0x40006400 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
 		};
 	};
 	cpus {

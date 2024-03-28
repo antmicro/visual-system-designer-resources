@@ -1,4 +1,7 @@
 architecture: arm
-defconfig_file: boards/arm/quick_feather/quick_feather_defconfig
+board_socs:
+- name: quicklogic_eos_s3
+defconfig_file: boards/quicklogic/qomu/qomu_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_QUICK_FEATHER
+- CONFIG_BOARD_QOMU
+vendor: quicklogic

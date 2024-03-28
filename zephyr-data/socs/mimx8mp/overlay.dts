@@ -2,8 +2,8 @@
 	compatible = "nxp,mimx8mp_evk";
 	chosen {
 		zephyr,console = &uart4;
-		zephyr,flash = &ddr_code;
-		zephyr,sram = &ddr_sys;
+		zephyr,flash = &itcm;
+		zephyr,sram = &dtcm;
 	};
 };
 &gpio1{
@@ -23,7 +23,6 @@
 	pinmux = < &iomuxc_sai3_txc_gpio_io_gpio5_io0 >, < &iomuxc_sai3_txd_gpio_io_gpio5_io1 >, < &iomuxc_sai3_mclk_gpio_io_gpio5_io2 >, < &iomuxc_spdif_tx_gpio_io_gpio5_io3 >, < &iomuxc_spdif_rx_gpio_io_gpio5_io4 >, < &iomuxc_spdif_ext_clk_gpio_io_gpio5_io5 >, < &iomuxc_ecspi1_sclk_gpio_io_gpio5_io6 >, < &iomuxc_ecspi1_mosi_gpio_io_gpio5_io7 >, < &iomuxc_ecspi1_miso_gpio_io_gpio5_io8 >, < &iomuxc_ecspi1_ss0_gpio_io_gpio5_io9 >, < &iomuxc_ecspi2_sclk_gpio_io_gpio5_io10 >, < &iomuxc_ecspi2_mosi_gpio_io_gpio5_io11 >, < &iomuxc_ecspi2_miso_gpio_io_gpio5_io12 >, < &iomuxc_ecspi2_ss0_gpio_io_gpio5_io13 >, < &iomuxc_i2c1_scl_gpio_io_gpio5_io14 >, < &iomuxc_i2c1_sda_gpio_io_gpio5_io15 >, < &iomuxc_i2c2_scl_gpio_io_gpio5_io16 >, < &iomuxc_i2c2_sda_gpio_io_gpio5_io17 >, < &iomuxc_i2c3_scl_gpio_io_gpio5_io18 >, < &iomuxc_i2c3_sda_gpio_io_gpio5_io19 >, < &iomuxc_i2c4_scl_gpio_io_gpio5_io20 >, < &iomuxc_i2c4_sda_gpio_io_gpio5_io21 >, < &iomuxc_uart1_rxd_gpio_io_gpio5_io22 >, < &iomuxc_uart1_txd_gpio_io_gpio5_io23 >, < &iomuxc_uart2_rxd_gpio_io_gpio5_io24 >, < &iomuxc_uart2_txd_gpio_io_gpio5_io25 >, < &iomuxc_uart3_rxd_gpio_io_gpio5_io26 >, < &iomuxc_uart3_txd_gpio_io_gpio5_io27 >, < &iomuxc_uart4_rxd_gpio_io_gpio5_io28 >, < &iomuxc_uart4_txd_gpio_io_gpio5_io29 >;
 };
 &uart1{
-	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart1_default >;
 	pinctrl-names = "default";
 };

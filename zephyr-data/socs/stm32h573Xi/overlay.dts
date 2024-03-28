@@ -37,6 +37,12 @@
 	bus-speed = < 0x1e848 >;
 	bus-speed-data = < 0xf4240 >;
 };
+&i2c1{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c1_scl_pb6 &i2c1_sda_pb7 >;
+	pinctrl-names = "default";
+};
 &mac{
 	status = "okay";
 	pinctrl-0 = < &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pg12 >;
@@ -59,6 +65,7 @@
 &rcc{
 	clocks = < &pll >;
 	clock-frequency = < 0xe4e1c00 >;
+	apb1-prescaler = < 0x2 >;
 };
 &spi2{
 	status = "okay";
@@ -191,6 +198,16 @@
 	};
 	fdcan1_tx_pa12: fdcan1_tx_pa12 {
 		pinmux = < 0x189 >;
+	};
+	i2c1_scl_pb6: i2c1_scl_pb6 {
+		pinmux = < 0x2c4 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c1_sda_pb7: i2c1_sda_pb7 {
+		pinmux = < 0x2e4 >;
+		bias-pull-up;
+		drive-open-drain;
 	};
 	octospi1_io0_pb1: octospi1_io0_pb1 {
 		pinmux = < 0x226 >;

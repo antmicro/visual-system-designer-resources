@@ -1,7 +1,7 @@
 / {
-	compatible = "arduino,nano-33-iot";
+	compatible = "adafruit,feather-m0-basic-proto", "atmel,samd21", "atmel,samd21g18a";
 	chosen {
-		zephyr,console = &sercom5;
+		zephyr,console = &sercom0;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
@@ -12,19 +12,19 @@
 	pinctrl-names = "default";
 };
 &sercom0{
-	compatible = "atmel,sam0-i2c";
+	compatible = "atmel,sam0-uart";
 	status = "okay";
-	clock-frequency = < 0x61a80 >;
-	#address-cells = < 0x1 >;
-	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom0_i2c_default >;
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x1 >;
+	pinctrl-0 = < &sercom0_uart_default >;
 	pinctrl-names = "default";
 };
 &sercom1{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
-	dipo = < 0x0 >;
-	dopo = < 0x1 >;
+	dipo = < 0x3 >;
+	dopo = < 0x0 >;
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom1_spi_default >;
@@ -33,8 +33,8 @@
 &sercom2{
 	compatible = "atmel,sam0-spi";
 	status = "okay";
-	dipo = < 0x1 >;
-	dopo = < 0x3 >;
+	dipo = < 0x3 >;
+	dopo = < 0x0 >;
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &sercom2_spi_default >;
@@ -42,21 +42,22 @@
 	cs-gpios = < &porta 0xe 0x1 >;
 };
 &sercom3{
-	compatible = "atmel,sam0-uart";
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	rxpo = < 0x1 >;
-	txpo = < 0x0 >;
-	pinctrl-0 = < &sercom3_uart_default >;
-	pinctrl-names = "default";
-};
-&sercom4{
 	compatible = "atmel,sam0-i2c";
 	status = "okay";
 	clock-frequency = < 0x61a80 >;
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
-	pinctrl-0 = < &sercom4_i2c_default >;
+	pinctrl-0 = < &sercom3_i2c_default >;
+	pinctrl-names = "default";
+};
+&sercom4{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	dipo = < 0x0 >;
+	dopo = < 0x1 >;
+	pinctrl-0 = < &sercom4_spi_default >;
 	pinctrl-names = "default";
 };
 &sercom5{

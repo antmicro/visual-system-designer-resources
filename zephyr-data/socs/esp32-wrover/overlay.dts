@@ -7,12 +7,15 @@
 	};
 };
 &flash0{
+	reg = < 0x0 0x1000000 >;
 	status = "okay";
 };
 &gpio0{
+	gpio-reserved-ranges = < 0x6 0x6 >, < 0x10 0x2 >, < 0x14 0x1 >, < 0x18 0x1 >, < 0x1c 0x4 >;
 	status = "okay";
 };
 &gpio1{
+	gpio-reserved-ranges = < 0x6 0x2 >;
 	status = "okay";
 };
 &i2c0{
@@ -39,31 +42,4 @@
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";
 	status = "okay";
-	uart0_default: uart0_default {
-		group1 {
-			pinmux = < 0x77fc1 >;
-			output-high;
-		};
-		group2 {
-			pinmux = < 0xff8383 >;
-			bias-pull-up;
-		};
-	};
-	spim3_default: spim3_default {
-		group1 {
-			pinmux = < 0xff9013 >, < 0x1fffd2 >, < 0x227fc5 >, < 0x22ffd6 >;
-		};
-		group2 {
-			pinmux = < 0x20ffd7 >;
-			output-low;
-		};
-	};
-	i2c0_default: i2c0_default {
-		group1 {
-			pinmux = < 0xf0784 >, < 0xe874f >;
-			bias-pull-up;
-			drive-open-drain;
-			output-high;
-		};
-	};
 };

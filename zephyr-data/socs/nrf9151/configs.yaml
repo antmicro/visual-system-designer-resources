@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/nrf9151dk_nrf9151/nrf9151dk_nrf9151_ns_defconfig
+board_socs:
+- name: nrf9151
+  variants:
+  - name: ns
+defconfig_file: boards/nordic/nrf9151dk/nrf9151dk_nrf9151_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_NRF9151DK_NRF9151_NS
+- CONFIG_BOARD_NRF9151DK_NRF9151
+vendor: nordic

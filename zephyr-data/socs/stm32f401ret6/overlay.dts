@@ -31,6 +31,12 @@
 	pinctrl-0 = < &i2c2_scl_pb10 &i2c2_sda_pb3 >;
 	pinctrl-names = "default";
 };
+&i2c3{
+	clock-frequency = < 0x61a80 >;
+	status = "okay";
+	pinctrl-0 = < &i2c3_scl_pa8 &i2c3_sda_pc9 >;
+	pinctrl-names = "default";
+};
 &pll{
 	status = "okay";
 	div-m = < 0x10 >;

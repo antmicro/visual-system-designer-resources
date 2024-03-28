@@ -13,6 +13,11 @@
 &clk_hsi48{
 	status = "okay";
 };
+&octospi1{
+	status = "okay";
+	pinctrl-0 = < &octospim_p1_clk_pb2 &octospim_p1_ncs_pb6 &octospim_p1_io0_pd11 &octospim_p1_io1_pd12 &octospim_p1_io2_pe2 &octospim_p1_io3_pd13 >;
+	pinctrl-names = "default";
+};
 &pll{
 	status = "okay";
 	div-m = < 0x5 >;
@@ -29,6 +34,12 @@
 	d2ppre1 = < 0x2 >;
 	d2ppre2 = < 0x2 >;
 	d3ppre = < 0x2 >;
+};
+&spi6{
+	status = "okay";
+	pinctrl-0 = < &spi6_sck_pb3 &spi6_miso_pb4 &spi6_mosi_pb5 >;
+	cs-gpios = < &gpioa 0xf 0x1 >;
+	pinctrl-names = "default";
 };
 &usart1{
 	status = "okay";
@@ -122,6 +133,43 @@
 		#gpio-cells = < 0x2 >;
 		reg = < 0x58022800 0x400 >;
 		clocks = < &rcc 0xe0 0x400 >;
+	};
+	octospim_p1_clk_pb2: octospim_p1_clk_pb2 {
+		pinmux = < 0x249 >;
+		slew-rate = "very-high-speed";
+	};
+	octospim_p1_ncs_pb6: octospim_p1_ncs_pb6 {
+		pinmux = < 0x2ca >;
+		slew-rate = "very-high-speed";
+	};
+	octospim_p1_io0_pd11: octospim_p1_io0_pd11 {
+		pinmux = < 0x769 >;
+		slew-rate = "very-high-speed";
+	};
+	octospim_p1_io1_pd12: octospim_p1_io1_pd12 {
+		pinmux = < 0x789 >;
+		slew-rate = "very-high-speed";
+	};
+	octospim_p1_io3_pd13: octospim_p1_io3_pd13 {
+		pinmux = < 0x7a9 >;
+		slew-rate = "very-high-speed";
+	};
+	octospim_p1_io2_pe2: octospim_p1_io2_pe2 {
+		pinmux = < 0x849 >;
+		slew-rate = "very-high-speed";
+	};
+	spi6_miso_pb4: spi6_miso_pb4 {
+		pinmux = < 0x288 >;
+		bias-pull-down;
+	};
+	spi6_mosi_pb5: spi6_mosi_pb5 {
+		pinmux = < 0x2a8 >;
+		bias-pull-down;
+	};
+	spi6_sck_pb3: spi6_sck_pb3 {
+		pinmux = < 0x268 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
 	};
 	usart1_rx_pa10: usart1_rx_pa10 {
 		pinmux = < 0x147 >;

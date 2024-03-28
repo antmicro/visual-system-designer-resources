@@ -1,9 +1,8 @@
 / {
-	compatible = "nordic,nrf54h20pdk_nrf54h20-cpurad";
+	compatible = "nordic,nrf54h20dk_nrf54h20-cpuapp";
 	chosen {
-		zephyr,console = &uart135;
+		zephyr,console = &uart136;
 		zephyr,flash = &mram1x;
-		zephyr,sram = &cpurad_ram0;
 	};
 };
 &gpio0{
@@ -13,14 +12,14 @@
 	status = "okay";
 };
 &uart135{
-	status = "okay";
-	memory-regions = < &cpurad_dma_region >;
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart135_default >;
 	pinctrl-1 = < &uart135_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart136{
+	status = "okay";
+	memory-regions = < &cpuapp_dma_region >;
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart136_default >;
 	pinctrl-1 = < &uart136_sleep >;
@@ -30,32 +29,32 @@
 	compatible = "nordic,nrf-pinctrl";
 	uart135_default: uart135_default {
 		group1 {
-			psels = < 0x24 >, < 0x20020 >;
+			psels = < 0x2b >, < 0x20029 >;
 		};
 		group2 {
 			bias-pull-up;
-			psels = < 0x10025 >, < 0x30026 >;
+			psels = < 0x1002a >, < 0x30027 >;
 		};
 	};
 	uart135_sleep: uart135_sleep {
 		group1 {
 			low-power-enable;
-			psels = < 0x24 >, < 0x10025 >, < 0x20020 >, < 0x30026 >;
+			psels = < 0x2b >, < 0x1002a >, < 0x20029 >, < 0x30027 >;
 		};
 	};
 	uart136_default: uart136_default {
 		group1 {
-			psels = < 0x44 >, < 0x20040 >;
+			psels = < 0x46 >, < 0x20047 >;
 		};
 		group2 {
 			bias-pull-up;
-			psels = < 0x10045 >, < 0x30046 >;
+			psels = < 0x10044 >, < 0x30045 >;
 		};
 	};
 	uart136_sleep: uart136_sleep {
 		group1 {
 			low-power-enable;
-			psels = < 0x44 >, < 0x10045 >, < 0x20040 >, < 0x30046 >;
+			psels = < 0x46 >, < 0x10044 >, < 0x20047 >, < 0x30045 >;
 		};
 	};
 };

@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/v2m_musca_b1/v2m_musca_b1_ns_defconfig
+board_socs:
+- name: musca_b1
+  variants:
+  - name: ns
+defconfig_file: boards/arm/v2m_musca_b1/v2m_musca_b1_musca_b1_ns_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_V2M_MUSCA_B1_NS
+- CONFIG_BOARD_V2M_MUSCA_B1_MUSCA_B1
+vendor: arm

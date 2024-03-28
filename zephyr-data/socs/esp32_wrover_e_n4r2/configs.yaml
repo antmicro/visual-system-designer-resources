@@ -1,4 +1,7 @@
 architecture: xtensa
-defconfig_file: boards/xtensa/olimex_esp32_evb/olimex_esp32_evb_defconfig
+board_socs:
+- name: esp32
+defconfig_file: boards/olimex/olimex_esp32_evb/olimex_esp32_evb_esp32_procpu_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_OLIMEX_ESP32_EVB
+- CONFIG_BOARD_OLIMEX_ESP32_EVB_ESP32_PROCPU
+vendor: olimex

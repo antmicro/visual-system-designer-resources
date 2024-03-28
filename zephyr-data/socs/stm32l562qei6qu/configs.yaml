@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/stm32l562e_dk/stm32l562e_dk_ns_defconfig
+board_socs:
+- name: stm32l562xx
+  variants:
+  - name: ns
+defconfig_file: boards/st/stm32l562e_dk/stm32l562e_dk_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_STM32L562E_DK_NS
+- CONFIG_BOARD_STM32L562E_DK
+vendor: st

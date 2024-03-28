@@ -31,6 +31,71 @@
 			};
 		};
 	};
+	irqsteer: interrupt-controller@510a0000 {
+		compatible = "nxp,irqsteer-intc";
+		reg = < 0x510a0000 0x10000 >;
+		#size-cells = < 0x0 >;
+		#address-cells = < 0x1 >;
+		master0: interrupt-controller@0 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x0 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x13 0x0 0x0 >;
+		};
+		master1: interrupt-controller@1 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x1 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x14 0x0 0x0 >;
+		};
+		master2: interrupt-controller@2 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x2 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x15 0x0 0x0 >;
+		};
+		master3: interrupt-controller@3 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x3 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x16 0x0 0x0 >;
+		};
+		master4: interrupt-controller@4 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x4 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x17 0x0 0x0 >;
+			phandle = < 0x4 >;
+		};
+		master5: interrupt-controller@5 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x5 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x18 0x0 0x0 >;
+			phandle = < 0x3 >;
+		};
+		master6: interrupt-controller@6 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x6 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x19 0x0 0x0 >;
+			phandle = < 0x2 >;
+		};
+		master7: interrupt-controller@7 {
+			compatible = "nxp,irqsteer-master";
+			reg = < 0x7 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			interrupts-extended = < &clic 0x1a 0x0 0x0 >;
+		};
+	};
 	sram0: memory@92400000 {
 		device_type = "memory";
 		compatible = "mmio-sram";
@@ -41,6 +106,14 @@
 		compatible = "mmio-sram";
 		reg = < 0x92c00000 0x80000 >;
 	};
+	edma0: dma@591f0000 {
+		compatible = "nxp,edma";
+		reg = < 0x591f0000 0x210000 >;
+		valid-channels = < 0x6 >, < 0x7 >, < 0xe >, < 0xf >;
+		interrupts-extended = < &master6 0x3a >, < &master6 0x3a >, < &master5 0x1d >, < &master5 0x1d >;
+		#dma-cells = < 0x2 >;
+		status = "disabled";
+	};
 	scu_mu: mailbox@5d1d0000 {
 		reg = < 0x5d1d0000 0x10000 >;
 	};
@@ -48,7 +121,7 @@
 		ccm: clock-controller {
 			compatible = "nxp,imx-ccm";
 			#clock-cells = < 0x3 >;
-			phandle = < 0x2 >;
+			phandle = < 0x5 >;
 		};
 		iomuxc: iomuxc {
 			compatible = "nxp,imx-iomuxc-scu";
@@ -60,8 +133,8 @@
 	lpuart2: serial@5a080000 {
 		compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
 		reg = < 0x5a080000 0x1000 >;
-		interrupt-parent = < &clic >;
-		interrupts = < 0x103 0x0 0x0 >;
+		interrupt-parent = < &master4 >;
+		interrupts = < 0x3 >;
 		clocks = < &ccm 0x302 0x0 0x0 >;
 		status = "disabled";
 	};

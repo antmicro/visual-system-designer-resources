@@ -1,4 +1,12 @@
 architecture: xtensa
-defconfig_file: boards/xtensa/nxp_adsp_imx8m/nxp_adsp_imx8m_defconfig
+board_socs:
+- name: mimx8ml8
+  variants:
+  - cpucluster: a53
+    name: smp
+  - cpucluster: m7
+    name: ddr
+defconfig_file: boards/nxp/imx8mp_evk/imx8mp_evk_mimx8ml8_adsp_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_NXP_ADSP_IMX8M
+- CONFIG_BOARD_IMX8MP_EVK_MIMX8ML8_ADSP
+vendor: nxp

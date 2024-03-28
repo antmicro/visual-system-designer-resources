@@ -11,18 +11,19 @@
 	pinctrl-names = "default";
 };
 &flash0{
-	reg = < 0x10000000 0x200000 >;
+	reg = < 0x10000000 0x800000 >;
 };
 &gpio0{
 	status = "okay";
 };
 &i2c0{
 	status = "okay";
-	clock-frequency = < 0x186a0 >;
+	clock-frequency = < 0x61a80 >;
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
 };
 &i2c1{
+	status = "okay";
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 	clock-frequency = < 0x61a80 >;
@@ -34,9 +35,9 @@
 };
 &spi0{
 	status = "okay";
-	clock-frequency = < 0x7a1200 >;
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
+	clock-frequency = < 0x7a1200 >;
 };
 &uart0{
 	status = "okay";
@@ -64,32 +65,26 @@
 			input-enable;
 		};
 	};
-	i2c0_default: i2c0_default {
-		group1 {
-			pinmux = < 0x43 >, < 0x53 >;
-			input-enable;
-			input-schmitt-enable;
-		};
-	};
 	i2c1_default: i2c1_default {
 		group1 {
-			pinmux = < 0x63 >, < 0x73 >;
+			pinmux = < 0x23 >;
 			input-enable;
-			input-schmitt-enable;
+		};
+		group2 {
+			pinmux = < 0x33 >;
+			input-enable;
 		};
 	};
 	spi0_default: spi0_default {
 		group1 {
-			pinmux = < 0x111 >, < 0x121 >, < 0x131 >;
+			pinmux = < 0x131 >;
 		};
 		group2 {
-			pinmux = < 0x101 >;
+			pinmux = < 0x141 >;
 			input-enable;
 		};
-	};
-	pwm_ch4b_default: pwm_ch4b_default {
-		group1 {
-			pinmux = < 0x194 >;
+		group3 {
+			pinmux = < 0x121 >;
 		};
 	};
 	adc_default: adc_default {
@@ -99,5 +94,10 @@
 		};
 	};
 	clocks_default: clocks_default {
+	};
+	ws2812_pio0_default: ws2812_pio0_default {
+		ws2812 {
+			pinmux = < 0x116 >;
+		};
 	};
 };

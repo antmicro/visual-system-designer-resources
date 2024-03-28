@@ -376,8 +376,6 @@
 			clocks = < &pcc 0x80f17c14 0x2000000 0x0 >;
 			bosch,mram-cfg = < 0x0 0xc 0xa 0x3 0x3 0x3 0x3 0x3 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
-			sample-point-data = < 0x36b >;
 		};
 		canfd1: canfd@40024000 {
 			compatible = "nuvoton,numaker-canfd";
@@ -389,8 +387,6 @@
 			clocks = < &pcc 0x80f57c95 0x8000000 0x0 >;
 			bosch,mram-cfg = < 0x0 0xc 0xa 0x3 0x3 0x3 0x3 0x3 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
-			sample-point-data = < 0x36b >;
 		};
 		canfd2: canfd@40028000 {
 			compatible = "nuvoton,numaker-canfd";
@@ -402,8 +398,6 @@
 			clocks = < &pcc 0x80f97d16 0x20000000 0x0 >;
 			bosch,mram-cfg = < 0x0 0xc 0xa 0x3 0x3 0x3 0x3 0x3 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
-			sample-point-data = < 0x36b >;
 		};
 		canfd3: canfd@4002c000 {
 			compatible = "nuvoton,numaker-canfd";
@@ -415,8 +409,6 @@
 			clocks = < &pcc 0x80fd7d97 0x80000000 0x0 >;
 			bosch,mram-cfg = < 0x0 0xc 0xa 0x3 0x3 0x3 0x3 0x3 >;
 			status = "disabled";
-			sample-point = < 0x36b >;
-			sample-point-data = < 0x36b >;
 		};
 		emac: ethernet@40012000 {
 			compatible = "nuvoton,numaker-ethernet";
@@ -522,6 +514,13 @@
 			status = "disabled";
 			num-bidir-endpoints = < 0x19 >;
 			disallow-iso-in-out-same-number;
+		};
+		wwdt: watchdog@40040100 {
+			compatible = "nuvoton,numaker-wwdt";
+			reg = < 0x40040100 0x10 >;
+			interrupts = < 0x9 0x0 >;
+			clocks = < &pcc 0x24fc0000 0xc0000000 0x0 >;
+			status = "disabled";
 		};
 	};
 	cpus {

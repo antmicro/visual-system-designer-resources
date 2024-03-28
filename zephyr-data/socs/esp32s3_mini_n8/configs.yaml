@@ -1,4 +1,7 @@
 architecture: xtensa
-defconfig_file: boards/xtensa/esp32s3_luatos_core/esp32s3_luatos_core_defconfig
+board_socs:
+- name: esp32s3
+defconfig_file: boards/espressif/esp32s3_devkitm/esp32s3_devkitm_esp32s3_procpu_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ESP32S3_LUATOS_CORE
+- CONFIG_BOARD_ESP32S3_DEVKITM_ESP32S3_PROCPU
+vendor: espressif

@@ -896,6 +896,50 @@
 				reg = < 0x83 >;
 				int-gpios = < &test_gpio 0x0 0x0 >;
 			};
+			test_i2c_tsl2591: tsl2591@84 {
+				compatible = "ams,tsl2591";
+				reg = < 0x84 >;
+				int-gpios = < &test_gpio 0x0 0x0 >;
+			};
+			test_i2c_max31790: max31790@85 {
+				compatible = "maxim,max31790";
+				status = "okay";
+				reg = < 0x85 >;
+				max31790_fan_fault: max31790_fan_fault {
+					compatible = "maxim,max31790-fan-fault";
+					status = "okay";
+				};
+				max31790_fan_speed_1: max31790_fan_speed_1 {
+					compatible = "maxim,max31790-fan-speed";
+					status = "okay";
+					channel = < 0x1 >;
+				};
+				max31790_fan_speed_2: max31790_fan_speed_2 {
+					compatible = "maxim,max31790-fan-speed";
+					status = "okay";
+					channel = < 0x2 >;
+				};
+				max31790_fan_speed_3: max31790_fan_speed_3 {
+					compatible = "maxim,max31790-fan-speed";
+					status = "okay";
+					channel = < 0x3 >;
+				};
+				max31790_fan_speed_4: max31790_fan_speed_4 {
+					compatible = "maxim,max31790-fan-speed";
+					status = "okay";
+					channel = < 0x4 >;
+				};
+				max31790_fan_speed_5: max31790_fan_speed_5 {
+					compatible = "maxim,max31790-fan-speed";
+					status = "okay";
+					channel = < 0x5 >;
+				};
+				max31790_fan_speed_6: max31790_fan_speed_6 {
+					compatible = "maxim,max31790-fan-speed";
+					status = "okay";
+					channel = < 0x6 >;
+				};
+			};
 		};
 		test_spi: spi@33334444 {
 			#address-cells = < 0x1 >;
@@ -904,7 +948,7 @@
 			reg = < 0x33334444 0x1000 >;
 			status = "okay";
 			clock-frequency = < 0x1e8480 >;
-			cs-gpios = < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >;
+			cs-gpios = < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >, < &test_gpio 0x0 0x0 >;
 			test_spi_adxl362: adxl362@0 {
 				compatible = "adi,adxl362";
 				reg = < 0x0 >;
@@ -1189,6 +1233,19 @@
 				reg = < 0x2a >;
 				spi-max-frequency = < 0x0 >;
 				int-gpios = < &test_gpio 0x0 0x0 >;
+			};
+			test_spi_bd8lb600fs: bd8lb600fs@2b {
+				compatible = "rohm,bd8lb600fs";
+				reg = < 0x2b >;
+				spi-max-frequency = < 0x0 >;
+				reset-gpios = < &test_gpio 0x0 0x0 >;
+				instance-count = < 0x1 >;
+				status = "okay";
+				bd8lb600fs_diagnostics: bd8lb600fs_diagnostics {
+					compatible = "rohm,bd8lb600fs-diagnostics";
+					status = "okay";
+					#sensor-cells = < 0x0 >;
+				};
 			};
 		};
 		test_uart: uart@55556666 {

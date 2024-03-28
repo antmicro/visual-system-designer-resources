@@ -112,63 +112,63 @@
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x106000 0x1000 >;
 				interrupts = < 0xe 0x0 >;
-				clocks = < &clkctl1 0x0 >;
+				clocks = < &clkctl1 0x100 >;
 				status = "disabled";
 			};
 			flexcomm1: flexcomm@107000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x107000 0x1000 >;
 				interrupts = < 0xf 0x0 >;
-				clocks = < &clkctl1 0x1 >;
+				clocks = < &clkctl1 0x101 >;
 				status = "disabled";
 			};
 			flexcomm2: flexcomm@108000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x108000 0x1000 >;
 				interrupts = < 0x10 0x0 >;
-				clocks = < &clkctl1 0x2 >;
+				clocks = < &clkctl1 0x102 >;
 				status = "disabled";
 			};
 			flexcomm3: flexcomm@109000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x109000 0x1000 >;
 				interrupts = < 0x11 0x0 >;
-				clocks = < &clkctl1 0x3 >;
+				clocks = < &clkctl1 0x103 >;
 				status = "disabled";
 			};
 			flexcomm4: flexcomm@122000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x122000 0x1000 >;
 				interrupts = < 0x12 0x0 >;
-				clocks = < &clkctl1 0x4 >;
+				clocks = < &clkctl1 0x104 >;
 				status = "disabled";
 			};
 			flexcomm5: flexcomm@123000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x123000 0x1000 >;
 				interrupts = < 0x13 0x0 >;
-				clocks = < &clkctl1 0x5 >;
+				clocks = < &clkctl1 0x105 >;
 				status = "disabled";
 			};
 			flexcomm6: flexcomm@124000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x124000 0x1000 >;
 				interrupts = < 0x2b 0x0 >;
-				clocks = < &clkctl1 0x6 >;
+				clocks = < &clkctl1 0x106 >;
 				status = "disabled";
 			};
 			flexcomm7: flexcomm@125000 {
 				compatible = "nxp,lpc-flexcomm";
 				reg = < 0x125000 0x1000 >;
 				interrupts = < 0x2c 0x0 >;
-				clocks = < &clkctl1 0x7 >;
+				clocks = < &clkctl1 0x107 >;
 				status = "disabled";
 			};
 			pmic_i2c: i2c@127000 {
 				compatible = "nxp,lpc-i2c";
 				reg = < 0x127000 0x1000 >;
 				interrupts = < 0x15 0x0 >;
-				clocks = < &clkctl1 0xf >;
+				clocks = < &clkctl1 0x10f >;
 				status = "disabled";
 			};
 			usbhs: usbhs@144000 {
@@ -182,7 +182,7 @@
 				compatible = "nxp,lpc-spi";
 				reg = < 0x126000 0x1000 >;
 				interrupts = < 0x14 0x0 >;
-				clocks = < &clkctl1 0xe >;
+				clocks = < &clkctl1 0x10e >;
 				status = "disabled";
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
@@ -230,7 +230,7 @@
 				reg = < 0x146000 0x1000 >;
 				interrupts = < 0xc 0x0 >;
 				status = "disabled";
-				clocks = < &clkctl1 0x22 >;
+				clocks = < &clkctl1 0x900 >;
 				prescaler = < 0x8 >;
 				#pwm-cells = < 0x3 >;
 			};
@@ -253,7 +253,7 @@
 				reg = < 0x136000 0x1000 >;
 				status = "disabled";
 				interrupts = < 0x2d 0x0 >;
-				clocks = < &clkctl1 0x14 >;
+				clocks = < &clkctl1 0x200 >;
 				max-current-330 = < 0x3fc >;
 				max-current-180 = < 0x3fc >;
 				max-bus-freq = < 0xc65d400 >;
@@ -264,7 +264,7 @@
 				reg = < 0x137000 0x1000 >;
 				status = "disabled";
 				interrupts = < 0x2e 0x0 >;
-				clocks = < &clkctl1 0x15 >;
+				clocks = < &clkctl1 0x201 >;
 				max-current-330 = < 0x3fc >;
 				max-current-180 = < 0x3fc >;
 				max-bus-freq = < 0xc65d400 >;
@@ -343,7 +343,7 @@
 				compatible = "nxp,mcux-i3c";
 				reg = < 0x36000 0x1000 >;
 				interrupts = < 0x31 0x0 >;
-				clocks = < &clkctl1 0x1e >;
+				clocks = < &clkctl1 0x600 >;
 				clk-divider = < 0x2 >;
 				clk-divider-slow = < 0x1 >;
 				clk-divider-tc = < 0x1 >;
@@ -357,7 +357,7 @@
 				interrupts = < 0x9 0x0 >;
 				num-channels = < 0x4 >;
 				num-bits = < 0x18 >;
-				clocks = < &clkctl1 0x28 >;
+				clocks = < &clkctl1 0xb00 >;
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
 				mrt_channel0: mrt_channel@0 {
@@ -389,7 +389,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			status = "disabled";
-			clocks = < &clkctl1 0x24 >;
+			clocks = < &clkctl1 0xa00 >;
 		};
 		nvic: interrupt-controller@e000e100 {
 			#address-cells = < 0x1 >;

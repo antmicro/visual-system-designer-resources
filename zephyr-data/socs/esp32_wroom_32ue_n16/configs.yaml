@@ -1,4 +1,7 @@
 architecture: xtensa
-defconfig_file: boards/xtensa/yd_esp32/yd_esp32_defconfig
+board_socs:
+- name: esp32
+defconfig_file: boards/vcc-gnd/yd_esp32/yd_esp32_esp32_procpu_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_YD_ESP32
+- CONFIG_BOARD_YD_ESP32_ESP32_PROCPU
+vendor: vcc-gnd

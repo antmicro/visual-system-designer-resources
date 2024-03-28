@@ -1,4 +1,9 @@
 architecture: arm
-defconfig_file: boards/arm/nrf52dk_nrf52805/nrf52dk_nrf52805_defconfig
+board_socs:
+- name: nrf52805
+- name: nrf52810
+- name: nrf52832
+defconfig_file: boards/nordic/nrf52dk/nrf52dk_nrf52805_defconfig
 remove_defconfig_flags:
 - CONFIG_BOARD_NRF52DK_NRF52805
+vendor: nordic
