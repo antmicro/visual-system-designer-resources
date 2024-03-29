@@ -2,9 +2,11 @@
 	compatible = "lairdconnect,bl5340-dvk-cpuapp";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,flash = &flash1;
-		zephyr,sram = &sram1;
+		zephyr,flash = &flash0;
 	};
+};
+&adc{
+	status = "okay";
 };
 &gpio0{
 	status = "okay";
@@ -12,18 +14,55 @@
 &gpio1{
 	status = "okay";
 };
-&i2c0{
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&radio{
-	fem = < &nrf_radio_fem >;
+&i2s0{
+	status = "okay";
+	pinctrl-0 = < &i2s0_default >;
+	pinctrl-1 = < &i2s0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
-&spi0{
-	cs-gpios = < &arduino_header 0x10 0x1 >;
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-1 = < &spi0_sleep >;
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm1{
+	status = "okay";
+	pinctrl-0 = < &pwm1_default >;
+	pinctrl-1 = < &pwm1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&qspi{
+	status = "okay";
+	pinctrl-0 = < &qspi_default >;
+	pinctrl-1 = < &qspi_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi2{
+	status = "okay";
+	cs-gpios = < &gpio0 0x19 0x1 >;
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi3{
+	status = "okay";
+	cs-gpios = < &gpio1 0xc 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi4{
+	status = "okay";
+	cs-gpios = < &gpio0 0xb 0x1 >;
+	pinctrl-0 = < &spi4_default >;
+	pinctrl-1 = < &spi4_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart0{
@@ -32,6 +71,15 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
+};
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&usbd{
+	status = "okay";
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
