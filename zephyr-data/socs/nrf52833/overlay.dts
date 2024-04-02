@@ -6,31 +6,63 @@
 		zephyr,sram = &sram0;
 	};
 };
-&flash0{
-	reg = < 0x0 0x80000 >;
+&adc{
+	status = "okay";
 };
 &gpio0{
 	status = "okay";
 };
+&gpio1{
+	status = "okay";
+};
 &i2c0{
 	clock-frequency = < 0x61a80 >;
-	easydma-maxcnt-bits = < 0x10 >;
 	status = "okay";
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-1 = < &i2c0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &i2c1{
-	easydma-maxcnt-bits = < 0x10 >;
+	compatible = "nordic,nrf-twi";
+	easydma-maxcnt-bits = < 0xf >;
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm1{
+	status = "okay";
+	pinctrl-0 = < &pwm1_default >;
+	pinctrl-1 = < &pwm1_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &spi0{
-	easydma-maxcnt-bits = < 0x10 >;
+	compatible = "nordic,nrf-spi";
+	easydma-maxcnt-bits = < 0xf >;
 };
 &spi1{
-	easydma-maxcnt-bits = < 0x10 >;
+	compatible = "nordic,nrf-spi";
+	status = "okay";
+	cs-gpios = < &gpio0 0x17 0x1 >;
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-1 = < &spi1_sleep >;
+	pinctrl-names = "default", "sleep";
 };
-&sram0{
-	reg = < 0x20000000 0x20000 >;
+&spi2{
+	status = "okay";
+	cs-gpios = < &arduino_header 0x0 0x1 >;
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi3{
+	status = "okay";
+	cs-gpios = < &arduino_header 0x10 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &uart0{
 	compatible = "nordic,nrf-uart";
@@ -38,6 +70,12 @@
 	current-speed = < 0x1c200 >;
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-1 = < &uart0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &usbd{

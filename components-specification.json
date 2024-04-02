@@ -19,7 +19,7 @@
             "rdp": {
                 "icon": "icons_renodepedia.svg",
                 "name": "Renodepedia",
-                "url": "https://zephyr-dashboard.renode.io/renodepedia/"
+                "url": "https://renodepedia.renode.io/"
             },
             "ren": {
                 "icon": "icons_model.svg",
@@ -229,7 +229,7 @@
                 "XC7A100T-FGG484"
             ],
             "icon": {
-                "hw-icon": "/blender-models/bga-484-23x23mm-layout22x22-p1mm-xilinx-fgg484/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/bga-484-23x23mm-layout22x22-p1mm-fgg484/previews/isoF_thumbnail_64x64.webp"
             },
             "name": "AMD-Xilinx XC7A100T-FGG484",
             "urls": {
@@ -244,7 +244,7 @@
                 "XC7K160T-FFG676"
             ],
             "icon": {
-                "hw-icon": "/blender-models/bga-676-27x27mm-layout26x26-p1x1mm-amd-xilinx-xc7k160t-ffg676/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/bga-676-27x27mm-layout26x26-p1x1mm-ffg676-amd-xilinx-xc7k160t-ffg676/previews/isoF_thumbnail_64x64.webp"
             },
             "name": "AMD-Xilinx XC7K160T-FFG676",
             "urls": {
@@ -259,7 +259,7 @@
                 "Kintex-7 K410T"
             ],
             "icon": {
-                "hw-icon": "/blender-models/xc7k410t-2ffg900i/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/bga-900-31x31mm-layout30x30-p1x1mm-ffg900/previews/isoF_thumbnail_64x64.webp"
             },
             "name": "AMD-Xilinx XC7K410T-2FFG900I",
             "urls": {
@@ -274,7 +274,7 @@
                 "Kintex-7 70T"
             ],
             "icon": {
-                "hw-icon": "/blender-models/bga484c100p22x22-2300x2300x244n/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/bga-484-23x23mm-layout22x22-p1mm-fbg484/previews/isoF_thumbnail_64x64.webp"
             },
             "name": "AMD-Xilinx XC7K70T-1FBG484C",
             "urls": {
@@ -5342,7 +5342,7 @@
                 "LPDDR4"
             ],
             "icon": {
-                "hw-icon": "/blender-models/bga-200-10-0x14-5mm-layout12x22-p0-80x0-65mm/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/bga-200-10-0x14-5mm-layout12x22-p0-80x0-65mm-micron-technology-mt53e1g32d2np-046-wt-a/previews/isoF_thumbnail_64x64.webp"
             },
             "name": "Micron Technology MT53E1G32D2NP-046 WT:A",
             "urls": {
@@ -9110,7 +9110,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -14601,7 +14601,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cy8c6347bzi",
-                "zephyr": "dts/arm/cypress/psoc6_cm0.dtsi"
+                "zephyr": "dts/arm/cypress/psoc6_cm4.dtsi"
             }
         },
         {
@@ -16639,7 +16639,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32mg12",
-                "zephyr": "dts/arm/silabs/efr32mg12p433f1024gm68.dtsi"
+                "zephyr": "dts/arm/silabs/efr32mg12p432f1024gl125.dtsi"
             }
         },
         {
@@ -21606,7 +21606,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/gd32vf103",
-                "zephyr": "dts/riscv/gd/gd32vf103X8.dtsi"
+                "zephyr": "dts/riscv/gd/gd32vf103Xb.dtsi"
             }
         },
         {
@@ -22239,7 +22239,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/invensense_icm42688",
-                "zephyr": "drivers/sensor/icm42688/icm42688_emul.c"
+                "zephyr": "drivers/sensor/icm42688/icm42688.c"
             }
         },
         {
@@ -36989,14 +36989,28 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "flash_controller",
+                    "name": "adc",
                     "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "flash_controller",
+                    "side": "right",
                     "type": "mtd"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio0",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio1",
                     "side": "right",
                     "type": "gpio"
                 },
@@ -37017,42 +37031,112 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pinctrl",
+                    "name": "i2s0",
                     "side": "left",
+                    "type": "i2s"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "nfct",
+                    "side": "right",
+                    "type": "wireless"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pdm0",
+                    "side": "left",
+                    "type": "audio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "side": "right",
                     "type": "pinctrl"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "qdec",
+                    "name": "pwm0",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm1",
                     "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm2",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm3",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qdec",
+                    "side": "left",
                     "type": "qdec"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "radio",
-                    "side": "left",
+                    "side": "right",
                     "type": "rf"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi0",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi1",
                     "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "spi1",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi2",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi3",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "uart0",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
                     "side": "right",
                     "type": "serial"
                 },
@@ -37067,7 +37151,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf52833",
-                "zephyr": "dts/arm/nordic/nrf52820_qdaa.dtsi"
+                "zephyr": "dts/arm/nordic/nrf52833_qiaa.dtsi"
             }
         },
         {
@@ -37254,211 +37338,64 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "adc",
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
                     "name": "flash_controller",
-                    "side": "right",
+                    "side": "left",
                     "type": "mtd"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio0",
-                    "side": "left",
+                    "side": "right",
                     "type": "gpio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio1",
-                    "side": "right",
+                    "side": "left",
                     "type": "gpio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "i2c0",
-                    "side": "left",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c1",
                     "side": "right",
                     "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c2",
-                    "side": "left",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c3",
-                    "side": "right",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2s0",
-                    "side": "left",
-                    "type": "i2s"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "nfct",
-                    "side": "right",
-                    "type": "wireless"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pdm0",
-                    "side": "left",
-                    "type": "audio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "pinctrl",
-                    "side": "right",
+                    "side": "left",
                     "type": "pinctrl"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm0",
-                    "side": "left",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm1",
+                    "name": "radio",
                     "side": "right",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm2",
-                    "side": "left",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm3",
-                    "side": "right",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "qdec0",
-                    "side": "left",
-                    "type": "qdec"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "qdec1",
-                    "side": "right",
-                    "type": "qdec"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "qspi",
-                    "side": "left",
-                    "type": "qspi"
+                    "type": "rf"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi0",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi1",
                     "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi2",
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi3",
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi4",
-                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart0",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart1",
                     "side": "right",
                     "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart2",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart3",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usbd",
-                    "side": "left",
-                    "type": "usb"
                 }
             ],
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf5340",
-                "zephyr": "dts/arm/nordic/nrf5340_cpuapp_qkaa.dtsi"
+                "zephyr": "dts/arm/nordic/nrf5340_cpunet_qkaa.dtsi"
             }
         },
         {
@@ -37891,7 +37828,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9131",
-                "zephyr": "dts/arm/nordic/nrf9131_laca.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9131ns_laca.dtsi"
             }
         },
         {
@@ -38055,7 +37992,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9151",
-                "zephyr": "dts/arm/nordic/nrf9151ns_laca.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9151_laca.dtsi"
             }
         },
         {
@@ -38219,7 +38156,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9160",
-                "zephyr": "dts/arm/nordic/nrf9160ns_sica.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9160_sica.dtsi"
             }
         },
         {
