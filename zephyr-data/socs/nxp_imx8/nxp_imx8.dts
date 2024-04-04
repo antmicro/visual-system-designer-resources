@@ -70,7 +70,7 @@
 			interrupt-controller;
 			#interrupt-cells = < 0x1 >;
 			interrupts-extended = < &clic 0x17 0x0 0x0 >;
-			phandle = < 0x4 >;
+			phandle = < 0x5 >;
 		};
 		master5: interrupt-controller@5 {
 			compatible = "nxp,irqsteer-master";
@@ -113,6 +113,17 @@
 		interrupts-extended = < &master6 0x3a >, < &master6 0x3a >, < &master5 0x1d >, < &master5 0x1d >;
 		#dma-cells = < 0x2 >;
 		status = "disabled";
+		phandle = < 0x4 >;
+	};
+	sai1: dai@59050000 {
+		compatible = "nxp,dai-sai";
+		reg = < 0x59050000 0x10000 >;
+		interrupt-parent = < &master5 >;
+		interrupts = < 0x1c >;
+		dai-index = < 0x1 >;
+		dmas = < &edma0 0xf 0x0 >, < &edma0 0xe 0x0 >;
+		dma-names = "tx", "rx";
+		status = "disabled";
 	};
 	scu_mu: mailbox@5d1d0000 {
 		reg = < 0x5d1d0000 0x10000 >;
@@ -121,7 +132,7 @@
 		ccm: clock-controller {
 			compatible = "nxp,imx-ccm";
 			#clock-cells = < 0x3 >;
-			phandle = < 0x5 >;
+			phandle = < 0x6 >;
 		};
 		iomuxc: iomuxc {
 			compatible = "nxp,imx-iomuxc-scu";

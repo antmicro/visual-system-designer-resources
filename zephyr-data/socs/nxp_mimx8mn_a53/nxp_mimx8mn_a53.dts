@@ -78,6 +78,7 @@
 		interrupt-names = "irq_0";
 		interrupt-parent = < &gic >;
 		clocks = < &ccm 0x801 0x6c 0x18 >;
+		rdc = < 0xf >;
 		status = "disabled";
 	};
 	uart4: serial@30a60000 {
@@ -87,6 +88,11 @@
 		interrupt-names = "irq_0";
 		interrupt-parent = < &gic >;
 		clocks = < &ccm 0x803 0x6c 0x18 >;
+		rdc = < 0xf >;
 		status = "disabled";
+	};
+	rdc: rdc@303d0000 {
+		compatible = "nxp,rdc";
+		reg = < 0x303d0000 0x10000 >;
 	};
 };

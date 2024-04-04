@@ -208,6 +208,8 @@
 					clocks = < &syscon 0x101 >;
 					#address-cells = < 0x1 >;
 					#size-cells = < 0x0 >;
+					dmas = < &edma0 0x0 0x47 >, < &edma0 0x1 0x48 >;
+					dma-names = "rx", "tx";
 					status = "disabled";
 				};
 				flexcomm1_lpi2c1: lpi2c@93800 {
@@ -467,15 +469,58 @@
 					status = "disabled";
 				};
 			};
+			edma0: dma-controller@80000 {
+				#dma-cells = < 0x2 >;
+				compatible = "nxp,mcux-edma-v4";
+				dma-channels = < 0x10 >;
+				dma-requests = < 0x78 >;
+				reg = < 0x80000 0x1000 >;
+				interrupts = < 0x1 0x0 >, < 0x2 0x0 >, < 0x3 0x0 >, < 0x4 0x0 >, < 0x5 0x0 >, < 0x6 0x0 >, < 0x7 0x0 >, < 0x8 0x0 >, < 0x9 0x0 >, < 0xa 0x0 >, < 0xb 0x0 >, < 0xc 0x0 >, < 0xd 0x0 >, < 0xe 0x0 >, < 0xf 0x0 >, < 0x10 0x0 >;
+				no-error-irq;
+				status = "disabled";
+				phandle = < 0x9 >;
+			};
+			edma1: dma-controller@a0000 {
+				#dma-cells = < 0x2 >;
+				compatible = "nxp,mcux-edma-v4";
+				dma-channels = < 0x10 >;
+				dma-requests = < 0x78 >;
+				reg = < 0xa0000 0x1000 >;
+				interrupts = < 0x4d 0x0 >, < 0x4e 0x0 >, < 0x4f 0x0 >, < 0x50 0x0 >, < 0x51 0x0 >, < 0x52 0x0 >, < 0x53 0x0 >, < 0x54 0x0 >, < 0x55 0x0 >, < 0x56 0x0 >, < 0x57 0x0 >, < 0x58 0x0 >, < 0x59 0x0 >, < 0x5a 0x0 >, < 0x5b 0x0 >, < 0x5c 0x0 >;
+				no-error-irq;
+				status = "disabled";
+			};
 			os_timer: timers@49000 {
 				compatible = "nxp,os-timer";
 				reg = < 0x49000 0x1000 >;
 				interrupts = < 0x39 0x0 >;
 				status = "disabled";
 			};
+			dac0: dac@10f000 {
+				compatible = "nxp,lpdac";
+				reg = < 0x10f000 0x1000 >;
+				interrupts = < 0x6a 0x0 >;
+				status = "disabled";
+				voltage-reference = < 0x0 >;
+				#io-channel-cells = < 0x1 >;
+			};
+			dac1: dac@112000 {
+				compatible = "nxp,lpdac";
+				reg = < 0x112000 0x1000 >;
+				interrupts = < 0x6b 0x0 >;
+				status = "disabled";
+				voltage-reference = < 0x0 >;
+				#io-channel-cells = < 0x1 >;
+			};
 		};
 		flexspi: spi@500c8000 {
 			reg = < 0x500c8000 0x1000 >, < 0x90000000 0x800000 >;
+			compatible = "nxp,imx-flexspi";
+			interrupts = < 0x3a 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			clocks = < &syscon 0xa00 >;
 		};
 	};
 	cpus: cpus {

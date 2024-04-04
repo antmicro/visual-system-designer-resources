@@ -158,6 +158,24 @@
         },
         "rdp-compat": "aosong,ags10"
     },
+    "aht20": {
+        "category": "Environmental",
+        "compatible": [
+            "aosong,aht20"
+        ],
+        "description": "Aosong AHT20 (Digital-output Humidity and Temperature Sensor)\n\nThe Asosong AHT20 sensor provides temperature and humidity\nmeasurements through an I2C bus.\n",
+        "driver": [
+            "drivers/sensor/dht20/dht20.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
+    },
     "ak8975": {
         "category": "Magnetometer",
         "compatible": [
@@ -184,8 +202,8 @@
         ],
         "description": "Asahi Kasei AKM09918C Magnetometer. See datasheet at\nhttps://www.akm.com/content/dam/documents/products/electronic-compass/ak09918c/ak09918c-en-datasheet.pdf\n",
         "driver": [
-            "drivers/sensor/akm09918c/akm09918c_emul.c",
-            "drivers/sensor/akm09918c/akm09918c.c"
+            "drivers/sensor/akm09918c/akm09918c.c",
+            "drivers/sensor/akm09918c/akm09918c_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -196,6 +214,24 @@
             }
         },
         "rdp-compat": "asahi-kasei,akm09918c"
+    },
+    "am2301b": {
+        "category": "Environmental",
+        "compatible": [
+            "aosong,am2301b"
+        ],
+        "description": "Aosong AM2301B (Digital-output Humidity and Temperature Sensor)\n\nThe Asosong AM2301B sensor provides temperature and humidity\nmeasurements through an I2C bus.\n",
+        "driver": [
+            "drivers/sensor/dht20/dht20.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
     },
     "amd_sb_tsi": {
         "category": "Environmental/Temperature",
@@ -346,8 +382,8 @@
         ],
         "description": "Bosch BMA4xx 3-axis acceleration sensors in I2C mode.  See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/accelerometers/\n",
         "driver": [
-            "drivers/sensor/bma4xx/bma4xx_emul.c",
-            "drivers/sensor/bma4xx/bma4xx.c"
+            "drivers/sensor/bma4xx/bma4xx.c",
+            "drivers/sensor/bma4xx/bma4xx_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -717,6 +753,24 @@
         },
         "rdp-compat": "ams,ccs811"
     },
+    "dht20": {
+        "category": "Environmental",
+        "compatible": [
+            "aosong,dht20"
+        ],
+        "description": "Aosong DHT20 (Digital-output Humidity and Temperature Sensor)\n\nThe Asosong DHT20 sensor provides temperature and humidity\nmeasurements through an I2C bus.\n",
+        "driver": [
+            "drivers/sensor/dht20/dht20.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
+    },
     "dht22": {
         "category": "Environmental",
         "compatible": [
@@ -876,6 +930,19 @@
             }
         },
         "rdp-compat": "fintek,f75303"
+    },
+    "fcx_mldx5": {
+        "category": "Other",
+        "compatible": [
+            "ap,fcx-mldx5"
+        ],
+        "description": "Angst+Pfister O2 sensor",
+        "driver": [
+            "drivers/sensor/fcx_mldx5/fcx_mldx5.c"
+        ],
+        "interfaces": {
+            "uart": "serial"
+        }
     },
     "fdc2x1x": {
         "category": "Position/Distance",
@@ -1163,9 +1230,6 @@
             "invensense,icm42605"
         ],
         "description": "ICM-42605 motion tracking device",
-        "driver": [
-            "drivers/sensor/icm42605/icm42605.c"
-        ],
         "interfaces": {
             "int": "gpio",
             "spi": "spi"
@@ -1183,9 +1247,6 @@
             "invensense,icm42670"
         ],
         "description": "ICM-42670 motion tracking device",
-        "driver": [
-            "drivers/sensor/icm42670/icm42670.c"
-        ],
         "interfaces": {
             "int": "gpio",
             "spi": "spi"
@@ -1250,10 +1311,6 @@
             "invensense,icm42688"
         ],
         "description": "ICM-42688 motion tracking device",
-        "driver": [
-            "drivers/sensor/icm42688/icm42688.c",
-            "drivers/sensor/icm42688/icm42688_emul.c"
-        ],
         "interfaces": {
             "spi": "spi"
         },
@@ -1270,9 +1327,6 @@
             "invensense,icp10125"
         ],
         "description": "ICP10125 barometric pressure/temperature sensor",
-        "driver": [
-            "drivers/sensor/icp10125/icp10125.c"
-        ],
         "interfaces": {
             "i2c": "i2c"
         },
@@ -1396,6 +1450,30 @@
             }
         },
         "rdp-compat": "st,iis2mdc"
+    },
+    "iis328dq": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,iis328dq"
+        ],
+        "description": "STMicroelectronics IIS328DQ accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/iis328dq/iis328dq.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "int2": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        }
     },
     "iis3dhhc": {
         "category": "Motion/Accelerometer",
@@ -2566,9 +2644,6 @@
             "invensense,mpu6050"
         ],
         "description": "MPU-6000 motion tracking device",
-        "driver": [
-            "drivers/sensor/mpu6050/mpu6050.c"
-        ],
         "interfaces": {
             "i2c": "i2c",
             "int": "gpio"
@@ -2586,9 +2661,6 @@
             "invensense,mpu9250"
         ],
         "description": "InvenSense MPU-9250 Nine-Axis (Gyro + Accelerometer + Compass). See more\ninfo at https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/\n",
-        "driver": [
-            "drivers/sensor/mpu9250/mpu9250.c"
-        ],
         "interfaces": {
             "i2c": "i2c",
             "irq": "gpio"
@@ -2949,6 +3021,25 @@
         "interfaces": {
             "gpio": "gpio",
             "gpios": "gpio"
+        }
+    },
+    "stts22h": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "st,stts22h"
+        ],
+        "description": "STMicroelectronics STTS22H temperature sensor connected to I2C bus\nWhen setting the sampling-rate property in a .dts or .dtsi file you\nmay include stts22h.h and use the macros defined there.\n\nExample:\n#include <zephyr/dt-bindings/sensor/stts22h.h>\n\nstts22h: stts22h@0 {\n  ...\n\n  sampling-rate = <STTS22H_100Hz>;\n};\n",
+        "driver": [
+            "drivers/sensor/stts22h/stts22h.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
         }
     },
     "stts751": {
