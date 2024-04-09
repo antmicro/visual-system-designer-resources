@@ -174,7 +174,8 @@
             "address (i2c)": {
                 "type": "string"
             }
-        }
+        },
+        "rdp-compat": "aosong,aht20"
     },
     "ak8975": {
         "category": "Magnetometer",
@@ -231,7 +232,8 @@
             "address (i2c)": {
                 "type": "string"
             }
-        }
+        },
+        "rdp-compat": "aosong,am2301b"
     },
     "amd_sb_tsi": {
         "category": "Environmental/Temperature",
@@ -240,8 +242,8 @@
         ],
         "description": "AMD SB Temperature Sensor Interface.",
         "driver": [
-            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c",
-            "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+            "drivers/sensor/amd_sb_tsi/sb_tsi.c",
+            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -382,8 +384,8 @@
         ],
         "description": "Bosch BMA4xx 3-axis acceleration sensors in I2C mode.  See more info at:\nhttps://www.bosch-sensortec.com/products/motion-sensors/accelerometers/\n",
         "driver": [
-            "drivers/sensor/bma4xx/bma4xx.c",
-            "drivers/sensor/bma4xx/bma4xx_emul.c"
+            "drivers/sensor/bma4xx/bma4xx_emul.c",
+            "drivers/sensor/bma4xx/bma4xx.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -769,7 +771,8 @@
             "address (i2c)": {
                 "type": "string"
             }
-        }
+        },
+        "rdp-compat": "aosong,dht20"
     },
     "dht22": {
         "category": "Environmental",
@@ -918,8 +921,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303.c",
-            "drivers/sensor/f75303/f75303_emul.c"
+            "drivers/sensor/f75303/f75303_emul.c",
+            "drivers/sensor/f75303/f75303.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1473,7 +1476,8 @@
             "spi-max-frequency": {
                 "type": "int"
             }
-        }
+        },
+        "rdp-compat": "st,iis328dq"
     },
     "iis3dhhc": {
         "category": "Motion/Accelerometer",
@@ -1834,6 +1838,30 @@
             }
         },
         "rdp-compat": "st,lis2du12"
+    },
+    "lis2dux12": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "st,lis2dux12"
+        ],
+        "description": "STMicroelectronics LIS2DUX12 3-axis accelerometer accessed through SPI bus\n",
+        "driver": [
+            "drivers/sensor/lis2dux12/lis2dux12.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "int2": "gpio",
+            "spi": "spi"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "spi-max-frequency": {
+                "type": "int"
+            }
+        }
     },
     "lis2dw12": {
         "category": "Motion/Accelerometer",
@@ -3040,7 +3068,8 @@
             "address (i2c)": {
                 "type": "string"
             }
-        }
+        },
+        "rdp-compat": "st,stts22h"
     },
     "stts751": {
         "category": "Environmental/Temperature",

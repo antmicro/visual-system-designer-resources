@@ -125,6 +125,14 @@
 		dma-names = "tx", "rx";
 		status = "disabled";
 	};
+	esai0: dai@59010000 {
+		compatible = "nxp,dai-esai";
+		reg = < 0x59010000 0x10000 >;
+		dmas = < &edma0 0x7 0x0 >, < &edma0 0x6 0x0 >;
+		dma-names = "tx", "rx";
+		esai-pin-modes = < 0x2 0x0 >, < 0x5 0x0 >, < 0x7 0x0 >, < 0x8 0x0 >, < 0x9 0x0 >, < 0xa 0x0 >;
+		status = "disabled";
+	};
 	scu_mu: mailbox@5d1d0000 {
 		reg = < 0x5d1d0000 0x10000 >;
 	};

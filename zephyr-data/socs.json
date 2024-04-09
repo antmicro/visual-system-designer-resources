@@ -1349,7 +1349,7 @@
     },
     "designstart": {
         "interfaces": {},
-        "path": "dts/arm/armv7-m.dtsi"
+        "path": "dts/arm/armv6-m.dtsi"
     },
     "dwm1001": {
         "interfaces": {
@@ -1642,7 +1642,7 @@
             "usart2": "serial",
             "usart3": "serial"
         },
-        "path": "dts/arm/silabs/efr32mg12p433f1024gm68.dtsi"
+        "path": "dts/arm/silabs/efr32mg12p432f1024gl125.dtsi"
     },
     "efr32mg21": {
         "interfaces": {
@@ -1672,7 +1672,7 @@
             "pinctrl": "pinctrl",
             "usart0": "serial"
         },
-        "path": "dts/arm/silabs/efr32mg24b310f1536im48.dtsi"
+        "path": "dts/arm/silabs/efr32mg24b220f1536im48.dtsi"
     },
     "elkhart_lake": {
         "interfaces": {
@@ -2424,7 +2424,7 @@
             "usart1": "serial",
             "usart2": "serial"
         },
-        "path": "dts/riscv/gd/gd32vf103Xb.dtsi"
+        "path": "dts/riscv/gd/gd32vf103X8.dtsi"
     },
     "gr716a": {
         "interfaces": {
@@ -3104,6 +3104,9 @@
     },
     "mimx8mp": {
         "interfaces": {
+            "ecspi1": "spi",
+            "ecspi2": "spi",
+            "ecspi3": "spi",
             "gpio1": "gpio",
             "gpio2": "gpio",
             "gpio3": "gpio",
@@ -4364,7 +4367,7 @@
             "spi1": "spi",
             "uart0": "serial"
         },
-        "path": "dts/arm/nordic/nrf51822_qfaa.dtsi"
+        "path": "dts/arm/nordic/nrf51822_qfac.dtsi"
     },
     "nrf52805": {
         "interfaces": {
@@ -4454,31 +4457,19 @@
     },
     "nrf52833": {
         "interfaces": {
-            "adc": "adc",
             "flash_controller": "mtd",
             "gpio0": "gpio",
-            "gpio1": "gpio",
             "i2c0": "i2c",
             "i2c1": "i2c",
-            "i2s0": "i2s",
-            "nfct": "wireless",
-            "pdm0": "audio",
             "pinctrl": "pinctrl",
-            "pwm0": "pwm",
-            "pwm1": "pwm",
-            "pwm2": "pwm",
-            "pwm3": "pwm",
             "qdec": "qdec",
             "radio": "rf",
             "spi0": "spi",
             "spi1": "spi",
-            "spi2": "spi",
-            "spi3": "spi",
             "uart0": "serial",
-            "uart1": "serial",
             "usbd": "usb"
         },
-        "path": "dts/arm/nordic/nrf52833_qiaa.dtsi"
+        "path": "dts/arm/nordic/nrf52820_qdaa.dtsi"
     },
     "nrf52840": {
         "interfaces": {
@@ -4511,16 +4502,37 @@
     },
     "nrf5340": {
         "interfaces": {
+            "adc": "adc",
             "flash_controller": "mtd",
             "gpio0": "gpio",
             "gpio1": "gpio",
             "i2c0": "i2c",
+            "i2c1": "i2c",
+            "i2c2": "i2c",
+            "i2c3": "i2c",
+            "i2s0": "i2s",
+            "nfct": "wireless",
+            "pdm0": "audio",
             "pinctrl": "pinctrl",
-            "radio": "rf",
+            "pwm0": "pwm",
+            "pwm1": "pwm",
+            "pwm2": "pwm",
+            "pwm3": "pwm",
+            "qdec0": "qdec",
+            "qdec1": "qdec",
+            "qspi": "qspi",
             "spi0": "spi",
-            "uart0": "serial"
+            "spi1": "spi",
+            "spi2": "spi",
+            "spi3": "spi",
+            "spi4": "spi",
+            "uart0": "serial",
+            "uart1": "serial",
+            "uart2": "serial",
+            "uart3": "serial",
+            "usbd": "usb"
         },
-        "path": "dts/arm/nordic/nrf5340_cpunet_qkaa.dtsi"
+        "path": "dts/arm/nordic/nrf5340_cpuappns_qkaa.dtsi"
     },
     "nrf54": {
         "interfaces": {
@@ -4643,7 +4655,7 @@
             "uart2": "serial",
             "uart3": "serial"
         },
-        "path": "dts/arm/nordic/nrf9160ns_sica.dtsi"
+        "path": "dts/arm/nordic/nrf9160_sica.dtsi"
     },
     "nrf9161": {
         "interfaces": {
@@ -4674,6 +4686,7 @@
     },
     "nxp_imx8": {
         "interfaces": {
+            "esai0": "dai",
             "lpuart2": "serial",
             "pinctrl": "pinctrl",
             "sai1": "dai"
@@ -4787,52 +4800,6 @@
             "usbfs": "usb"
         },
         "path": "dts/arm/nxp/nxp_lpc55S36_ns.dtsi"
-    },
-    "nxp_mcxn94x": {
-        "interfaces": {
-            "dac0": "dac",
-            "dac1": "dac",
-            "flexcomm0_lpi2c0": "i2c",
-            "flexcomm0_lpspi0": "spi",
-            "flexcomm0_lpuart0": "serial",
-            "flexcomm1_lpi2c1": "i2c",
-            "flexcomm1_lpspi1": "spi",
-            "flexcomm1_lpuart1": "serial",
-            "flexcomm2_lpi2c2": "i2c",
-            "flexcomm2_lpspi2": "spi",
-            "flexcomm2_lpuart2": "serial",
-            "flexcomm3_lpi2c3": "i2c",
-            "flexcomm3_lpspi3": "spi",
-            "flexcomm3_lpuart3": "serial",
-            "flexcomm4_lpi2c4": "i2c",
-            "flexcomm4_lpspi4": "spi",
-            "flexcomm4_lpuart4": "serial",
-            "flexcomm5_lpi2c5": "i2c",
-            "flexcomm5_lpspi5": "spi",
-            "flexcomm5_lpuart5": "serial",
-            "flexcomm6_lpi2c6": "i2c",
-            "flexcomm6_lpspi6": "spi",
-            "flexcomm6_lpuart6": "serial",
-            "flexcomm7_lpi2c7": "i2c",
-            "flexcomm7_lpspi7": "spi",
-            "flexcomm7_lpuart7": "serial",
-            "flexcomm8_lpi2c8": "i2c",
-            "flexcomm8_lpspi8": "spi",
-            "flexcomm8_lpuart8": "serial",
-            "flexcomm9_lpi2c9": "i2c",
-            "flexcomm9_lpspi9": "spi",
-            "flexcomm9_lpuart9": "serial",
-            "flexspi": "spi",
-            "ftfe": "mtd",
-            "gpio0": "gpio",
-            "gpio1": "gpio",
-            "gpio2": "gpio",
-            "gpio3": "gpio",
-            "gpio4": "gpio",
-            "gpio5": "gpio",
-            "pinctrl": "pinctrl"
-        },
-        "path": "dts/arm/nxp/nxp_mcxn94x.dtsi"
     },
     "nxp_mimx8mm_a53": {
         "interfaces": {
@@ -8879,6 +8846,69 @@
             "usbotg_hs": "usb"
         },
         "path": "dts/arm/st/h7/stm32h735Xg.dtsi"
+    },
+    "stm32h743Xi": {
+        "interfaces": {
+            "adc1": "adc",
+            "adc1_2": "adc",
+            "adc2": "adc",
+            "adc3": "adc",
+            "dac1": "dac",
+            "fdcan1": "can",
+            "fdcan2": "can",
+            "flash": "mtd",
+            "gpioa": "gpio",
+            "gpiob": "gpio",
+            "gpioc": "gpio",
+            "gpiod": "gpio",
+            "gpioe": "gpio",
+            "gpiof": "gpio",
+            "gpiog": "gpio",
+            "gpioh": "gpio",
+            "gpioi": "gpio",
+            "gpioj": "gpio",
+            "gpiok": "gpio",
+            "i2c1": "i2c",
+            "i2c2": "i2c",
+            "i2c3": "i2c",
+            "i2c4": "i2c",
+            "i2s1": "i2s",
+            "i2s2": "i2s",
+            "i2s3": "i2s",
+            "lpuart1": "serial",
+            "ltdc": "display-controller",
+            "mac": "ethernet",
+            "pinctrl": "pinctrl",
+            "pwm": "pwm",
+            "pwm-1": "pwm",
+            "pwm-10": "pwm",
+            "pwm-11": "pwm",
+            "pwm-2": "pwm",
+            "pwm-3": "pwm",
+            "pwm-4": "pwm",
+            "pwm-5": "pwm",
+            "pwm-6": "pwm",
+            "pwm-7": "pwm",
+            "pwm-8": "pwm",
+            "pwm-9": "pwm",
+            "quadspi": "qspi",
+            "spi1": "spi",
+            "spi2": "spi",
+            "spi3": "spi",
+            "spi4": "spi",
+            "spi5": "spi",
+            "spi6": "spi",
+            "uart4": "serial",
+            "uart5": "serial",
+            "uart7": "serial",
+            "uart8": "serial",
+            "usart1": "serial",
+            "usart2": "serial",
+            "usart3": "serial",
+            "usart6": "serial",
+            "usbotg_fs": "usb"
+        },
+        "path": "dts/arm/st/h7/stm32h743Xi.dtsi"
     },
     "stm32h743zit6": {
         "interfaces": {
