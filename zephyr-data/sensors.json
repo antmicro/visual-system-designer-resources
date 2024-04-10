@@ -203,8 +203,8 @@
         ],
         "description": "Asahi Kasei AKM09918C Magnetometer. See datasheet at\nhttps://www.akm.com/content/dam/documents/products/electronic-compass/ak09918c/ak09918c-en-datasheet.pdf\n",
         "driver": [
-            "drivers/sensor/akm09918c/akm09918c.c",
-            "drivers/sensor/akm09918c/akm09918c_emul.c"
+            "drivers/sensor/akm09918c/akm09918c_emul.c",
+            "drivers/sensor/akm09918c/akm09918c.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1861,7 +1861,8 @@
             "spi-max-frequency": {
                 "type": "int"
             }
-        }
+        },
+        "rdp-compat": "st,lis2dux12"
     },
     "lis2dw12": {
         "category": "Motion/Accelerometer",
