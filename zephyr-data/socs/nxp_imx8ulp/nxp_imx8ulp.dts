@@ -37,4 +37,11 @@
 		reg = < 0x29800000 0x10000 >;
 		#clock-cells = < 0x2 >;
 	};
+	iomuxc1: pinctrl@298c0000 {
+		compatible = "nxp,imx-iomuxc";
+		reg = < 0x298c0000 0x10000 >;
+		pinctrl: pinctrl {
+			compatible = "nxp,imx8ulp-pinctrl";
+		};
+	};
 };

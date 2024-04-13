@@ -24,6 +24,9 @@
 &clk_lse{
 	status = "okay";
 };
+&clk_lsi{
+	status = "okay";
+};
 &dac1{
 	status = "okay";
 	pinctrl-0 = < &dac1_out2_pa5 >;
@@ -58,6 +61,7 @@
 	clocks = < &pll >;
 	clock-frequency = < 0xe4e1c00 >;
 	apb1-prescaler = < 0x2 >;
+	apb3-prescaler = < 0x2 >;
 };
 &spi1{
 	status = "okay";

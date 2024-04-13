@@ -150,6 +150,13 @@
 				max-bit-width = < 0x20 >;
 				prescaler = < 0x0 >;
 			};
+			pwm120: pwm@8e4000 {
+				compatible = "nordic,nrf-pwm";
+				reg = < 0x8e4000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0xe4 0x1 >;
+				#pwm-cells = < 0x3 >;
+			};
 			spi120: spi@8e6000 {
 				compatible = "nordic,nrf-spim";
 				reg = < 0x8e6000 0x1000 >;
@@ -380,6 +387,13 @@
 				max-bit-width = < 0x20 >;
 				prescaler = < 0x0 >;
 			};
+			pwm130: pwm@9a4000 {
+				compatible = "nordic,nrf-pwm";
+				reg = < 0x9a4000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1a4 0x1 >;
+				#pwm-cells = < 0x3 >;
+			};
 			i2c130: i2c@9a5000 {
 				compatible = "nordic,nrf-twim";
 				reg = < 0x9a5000 0x1000 >;
@@ -452,6 +466,13 @@
 				interrupts = < 0x1b3 0x1 >;
 				max-bit-width = < 0x20 >;
 				prescaler = < 0x0 >;
+			};
+			pwm131: pwm@9b4000 {
+				compatible = "nordic,nrf-pwm";
+				reg = < 0x9b4000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1b4 0x1 >;
+				#pwm-cells = < 0x3 >;
 			};
 			i2c132: i2c@9b5000 {
 				compatible = "nordic,nrf-twim";
@@ -526,6 +547,13 @@
 				max-bit-width = < 0x20 >;
 				prescaler = < 0x0 >;
 			};
+			pwm132: pwm@9c4000 {
+				compatible = "nordic,nrf-pwm";
+				reg = < 0x9c4000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1c4 0x1 >;
+				#pwm-cells = < 0x3 >;
+			};
 			i2c134: i2c@9c5000 {
 				compatible = "nordic,nrf-twim";
 				reg = < 0x9c5000 0x1000 >;
@@ -598,6 +626,13 @@
 				interrupts = < 0x1d3 0x1 >;
 				max-bit-width = < 0x20 >;
 				prescaler = < 0x0 >;
+			};
+			pwm133: pwm@9d4000 {
+				compatible = "nordic,nrf-pwm";
+				reg = < 0x9d4000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x1d4 0x1 >;
+				#pwm-cells = < 0x3 >;
 			};
 			i2c136: i2c@9d5000 {
 				compatible = "nordic,nrf-twim";

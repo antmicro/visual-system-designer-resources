@@ -34,7 +34,7 @@
             "zephyr": {
                 "icon": "icons_zephyr.svg",
                 "name": "Zephyr",
-                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/25812289779f471143cf1a2cc34c245c603bd941/"
+                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/b573f447f04f042f427fafd23fb8cd4cacfe6e30/"
             }
         }
     },
@@ -129,6 +129,52 @@
         {
             "category": "Interfacing/USB/4xUART 2xMPSSE bridge",
             "interfaces": [
+                {
+                    "array": [
+                        2,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart/mpsse",
+                    "side": "left",
+                    "type": [
+                        "jtag",
+                        "serial",
+                        "spi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/USB/4xUART 2xMPSSE bridge w PD",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "right",
+                    "type": "power"
+                },
                 {
                     "array": [
                         2,
@@ -733,6 +779,21 @@
         },
         {
             "abstract": false,
+            "description": "FFC & FPC Connectors, 40 pin, 0.5mm, SMD/SMT, Right Angle, Bottom Concact\n\n### Additional information\n\n*Datasheet*: [62684.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/62684.pdf)",
+            "extends": [
+                "SmartScreen LVDS connector"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-ffc-amphenol-1x40-62684-401100ahlf/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol 62684-401100AHLF",
+            "urls": {
+                "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/62684.pdf",
+                "hwp": "components/amphenol-62684-401100ahlf"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Memory Card Connector, DDR5 DIMM, Latched, 288 Contacts, Copper Alloy, Gold Plated Contacts\n\n### Additional information\n\n*Datasheet*: [ddr5-smt-ddr504111002kq.html](https://www.amphenol-icc.com/ddr5-smt-ddr504111002kq.html)",
             "extends": [
                 "RDIMM DDR5 connector"
@@ -1249,6 +1310,53 @@
             "category": "Interfacing/CAN/CAN Transceiver",
             "extends": [
                 "CAN"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Board to Board/CM4 Baseboard DSI Adapter",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "CM4 Baseboard DSI adapter",
+                    "side": "left",
+                    "type": "cm4-baseboard-dsi-adapter"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dsi",
+                    "side": "left",
+                    "type": "dsi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Board to Board/CM4 Baseboard expansion connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "CM4 Baseboard expansion interface",
+                    "side": "right",
+                    "type": "cm4-baseboard-expansion"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                }
             ],
             "isCategory": true
         },
@@ -1868,14 +1976,20 @@
                     "maxConnectionsCount": -1,
                     "name": "Hard D-PHY 0",
                     "side": "right",
-                    "type": "csi"
+                    "type": [
+                        "csi",
+                        "dsi"
+                    ]
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "Hard D-PHY 1",
                     "side": "left",
-                    "type": "csi"
+                    "type": [
+                        "csi",
+                        "dsi"
+                    ]
                 },
                 {
                     "array": [
@@ -1941,6 +2055,21 @@
                 "ddr-device"
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "Video ICs Active HDMI TQFN-30 \n\n### Additional information\n\n*Datasheet*: [diodes_inc_diod-s-a0004145302-1-1749206.pdf](https://eu.mouser.com/datasheet/2/115/diodes_inc_diod-s-a0004145302-1-1749206.pdf)",
+            "extends": [
+                "LVDS to HDMI bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tqfn-30-1ep-2-5x4-5mm-p0-4mm-layout5x10-diodes-incorporated-pi3hdx511dzle/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Diodes Incorporated PI3HDX511DZLE",
+            "urls": {
+                "datasheet": "https://eu.mouser.com/datasheet/2/115/diodes_inc_diod-s-a0004145302-1-1749206.pdf",
+                "hwp": "components/diodes-incorporated-pi3hdx511dzle"
+            }
         },
         {
             "category": "Connector/Display/Display Port/Display Port",
@@ -2647,6 +2776,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "USB Hi-Speed/Quad Channel Serial UART/JTAG/SPI/I2C,Dual PD Ports IC\n\n### Additional information\n\n*Datasheet*: [DS_FT4233HP-v1.5.pdf](https://ftdichip.com/wp-content/uploads/2023/09/DS_FT4233HP-v1.5.pdf)",
+            "extends": [
+                "4xUART 2xMPSSE bridge w PD"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-76-1ep-9x9mm-p0-4mm-ep6-3x6-3mm-ftdi-chip-ft4233hpq-reel/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "FTDI Chip FT4233HPQ-REEL",
+            "urls": {
+                "datasheet": "https://ftdichip.com/wp-content/uploads/2023/09/DS_FT4233HP-v1.5.pdf",
+                "hwp": "components/ftdi-chip-ft4233hpq-reel"
+            }
+        },
+        {
             "category": "Connector/Camera/Framos FSA interface",
             "interfaces": [
                 {
@@ -3039,6 +3183,33 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/Ethernet/GbE Phy SGMII",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "left",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "left",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sgmii",
+                    "side": "right",
+                    "type": "sgmii"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/Ethernet/GbE mux",
             "interfaces": [
                 {
@@ -3382,6 +3553,21 @@
             }
         },
         {
+            "abstract": false,
+            "description": "U.FL (UMCC) Connector Receptacle, Male Pin 50Ohm Surface Mount Solder\n\n### Additional information\n\n*Datasheet*: [UFL%20Series.pdf](https://media.digikey.com/pdf/Data%20Sheets/Hirose%20PDFs/UFL%20Series.pdf)",
+            "extends": [
+                "U.FL"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/coax-conn-u-fl/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Hirose Electric U.FL-R-SMT-1(10)",
+            "urls": {
+                "datasheet": "https://media.digikey.com/pdf/Data%20Sheets/Hirose%20PDFs/UFL%20Series.pdf",
+                "hwp": "components/hirose-electric-u-fl-r-smt-1-10"
+            }
+        },
+        {
             "category": "Memory/HyperRAM",
             "interfaces": [
                 {
@@ -3710,6 +3896,21 @@
             "urls": {
                 "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf",
                 "hwp": "components/jst-automotive-connectors-sm06b-srss-tb-lf-sn"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Connector Header Surface Mount, Right Angle 9 position 0.039\" (1.00mm)\n\n### Additional information\n\n*Datasheet*: [eSUR.pdf](https://www.jst-mfg.com/product/pdf/eng/eSUR.pdf)",
+            "extends": [
+                "SmartScreen touchscreen connector"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-sur-1x10-sm10b-surs-tf-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors SM10B-SURS-TF",
+            "urls": {
+                "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eSUR.pdf",
+                "hwp": "components/jst-automotive-connectors-sm10b-surs-tf"
             }
         },
         {
@@ -4424,11 +4625,39 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/Video/LVDS to HDMI bridge",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "left",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lvds",
+                    "side": "right",
+                    "type": "gpio"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
+            "description": "FPGA, CrossLink, PLL37 I/O, 400 MHz, 5936 Cells, 1.14 V to 1.26 V, CTFBGA-80\n\n### Additional information\n\n*Datasheet*: [view_document?document_id=51662](https://www.latticesemi.com/view_document?document_id=51662)",
             "extends": [
                 "Crosslink"
             ],
-            "name": "Lattice Semiconductor LIF-MD6000-6JMG80I"
+            "icon": {
+                "hw-icon": "/blender-models/bga-80-7x7mm-layout10x10-p0-65mm-lattice-semiconductor-lif-md6000-6jmg80i/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Lattice Semiconductor LIF-MD6000-6JMG80I",
+            "urls": {
+                "datasheet": "https://www.latticesemi.com/view_document?document_id=51662",
+                "hwp": "components/lattice-semiconductor-lif-md6000-6jmg80i"
+            }
         },
         {
             "abstract": false,
@@ -4533,6 +4762,21 @@
             "urls": {
                 "datasheet": "http://optoelectronics.liteon.com/upload/download/DS-22-99-0151/LTST-C190KRKT.pdf",
                 "hwp": "components/lite-on-ltst-c190krkt"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "SMD SMD LED Side Look Red/Green/Blue\n\n### Additional information\n\n*Datasheet*: [LTST_S310F2KT-1139891.pdf](https://eu.mouser.com/datasheet/2/239/LTST_S310F2KT-1139891.pdf)",
+            "extends": [
+                "LED"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/led-1204-3210metric-rgb/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Lite-On LTST-S310F2KT",
+            "urls": {
+                "datasheet": "https://eu.mouser.com/datasheet/2/239/LTST_S310F2KT-1139891.pdf",
+                "hwp": "components/lite-on-ltst-s310f2kt"
             }
         },
         {
@@ -4681,6 +4925,37 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/Video/MIPI DSI to 2x LVDS converter",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dsi",
+                    "side": "left",
+                    "type": "dsi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lvds",
+                    "side": "left",
+                    "type": "lvds"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/Video/MIPI DSI to HDMI converter",
             "interfaces": [
                 {
@@ -4724,45 +4999,35 @@
             "category": "SoC/arm/microchip/MPFS250T",
             "interfaces": [
                 {
+                    "array": [
+                        0,
+                        7
+                    ],
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "can0",
-                    "side": "right",
-                    "type": "can phy"
+                    "name": "bank",
+                    "side": "left"
                 },
                 {
+                    "array": [
+                        0,
+                        2
+                    ],
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "can1",
+                    "name": "can",
                     "side": "left",
                     "type": "can phy"
                 },
                 {
+                    "array": [
+                        0,
+                        2
+                    ],
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "ddr ctrl",
+                    "name": "gbe",
                     "side": "right",
-                    "type": "lpddr"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "expansion",
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gbe0",
-                    "side": "right",
-                    "type": "gbe phy"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gbe1",
-                    "side": "left",
                     "type": "gbe phy"
                 },
                 {
@@ -4787,6 +5052,17 @@
                     "type": "gpio"
                 },
                 {
+                    "array": [
+                        2,
+                        6
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "i2c0",
@@ -4804,14 +5080,21 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "jtag",
-                    "side": "left",
+                    "side": "right",
                     "type": "jtag"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pcie",
+                    "name": "lpddr",
                     "side": "left",
+                    "type": "lpddr"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie",
+                    "side": "right",
                     "type": "pcie"
                 },
                 {
@@ -4822,17 +5105,32 @@
                     "type": "spi"
                 },
                 {
+                    "array": [
+                        0,
+                        2
+                    ],
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "sdio",
-                    "side": "right",
+                    "side": "left",
                     "type": "sdio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi0",
-                    "side": "left",
+                    "name": "sgmii",
+                    "side": "right",
+                    "type": "sgmii"
+                },
+                {
+                    "array": [
+                        2,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
@@ -4883,6 +5181,13 @@
                     "name": "uart4",
                     "side": "left",
                     "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ulpi",
+                    "side": "left",
+                    "type": "ulpi"
                 },
                 {
                     "direction": "inout",
@@ -5157,6 +5462,21 @@
         },
         {
             "abstract": false,
+            "description": "DC Power/Energy Monitor With Accumulator, Quad High-side current Sensor, 2.7V to 5.5V, WLCSP-16\n\n### Additional information\n\n*Datasheet*: [PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf](https://www.mouser.com/datasheet/2/268/PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf)",
+            "extends": [
+                "Power monitor"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/wlcsp-16-2-25x2-17x0-68mm-layout4x4-p0-5x0-5mm-microchip-technology-pac1934t-i-j6cx/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology PAC1934T-I/J6CX",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/268/PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf",
+                "hwp": "components/microchip-technology-pac1934t-i-j6cx"
+            }
+        },
+        {
+            "abstract": false,
             "description": "DC Power/Energy Monitor With Accumulator, Quad High-side current Sensor, 2.7V to 5.5V, UQFN-16\n\n### Additional information\n\n*Datasheet*: [PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf](https://www.mouser.com/datasheet/2/268/PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf)",
             "extends": [
                 "pac1934"
@@ -5168,6 +5488,21 @@
             "urls": {
                 "datasheet": "https://www.mouser.com/datasheet/2/268/PAC1931_Family_Data_Sheet_DS20005850E-1519053.pdf",
                 "hwp": "components/microchip-technology-pac1934t-i-jq"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB Interface, USB Hub Controller, USB 2.0, 3 V, 3.6 V, SQFN, 24 Pins\n\n### Additional information\n\n*Datasheet*: [2412-1064136.pdf](https://www.mouser.com/datasheet/2/268/2412-1064136.pdf)",
+            "extends": [
+                "USB mux"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-24-1ep-4x4mm-p0-5mm-ep2-6x2-6mm-microchip-technology-usb2422-i-mj/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology USB2422-I/MJ",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/268/2412-1064136.pdf",
+                "hwp": "components/microchip-technology-usb2422-i-mj"
             }
         },
         {
@@ -5198,6 +5533,21 @@
             "urls": {
                 "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/00002363A.pdf",
                 "hwp": "components/microchip-technology-usb3310c-cp"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB Interface, USB PHY Transceiver, USB 2.0, 3 V, 5.5 V, QFN, 24 Pins\n\n### Additional information\n\n*Datasheet*: [00002364A.pdf](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002364A.pdf)",
+            "extends": [
+                "USB Phy"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-24-1ep-4x4mm-p0-5-ep2-5x2-5mm-microchip-technology-usb3315-cp-tr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology USB3315-CP-TR",
+            "urls": {
+                "datasheet": "https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002364A.pdf",
+                "hwp": "components/microchip-technology-usb3315-cp-tr"
             }
         },
         {
@@ -5243,6 +5593,21 @@
             "urls": {
                 "datasheet": "https://www.mouser.com/datasheet/2/268/MCHP_S_A0008366719_1-2513824.pdf",
                 "hwp": "components/microchip-technology-vsc8662xic"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "NOR Flash Serial-SPI 3.3V 1G-bit 1G/512M/256M x 1/2-bit/4-bit 6ns 16-Pin SOP-II T/R\n\n### Additional information\n\n*Datasheet*: [mict_s_a0002234966_1-2290738.pdf](https://www.mouser.com/datasheet/2/671/mict_s_a0002234966_1-2290738.pdf)",
+            "extends": [
+                "SPI Flash"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/w-pdfn-8-1ep-8x6mm-p1-27mm-ep4-3x3-4mm-micron-technology-mt25ql01gbbb1ew9-0sit/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Micron Technology MT25QL01GBBB1EW9-0SIT",
+            "urls": {
+                "datasheet": "https://www.mouser.com/datasheet/2/671/mict_s_a0002234966_1-2290738.pdf",
+                "hwp": "components/micron-technology-mt25ql01gbbb1ew9-0sit"
             }
         },
         {
@@ -5559,6 +5924,36 @@
         },
         {
             "abstract": false,
+            "description": "Mezzanine Connector, 2mm Height, Receptacle, 0.5 mm, 2 Rows, 40 Contacts, Surface Mount\n\n### Additional information\n\n*Datasheet*: [543630489_sd.pdf](https://www.molex.com/pdm_docs/sd/543630489_sd.pdf)",
+            "extends": [
+                "CM4 Baseboard DSI Adapter"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-socket-molex-slimstack-2x20-543630489/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 543630489",
+            "urls": {
+                "datasheet": "https://www.molex.com/pdm_docs/sd/543630489_sd.pdf",
+                "hwp": "components/molex-543630489"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Mezzanine Connector, Header, 0.5 mm, 2 Rows, 40 Contacts, Surface Mount Straight, Brass\n\n### Additional information\n\n*Datasheet*: [556500488?display=pdf](https://www.molex.com/en-us/products/part-detail/556500488?display=pdf)",
+            "extends": [
+                "CM4 Baseboard DSI Adapter"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-plug-molex-slimstack-2x20-556500488/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 556500488",
+            "urls": {
+                "datasheet": "https://www.molex.com/en-us/products/part-detail/556500488?display=pdf",
+                "hwp": "components/molex-556500488"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Pin Header, Signal, Wire-to-Board, 2 mm, 2 Rows, 14 Contacts, Surface Mount Straight\n\n### Additional information\n\n*Datasheet*: [PS-87831-027-001.pdf](https://www.molex.com/pdm_docs/ps/PS-87831-027-001.pdf)",
             "extends": [
                 "IO Header"
@@ -5570,6 +5965,21 @@
             "urls": {
                 "datasheet": "https://www.molex.com/pdm_docs/ps/PS-87831-027-001.pdf",
                 "hwp": "components/molex-878321412"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "5V PMIC with Four 4.5A/2.5A/4.5A/2A Buck Converters, 3 LDOs, 1 Load Switch and Flexible System Settings via I2C and MTP\n\n### Additional information\n\n*Datasheet*: [](https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP5424GRM/document_id/10311/)",
+            "extends": [
+                "PMIC"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-26-3-5x4-5x1mm-p0-45mm-monolithic-power-systems-mp5424grm-0000-z/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Monolithic Power Systems MP5424GRM-0000-Z",
+            "urls": {
+                "datasheet": "https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP5424GRM/document_id/10311/",
+                "hwp": "components/monolithic-power-systems-mp5424grm-0000-z"
             }
         },
         {
@@ -5649,6 +6059,37 @@
         },
         {
             "abstract": false,
+            "description": "WiFi and Bluetooth Module\n\n### Additional information\n\n*Datasheet*: [type2ae.pdf](https://www.murata.com/products/productdata/8816428220446/type2ae.pdf)",
+            "extends": [
+                "WiFi+BT Module"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/wifi-bluetooth-module-lbee5pk2ae/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Murata LBEE5PK2AE",
+            "urls": {
+                "datasheet": "https://www.murata.com/products/productdata/8816428220446/type2ae.pdf",
+                "hwp": "components/murata-lbee5pk2ae"
+            }
+        },
+        {
+            "category": "Interfacing/RF/NFC",
+            "extends": [
+                "i2c-device"
+            ],
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "NFC",
+                    "side": "left",
+                    "type": "nfc"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "abstract": false,
             "description": "Transceiver, 1.65 V to 3.6 V, TSSOP-8\n\n### Additional information\n\n*Datasheet*: [NTS0102-1127324.pdf](https://www.mouser.com/datasheet/2/302/NTS0102-1127324.pdf)",
             "extends": [
                 "I2C Level Converter"
@@ -5720,6 +6161,21 @@
             "urls": {
                 "datasheet": "https://www.nxp.com/docs/en/data-sheet/PCA9547.pdf",
                 "hwp": "components/nxp-pca9547bs-118"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Near Field Communication (NFC) controller\n\n### Additional information\n\n*Datasheet*: [PN7160_PN7161.pdf](https://www.nxp.com/docs/en/data-sheet/PN7160_PN7161.pdf)",
+            "extends": [
+                "NFC"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/vfqfn-40-1ep-6x6mm-nxp-pn7160a1hn-c100e/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "NXP PN7160A1HN/C100E",
+            "urls": {
+                "datasheet": "https://www.nxp.com/docs/en/data-sheet/PN7160_PN7161.pdf",
+                "hwp": "components/nxp-pn7160a1hn-c100e"
             }
         },
         {
@@ -5870,6 +6326,26 @@
             "isCategory": true
         },
         {
+            "category": "Power/PMIC",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Power/PoC circuit",
             "interfaces": [
                 {
@@ -5908,6 +6384,144 @@
             "isCategory": true
         },
         {
+            "category": "Connector/Board to Board/PolarFire SoM CM4 connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "CM4 module interface",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi x2",
+                    "side": "left",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi x4",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dsi x4",
+                    "side": "left",
+                    "type": "dsi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "right",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "hdmi",
+                    "side": "right",
+                    "type": "hdmi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c0",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c1",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c6",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie",
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "side": "right",
+                    "type": "sdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi6",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart3",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart4",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart5",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/Power",
             "interfaces": [
                 {
@@ -5941,6 +6555,26 @@
                     "maxConnectionsCount": -1,
                     "name": "power",
                     "side": "right",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Power/Power monitor",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
                     "type": "power"
                 }
             ],
@@ -6077,6 +6711,12 @@
             "category": "SoM/RaspberryPi/Raspberry Pi Compute Module 4",
             "interfaces": [
                 {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "CM4 module interface",
+                    "side": "left"
+                },
+                {
                     "array": [
                         0,
                         2
@@ -6084,7 +6724,7 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "csi",
-                    "side": "right",
+                    "side": "left",
                     "type": "csi"
                 },
                 {
@@ -6095,21 +6735,21 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "dsi",
-                    "side": "left",
+                    "side": "right",
                     "type": "dsi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "ethernet",
-                    "side": "left",
+                    "side": "right",
                     "type": "ethernet"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio",
-                    "side": "left",
+                    "side": "right",
                     "type": "gpio"
                 },
                 {
@@ -6120,7 +6760,7 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "hdmi",
-                    "side": "right",
+                    "side": "left",
                     "type": "hdmi"
                 },
                 {
@@ -6131,21 +6771,21 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "i2c",
-                    "side": "right",
+                    "side": "left",
                     "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "pcie",
-                    "side": "left",
+                    "side": "right",
                     "type": "pcie"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "sdio",
-                    "side": "right",
+                    "side": "left",
                     "type": "sdio"
                 },
                 {
@@ -6156,7 +6796,7 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
@@ -6167,14 +6807,14 @@
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "usb",
-                    "side": "right",
+                    "side": "left",
                     "type": "usb"
                 }
             ],
@@ -6619,6 +7259,21 @@
         },
         {
             "abstract": false,
+            "description": "Board to Board & Mezzanine Connectors 0.50 mm Edge Rate Rugged High Speed Socket\n\n### Additional information\n\n*Datasheet*: [erm5-erf5.pdf?_gl=1*1g914su*_ga*MTE0MzExNjY4MC4xNjcyMTQ5NTUz*_ga_3KFNZC07WW*MTY3Mjg0NzY5Ny42LjEuMTY3Mjg0ODE3MS42MC4wLjA.](https://suddendocs.samtec.com/productspecs/erm5-erf5.pdf?_gl=1*1g914su*_ga*MTE0MzExNjY4MC4xNjcyMTQ5NTUz*_ga_3KFNZC07WW*MTY3Mjg0NzY5Ny42LjEuMTY3Mjg0ODE3MS42MC4wLjA.)",
+            "extends": [
+                "CM4 Baseboard expansion connector"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-socket-samtec-erf5-2x20-erf5-020-05-0-l-dv-k-tr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Samtec ERF5-020-05.0-L-DV-K-TR",
+            "urls": {
+                "datasheet": "https://suddendocs.samtec.com/productspecs/erm5-erf5.pdf?_gl=1*1g914su*_ga*MTE0MzExNjY4MC4xNjcyMTQ5NTUz*_ga_3KFNZC07WW*MTY3Mjg0NzY5Ny42LjEuMTY3Mjg0ODE3MS42MC4wLjA.",
+                "hwp": "components/samtec-erf5-020-05-0-l-dv-k-tr"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Mezzanine Connector, Receptacle, 0.8 mm, 2 Rows, 80 Contacts, Surface Mount, Beryllium Copper\n\n### Additional information\n\n*Datasheet*: [erf8.pdf](https://suddendocs.samtec.com/catalog_english/erf8.pdf)",
             "extends": [
                 "Jetson Orin Baseboard expansion connector"
@@ -6728,7 +7383,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "Scalenode CM4 expansion interface",
+                    "name": "Scalenode CM4 module interface",
                     "side": "right",
                     "type": "scalenode-cm4-expansion"
                 },
@@ -6903,6 +7558,46 @@
                     "maxConnectionsCount": -1,
                     "name": "io",
                     "side": "left"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Display/SmartScreen LVDS connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lvds",
+                    "side": "right",
+                    "type": "lvds"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "smartscreen-lvds-interface",
+                    "side": "left",
+                    "type": "smartscreen-lvds-interface"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Display/SmartScreen touchscreen connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "smartscreen-touchscreen-interface",
+                    "side": "left",
+                    "type": "smartscreen-touchscreen-interface"
                 }
             ],
             "isCategory": true
@@ -7264,6 +7959,21 @@
         },
         {
             "abstract": false,
+            "description": "Robust, High Immunity, Small Form Factor 10/100/1000 Ethernet, Physical Layer Transceiver, SGMII/RGMII\n\n### Additional information\n\n*Datasheet*: [dp83867is.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1704962980288&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdp83867is](https://www.ti.com/lit/ds/symlink/dp83867is.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1704962980288&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdp83867is)",
+            "extends": [
+                "GbE Phy SGMII"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/vqfn-48-7x7mm-p0-5mm-ep4-1x4-1mm-texas-instruments-dp83867isrgzr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments DP83867ISRGZR",
+            "urls": {
+                "datasheet": "https://www.ti.com/lit/ds/symlink/dp83867is.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1704962980288&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdp83867is",
+                "hwp": "components/texas-instruments-dp83867isrgzr"
+            }
+        },
+        {
+            "abstract": false,
             "description": "USB Interface IC 10-Gbps USB 3.1 Type-C 2:1 mux with DRP Controller 30-WQFN -40°C to 85°C\n\n### Additional information\n\n*Datasheet*: [hd3ss3220.pdf?ts=1663000043694&ref_url=https%253A%252F%252Fwww.google.com%252F](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf?ts=1663000043694&ref_url=https%253A%252F%252Fwww.google.com%252F)",
             "extends": [
                 "USB-C mux"
@@ -7275,6 +7985,21 @@
             "urls": {
                 "datasheet": "https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf?ts=1663000043694&ref_url=https%253A%252F%252Fwww.google.com%252F",
                 "hwp": "components/texas-instruments-hd3ss3220rnht"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Automotive Single-Channel MIPI® DSI to Dual-Link LVDS Bridge\n\n### Additional information\n\n*Datasheet*: [sn65dsi84-q1.pdf?ts=1705413548625&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FSN65DSI84-Q1](https://www.ti.com/lit/ds/symlink/sn65dsi84-q1.pdf?ts=1705413548625&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FSN65DSI84-Q1)",
+            "extends": [
+                "MIPI DSI to 2x LVDS converter"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/htqfp-64-10x10mm-p0-5mm-texas-instruments-sn65dsi84tpaprq1/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments SN65DSI84TPAPRQ1",
+            "urls": {
+                "datasheet": "https://www.ti.com/lit/ds/symlink/sn65dsi84-q1.pdf?ts=1705413548625&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FSN65DSI84-Q1",
+                "hwp": "components/texas-instruments-sn65dsi84tpaprq1"
             }
         },
         {
@@ -7482,6 +8207,19 @@
                 "datasheet": "https://toshiba.semicon-storage.com/info/TC358743XBG_datasheet_en_20171026.pdf?did=35655&prodName=TC358743XBG",
                 "hwp": "components/toshiba-tc358742xbg"
             }
+        },
+        {
+            "category": "Connector/U.FL",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rf",
+                    "side": "left",
+                    "type": "rf"
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "Connector/UART Header",
@@ -7907,6 +8645,47 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/Wireless/WiFi+BT Module",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "left",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rf",
+                    "side": "right",
+                    "type": "rf"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "side": "right",
+                    "type": "sdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "FLASH - NOR Memory IC 32Mbit SPI - Quad I/O, QPI 104 MHz 8-SOIC\n\n### Additional information\n\n*Datasheet*: [W25Q32FV.pdf](https://media.digikey.com/pdf/Data%20Sheets/Winbond%20PDFs/W25Q32FV.pdf)",
             "extends": [
@@ -8298,8 +9077,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/adi_adt7310",
-                "zephyr": "drivers/sensor/adt7310/adt7310.c"
+                "rdp": "soc_components/adi_adt7310"
             }
         },
         {
@@ -8335,8 +9113,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/adi_adt7420",
-                "zephyr": "drivers/sensor/adt7420/adt7420.c"
+                "rdp": "soc_components/adi_adt7420"
             }
         },
         {
@@ -8365,8 +9142,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/adi_adxl345",
-                "zephyr": "drivers/sensor/adxl345/adxl345.c"
+                "rdp": "soc_components/adi_adxl345"
             }
         },
         {
@@ -8402,8 +9178,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/adi_adxl362",
-                "zephyr": "drivers/sensor/adxl362/adxl362.c"
+                "rdp": "soc_components/adi_adxl362"
             }
         },
         {
@@ -8451,8 +9226,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/adi_adxl367",
-                "zephyr": "drivers/sensor/adxl367/adxl367.c"
+                "rdp": "soc_components/adi_adxl367"
             }
         },
         {
@@ -8500,8 +9274,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/adi_adxl372",
-                "zephyr": "drivers/sensor/adxl372/adxl372.c"
+                "rdp": "soc_components/adi_adxl372"
             }
         },
         {
@@ -8630,8 +9403,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/aosong_ags10",
-                "zephyr": "drivers/sensor/ags10/ags10.c"
+                "rdp": "soc_components/aosong_ags10"
             }
         },
         {
@@ -8660,8 +9432,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/asahi-kasei_ak8975",
-                "zephyr": "drivers/sensor/ak8975/ak8975.c"
+                "rdp": "soc_components/asahi-kasei_ak8975"
             }
         },
         {
@@ -8690,8 +9461,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/asahi-kasei_akm09918c",
-                "zephyr": "drivers/sensor/akm09918c/akm09918c_emul.c"
+                "rdp": "soc_components/asahi-kasei_akm09918c"
             }
         },
         {
@@ -9110,7 +9880,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -9493,8 +10263,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_as5600",
-                "zephyr": "drivers/sensor/ams_as5600/ams_as5600.c"
+                "rdp": "soc_components/ams_as5600"
             }
         },
         {
@@ -13014,8 +13783,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/rohm_bh1750",
-                "zephyr": "drivers/sensor/bh1750/bh1750.c"
+                "rdp": "soc_components/rohm_bh1750"
             }
         },
         {
@@ -13051,8 +13819,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bma280",
-                "zephyr": "drivers/sensor/bma280/bma280.c"
+                "rdp": "soc_components/bosch_bma280"
             }
         },
         {
@@ -13081,8 +13848,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bma4xx",
-                "zephyr": "drivers/sensor/bma4xx/bma4xx_emul.c"
+                "rdp": "soc_components/bosch_bma4xx"
             }
         },
         {
@@ -13118,8 +13884,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bmc150_magn",
-                "zephyr": "drivers/sensor/bmc150_magn/bmc150_magn.c"
+                "rdp": "soc_components/bosch_bmc150_magn"
             }
         },
         {
@@ -13160,7 +13925,8 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bme280"
+                "rdp": "soc_components/bosch_bme280",
+                "ren": "I2C/BME280.cs"
             }
         },
         {
@@ -13237,8 +14003,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bmg160",
-                "zephyr": "drivers/sensor/bmg160/bmg160.c"
+                "rdp": "soc_components/bosch_bmg160"
             }
         },
         {
@@ -13316,8 +14081,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bmi08x-accel",
-                "zephyr": "drivers/sensor/bmi08x/bmi08x_accel.c"
+                "rdp": "soc_components/bosch_bmi08x-accel"
             }
         },
         {
@@ -13392,8 +14156,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bmi08x-gyro",
-                "zephyr": "drivers/sensor/bmi08x/bmi08x_gyro.c"
+                "rdp": "soc_components/bosch_bmi08x-gyro"
             }
         },
         {
@@ -13441,8 +14204,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bmi160",
-                "zephyr": "drivers/sensor/bmi160/emul_bmi160.c"
+                "rdp": "soc_components/bosch_bmi160"
             }
         },
         {
@@ -13490,8 +14252,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bmi270",
-                "zephyr": "drivers/sensor/bmi270/bmi270.c"
+                "rdp": "soc_components/bosch_bmi270"
             }
         },
         {
@@ -13527,8 +14288,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/bosch_bmi323",
-                "zephyr": "drivers/sensor/bmi323/bmi323.c"
+                "rdp": "soc_components/bosch_bmi323"
             }
         },
         {
@@ -13716,8 +14476,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_bq274xx",
-                "zephyr": "drivers/sensor/bq274xx/bq274xx.c"
+                "rdp": "soc_components/ti_bq274xx"
             }
         },
         {
@@ -14345,8 +15104,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_ccs811",
-                "zephyr": "drivers/sensor/ccs811/ccs811.c"
+                "rdp": "soc_components/ams_ccs811"
             }
         },
         {
@@ -14601,7 +15359,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/cy8c6347bzi",
-                "zephyr": "dts/arm/cypress/psoc6_cm4.dtsi"
+                "zephyr": "dts/arm/cypress/psoc6_cm0.dtsi"
             }
         },
         {
@@ -14958,10 +15716,7 @@
                     "type": "gpio"
                 }
             ],
-            "isCategory": true,
-            "urls": {
-                "zephyr": "drivers/sensor/dht/dht.c"
-            }
+            "isCategory": true
         },
         {
             "additionalData": {
@@ -14989,8 +15744,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/infineon_dps310",
-                "zephyr": "drivers/sensor/dps310/dps310.c"
+                "rdp": "soc_components/infineon_dps310"
             }
         },
         {
@@ -15017,10 +15771,7 @@
                     "name": "resolution",
                     "type": "integer"
                 }
-            ],
-            "urls": {
-                "zephyr": "drivers/sensor/ds18b20/ds18b20.c"
-            }
+            ]
         },
         {
             "category": "SoC/arm/nordic/dwm1001",
@@ -16799,7 +17550,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/efr32mg24",
-                "zephyr": "dts/arm/silabs/efr32mg24b310f1536im48.dtsi"
+                "zephyr": "dts/arm/silabs/efr32mg24b220f1536im48.dtsi"
             }
         },
         {
@@ -17151,8 +17902,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_ens210",
-                "zephyr": "drivers/sensor/ens210/ens210.c"
+                "rdp": "soc_components/ams_ens210"
             }
         },
         {
@@ -19321,8 +20071,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_fdc2x1x",
-                "zephyr": "drivers/sensor/fdc2x1x/fdc2x1x.c"
+                "rdp": "soc_components/ti_fdc2x1x"
             }
         },
         {
@@ -19452,8 +20201,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/nxp_fxas21002",
-                "zephyr": "drivers/sensor/fxas21002/fxas21002.c"
+                "rdp": "soc_components/nxp_fxas21002"
             }
         },
         {
@@ -19503,8 +20251,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/nxp_fxos8700",
-                "zephyr": "drivers/sensor/fxos8700/fxos8700.c"
+                "rdp": "soc_components/nxp_fxos8700"
             }
         },
         {
@@ -21721,8 +22468,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_hdc",
-                "zephyr": "drivers/sensor/ti_hdc/ti_hdc.c"
+                "rdp": "soc_components/ti_hdc"
             }
         },
         {
@@ -21874,8 +22620,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/honeywell_hmc5883l",
-                "zephyr": "drivers/sensor/hmc5883l/hmc5883l.c"
+                "rdp": "soc_components/honeywell_hmc5883l"
             }
         },
         {
@@ -21983,8 +22728,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_hts221",
-                "zephyr": "drivers/sensor/hts221/hts221.c"
+                "rdp": "soc_components/st_hts221"
             }
         },
         {
@@ -22041,8 +22785,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_i3g4250d",
-                "zephyr": "drivers/sensor/i3g4250d/i3g4250d.c"
+                "rdp": "soc_components/st_i3g4250d"
             }
         },
         {
@@ -22071,8 +22814,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_iaqcore",
-                "zephyr": "drivers/sensor/ams_iAQcore/iAQcore.c"
+                "rdp": "soc_components/ams_iaqcore"
             }
         },
         {
@@ -22335,8 +23077,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_iis2dh",
-                "zephyr": "drivers/sensor/iis2dh/iis2dh.c"
+                "rdp": "soc_components/st_iis2dh"
             }
         },
         {
@@ -22384,8 +23125,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_iis2dlpc",
-                "zephyr": "drivers/sensor/iis2dlpc/iis2dlpc.c"
+                "rdp": "soc_components/st_iis2dlpc"
             }
         },
         {
@@ -22433,8 +23173,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_iis2iclx",
-                "zephyr": "drivers/sensor/iis2iclx/iis2iclx.c"
+                "rdp": "soc_components/st_iis2iclx"
             }
         },
         {
@@ -22482,8 +23221,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_iis2mdc",
-                "zephyr": "drivers/sensor/iis2mdc/iis2mdc.c"
+                "rdp": "soc_components/st_iis2mdc"
             }
         },
         {
@@ -22519,8 +23257,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_iis3dhhc",
-                "zephyr": "drivers/sensor/iis3dhhc/iis3dhhc.c"
+                "rdp": "soc_components/st_iis3dhhc"
             }
         },
         {
@@ -22863,8 +23600,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_ina219",
-                "zephyr": "drivers/sensor/ina219/ina219.c"
+                "rdp": "soc_components/ti_ina219"
             }
         },
         {
@@ -22910,8 +23646,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_ina230",
-                "zephyr": "drivers/sensor/ina23x/ina230.c"
+                "rdp": "soc_components/ti_ina230"
             }
         },
         {
@@ -22957,8 +23692,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_ina230",
-                "zephyr": "drivers/sensor/ina23x/ina230.c"
+                "rdp": "soc_components/ti_ina230"
             }
         },
         {
@@ -23004,8 +23738,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_ina237",
-                "zephyr": "drivers/sensor/ina23x/ina237.c"
+                "rdp": "soc_components/ti_ina237"
             }
         },
         {
@@ -23034,8 +23767,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_ina3221",
-                "zephyr": "drivers/sensor/ina3221/ina3221.c"
+                "rdp": "soc_components/ti_ina3221"
             }
         },
         {
@@ -23179,8 +23911,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_ism330dhcx",
-                "zephyr": "drivers/sensor/ism330dhcx/ism330dhcx.c"
+                "rdp": "soc_components/st_ism330dhcx"
             }
         },
         {
@@ -24124,8 +24855,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/we_wsen-itds",
-                "zephyr": "drivers/sensor/wsen_itds/itds.c"
+                "rdp": "soc_components/we_wsen-itds"
             }
         },
         {
@@ -24975,8 +25705,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lis2de12",
-                "zephyr": "drivers/sensor/lis2de12/lis2de12.c"
+                "rdp": "soc_components/st_lis2de12"
             }
         },
         {
@@ -25024,8 +25753,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lis2dh",
-                "zephyr": "drivers/sensor/lis2dh/lis2dh.c"
+                "rdp": "soc_components/st_lis2dh"
             }
         },
         {
@@ -25110,8 +25838,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/st_lis2ds12",
-                "ren": "Sensors/LIS2DS12.cs",
-                "zephyr": "drivers/sensor/lis2ds12/lis2ds12.c"
+                "ren": "Sensors/LIS2DS12.cs"
             }
         },
         {
@@ -25166,8 +25893,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lis2du12",
-                "zephyr": "drivers/sensor/lis2du12/lis2du12.c"
+                "rdp": "soc_components/st_lis2du12"
             }
         },
         {
@@ -25215,8 +25941,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lis2dw12",
-                "zephyr": "drivers/sensor/lis2dw12/lis2dw12.c"
+                "rdp": "soc_components/st_lis2dw12"
             }
         },
         {
@@ -25264,8 +25989,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lis2mdl",
-                "zephyr": "drivers/sensor/lis2mdl/lis2mdl.c"
+                "rdp": "soc_components/st_lis2mdl"
             }
         },
         {
@@ -25337,8 +26061,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lis3mdl-magn",
-                "zephyr": "drivers/sensor/lis3mdl/lis3mdl.c"
+                "rdp": "soc_components/st_lis3mdl-magn"
             }
         },
         {
@@ -25867,7 +26590,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/lpc55s69",
-                "zephyr": "dts/arm/nxp/nxp_lpc55S6x.dtsi"
+                "zephyr": "dts/arm/nxp/nxp_lpc55S6x_ns.dtsi"
             }
         },
         {
@@ -25922,8 +26645,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lps22df",
-                "zephyr": "drivers/sensor/lps2xdf/lps2xdf.c"
+                "rdp": "soc_components/st_lps22df"
             }
         },
         {
@@ -25952,8 +26674,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lps22hb-press",
-                "zephyr": "drivers/sensor/lps22hb/lps22hb.c"
+                "rdp": "soc_components/st_lps22hb-press"
             }
         },
         {
@@ -26008,8 +26729,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lps22hh",
-                "zephyr": "drivers/sensor/lps22hh/lps22hh.c"
+                "rdp": "soc_components/st_lps22hh"
             }
         },
         {
@@ -26038,8 +26758,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lps25hb-press",
-                "zephyr": "drivers/sensor/lps25hb/lps25hb.c"
+                "rdp": "soc_components/st_lps25hb-press"
             }
         },
         {
@@ -26082,8 +26801,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lps28dfw",
-                "zephyr": "drivers/sensor/lps2xdf/lps2xdf.c"
+                "rdp": "soc_components/st_lps28dfw"
             }
         },
         {
@@ -26214,8 +26932,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm303dlhc-magn",
-                "zephyr": "drivers/sensor/lsm303dlhc_magn/lsm303dlhc_magn.c"
+                "rdp": "soc_components/st_lsm303dlhc-magn"
             }
         },
         {
@@ -26244,8 +26961,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm6ds0",
-                "zephyr": "drivers/sensor/lsm6ds0/lsm6ds0.c"
+                "rdp": "soc_components/st_lsm6ds0"
             }
         },
         {
@@ -26293,8 +27009,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm6dsl",
-                "zephyr": "drivers/sensor/lsm6dsl/lsm6dsl.c"
+                "rdp": "soc_components/st_lsm6dsl"
             }
         },
         {
@@ -26342,8 +27057,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm6dso",
-                "zephyr": "drivers/sensor/lsm6dso/lsm6dso.c"
+                "rdp": "soc_components/st_lsm6dso"
             }
         },
         {
@@ -26391,8 +27105,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm6dso16is",
-                "zephyr": "drivers/sensor/lsm6dso16is/lsm6dso16is.c"
+                "rdp": "soc_components/st_lsm6dso16is"
             }
         },
         {
@@ -26447,8 +27160,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm6dsv16x",
-                "zephyr": "drivers/sensor/lsm6dsv16x/lsm6dsv16x.c"
+                "rdp": "soc_components/st_lsm6dsv16x"
             }
         },
         {
@@ -26484,8 +27196,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm9ds0-gyro",
-                "zephyr": "drivers/sensor/lsm9ds0_gyro/lsm9ds0_gyro.c"
+                "rdp": "soc_components/st_lsm9ds0-gyro"
             }
         },
         {
@@ -26521,8 +27232,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_lsm9ds0-mfd",
-                "zephyr": "drivers/sensor/lsm9ds0_mfd/lsm9ds0_mfd.c"
+                "rdp": "soc_components/st_lsm9ds0-mfd"
             }
         },
         {
@@ -26959,8 +27669,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/maxim_max17055",
-                "zephyr": "drivers/sensor/max17055/max17055.c"
+                "rdp": "soc_components/maxim_max17055"
             }
         },
         {
@@ -27024,8 +27733,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/maxim_max17262",
-                "zephyr": "drivers/sensor/max17262/max17262.c"
+                "rdp": "soc_components/maxim_max17262"
             }
         },
         {
@@ -27083,8 +27791,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/maxim_max31855",
-                "zephyr": "drivers/sensor/max31855/max31855.c"
+                "rdp": "soc_components/maxim_max31855"
             }
         },
         {
@@ -27152,8 +27859,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/maxim_max31875",
-                "zephyr": "drivers/sensor/max31875/max31875.c"
+                "rdp": "soc_components/maxim_max31875"
             }
         },
         {
@@ -27189,8 +27895,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/maxim_max44009",
-                "zephyr": "drivers/sensor/max44009/max44009.c"
+                "rdp": "soc_components/maxim_max44009"
             }
         },
         {
@@ -27219,8 +27924,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/maxim_max6675",
-                "zephyr": "drivers/sensor/max6675/max6675.c"
+                "rdp": "soc_components/maxim_max6675"
             }
         },
         {
@@ -27663,8 +28367,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/microchip_mcp9600",
-                "zephyr": "drivers/sensor/mcp9600/mcp9600.c"
+                "rdp": "soc_components/microchip_mcp9600"
             }
         },
         {
@@ -27701,10 +28404,7 @@
                     "name": "io-channels",
                     "type": "list"
                 }
-            ],
-            "urls": {
-                "zephyr": "drivers/sensor/mcp970x/mcp970x.c"
-            }
+            ]
         },
         {
             "additionalData": {
@@ -27739,8 +28439,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/microchip_mcp9808",
-                "zephyr": "drivers/sensor/mcp9808/mcp9808.c"
+                "rdp": "soc_components/microchip_mcp9808"
             }
         },
         {
@@ -34941,8 +35640,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/honeywell_mpr",
-                "zephyr": "drivers/sensor/mpr/mpr.c"
+                "rdp": "soc_components/honeywell_mpr"
             }
         },
         {
@@ -35112,8 +35810,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/meas_ms5607",
-                "zephyr": "drivers/sensor/ms5607/ms5607.c"
+                "rdp": "soc_components/meas_ms5607"
             }
         },
         {
@@ -35142,8 +35839,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/meas_ms5837",
-                "zephyr": "drivers/sensor/ms5837/ms5837.c"
+                "rdp": "soc_components/meas_ms5837"
             }
         },
         {
@@ -37531,148 +38227,183 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "qdec130",
+                    "name": "pwm120",
                     "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm130",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm131",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm132",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm133",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qdec130",
+                    "side": "right",
                     "type": "qdec"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "qdec131",
-                    "side": "right",
+                    "side": "left",
                     "type": "qdec"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi120",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi121",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi130",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi131",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi132",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi133",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi134",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi135",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi136",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi137",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart120",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart130",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart131",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart132",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart133",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart134",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart135",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart136",
                     "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart137",
+                    "name": "uart136",
                     "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart137",
+                    "side": "right",
                     "type": "serial"
                 }
             ],
@@ -38007,7 +38738,7 @@
             "isCategory": true,
             "urls": {
                 "rdp": "soc/nrf9151",
-                "zephyr": "dts/arm/nordic/nrf9151_laca.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9151ns_laca.dtsi"
             }
         },
         {
@@ -40575,8 +41306,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_opt3001",
-                "zephyr": "drivers/sensor/opt3001/opt3001.c"
+                "rdp": "soc_components/ti_opt3001"
             }
         },
         {
@@ -41904,8 +42634,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/sensirion_sgp40",
-                "zephyr": "drivers/sensor/sgp40/sgp40.c"
+                "rdp": "soc_components/sensirion_sgp40"
             }
         },
         {
@@ -41941,8 +42670,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/sensirion_sht3xd",
-                "zephyr": "drivers/sensor/sht3xd/sht3xd.c"
+                "rdp": "soc_components/sensirion_sht3xd"
             }
         },
         {
@@ -41982,7 +42710,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/sensirion_sht4x",
-                "zephyr": "drivers/sensor/sht4x/sht4x.c"
+                "ren": "I2C/SHT45.cs"
             }
         },
         {
@@ -42029,8 +42757,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/sensirion_shtcx",
-                "zephyr": "drivers/sensor/shtcx/shtcx.c"
+                "rdp": "soc_components/sensirion_shtcx"
             }
         },
         {
@@ -42067,8 +42794,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/silabs_si7006",
-                "zephyr": "drivers/sensor/si7006/si7006.c"
+                "rdp": "soc_components/silabs_si7006"
             }
         },
         {
@@ -42105,8 +42831,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/silabs_si7055",
-                "zephyr": "drivers/sensor/si7055/si7055.c"
+                "rdp": "soc_components/silabs_si7055"
             }
         },
         {
@@ -42135,8 +42860,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/silabs_si7060",
-                "zephyr": "drivers/sensor/si7060/si7060.c"
+                "rdp": "soc_components/silabs_si7060"
             }
         },
         {
@@ -42166,8 +42890,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/silabs_si7210",
-                "ren": "Sensors/SI7210.cs",
-                "zephyr": "drivers/sensor/si7210/si7210.c"
+                "ren": "Sensors/SI7210.cs"
             }
         },
         {
@@ -42194,10 +42917,7 @@
                     "type": "gpio"
                 }
             ],
-            "isCategory": true,
-            "urls": {
-                "zephyr": "drivers/sensor/sm351lt/sm351lt.c"
-            }
+            "isCategory": true
         },
         {
             "abstract": true,
@@ -78234,8 +78954,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_stts751",
-                "zephyr": "drivers/sensor/stts751/stts751.c"
+                "rdp": "soc_components/st_stts751"
             }
         },
         {
@@ -78308,8 +79027,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/microchip_tcn75a",
-                "zephyr": "drivers/sensor/tcn75a/tcn75a.c"
+                "rdp": "soc_components/microchip_tcn75a"
             }
         },
         {
@@ -78345,8 +79063,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_tcs3400",
-                "zephyr": "drivers/sensor/tcs3400/tcs3400.c"
+                "rdp": "soc_components/ams_tcs3400"
             }
         },
         {
@@ -78612,8 +79329,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_tmag5170",
-                "zephyr": "drivers/sensor/tmag5170/tmag5170.c"
+                "rdp": "soc_components/ti_tmag5170"
             }
         },
         {
@@ -78681,8 +79397,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_tmd2620",
-                "zephyr": "drivers/sensor/tmd2620/tmd2620.c"
+                "rdp": "soc_components/ams_tmd2620"
             }
         },
         {
@@ -78718,8 +79433,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_tmp007",
-                "zephyr": "drivers/sensor/tmp007/tmp007.c"
+                "rdp": "soc_components/ti_tmp007"
             }
         },
         {
@@ -78756,8 +79470,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/ti_tmp108",
-                "ren": "Sensors/TMP108.cs",
-                "zephyr": "drivers/sensor/tmp108/tmp108.c"
+                "ren": "Sensors/TMP108.cs"
             }
         },
         {
@@ -78786,8 +79499,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_tmp112",
-                "zephyr": "drivers/sensor/tmp112/tmp112.c"
+                "rdp": "soc_components/ti_tmp112"
             }
         },
         {
@@ -78816,8 +79528,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ti_tmp116",
-                "zephyr": "drivers/sensor/tmp116/tmp116.c"
+                "rdp": "soc_components/ti_tmp116"
             }
         },
         {
@@ -78853,8 +79564,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_tsl2540",
-                "zephyr": "drivers/sensor/tsl2540/tsl2540.c"
+                "rdp": "soc_components/ams_tsl2540"
             }
         },
         {
@@ -78883,8 +79593,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/ams_tsl2561",
-                "zephyr": "drivers/sensor/tsl2561/tsl2561.c"
+                "rdp": "soc_components/ams_tsl2561"
             }
         },
         {
@@ -78920,8 +79629,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/vishay_vcnl4040",
-                "zephyr": "drivers/sensor/vcnl4040/vcnl4040.c"
+                "rdp": "soc_components/vishay_vcnl4040"
             }
         },
         {
@@ -78950,8 +79658,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/vishay_veml7700",
-                "zephyr": "drivers/sensor/veml7700/veml7700.c"
+                "rdp": "soc_components/vishay_veml7700"
             }
         },
         {
@@ -78987,8 +79694,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_vl53l0x",
-                "zephyr": "drivers/sensor/vl53l0x/vl53l0x.c"
+                "rdp": "soc_components/st_vl53l0x"
             }
         },
         {
@@ -79031,8 +79737,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/st_vl53l1x",
-                "zephyr": "drivers/sensor/vl53l1x/vl53l1.c"
+                "rdp": "soc_components/st_vl53l1x"
             }
         },
         {
@@ -79078,8 +79783,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/we_wsen-hids",
-                "zephyr": "drivers/sensor/wsen_hids/wsen_hids.c"
+                "rdp": "soc_components/we_wsen-hids"
             }
         },
         {
@@ -79130,8 +79834,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/we_wsen-pads",
-                "zephyr": "drivers/sensor/wsen_pads/wsen_pads.c"
+                "rdp": "soc_components/we_wsen-pads"
             }
         },
         {
@@ -79172,8 +79875,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/we_wsen-pdus",
-                "zephyr": "drivers/sensor/wsen_pdus/wsen_pdus.c"
+                "rdp": "soc_components/we_wsen-pdus"
             }
         },
         {
@@ -79220,8 +79922,7 @@
                 }
             ],
             "urls": {
-                "rdp": "soc_components/we_wsen-tids",
-                "zephyr": "drivers/sensor/wsen_tids/wsen_tids.c"
+                "rdp": "soc_components/we_wsen-tids"
             }
         },
         {

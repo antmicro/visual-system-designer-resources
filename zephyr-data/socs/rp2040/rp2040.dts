@@ -70,7 +70,7 @@
 			ngpios = < 0x1e >;
 		};
 		uart0: uart@40034000 {
-			compatible = "raspberrypi,pico-uart";
+			compatible = "raspberrypi,pico-uart", "arm,pl011";
 			reg = < 0x40034000 0x1000 >;
 			clocks = < &clocks 0x6 >;
 			resets = < &reset 0x16 >;
@@ -79,7 +79,7 @@
 			status = "disabled";
 		};
 		uart1: uart@40038000 {
-			compatible = "raspberrypi,pico-uart";
+			compatible = "raspberrypi,pico-uart", "arm,pl011";
 			reg = < 0x40038000 0x1000 >;
 			clocks = < &clocks 0x6 >;
 			resets = < &reset 0x17 >;

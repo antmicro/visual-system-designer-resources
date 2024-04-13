@@ -22,6 +22,24 @@
 			#clock-cells = < 0x3 >;
 			phandle = < 0x2 >;
 		};
+		gpt1: gpt@302d0000 {
+			compatible = "nxp,imx-gpt";
+			reg = < 0x302d0000 0x10000 >;
+			interrupt-parent = < &gic >;
+			interrupts = < 0x0 0x37 0x2 0xa0 >;
+			gptfreq = < 0x16e3600 >;
+			clocks = < &ccm 0x1300 0x6c 0x14 >;
+			status = "disabled";
+		};
+		gpt2: gpt@302e0000 {
+			compatible = "nxp,imx-gpt";
+			reg = < 0x302e0000 0x10000 >;
+			interrupt-parent = < &gic >;
+			interrupts = < 0x0 0x36 0x2 0xa0 >;
+			gptfreq = < 0x16e3600 >;
+			clocks = < &ccm 0x1300 0x68 0x18 >;
+			status = "disabled";
+		};
 		uart2: uart@30890000 {
 			compatible = "nxp,imx-iuart";
 			reg = < 0x30890000 0x10000 >;

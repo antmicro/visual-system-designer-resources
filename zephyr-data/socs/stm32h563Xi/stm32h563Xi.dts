@@ -42,6 +42,15 @@
 				reg = < 0x8000000 0x200000 >;
 			};
 		};
+		power-states {
+			stop: state0 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x1 >;
+				min-residency-us = < 0x14 >;
+				phandle = < 0x5 >;
+			};
+		};
 		rcc: rcc@44020c00 {
 			compatible = "st,stm32u5-rcc";
 			clocks-controller;
@@ -139,6 +148,26 @@
 				clocks = < &rcc 0x8c 0x100 >;
 			};
 		};
+		lptim1: timers@44004400 {
+			compatible = "st,stm32-lptim";
+			clocks = < &rcc 0xa8 0x800 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x44004400 0x400 >;
+			interrupts = < 0x40 0x1 >;
+			interrupt-names = "wakeup";
+			status = "disabled";
+		};
+		lptim2: timers@40009400 {
+			compatible = "st,stm32-lptim";
+			clocks = < &rcc 0xa0 0x20 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x40009400 0x400 >;
+			interrupts = < 0x46 0x1 >;
+			interrupt-names = "wakeup";
+			status = "disabled";
+		};
 		usart1: serial@40013800 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40013800 0x400 >;
@@ -201,7 +230,7 @@
 			resolutions = < 0x60630c 0x51630c 0x42630c 0x33630c >;
 			sampling-times = < 0x3 0x7 0xd 0x19 0x30 0x5d 0xf8 0x281 >;
 			st,adc-sequencer = < 0x1 >;
-			phandle = < 0x5 >;
+			phandle = < 0x6 >;
 		};
 		rtc: rtc@44007800 {
 			compatible = "st,stm32-rtc";
@@ -307,7 +336,7 @@
 			interrupts = < 0x33 0x0 >, < 0x34 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x6 >;
+			phandle = < 0x7 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -319,7 +348,7 @@
 			interrupts = < 0x35 0x0 >, < 0x36 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x7 >;
+			phandle = < 0x8 >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32h7-spi", "st,stm32-spi-fifo", "st,stm32-spi";
@@ -408,6 +437,46 @@
 			clocks = < &rcc 0xa4 0x1000000 >, < &rcc 0x7 0x364e4 >;
 			status = "disabled";
 		};
+		lptim3: timers@44004800 {
+			compatible = "st,stm32-lptim";
+			clocks = < &rcc 0xa8 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x44004800 0x400 >;
+			interrupts = < 0x7f 0x1 >;
+			interrupt-names = "wakeup";
+			status = "disabled";
+		};
+		lptim4: timers@44004C00 {
+			compatible = "st,stm32-lptim";
+			clocks = < &rcc 0xa8 0x2000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x44004c00 0x400 >;
+			interrupts = < 0x80 0x1 >;
+			interrupt-names = "wakeup";
+			status = "disabled";
+		};
+		lptim5: timers@44005000 {
+			compatible = "st,stm32-lptim";
+			clocks = < &rcc 0xa8 0x4000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x44005000 0x400 >;
+			interrupts = < 0x81 0x1 >;
+			interrupt-names = "wakeup";
+			status = "disabled";
+		};
+		lptim6: timers@44005400 {
+			compatible = "st,stm32-lptim";
+			clocks = < &rcc 0xa8 0x8000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x44005400 0x400 >;
+			interrupts = < 0x82 0x1 >;
+			interrupt-names = "wakeup";
+			status = "disabled";
+		};
 		uart4: serial@40004c00 {
 			compatible = "st,stm32-uart";
 			reg = < 0x40004c00 0x400 >;
@@ -482,7 +551,7 @@
 			interrupts = < 0x50 0x0 >, < 0x51 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x8 >;
+			phandle = < 0x9 >;
 		};
 		i2c4: i2c@44002c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -494,7 +563,7 @@
 			interrupts = < 0x7d 0x0 >, < 0x7e 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x9 >;
+			phandle = < 0xa >;
 		};
 		spi4: spi@40014c00 {
 			compatible = "st,stm32h7-spi", "st,stm32-spi-fifo", "st,stm32-spi";
@@ -660,6 +729,7 @@
 			device_type = "cpu";
 			compatible = "arm,cortex-m33";
 			reg = < 0x0 >;
+			cpu-power-states = < &stop >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			mpu: mpu@e000ed90 {

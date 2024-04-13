@@ -1,5 +1,5 @@
 / {
-	compatible = "m5stack,m5stack-atom-lite";
+	compatible = "espressif,esp32s2";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,flash = &flash0;
@@ -17,21 +17,17 @@
 };
 &i2c0{
 	status = "okay";
-	clock-frequency = < 0x61a80 >;
+	clock-frequency = < 0x186a0 >;
 	pinctrl-0 = < &i2c0_default >;
 	pinctrl-names = "default";
-	sda-gpios = < &gpio0 0x19 0x6 >;
-	scl-gpios = < &gpio0 0x15 0x6 >;
 };
 &i2c1{
-	status = "okay";
-	clock-frequency = < 0x61a80 >;
+	clock-frequency = < 0x186a0 >;
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
-	sda-gpios = < &gpio0 0x1a 0x6 >;
-	scl-gpios = < &gpio1 0x0 0x6 >;
 };
 &spi2{
+	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &spim2_default >;
@@ -41,8 +37,7 @@
 	status = "okay";
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x0 >;
-	line-idle-low;
-	pinctrl-0 = < &spim3_ws2812_led >;
+	pinctrl-0 = < &spim3_default >;
 	pinctrl-names = "default";
 };
 &uart0{
@@ -56,17 +51,35 @@
 	status = "okay";
 	uart0_default: uart0_default {
 		group1 {
-			pinmux = < 0x77fc1 >;
+			pinmux = < 0x77feb >;
 			output-high;
 		};
 		group2 {
-			pinmux = < 0xff8383 >;
+			pinmux = < 0xff83ac >;
 			bias-pull-up;
+		};
+	};
+	spim2_default: spim2_default {
+		group1 {
+			pinmux = < 0xff9b4d >, < 0x367fcc >, < 0x3affca >;
+		};
+		group2 {
+			pinmux = < 0x377fcb >;
+			output-low;
+		};
+	};
+	spim3_default: spim3_default {
+		group1 {
+			pinmux = < 0xff9265 >, < 0x247fe4 >, < 0x267fe2 >;
+		};
+		group2 {
+			pinmux = < 0x257fe3 >;
+			output-low;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			pinmux = < 0xf0799 >, < 0xe8755 >;
+			pinmux = < 0xf0788 >, < 0xe8749 >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
@@ -74,25 +87,10 @@
 	};
 	i2c1_default: i2c1_default {
 		group1 {
-			pinmux = < 0xf079a >, < 0xe8760 >;
+			pinmux = < 0x301803 >, < 0x2f97c4 >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
-		};
-	};
-	spim2_default: spim2_default {
-		group1 {
-			pinmux = < 0xff8261 >, < 0x47fd7 >, < 0x5ffd6 >;
-		};
-		group2 {
-			pinmux = < 0x57fd3 >;
-			output-low;
-		};
-	};
-	spim3_ws2812_led: spim3_ws2812_led {
-		group1 {
-			pinmux = < 0x20ffdb >;
-			output-low;
 		};
 	};
 };
