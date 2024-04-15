@@ -1,0 +1,38 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "intel,lakemont";
+			d-cache-line-size = < 0x40 >;
+			reg = < 0x0 >;
+		};
+	};
+	intc: ioapic@fec00000 {
+		compatible = "intel,ioapic";
+		reg = < 0xfec00000 0x1000 >;
+		interrupt-controller;
+		#interrupt-cells = < 0x3 >;
+	};
+	intc_loapic: loapic@fee00000 {
+		compatible = "intel,loapic";
+		reg = < 0xfee00000 0x1000 >;
+		interrupt-controller;
+		#interrupt-cells = < 0x3 >;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+	};
+};
