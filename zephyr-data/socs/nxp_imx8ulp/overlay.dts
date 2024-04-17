@@ -1,6 +1,13 @@
 / {
 	compatible = "nxp";
 	chosen {
+		zephyr,console = &lpuart7;
 		zephyr,sram = &sram0;
 	};
+};
+&lpuart7{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &lpuart7_default >;
+	pinctrl-names = "default";
 };

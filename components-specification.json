@@ -34,7 +34,7 @@
             "zephyr": {
                 "icon": "icons_zephyr.svg",
                 "name": "Zephyr",
-                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/b573f447f04f042f427fafd23fb8cd4cacfe6e30/"
+                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/2fc42054a57ccceb6df1a56ee1bd983ac3d1a5a6/"
             }
         }
     },
@@ -10353,7 +10353,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -20485,7 +20485,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303.c"
+                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
             }
         },
         {
@@ -40463,6 +40463,13 @@
                     "name": "hsgpio1",
                     "side": "left",
                     "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb_otg",
+                    "side": "right",
+                    "type": "usb"
                 }
             ],
             "isCategory": true,

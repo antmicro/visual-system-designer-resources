@@ -36,6 +36,7 @@
 		compatible = "nxp,kinetis-pcc";
 		reg = < 0x29800000 0x10000 >;
 		#clock-cells = < 0x2 >;
+		phandle = < 0x1 >;
 	};
 	iomuxc1: pinctrl@298c0000 {
 		compatible = "nxp,imx-iomuxc";
@@ -43,5 +44,11 @@
 		pinctrl: pinctrl {
 			compatible = "nxp,imx8ulp-pinctrl";
 		};
+	};
+	lpuart7: serial@29870000 {
+		compatible = "nxp,kinetis-lpuart";
+		reg = < 0x29870000 0x1000 >;
+		clocks = < &pcc4 0x0 0x0 >;
+		status = "disabled";
 	};
 };
