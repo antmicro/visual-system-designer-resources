@@ -5805,6 +5805,21 @@
         },
         {
             "abstract": false,
+            "description": "USB Interface, USB Hub and Flash Media Controller, USB 2.0, 3 V, 3.6 V, QFN, 48 Pins\n\n### Additional information\n\n*Datasheet*: [00001578D.pdf](https://ww1.microchip.com/downloads/en/DeviceDoc/00001578D.pdf)",
+            "extends": [
+                "USB Hub and Flash Media Card Controller"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-48-microchip-qfn77-48ld-pl-2/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology USB2642/ML",
+            "urls": {
+                "datasheet": "https://ww1.microchip.com/downloads/en/DeviceDoc/00001578D.pdf",
+                "hwp": "components/microchip-technology-usb2642-ml"
+            }
+        },
+        {
+            "abstract": false,
             "description": "USB Interface, USB Host Controller, USB 2.0 OTG, 3 V, 3.6 V, VQFN, 32 Pins\n\n### Additional information\n\n*Datasheet*: [00001783C.pdf](https://ww1.microchip.com/downloads/en/DeviceDoc/00001783C.pdf)",
             "extends": [
                 "USB OTG controller"
@@ -8699,6 +8714,57 @@
             "isCategory": true
         },
         {
+            "category": "Interfacing/USB/USB Hub and Flash Media Card Controller",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "USB Host",
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "card detect",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "side": "left",
+                    "type": "sdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/USB/USB Micro",
             "interfaces": [
                 {
@@ -10353,7 +10419,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
             }
         },
         {
@@ -20485,7 +20551,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "drivers/sensor/f75303/f75303.c"
             }
         },
         {
