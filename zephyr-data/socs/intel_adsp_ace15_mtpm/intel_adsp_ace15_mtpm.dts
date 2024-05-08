@@ -12,6 +12,14 @@
 		#size-cells = < 0x1 >;
 		compatible = "simple-bus";
 		ranges;
+		lsbpm: lsbpm@71d80 {
+			compatible = "intel,adsp-lsbpm";
+			reg = < 0x71d80 0x8 >;
+		};
+		hsbpm: hsbpm@17a800 {
+			compatible = "intel,adsp-hsbpm";
+			reg = < 0x17a800 0x8 >;
+		};
 		core_intc: core_intc@0 {
 			compatible = "cdns,xtensa-core-intc";
 			reg = < 0x0 0x400 >;
@@ -117,24 +125,30 @@
 			reg = < 0x24400 0x24600 >;
 			status = "okay";
 		};
+		sspbase: ssp_base@28800 {
+			compatible = "intel,ssp-sspbase";
+			reg = < 0x28800 0x1000 >;
+		};
 		ssp0: ssp@28000 {
-			compatible = "intel,ssp-dai";
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
+			compatible = "intel,ssp";
 			reg = < 0x28000 0x1000 0x79c00 0x200 >;
 			interrupts = < 0x0 0x0 0x0 >;
 			interrupt-parent = < &ace_intc >;
 			dmas = < &lpgpdma0 0x2 &lpgpdma0 0x3 >;
 			dma-names = "tx", "rx";
 			power-domain = < &io0_domain >;
+			ssp-index = < 0x0 >;
 			status = "okay";
-		};
-		sspbase: ssp_base@28800 {
-			compatible = "intel,ssp-sspbase";
-			reg = < 0x28800 0x1000 >;
+			ssp00: ssp@0 {
+				compatible = "intel,ssp-dai";
+				status = "okay";
+				reg = < 0x0 >;
+			};
 		};
 		ssp1: ssp@29000 {
-			compatible = "intel,ssp-dai";
+			compatible = "intel,ssp";
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x29000 0x1000 0x79c00 0x200 >;
@@ -143,10 +157,16 @@
 			dmas = < &lpgpdma0 0x4 &lpgpdma0 0x5 >;
 			dma-names = "tx", "rx";
 			power-domain = < &io0_domain >;
+			ssp-index = < 0x1 >;
 			status = "okay";
+			ssp10: ssp@10 {
+				compatible = "intel,ssp-dai";
+				status = "okay";
+				reg = < 0x10 >;
+			};
 		};
 		ssp2: ssp@2a000 {
-			compatible = "intel,ssp-dai";
+			compatible = "intel,ssp";
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x2a000 0x1000 0x79c00 0x200 >;
@@ -155,43 +175,13 @@
 			dmas = < &lpgpdma0 0x6 &lpgpdma0 0x7 >;
 			dma-names = "tx", "rx";
 			power-domain = < &io0_domain >;
+			ssp-index = < 0x2 >;
 			status = "okay";
-		};
-		ssp3: ssp@2b000 {
-			compatible = "intel,ssp-dai";
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x0 >;
-			reg = < 0x2b000 0x1000 0x79c00 0x200 >;
-			interrupts = < 0x3 0x0 0x0 >;
-			interrupt-parent = < &ace_intc >;
-			dmas = < &lpgpdma0 0x8 &lpgpdma0 0x9 >;
-			dma-names = "tx", "rx";
-			power-domain = < &io0_domain >;
-			status = "okay";
-		};
-		ssp4: ssp@2c000 {
-			compatible = "intel,ssp-dai";
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x0 >;
-			reg = < 0x2c000 0x1000 0x79c00 0x200 >;
-			interrupts = < 0x4 0x0 0x0 >;
-			interrupt-parent = < &ace_intc >;
-			dmas = < &lpgpdma0 0xa &lpgpdma0 0xb >;
-			dma-names = "tx", "rx";
-			power-domain = < &io0_domain >;
-			status = "okay";
-		};
-		ssp5: ssp@2d000 {
-			compatible = "intel,ssp-dai";
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x0 >;
-			reg = < 0x2d000 0x1000 0x79c00 0x200 >;
-			interrupts = < 0x4 0x0 0x0 >;
-			interrupt-parent = < &ace_intc >;
-			dmas = < &lpgpdma0 0xc &lpgpdma0 0xd >;
-			dma-names = "tx", "rx";
-			power-domain = < &io0_domain >;
-			status = "okay";
+			ssp20: ssp@20 {
+				compatible = "intel,ssp-dai";
+				status = "okay";
+				reg = < 0x20 >;
+			};
 		};
 		mem_window0: mem_window@70200 {
 			compatible = "intel,adsp-mem-window";

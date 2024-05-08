@@ -314,6 +314,25 @@
 			#io-channel-cells = < 0x1 >;
 			status = "disabled";
 		};
+		sdhc: sdhc@3ff68000 {
+			compatible = "espressif,esp32-sdhc";
+			reg = < 0x3ff68000 0x1000 >;
+			interrupts = < 0x25 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x14 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			sdhc0: sdhc@0 {
+				compatible = "espressif,esp32-sdhc-slot";
+				reg = < 0x0 >;
+				status = "disabled";
+			};
+			sdhc1: sdhc@1 {
+				compatible = "espressif,esp32-sdhc-slot";
+				reg = < 0x1 >;
+				status = "disabled";
+			};
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

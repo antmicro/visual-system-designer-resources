@@ -20,8 +20,8 @@
 };
 &i2c0{
 	status = "okay";
-	location-sda = < 0x3 0x3 0x2 >;
-	location-scl = < 0x3 0x3 0x3 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
 };
 &usart0{
 	status = "okay";
@@ -48,6 +48,11 @@
 	usart1_default: usart1_default {
 		group1 {
 			psels = < 0x5 >, < 0x1000006 >, < 0x4000001 >;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0x9000302 >, < 0xa000303 >, < 0xb000003 >, < 0xc000003 >;
 		};
 	};
 };

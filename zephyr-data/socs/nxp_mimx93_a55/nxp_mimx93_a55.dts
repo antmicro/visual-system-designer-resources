@@ -728,13 +728,73 @@
 		compatible = "nxp,dai-sai";
 		reg = < 0x42660000 0x10000 >;
 		mclk-is-output;
-		clocks = < &ccm 0x2002 0x0 0x0 >;
+		clocks = < &ccm 0x1102 0x0 0x0 >;
 		clock-names = "mclk1";
 		interrupt-parent = < &gic >;
 		interrupts = < 0x0 0xab 0x2 0xa0 >;
 		dai-index = < 0x3 >;
 		dmas = < &edma4 0x0 0x3c >, < &edma4 0x1 0x3d >;
 		dma-names = "tx", "rx";
+		status = "disabled";
+	};
+	tpm1: tpm@44310000 {
+		compatible = "nxp,tpm-timer";
+		reg = < 0x44310000 0x10000 >;
+		interrupts = < 0x0 0x24 0x2 0xa0 >;
+		interrupt-names = "irq_0";
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x1600 0x0 0x0 >;
+		prescaler = < 0x1 >;
+		status = "disabled";
+	};
+	tpm2: tpm@44320000 {
+		compatible = "nxp,tpm-timer";
+		reg = < 0x44320000 0x10000 >;
+		interrupts = < 0x0 0x25 0x2 0xa0 >;
+		interrupt-names = "irq_0";
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x1601 0x0 0x0 >;
+		prescaler = < 0x1 >;
+		status = "disabled";
+	};
+	tpm3: tpm@424e0000 {
+		compatible = "nxp,tpm-timer";
+		reg = < 0x424e0000 0x10000 >;
+		interrupts = < 0x0 0x4b 0x2 0xa0 >;
+		interrupt-names = "irq_0";
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x1602 0x0 0x0 >;
+		prescaler = < 0x1 >;
+		status = "disabled";
+	};
+	tpm4: tpm@424f0000 {
+		compatible = "nxp,tpm-timer";
+		reg = < 0x424f0000 0x10000 >;
+		interrupts = < 0x0 0x4c 0x2 0xa0 >;
+		interrupt-names = "irq_0";
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x1603 0x0 0x0 >;
+		prescaler = < 0x1 >;
+		status = "disabled";
+	};
+	tpm5: tpm@42500000 {
+		compatible = "nxp,tpm-timer";
+		reg = < 0x42500000 0x10000 >;
+		interrupts = < 0x0 0x4d 0x2 0xa0 >;
+		interrupt-names = "irq_0";
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x1604 0x0 0x0 >;
+		prescaler = < 0x1 >;
+		status = "disabled";
+	};
+	tpm6: tpm@42510000 {
+		compatible = "nxp,tpm-timer";
+		reg = < 0x42510000 0x10000 >;
+		interrupts = < 0x0 0x4e 0x2 0xa0 >;
+		interrupt-names = "irq_0";
+		interrupt-parent = < &gic >;
+		clocks = < &ccm 0x1605 0x0 0x0 >;
+		prescaler = < 0x1 >;
 		status = "disabled";
 	};
 };

@@ -112,16 +112,21 @@
     },
     "alder_lake": {
         "interfaces": {
-            "gpio_0_a": "gpio",
-            "gpio_0_b": "gpio",
-            "gpio_1_d": "gpio",
-            "gpio_1_h": "gpio",
-            "gpio_1_i": "gpio",
-            "gpio_1_s": "gpio",
-            "gpio_4_c": "gpio",
-            "gpio_4_e": "gpio",
-            "gpio_4_f": "gpio",
-            "gpio_5_r": "gpio",
+            "gpio_a": "gpio",
+            "gpio_b": "gpio",
+            "gpio_c": "gpio",
+            "gpio_d": "gpio",
+            "gpio_e": "gpio",
+            "gpio_f": "gpio",
+            "gpio_g": "gpio",
+            "gpio_h": "gpio",
+            "gpio_i": "gpio",
+            "gpio_j": "gpio",
+            "gpio_k": "gpio",
+            "gpio_r": "gpio",
+            "gpio_s": "gpio",
+            "gpio_t": "gpio",
+            "gpio_u": "gpio",
             "i2c0": "i2c",
             "i2c1": "i2c",
             "i2c2": "i2c",
@@ -135,7 +140,8 @@
             "uart0": "serial",
             "uart0_legacy": "serial",
             "uart1": "serial",
-            "uart2": "serial"
+            "uart2": "serial",
+            "vgpio": "gpio"
         },
         "path": "dts/x86/intel/alder_lake.dtsi"
     },
@@ -1642,7 +1648,7 @@
             "usart2": "serial",
             "usart3": "serial"
         },
-        "path": "dts/arm/silabs/efr32mg12p432f1024gl125.dtsi"
+        "path": "dts/arm/silabs/efr32mg12p433f1024gm68.dtsi"
     },
     "efr32mg21": {
         "interfaces": {
@@ -1672,7 +1678,7 @@
             "pinctrl": "pinctrl",
             "usart0": "serial"
         },
-        "path": "dts/arm/silabs/efr32mg24b310f1536im48.dtsi"
+        "path": "dts/arm/silabs/efr32mg24b220f1536im48.dtsi"
     },
     "elkhart_lake": {
         "interfaces": {
@@ -1742,6 +1748,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -1749,7 +1758,7 @@
             "uart1": "serial",
             "uart2": "serial"
         },
-        "path": "dts/xtensa/espressif/esp32/esp32_wrover_e_n16r4.dtsi"
+        "path": "dts/xtensa/espressif/esp32/esp32_appcpu.dtsi"
     },
     "esp32_appcpu": {
         "interfaces": {
@@ -1764,6 +1773,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -1786,6 +1798,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -1808,6 +1823,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -1830,6 +1848,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -1852,6 +1873,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -1874,6 +1898,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -1896,6 +1923,9 @@
             "i2c1": "i2c",
             "mdio": "mdio",
             "pinctrl": "pinctrl",
+            "sdhc": "sdhc",
+            "sdhc0": "sdhc",
+            "sdhc1": "sdhc",
             "spi2": "spi",
             "spi3": "spi",
             "twai": "can",
@@ -2443,7 +2473,7 @@
             "usart1": "serial",
             "usart2": "serial"
         },
-        "path": "dts/riscv/gd/gd32vf103Xb.dtsi"
+        "path": "dts/riscv/gd/gd32vf103X8.dtsi"
     },
     "gr716a": {
         "interfaces": {
@@ -2462,8 +2492,11 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
             "enet2": "ethernet",
+            "enet2_mac": "ethernet",
+            "enet2_mdio": "mdio",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -2676,6 +2709,8 @@
             "dac0": "dac",
             "dac1": "dac",
             "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan0": "can",
             "flexcan1": "can",
             "ftfe": "mtd",
@@ -3189,7 +3224,6 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3227,7 +3261,8 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3267,7 +3302,8 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3307,7 +3343,8 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3351,7 +3388,8 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3393,7 +3431,8 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3435,7 +3474,8 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3477,8 +3517,11 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
             "enet2": "ethernet",
+            "enet2_mac": "ethernet",
+            "enet2_mdio": "mdio",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3524,8 +3567,11 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
             "enet2": "ethernet",
+            "enet2_mac": "ethernet",
+            "enet2_mdio": "mdio",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3571,8 +3617,11 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
             "enet2": "ethernet",
+            "enet2_mac": "ethernet",
+            "enet2_mdio": "mdio",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3618,8 +3667,11 @@
         "interfaces": {
             "adc1": "adc",
             "adc2": "adc",
-            "enet": "ethernet",
             "enet2": "ethernet",
+            "enet2_mac": "ethernet",
+            "enet2_mdio": "mdio",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3665,6 +3717,8 @@
         "interfaces": {
             "enet": "ethernet",
             "enet1g": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "fgpio2": "gpio",
             "fgpio3": "gpio",
             "flexcan1": "can",
@@ -3725,6 +3779,8 @@
         "interfaces": {
             "enet": "ethernet",
             "enet1g": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3783,6 +3839,8 @@
         "interfaces": {
             "enet": "ethernet",
             "enet1g": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "fgpio2": "gpio",
             "fgpio3": "gpio",
             "flexcan1": "can",
@@ -3843,6 +3901,8 @@
         "interfaces": {
             "enet": "ethernet",
             "enet1g": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan1": "can",
             "flexcan2": "can",
             "flexcan3": "can",
@@ -3901,6 +3961,8 @@
         "interfaces": {
             "enet": "ethernet",
             "enet1g": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "fgpio2": "gpio",
             "fgpio3": "gpio",
             "flexcan1": "can",
@@ -3957,10 +4019,6 @@
         },
         "path": "dts/arm/nxp/nxp_rt11xx_cm7.dtsi"
     },
-    "mimxrt595": {
-        "interfaces": {},
-        "path": "dts/xtensa/xtensa.dtsi"
-    },
     "mimxrt6": {
         "interfaces": {
             "flexspi": "spi",
@@ -4010,6 +4068,8 @@
             "dac0": "dac",
             "dac1": "dac",
             "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan0": "can",
             "ftfe": "mtd",
             "gpioa": "gpio",
@@ -4041,6 +4101,8 @@
             "dac0": "dac",
             "dac1": "dac",
             "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan0": "can",
             "flexcan1": "can",
             "ftfe": "mtd",
@@ -4243,6 +4305,9 @@
             "i2c_ctrl5": "i2c",
             "i2c_ctrl6": "i2c",
             "i2c_ctrl7": "i2c",
+            "i3c0": "i3c",
+            "i3c1": "i3c",
+            "i3c2": "i3c",
             "pinctrl": "pinctrl",
             "ps2_ctrl0": "ps2",
             "pwm0": "pwm",
@@ -4599,7 +4664,8 @@
             "uart134": "serial",
             "uart135": "serial",
             "uart136": "serial",
-            "uart137": "serial"
+            "uart137": "serial",
+            "usbhs": "usb"
         },
         "path": "dts/arm/nordic/nrf54h20_cpuapp.dtsi"
     },
@@ -4628,7 +4694,7 @@
             "uart2": "serial",
             "uart3": "serial"
         },
-        "path": "dts/arm/nordic/nrf9131_laca.dtsi"
+        "path": "dts/arm/nordic/nrf9131ns_laca.dtsi"
     },
     "nrf9151": {
         "interfaces": {
@@ -4655,7 +4721,7 @@
             "uart2": "serial",
             "uart3": "serial"
         },
-        "path": "dts/arm/nordic/nrf9151_laca.dtsi"
+        "path": "dts/arm/nordic/nrf9151ns_laca.dtsi"
     },
     "nrf9160": {
         "interfaces": {
@@ -4733,7 +4799,9 @@
                 "pinctrl"
             ],
             "lpuart7": "serial",
-            "pinctrl": "pinctrl"
+            "pinctrl": "pinctrl",
+            "sai5": "dai",
+            "sai6": "dai"
         },
         "path": "dts/xtensa/nxp/nxp_imx8ulp.dtsi"
     },
@@ -4744,6 +4812,8 @@
             "dac0": "dac",
             "dac1": "dac",
             "enet": "ethernet",
+            "enet_mac": "ethernet",
+            "enet_mdio": "mdio",
             "flexcan0": "can",
             "ftfe": "mtd",
             "gpioa": "gpio",
@@ -5157,8 +5227,10 @@
     "r8a77961": {
         "interfaces": {
             "emmc2": "mtd",
+            "gpio5": "gpio",
             "pfc": "pinctrl",
-            "scif2": "serial"
+            "scif2": "serial",
+            "sd0": "mtd"
         },
         "path": "dts/arm64/renesas/r8a77961.dtsi"
     },
@@ -7497,6 +7569,8 @@
     "stm32f446ret6": {
         "interfaces": {
             "adc1": "adc",
+            "adc2": "adc",
+            "adc3": "adc",
             "can1": "can",
             "can2": "can",
             "dac1": "dac",
@@ -7547,6 +7621,8 @@
     "stm32f446vet6": {
         "interfaces": {
             "adc1": "adc",
+            "adc2": "adc",
+            "adc3": "adc",
             "can1": "can",
             "can2": "can",
             "dac1": "dac",
@@ -7597,6 +7673,8 @@
     "stm32f446zet6": {
         "interfaces": {
             "adc1": "adc",
+            "adc2": "adc",
+            "adc3": "adc",
             "can1": "can",
             "can2": "can",
             "dac1": "dac",

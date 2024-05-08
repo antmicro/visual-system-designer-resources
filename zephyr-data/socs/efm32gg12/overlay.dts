@@ -26,13 +26,13 @@
 };
 &i2c0{
 	status = "okay";
-	location-sda = < 0x4 0x2 0x0 >;
-	location-scl = < 0x4 0x2 0x1 >;
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
 };
 &i2c1{
 	status = "okay";
-	location-sda = < 0x0 0x2 0x4 >;
-	location-scl = < 0x0 0x2 0x5 >;
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
 };
 &leuart0{
 	status = "okay";
@@ -57,6 +57,16 @@
 	usart0_default: usart0_default {
 		group1 {
 			psels = < 0x400 >, < 0x1000401 >, < 0x5000007 >, < 0x4000006 >;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0x16000200 >, < 0x17000201 >, < 0x18000004 >, < 0x19000004 >;
+		};
+	};
+	i2c1_default: i2c1_default {
+		group1 {
+			psels = < 0x16000204 >, < 0x17000205 >, < 0x18000000 >, < 0x19000000 >;
 		};
 	};
 };

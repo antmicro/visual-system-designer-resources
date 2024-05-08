@@ -6,8 +6,17 @@
 		zephyr,sram = &sram1;
 	};
 };
-&enet{
+&enet_mac{
+	status = "okay";
 	pinctrl-0 = < &pinmux_enet >;
+	pinctrl-names = "default";
+	phy-handle = < &phy >;
+	phy-connection-type = "rmii";
+	zephyr,random-mac-address;
+};
+&enet_mdio{
+	status = "okay";
+	pinctrl-0 = < &pinmux_enet_mdio >;
 	pinctrl-names = "default";
 };
 &flexcan3{

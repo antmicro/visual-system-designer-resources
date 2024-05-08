@@ -5,7 +5,15 @@
 		zephyr,sram = &ocram;
 	};
 };
-&enet{
+&enet_mac{
+	pinctrl-0 = < &pinmux_enet >;
+	pinctrl-names = "default";
+	zephyr,random-mac-address;
+	phy-connection-type = "rmii";
+	phy-handle = < &phy >;
+};
+&enet_mdio{
+	status = "okay";
 	pinctrl-0 = < &pinmux_enet >;
 	pinctrl-names = "default";
 };

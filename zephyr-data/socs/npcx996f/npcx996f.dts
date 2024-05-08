@@ -1857,33 +1857,33 @@
 		};
 		uart1: serial@400e0000 {
 			compatible = "nuvoton,npcx-uart";
-			reg = < 0x400e0000 0x2000 >;
+			reg = < 0x400e0000 0x2000 0x40011100 0x100 >;
 			interrupts = < 0x21 0x3 >;
-			clocks = < &pcc 0x8 0x0 0x4 >;
+			clocks = < &pcc 0x8 0x0 0x4 &pcc 0x4 0x8 0x0 >;
 			uart-rx = < &wui_cr_sin1 >;
 			status = "disabled";
 		};
 		uart2: serial@400e2000 {
 			compatible = "nuvoton,npcx-uart";
-			reg = < 0x400e2000 0x2000 >;
+			reg = < 0x400e2000 0x2000 0x40011200 0x100 >;
 			interrupts = < 0x20 0x3 >;
-			clocks = < &pcc 0x8 0x6 0x6 >;
+			clocks = < &pcc 0x8 0x6 0x6 &pcc 0x4 0x8 0x1 >;
 			uart-rx = < &wui_cr_sin2 >;
 			status = "disabled";
 		};
 		uart3: serial@400e4000 {
 			compatible = "nuvoton,npcx-uart";
-			reg = < 0x400e4000 0x2000 >;
+			reg = < 0x400e4000 0x2000 0x40011300 0x100 >;
 			interrupts = < 0x26 0x3 >;
-			clocks = < &pcc 0x8 0x6 0x4 >;
+			clocks = < &pcc 0x8 0x6 0x4 &pcc 0x4 0x8 0x2 >;
 			uart-rx = < &wui_cr_sin3 >;
 			status = "disabled";
 		};
 		uart4: serial@400e6000 {
 			compatible = "nuvoton,npcx-uart";
-			reg = < 0x400e6000 0x2000 >;
+			reg = < 0x400e6000 0x2000 0x40011400 0x100 >;
 			interrupts = < 0x27 0x3 >;
-			clocks = < &pcc 0x8 0x6 0x3 >;
+			clocks = < &pcc 0x8 0x6 0x3 &pcc 0x4 0x8 0x3 >;
 			uart-rx = < &wui_cr_sin4 >;
 			status = "disabled";
 		};
@@ -1902,6 +1902,12 @@
 			buffer-rx-size = < 0x80 >;
 			buffer-tx-size = < 0x80 >;
 			shi-cs-wui = < &wui_io53 >;
+		};
+		rctl: reset-controller@400c3100 {
+			compatible = "nuvoton,npcx-rst";
+			reg = < 0x400c3100 0x14 >;
+			#reset-cells = < 0x1 >;
+			status = "disabled";
 		};
 	};
 	cpus {

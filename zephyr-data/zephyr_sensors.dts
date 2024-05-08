@@ -106,6 +106,14 @@
 				io-channels = < &test_adc 0x0 >;
 				status = "okay";
 			};
+			test_murata_ncp15xh103: murata-ncp15xh103 {
+				compatible = "murata,ncp15xh103";
+				io-channels = < &test_adc 0x0 >;
+				pullup-uv = < 0x325aa0 >;
+				pullup-ohm = < 0x0 >;
+				pulldown-ohm = < 0x2710 >;
+				connected-positive;
+			};
 		};
 		test_gpio: gpio@deadbeef {
 			compatible = "vnd,gpio";
@@ -981,6 +989,15 @@
 				reg = < 0x8a >;
 				int2-gpios = < &test_gpio 0x0 0x0 >;
 				threshold-int-pad = < 0x2 >;
+			};
+			test_i2c_nct75: test_i2c_nct75@8b {
+				compatible = "onnn,nct75";
+				reg = < 0x8b >;
+				status = "okay";
+			};
+			test_i2c_tmp114: tmp114@8c {
+				compatible = "ti,tmp114";
+				reg = < 0x8c >;
 			};
 		};
 		test_spi: spi@33334444 {

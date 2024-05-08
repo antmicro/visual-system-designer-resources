@@ -35,7 +35,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			status = "disabled";
-			clocks = < &ccm 0x4000 0x0 0x0 >;
+			clocks = < &ccm 0x1300 0x0 0x0 >;
 		};
 		flexspi2: spi@400d0000 {
 			compatible = "nxp,imx-flexspi";
@@ -44,7 +44,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			status = "disabled";
-			clocks = < &ccm 0x4001 0x0 0x0 >;
+			clocks = < &ccm 0x1301 0x0 0x0 >;
 		};
 		semc: semc0@400d4000 {
 			compatible = "nxp,imx-semc";
@@ -592,17 +592,30 @@
 			};
 		};
 		enet: ethernet@40424000 {
-			compatible = "nxp,kinetis-ethernet";
+			compatible = "nxp,enet";
 			reg = < 0x40424000 0x628 >;
-			interrupts = < 0x89 0x0 >;
-			interrupt-names = "COMMON";
-			status = "disabled";
-			phy-addr = < 0x2 >;
-			ptp: ptp {
-				compatible = "nxp,kinetis-ptp";
+			clocks = < &ccm 0x1200 0x0 0x0 >;
+			enet_mac: ethernet {
+				compatible = "nxp,enet-mac";
+				interrupts = < 0x89 0x0 >;
+				interrupt-names = "COMMON";
+				nxp,mdio = < &enet_mdio >;
+				nxp,ptp-clock = < &enet_ptp_clock >;
 				status = "disabled";
+			};
+			enet_mdio: mdio {
+				compatible = "nxp,enet-mdio";
+				status = "disabled";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				phandle = < 0x5 >;
+			};
+			enet_ptp_clock: ptp_clock {
+				compatible = "nxp,enet-ptp-clock";
 				interrupts = < 0x8a 0x0 >;
-				interrupt-names = "IEEE1588_TMR";
+				status = "disabled";
+				clocks = < &ccm 0x1201 0x0 0x0 >;
+				phandle = < 0x6 >;
 			};
 		};
 		enet1g: ethernet@40420000 {
@@ -732,6 +745,7 @@
 			offset-value-a = < 0xa >;
 			offset-value-b = < 0xa >;
 			#io-channel-cells = < 0x1 >;
+			clocks = < &ccm 0x1500 0x0 0x0 >;
 		};
 		lpadc1: lpadc@40054000 {
 			compatible = "nxp,lpc-lpadc";
@@ -746,6 +760,7 @@
 			offset-value-a = < 0xa >;
 			offset-value-b = < 0xa >;
 			#io-channel-cells = < 0x1 >;
+			clocks = < &ccm 0x1501 0x0 0x0 >;
 		};
 		acmp1: cmp@401a4000 {
 			compatible = "nxp,kinetis-acmp";
@@ -780,7 +795,7 @@
 			reg = < 0x40c84000 0x4000 >;
 			#clock-cells = < 0x4 >;
 			#pll-clock-cells = < 0x3 >;
-			phandle = < 0x6 >;
+			phandle = < 0x8 >;
 		};
 		edma_lpsr0: dma-controller@40c14000 {
 			#dma-cells = < 0x2 >;
@@ -808,7 +823,7 @@
 			compatible = "nxp,imx-gpr";
 			reg = < 0x400e4000 0x4000 >;
 			#pinmux-cells = < 0x2 >;
-			phandle = < 0x7 >;
+			phandle = < 0x9 >;
 		};
 		sai1: sai@40404000 {
 			compatible = "nxp,mcux-i2s";
@@ -816,7 +831,7 @@
 			#size-cells = < 0x0 >;
 			#pinmux-cells = < 0x2 >;
 			reg = < 0x40404000 0x4000 >;
-			clocks = < &ccm 0x2000 0x2004 0x4 >;
+			clocks = < &ccm 0x1100 0x2004 0x4 >;
 			clock-mux = < 0x4 >;
 			pre-div = < 0x0 >;
 			podf = < 0x4 >;
@@ -837,7 +852,7 @@
 			#size-cells = < 0x0 >;
 			#pinmux-cells = < 0x2 >;
 			reg = < 0x40408000 0x4000 >;
-			clocks = < &ccm 0x2001 0x2084 0x4 >;
+			clocks = < &ccm 0x1101 0x2084 0x4 >;
 			clock-mux = < 0x4 >;
 			pre-div = < 0x0 >;
 			podf = < 0x3f >;
@@ -858,7 +873,7 @@
 			#size-cells = < 0x0 >;
 			#pinmux-cells = < 0x2 >;
 			reg = < 0x4040c000 0x4000 >;
-			clocks = < &ccm 0x2002 0x2104 0x4 >;
+			clocks = < &ccm 0x1102 0x2104 0x4 >;
 			clock-mux = < 0x4 >;
 			pre-div = < 0x0 >;
 			podf = < 0x3f >;
@@ -879,7 +894,7 @@
 			#size-cells = < 0x0 >;
 			#pinmux-cells = < 0x2 >;
 			reg = < 0x40c40000 0x4000 >;
-			clocks = < &ccm 0x2003 0x2184 0x6 >;
+			clocks = < &ccm 0x1103 0x2184 0x6 >;
 			clock-mux = < 0x6 >;
 			pre-div = < 0x0 >;
 			podf = < 0x3f >;
@@ -942,7 +957,7 @@
 		pit1: pit@400d8000 {
 			compatible = "nxp,pit";
 			reg = < 0x400d8000 0x4000 >;
-			clocks = < &ccm 0x5000 0x0 0x0 >;
+			clocks = < &ccm 0x1400 0x0 0x0 >;
 			interrupts = < 0x9b 0x0 >;
 			max-load-value = < 0xffffffff >;
 			status = "disabled";
@@ -972,7 +987,7 @@
 		pit2: pit@40cb0000 {
 			compatible = "nxp,pit";
 			reg = < 0x40cb0000 0x4000 >;
-			clocks = < &ccm 0x5001 0x0 0x0 >;
+			clocks = < &ccm 0x1401 0x0 0x0 >;
 			interrupts = < 0x9c 0x0 >;
 			max-load-value = < 0xffffffff >;
 			status = "disabled";
@@ -1051,7 +1066,7 @@
 				power-state-name = "runtime-idle";
 				substate-id = < 0x11 >;
 				min-residency-us = < 0x64 >;
-				phandle = < 0x8 >;
+				phandle = < 0xa >;
 			};
 			suspend: set_point_10_suspend {
 				compatible = "zephyr,power-state";
@@ -1059,7 +1074,7 @@
 				substate-id = < 0xa3 >;
 				min-residency-us = < 0x1388 >;
 				exit-latency-us = < 0x1f4 >;
-				phandle = < 0x9 >;
+				phandle = < 0xb >;
 			};
 		};
 	};
@@ -1067,6 +1082,6 @@
 		compatible = "fixed-clock";
 		clock-frequency = < 0x16e3600 >;
 		#clock-cells = < 0x0 >;
-		phandle = < 0x5 >;
+		phandle = < 0x7 >;
 	};
 };

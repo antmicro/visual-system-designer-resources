@@ -21,6 +21,11 @@
 &gpiof{
 	status = "okay";
 };
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
 &usart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -45,6 +50,11 @@
 		};
 		group2 {
 			psels = < 0x0 >, < 0x5000000 >;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0x1600020b >, < 0x1700020a >, < 0x18000010 >, < 0x1900000e >;
 		};
 	};
 };

@@ -577,20 +577,6 @@
 				status = "disabled";
 			};
 		};
-		enet: ethernet@402d8000 {
-			compatible = "nxp,kinetis-ethernet";
-			reg = < 0x402d8000 0x628 >;
-			interrupts = < 0x72 0x0 >;
-			interrupt-names = "COMMON";
-			status = "disabled";
-			phy-addr = < 0x0 >;
-			ptp: ptp {
-				compatible = "nxp,kinetis-ptp";
-				status = "disabled";
-				interrupts = < 0x73 0x0 >;
-				interrupt-names = "IEEE1588_TMR";
-			};
-		};
 		src: reset-controller@400f8000 {
 			compatible = "nxp,imx-src";
 			reg = < 0x400f8000 0x4000 >;

@@ -21,6 +21,13 @@
 			compatible = "cdns,tensilica-xtensa-lx7";
 			reg = < 0x0 >;
 		};
+		clic: interrupt-controller@0 {
+			compatible = "cdns,xtensa-core-intc";
+			reg = < 0x0 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x3 >;
+			phandle = < 0x2 >;
+		};
 	};
 	sram0: memory@8e000000 {
 		device_type = "memory";
@@ -49,6 +56,36 @@
 		compatible = "nxp,kinetis-lpuart";
 		reg = < 0x29870000 0x1000 >;
 		clocks = < &pcc4 0x0 0x0 >;
+		status = "disabled";
+	};
+	edma2: dma@2d800000 {
+		compatible = "nxp,edma";
+		reg = < 0x2d800000 0x200000 >;
+		valid-channels = < 0x0 >, < 0x1 >, < 0x2 >, < 0x3 >;
+		interrupt-parent = < &clic >;
+		interrupts = < 0x6 0x0 0x0 >, < 0x7 0x0 0x0 >, < 0x8 0x0 0x0 >, < 0x9 0x0 0x0 >;
+		#dma-cells = < 0x2 >;
+		status = "disabled";
+		phandle = < 0x3 >;
+	};
+	sai5: dai@29890000 {
+		compatible = "nxp,dai-sai";
+		reg = < 0x29890000 0x1000 >;
+		interrupt-parent = < &clic >;
+		interrupts = < 0x17 0x0 0x0 >;
+		dmas = < &edma2 0x2 0x46 >, < &edma2 0x3 0x45 >;
+		dma-names = "tx", "rx";
+		dai-index = < 0x5 >;
+		status = "disabled";
+	};
+	sai6: dai@2da90000 {
+		compatible = "nxp,dai-sai";
+		reg = < 0x2da90000 0x1000 >;
+		interrupt-parent = < &clic >;
+		interrupts = < 0x18 0x0 0x0 >;
+		dmas = < &edma2 0x0 0x48 >, < &edma2 0x1 0x47 >;
+		dma-names = "tx", "rx";
+		dai-index = < 0x6 >;
 		status = "disabled";
 	};
 };

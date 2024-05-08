@@ -11,6 +11,9 @@
 	pinctrl-names = "default";
 	bus-speed = < 0x1e848 >;
 };
+&gpio5{
+	reg = < 0x0 0xe6055000 0x0 0x50 >;
+};
 &gpio6{
 	status = "okay";
 };
@@ -47,5 +50,38 @@
 	};
 	scif2_data_a_rx_default: scif2_data_a_rx_default {
 		pin = < 0xab 0x3440 >;
+	};
+	emmc2_clk: emmc2_clk {
+		pin = < 0x80 0x2400 >;
+	};
+	emmc2_cmd: emmc2_cmd {
+		pin = < 0x81 0x2440 >;
+	};
+	emmc2_data0: emmc2_data0 {
+		pin = < 0x82 0x2480 >;
+	};
+	emmc2_data1: emmc2_data1 {
+		pin = < 0x83 0x24c0 >;
+	};
+	emmc2_data2: emmc2_data2 {
+		pin = < 0x84 0x2500 >;
+	};
+	emmc2_data3: emmc2_data3 {
+		pin = < 0x85 0x2540 >;
+	};
+	emmc2_data4: emmc2_data4 {
+		pin = < 0x68 0x2101 >;
+	};
+	emmc2_data5: emmc2_data5 {
+		pin = < 0x69 0x2141 >;
+	};
+	emmc2_data6: emmc2_data6 {
+		pin = < 0x6a 0x2181 >;
+	};
+	emmc2_data7: emmc2_data7 {
+		pin = < 0x6b 0x21c1 >;
+	};
+	emmc2_ds: emmc2_ds {
+		pin = < 0x86 0x2580 >;
 	};
 };

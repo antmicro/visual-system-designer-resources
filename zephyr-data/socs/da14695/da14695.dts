@@ -238,6 +238,16 @@
 			compatible = "arm,cortex-m33f";
 			reg = < 0x0 >;
 			clock-frequency = < 0x1e84800 >;
+			cpu-power-states = < &standby >;
+		};
+		power-states {
+			standby: standby {
+				compatible = "zephyr,power-state";
+				power-state-name = "standby";
+				min-residency-us = < 0x1f4 >;
+				exit-latency-us = < 0x64 >;
+				phandle = < 0x4 >;
+			};
 		};
 	};
 	crg {
@@ -248,7 +258,7 @@
 				calibration-interval = < 0x1 >;
 				#clock-cells = < 0x0 >;
 				status = "okay";
-				phandle = < 0x5 >;
+				phandle = < 0x6 >;
 			};
 			xtal32k: xtal32k {
 				compatible = "renesas,smartbond-lp-osc";
@@ -269,7 +279,7 @@
 				clock-frequency = < 0x1e84800 >;
 				#clock-cells = < 0x0 >;
 				status = "okay";
-				phandle = < 0x4 >;
+				phandle = < 0x5 >;
 			};
 			xtal32m: xtal32m {
 				compatible = "fixed-clock";

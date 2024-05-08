@@ -1,14 +1,9 @@
 / {
-	compatible = "phytec,am62x-m4-phyboard-lyra", "ti,am625";
+	compatible = "ti,am62x_m4_sk";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,sram = &sram0;
 	};
-};
-&gpio0{
-	status = "okay";
-	pinctrl-0 = < &mcu_gpio0_led_default >;
-	pinctrl-names = "default";
 };
 &uart0{
 	status = "okay";

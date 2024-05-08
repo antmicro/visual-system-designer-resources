@@ -235,6 +235,7 @@
 				dmas = < &dma0 0x15 >, < &dma0 0x16 >;
 				dma-names = "adc0-dma0", "adc0-dma1";
 				nxp,reference-supply = < &vref0 >;
+				clocks = < &syscon 0xf00 >;
 			};
 			dac0: dac@b2000 {
 				compatible = "nxp,lpdac";

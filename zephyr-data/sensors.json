@@ -833,8 +833,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303.c",
-            "drivers/sensor/f75303/f75303_emul.c"
+            "drivers/sensor/f75303/f75303_emul.c",
+            "drivers/sensor/f75303/f75303.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -2540,6 +2540,24 @@
         },
         "rdp-compat": "meas,ms5837"
     },
+    "nct75": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "onnn,nct75"
+        ],
+        "description": "ON Semiconductor NCT75 temperature sensor with I2C interface\n",
+        "driver": [
+            "drivers/sensor/nct75/nct75.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
+    },
     "ntc_thermistor_generic": {
         "category": "Environmental/Temperature",
         "compatible": [
@@ -3030,6 +3048,21 @@
             }
         },
         "rdp-compat": "ti,tmp112"
+    },
+    "tmp114": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "ti,tmp114"
+        ],
+        "description": "Texas Instruments TMP114 temperature sensor",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
     },
     "tmp116": {
         "category": "Environmental/Temperature",

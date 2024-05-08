@@ -1783,6 +1783,12 @@
 			buffer-tx-size = < 0x80 >;
 			shi-cs-wui = < &wui_io53 >;
 		};
+		rctl: reset-controller@400c3100 {
+			compatible = "nuvoton,npcx-rst";
+			reg = < 0x400c3100 0x10 >;
+			#reset-cells = < 0x1 >;
+			status = "disabled";
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

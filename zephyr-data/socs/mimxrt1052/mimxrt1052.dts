@@ -613,18 +613,31 @@
 				status = "disabled";
 			};
 		};
-		enet: ethernet@402d8000 {
-			compatible = "nxp,kinetis-ethernet";
+		enet: enet@402d8000 {
+			compatible = "nxp,enet";
 			reg = < 0x402d8000 0x628 >;
-			interrupts = < 0x72 0x0 >;
-			interrupt-names = "COMMON";
-			status = "disabled";
-			phy-addr = < 0x0 >;
-			ptp: ptp {
-				compatible = "nxp,kinetis-ptp";
+			clocks = < &ccm 0xe00 0x0 0x0 >;
+			enet_mac: ethernet {
+				compatible = "nxp,enet-mac";
+				interrupts = < 0x72 0x0 >;
+				interrupt-names = "COMMON";
+				nxp,mdio = < &enet_mdio >;
+				nxp,ptp-clock = < &enet_ptp_clock >;
 				status = "disabled";
+			};
+			enet_mdio: mdio {
+				compatible = "nxp,enet-mdio";
+				status = "disabled";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				phandle = < 0x7 >;
+			};
+			enet_ptp_clock: ptp_clock {
+				compatible = "nxp,enet-ptp-clock";
 				interrupts = < 0x73 0x0 >;
-				interrupt-names = "IEEE1588_TMR";
+				status = "disabled";
+				clocks = < &ccm 0xe01 0x0 0x0 >;
+				phandle = < 0x8 >;
 			};
 		};
 		src: reset-controller@400f8000 {
@@ -742,13 +755,13 @@
 			reg = < 0x400d8000 0x4000 >;
 			#clock-cells = < 0x4 >;
 			#pll-clock-cells = < 0x3 >;
-			phandle = < 0x8 >;
+			phandle = < 0xa >;
 		};
 		iomuxcgpr: iomuxcgpr@400ac000 {
 			compatible = "nxp,imx-gpr";
 			reg = < 0x400ac000 0x4000 >;
 			#pinmux-cells = < 0x2 >;
-			phandle = < 0x9 >;
+			phandle = < 0xb >;
 		};
 		pxp: pxp@402b4000 {
 			compatible = "nxp,pxp";
@@ -944,14 +957,14 @@
 				power-state-name = "runtime-idle";
 				exit-latency-us = < 0xfa0 >;
 				min-residency-us = < 0x1388 >;
-				phandle = < 0xa >;
+				phandle = < 0xc >;
 			};
 			suspend: suspend {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				exit-latency-us = < 0x1388 >;
 				min-residency-us = < 0x2710 >;
-				phandle = < 0xb >;
+				phandle = < 0xd >;
 			};
 		};
 	};
@@ -976,6 +989,6 @@
 		compatible = "fixed-clock";
 		clock-frequency = < 0x1c9c3800 >;
 		#clock-cells = < 0x0 >;
-		phandle = < 0x7 >;
+		phandle = < 0x9 >;
 	};
 };

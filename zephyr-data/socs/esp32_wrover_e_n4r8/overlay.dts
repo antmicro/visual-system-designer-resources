@@ -30,6 +30,20 @@
 	pinctrl-0 = < &mdio_default >;
 	pinctrl-names = "default";
 };
+&sdhc1{
+	status = "okay";
+	pinctrl-0 = < &sdhc0_default >;
+	pinctrl-names = "default";
+	power-delay-ms = < 0x64 >;
+	max-bus-freq = < 0x3197500 >;
+	bus-width = < 0x4 >;
+	clk-pin = < 0xe >;
+	cmd-pin = < 0xf >;
+	d0-pin = < 0x2 >;
+	d1-pin = < 0x4 >;
+	d2-pin = < 0xc >;
+	d3-pin = < 0xd >;
+};
 &spi2{
 	status = "okay";
 	#address-cells = < 0x1 >;

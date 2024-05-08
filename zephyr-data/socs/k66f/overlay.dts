@@ -16,9 +16,16 @@
 	voltage-reference = < 0x2 >;
 	status = "okay";
 };
-&enet{
+&enet_mac{
 	status = "okay";
 	pinctrl-0 = < &enet_default >;
+	pinctrl-names = "default";
+	phy-handle = < &phy >;
+	zephyr,random-mac-address;
+};
+&enet_mdio{
+	status = "okay";
+	pinctrl-0 = < &mdio_default >;
 	pinctrl-names = "default";
 };
 &flexcan0{

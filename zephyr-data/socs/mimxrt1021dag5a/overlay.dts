@@ -9,13 +9,6 @@
 	pinctrl-0 = < &pinmux_adc1 >;
 	pinctrl-names = "default";
 };
-&enet{
-	status = "okay";
-	pinctrl-0 = < &pinmux_enet >;
-	pinctrl-names = "default";
-	int-gpios = < &gpio1 0x4 0x0 >;
-	reset-gpios = < &gpio1 0x16 0x0 >;
-};
 &flexspi{
 	reg = < 0x402a8000 0x4000 >, < 0x60000000 0x800000 >;
 	status = "okay";
