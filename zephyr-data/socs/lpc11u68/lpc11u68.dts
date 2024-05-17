@@ -44,6 +44,40 @@
 			pinctrl: pinctrl {
 				compatible = "nxp,lpc11u6x-pinctrl";
 				phandle = < 0x6 >;
+				uart0_default: uart0_default {
+					group0 {
+						pinmux = < 0x1200001 >, < 0x1300001 >;
+						nxp,disable-analog-filter;
+					};
+				};
+				uart4_default: uart4_default {
+					group0 {
+						pinmux = < 0x4800001 >, < 0x4900001 >;
+						nxp,disable-analog-filter;
+					};
+				};
+				i2c0_default: i2c0_default {
+					group0 {
+						pinmux = < 0x440001 >, < 0x540001 >;
+						nxp,i2c-mode;
+						nxp,i2c-filter = "slow";
+						nxp,disable-analog-filter;
+					};
+				};
+				i2c0_fast: i2c0_fast {
+					group0 {
+						pinmux = < 0x440001 >, < 0x540001 >;
+						nxp,i2c-mode;
+						nxp,i2c-filter = "fast";
+						nxp,disable-analog-filter;
+					};
+				};
+				syscon_default: syscon_default {
+					group0 {
+						pinmux = < 0x3d80001 >, < 0x3c80001 >;
+						nxp,analog-mode;
+					};
+				};
 			};
 			pio0: pio0@0 {
 				compatible = "nxp,lpc-iocon-pio";

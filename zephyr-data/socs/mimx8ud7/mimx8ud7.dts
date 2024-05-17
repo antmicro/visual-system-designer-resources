@@ -1,0 +1,91 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		ranges;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "cdns,tensilica-xtensa-lx7";
+			reg = < 0x0 >;
+		};
+		clic: interrupt-controller@0 {
+			compatible = "cdns,xtensa-core-intc";
+			reg = < 0x0 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x3 >;
+			phandle = < 0x2 >;
+		};
+	};
+	sram0: memory@8e000000 {
+		device_type = "memory";
+		compatible = "mmio-sram";
+		reg = < 0x8e000000 0x80000 >;
+	};
+	sram1: memory@8e800000 {
+		device_type = "memory";
+		compatible = "mmio-sram";
+		reg = < 0x8e800000 0x80000 >;
+	};
+	pcc4: clock-controller@29800000 {
+		compatible = "nxp,kinetis-pcc";
+		reg = < 0x29800000 0x10000 >;
+		#clock-cells = < 0x2 >;
+		phandle = < 0x1 >;
+	};
+	iomuxc1: pinctrl@298c0000 {
+		compatible = "nxp,imx-iomuxc";
+		reg = < 0x298c0000 0x10000 >;
+		pinctrl: pinctrl {
+			compatible = "nxp,imx8ulp-pinctrl";
+		};
+	};
+	lpuart7: serial@29870000 {
+		compatible = "nxp,kinetis-lpuart";
+		reg = < 0x29870000 0x1000 >;
+		clocks = < &pcc4 0x0 0x0 >;
+		status = "disabled";
+	};
+	edma2: dma@2d800000 {
+		compatible = "nxp,edma";
+		reg = < 0x2d800000 0x200000 >;
+		valid-channels = < 0x0 >, < 0x1 >, < 0x2 >, < 0x3 >;
+		interrupt-parent = < &clic >;
+		interrupts = < 0x6 0x0 0x0 >, < 0x7 0x0 0x0 >, < 0x8 0x0 0x0 >, < 0x9 0x0 0x0 >;
+		#dma-cells = < 0x2 >;
+		status = "disabled";
+		phandle = < 0x3 >;
+	};
+	sai5: dai@29890000 {
+		compatible = "nxp,dai-sai";
+		reg = < 0x29890000 0x1000 >;
+		interrupt-parent = < &clic >;
+		interrupts = < 0x17 0x0 0x0 >;
+		dmas = < &edma2 0x2 0x46 >, < &edma2 0x3 0x45 >;
+		dma-names = "tx", "rx";
+		dai-index = < 0x5 >;
+		status = "disabled";
+	};
+	sai6: dai@2da90000 {
+		compatible = "nxp,dai-sai";
+		reg = < 0x2da90000 0x1000 >;
+		interrupt-parent = < &clic >;
+		interrupts = < 0x18 0x0 0x0 >;
+		dmas = < &edma2 0x0 0x48 >, < &edma2 0x1 0x47 >;
+		dma-names = "tx", "rx";
+		dai-index = < 0x6 >;
+		status = "disabled";
+	};
+};

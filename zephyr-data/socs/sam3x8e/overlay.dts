@@ -1,0 +1,29 @@
+/ {
+	compatible = "arduino,due", "atmel,sam3x", "atmel,sam3x8e";
+	chosen {
+		zephyr,console = &uart;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-names = "default";
+};
+&twi0{
+	status = "okay";
+	pinctrl-0 = < &twi0_default >;
+	pinctrl-names = "default";
+};
+&twi1{
+	status = "okay";
+	pinctrl-0 = < &twi1_default >;
+	pinctrl-names = "default";
+};
+&uart{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart_default >;
+	pinctrl-names = "default";
+};

@@ -1,0 +1,46 @@
+/ {
+	compatible = "atmel,samd20", "atmel,samd20j18", "samd20,xpro";
+	chosen {
+		zephyr,console = &sercom3;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&sercom0{
+	compatible = "atmel,sam0-spi";
+	status = "okay";
+	dipo = < 0x0 >;
+	dopo = < 0x1 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	cs-gpios = < &porta 0x5 0x1 >;
+	pinctrl-0 = < &sercom0_spi_default >;
+	pinctrl-names = "default";
+};
+&sercom2{
+	compatible = "atmel,sam0-i2c";
+	status = "okay";
+	clock-frequency = < 0x61a80 >;
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x0 >;
+	pinctrl-0 = < &sercom2_i2c_default >;
+	pinctrl-names = "default";
+};
+&sercom3{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x3 >;
+	txpo = < 0x1 >;
+	pinctrl-0 = < &sercom3_uart_default >;
+	pinctrl-names = "default";
+};
+&sercom4{
+	compatible = "atmel,sam0-uart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	rxpo = < 0x1 >;
+	txpo = < 0x0 >;
+	pinctrl-0 = < &sercom4_uart_default >;
+	pinctrl-names = "default";
+};

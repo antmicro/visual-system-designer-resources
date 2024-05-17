@@ -1,0 +1,14 @@
+/ {
+	compatible = "snps,hsdk4xd";
+	chosen {
+		zephyr,console = &uart_dbg;
+		zephyr,sram = &ddr0;
+	};
+};
+&creg_gpio{
+	status = "okay";
+};
+&uart_dbg{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};

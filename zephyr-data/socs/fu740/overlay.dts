@@ -1,0 +1,25 @@
+/ {
+	compatible = "fu740-dev", "sifive,FU740-C000", "sifive-dev";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &l2lim;
+	};
+	ram0: ram0@80000000 {
+		compatible = "memory";
+		reg = <0x0 0x80000000 0x4 0x00000000>;
+		reg-names = "mem";
+	};
+};
+&spi0{
+	reg = < 0x0 0x10040000 0x0 0x1000 0x0 0x20000000 0x0 0x2000000 >;
+};
+&spi1{
+	status = "okay";
+};
+&spi2{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};

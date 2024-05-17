@@ -1,0 +1,14 @@
+/ {
+	compatible = "brcm,bcm2712", "raspberrypi,5-model-b";
+	chosen {
+		zephyr,console = &uart10;
+		zephyr,sram = &sram0;
+	};
+};
+&gio_aon{
+	status = "okay";
+};
+&uart10{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};

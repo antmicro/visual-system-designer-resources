@@ -1,0 +1,49 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "intel,niosv", "riscv";
+			riscv,isa = "rv32ima_zicsr_zifencei";
+			reg = < 0x0 >;
+			clock-frequency = < 0x2faf080 >;
+			intc: interrupt-controller {
+				compatible = "riscv,cpu-intc";
+				#address-cells = < 0x0 >;
+				#interrupt-cells = < 0x1 >;
+				interrupt-controller;
+				phandle = < 0x1 >;
+			};
+		};
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "intel,niosv-g-soc", "simple-bus";
+		interrupt-parent = < &intc >;
+		ranges;
+		sram0: memory@0 {
+			compatible = "mmio-sram";
+			reg = < 0x0 0x1 >;
+		};
+		mtimer: machine-timer@90000 {
+			compatible = "niosv-machine-timer";
+			reg = < 0x90000 0x10 >;
+			interrupts = < 0x7 >;
+		};
+		uart0: serial@90078 {
+			compatible = "altr,jtag-uart";
+			interrupts = < 0x10 >;
+			status = "disabled";
+		};
+	};
+};

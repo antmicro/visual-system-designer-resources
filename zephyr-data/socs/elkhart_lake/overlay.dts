@@ -1,12 +1,12 @@
 / {
-	compatible = "intel,elkhart_lake_crb";
+	compatible = "acrn";
 	chosen {
 		zephyr,console = &uart2;
 		zephyr,sram = &dram0;
 	};
 };
 &dram0{
-	reg = < 0x0 0x80000000 >;
+	reg = < 0x0 0x800000 >;
 };
 &uart2_fixed{
 	status = "okay";

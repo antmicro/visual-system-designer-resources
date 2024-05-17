@@ -1,0 +1,1163 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v6m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x2 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv6m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		pinctrl@40310000 {
+			compatible = "cypress,psoc6-pinctrl";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ranges = < 0x40310000 0x40310000 0x2024 >;
+			p0_2_spi0_mosi: p0_2_spi0_mosi {
+				cypress,pins = < &gpio_prt0 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p0_3_spi0_miso: p0_3_spi0_miso {
+				cypress,pins = < &gpio_prt0 0x3 0x14 >;
+				input-enable;
+			};
+			p0_4_spi0_clk: p0_4_spi0_clk {
+				cypress,pins = < &gpio_prt0 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p0_5_spi0_sel0: p0_5_spi0_sel0 {
+				cypress,pins = < &gpio_prt0 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p0_0_spi0_sel1: p0_0_spi0_sel1 {
+				cypress,pins = < &gpio_prt0 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p0_1_spi0_sel2: p0_1_spi0_sel2 {
+				cypress,pins = < &gpio_prt0 0x1 0x14 >;
+				drive-push-pull;
+			};
+			p10_0_spi1_mosi: p10_0_spi1_mosi {
+				cypress,pins = < &gpio_prt10 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p10_1_spi1_miso: p10_1_spi1_miso {
+				cypress,pins = < &gpio_prt10 0x1 0x14 >;
+				input-enable;
+			};
+			p10_2_spi1_clk: p10_2_spi1_clk {
+				cypress,pins = < &gpio_prt10 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p10_3_spi1_sel0: p10_3_spi1_sel0 {
+				cypress,pins = < &gpio_prt10 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p10_4_spi1_sel1: p10_4_spi1_sel1 {
+				cypress,pins = < &gpio_prt10 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p10_5_spi1_sel2: p10_5_spi1_sel2 {
+				cypress,pins = < &gpio_prt10 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p10_6_spi1_sel3: p10_6_spi1_sel3 {
+				cypress,pins = < &gpio_prt10 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p9_0_spi2_mosi: p9_0_spi2_mosi {
+				cypress,pins = < &gpio_prt9 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p9_1_spi2_miso: p9_1_spi2_miso {
+				cypress,pins = < &gpio_prt9 0x1 0x14 >;
+				input-enable;
+			};
+			p9_2_spi2_clk: p9_2_spi2_clk {
+				cypress,pins = < &gpio_prt9 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p9_3_spi2_sel0: p9_3_spi2_sel0 {
+				cypress,pins = < &gpio_prt9 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p9_4_spi2_sel1: p9_4_spi2_sel1 {
+				cypress,pins = < &gpio_prt9 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p9_5_spi2_sel2: p9_5_spi2_sel2 {
+				cypress,pins = < &gpio_prt9 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p9_6_spi2_sel3: p9_6_spi2_sel3 {
+				cypress,pins = < &gpio_prt9 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p6_0_spi3_mosi: p6_0_spi3_mosi {
+				cypress,pins = < &gpio_prt6 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p6_1_spi3_miso: p6_1_spi3_miso {
+				cypress,pins = < &gpio_prt6 0x1 0x14 >;
+				input-enable;
+			};
+			p6_2_spi3_clk: p6_2_spi3_clk {
+				cypress,pins = < &gpio_prt6 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p6_3_spi3_sel0: p6_3_spi3_sel0 {
+				cypress,pins = < &gpio_prt6 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p7_7_spi3_sel1: p7_7_spi3_sel1 {
+				cypress,pins = < &gpio_prt7 0x7 0x14 >;
+				drive-push-pull;
+			};
+			p8_7_spi3_sel2: p8_7_spi3_sel2 {
+				cypress,pins = < &gpio_prt8 0x7 0x14 >;
+				drive-push-pull;
+			};
+			p5_7_spi3_sel3: p5_7_spi3_sel3 {
+				cypress,pins = < &gpio_prt5 0x7 0x14 >;
+				drive-push-pull;
+			};
+			p7_0_spi4_mosi: p7_0_spi4_mosi {
+				cypress,pins = < &gpio_prt7 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p7_1_spi4_miso: p7_1_spi4_miso {
+				cypress,pins = < &gpio_prt7 0x1 0x14 >;
+				input-enable;
+			};
+			p7_2_spi4_clk: p7_2_spi4_clk {
+				cypress,pins = < &gpio_prt7 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p7_3_spi4_sel0: p7_3_spi4_sel0 {
+				cypress,pins = < &gpio_prt7 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p7_4_spi4_sel1: p7_4_spi4_sel1 {
+				cypress,pins = < &gpio_prt7 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p7_5_spi4_sel2: p7_5_spi4_sel2 {
+				cypress,pins = < &gpio_prt7 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p7_6_spi4_sel3: p7_6_spi4_sel3 {
+				cypress,pins = < &gpio_prt7 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p8_0_spi4_mosi: p8_0_spi4_mosi {
+				cypress,pins = < &gpio_prt8 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p8_1_spi4_miso: p8_1_spi4_miso {
+				cypress,pins = < &gpio_prt8 0x1 0x14 >;
+				input-enable;
+			};
+			p8_2_spi4_clk: p8_2_spi4_clk {
+				cypress,pins = < &gpio_prt8 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p8_3_spi4_sel0: p8_3_spi4_sel0 {
+				cypress,pins = < &gpio_prt8 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p8_4_spi4_sel1: p8_4_spi4_sel1 {
+				cypress,pins = < &gpio_prt8 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p8_5_spi4_sel2: p8_5_spi4_sel2 {
+				cypress,pins = < &gpio_prt8 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p8_6_spi4_sel3: p8_6_spi4_sel3 {
+				cypress,pins = < &gpio_prt8 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p5_0_spi5_mosi: p5_0_spi5_mosi {
+				cypress,pins = < &gpio_prt5 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p5_1_spi5_miso: p5_1_spi5_miso {
+				cypress,pins = < &gpio_prt5 0x1 0x14 >;
+				input-enable;
+			};
+			p5_2_spi5_clk: p5_2_spi5_clk {
+				cypress,pins = < &gpio_prt5 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p5_3_spi5_sel0: p5_3_spi5_sel0 {
+				cypress,pins = < &gpio_prt5 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p5_4_spi5_sel1: p5_4_spi5_sel1 {
+				cypress,pins = < &gpio_prt5 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p5_5_spi5_sel2: p5_5_spi5_sel2 {
+				cypress,pins = < &gpio_prt5 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p5_6_spi5_sel3: p5_6_spi5_sel3 {
+				cypress,pins = < &gpio_prt5 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p11_0_spi5_mosi: p11_0_spi5_mosi {
+				cypress,pins = < &gpio_prt11 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p11_1_spi5_miso: p11_1_spi5_miso {
+				cypress,pins = < &gpio_prt11 0x1 0x14 >;
+				input-enable;
+			};
+			p11_2_spi5_clk: p11_2_spi5_clk {
+				cypress,pins = < &gpio_prt11 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p11_3_spi5_sel0: p11_3_spi5_sel0 {
+				cypress,pins = < &gpio_prt11 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p11_4_spi5_sel1: p11_4_spi5_sel1 {
+				cypress,pins = < &gpio_prt11 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p11_5_spi5_sel2: p11_5_spi5_sel2 {
+				cypress,pins = < &gpio_prt11 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p11_6_spi5_sel3: p11_6_spi5_sel3 {
+				cypress,pins = < &gpio_prt11 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p6_4_spi6_mosi: p6_4_spi6_mosi {
+				cypress,pins = < &gpio_prt6 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p6_5_spi6_miso: p6_5_spi6_miso {
+				cypress,pins = < &gpio_prt6 0x5 0x14 >;
+				input-enable;
+			};
+			p6_6_spi6_clk: p6_6_spi6_clk {
+				cypress,pins = < &gpio_prt6 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p6_7_spi6_sel0: p6_7_spi6_sel0 {
+				cypress,pins = < &gpio_prt6 0x7 0x14 >;
+				drive-push-pull;
+			};
+			p12_0_spi6_mosi: p12_0_spi6_mosi {
+				cypress,pins = < &gpio_prt12 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p12_1_spi6_miso: p12_1_spi6_miso {
+				cypress,pins = < &gpio_prt12 0x1 0x14 >;
+				input-enable;
+			};
+			p12_2_spi6_clk: p12_2_spi6_clk {
+				cypress,pins = < &gpio_prt12 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p12_3_spi6_sel0: p12_3_spi6_sel0 {
+				cypress,pins = < &gpio_prt12 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p12_4_spi6_sel1: p12_4_spi6_sel1 {
+				cypress,pins = < &gpio_prt12 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p12_5_spi6_sel2: p12_5_spi6_sel2 {
+				cypress,pins = < &gpio_prt12 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p12_6_spi6_sel3: p12_6_spi6_sel3 {
+				cypress,pins = < &gpio_prt12 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p13_0_spi6_mosi: p13_0_spi6_mosi {
+				cypress,pins = < &gpio_prt13 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p13_1_spi6_miso: p13_1_spi6_miso {
+				cypress,pins = < &gpio_prt13 0x1 0x14 >;
+				input-enable;
+			};
+			p13_2_spi6_clk: p13_2_spi6_clk {
+				cypress,pins = < &gpio_prt13 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p13_3_spi6_sel0: p13_3_spi6_sel0 {
+				cypress,pins = < &gpio_prt13 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p13_4_spi6_sel1: p13_4_spi6_sel1 {
+				cypress,pins = < &gpio_prt13 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p13_5_spi6_sel2: p13_5_spi6_sel2 {
+				cypress,pins = < &gpio_prt13 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p13_6_spi6_sel3: p13_6_spi6_sel3 {
+				cypress,pins = < &gpio_prt13 0x6 0x14 >;
+				drive-push-pull;
+			};
+			p1_0_spi7_mosi: p1_0_spi7_mosi {
+				cypress,pins = < &gpio_prt1 0x0 0x14 >;
+				drive-push-pull;
+			};
+			p1_1_spi7_miso: p1_1_spi7_miso {
+				cypress,pins = < &gpio_prt1 0x1 0x14 >;
+				input-enable;
+			};
+			p1_2_spi7_clk: p1_2_spi7_clk {
+				cypress,pins = < &gpio_prt1 0x2 0x14 >;
+				drive-push-pull;
+			};
+			p1_3_spi7_sel0: p1_3_spi7_sel0 {
+				cypress,pins = < &gpio_prt1 0x3 0x14 >;
+				drive-push-pull;
+			};
+			p1_4_spi7_sel1: p1_4_spi7_sel1 {
+				cypress,pins = < &gpio_prt1 0x4 0x14 >;
+				drive-push-pull;
+			};
+			p1_5_spi7_sel2: p1_5_spi7_sel2 {
+				cypress,pins = < &gpio_prt1 0x5 0x14 >;
+				drive-push-pull;
+			};
+			p0_2_uart0_rx: p0_2_uart0_rx {
+				cypress,pins = < &gpio_prt0 0x2 0x12 >;
+				input-enable;
+			};
+			p0_3_uart0_tx: p0_3_uart0_tx {
+				cypress,pins = < &gpio_prt0 0x3 0x12 >;
+				drive-push-pull;
+			};
+			p0_4_uart0_rts: p0_4_uart0_rts {
+				cypress,pins = < &gpio_prt0 0x4 0x12 >;
+				drive-push-pull;
+			};
+			p0_5_uart0_cts: p0_5_uart0_cts {
+				cypress,pins = < &gpio_prt0 0x5 0x12 >;
+				input-enable;
+			};
+			p10_0_uart1_rx: p10_0_uart1_rx {
+				cypress,pins = < &gpio_prt10 0x0 0x12 >;
+				input-enable;
+			};
+			p10_1_uart1_tx: p10_1_uart1_tx {
+				cypress,pins = < &gpio_prt10 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p10_2_uart1_rts: p10_2_uart1_rts {
+				cypress,pins = < &gpio_prt10 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p10_3_uart1_cts: p10_3_uart1_cts {
+				cypress,pins = < &gpio_prt10 0x3 0x12 >;
+				input-enable;
+			};
+			p9_0_uart2_rx: p9_0_uart2_rx {
+				cypress,pins = < &gpio_prt9 0x0 0x12 >;
+				input-enable;
+			};
+			p9_1_uart2_tx: p9_1_uart2_tx {
+				cypress,pins = < &gpio_prt9 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p9_2_uart2_rts: p9_2_uart2_rts {
+				cypress,pins = < &gpio_prt9 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p9_3_uart2_cts: p9_3_uart2_cts {
+				cypress,pins = < &gpio_prt9 0x3 0x12 >;
+				input-enable;
+			};
+			p6_0_uart3_rx: p6_0_uart3_rx {
+				cypress,pins = < &gpio_prt6 0x0 0x12 >;
+				input-enable;
+			};
+			p6_1_uart3_tx: p6_1_uart3_tx {
+				cypress,pins = < &gpio_prt6 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p6_2_uart3_rts: p6_2_uart3_rts {
+				cypress,pins = < &gpio_prt6 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p6_3_uart3_cts: p6_3_uart3_cts {
+				cypress,pins = < &gpio_prt6 0x3 0x12 >;
+				input-enable;
+			};
+			p7_0_uart4_rx: p7_0_uart4_rx {
+				cypress,pins = < &gpio_prt7 0x0 0x12 >;
+				input-enable;
+			};
+			p7_1_uart4_tx: p7_1_uart4_tx {
+				cypress,pins = < &gpio_prt7 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p7_2_uart4_rts: p7_2_uart4_rts {
+				cypress,pins = < &gpio_prt7 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p7_3_uart4_cts: p7_3_uart4_cts {
+				cypress,pins = < &gpio_prt7 0x3 0x12 >;
+				input-enable;
+			};
+			p8_0_uart4_rx: p8_0_uart4_rx {
+				cypress,pins = < &gpio_prt8 0x0 0x12 >;
+				input-enable;
+			};
+			p8_1_uart4_tx: p8_1_uart4_tx {
+				cypress,pins = < &gpio_prt8 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p8_2_uart4_rts: p8_2_uart4_rts {
+				cypress,pins = < &gpio_prt8 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p8_3_uart4_cts: p8_3_uart4_cts {
+				cypress,pins = < &gpio_prt8 0x3 0x12 >;
+				input-enable;
+			};
+			p5_0_uart5_rx: p5_0_uart5_rx {
+				cypress,pins = < &gpio_prt5 0x0 0x12 >;
+				input-enable;
+			};
+			p5_1_uart5_tx: p5_1_uart5_tx {
+				cypress,pins = < &gpio_prt5 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p5_2_uart5_rts: p5_2_uart5_rts {
+				cypress,pins = < &gpio_prt5 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p5_3_uart5_cts: p5_3_uart5_cts {
+				cypress,pins = < &gpio_prt5 0x3 0x12 >;
+				input-enable;
+			};
+			p11_0_uart5_rx: p11_0_uart5_rx {
+				cypress,pins = < &gpio_prt11 0x0 0x12 >;
+				input-enable;
+			};
+			p11_1_uart5_tx: p11_1_uart5_tx {
+				cypress,pins = < &gpio_prt11 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p11_2_uart5_rts: p11_2_uart5_rts {
+				cypress,pins = < &gpio_prt11 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p11_3_uart5_cts: p11_3_uart5_cts {
+				cypress,pins = < &gpio_prt11 0x3 0x12 >;
+				input-enable;
+			};
+			p6_4_uart6_rx: p6_4_uart6_rx {
+				cypress,pins = < &gpio_prt6 0x4 0x12 >;
+				input-enable;
+			};
+			p6_5_uart6_tx: p6_5_uart6_tx {
+				cypress,pins = < &gpio_prt6 0x5 0x12 >;
+				drive-push-pull;
+			};
+			p6_6_uart6_rts: p6_6_uart6_rts {
+				cypress,pins = < &gpio_prt6 0x6 0x12 >;
+				drive-push-pull;
+			};
+			p6_7_uart6_cts: p6_7_uart6_cts {
+				cypress,pins = < &gpio_prt6 0x7 0x12 >;
+				input-enable;
+			};
+			p12_0_uart6_rx: p12_0_uart6_rx {
+				cypress,pins = < &gpio_prt12 0x0 0x12 >;
+				input-enable;
+			};
+			p12_1_uart6_tx: p12_1_uart6_tx {
+				cypress,pins = < &gpio_prt12 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p12_2_uart6_rts: p12_2_uart6_rts {
+				cypress,pins = < &gpio_prt12 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p12_3_uart6_cts: p12_3_uart6_cts {
+				cypress,pins = < &gpio_prt12 0x3 0x12 >;
+				input-enable;
+			};
+			p13_0_uart6_rx: p13_0_uart6_rx {
+				cypress,pins = < &gpio_prt13 0x0 0x12 >;
+				input-enable;
+			};
+			p13_1_uart6_tx: p13_1_uart6_tx {
+				cypress,pins = < &gpio_prt13 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p13_2_uart6_rts: p13_2_uart6_rts {
+				cypress,pins = < &gpio_prt13 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p13_3_uart6_cts: p13_3_uart6_cts {
+				cypress,pins = < &gpio_prt13 0x3 0x12 >;
+				input-enable;
+			};
+			p1_0_uart7_rx: p1_0_uart7_rx {
+				cypress,pins = < &gpio_prt1 0x0 0x12 >;
+				input-enable;
+			};
+			p1_1_uart7_tx: p1_1_uart7_tx {
+				cypress,pins = < &gpio_prt1 0x1 0x12 >;
+				drive-push-pull;
+			};
+			p1_2_uart7_rts: p1_2_uart7_rts {
+				cypress,pins = < &gpio_prt1 0x2 0x12 >;
+				drive-push-pull;
+			};
+			p1_3_uart7_cts: p1_3_uart7_cts {
+				cypress,pins = < &gpio_prt1 0x3 0x12 >;
+				input-enable;
+			};
+		};
+		hsiom: hsiom@40310000 {
+			compatible = "cypress,psoc6-hsiom";
+			reg = < 0x40310000 0x2024 >;
+			interrupts = < 0xf 0x1 >, < 0x10 0x1 >;
+			status = "disabled";
+		};
+		gpio_prt0: gpio@40320000 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320000 0x80 >;
+			interrupts = < 0x0 0x1 >;
+			gpio-controller;
+			ngpios = < 0x6 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x2 >;
+		};
+		gpio_prt1: gpio@40320080 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320080 0x80 >;
+			interrupts = < 0x1 0x1 >;
+			gpio-controller;
+			ngpios = < 0x6 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0xc >;
+		};
+		gpio_prt2: gpio@40320100 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320100 0x80 >;
+			interrupts = < 0x2 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio_prt3: gpio@40320180 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320180 0x80 >;
+			interrupts = < 0x3 0x1 >;
+			gpio-controller;
+			ngpios = < 0x6 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio_prt4: gpio@40320200 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320200 0x80 >;
+			interrupts = < 0x4 0x1 >;
+			gpio-controller;
+			ngpios = < 0x4 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio_prt5: gpio@40320280 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320280 0x80 >;
+			interrupts = < 0x5 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x8 >;
+		};
+		gpio_prt6: gpio@40320300 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320300 0x80 >;
+			interrupts = < 0x6 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x5 >;
+		};
+		gpio_prt7: gpio@40320380 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320380 0x80 >;
+			interrupts = < 0x7 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x6 >;
+		};
+		gpio_prt8: gpio@40320400 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320400 0x80 >;
+			interrupts = < 0x8 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x7 >;
+		};
+		gpio_prt9: gpio@40320480 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320480 0x80 >;
+			interrupts = < 0x9 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x4 >;
+		};
+		gpio_prt10: gpio@40320500 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320500 0x80 >;
+			interrupts = < 0xa 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x3 >;
+		};
+		gpio_prt11: gpio@40320580 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320580 0x80 >;
+			interrupts = < 0xb 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0x9 >;
+		};
+		gpio_prt12: gpio@40320600 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320600 0x80 >;
+			interrupts = < 0xc 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0xa >;
+		};
+		gpio_prt13: gpio@40320680 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320680 0x80 >;
+			interrupts = < 0xd 0x1 >;
+			gpio-controller;
+			ngpios = < 0x8 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+			phandle = < 0xb >;
+		};
+		gpio_prt14: gpio@40320700 {
+			compatible = "cypress,psoc6-gpio";
+			reg = < 0x40320700 0x80 >;
+			interrupts = < 0xe 0x1 >;
+			gpio-controller;
+			ngpios = < 0x2 >;
+			#gpio-cells = < 0x2 >;
+			#cypress,pin-cells = < 0x2 >;
+			status = "disabled";
+		};
+		spi0: spi@40610000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40610000 0x10000 >;
+			interrupts = < 0x29 0x6 >;
+			peripheral-id = < 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi1: spi@40620000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40620000 0x10000 >;
+			interrupts = < 0x2a 0x6 >;
+			peripheral-id = < 0x1 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi2: spi@40630000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40630000 0x10000 >;
+			interrupts = < 0x2b 0x6 >;
+			peripheral-id = < 0x2 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi3: spi@40640000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40640000 0x10000 >;
+			interrupts = < 0x2c 0x6 >;
+			peripheral-id = < 0x3 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi4: spi@40650000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40650000 0x10000 >;
+			interrupts = < 0x2d 0x6 >;
+			peripheral-id = < 0x4 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi5: spi@40660000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40660000 0x10000 >;
+			interrupts = < 0x2e 0x6 >;
+			peripheral-id = < 0x5 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi6: spi@40670000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40670000 0x10000 >;
+			interrupts = < 0x2f 0x6 >;
+			peripheral-id = < 0x6 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi7: spi@40680000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40680000 0x10000 >;
+			interrupts = < 0x30 0x6 >;
+			peripheral-id = < 0x7 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi8: spi@40690000 {
+			compatible = "cypress,psoc6-spi";
+			reg = < 0x40690000 0x10000 >;
+			interrupts = < 0x12 0x6 >;
+			peripheral-id = < 0x8 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		uart0: uart@40610000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40610000 0x10000 >;
+			interrupts = < 0x29 0x6 >;
+			peripheral-id = < 0x0 >;
+			status = "disabled";
+		};
+		uart1: uart@40620000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40620000 0x10000 >;
+			interrupts = < 0x2a 0x6 >;
+			peripheral-id = < 0x1 >;
+			status = "disabled";
+		};
+		uart2: uart@40630000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40630000 0x10000 >;
+			interrupts = < 0x2b 0x6 >;
+			peripheral-id = < 0x2 >;
+			status = "disabled";
+		};
+		uart3: uart@40640000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40640000 0x10000 >;
+			interrupts = < 0x2c 0x6 >;
+			peripheral-id = < 0x3 >;
+			status = "disabled";
+		};
+		uart4: uart@40650000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40650000 0x10000 >;
+			interrupts = < 0x2d 0x6 >;
+			peripheral-id = < 0x4 >;
+			status = "disabled";
+		};
+		uart5: uart@40660000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40660000 0x10000 >;
+			interrupts = < 0x2e 0x6 >;
+			peripheral-id = < 0x5 >;
+			status = "disabled";
+		};
+		uart6: uart@40670000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40670000 0x10000 >;
+			interrupts = < 0x2f 0x6 >;
+			peripheral-id = < 0x6 >;
+			status = "disabled";
+		};
+		uart7: uart@40680000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40680000 0x10000 >;
+			interrupts = < 0x30 0x6 >;
+			peripheral-id = < 0x7 >;
+			status = "disabled";
+		};
+		uart8: uart@40690000 {
+			compatible = "cypress,psoc6-uart";
+			reg = < 0x40690000 0x10000 >;
+			interrupts = < 0x12 0x6 >;
+			peripheral-id = < 0x8 >;
+			status = "disabled";
+		};
+		uid: device_uid@16000600 {
+			compatible = "cypress,psoc6-uid";
+			reg = < 0x16000600 0xb >;
+			status = "okay";
+		};
+		intmux: intmux@40210020 {
+			compatible = "cypress,psoc6-intmux";
+			reg = < 0x40210020 0x20 >;
+			ranges = < 0x0 0x40210020 0x20 >;
+			status = "okay";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			intmux_ch0: interrupt-controller@0 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x0 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x0 0x3 >;
+				status = "okay";
+			};
+			intmux_ch1: interrupt-controller@1 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1 0x3 >;
+				status = "okay";
+			};
+			intmux_ch2: interrupt-controller@2 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x2 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x2 0x3 >;
+				status = "okay";
+			};
+			intmux_ch3: interrupt-controller@3 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x3 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x3 0x3 >;
+				status = "okay";
+			};
+			intmux_ch4: interrupt-controller@4 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x4 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x4 0x3 >;
+				status = "okay";
+			};
+			intmux_ch5: interrupt-controller@5 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x5 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x5 0x3 >;
+				status = "okay";
+			};
+			intmux_ch6: interrupt-controller@6 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x6 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x6 0x3 >;
+				status = "okay";
+			};
+			intmux_ch7: interrupt-controller@7 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x7 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x7 0x3 >;
+				status = "okay";
+			};
+			intmux_ch8: interrupt-controller@8 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x8 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x8 0x3 >;
+				status = "okay";
+			};
+			intmux_ch9: interrupt-controller@9 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x9 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x9 0x3 >;
+				status = "okay";
+			};
+			intmux_ch10: interrupt-controller@a {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xa 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xa 0x3 >;
+				status = "okay";
+			};
+			intmux_ch11: interrupt-controller@b {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xb 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xb 0x3 >;
+				status = "okay";
+			};
+			intmux_ch12: interrupt-controller@c {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xc 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xc 0x3 >;
+				status = "okay";
+			};
+			intmux_ch13: interrupt-controller@d {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xd 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xd 0x3 >;
+				status = "okay";
+			};
+			intmux_ch14: interrupt-controller@e {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xe 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xe 0x3 >;
+				status = "okay";
+			};
+			intmux_ch15: interrupt-controller@f {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0xf 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0xf 0x3 >;
+				status = "okay";
+			};
+			intmux_ch16: interrupt-controller@10 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x10 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x10 0x3 >;
+				status = "okay";
+			};
+			intmux_ch17: interrupt-controller@11 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x11 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x11 0x3 >;
+				status = "okay";
+			};
+			intmux_ch18: interrupt-controller@12 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x12 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x12 0x3 >;
+				status = "okay";
+			};
+			intmux_ch19: interrupt-controller@13 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x13 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x13 0x3 >;
+				status = "okay";
+			};
+			intmux_ch20: interrupt-controller@14 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x14 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x14 0x3 >;
+				status = "okay";
+			};
+			intmux_ch21: interrupt-controller@15 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x15 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x15 0x3 >;
+				status = "okay";
+			};
+			intmux_ch22: interrupt-controller@16 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x16 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x16 0x3 >;
+				status = "okay";
+			};
+			intmux_ch23: interrupt-controller@17 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x17 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x17 0x3 >;
+				status = "okay";
+			};
+			intmux_ch24: interrupt-controller@18 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x18 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x18 0x3 >;
+				status = "okay";
+			};
+			intmux_ch25: interrupt-controller@19 {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x19 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x19 0x3 >;
+				status = "okay";
+			};
+			intmux_ch26: interrupt-controller@1a {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1a 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1a 0x3 >;
+				status = "okay";
+			};
+			intmux_ch27: interrupt-controller@1b {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1b 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1b 0x3 >;
+				status = "okay";
+			};
+			intmux_ch28: interrupt-controller@1c {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1c 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1c 0x3 >;
+				status = "okay";
+			};
+			intmux_ch29: interrupt-controller@1d {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1d 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1d 0x3 >;
+				status = "okay";
+			};
+			intmux_ch30: interrupt-controller@1e {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1e 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1e 0x3 >;
+				status = "okay";
+			};
+			intmux_ch31: interrupt-controller@1f {
+				compatible = "cypress,psoc6-intmux-ch";
+				reg = < 0x1f 0x1 >;
+				#interrupt-cells = < 0x2 >;
+				interrupt-controller;
+				interrupts = < 0x1f 0x3 >;
+				status = "okay";
+			};
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m0+";
+			reg = < 0x0 >;
+		};
+	};
+	flash-controller@40250000 {
+		compatible = "cypress,psoc6-flash-controller";
+		reg = < 0x40250000 0x10000 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		flash0: flash@10000000 {
+			compatible = "soc-nv-flash";
+			reg = < 0x10000000 0x60000 >;
+			write-block-size = < 0x4 >;
+		};
+		flash1: flash@10060000 {
+			compatible = "soc-nv-flash";
+			reg = < 0x10060000 0xa0000 >;
+			write-block-size = < 0x4 >;
+		};
+	};
+	sram0: memory@8000000 {
+		compatible = "mmio-sram";
+		reg = < 0x8000000 0x23000 >;
+	};
+	sram1: memory@8023000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0x8023000 0x1000 >;
+		zephyr,memory-region = "SRAM1";
+	};
+	sram2: memory@8024000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0x8024000 0x1c000 >;
+		zephyr,memory-region = "SRAM2";
+	};
+};

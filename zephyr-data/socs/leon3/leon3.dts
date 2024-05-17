@@ -1,0 +1,48 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			compatible = "gaisler,leon3";
+			reg = < 0x0 >;
+		};
+	};
+	ram0: memory@40000000 {
+		compatible = "mmio-sram";
+		reg = < 0x40000000 0x40000000 >;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "gaisler,leon3-soc", "simple-bus";
+		ranges;
+		interrupt-parent = < &irqmp >;
+		irqmp: irqmp0@80000200 {
+			compatible = "gaisler,irqmp";
+			reg = < 0x80000200 0x100 >;
+			eirq = < 0x0 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x1 >;
+			phandle = < 0x1 >;
+		};
+		timer0: gptimer@80000300 {
+			compatible = "gaisler,gptimer";
+			interrupts = < 0x8 >;
+			reg = < 0x80000300 0x100 >;
+		};
+		uart0: apbuart@80000100 {
+			compatible = "gaisler,apbuart";
+			interrupts = < 0x2 >;
+			reg = < 0x80000100 0x100 >;
+			status = "disabled";
+		};
+	};
+};

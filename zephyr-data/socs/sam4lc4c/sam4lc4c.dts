@@ -1,0 +1,224 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,flash-controller = &flashcalw;
+		zephyr,entropy = &trng;
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x4 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		pmc: pmc@400e0000 {
+			compatible = "atmel,sam-pmc";
+			reg = < 0x400e0000 0x740 >;
+			interrupts = < 0x16 0x0 >;
+			#clock-cells = < 0x2 >;
+			status = "okay";
+			phandle = < 0x2 >;
+		};
+		flashcalw: flash-controller@400a0000 {
+			compatible = "atmel,sam4l-flashcalw-controller";
+			reg = < 0x400a0000 0x400 >;
+			interrupts = < 0x0 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			status = "disabled";
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				write-block-size = < 0x8 >;
+				erase-block-size = < 0x200 >;
+				reg = < 0x0 0x40000 >;
+			};
+		};
+		twim0: twim@40018000 {
+			compatible = "atmel,sam-i2c-twim";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40018000 0x4000 >;
+			interrupts = < 0x3d 0x0 >;
+			clocks = < &pmc 0x2 0x4 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		twim1: twim@4001c000 {
+			compatible = "atmel,sam-i2c-twim";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x4001c000 0x4000 >;
+			interrupts = < 0x3f 0x0 >;
+			clocks = < &pmc 0x2 0x6 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		twim2: twim@40078000 {
+			compatible = "atmel,sam-i2c-twim";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40078000 0x4000 >;
+			interrupts = < 0x4d 0x0 >;
+			clocks = < &pmc 0x2 0x15 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		twim3: twim@4007c000 {
+			compatible = "atmel,sam-i2c-twim";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x4007c000 0x4000 >;
+			interrupts = < 0x4e 0x0 >;
+			clocks = < &pmc 0x2 0x16 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		spi0: spi@40008000 {
+			compatible = "atmel,sam-spi";
+			reg = < 0x40008000 0x4000 >;
+			interrupts = < 0x36 0x0 >;
+			clocks = < &pmc 0x2 0x1 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		usart0: usart@40024000 {
+			compatible = "atmel,sam-usart";
+			reg = < 0x40024000 0x4000 >;
+			interrupts = < 0x41 0x1 >;
+			clocks = < &pmc 0x2 0x8 >;
+			status = "disabled";
+		};
+		usart1: usart@40028000 {
+			compatible = "atmel,sam-usart";
+			reg = < 0x40028000 0x4000 >;
+			interrupts = < 0x42 0x1 >;
+			clocks = < &pmc 0x2 0x9 >;
+			status = "disabled";
+		};
+		usart2: usart@4002c000 {
+			compatible = "atmel,sam-usart";
+			reg = < 0x4002c000 0x4000 >;
+			interrupts = < 0x43 0x1 >;
+			clocks = < &pmc 0x2 0xa >;
+			status = "disabled";
+		};
+		usart3: usart@40030000 {
+			compatible = "atmel,sam-usart";
+			reg = < 0x40030000 0x4000 >;
+			interrupts = < 0x44 0x1 >;
+			clocks = < &pmc 0x2 0xb >;
+			status = "disabled";
+		};
+		usbc: usbd@400a5000 {
+			compatible = "atmel,sam-usbc";
+			reg = < 0x400a5000 0x1000 >;
+			interrupts = < 0x12 0x5 >;
+			interrupt-names = "usbc";
+			maximum-speed = "full-speed";
+			num-bidir-endpoints = < 0x8 >;
+			clocks = < &pmc 0x2 0x65 >;
+			status = "disabled";
+		};
+		pinctrl: pinctrl@400e1000 {
+			compatible = "atmel,sam-pinctrl";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ranges = < 0x400e1000 0x400e1000 0x800 >;
+			gpioa: gpio@400e1000 {
+				compatible = "atmel,sam4l-gpio";
+				reg = < 0x400e1000 0x200 >;
+				interrupts = < 0x19 0x1 >, < 0x1a 0x1 >, < 0x1b 0x1 >, < 0x1c 0x1 >;
+				clocks = < &pmc 0x2 0x44 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				#atmel,pin-cells = < 0x2 >;
+			};
+			gpiob: gpio@400e1200 {
+				compatible = "atmel,sam4l-gpio";
+				reg = < 0x400e1200 0x200 >;
+				interrupts = < 0x1d 0x1 >, < 0x1e 0x1 >, < 0x1f 0x1 >, < 0x20 0x1 >;
+				clocks = < &pmc 0x2 0x44 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				#atmel,pin-cells = < 0x2 >;
+			};
+			gpioc: gpio@400e1400 {
+				compatible = "atmel,sam4l-gpio";
+				reg = < 0x400e1400 0x200 >;
+				interrupts = < 0x21 0x1 >, < 0x22 0x1 >, < 0x23 0x1 >, < 0x24 0x1 >;
+				clocks = < &pmc 0x2 0x44 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				#atmel,pin-cells = < 0x2 >;
+			};
+		};
+		tc0: tc@40010000 {
+			compatible = "atmel,sam-tc";
+			reg = < 0x40010000 0x100 >;
+			interrupts = < 0x37 0x0 0x38 0x0 0x39 0x0 >;
+			clocks = < &pmc 0x2 0x2 >;
+			status = "disabled";
+		};
+		tc1: tc@40014000 {
+			compatible = "atmel,sam-tc";
+			reg = < 0x40014000 0x100 >;
+			interrupts = < 0x3a 0x0 0x3b 0x0 0x3c 0x0 >;
+			clocks = < &pmc 0x2 0x3 >;
+			status = "disabled";
+		};
+		trng: random@40068000 {
+			compatible = "atmel,sam-trng";
+			reg = < 0x40068000 0x4000 >;
+			interrupts = < 0x49 0x0 >;
+			clocks = < &pmc 0x2 0x11 >;
+			status = "okay";
+		};
+		uid: device_uid@80020c {
+			compatible = "atmel,sam4l-uid";
+			reg = < 0x80020c 0xf >;
+			status = "okay";
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m4";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv7m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+			};
+		};
+	};
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = < 0x20000000 0x8000 >;
+	};
+	sram1: memory@21000000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0x21000000 0x1000 >;
+		zephyr,memory-region = "SRAM1";
+	};
+};

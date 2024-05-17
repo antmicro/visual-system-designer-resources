@@ -1,0 +1,102 @@
+/ {
+	compatible = "silabs,efm32gg11b", "silabs,efm32gg_stk3701a";
+	chosen {
+		zephyr,console = &usart4;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&eth0{
+	status = "okay";
+	phy-address = < 0x0 >;
+	location-mdio = < 0x1 >;
+	location-phy_mdc = < 0x1 0x3 0xe >;
+	location-phy_mdio = < 0x1 0x3 0xd >;
+	location-rmii = < 0x1 >;
+	location-rmii_refclk = < 0x5 0x3 0xa >;
+	location-rmii_crs_dv = < 0x1 0x3 0xb >;
+	location-rmii_txd0 = < 0x1 0x5 0x7 >;
+	location-rmii_txd1 = < 0x1 0x5 0x6 >;
+	location-rmii_tx_en = < 0x1 0x5 0x8 >;
+	location-rmii_rxd0 = < 0x1 0x3 0x9 >;
+	location-rmii_rxd1 = < 0x1 0x5 0x9 >;
+	location-rmii_rx_er = < 0x1 0x3 0xc >;
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&gpiof{
+	status = "okay";
+};
+&gpiog{
+	status = "okay";
+};
+&gpioh{
+	status = "okay";
+};
+&gpioi{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
+};
+&leuart0{
+	status = "okay";
+	current-speed = < 0x2580 >;
+	location-rx = < 0x12 0x3 0xb >;
+	location-tx = < 0x12 0x3 0xa >;
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+};
+&usart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart4_default >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	compatible = "silabs,gecko-pinctrl";
+	usart0_default: usart0_default {
+		group1 {
+			psels = < 0x0 >, < 0x1000001 >, < 0x5000000 >, < 0x4000000 >;
+		};
+	};
+	usart4_default: usart4_default {
+		group1 {
+			psels = < 0x704 >, < 0x1000705 >, < 0x5000004 >, < 0x4000004 >;
+		};
+	};
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = < 0x16000200 >, < 0x17000201 >, < 0x18000004 >, < 0x19000004 >;
+		};
+	};
+	i2c1_default: i2c1_default {
+		group1 {
+			psels = < 0x16000204 >, < 0x17000205 >, < 0x18000000 >, < 0x19000000 >;
+		};
+	};
+};

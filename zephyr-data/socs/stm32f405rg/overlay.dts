@@ -1,7 +1,7 @@
 / {
-	compatible = "olimex,stm32-h405", "st,stm32f405";
+	compatible = "st,st25dv_mb1283_disco", "st,stm32f4", "st,stm32f405";
 	chosen {
-		zephyr,console = &usart2;
+		zephyr,console = &usart6;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
@@ -21,8 +21,8 @@
 };
 &pll{
 	status = "okay";
-	div-m = < 0x8 >;
-	mul-n = < 0x150 >;
+	div-m = < 0x4 >;
+	mul-n = < 0xa8 >;
 	div-p = < 0x2 >;
 	div-q = < 0x7 >;
 	clocks = < &clk_hse >;
@@ -39,12 +39,6 @@
 	cs-gpios = < &gpiob 0xc 0x11 >;
 	pinctrl-names = "default";
 };
-&usart2{
-	status = "okay";
-	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
-	pinctrl-names = "default";
-	current-speed = < 0x1c200 >;
-};
 &usart6{
 	status = "okay";
 	pinctrl-0 = < &usart6_tx_pc6 &usart6_rx_pc7 >;
@@ -53,7 +47,7 @@
 };
 &usbotg_fs{
 	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
+	pinctrl-0 = < &usb_otg_fs_id_pa10 &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &pinctrl{
@@ -124,12 +118,34 @@
 		reg = < 0x40022000 0x400 >;
 		clocks = < &rcc 0x30 0x100 >;
 	};
-	usart2_rx_pa3: usart2_rx_pa3 {
-		pinmux = < 0x67 >;
-	};
-	usart2_tx_pa2: usart2_tx_pa2 {
-		pinmux = < 0x47 >;
+	i2c1_scl_pb6: i2c1_scl_pb6 {
+		pinmux = < 0x2c4 >;
 		bias-pull-up;
+		drive-open-drain;
+	};
+	i2c1_sda_pb7: i2c1_sda_pb7 {
+		pinmux = < 0x2e4 >;
+		bias-pull-up;
+		drive-open-drain;
+	};
+	spi2_mosi_pc3: spi2_mosi_pc3 {
+		pinmux = < 0x465 >;
+		bias-pull-down;
+	};
+	spi2_sck_pb13: spi2_sck_pb13 {
+		pinmux = < 0x3a5 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
+	};
+	usart6_rx_pc7: usart6_rx_pc7 {
+		pinmux = < 0x4e8 >;
+	};
+	usart6_tx_pc6: usart6_tx_pc6 {
+		pinmux = < 0x4c8 >;
+		bias-pull-up;
+	};
+	usb_otg_fs_id_pa10: usb_otg_fs_id_pa10 {
+		pinmux = < 0x14a >;
 	};
 	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {
 		pinmux = < 0x16a >;

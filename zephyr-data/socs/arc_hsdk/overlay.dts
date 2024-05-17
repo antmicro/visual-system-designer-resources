@@ -1,0 +1,36 @@
+/ {
+	compatible = "snps,hsdk";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &ddr0;
+	};
+};
+&creg_gpio{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+	interrupts = < 0x38 0x1 >;
+};
+&i2c0{
+	status = "okay";
+};
+&spi0{
+	status = "okay";
+	clock-frequency = < 0x1fca055 >;
+	cs-gpios = < &creg_gpio 0x0 0x0 >, < &creg_gpio 0x1 0x0 >, < &creg_gpio 0x2 0x0 >, < &creg_gpio 0x3 0x0 >;
+};
+&spi1{
+	status = "okay";
+	clock-frequency = < 0x1fca055 >;
+	cs-gpios = < &creg_gpio 0x4 0x0 >, < &creg_gpio 0x5 0x0 >, < &creg_gpio 0x6 0x0 >;
+};
+&spi2{
+	status = "okay";
+	clock-frequency = < 0x1fca055 >;
+	cs-gpios = < &creg_gpio 0x8 0x0 >, < &creg_gpio 0x9 0x0 >, < &creg_gpio 0xa 0x0 >;
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+};

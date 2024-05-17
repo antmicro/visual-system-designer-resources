@@ -1,0 +1,21 @@
+/ {
+	compatible = "snps,emsdp", "snps,emsdp";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+	};
+};
+&gpio0{
+	interrupts = < 0x55 0x1 >;
+};
+&spi0{
+	interrupts = < 0x53 0x1 >;
+};
+&spi1{
+	interrupts = < 0x54 0x1 >;
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	interrupts = < 0x6b 0x1 >;
+};

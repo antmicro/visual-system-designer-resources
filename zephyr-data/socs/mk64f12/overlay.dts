@@ -1,0 +1,102 @@
+/ {
+	compatible = "nxp,k64f", "nxp,k6x", "nxp,mk64f12";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_default >;
+	pinctrl-names = "default";
+};
+&dac0{
+	voltage-reference = < 0x2 >;
+	status = "okay";
+};
+&enet_mac{
+	status = "okay";
+	pinctrl-0 = < &pinmux_enet >;
+	pinctrl-names = "default";
+	phy-handle = < &phy >;
+	zephyr,random-mac-address;
+};
+&enet_mdio{
+	status = "okay";
+	pinctrl-0 = < &pinmux_enet_mdio >;
+	pinctrl-names = "default";
+};
+&flexcan0{
+	status = "okay";
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+	bus-speed = < 0x1e848 >;
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-names = "default";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpioe 0x4 0x1 >;
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&uart2{
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&uart3{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart3_default >;
+	pinctrl-names = "default";
+};
+&uart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart4_default >;
+	pinctrl-names = "default";
+};
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
+	status = "okay";
+};

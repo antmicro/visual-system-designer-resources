@@ -249,6 +249,31 @@
 				resets = < &rctl 0x306 >;
 				status = "disabled";
 			};
+			usart0_default: usart0_default {
+				group1 {
+					pinmux = < 0x111a0 >, < 0x11290 >;
+				};
+			};
+			usart1_default: usart1_default {
+				group1 {
+					pinmux = < 0x11930 >, < 0x11a20 >;
+				};
+			};
+			pwm0_default: pwm0_default {
+				group1 {
+					pinmux = < 0x33280 >;
+				};
+			};
+			spi0_default: spi0_default {
+				group1 {
+					pinmux = < 0x10250 >, < 0x10270 >, < 0x10260 >;
+				};
+			};
+			adc0_default: adc0_default {
+				group1 {
+					pinmux = < 0x32 >;
+				};
+			};
 		};
 		timer0: timer@40012c00 {
 			compatible = "gd,gd32-timer";

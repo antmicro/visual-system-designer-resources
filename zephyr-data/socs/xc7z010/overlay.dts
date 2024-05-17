@@ -1,0 +1,13 @@
+/ {
+	compatible = "digilent,zynq-zybo", "xlnx,zynq-7000";
+	chosen {
+		zephyr,console = &uart1;
+	};
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	clock-frequency = < 0x5f5e100 >;
+	pinctrl-0 = < &pinctrl_uart1_default >;
+	pinctrl-names = "default";
+};

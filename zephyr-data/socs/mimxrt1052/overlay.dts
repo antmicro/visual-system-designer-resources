@@ -4,8 +4,34 @@
 		zephyr,console = &lpuart1;
 	};
 };
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &pinmux_adc1 >;
+	pinctrl-names = "default";
+};
+&enet_mac{
+	status = "okay";
+	pinctrl-0 = < &pinmux_enet >;
+	pinctrl-names = "default";
+	phy-handle = < &phy >;
+	zephyr,random-mac-address;
+	phy-connection-type = "rmii";
+};
+&enet_mdio{
+	status = "okay";
+	pinctrl-0 = < &pinmux_enet_mdio >;
+	pinctrl-names = "default";
+};
 &flexspi{
-	reg = < 0x402a8000 0x4000 >, < 0x60000000 0x800000 >;
+	reg = < 0x402a8000 0x4000 >, < 0x60000000 0x4000000 >;
+	status = "okay";
+	ahb-prefetch;
+	ahb-read-addr-opt;
+	pinctrl-0 = < &pinmux_flexspi1 >;
+	pinctrl-names = "default";
+	sck-differential-clock;
+	combination-mode;
+	rx-clock-source = < 0x3 >;
 };
 &gpio1{
 	pinmux = < &iomuxc_gpio_ad_b0_00_gpio1_io00 >, < &iomuxc_gpio_ad_b0_01_gpio1_io01 >, < &iomuxc_gpio_ad_b0_02_gpio1_io02 >, < &iomuxc_gpio_ad_b0_03_gpio1_io03 >, < &iomuxc_gpio_ad_b0_04_gpio1_io04 >, < &iomuxc_gpio_ad_b0_05_gpio1_io05 >, < &iomuxc_gpio_ad_b0_06_gpio1_io06 >, < &iomuxc_gpio_ad_b0_07_gpio1_io07 >, < &iomuxc_gpio_ad_b0_08_gpio1_io08 >, < &iomuxc_gpio_ad_b0_09_gpio1_io09 >, < &iomuxc_gpio_ad_b0_10_gpio1_io10 >, < &iomuxc_gpio_ad_b0_11_gpio1_io11 >, < &iomuxc_gpio_ad_b0_12_gpio1_io12 >, < &iomuxc_gpio_ad_b0_13_gpio1_io13 >, < &iomuxc_gpio_ad_b0_14_gpio1_io14 >, < &iomuxc_gpio_ad_b0_15_gpio1_io15 >, < &iomuxc_gpio_ad_b1_00_gpio1_io16 >, < &iomuxc_gpio_ad_b1_01_gpio1_io17 >, < &iomuxc_gpio_ad_b1_02_gpio1_io18 >, < &iomuxc_gpio_ad_b1_03_gpio1_io19 >, < &iomuxc_gpio_ad_b1_04_gpio1_io20 >, < &iomuxc_gpio_ad_b1_05_gpio1_io21 >, < &iomuxc_gpio_ad_b1_06_gpio1_io22 >, < &iomuxc_gpio_ad_b1_07_gpio1_io23 >, < &iomuxc_gpio_ad_b1_08_gpio1_io24 >, < &iomuxc_gpio_ad_b1_09_gpio1_io25 >, < &iomuxc_gpio_ad_b1_10_gpio1_io26 >, < &iomuxc_gpio_ad_b1_11_gpio1_io27 >, < &iomuxc_gpio_ad_b1_12_gpio1_io28 >, < &iomuxc_gpio_ad_b1_13_gpio1_io29 >, < &iomuxc_gpio_ad_b1_14_gpio1_io30 >, < &iomuxc_gpio_ad_b1_15_gpio1_io31 >;
@@ -22,6 +48,16 @@
 &gpio5{
 	pinmux = < &iomuxc_snvs_wakeup_gpio5_io00 >, < &iomuxc_snvs_pmic_on_req_gpio5_io01 >, < &iomuxc_snvs_pmic_stby_req_gpio5_io02 >;
 };
+&lcdif{
+	status = "okay";
+	width = < 0x1e0 >;
+	height = < 0x110 >;
+	pixel-format = < 0x20 >;
+	data-bus-width = "16-bit";
+	pinctrl-0 = < &pinmux_lcdif >;
+	pinctrl-names = "default";
+	backlight-gpios = < &gpio2 0x1f 0x0 >;
+};
 &lpi2c1{
 	status = "okay";
 	pinctrl-0 = < &pinmux_lpi2c1 >;
@@ -32,11 +68,19 @@
 	pinctrl-0 = < &pinmux_lpi2c3 >;
 	pinctrl-names = "default";
 };
+&lpspi1{
+	status = "okay";
+	dmas = < &edma0 0x0 0xd >, < &edma0 0x1 0xe >;
+	dma-names = "rx", "tx";
+	pinctrl-0 = < &pinmux_lpspi1 >;
+	pinctrl-names = "default";
+};
 &lpspi3{
 	status = "okay";
-	pcs-sck-delay = < 0x32 >;
-	sck-pcs-delay = < 0x32 >;
-	transfer-delay = < 0x32 >;
+	dmas = < &edma0 0x2 0xf >, < &edma0 0x3 0x10 >;
+	dma-names = "rx", "tx";
+	pinctrl-0 = < &pinmux_lpspi3 >;
+	pinctrl-names = "default";
 };
 &lpspi4{
 	status = "okay";
@@ -54,6 +98,11 @@
 &lpuart2{
 	status = "okay";
 	current-speed = < 0x1c200 >;
+};
+&lpuart3{
+	pinctrl-0 = < &pinmux_lpuart3 >;
+	pinctrl-1 = < &pinmux_lpuart3_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &lpuart4{
 	status = "okay";

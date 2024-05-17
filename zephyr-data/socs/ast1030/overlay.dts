@@ -1,0 +1,15 @@
+/ {
+	compatible = "aspeed,ast1030-evb";
+	chosen {
+		zephyr,console = &uart5;
+		zephyr,sram = &sram0;
+	};
+};
+&sram0{
+	reg = < 0x0 0x70000 >, < 0x70000 0x50000 >;
+};
+&uart5{
+	status = "okay";
+	clock-frequency = < 0x1c2b89 >;
+	current-speed = < 0x1c200 >;
+};

@@ -1,0 +1,12 @@
+/ {
+	compatible = "fsl,mimx8mn";
+	chosen {
+		zephyr,console = &uart4;
+	};
+};
+&uart4{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart4_default >;
+	pinctrl-names = "default";
+};

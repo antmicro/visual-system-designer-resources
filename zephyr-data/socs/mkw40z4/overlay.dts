@@ -1,0 +1,24 @@
+/ {
+	compatible = "nxp,kw40z", "nxp,mkw40z4";
+	chosen {
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&adc0{
+	status = "okay";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
+&gpioa{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&lpuart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &lpuart0_default >;
+	pinctrl-names = "default";
+};

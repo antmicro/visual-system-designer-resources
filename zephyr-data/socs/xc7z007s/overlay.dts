@@ -1,0 +1,22 @@
+/ {
+	compatible = "xlnx,zynq7000s";
+	chosen {
+		zephyr,console = &uart0;
+	};
+};
+&gem0{
+	status = "okay";
+	clock-frequency = < 0x3b9aca00 >;
+	mdc-divider = < 0x7 >;
+	local-mac-address = [ 00 00 00 01 02 03 ];
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	clock-frequency = < 0x2faf080 >;
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	clock-frequency = < 0x2faf080 >;
+};

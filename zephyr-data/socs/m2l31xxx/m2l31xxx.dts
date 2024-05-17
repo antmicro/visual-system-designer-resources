@@ -1,0 +1,296 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,flash-controller = &rmc;
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x2 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		scc: system-clock-controller@40000200 {
+			compatible = "nuvoton,numaker-scc";
+			reg = < 0x40000200 0x100 >;
+			#clock-cells = < 0x0 >;
+			clk-pclkdiv = < 0x11 >;
+			core-clock = < 0x44aa200 >;
+			pcc: peripheral-clock-controller {
+				compatible = "nuvoton,numaker-pcc";
+				#clock-cells = < 0x3 >;
+				phandle = < 0x3 >;
+			};
+		};
+		rst: reset-controller@40000000 {
+			compatible = "nuvoton,numaker-rst";
+			reg = < 0x40000000 0x20 >;
+			#reset-cells = < 0x1 >;
+			phandle = < 0x2 >;
+		};
+		rmc: flash-controller@4000c000 {
+			compatible = "nuvoton,numaker-rmc";
+			reg = < 0x4000c000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				erase-block-size = < 0x1000 >;
+				write-block-size = < 0x4 >;
+				reg = < 0x0 0x80000 >;
+			};
+		};
+		uart0: serial@40070000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40070000 0x1000 >;
+			interrupts = < 0x24 0x0 >;
+			resets = < &rst 0x4000010 >;
+			clocks = < &pcc 0x31801110 0x3 0x0 >;
+			status = "disabled";
+		};
+		uart1: serial@40071000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40071000 0x1000 >;
+			interrupts = < 0x25 0x0 >;
+			resets = < &rst 0x4000011 >;
+			clocks = < &pcc 0x31901191 0x30 0x0 >;
+			status = "disabled";
+		};
+		uart2: serial@40072000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40072000 0x1000 >;
+			interrupts = < 0x30 0x0 >;
+			resets = < &rst 0x4000012 >;
+			clocks = < &pcc 0x31a11012 0x300 0x0 >;
+			status = "disabled";
+		};
+		uart3: serial@40073000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40073000 0x1000 >;
+			interrupts = < 0x31 0x0 >;
+			resets = < &rst 0x4000013 >;
+			clocks = < &pcc 0x31b11093 0x3000 0x0 >;
+			status = "disabled";
+		};
+		uart4: serial@40074000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40074000 0x1000 >;
+			interrupts = < 0x4a 0x0 >;
+			resets = < &rst 0x4000014 >;
+			clocks = < &pcc 0x31c11114 0x30000 0x0 >;
+			status = "disabled";
+		};
+		uart5: serial@40075000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40075000 0x1000 >;
+			interrupts = < 0x4b 0x0 >;
+			resets = < &rst 0x4000015 >;
+			clocks = < &pcc 0x31d11195 0x300000 0x0 >;
+			status = "disabled";
+		};
+		uart6: serial@40076000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40076000 0x1000 >;
+			interrupts = < 0x66 0x0 >;
+			resets = < &rst 0x4000016 >;
+			clocks = < &pcc 0x31e11216 0x3000000 0x0 >;
+			status = "disabled";
+		};
+		uart7: serial@40077000 {
+			compatible = "nuvoton,numaker-uart";
+			reg = < 0x40077000 0x1000 >;
+			interrupts = < 0x67 0x0 >;
+			resets = < &rst 0x4000017 >;
+			clocks = < &pcc 0x31f11297 0x30000000 0x0 >;
+			status = "disabled";
+		};
+		pinctrl: pin-controller@40000080 {
+			compatible = "nuvoton,numaker-pinctrl";
+			reg = < 0x40000080 0x20 0x40000500 0x80 >;
+			reg-names = "mfos", "mfp";
+		};
+		gpioa: gpio@40004000 {
+			compatible = "nuvoton,numaker-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x40004000 0x40 >;
+			clocks = < &pcc 0x18 0x0 0x0 >;
+			status = "disabled";
+			interrupts = < 0x10 0x2 >;
+		};
+		gpiob: gpio@40004040 {
+			compatible = "nuvoton,numaker-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x40004040 0x40 >;
+			clocks = < &pcc 0x19 0x0 0x0 >;
+			status = "disabled";
+			interrupts = < 0x11 0x2 >;
+		};
+		gpioc: gpio@40004080 {
+			compatible = "nuvoton,numaker-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x40004080 0x40 >;
+			clocks = < &pcc 0x1a 0x0 0x0 >;
+			status = "disabled";
+			interrupts = < 0x12 0x2 >;
+		};
+		gpiod: gpio@400040c0 {
+			compatible = "nuvoton,numaker-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x400040c0 0x40 >;
+			clocks = < &pcc 0x1b 0x0 0x0 >;
+			status = "disabled";
+			interrupts = < 0x13 0x2 >;
+		};
+		gpioe: gpio@40004100 {
+			compatible = "nuvoton,numaker-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x40004100 0x40 >;
+			clocks = < &pcc 0x1c 0x0 0x0 >;
+			status = "disabled";
+			interrupts = < 0x14 0x2 >;
+		};
+		gpiof: gpio@40004140 {
+			compatible = "nuvoton,numaker-gpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			reg = < 0x40004140 0x40 >;
+			clocks = < &pcc 0x1d 0x0 0x0 >;
+			status = "disabled";
+			interrupts = < 0x15 0x2 >;
+		};
+		spi0: spi@40061000 {
+			compatible = "nuvoton,numaker-spi";
+			reg = < 0x40061000 0x6c >;
+			interrupts = < 0x17 0x0 >;
+			resets = < &rst 0x400000d >;
+			clocks = < &pcc 0x2990000d 0x30 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		spi1: spi@40062000 {
+			compatible = "nuvoton,numaker-spi";
+			reg = < 0x40062000 0x6c >;
+			interrupts = < 0x33 0x0 >;
+			resets = < &rst 0x400000e >;
+			clocks = < &pcc 0x29b0000e 0x3000 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		spi2: spi@40063000 {
+			compatible = "nuvoton,numaker-spi";
+			reg = < 0x40063000 0x6c >;
+			interrupts = < 0x34 0x0 >;
+			resets = < &rst 0x400000f >;
+			clocks = < &pcc 0x2da0000f 0x300 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		spi3: spi@40064000 {
+			compatible = "nuvoton,numaker-spi";
+			reg = < 0x40064000 0x6c >;
+			interrupts = < 0x3e 0x0 >;
+			resets = < &rst 0x8000006 >;
+			clocks = < &pcc 0x4db00006 0x3000 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+		};
+		i2c0: i2c@40080000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40080000 0x1000 >;
+			interrupts = < 0x26 0x0 >;
+			resets = < &rst 0x4000008 >;
+			clocks = < &pcc 0x20000008 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		i2c1: i2c@40081000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40081000 0x1000 >;
+			interrupts = < 0x27 0x0 >;
+			resets = < &rst 0x4000009 >;
+			clocks = < &pcc 0x20000009 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		i2c2: i2c@40082000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40082000 0x1000 >;
+			interrupts = < 0x52 0x0 >;
+			resets = < &rst 0x400000a >;
+			clocks = < &pcc 0x2000000a 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		i2c3: i2c@40083000 {
+			compatible = "nuvoton,numaker-i2c";
+			clock-frequency = < 0x186a0 >;
+			reg = < 0x40083000 0x1000 >;
+			interrupts = < 0x53 0x0 >;
+			resets = < &rst 0x400000b >;
+			clocks = < &pcc 0x2000000b 0x0 0x0 >;
+			status = "disabled";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+		};
+		eadc0: eadc@40043000 {
+			compatible = "nuvoton,numaker-adc";
+			reg = < 0x40043000 0xffc >;
+			interrupts = < 0x2a 0x0 >;
+			resets = < &rst 0x400001c >;
+			clocks = < &pcc 0x2128221c 0x800 0x10000 >;
+			channels = < 0x1f >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m23";
+			reg = < 0x0 >;
+		};
+	};
+	sysclk: system-clock {
+		compatible = "fixed-clock";
+		clock-frequency = < 0x44aa200 >;
+		#clock-cells = < 0x0 >;
+	};
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = < 0x20000000 0x2a000 >;
+	};
+};

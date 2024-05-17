@@ -1,0 +1,181 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "ambiq,apollo3p-blue", "ambiq,apollo3x", "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		pwrcfg: pwrcfg@40021000 {
+			compatible = "ambiq,pwrctrl";
+			reg = < 0x40021000 0x400 >;
+			#pwrcfg-cells = < 0x2 >;
+			phandle = < 0x3 >;
+		};
+		stimer0: stimer@40008140 {
+			compatible = "ambiq,stimer";
+			reg = < 0x40008140 0x80 >;
+			interrupts = < 0x17 0x0 >;
+			status = "okay";
+		};
+		counter0: counter@40008000 {
+			compatible = "ambiq,counter";
+			reg = < 0x40008000 0x80 >;
+			interrupts = < 0xe 0x0 >;
+			status = "disabled";
+		};
+		uart0: uart@4001c000 {
+			compatible = "ambiq,uart", "arm,pl011";
+			reg = < 0x4001c000 0x1000 >;
+			interrupts = < 0xf 0x0 >;
+			interrupt-names = "UART0";
+			status = "disabled";
+			clocks = < &uartclk >;
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x80 >;
+		};
+		uart1: uart@4001d000 {
+			compatible = "ambiq,uart", "arm,pl011";
+			reg = < 0x4001d000 0x1000 >;
+			interrupts = < 0x10 0x0 >;
+			interrupt-names = "UART1";
+			status = "disabled";
+			clocks = < &uartclk >;
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x100 >;
+		};
+		iom0: iom@50004000 {
+			reg = < 0x50004000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x6 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x2 >;
+		};
+		iom1: iom@50005000 {
+			reg = < 0x50005000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x7 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x4 >;
+		};
+		iom2: iom@50006000 {
+			reg = < 0x50006000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x8 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x8 >;
+		};
+		iom3: iom@50007000 {
+			reg = < 0x50007000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x9 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x10 >;
+		};
+		iom4: iom@50008000 {
+			reg = < 0x50008000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0xa 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x20 >;
+		};
+		iom5: iom@50009000 {
+			reg = < 0x50009000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0xb 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x40 >;
+		};
+		mspi0: spi@50014000 {
+			compatible = "ambiq,mspi";
+			reg = < 0x50014000 0x400 >;
+			interrupts = < 0x14 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x800 >;
+		};
+		mspi1: spi@50015000 {
+			compatible = "ambiq,mspi";
+			reg = < 0x50015000 0x400 >;
+			interrupts = < 0x20 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x1000 >;
+		};
+		mspi2: spi@50016000 {
+			compatible = "ambiq,mspi";
+			reg = < 0x50016000 0x400 >;
+			interrupts = < 0x21 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x2000 >;
+		};
+		pinctrl: pin-controller@40010000 {
+			compatible = "ambiq,apollo3-pinctrl";
+			reg = < 0x40010000 0x800 >;
+		};
+		wdt0: watchdog@40024000 {
+			compatible = "ambiq,watchdog";
+			reg = < 0x40024000 0x400 >;
+			interrupts = < 0x1 0x0 >;
+			clock-frequency = < 0x10 >;
+			status = "disabled";
+		};
+	};
+	clocks {
+		uartclk: apb-pclk {
+			compatible = "fixed-clock";
+			clock-frequency = < 0x16e3600 >;
+			#clock-cells = < 0x0 >;
+			phandle = < 0x2 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			compatible = "arm,cortex-m4f";
+			reg = < 0x0 >;
+		};
+	};
+	flash0: flash@C000 {
+		compatible = "soc-nv-flash";
+		reg = < 0xc000 0x1f4000 >;
+	};
+	tcm: tcm@10000000 {
+		compatible = "zephyr,memory-region";
+		reg = < 0x10000000 0x10000 >;
+		zephyr,memory-region = "ITCM";
+	};
+	sram0: memory@10010000 {
+		compatible = "mmio-sram";
+		reg = < 0x10010000 0xb0000 >;
+	};
+};

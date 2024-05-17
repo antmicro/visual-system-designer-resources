@@ -1,0 +1,32 @@
+/ {
+	compatible = "nuvoton,numaker-m2l31ki";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&gpioc{
+	status = "okay";
+};
+&uart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart0_default >;
+	pinctrl-names = "default";
+};
+&pinctrl{
+	compatible = "nuvoton,numaker-pinctrl";
+	reg = < 0x40000080 0x20 0x40000500 0x80 >;
+	reg-names = "mfos", "mfp";
+	uart0_default: uart0_default {
+		group0 {
+			pinmux = < 0x1c000006 >, < 0x1d000006 >;
+		};
+	};
+	uart1_default: uart1_default {
+		group0 {
+			pinmux = < 0x19000006 >, < 0x18000006 >, < 0x12000006 >, < 0x13000006 >, < 0x29000000 >;
+		};
+	};
+};

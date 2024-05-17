@@ -1,0 +1,54 @@
+/ {
+	compatible = "nxp,k22f", "nxp,k2x", "nxp,mk22f12";
+	chosen {
+		zephyr,console = &uart1;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&adc0{
+	status = "okay";
+};
+&dac0{
+	voltage-reference = < 0x2 >;
+	status = "okay";
+};
+&gpioa{
+	status = "okay";
+};
+&gpiob{
+	status = "okay";
+};
+&gpioc{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&gpioe{
+	status = "okay";
+};
+&i2c0{
+	status = "okay";
+	pinctrl-0 = < &i2c0_default >;
+	pinctrl-names = "default";
+};
+&spi0{
+	status = "okay";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+};
+&uart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
+};
+&uart2{
+	pinctrl-0 = < &uart2_default >;
+	pinctrl-names = "default";
+};
+&usbotg{
+	num-bidir-endpoints = < 0x8 >;
+	status = "okay";
+};

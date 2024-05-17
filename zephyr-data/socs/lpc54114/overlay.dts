@@ -1,7 +1,15 @@
 / {
 	compatible = "nxp,lpc", "nxp,lpc54xxx";
 	chosen {
+		zephyr,console = &flexcomm0;
 		zephyr,flash = &sram1;
 		zephyr,sram = &sram2;
 	};
+};
+&flexcomm0{
+	compatible = "nxp,lpc-usart";
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_flexcomm0_usart >;
+	pinctrl-names = "default";
 };

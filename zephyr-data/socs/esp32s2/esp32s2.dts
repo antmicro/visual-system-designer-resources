@@ -52,13 +52,14 @@
 				compatible = "soc-nv-flash";
 				erase-block-size = < 0x1000 >;
 				write-block-size = < 0x4 >;
+				reg = < 0x0 0x400000 >;
 			};
 		};
 		psram0: psram@3f500000 {
 			device_type = "memory";
 			compatible = "mmio-sram";
 			reg = < 0x3f500000 0x200000 >;
-			status = "disabled";
+			status = "okay";
 		};
 		uart0: uart@3f400000 {
 			compatible = "espressif,esp32-uart";
