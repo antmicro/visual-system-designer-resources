@@ -212,6 +212,14 @@
 				clock-div = < 0x4 >;
 				#clock-cells = < 0x0 >;
 			};
+			sys-pll {
+				compatible = "nxp,imx-ccm-fnpll";
+				loop-div = < 0x16 >;
+				numerator = < 0x0 >;
+				denominator = < 0x1 >;
+				src = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
 		};
 		snvs: snvs@400d4000 {
 			compatible = "nxp,imx-snvs";

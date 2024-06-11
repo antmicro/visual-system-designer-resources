@@ -3,33 +3,14 @@
 / {
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x1 >;
-	chosen {
-		zephyr,flash-controller = &iap;
-	};
-	aliases {
-		watchdog0 = &wwdt0;
-	};
 	soc {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x1 >;
 		compatible = "simple-bus";
 		interrupt-parent = < &nvic >;
 		ranges;
-		nvic: interrupt-controller@e000e100 {
-			#address-cells = < 0x1 >;
-			compatible = "arm,v8m-nvic";
-			reg = < 0xe000e100 0xc00 >;
-			interrupt-controller;
-			#interrupt-cells = < 0x2 >;
-			arm,num-irq-priority-bits = < 0x3 >;
-			phandle = < 0x1 >;
-		};
-		systick: timer@e000e010 {
-			compatible = "arm,armv8m-systick";
-			reg = < 0xe000e010 0x10 >;
-		};
-		sram: sram@14000000 {
-			ranges = < 0x4000000 0x14000000 0x20000000 >;
+		sram: sram@4000000 {
+			ranges = < 0x4000000 0x4000000 0x20000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			sramx: memory@4000000 {
@@ -57,17 +38,33 @@
 				reg = < 0x20040000 0x4000 >;
 			};
 		};
-		peripheral: peripheral@50000000 {
-			ranges = < 0x0 0x50000000 0x10000000 >;
+		peripheral: peripheral@40000000 {
+			ranges = < 0x0 0x40000000 0x10000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
+			usb_sram: memory@100000 {
+				compatible = "zephyr,memory-region", "mmio-sram";
+				reg = < 0x100000 0x4000 >;
+				zephyr,memory-region = "USB_SRAM";
+				zephyr,memory-attr = < 0x100000 >;
+			};
+			syscon: syscon@0 {
+				compatible = "nxp,lpc-syscon";
+				reg = < 0x0 0x1000 >;
+				#clock-cells = < 0x1 >;
+				phandle = < 0x3 >;
+				reset: reset {
+					compatible = "nxp,lpc-syscon-reset";
+					#reset-cells = < 0x1 >;
+					phandle = < 0x2 >;
+				};
+			};
 			iap: flash-controller@34000 {
-				ranges = < 0x0 0x10000000 0x3020000 >;
 				compatible = "nxp,iap-fmc55";
 				reg = < 0x34000 0x1000 >;
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x1 >;
-				status = "okay";
+				status = "disabled";
 				flash0: flash@0 {
 					compatible = "soc-nv-flash";
 					reg = < 0x0 0x9d800 >;
@@ -87,18 +84,6 @@
 					compatible = "soc-nv-flash";
 					reg = < 0x3000000 0x20000 >;
 				};
-			};
-			usb_sram: memory@100000 {
-				compatible = "zephyr,memory-region", "mmio-sram";
-				reg = < 0x100000 0x4000 >;
-				zephyr,memory-region = "USB_SRAM";
-				zephyr,memory-attr = < 0x100000 >;
-			};
-			syscon: syscon@0 {
-				compatible = "nxp,lpc-syscon";
-				reg = < 0x0 0x1000 >;
-				#clock-cells = < 0x1 >;
-				phandle = < 0x2 >;
 			};
 			iocon: iocon@1000 {
 				compatible = "nxp,lpc-iocon";
@@ -162,6 +147,7 @@
 				compatible = "nxp,lpc-mailbox";
 				reg = < 0x8b000 0xec >;
 				interrupts = < 0x1f 0x0 >;
+				resets = < &reset 0x1a >;
 				status = "disabled";
 			};
 			flexcomm0: flexcomm@86000 {
@@ -169,6 +155,7 @@
 				reg = < 0x86000 0x1000 >;
 				interrupts = < 0xe 0x0 >;
 				clocks = < &syscon 0x100 >;
+				resets = < &reset 0x1000b >;
 				status = "disabled";
 			};
 			flexcomm1: flexcomm@87000 {
@@ -176,6 +163,7 @@
 				reg = < 0x87000 0x1000 >;
 				interrupts = < 0xf 0x0 >;
 				clocks = < &syscon 0x101 >;
+				resets = < &reset 0x1000c >;
 				status = "disabled";
 			};
 			flexcomm2: flexcomm@88000 {
@@ -183,6 +171,7 @@
 				reg = < 0x88000 0x1000 >;
 				interrupts = < 0x10 0x0 >;
 				clocks = < &syscon 0x102 >;
+				resets = < &reset 0x1000d >;
 				status = "disabled";
 			};
 			flexcomm3: flexcomm@89000 {
@@ -190,6 +179,7 @@
 				reg = < 0x89000 0x1000 >;
 				interrupts = < 0x11 0x0 >;
 				clocks = < &syscon 0x103 >;
+				resets = < &reset 0x1000e >;
 				status = "disabled";
 			};
 			flexcomm4: flexcomm@8a000 {
@@ -197,6 +187,7 @@
 				reg = < 0x8a000 0x1000 >;
 				interrupts = < 0x12 0x0 >;
 				clocks = < &syscon 0x104 >;
+				resets = < &reset 0x1000f >;
 				status = "disabled";
 			};
 			flexcomm5: flexcomm@96000 {
@@ -204,6 +195,7 @@
 				reg = < 0x96000 0x1000 >;
 				interrupts = < 0x13 0x0 >;
 				clocks = < &syscon 0x105 >;
+				resets = < &reset 0x10010 >;
 				status = "disabled";
 			};
 			flexcomm6: flexcomm@97000 {
@@ -211,6 +203,7 @@
 				reg = < 0x97000 0x1000 >;
 				interrupts = < 0x14 0x0 >;
 				clocks = < &syscon 0x106 >;
+				resets = < &reset 0x10011 >;
 				status = "disabled";
 			};
 			flexcomm7: flexcomm@98000 {
@@ -218,6 +211,7 @@
 				reg = < 0x98000 0x1000 >;
 				interrupts = < 0x15 0x0 >;
 				clocks = < &syscon 0x107 >;
+				resets = < &reset 0x10012 >;
 				status = "disabled";
 			};
 			sdif: sdif@9b000 {
@@ -232,6 +226,7 @@
 				reg = < 0x9f000 0x1000 >;
 				interrupts = < 0x3b 0x0 >;
 				clocks = < &syscon 0x10e >;
+				resets = < &reset 0x2001c >;
 				status = "disabled";
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
@@ -349,6 +344,7 @@
 				num-channels = < 0x4 >;
 				num-bits = < 0x18 >;
 				clocks = < &syscon 0xb00 >;
+				resets = < &reset 0x10000 >;
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
 				mrt_channel0: mrt_channel@0 {
@@ -373,6 +369,25 @@
 				};
 			};
 		};
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+	};
+	chosen {
+		zephyr,flash-controller = &iap;
+	};
+	aliases {
+		watchdog0 = &wwdt0;
 	};
 	cpus: cpus {
 		#address-cells = < 0x1 >;
@@ -398,7 +413,7 @@
 				power-state-name = "runtime-idle";
 				min-residency-us = < 0x4 >;
 				exit-latency-us = < 0x4 >;
-				phandle = < 0x3 >;
+				phandle = < 0x4 >;
 			};
 		};
 	};

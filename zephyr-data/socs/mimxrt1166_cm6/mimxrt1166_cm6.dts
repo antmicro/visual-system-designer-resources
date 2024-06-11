@@ -683,6 +683,33 @@
 			reg = < 0x40800000 0x4000 >;
 			interrupts = < 0x38 0x1 >;
 			status = "disabled";
+			source = < &mipi_csi2rx >;
+			port {
+				csi_ep_in: endpoint {
+					remote-endpoint = < &mipi_csi2rx_ep_out >;
+					phandle = < 0xa >;
+				};
+			};
+		};
+		mipi_csi2rx: mipi_csi2rx@40810000 {
+			compatible = "nxp,mipi-csi2rx";
+			reg = < 0x40810000 0x200 >;
+			status = "disabled";
+			phandle = < 0x8 >;
+			ports {
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				port@0 {
+					reg = < 0x0 >;
+					mipi_csi2rx_ep_out: endpoint {
+						remote-endpoint = < &csi_ep_in >;
+						phandle = < 0x9 >;
+					};
+				};
+				port@1 {
+					reg = < 0x1 >;
+				};
+			};
 		};
 		flexcan1: can@400c4000 {
 			compatible = "nxp,flexcan-fd", "nxp,flexcan";
@@ -795,7 +822,7 @@
 			reg = < 0x40c84000 0x4000 >;
 			#clock-cells = < 0x4 >;
 			#pll-clock-cells = < 0x3 >;
-			phandle = < 0x8 >;
+			phandle = < 0xb >;
 		};
 		edma0: dma-controller@40070000 {
 			#dma-cells = < 0x2 >;
@@ -823,7 +850,7 @@
 			compatible = "nxp,imx-gpr";
 			reg = < 0x400e4000 0x4000 >;
 			#pinmux-cells = < 0x2 >;
-			phandle = < 0x9 >;
+			phandle = < 0xc >;
 		};
 		sai1: sai@40404000 {
 			compatible = "nxp,mcux-i2s";
@@ -1091,7 +1118,7 @@
 				power-state-name = "runtime-idle";
 				substate-id = < 0x11 >;
 				min-residency-us = < 0x64 >;
-				phandle = < 0xa >;
+				phandle = < 0xd >;
 			};
 			suspend: set_point_10_suspend {
 				compatible = "zephyr,power-state";
@@ -1099,7 +1126,7 @@
 				substate-id = < 0xa3 >;
 				min-residency-us = < 0x1388 >;
 				exit-latency-us = < 0x1f4 >;
-				phandle = < 0xb >;
+				phandle = < 0xe >;
 			};
 		};
 	};

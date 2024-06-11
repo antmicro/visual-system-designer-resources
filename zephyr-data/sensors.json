@@ -208,8 +208,8 @@
         ],
         "description": "AMD SB Temperature Sensor Interface.",
         "driver": [
-            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c",
-            "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+            "drivers/sensor/amd_sb_tsi/sb_tsi.c",
+            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -738,6 +738,16 @@
             "resolution": {
                 "type": "int"
             }
+        }
+    },
+    "ds18s20": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "maxim,ds18s20"
+        ],
+        "description": "Maxim 1-Wire ds18s20 temperature sensor",
+        "interfaces": {
+            "w1": "1-wire"
         }
     },
     "emul": {
@@ -1390,6 +1400,28 @@
             }
         },
         "rdp-compat": "ti,ina219"
+    },
+    "ina226": {
+        "category": "Power",
+        "compatible": [
+            "ti,ina226"
+        ],
+        "description": "TI INA226 Bidirectional Current and Power Monitor.\nThe <zephyr/dt-bindings/sensor/ina226.h> file should be included in the\nDeviceTree as it provides macros that can be used for initializing the\nconfiguration registers.\n",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "current-lsb-microamps": {
+                "type": "int"
+            },
+            "rshunt-micro-ohms": {
+                "type": "int"
+            }
+        },
+        "rdp-compat": "ti,ina226"
     },
     "ina230": {
         "category": "Power",
@@ -3081,6 +3113,37 @@
             }
         },
         "rdp-compat": "ti,tmp116"
+    },
+    "tsic_xx6": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "ist,tsic-xx6"
+        ],
+        "description": "TSic xx6 temperature sensor.\nhttps://www.ist-ag.com/sites/default/files/downloads/ATTSic_E.pdf\n\nExample:\n  tsic_716: tsic_716 {\n    status = \"okay\";\n    compatible = \"ist,tsic-xx6\";\n    pwms = <&pwm2 1 PWM_USEC(5) PWM_POLARITY_NORMAL>;\n    data-bits = <14>;\n    lower-temperature-limit = <(-10)>;\n    higher-temperature-limit = <60>;\n  };\n",
+        "driver": [
+            "drivers/sensor/tsic_xx6/tsic_xx6.c"
+        ],
+        "interfaces": {
+            "pwm": "pwm"
+        },
+        "properties": {
+            "data-bits": {
+                "enum": [
+                    11,
+                    14
+                ],
+                "type": "int"
+            },
+            "higher-temperature-limit": {
+                "type": "int"
+            },
+            "lower-temperature-limit": {
+                "type": "int"
+            },
+            "pwms": {
+                "type": "phandle-array"
+            }
+        }
     },
     "tsl2540": {
         "category": "Environmental/Light",

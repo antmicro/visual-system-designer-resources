@@ -1,0 +1,17 @@
+/ {
+	compatible = "brcm,viper";
+	chosen {
+		zephyr,console = &uart1;
+		zephyr,sram = &sram0;
+	};
+};
+&uart0{
+	interrupt-parent = < &gic >;
+	interrupts = < 0x0 0x18 0x2 0xa0 >;
+};
+&uart1{
+	status = "okay";
+	interrupt-parent = < &gic >;
+	interrupts = < 0x0 0xbb 0x2 0xa0 >;
+	current-speed = < 0xe100 >;
+};

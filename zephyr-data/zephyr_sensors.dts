@@ -999,6 +999,27 @@
 				compatible = "ti,tmp114";
 				reg = < 0x8c >;
 			};
+			test_i2c_ina226: ina226@8d {
+				compatible = "ti,ina226";
+				reg = < 0x8d >;
+				current-lsb-microamps = < 0x1388 >;
+				rshunt-micro-ohms = < 0x1f4 >;
+			};
+		};
+		test_pwm: pwm@12341234 {
+			compatible = "vnd,pwm";
+			reg = < 0x12341234 0x1000 >;
+			#pwm-cells = < 0x3 >;
+			status = "okay";
+			phandle = < 0x3 >;
+			test_pwm_tsic_xx6: tsic_xx6 {
+				status = "okay";
+				compatible = "ist,tsic-xx6";
+				pwms = < &test_pwm 0x0 0x0 0x0 >;
+				data-bits = < 0xe >;
+				lower-temperature-limit = < 0xffffff9c >;
+				higher-temperature-limit = < 0xfa >;
+			};
 		};
 		test_spi: spi@33334444 {
 			#address-cells = < 0x1 >;
@@ -1375,6 +1396,11 @@
 				compatible = "maxim,ds18b20";
 				family-code = < 0x28 >;
 				resolution = < 0xc >;
+				status = "okay";
+			};
+			test_w1_ds18s20: ds18s20 {
+				compatible = "maxim,ds18s20";
+				family-code = < 0x10 >;
 				status = "okay";
 			};
 		};

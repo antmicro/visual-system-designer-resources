@@ -34,8 +34,6 @@
 	status = "okay";
 	pinctrl-0 = < &fdcan1_rx_pa11 &fdcan1_tx_pa12 >;
 	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
 };
 &i2c1{
 	clock-frequency = < 0x61a80 >;
@@ -57,11 +55,6 @@
 &mdio{
 	status = "okay";
 	pinctrl-0 = < &eth_mdio_pa2 &eth_mdc_pc1 >;
-	pinctrl-names = "default";
-};
-&octospi1{
-	status = "okay";
-	pinctrl-0 = < &octospi1_io0_pb1 &octospi1_io1_pd12 &octospi1_io2_pc2 &octospi1_io3_pd13 &octospi1_io4_ph2 &octospi1_io5_ph3 &octospi1_io6_pg9 &octospi1_io7_pc0 &octospi1_clk_pf10 &octospi1_ncs_pg6 &octospi1_dqs_pb2 >;
 	pinctrl-names = "default";
 };
 &pll1{
@@ -92,6 +85,11 @@
 &usb{
 	status = "okay";
 	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
+};
+&xspi1{
+	status = "okay";
+	pinctrl-0 = < &octospi1_io0_pb1 &octospi1_io1_pd12 &octospi1_io2_pc2 &octospi1_io3_pd13 &octospi1_io4_ph2 &octospi1_io5_ph3 &octospi1_io6_pg9 &octospi1_io7_pc0 &octospi1_clk_pf10 &octospi1_ncs_pg6 &octospi1_dqs_pb2 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

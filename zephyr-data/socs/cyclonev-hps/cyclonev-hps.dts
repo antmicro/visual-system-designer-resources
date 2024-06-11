@@ -192,6 +192,11 @@
 			reg = < 0xffb30000 0xffff >;
 			interrupts = < 0x0 0x7f 0x4 0xa0 >;
 			interrupt-parent = < &intc >;
+			num-out-eps = < 0x10 >;
+			num-in-eps = < 0x10 >;
+			ghwcfg1 = < 0x0 >;
+			ghwcfg2 = < 0x208ffc90 >;
+			ghwcfg4 = < 0xfe0f0020 >;
 			status = "disabled";
 		};
 		usb1: usb@ffb40000 {
@@ -199,6 +204,11 @@
 			reg = < 0xffb40000 0xffff >;
 			interrupts = < 0x0 0x80 0x4 0xa0 >;
 			interrupt-parent = < &intc >;
+			num-out-eps = < 0x10 >;
+			num-in-eps = < 0x10 >;
+			ghwcfg1 = < 0x0 >;
+			ghwcfg2 = < 0x208ffc90 >;
+			ghwcfg4 = < 0xfe0f0020 >;
 			status = "okay";
 		};
 		spi0: spi@fff00000 {

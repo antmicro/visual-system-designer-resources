@@ -23,7 +23,7 @@
 		ipmmem0: memory@3fcbd000 {
 			compatible = "mmio-sram";
 			reg = < 0x3fcbd000 0x400 >;
-			phandle = < 0x2 >;
+			phandle = < 0x3 >;
 		};
 		shm0: memory@3fcbd400 {
 			compatible = "mmio-sram";
@@ -35,22 +35,24 @@
 			interrupt-controller;
 			reg = < 0x600c2000 0x1000 >;
 			status = "okay";
-			phandle = < 0x1 >;
+			phandle = < 0x2 >;
 		};
 		rtc: rtc@60021000 {
 			compatible = "espressif,esp32-rtc";
 			reg = < 0x60021000 0x2000 >;
-			xtal-freq = < 0x28 >;
+			fast-clk-src = < 0x1 >;
+			slow-clk-src = < 0x0 >;
 			#clock-cells = < 0x1 >;
 			status = "okay";
-			phandle = < 0x3 >;
-			rtc_timer: rtc_timer {
-				compatible = "espressif,esp32-rtc-timer";
-				slow-clk-freq = < 0x249f0 >;
-				interrupts = < 0x27 >;
-				interrupt-parent = < &intc >;
-				status = "okay";
-			};
+			phandle = < 0x1 >;
+		};
+		rtc_timer: rtc_timer@60008004 {
+			reg = < 0x60008004 0xc >;
+			compatible = "espressif,esp32-rtc-timer";
+			clocks = < &rtc 0x28 >;
+			interrupts = < 0x27 >;
+			interrupt-parent = < &intc >;
+			status = "okay";
 		};
 		flash: flash-controller@60002000 {
 			compatible = "espressif,esp32-flash-controller";
@@ -324,14 +326,20 @@
 		#size-cells = < 0x0 >;
 		cpu0: cpu@0 {
 			device_type = "cpu";
-			compatible = "cdns,tensilica-xtensa-lx7";
+			compatible = "espressif,xtensa-lx7";
 			reg = < 0x0 >;
 			cpu-power-states = < &light_sleep &deep_sleep >;
+			clock-source = < 0x1 >;
+			clock-frequency = < 0xe4e1c00 >;
+			xtal-freq = < 0x2625a00 >;
 		};
 		cpu1: cpu@1 {
 			device_type = "cpu";
-			compatible = "cdns,tensilica-xtensa-lx7";
+			compatible = "espressif,xtensa-lx7";
 			reg = < 0x1 >;
+			clock-source = < 0x1 >;
+			clock-frequency = < 0xe4e1c00 >;
+			xtal-freq = < 0x2625a00 >;
 		};
 		power-states {
 			light_sleep: light_sleep {

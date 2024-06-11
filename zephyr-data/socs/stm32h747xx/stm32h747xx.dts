@@ -245,6 +245,8 @@
 			interrupts = < 0x29 0x0 >;
 			clocks = < &rcc 0xf4 0x10000 >;
 			prescaler = < 0x8000 >;
+			alarms-count = < 0x2 >;
+			alrm-exti-line = < 0x11 >;
 			status = "disabled";
 			bbram: backup_regs {
 				compatible = "st,stm32-bbram";
@@ -847,9 +849,10 @@
 			status = "disabled";
 		};
 		mailbox: mailbox@58026400 {
-			compatible = "st,stm32-hsem-mailbox";
+			compatible = "st,stm32-hsem-mailbox", "st,mbox-stm32-hsem";
 			reg = < 0x58026400 0x400 >;
 			clocks = < &rcc 0xe0 0x2000000 >;
+			#mbox-cells = < 0x1 >;
 			status = "disabled";
 			interrupts = < 0x7d 0x0 >;
 		};

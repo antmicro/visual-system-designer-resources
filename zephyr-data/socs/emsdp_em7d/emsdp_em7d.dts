@@ -133,4 +133,9 @@
 			max-xfer-size = < 0x10 >;
 		};
 	};
+	sectimer0: sectimer0 {
+		compatible = "snps,arc-timer";
+		interrupts = < 0x14 0x1 >;
+		interrupt-parent = < &intc >;
+	};
 };

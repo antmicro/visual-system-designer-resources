@@ -223,6 +223,14 @@
 				clock-div = < 0x4 >;
 				#clock-cells = < 0x0 >;
 			};
+			sys-pll {
+				compatible = "nxp,imx-ccm-fnpll";
+				loop-div = < 0x16 >;
+				numerator = < 0x0 >;
+				denominator = < 0x1 >;
+				src = < 0x0 >;
+				#clock-cells = < 0x0 >;
+			};
 		};
 		snvs: snvs@400d4000 {
 			compatible = "nxp,imx-snvs";
@@ -948,7 +956,7 @@
 		};
 		enet2: ethernet@402d4000 {
 			compatible = "nxp,enet";
-			reg = < 0x402d8000 0x628 >;
+			reg = < 0x402d4000 0x628 >;
 			clocks = < &ccm 0xe00 0x0 0x0 >;
 			enet2_mac: ethernet {
 				compatible = "nxp,enet-mac";

@@ -48,10 +48,12 @@
 			interrupts = < 0x20 0x0 >;
 			status = "okay";
 		};
-		counter0: counter@40008000 {
+		counter0: counter@40008200 {
 			compatible = "ambiq,counter";
-			reg = < 0x40008000 0x80 >;
+			reg = < 0x40008200 0x20 >;
 			interrupts = < 0x43 0x0 >;
+			clock-frequency = < 0x5b8d80 >;
+			clk-source = < 0x1 >;
 			status = "disabled";
 		};
 		uart0: uart@4001c000 {

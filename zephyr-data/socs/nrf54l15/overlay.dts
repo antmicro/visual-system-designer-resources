@@ -1,0 +1,101 @@
+/ {
+	compatible = "nordic,nrf54l15pdk_nrf54l15-cpuapp";
+	chosen {
+		zephyr,console = &uart20;
+		zephyr,flash = &cpuflpr_rram;
+		zephyr,sram = &cpuflpr_sram;
+	};
+};
+&adc{
+	status = "okay";
+};
+&cpuflpr_sram{
+	reg = < 0x20028000 0x18000 >;
+	ranges = < 0x0 0x20028000 0x18000 >;
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&gpio1{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
+&hfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3a98 >;
+};
+&lfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3c8c >;
+};
+&radio{
+	status = "okay";
+};
+&spi00{
+	status = "okay";
+	cs-gpios = < &gpio2 0x5 0x1 >;
+	pinctrl-0 = < &spi00_default >;
+	pinctrl-1 = < &spi00_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&uart20{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart20_default >;
+	pinctrl-1 = < &uart20_sleep >;
+	pinctrl-names = "default", "sleep";
+	hw-flow-control;
+};
+&uart30{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart30_default >;
+	pinctrl-1 = < &uart30_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart20_default: uart20_default {
+		group1 {
+			psels = < 0x24 >, < 0x40026 >;
+		};
+		group2 {
+			psels = < 0x20025 >, < 0x60027 >;
+			bias-pull-up;
+		};
+	};
+	uart20_sleep: uart20_sleep {
+		group1 {
+			psels = < 0x24 >, < 0x20025 >, < 0x40026 >, < 0x60027 >;
+			low-power-enable;
+		};
+	};
+	uart30_default: uart30_default {
+		group1 {
+			psels = < 0x0 >, < 0x40002 >;
+		};
+		group2 {
+			psels = < 0x20001 >, < 0x60003 >;
+			bias-pull-up;
+		};
+	};
+	uart30_sleep: uart30_sleep {
+		group1 {
+			psels = < 0x0 >, < 0x20001 >, < 0x40002 >, < 0x60003 >;
+			low-power-enable;
+		};
+	};
+	spi00_default: spi00_default {
+		group1 {
+			psels = < 0x80041 >, < 0xa0042 >, < 0xc0044 >;
+		};
+	};
+	spi00_sleep: spi00_sleep {
+		group1 {
+			psels = < 0x80041 >, < 0xa0042 >, < 0xc0044 >;
+			low-power-enable;
+		};
+	};
+};

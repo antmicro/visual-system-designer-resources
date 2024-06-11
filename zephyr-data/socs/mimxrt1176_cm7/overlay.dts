@@ -27,8 +27,6 @@
 	status = "okay";
 	pinctrl-0 = < &pinmux_flexcan3 >;
 	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
-	bus-speed-data = < 0xf4240 >;
 };
 &flexspi{
 	reg = < 0x400cc000 0x4000 >, < 0x30000000 0x4000000 >;
@@ -89,6 +87,10 @@
 &lpi2c5{
 	status = "okay";
 	pinctrl-0 = < &pinmux_lpi2c5 >;
+	pinctrl-names = "default";
+};
+&lpi2c6{
+	pinctrl-0 = < &pinmux_lpi2c6 >;
 	pinctrl-names = "default";
 };
 &lpspi1{

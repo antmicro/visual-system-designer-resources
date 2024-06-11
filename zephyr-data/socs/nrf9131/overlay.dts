@@ -49,65 +49,65 @@
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0xb >, < 0x2000a >;
+			psels = < 0xb >, < 0x4000a >;
 		};
 		group2 {
-			psels = < 0x1000c >, < 0x30009 >;
+			psels = < 0x2000c >, < 0x60009 >;
 			bias-pull-up;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0xb >, < 0x1000c >, < 0x2000a >, < 0x30009 >;
+			psels = < 0xb >, < 0x2000c >, < 0x4000a >, < 0x60009 >;
 			low-power-enable;
 		};
 	};
 	uart1_default: uart1_default {
 		group1 {
-			psels = < 0x18 >, < 0x20019 >;
+			psels = < 0x18 >, < 0x40019 >;
 		};
 		group2 {
-			psels = < 0x10017 >, < 0x30011 >;
+			psels = < 0x20017 >, < 0x60011 >;
 			bias-pull-up;
 		};
 	};
 	uart1_sleep: uart1_sleep {
 		group1 {
-			psels = < 0x18 >, < 0x10017 >, < 0x20019 >, < 0x30011 >;
+			psels = < 0x18 >, < 0x20017 >, < 0x40019 >, < 0x60011 >;
 			low-power-enable;
 		};
 	};
 	i2c2_default: i2c2_default {
 		group1 {
-			psels = < 0xc0008 >, < 0xb0007 >;
+			psels = < 0x180008 >, < 0x160007 >;
 		};
 	};
 	i2c2_sleep: i2c2_sleep {
 		group1 {
-			psels = < 0xc0008 >, < 0xb0007 >;
+			psels = < 0x180008 >, < 0x160007 >;
 			low-power-enable;
 		};
 	};
 	pwm0_default: pwm0_default {
 		group1 {
-			psels = < 0x16001d >, < 0x17001e >, < 0x18001f >;
+			psels = < 0x2c001d >, < 0x2e001e >, < 0x30001f >;
 		};
 	};
 	pwm0_sleep: pwm0_sleep {
 		group1 {
-			psels = < 0x16001d >, < 0x17001e >, < 0x18001f >;
+			psels = < 0x2c001d >, < 0x2e001e >, < 0x30001f >;
 			low-power-enable;
 		};
 	};
 	spi3_default: spi3_default {
 		group1 {
-			psels = < 0x40014 >, < 0x60016 >, < 0x50015 >;
+			psels = < 0x80014 >, < 0xc0016 >, < 0xa0015 >;
 			nordic,drive-mode = < 0x3 >;
 		};
 	};
 	spi3_sleep: spi3_sleep {
 		group1 {
-			psels = < 0x40014 >, < 0x60016 >, < 0x50015 >;
+			psels = < 0x80014 >, < 0xc0016 >, < 0xa0015 >;
 			low-power-enable;
 		};
 	};

@@ -7,6 +7,7 @@
 		zephyr,flash-controller = &rmc;
 	};
 	aliases {
+		rtc = &rtc;
 	};
 	soc {
 		#address-cells = < 0x1 >;
@@ -31,6 +32,7 @@
 			compatible = "nuvoton,numaker-scc";
 			reg = < 0x40000200 0x100 >;
 			#clock-cells = < 0x0 >;
+			lxt = "enable";
 			clk-pclkdiv = < 0x11 >;
 			core-clock = < 0x44aa200 >;
 			pcc: peripheral-clock-controller {
@@ -273,6 +275,36 @@
 			channels = < 0x1f >;
 			status = "disabled";
 			#io-channel-cells = < 0x1 >;
+		};
+		rtc: rtc@40041000 {
+			compatible = "nuvoton,numaker-rtc";
+			reg = < 0x40041000 0x138 >;
+			interrupts = < 0x6 0x0 >;
+			oscillator = "lxt";
+			clocks = < &pcc 0x20000001 0x0 0x0 >;
+			alarms-count = < 0x1 >;
+		};
+		epwm0: epwm@40058000 {
+			compatible = "nuvoton,numaker-pwm";
+			reg = < 0x40058000 0x37c >;
+			interrupts = < 0x19 0x0 >, < 0x1a 0x0 >, < 0x1b 0x0 >;
+			interrupt-names = "pair0", "pair1", "pair2";
+			resets = < &rst 0x8000010 >;
+			prescaler = < 0x13 >;
+			clocks = < &pcc 0x48800010 0x1 0x0 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
+		};
+		epwm1: epwm@40059000 {
+			compatible = "nuvoton,numaker-pwm";
+			reg = < 0x40059000 0x37c >;
+			interrupts = < 0x1d 0x0 >, < 0x1e 0x0 >, < 0x1f 0x0 >;
+			interrupt-names = "pair0", "pair1", "pair2";
+			resets = < &rst 0x8000011 >;
+			prescaler = < 0x13 >;
+			clocks = < &pcc 0x48840011 0x2 0x0 >;
+			#pwm-cells = < 0x3 >;
+			status = "disabled";
 		};
 	};
 	cpus {

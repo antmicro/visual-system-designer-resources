@@ -1,0 +1,102 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		sram0: memory@400000 {
+			device_type = "memory";
+			reg = < 0x400000 0x80000 >;
+		};
+		uart0: uart@40020000 {
+			compatible = "ns16550";
+			reg = < 0x40020000 0x400 >;
+			clock-frequency = < 0x17d7840 >;
+			reg-shift = < 0x2 >;
+			status = "disabled";
+			interrupts = < 0x1 0x3 >;
+		};
+		uart1: uart@48100000 {
+			compatible = "ns16550";
+			reg = < 0x48100000 0x400 >;
+			clock-frequency = < 0x5f5e100 >;
+			reg-shift = < 0x2 >;
+			status = "disabled";
+			interrupts = < 0xcb 0x3 >;
+		};
+		pl330: pl330@48300000 {
+			compatible = "arm,dma-pl330";
+			reg = < 0x48300000 0x2000 >, < 0x482f005c 0x20 >;
+			reg-names = "pl330_regs", "control_regs";
+			microcode = < 0x63b00000 0x1000 >;
+			dma-channels = < 0x8 >;
+			#dma-cells = < 0x1 >;
+			phandle = < 0x2 >;
+		};
+	};
+	pcie {
+		#address-cells = < 0x2 >;
+		#size-cells = < 0x2 >;
+		pcie0_ep: pcie@4e100000 {
+			compatible = "brcm,iproc-pcie-ep";
+			reg = < 0x0 0x4e100000 0x0 0x2100 >, < 0x0 0x50000000 0x0 0x8000000 >, < 0x4 0x0 0x0 0x8000000 >;
+			reg-names = "iproc_pcie_regs", "map_lowmem", "map_highmem";
+			dmas = < &pl330 0x0 >, < &pl330 0x1 >;
+			dma-names = "txdma", "rxdma";
+			interrupt-parent = < &nvic >;
+			interrupts = < 0x2c 0x3 >, < 0x2e 0x3 >, < 0x62 0x3 >, < 0x63 0x3 >, < 0xd7 0x3 >;
+			interrupt-names = "perst", "perst_inband", "flr", "snoop_irq1", "pcie_pmon_lite";
+			phandle = < 0x3 >;
+		};
+		paxdma: paxdma@4e100800 {
+			compatible = "brcm,iproc-pax-dma-v2";
+			reg = < 0x0 0x4e100800 0x0 0x2100 >, < 0x0 0x4f000000 0x0 0x200000 >, < 0x0 0x4f200000 0x0 0x10000 >;
+			reg-names = "dme_regs", "rm_ring_regs", "rm_comm_regs";
+			dma-channels = < 0x4 >;
+			#dma-cells = < 0x1 >;
+			bd-memory = < 0x63b00000 0x100000 >;
+			scr-addr-loc = < 0x200061f0 >;
+			scr-size-loc = < 0x200061f8 >;
+			pcie-ep = < &pcie0_ep >;
+			interrupt-parent = < &nvic >;
+			interrupts = < 0xe4 0x3 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m7";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv7m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+			};
+		};
+	};
+};

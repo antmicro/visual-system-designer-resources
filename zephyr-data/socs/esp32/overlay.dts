@@ -10,6 +10,7 @@
 	phy-handle = < &phy >;
 };
 &flash0{
+	reg = < 0x0 0x400000 >;
 	status = "okay";
 };
 &gpio0{
@@ -72,7 +73,6 @@
 	status = "okay";
 	pinctrl-0 = < &twai_default >;
 	pinctrl-names = "default";
-	bus-speed = < 0x1e848 >;
 };
 &uart0{
 	status = "okay";

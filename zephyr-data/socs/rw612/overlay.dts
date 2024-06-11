@@ -5,6 +5,9 @@
 		zephyr,sram = &sram_data;
 	};
 };
+&dac0{
+	status = "okay";
+};
 &flexcomm3{
 	compatible = "nxp,lpc-usart";
 	status = "okay";
@@ -14,14 +17,6 @@
 };
 &flexspi{
 	status = "okay";
-	ahb-bufferable;
-	ahb-prefetch;
-	ahb-cacheable;
-	ahb-read-addr-opt;
-	rx-clock-source = < 0x1 >;
-	rx-clock-source-b = < 0x3 >;
-	pinctrl-0 = < &pinmux_flexspi >;
-	pinctrl-names = "default";
 };
 &hsgpio0{
 	status = "okay";

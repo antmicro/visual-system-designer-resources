@@ -1,0 +1,20 @@
+/ {
+	compatible = "nxp,ke15z", "nxp,mke15z7";
+	chosen {
+		zephyr,console = &lpuart1;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram_u;
+	};
+};
+&gpiob{
+	status = "okay";
+};
+&gpiod{
+	status = "okay";
+};
+&lpuart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &lpuart1_default >;
+	pinctrl-names = "default";
+};

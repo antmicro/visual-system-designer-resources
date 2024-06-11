@@ -50,6 +50,17 @@
 				#clock-cells = < 0x1 >;
 				phandle = < 0x2 >;
 			};
+			rstctl0: reset@0 {
+				compatible = "nxp,rstctl";
+				reg = < 0x0 0x80 >;
+				#reset-cells = < 0x1 >;
+			};
+			rstctl1: reset@20000 {
+				compatible = "nxp,rstctl";
+				reg = < 0x20000 0x80 >;
+				#reset-cells = < 0x1 >;
+				phandle = < 0x3 >;
+			};
 			uuid: uuid@2f50 {
 				compatible = "nxp,lpc-uid";
 				reg = < 0x2f50 0x10 >;
@@ -113,6 +124,7 @@
 				reg = < 0x106000 0x1000 >;
 				interrupts = < 0xe 0x0 >;
 				clocks = < &clkctl1 0x100 >;
+				resets = < &rstctl1 0x8 >;
 				status = "disabled";
 			};
 			flexcomm1: flexcomm@107000 {
@@ -120,6 +132,7 @@
 				reg = < 0x107000 0x1000 >;
 				interrupts = < 0xf 0x0 >;
 				clocks = < &clkctl1 0x101 >;
+				resets = < &rstctl1 0x9 >;
 				status = "disabled";
 			};
 			flexcomm2: flexcomm@108000 {
@@ -127,6 +140,7 @@
 				reg = < 0x108000 0x1000 >;
 				interrupts = < 0x10 0x0 >;
 				clocks = < &clkctl1 0x102 >;
+				resets = < &rstctl1 0xa >;
 				status = "disabled";
 			};
 			flexcomm3: flexcomm@109000 {
@@ -134,6 +148,7 @@
 				reg = < 0x109000 0x1000 >;
 				interrupts = < 0x11 0x0 >;
 				clocks = < &clkctl1 0x103 >;
+				resets = < &rstctl1 0xb >;
 				status = "disabled";
 			};
 			flexcomm4: flexcomm@122000 {
@@ -141,6 +156,7 @@
 				reg = < 0x122000 0x1000 >;
 				interrupts = < 0x12 0x0 >;
 				clocks = < &clkctl1 0x104 >;
+				resets = < &rstctl1 0xc >;
 				status = "disabled";
 			};
 			flexcomm5: flexcomm@123000 {
@@ -148,6 +164,7 @@
 				reg = < 0x123000 0x1000 >;
 				interrupts = < 0x13 0x0 >;
 				clocks = < &clkctl1 0x105 >;
+				resets = < &rstctl1 0xd >;
 				status = "disabled";
 			};
 			flexcomm6: flexcomm@124000 {
@@ -155,6 +172,7 @@
 				reg = < 0x124000 0x1000 >;
 				interrupts = < 0x2b 0x0 >;
 				clocks = < &clkctl1 0x106 >;
+				resets = < &rstctl1 0xe >;
 				status = "disabled";
 			};
 			flexcomm7: flexcomm@125000 {
@@ -162,6 +180,7 @@
 				reg = < 0x125000 0x1000 >;
 				interrupts = < 0x2c 0x0 >;
 				clocks = < &clkctl1 0x107 >;
+				resets = < &rstctl1 0xf >;
 				status = "disabled";
 			};
 			pmic_i2c: i2c@127000 {
@@ -169,6 +188,7 @@
 				reg = < 0x127000 0x1000 >;
 				interrupts = < 0x15 0x0 >;
 				clocks = < &clkctl1 0x10f >;
+				resets = < &rstctl1 0x17 >;
 				status = "disabled";
 			};
 			usbhs: usbhs@144000 {
@@ -183,6 +203,7 @@
 				reg = < 0x126000 0x1000 >;
 				interrupts = < 0x14 0x0 >;
 				clocks = < &clkctl1 0x10e >;
+				resets = < &rstctl1 0x16 >;
 				status = "disabled";
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
@@ -359,6 +380,7 @@
 				num-channels = < 0x4 >;
 				num-bits = < 0x18 >;
 				clocks = < &clkctl1 0xb00 >;
+				resets = < &rstctl1 0x20008 >;
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
 				mrt_channel0: mrt_channel@0 {
@@ -431,13 +453,13 @@
 				compatible = "zephyr,power-state";
 				power-state-name = "runtime-idle";
 				min-residency-us = < 0xa >;
-				phandle = < 0x3 >;
+				phandle = < 0x4 >;
 			};
 			suspend: suspend {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				min-residency-us = < 0x3e8 >;
-				phandle = < 0x4 >;
+				phandle = < 0x5 >;
 			};
 		};
 	};

@@ -49,61 +49,61 @@
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x6 >, < 0x20005 >;
+			psels = < 0x6 >, < 0x40005 >;
 		};
 		group2 {
-			psels = < 0x10008 >, < 0x30007 >;
+			psels = < 0x20008 >, < 0x60007 >;
 			bias-pull-up;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x6 >, < 0x10008 >, < 0x20005 >, < 0x30007 >;
+			psels = < 0x6 >, < 0x20008 >, < 0x40005 >, < 0x60007 >;
 			low-power-enable;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			psels = < 0xc001a >, < 0xb001b >;
+			psels = < 0x18001a >, < 0x16001b >;
 		};
 	};
 	i2c0_sleep: i2c0_sleep {
 		group1 {
-			psels = < 0xc001a >, < 0xb001b >;
+			psels = < 0x18001a >, < 0x16001b >;
 			low-power-enable;
 		};
 	};
 	pwm0_default: pwm0_default {
 		group1 {
-			psels = < 0x16000d >;
+			psels = < 0x2c000d >;
 			nordic,invert;
 		};
 	};
 	pwm0_sleep: pwm0_sleep {
 		group1 {
-			psels = < 0x16000d >;
+			psels = < 0x2c000d >;
 			low-power-enable;
 		};
 	};
 	spi0_default: spi0_default {
 		group1 {
-			psels = < 0x40000 >, < 0x50001 >, < 0x60009 >;
+			psels = < 0x80000 >, < 0xa0001 >, < 0xc0009 >;
 		};
 	};
 	spi0_sleep: spi0_sleep {
 		group1 {
-			psels = < 0x40000 >, < 0x50001 >, < 0x60009 >;
+			psels = < 0x80000 >, < 0xa0001 >, < 0xc0009 >;
 			low-power-enable;
 		};
 	};
 	spi1_default: spi1_default {
 		group1 {
-			psels = < 0x40013 >, < 0x50014 >, < 0x60016 >;
+			psels = < 0x80013 >, < 0xa0014 >, < 0xc0016 >;
 		};
 	};
 	spi1_sleep: spi1_sleep {
 		group1 {
-			psels = < 0x40013 >, < 0x50014 >, < 0x60016 >;
+			psels = < 0x80013 >, < 0xa0014 >, < 0xc0016 >;
 			low-power-enable;
 		};
 	};

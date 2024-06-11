@@ -60,6 +60,18 @@
 				#clock-cells = < 0x1 >;
 				phandle = < 0x2 >;
 			};
+			rstctl0: reset@0 {
+				compatible = "nxp,rstctl";
+				reg = < 0x0 0x80 >;
+				#reset-cells = < 0x1 >;
+				phandle = < 0x5 >;
+			};
+			rstctl1: reset@20000 {
+				compatible = "nxp,rstctl";
+				reg = < 0x20000 0x80 >;
+				#reset-cells = < 0x1 >;
+				phandle = < 0x3 >;
+			};
 			pmu: pmu@31000 {
 				reg = < 0x31000 0x130 >;
 				compatible = "nxp,rw-pmu";
@@ -106,6 +118,7 @@
 				reg = < 0x106000 0x1000 >;
 				interrupts = < 0xe 0x0 >;
 				clocks = < &clkctl1 0x100 >;
+				resets = < &rstctl1 0x8 >;
 				dmas = < &dma0 0x0 >, < &dma0 0x1 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -115,6 +128,7 @@
 				reg = < 0x107000 0x1000 >;
 				interrupts = < 0xf 0x0 >;
 				clocks = < &clkctl1 0x101 >;
+				resets = < &rstctl1 0x9 >;
 				dmas = < &dma0 0x2 >, < &dma0 0x3 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -124,6 +138,7 @@
 				reg = < 0x108000 0x1000 >;
 				interrupts = < 0x10 0x0 >;
 				clocks = < &clkctl1 0x102 >;
+				resets = < &rstctl1 0xa >;
 				dmas = < &dma0 0x4 >, < &dma0 0x5 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -133,6 +148,7 @@
 				reg = < 0x109000 0x1000 >;
 				interrupts = < 0x11 0x0 >;
 				clocks = < &clkctl1 0x103 >;
+				resets = < &rstctl1 0xb >;
 				dmas = < &dma0 0x6 >, < &dma0 0x7 >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -142,6 +158,7 @@
 				reg = < 0x126000 0x2000 >;
 				interrupts = < 0x14 0x0 >;
 				clocks = < &clkctl1 0x10e >;
+				resets = < &rstctl1 0x16 >;
 				dmas = < &dma0 0x1a >, < &dma0 0x1b >;
 				dma-names = "rx", "tx";
 				status = "disabled";
@@ -173,7 +190,7 @@
 				status = "disabled";
 				#dma-cells = < 0x1 >;
 				dma-channels = < 0x21 >;
-				phandle = < 0x3 >;
+				phandle = < 0x4 >;
 			};
 			lcdic: lcdic@128000 {
 				compatible = "nxp,lcdic";
@@ -236,6 +253,7 @@
 				num-channels = < 0x4 >;
 				num-bits = < 0x18 >;
 				clocks = < &clkctl1 0xb00 >;
+				resets = < &rstctl1 0x20008 >;
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
 				mrt0_channel0: mrt0_channel@0 {
@@ -266,6 +284,7 @@
 				num-channels = < 0x4 >;
 				num-bits = < 0x18 >;
 				clocks = < &clkctl1 0xb01 >;
+				resets = < &rstctl0 0x2001a >;
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
 				mrt1_channel0: mrt1_channel@0 {
@@ -322,6 +341,43 @@
 					status = "disabled";
 				};
 			};
+			gau {
+				ranges;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x1 >;
+				adc0: gau_adc0@38000 {
+					compatible = "nxp,gau-adc";
+					reg = < 0x38000 0x100 >;
+					interrupts = < 0x70 0x0 >;
+					status = "disabled";
+					#io-channel-cells = < 0x1 >;
+				};
+				adc1: gau_adc1@38100 {
+					compatible = "nxp,gau-adc";
+					reg = < 0x38100 0x100 >;
+					interrupts = < 0x6f 0x0 >;
+					status = "disabled";
+					#io-channel-cells = < 0x1 >;
+				};
+				dac0: dac@38200 {
+					compatible = "nxp,gau-dac";
+					reg = < 0x38200 0x30 >;
+					interrupts = < 0x6c 0x0 >;
+					status = "disabled";
+					#io-channel-cells = < 0x0 >;
+				};
+			};
+			os_timer: timers@13b000 {
+				compatible = "nxp,os-timer";
+				reg = < 0x13b000 0x1000 >;
+				interrupts = < 0x29 0x0 >;
+				status = "disabled";
+			};
+			hci: hci_ble {
+				compatible = "nxp,hci-ble";
+				interrupts = < 0x5a 0x2 >, < 0x52 0x2 >;
+				interrupt-names = "hci_int", "wakeup_int";
+			};
 		};
 		flexspi: spi@134000 {
 			reg = < 0x50134000 0x1000 >, < 0x18000000 0x8000000 >;
@@ -336,6 +392,7 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
+		cpu-power-states = < &idle &suspend >;
 		cpu0: cpu@0 {
 			compatible = "arm,cortex-m33f";
 			reg = < 0x0 >;
@@ -345,6 +402,45 @@
 				compatible = "arm,armv8m-mpu";
 				reg = < 0xe000ed90 0x40 >;
 			};
+		};
+		power-states {
+			idle: idle {
+				compatible = "zephyr,power-state";
+				power-state-name = "runtime-idle";
+				min-residency-us = < 0x0 >;
+				exit-latency-us = < 0x0 >;
+				phandle = < 0x6 >;
+			};
+			suspend: suspend {
+				compatible = "nxp,pdcfg-power", "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				min-residency-us = < 0x1f4 >;
+				exit-latency-us = < 0x78 >;
+				deep-sleep-config = < 0x180000 >, < 0x0 >, < 0x4 >, < 0x100 >, < 0x0 >;
+				phandle = < 0x7 >;
+			};
+		};
+	};
+	smu1: sram@41380000 {
+		ranges = < 0x0 0x41380000 0x7f800 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		smu1_data: memory@0 {
+			compatible = "zephyr,memory-region", "mmio-sram";
+			reg = < 0x0 0x7f800 >;
+			zephyr,memory-region = "SMU1";
+			zephyr,memory-attr = < 0x100000 >;
+		};
+	};
+	smu2: sram@443C0000 {
+		ranges = < 0x0 0x443c0000 0x23000 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		smu2_data: memory@0 {
+			compatible = "zephyr,memory-region", "mmio-sram";
+			reg = < 0x0 0x23000 >;
+			zephyr,memory-region = "SMU2";
+			zephyr,memory-attr = < 0x100000 >;
 		};
 	};
 };

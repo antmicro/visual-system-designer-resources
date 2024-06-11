@@ -58,7 +58,7 @@
 					compatible = "soc-nv-flash";
 					reg = < 0x0 0x200000 >;
 					erase-block-size = < 0x2000 >;
-					write-block-size = < 0x10 >;
+					write-block-size = < 0x80 >;
 				};
 			};
 			syscon: syscon@0 {
@@ -694,6 +694,65 @@
 				mode = < 0x0 >;
 				input = < 0x0 >;
 				prescale = < 0x0 >;
+			};
+			usdhc0: usdhc@109000 {
+				compatible = "nxp,imx-usdhc";
+				reg = < 0x109000 0x1000 >;
+				interrupts = < 0x3d 0x0 >;
+				status = "disabled";
+				clocks = < &syscon 0x200 >;
+				max-bus-freq = < 0x3197500 >;
+				min-bus-freq = < 0x61a80 >;
+			};
+			vref: vref@111000 {
+				compatible = "nxp,vref";
+				regulator-name = "mcxn94x-vref";
+				reg = < 0x111000 0x14 >;
+				status = "disabled";
+				nxp,buffer-startup-delay-us = < 0x190 >;
+				nxp,bandgap-startup-time-us = < 0x14 >;
+				regulator-min-microvolt = < 0xf4240 >;
+				regulator-max-microvolt = < 0x200b20 >;
+				phandle = < 0xb >;
+			};
+			lpadc0: lpadc@10d000 {
+				compatible = "nxp,lpc-lpadc";
+				reg = < 0x10d000 0x1000 >;
+				interrupts = < 0x2d 0x0 >;
+				status = "disabled";
+				clk-divider = < 0x1 >;
+				clk-source = < 0x0 >;
+				voltage-ref = < 0x1 >;
+				calibration-average = < 0x80 >;
+				power-level = < 0x0 >;
+				offset-value-a = < 0x0 >;
+				offset-value-b = < 0x0 >;
+				#io-channel-cells = < 0x1 >;
+				clocks = < &syscon 0xf00 >;
+				nxp,reference-supply = < &vref >;
+			};
+			lpadc1: lpadc@10e000 {
+				compatible = "nxp,lpc-lpadc";
+				reg = < 0x10e000 0x1000 >;
+				interrupts = < 0x2e 0x0 >;
+				status = "disabled";
+				clk-divider = < 0x1 >;
+				clk-source = < 0x0 >;
+				voltage-ref = < 0x0 >;
+				calibration-average = < 0x80 >;
+				power-level = < 0x1 >;
+				offset-value-a = < 0x0 >;
+				offset-value-b = < 0x0 >;
+				#io-channel-cells = < 0x1 >;
+				clocks = < &syscon 0xf01 >;
+			};
+			usb1: usbd@10b000 {
+				compatible = "nxp,ehci";
+				reg = < 0x10b000 0x1000 >;
+				interrupts = < 0x43 0x0 >;
+				interrupt-names = "usb_otg";
+				num-bidir-endpoints = < 0x8 >;
+				status = "disabled";
 			};
 		};
 		flexspi: spi@500c8000 {

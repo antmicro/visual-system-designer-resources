@@ -93,7 +93,7 @@
 			compatible = "nxp,imx-gpt";
 			reg = < 0x401f0000 0x4000 >;
 			interrupts = < 0x65 0x0 >;
-			gptfreq = < 0x17d7840 >;
+			gptfreq = < 0x1f78a40 >;
 			clocks = < &ccm 0xa00 0x68 0x18 >;
 		};
 		qtmr1: qtmr@401dc000 {
@@ -209,7 +209,7 @@
 			phandle = < 0x2 >;
 			arm-podf {
 				compatible = "fixed-factor-clock";
-				clock-div = < 0x2 >;
+				clock-div = < 0x1 >;
 				#clock-cells = < 0x0 >;
 			};
 			ahb-podf {
@@ -220,6 +220,14 @@
 			ipg-podf {
 				compatible = "fixed-factor-clock";
 				clock-div = < 0x4 >;
+				#clock-cells = < 0x0 >;
+			};
+			sys-pll {
+				compatible = "nxp,imx-ccm-fnpll";
+				loop-div = < 0x16 >;
+				numerator = < 0x0 >;
+				denominator = < 0x1 >;
+				src = < 0x0 >;
 				#clock-cells = < 0x0 >;
 			};
 		};
@@ -976,7 +984,7 @@
 	};
 	sysclk: system-clock {
 		compatible = "fixed-clock";
-		clock-frequency = < 0x1dcd6500 >;
+		clock-frequency = < 0x1f78a400 >;
 		#clock-cells = < 0x0 >;
 	};
 	xtal: clock-xtal {

@@ -6,48 +6,11 @@
 		zephyr,sram = &sram0;
 	};
 };
-&adc{
-	status = "okay";
-};
 &gpio0{
 	status = "okay";
 };
-&i2c1{
+&gpio1{
 	status = "okay";
-	pinctrl-0 = < &i2c1_default >;
-	pinctrl-1 = < &i2c1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&i2c2{
-	clock-frequency = < 0x61a80 >;
-	status = "okay";
-	pinctrl-0 = < &i2c2_default >;
-	pinctrl-1 = < &i2c2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&pwm0{
-	status = "okay";
-	pinctrl-0 = < &pwm0_default >;
-	pinctrl-1 = < &pwm0_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&pwm1{
-	status = "okay";
-	pinctrl-0 = < &pwm1_default >;
-	pinctrl-1 = < &pwm1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&spi1{
-	status = "okay";
-	pinctrl-0 = < &neopixel_spi_default >;
-	pinctrl-1 = < &neopixel_spi_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&spi3{
-	status = "okay";
-	pinctrl-0 = < &spi3_default >;
-	pinctrl-1 = < &spi3_sleep >;
-	pinctrl-names = "default", "sleep";
 };
 &sram0{
 	reg = < 0x20000000 0x10000 >;
@@ -59,85 +22,72 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&uart1{
-	status = "okay";
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart1_default >;
-	pinctrl-1 = < &uart1_sleep >;
-	pinctrl-names = "default", "sleep";
-};
-&uart2{
-	current-speed = < 0x1c200 >;
-	pinctrl-0 = < &uart2_default >;
-	pinctrl-1 = < &uart2_sleep >;
-	pinctrl-names = "default", "sleep";
-};
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
 	uart1_default: uart1_default {
 		group1 {
-			psels = < 0x18 >, < 0x10017 >;
+			psels = < 0x18 >, < 0x20017 >;
 		};
 	};
 	uart1_sleep: uart1_sleep {
 		group1 {
-			psels = < 0x18 >, < 0x10017 >;
+			psels = < 0x18 >, < 0x20017 >;
 			low-power-enable;
 		};
 	};
 	uart2_default: uart2_default {
 		group1 {
-			psels = < 0x4 >, < 0x10005 >;
+			psels = < 0x4 >, < 0x20005 >;
 		};
 	};
 	uart2_sleep: uart2_sleep {
 		group1 {
-			psels = < 0x4 >, < 0x10005 >;
+			psels = < 0x4 >, < 0x20005 >;
 			low-power-enable;
 		};
 	};
 	i2c2_default: i2c2_default {
 		group1 {
-			psels = < 0xc001a >, < 0xb001b >;
+			psels = < 0x18001a >, < 0x16001b >;
 		};
 	};
 	i2c2_sleep: i2c2_sleep {
 		group1 {
-			psels = < 0xc001a >, < 0xb001b >;
+			psels = < 0x18001a >, < 0x16001b >;
 			low-power-enable;
 		};
 	};
 	spi3_default: spi3_default {
 		group1 {
-			psels = < 0x40014 >, < 0x50015 >, < 0x60016 >;
+			psels = < 0x80014 >, < 0xa0015 >, < 0xc0016 >;
 		};
 	};
 	spi3_sleep: spi3_sleep {
 		group1 {
-			psels = < 0x40014 >, < 0x50015 >, < 0x60016 >;
+			psels = < 0x80014 >, < 0xa0015 >, < 0xc0016 >;
 			low-power-enable;
 		};
 	};
 	pwm0_default: pwm0_default {
 		group1 {
-			psels = < 0x16000a >, < 0x17000b >, < 0x18000c >;
+			psels = < 0x2c000a >, < 0x2e000b >, < 0x30000c >;
 			nordic,invert;
 		};
 	};
 	pwm0_sleep: pwm0_sleep {
 		group1 {
-			psels = < 0x16000a >, < 0x17000b >, < 0x18000c >;
+			psels = < 0x2c000a >, < 0x2e000b >, < 0x30000c >;
 			low-power-enable;
 		};
 	};
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x9 >, < 0x10006 >, < 0x20007 >, < 0x30019 >;
+			psels = < 0x9 >, < 0x20006 >, < 0x40007 >, < 0x60019 >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x9 >, < 0x10006 >, < 0x20007 >, < 0x30019 >;
+			psels = < 0x9 >, < 0x20006 >, < 0x40007 >, < 0x60019 >;
 			low-power-enable;
 		};
 	};
