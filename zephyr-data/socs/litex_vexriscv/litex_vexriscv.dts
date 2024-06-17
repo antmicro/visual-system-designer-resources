@@ -11,7 +11,7 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@0 {
+		cpu0: cpu@0 {
 			clock-frequency = < 0x5f5e100 >;
 			compatible = "litex,vexriscv-standard", "riscv";
 			device_type = "cpu";
@@ -25,8 +25,13 @@
 		#size-cells = < 0x1 >;
 		compatible = "litex,vexriscv";
 		ranges;
+		ctrl0: soc_controller@e0000000 {
+			compatible = "litex,soc-controller";
+			reg = < 0xe0000000 0x4 0xe0000004 0x4 0xe0000008 0x4 >;
+			reg-names = "reset", "scratch", "bus_errors";
+		};
 		intc0: interrupt-controller@bc0 {
-			compatible = "vexriscv-intc0";
+			compatible = "litex,vexriscv-intc0";
 			#address-cells = < 0x0 >;
 			#interrupt-cells = < 0x2 >;
 			interrupt-controller;
@@ -78,6 +83,7 @@
 			compatible = "litex,i2c";
 			reg = < 0xe0005000 0x4 0xe0005004 0x4 >;
 			reg-names = "write", "read";
+			clock-frequency = < 0x186a0 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			status = "disabled";

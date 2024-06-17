@@ -277,6 +277,26 @@
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
 	};
+	flexcan1: can@443a0000 {
+		compatible = "nxp,flexcan-fd", "nxp,flexcan";
+		reg = < 0x443a0000 0x10000 >;
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x8 0x2 0xa0 >, < 0x0 0x9 0x2 0xa0 >;
+		interrupt-names = "common", "error";
+		clocks = < &ccm 0x900 0x68 0xe >;
+		clk-source = < 0x0 >;
+		status = "disabled";
+	};
+	flexcan2: can@425b0000 {
+		compatible = "nxp,flexcan-fd", "nxp,flexcan";
+		reg = < 0x425b0000 0x10000 >;
+		interrupt-parent = < &gic >;
+		interrupts = < 0x0 0x33 0x2 0xa0 >, < 0x0 0x34 0x2 0xa0 >;
+		interrupt-names = "common", "error";
+		clocks = < &ccm 0x900 0x68 0xe >;
+		clk-source = < 0x0 >;
+		status = "disabled";
+	};
 	edma4: dma@42000000 {
 		compatible = "nxp,edma";
 		reg = < 0x42000000 0x200000 >;

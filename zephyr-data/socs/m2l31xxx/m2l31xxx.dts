@@ -306,6 +306,28 @@
 			#pwm-cells = < 0x3 >;
 			status = "disabled";
 		};
+		canfd0: canfd@40020000 {
+			compatible = "nuvoton,numaker-canfd";
+			reg = < 0x40020000 0x200 >, < 0x40020200 0x1800 >;
+			reg-names = "m_can", "message_ram";
+			interrupts = < 0x70 0x0 >, < 0x71 0x0 >;
+			interrupt-names = "int0", "int1";
+			resets = < &rst 0x14 >;
+			clocks = < &pcc 0x81621014 0x2000000 0x0 >;
+			bosch,mram-cfg = < 0x0 0xc 0xa 0x3 0x3 0x3 0x3 0x3 >;
+			status = "disabled";
+		};
+		canfd1: canfd@40024000 {
+			compatible = "nuvoton,numaker-canfd";
+			reg = < 0x40024000 0x200 >, < 0x40024200 0x1800 >;
+			reg-names = "m_can", "message_ram";
+			interrupts = < 0x72 0x0 >, < 0x73 0x0 >;
+			interrupt-names = "int0", "int1";
+			resets = < &rst 0x15 >;
+			clocks = < &pcc 0x816a1095 0x8000000 0x0 >;
+			bosch,mram-cfg = < 0x0 0xc 0xa 0x3 0x3 0x3 0x3 0x3 >;
+			status = "disabled";
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

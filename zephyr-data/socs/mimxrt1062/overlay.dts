@@ -86,14 +86,8 @@
 	pinmux = < &iomuxc_gpio_emc_00_gpio9_io00 >, < &iomuxc_gpio_emc_01_gpio9_io01 >, < &iomuxc_gpio_emc_02_gpio9_io02 >, < &iomuxc_gpio_emc_03_gpio9_io03 >, < &iomuxc_gpio_emc_04_gpio9_io04 >, < &iomuxc_gpio_emc_05_gpio9_io05 >, < &iomuxc_gpio_emc_06_gpio9_io06 >, < &iomuxc_gpio_emc_07_gpio9_io07 >, < &iomuxc_gpio_emc_08_gpio9_io08 >, < &iomuxc_gpio_emc_09_gpio9_io09 >, < &iomuxc_gpio_emc_10_gpio9_io10 >, < &iomuxc_gpio_emc_11_gpio9_io11 >, < &iomuxc_gpio_emc_12_gpio9_io12 >, < &iomuxc_gpio_emc_13_gpio9_io13 >, < &iomuxc_gpio_emc_14_gpio9_io14 >, < &iomuxc_gpio_emc_15_gpio9_io15 >, < &iomuxc_gpio_emc_16_gpio9_io16 >, < &iomuxc_gpio_emc_17_gpio9_io17 >, < &iomuxc_gpio_emc_18_gpio9_io18 >, < &iomuxc_gpio_emc_19_gpio9_io19 >, < &iomuxc_gpio_emc_20_gpio9_io20 >, < &iomuxc_gpio_emc_21_gpio9_io21 >, < &iomuxc_gpio_emc_22_gpio9_io22 >, < &iomuxc_gpio_emc_23_gpio9_io23 >, < &iomuxc_gpio_emc_24_gpio9_io24 >, < &iomuxc_gpio_emc_25_gpio9_io25 >, < &iomuxc_gpio_emc_26_gpio9_io26 >, < &iomuxc_gpio_emc_27_gpio9_io27 >, < &iomuxc_gpio_emc_28_gpio9_io28 >, < &iomuxc_gpio_emc_29_gpio9_io29 >, < &iomuxc_gpio_emc_30_gpio9_io30 >, < &iomuxc_gpio_emc_31_gpio9_io31 >;
 };
 &lcdif{
-	status = "okay";
-	width = < 0x1e0 >;
-	height = < 0x110 >;
-	pixel-format = < 0x20 >;
-	data-bus-width = "16-bit";
 	pinctrl-0 = < &pinmux_lcdif >;
 	pinctrl-names = "default";
-	backlight-gpios = < &gpio2 0x1f 0x0 >;
 };
 &lpi2c1{
 	status = "okay";

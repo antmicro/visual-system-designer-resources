@@ -31,6 +31,13 @@
 	pinctrl-names = "default";
 	clock-frequency = < 0x186a0 >;
 };
+&spi0{
+	status = "okay";
+	compatible = "ambiq,spi";
+	pinctrl-0 = < &spi0_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0xf4240 >;
+};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -59,7 +66,7 @@
 			reg = < 0x0 >;
 			interrupts = < 0xd 0x0 >;
 			status = "okay";
-			phandle = < 0x7 >;
+			phandle = < 0x8 >;
 		};
 		gpio32_63: gpio32_63@20 {
 			compatible = "ambiq,gpio-bank";
@@ -68,7 +75,7 @@
 			reg = < 0x20 >;
 			interrupts = < 0xd 0x0 >;
 			status = "okay";
-			phandle = < 0x8 >;
+			phandle = < 0x9 >;
 		};
 		gpio64_95: gpio64_95@40 {
 			compatible = "ambiq,gpio-bank";
@@ -78,7 +85,7 @@
 			interrupts = < 0xd 0x0 >;
 			status = "okay";
 			ngpios = < 0xa >;
-			phandle = < 0x9 >;
+			phandle = < 0xa >;
 		};
 	};
 	uart0_default: uart0_default {

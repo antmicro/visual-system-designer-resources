@@ -83,6 +83,14 @@
 			status = "okay";
 			phandle = < 0x4 >;
 		};
+		xt_wdt: xt_wdt@60008004 {
+			compatible = "espressif,esp32-xt-wdt";
+			reg = < 0x60008004 0x4 >;
+			clocks = < &rtc 0x1b >;
+			interrupts = < 0x1b >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
 		rtc_timer: rtc_timer@60008004 {
 			reg = < 0x60008004 0xc >;
 			compatible = "espressif,esp32-rtc-timer";

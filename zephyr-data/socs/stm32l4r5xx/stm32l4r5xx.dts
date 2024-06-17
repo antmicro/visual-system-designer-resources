@@ -81,6 +81,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x48000000 0x400 >;
 				clocks = < &rcc 0x4c 0x1 >;
+				phandle = < 0x4 >;
 			};
 			gpiob: gpio@48000400 {
 				compatible = "st,stm32-gpio";
@@ -95,6 +96,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x48000800 0x400 >;
 				clocks = < &rcc 0x4c 0x4 >;
+				phandle = < 0x5 >;
 			};
 			gpioh: gpio@48001c00 {
 				compatible = "st,stm32-gpio";
@@ -116,6 +118,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x48001000 0x400 >;
 				clocks = < &rcc 0x4c 0x10 >;
+				phandle = < 0x6 >;
 			};
 			gpiof: gpio@48001400 {
 				compatible = "st,stm32-gpio";
@@ -185,7 +188,7 @@
 			interrupts = < 0x1f 0x0 >, < 0x20 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x9 >;
+			phandle = < 0xc >;
 		};
 		i2c3: i2c@40005c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -197,7 +200,7 @@
 			interrupts = < 0x48 0x0 >, < 0x49 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0xa >;
+			phandle = < 0xd >;
 		};
 		spi1: spi@40013000 {
 			compatible = "st,stm32-spi-fifo", "st,stm32-spi";
@@ -319,7 +322,7 @@
 			resolutions = < 0x60630c 0x51630c 0x42630c 0x33630c >;
 			sampling-times = < 0x3 0x7 0xd 0x19 0x30 0x5d 0xf8 0x281 >;
 			st,adc-sequencer = < 0x1 >;
-			phandle = < 0x8 >;
+			phandle = < 0xb >;
 		};
 		adc2: adc@50040100 {
 			compatible = "st,stm32-adc";
@@ -379,6 +382,36 @@
 			clocks = < &rcc 0x4c 0x40000 >, < &rcc 0x5 0x7a88 >;
 			status = "disabled";
 		};
+		pwr: power@40007000 {
+			compatible = "st,stm32-pwr";
+			reg = < 0x40007000 0x400 >;
+			status = "disabled";
+			wkup-pins-nb = < 0x5 >;
+			wkup-pins-pol;
+			wkup-pins-pupd;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			wkup-pin@1 {
+				reg = < 0x1 >;
+				wkup-gpios = < &gpioa 0x0 0x0 >;
+			};
+			wkup-pin@2 {
+				reg = < 0x2 >;
+				wkup-gpios = < &gpioc 0xd 0x0 >;
+			};
+			wkup-pin@3 {
+				reg = < 0x3 >;
+				wkup-gpios = < &gpioe 0x6 0x0 >;
+			};
+			wkup-pin@4 {
+				reg = < 0x4 >;
+				wkup-gpios = < &gpioa 0x2 0x0 >;
+			};
+			wkup-pin@5 {
+				reg = < 0x5 >;
+				wkup-gpios = < &gpioc 0x5 0x0 >;
+			};
+		};
 		clocks {
 			clk_hsi48: clk-hsi48 {
 				#clock-cells = < 0x0 >;
@@ -421,7 +454,7 @@
 			interrupts = < 0x21 0x0 >, < 0x22 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0xb >;
+			phandle = < 0xe >;
 		};
 		i2c4: i2c@40008400 {
 			compatible = "st,stm32-i2c-v2";
@@ -433,7 +466,7 @@
 			interrupts = < 0x54 0x0 >, < 0x53 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0xc >;
+			phandle = < 0xf >;
 		};
 		spi2: spi@40003800 {
 			compatible = "st,stm32-spi-fifo", "st,stm32-spi";
@@ -653,21 +686,21 @@
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x1 >;
 				min-residency-us = < 0x1f4 >;
-				phandle = < 0x5 >;
+				phandle = < 0x8 >;
 			};
 			stop1: state1 {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x2 >;
 				min-residency-us = < 0x2bc >;
-				phandle = < 0x6 >;
+				phandle = < 0x9 >;
 			};
 			stop2: state2 {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x3 >;
 				min-residency-us = < 0x3e8 >;
-				phandle = < 0x7 >;
+				phandle = < 0xa >;
 			};
 		};
 	};
@@ -752,7 +785,7 @@
 	otgfs_phy: otgfs_phy {
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
-		phandle = < 0x4 >;
+		phandle = < 0x7 >;
 	};
 	smbus2: smbus2 {
 		compatible = "st,stm32-smbus";

@@ -18,7 +18,8 @@
 		ranges;
 		sram0: memory@3fc88000 {
 			compatible = "mmio-sram";
-			reg = < 0x3fc88000 0x77fff >;
+			reg = < 0x3fc88000 0x2800 >;
+			status = "okay";
 		};
 		ipmmem0: memory@3fcbd000 {
 			compatible = "mmio-sram";
@@ -46,13 +47,21 @@
 			status = "okay";
 			phandle = < 0x1 >;
 		};
+		xt_wdt: xt_wdt@60021004 {
+			compatible = "espressif,esp32-xt-wdt";
+			reg = < 0x60021004 0x4 >;
+			clocks = < &rtc 0x28 >;
+			interrupts = < 0x27 >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
 		rtc_timer: rtc_timer@60008004 {
 			reg = < 0x60008004 0xc >;
 			compatible = "espressif,esp32-rtc-timer";
 			clocks = < &rtc 0x28 >;
 			interrupts = < 0x27 >;
 			interrupt-parent = < &intc >;
-			status = "okay";
+			status = "disabled";
 		};
 		flash: flash-controller@60002000 {
 			compatible = "espressif,esp32-flash-controller";

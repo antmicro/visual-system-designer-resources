@@ -33,7 +33,7 @@
 	pinctrl-names = "default";
 };
 &flexspi{
-	reg = < 0x400cc000 0x4000 >, < 0x30000000 0x1000000 >;
+	reg = < 0x400cc000 0x4000 >, < 0x30000000 0x4000000 >;
 	status = "okay";
 	pinctrl-0 = < &pinmux_flexspi1 >;
 	pinctrl-names = "default";
@@ -175,6 +175,8 @@
 	pinctrl-0 = < &pinmux_lpuart6 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+	single-wire;
+	rx-invert;
 };
 &lpuart8{
 	status = "okay";

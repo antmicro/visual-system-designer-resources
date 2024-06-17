@@ -131,6 +131,7 @@
 				nxp,dma-itrig-base-address = < 0xe00000f >;
 				status = "disabled";
 				#dma-cells = < 0x1 >;
+				phandle = < 0x4 >;
 			};
 			dma1: dma-controller@a7000 {
 				compatible = "nxp,lpc-dma";
@@ -156,6 +157,8 @@
 				interrupts = < 0xe 0x0 >;
 				clocks = < &syscon 0x100 >;
 				resets = < &reset 0x1000b >;
+				dmas = < &dma0 0x4 >, < &dma0 0x5 >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			flexcomm1: flexcomm@87000 {
@@ -164,6 +167,8 @@
 				interrupts = < 0xf 0x0 >;
 				clocks = < &syscon 0x101 >;
 				resets = < &reset 0x1000c >;
+				dmas = < &dma0 0x6 &dma0 0x7 >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			flexcomm2: flexcomm@88000 {
@@ -172,6 +177,8 @@
 				interrupts = < 0x10 0x0 >;
 				clocks = < &syscon 0x102 >;
 				resets = < &reset 0x1000d >;
+				dmas = < &dma0 0xa &dma0 0xb >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			flexcomm3: flexcomm@89000 {
@@ -180,6 +187,8 @@
 				interrupts = < 0x11 0x0 >;
 				clocks = < &syscon 0x103 >;
 				resets = < &reset 0x1000e >;
+				dmas = < &dma0 0x8 &dma0 0x9 >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			flexcomm4: flexcomm@8a000 {
@@ -188,6 +197,8 @@
 				interrupts = < 0x12 0x0 >;
 				clocks = < &syscon 0x104 >;
 				resets = < &reset 0x1000f >;
+				dmas = < &dma0 0xc &dma0 0xd >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			flexcomm5: flexcomm@96000 {
@@ -196,6 +207,8 @@
 				interrupts = < 0x13 0x0 >;
 				clocks = < &syscon 0x105 >;
 				resets = < &reset 0x10010 >;
+				dmas = < &dma0 0xe &dma0 0xf >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			flexcomm6: flexcomm@97000 {
@@ -204,6 +217,8 @@
 				interrupts = < 0x14 0x0 >;
 				clocks = < &syscon 0x106 >;
 				resets = < &reset 0x10011 >;
+				dmas = < &dma0 0x10 &dma0 0x11 >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			flexcomm7: flexcomm@98000 {
@@ -212,6 +227,8 @@
 				interrupts = < 0x15 0x0 >;
 				clocks = < &syscon 0x107 >;
 				resets = < &reset 0x10012 >;
+				dmas = < &dma0 0x12 &dma0 0x13 >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 			};
 			sdif: sdif@9b000 {
@@ -227,6 +244,8 @@
 				interrupts = < 0x3b 0x0 >;
 				clocks = < &syscon 0x10e >;
 				resets = < &reset 0x2001c >;
+				dmas = < &dma0 0x2 &dma0 0x3 >;
+				dma-names = "rx", "tx";
 				status = "disabled";
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
@@ -413,7 +432,7 @@
 				power-state-name = "runtime-idle";
 				min-residency-us = < 0x4 >;
 				exit-latency-us = < 0x4 >;
-				phandle = < 0x4 >;
+				phandle = < 0x5 >;
 			};
 		};
 	};

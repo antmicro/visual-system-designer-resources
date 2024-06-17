@@ -37,6 +37,7 @@
 			device_type = "memory";
 			reg = < 0x32000000 0x2000000 >;
 			zephyr,memory-region = "PSRAM";
+			status = "disabled";
 		};
 		qspif: memory@16000000 {
 			compatible = "zephyr,memory-region";
@@ -270,7 +271,6 @@
 				clock-frequency = < 0x7d00 >;
 				#clock-cells = < 0x0 >;
 				status = "okay";
-				phandle = < 0x6 >;
 			};
 			xtal32k: xtal32k {
 				compatible = "renesas,smartbond-lp-osc";
@@ -283,7 +283,8 @@
 				compatible = "renesas,smartbond-lp-osc";
 				clock-frequency = < 0x3a98 >;
 				#clock-cells = < 0x0 >;
-				status = "disabled";
+				status = "okay";
+				phandle = < 0x6 >;
 			};
 			rc32m: rc32m {
 				compatible = "fixed-clock";
@@ -319,7 +320,7 @@
 		};
 		lp_clk: lp_clk {
 			compatible = "renesas,smartbond-lp-clk";
-			clock-src = < &rc32k >;
+			clock-src = < &rcx >;
 			status = "okay";
 			phandle = < 0x2 >;
 		};

@@ -28,12 +28,14 @@
 &spi{
 	status = "okay";
 	pinctrl-0 = < &spi_controller >;
-	pinctrl-names = "default";
+	pinctrl-1 = < &spi_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_controller >;
-	pinctrl-names = "default";
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &uart{
 	status = "okay";
@@ -120,6 +122,11 @@
 			bias-pull-up;
 		};
 	};
+	spi_sleep: spi_sleep {
+		group1 {
+			pinmux = < 0x15 >, < 0x18 >, < 0x1a >;
+		};
+	};
 	spi_controller: spi_controller {
 		group1 {
 			pinmux = < 0x3d5 >, < 0x39a >;
@@ -128,6 +135,11 @@
 		group2 {
 			pinmux = < 0x358 >;
 			input-enable;
+		};
+	};
+	spi2_sleep: spi2_sleep {
+		group1 {
+			pinmux = < 0x23 >, < 0x24 >, < 0x25 >;
 		};
 	};
 	spi2_controller: spi2_controller {

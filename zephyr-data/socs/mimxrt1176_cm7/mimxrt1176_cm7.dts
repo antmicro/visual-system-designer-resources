@@ -94,11 +94,43 @@
 			gptfreq = < 0x16e3600 >;
 			clocks = < &ccm 0x1000 0x45 0x0 >;
 		};
+		qtmr1: qtmr@4015c000 {
+			compatible = "nxp,qtmr-pwm";
+			reg = < 0x4015c000 0x4000 >;
+			interrupts = < 0xab 0x0 >;
+			status = "disabled";
+			clocks = < &ccm 0x6000 0x0 0x0 >;
+		};
+		qtmr2: qtmr@40160000 {
+			compatible = "nxp,qtmr-pwm";
+			reg = < 0x40160000 0x4000 >;
+			interrupts = < 0xac 0x0 >;
+			status = "disabled";
+			clocks = < &ccm 0x6001 0x0 0x0 >;
+		};
+		qtmr3: qtmr@40164000 {
+			compatible = "nxp,qtmr-pwm";
+			reg = < 0x40164000 0x4000 >;
+			interrupts = < 0xad 0x0 >;
+			status = "disabled";
+			clocks = < &ccm 0x6002 0x0 0x0 >;
+		};
+		qtmr4: qtmr@40168000 {
+			compatible = "nxp,qtmr-pwm";
+			reg = < 0x40168000 0x4000 >;
+			interrupts = < 0xae 0x0 >;
+			status = "disabled";
+			clocks = < &ccm 0x6003 0x0 0x0 >;
+		};
 		ccm: ccm@40cc0000 {
 			compatible = "nxp,imx-ccm-rev2";
 			reg = < 0x40cc0000 0x4000 >;
 			#clock-cells = < 0x3 >;
 			phandle = < 0x2 >;
+			arm_pll: arm-pll {
+				compatible = "fixed-factor-clock";
+				#clock-cells = < 0x0 >;
+			};
 		};
 		gpio1: gpio@4012c000 {
 			compatible = "nxp,imx-gpio";

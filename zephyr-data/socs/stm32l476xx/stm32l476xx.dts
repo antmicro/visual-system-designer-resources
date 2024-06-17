@@ -378,6 +378,31 @@
 			clocks = < &rcc 0x4c 0x40000 >, < &rcc 0x6 0x37a88 >;
 			status = "disabled";
 		};
+		pwr: power@40007000 {
+			compatible = "st,stm32-pwr";
+			reg = < 0x40007000 0x400 >;
+			status = "disabled";
+			wkup-pins-nb = < 0x5 >;
+			wkup-pins-pol;
+			wkup-pins-pupd;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			wkup-pin@1 {
+				reg = < 0x1 >;
+			};
+			wkup-pin@2 {
+				reg = < 0x2 >;
+			};
+			wkup-pin@3 {
+				reg = < 0x3 >;
+			};
+			wkup-pin@4 {
+				reg = < 0x4 >;
+			};
+			wkup-pin@5 {
+				reg = < 0x5 >;
+			};
+		};
 		usart3: serial@40004800 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40004800 0x400 >;

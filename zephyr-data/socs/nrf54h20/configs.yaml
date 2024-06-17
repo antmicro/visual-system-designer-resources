@@ -1,0 +1,10 @@
+architecture: arm
+board_socs:
+- name: nrf54h20
+  variants:
+  - cpucluster: cpuppr
+    name: xip
+defconfig_file: boards/nordic/nrf54h20dk/nrf54h20dk_nrf54h20_cpuapp_defconfig
+remove_defconfig_flags:
+- CONFIG_BOARD_NRF54H20DK_NRF54H20_CPUAPP
+vendor: nordic

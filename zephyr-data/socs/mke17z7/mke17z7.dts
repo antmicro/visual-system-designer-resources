@@ -1,0 +1,219 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+		zephyr,flash-controller = &ftfa;
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v6m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x2 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv6m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		scg: scg@40064000 {
+			sosc-mode = < 0x4 >;
+			compatible = "nxp,kinetis-scg";
+			reg = < 0x40064000 0x1000 >;
+			#clock-cells = < 0x1 >;
+			sirc_clk: sirc_clk {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x7a1200 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x4 >;
+			};
+			firc_clk: firc_clk {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x2dc6c00 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x2 >;
+			};
+			core_clk: core_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &firc_clk >;
+				clock-div = < 0x1 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x3 >;
+			};
+			bus_clk: bus_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &core_clk >;
+				clock-div = < 0x4 >;
+				#clock-cells = < 0x0 >;
+			};
+			sircdiv2_clk: sircdiv2_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &sirc_clk >;
+				clock-div = < 0x2 >;
+				#clock-cells = < 0x0 >;
+			};
+			fircdiv2_clk: fircdiv2_clk {
+				compatible = "fixed-factor-clock";
+				clocks = < &firc_clk >;
+				clock-div = < 0x1 >;
+				#clock-cells = < 0x0 >;
+			};
+		};
+		pcc: pcc@40065000 {
+			compatible = "nxp,kinetis-pcc";
+			reg = < 0x40065000 0x1000 >;
+			#clock-cells = < 0x2 >;
+			phandle = < 0x5 >;
+		};
+		ftfe: ftfa: flash-controller@40020000 {
+			compatible = "nxp,kinetis-ftfa";
+			reg = < 0x40020000 0x1000 >;
+			interrupts = < 0x5 0x0 >;
+			interrupt-names = "command-complete";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			flash0: flash@0 {
+				compatible = "soc-nv-flash";
+				reg = < 0x0 0x40000 >;
+				erase-block-size = < 0x800 >;
+				write-block-size = < 0x8 >;
+			};
+		};
+		lpuart0: uart@4006a000 {
+			compatible = "nxp,kinetis-lpuart";
+			reg = < 0x4006a000 0x1000 >;
+			interrupts = < 0xc 0x0 >;
+			clocks = < &pcc 0x1a8 0x3 >;
+			status = "disabled";
+		};
+		lpuart1: uart@4006b000 {
+			compatible = "nxp,kinetis-lpuart";
+			reg = < 0x4006b000 0x1000 >;
+			interrupts = < 0xd 0x0 >;
+			clocks = < &pcc 0x1ac 0x3 >;
+			status = "disabled";
+		};
+		lpuart2: uart@4006c000 {
+			compatible = "nxp,kinetis-lpuart";
+			reg = < 0x4006c000 0x1000 >;
+			interrupts = < 0xe 0x0 >;
+			clocks = < &pcc 0x1b0 0x3 >;
+			status = "disabled";
+		};
+		porta: pinmux@40049000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x40049000 0x1000 >;
+			clocks = < &pcc 0x124 0x0 >;
+			phandle = < 0x6 >;
+		};
+		portb: pinmux@4004a000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004a000 0x1000 >;
+			clocks = < &pcc 0x128 0x0 >;
+			phandle = < 0x8 >;
+		};
+		portc: pinmux@4004b000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004b000 0x1000 >;
+			clocks = < &pcc 0x12c 0x0 >;
+			phandle = < 0x9 >;
+		};
+		portd: pinmux@4004c000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004c000 0x1000 >;
+			clocks = < &pcc 0x130 0x0 >;
+			phandle = < 0xa >;
+		};
+		porte: pinmux@4004d000 {
+			compatible = "nxp,kinetis-pinmux";
+			reg = < 0x4004d000 0x1000 >;
+			clocks = < &pcc 0x134 0x0 >;
+			phandle = < 0x7 >;
+		};
+		gpios0: gpios0 {
+			compatible = "nxp,gpio-cluster";
+			interrupts = < 0x7 0x2 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			gpioa: gpio@400ff000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				reg = < 0x400ff000 0x40 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &porta >;
+			};
+			gpioe: gpio@400ff100 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				reg = < 0x400ff100 0x40 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &porte >;
+			};
+		};
+		gpios1: gpios1 {
+			compatible = "nxp,gpio-cluster";
+			interrupts = < 0x1a 0x2 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			gpiob: gpio@400ff040 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				reg = < 0x400ff040 0x40 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portb >;
+			};
+			gpioc: gpio@400ff080 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				reg = < 0x400ff080 0x40 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portc >;
+			};
+			gpiod: gpio@400ff0c0 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				reg = < 0x400ff0c0 0x40 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portd >;
+			};
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			compatible = "arm,cortex-m0+";
+			clock-frequency = < 0x2dc6c00 >;
+			reg = < 0x0 >;
+		};
+	};
+	pinctrl: pinctrl {
+		compatible = "nxp,kinetis-pinctrl";
+	};
+	sram_l: memory@1fffc000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0x1fffc000 0x4000 >;
+		zephyr,memory-region = "SRAML";
+	};
+	sram_u: memory@20000000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		reg = < 0x20000000 0x8000 >;
+		zephyr,memory-region = "SRAMU";
+	};
+};

@@ -4,6 +4,12 @@
 		zephyr,console = &lpuart2;
 	};
 };
+&flexcan2{
+	status = "okay";
+	pinctrl-0 = < &flexcan2_default >;
+	pinctrl-names = "default";
+	phys = < &can_phy0 >;
+};
 &gpio1{
 	pinmux = < &iomuxc1_i2c1_scl_gpio_io_gpio1_io00 >, < &iomuxc1_i2c1_sda_gpio_io_gpio1_io01 >, < &iomuxc1_i2c2_scl_gpio_io_gpio1_io02 >, < &iomuxc1_i2c2_sda_gpio_io_gpio1_io03 >, < &iomuxc1_uart1_rxd_gpio_io_gpio1_io04 >, < &iomuxc1_uart1_txd_gpio_io_gpio1_io05 >, < &iomuxc1_uart2_rxd_gpio_io_gpio1_io06 >, < &iomuxc1_uart2_txd_gpio_io_gpio1_io07 >, < &iomuxc1_pdm_clk_gpio_io_gpio1_io08 >, < &iomuxc1_pdm_bit_stream0_gpio_io_gpio1_io09 >, < &iomuxc1_pdm_bit_stream1_gpio_io_gpio1_io10 >, < &iomuxc1_sai1_txfs_gpio_io_gpio1_io11 >, < &iomuxc1_sai1_txc_gpio_io_gpio1_io12 >, < &iomuxc1_sai1_txd0_gpio_io_gpio1_io13 >, < &iomuxc1_sai1_rxd0_gpio_io_gpio1_io14 >, < &iomuxc1_wdog_any_gpio_io_gpio1_io15 >;
 	status = "okay";
@@ -27,6 +33,7 @@
 };
 &lpi2c2{
 	clock-frequency = < 0x61a80 >;
+	status = "okay";
 	pinctrl-0 = < &i2c2_default >;
 	pinctrl-names = "default";
 };

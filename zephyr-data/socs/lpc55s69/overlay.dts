@@ -15,8 +15,6 @@
 	compatible = "nxp,lpc-usart";
 	status = "okay";
 	current-speed = < 0x1c200 >;
-	dmas = < &dma0 0x4 >, < &dma0 0x5 >;
-	dma-names = "rx", "tx";
 	pinctrl-0 = < &pinmux_flexcomm0_usart >;
 	pinctrl-names = "default";
 };
@@ -30,8 +28,6 @@
 	status = "okay";
 	pinctrl-0 = < &pinmux_hs_lspi_default >;
 	pinctrl-names = "default";
-	dmas = < &dma0 0x2 >, < &dma0 0x3 >;
-	dma-names = "rx", "tx";
 };
 &sc_timer{
 	pinctrl-0 = < &pinmux_sctimer_default >;

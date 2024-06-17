@@ -81,6 +81,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x42020000 0x400 >;
 				clocks = < &rcc 0x8c 0x1 >;
+				phandle = < 0x4 >;
 			};
 			gpiob: gpio@42020400 {
 				compatible = "st,stm32-gpio";
@@ -88,6 +89,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x42020400 0x400 >;
 				clocks = < &rcc 0x8c 0x2 >;
+				phandle = < 0x5 >;
 			};
 			gpioc: gpio@42020800 {
 				compatible = "st,stm32-gpio";
@@ -95,6 +97,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x42020800 0x400 >;
 				clocks = < &rcc 0x8c 0x4 >;
+				phandle = < 0x7 >;
 			};
 			gpiod: gpio@42020c00 {
 				compatible = "st,stm32-gpio";
@@ -109,6 +112,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x42021000 0x400 >;
 				clocks = < &rcc 0x8c 0x10 >;
+				phandle = < 0x6 >;
 			};
 			gpiof: gpio@42021400 {
 				compatible = "st,stm32-gpio";
@@ -116,6 +120,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x42021400 0x400 >;
 				clocks = < &rcc 0x8c 0x20 >;
+				phandle = < 0x8 >;
 			};
 			gpiog: gpio@42021800 {
 				compatible = "st,stm32-gpio";
@@ -147,43 +152,43 @@
 			};
 			analog_pa13: analog_pa13 {
 				pinmux = < 0x1b0 >;
-				phandle = < 0xc >;
+				phandle = < 0x11 >;
 			};
 			analog_pa14: analog_pa14 {
 				pinmux = < 0x1d0 >;
-				phandle = < 0xd >;
+				phandle = < 0x12 >;
 			};
 			analog_pa15: analog_pa15 {
 				pinmux = < 0x1f0 >;
-				phandle = < 0xe >;
+				phandle = < 0x13 >;
 			};
 			analog_pb3: analog_pb3 {
 				pinmux = < 0x270 >;
-				phandle = < 0xf >;
+				phandle = < 0x14 >;
 			};
 			analog_pb4: analog_pb4 {
 				pinmux = < 0x290 >;
-				phandle = < 0x10 >;
+				phandle = < 0x15 >;
 			};
 			debug_jtms_swdio_pa13: debug_jtms_swdio_pa13 {
 				pinmux = < 0x1a0 >;
-				phandle = < 0x7 >;
+				phandle = < 0xc >;
 			};
 			debug_jtck_swclk_pa14: debug_jtck_swclk_pa14 {
 				pinmux = < 0x1c0 >;
-				phandle = < 0x8 >;
+				phandle = < 0xd >;
 			};
 			debug_jtdi_pa15: debug_jtdi_pa15 {
 				pinmux = < 0x1e0 >;
-				phandle = < 0x9 >;
+				phandle = < 0xe >;
 			};
 			debug_jtdo_swo_pb3: debug_jtdo_swo_pb3 {
 				pinmux = < 0x260 >;
-				phandle = < 0xa >;
+				phandle = < 0xf >;
 			};
 			debug_jtrst_pb4: debug_jtrst_pb4 {
 				pinmux = < 0x280 >;
-				phandle = < 0xb >;
+				phandle = < 0x10 >;
 			};
 		};
 		iwdg: watchdog@40003000 {
@@ -290,7 +295,7 @@
 			interrupts = < 0x37 0x0 >, < 0x38 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x13 >;
+			phandle = < 0x18 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -302,7 +307,7 @@
 			interrupts = < 0x39 0x0 >, < 0x3a 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x14 >;
+			phandle = < 0x19 >;
 		};
 		i2c3: i2c@46002800 {
 			compatible = "st,stm32-i2c-v2";
@@ -314,7 +319,7 @@
 			interrupts = < 0x58 0x0 >, < 0x59 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x15 >;
+			phandle = < 0x1a >;
 		};
 		i2c4: i2c@40008400 {
 			compatible = "st,stm32-i2c-v2";
@@ -326,7 +331,7 @@
 			interrupts = < 0x65 0x0 >, < 0x64 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x16 >;
+			phandle = < 0x1b >;
 		};
 		lptim1: timers@46004400 {
 			compatible = "st,stm32-lptim";
@@ -621,7 +626,7 @@
 			sampling-times = < 0x5 0x6 0xc 0x14 0x24 0x44 0x187 0x32e >;
 			st,adc-clock-source = < 0x2 >;
 			st,adc-sequencer = < 0x1 >;
-			phandle = < 0x11 >;
+			phandle = < 0x16 >;
 		};
 		adc4: adc@46021000 {
 			compatible = "st,stm32-adc";
@@ -635,7 +640,7 @@
 			num-sampling-time-common-channels = < 0x2 >;
 			st,adc-clock-source = < 0x2 >;
 			st,adc-sequencer = < 0x0 >;
-			phandle = < 0x12 >;
+			phandle = < 0x17 >;
 		};
 		fdcan1: can@4000a400 {
 			compatible = "st,stm32-fdcan";
@@ -677,6 +682,49 @@
 				status = "disabled";
 			};
 		};
+		pwr: power@46020800 {
+			compatible = "st,stm32-pwr";
+			reg = < 0x46020800 0x400 >;
+			status = "disabled";
+			wkup-pins-nb = < 0x8 >;
+			wkup-pin-srcs = < 0x3 >;
+			wkup-pins-pol;
+			wkup-pins-pupd;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			wkup-pin@1 {
+				reg = < 0x1 >;
+				wkup-gpios = < &gpioa 0x0 0x0 >, < &gpiob 0x2 0x1 >, < &gpioe 0x4 0x4 >;
+			};
+			wkup-pin@2 {
+				reg = < 0x2 >;
+				wkup-gpios = < &gpioa 0x4 0x0 >, < &gpioc 0xd 0x1 >, < &gpioe 0x5 0x4 >;
+			};
+			wkup-pin@3 {
+				reg = < 0x3 >;
+				wkup-gpios = < &gpioe 0x6 0x0 >, < &gpioa 0x1 0x1 >, < &gpiob 0x6 0x4 >;
+			};
+			wkup-pin@4 {
+				reg = < 0x4 >;
+				wkup-gpios = < &gpioa 0x2 0x0 >, < &gpiob 0x1 0x1 >, < &gpiob 0x7 0x4 >;
+			};
+			wkup-pin@5 {
+				reg = < 0x5 >;
+				wkup-gpios = < &gpioc 0x5 0x0 >, < &gpioa 0x3 0x1 >, < &gpiob 0x8 0x4 >;
+			};
+			wkup-pin@6 {
+				reg = < 0x6 >;
+				wkup-gpios = < &gpiob 0x5 0x0 >, < &gpioa 0x5 0x1 >, < &gpioe 0x7 0x4 >;
+			};
+			wkup-pin@7 {
+				reg = < 0x7 >;
+				wkup-gpios = < &gpiob 0xf 0x0 >, < &gpioa 0x6 0x1 >, < &gpioe 0x8 0x4 >;
+			};
+			wkup-pin@8 {
+				reg = < 0x8 >;
+				wkup-gpios = < &gpiof 0x2 0x0 >, < &gpioa 0x7 0x1 >, < &gpiob 0xa 0x4 >;
+			};
+		};
 		usart6: serial@40006400 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40006400 0x400 >;
@@ -695,7 +743,7 @@
 			interrupts = < 0x80 0x0 >, < 0x7f 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x17 >;
+			phandle = < 0x1c >;
 		};
 		i2c6: i2c@40009c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -707,7 +755,7 @@
 			interrupts = < 0x82 0x0 >, < 0x81 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x18 >;
+			phandle = < 0x1d >;
 		};
 		adc2: adc@42028100 {
 			compatible = "st,stm32-adc";
@@ -755,21 +803,21 @@
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x1 >;
 				min-residency-us = < 0x64 >;
-				phandle = < 0x4 >;
+				phandle = < 0x9 >;
 			};
 			stop1: state1 {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x2 >;
 				min-residency-us = < 0x1f4 >;
-				phandle = < 0x5 >;
+				phandle = < 0xa >;
 			};
 			stop2: state2 {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x3 >;
 				min-residency-us = < 0x384 >;
-				phandle = < 0x6 >;
+				phandle = < 0xb >;
 			};
 		};
 	};

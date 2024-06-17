@@ -954,6 +954,14 @@
 				status = "disabled";
 			};
 		};
+		digi_die_temp: digi_dietemp@58006800 {
+			compatible = "st,stm32-digi-temp";
+			reg = < 0x58006800 0x400 >;
+			interrupts = < 0x93 0x0 >;
+			interrupt-names = "digi_temp";
+			clocks = < &rcc 0xf4 0x4000000 >;
+			status = "disabled";
+		};
 		cryp: cryp@48021000 {
 			compatible = "st,stm32-cryp";
 			reg = < 0x48021000 0x400 >;
