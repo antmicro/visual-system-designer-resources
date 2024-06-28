@@ -328,6 +328,13 @@
 			bosch,mram-cfg = < 0x0 0xc 0xa 0x3 0x3 0x3 0x3 0x3 >;
 			status = "disabled";
 		};
+		wwdt: watchdog@40096000 {
+			compatible = "nuvoton,numaker-wwdt";
+			reg = < 0x40096000 0x10 >;
+			interrupts = < 0x9 0x0 >;
+			clocks = < &pcc 0x4578000b 0xc0000000 0x0 >;
+			status = "disabled";
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;

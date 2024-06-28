@@ -20,14 +20,14 @@
 			clock-frequency = < 0x7a12000 >;
 			riscv,isa = "rv32emc";
 			nordic,bus-width = < 0x20 >;
-			cpuflpr_vevif_local: cpuflpr_vevif: mailbox {
-				compatible = "nordic,nrf-vevif-local";
+			cpuflpr_vevif_rx: mailbox {
+				compatible = "nordic,nrf-vevif-task-rx";
 				status = "disabled";
 				interrupt-parent = < &cpuflpr_clic >;
-				interrupts = < 0x0 0x1 >, < 0x1 0x1 >, < 0x2 0x1 >, < 0x3 0x1 >, < 0x4 0x1 >, < 0x5 0x1 >, < 0x6 0x1 >, < 0x7 0x1 >, < 0x8 0x1 >, < 0x9 0x1 >, < 0xa 0x1 >, < 0xb 0x1 >, < 0xc 0x1 >, < 0xd 0x1 >, < 0xe 0x1 >, < 0xf 0x1 >, < 0x10 0x1 >, < 0x11 0x1 >, < 0x12 0x1 >, < 0x13 0x1 >, < 0x14 0x1 >, < 0x15 0x1 >, < 0x16 0x1 >, < 0x17 0x1 >, < 0x18 0x1 >, < 0x19 0x1 >, < 0x1a 0x1 >, < 0x1b 0x1 >, < 0x1c 0x1 >, < 0x1d 0x1 >, < 0x1e 0x1 >, < 0x1f 0x1 >;
+				interrupts = < 0xb 0x1 >, < 0xc 0x1 >, < 0xd 0x1 >, < 0xe 0x1 >, < 0xf 0x1 >, < 0x10 0x1 >, < 0x11 0x1 >;
 				#mbox-cells = < 0x1 >;
-				nordic,tasks = < 0x12 >;
-				nordic,tasks-mask = < 0x7f0000 >;
+				nordic,tasks = < 0x7 >;
+				nordic,tasks-mask = < 0x3f800 >;
 			};
 		};
 	};
@@ -99,14 +99,6 @@
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x1 >;
 				status = "disabled";
-				cpuflpr_vevif_remote: mailbox@0 {
-					compatible = "nordic,nrf-vevif-remote";
-					reg = < 0x0 0x1000 >;
-					#mbox-cells = < 0x1 >;
-					nordic,tasks = < 0x12 >;
-					nordic,tasks-mask = < 0x7f0000 >;
-					status = "disabled";
-				};
 				cpuflpr_clic: clic: interrupt-controller@f0000000 {
 					compatible = "nordic,nrf-clic";
 					reg = < 0xf0000000 0x1780 >;
@@ -115,6 +107,13 @@
 					#address-cells = < 0x1 >;
 					status = "okay";
 					phandle = < 0x1 >;
+				};
+				cpuflpr_vevif_tx: mailbox {
+					compatible = "nordic,nrf-vevif-event-tx";
+					#mbox-cells = < 0x1 >;
+					nordic,events = < 0x1 >;
+					nordic,events-mask = < 0x8000 >;
+					status = "disabled";
 				};
 			};
 			gpio2: gpio@50400 {
@@ -168,6 +167,10 @@
 				ble-coded-phy-supported;
 				ieee802154: ieee802154 {
 					compatible = "nordic,nrf-ieee802154";
+					status = "disabled";
+				};
+				bt_hci_controller: bt_hci_controller {
+					compatible = "zephyr,bt-hci-ll-sw-split";
 					status = "disabled";
 				};
 			};

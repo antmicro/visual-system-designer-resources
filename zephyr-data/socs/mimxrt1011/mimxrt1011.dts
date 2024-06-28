@@ -190,6 +190,16 @@
 			status = "okay";
 			interrupts = < 0x35 0x0 >;
 		};
+		usbphy1: usbphy@400d9000 {
+			compatible = "nxp,usbphy";
+			reg = < 0x400d9000 0x1000 >;
+			status = "disabled";
+		};
+		usbphy2: usbphy@400da000 {
+			compatible = "nxp,usbphy";
+			reg = < 0x400da000 0x1000 >;
+			status = "disabled";
+		};
 		edma0: dma-controller@400e8000 {
 			#dma-cells = < 0x2 >;
 			compatible = "nxp,mcux-edma";

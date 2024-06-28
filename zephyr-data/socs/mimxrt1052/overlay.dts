@@ -49,14 +49,8 @@
 	pinmux = < &iomuxc_snvs_wakeup_gpio5_io00 >, < &iomuxc_snvs_pmic_on_req_gpio5_io01 >, < &iomuxc_snvs_pmic_stby_req_gpio5_io02 >;
 };
 &lcdif{
-	status = "okay";
-	width = < 0x1e0 >;
-	height = < 0x110 >;
-	pixel-format = < 0x20 >;
-	data-bus-width = "16-bit";
 	pinctrl-0 = < &pinmux_lcdif >;
 	pinctrl-names = "default";
-	backlight-gpios = < &gpio2 0x1f 0x0 >;
 };
 &lpi2c1{
 	status = "okay";

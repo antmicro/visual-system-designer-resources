@@ -14,6 +14,20 @@
 &clk_lse{
 	status = "okay";
 };
+&ltdc{
+	clocks = < &rcc 0xe4 0x8 >, < &rcc 0x10 0xff >;
+	status = "okay";
+	pinctrl-0 = < &ltdc_r0_pi15 &ltdc_r1_pj0 &ltdc_r2_pj1 &ltdc_r3_ph9 &ltdc_r4_pj3 &ltdc_r5_pj4 &ltdc_r6_pj5 &ltdc_r7_pj6 &ltdc_g0_pj7 &ltdc_g1_pj8 &ltdc_g2_pj9 &ltdc_g3_pj10 &ltdc_g4_pj11 &ltdc_g5_pi0 &ltdc_g6_pi1 &ltdc_g7_pk2 &ltdc_b0_pj12 &ltdc_b1_pj13 &ltdc_b2_pj14 &ltdc_b3_pj15 &ltdc_b4_pk3 &ltdc_b5_pk4 &ltdc_b6_pk5 &ltdc_b7_pk6 &ltdc_de_pk7 &ltdc_clk_pi14 &ltdc_hsync_pi12 &ltdc_vsync_pi9 >;
+	pinctrl-names = "default";
+	disp-on-gpios = < &gpiod 0x7 0x0 >;
+	ext-sdram = < &sdram2 >;
+	width = < 0x1e0 >;
+	height = < 0x110 >;
+	pixel-format = < 0x10 >;
+	def-back-color-red = < 0xff >;
+	def-back-color-green = < 0xff >;
+	def-back-color-blue = < 0xff >;
+};
 &pll{
 	status = "okay";
 	div-m = < 0x5 >;
@@ -21,6 +35,15 @@
 	div-p = < 0x2 >;
 	div-q = < 0x4 >;
 	div-r = < 0x4 >;
+	clocks = < &clk_hse >;
+};
+&pll3{
+	status = "okay";
+	div-m = < 0x5 >;
+	mul-n = < 0xc0 >;
+	div-p = < 0x2 >;
+	div-q = < 0x14 >;
+	div-r = < 0x63 >;
 	clocks = < &clk_hse >;
 };
 &quadspi{
@@ -315,6 +338,90 @@
 		pinmux = < 0xeec >;
 		bias-pull-up;
 		slew-rate = "very-high-speed";
+	};
+	ltdc_r3_ph9: ltdc_r3_ph9 {
+		pinmux = < 0xf2e >;
+	};
+	ltdc_g5_pi0: ltdc_g5_pi0 {
+		pinmux = < 0x100e >;
+	};
+	ltdc_g6_pi1: ltdc_g6_pi1 {
+		pinmux = < 0x102e >;
+	};
+	ltdc_vsync_pi9: ltdc_vsync_pi9 {
+		pinmux = < 0x112e >;
+	};
+	ltdc_hsync_pi12: ltdc_hsync_pi12 {
+		pinmux = < 0x118e >;
+	};
+	ltdc_clk_pi14: ltdc_clk_pi14 {
+		pinmux = < 0x11ce >;
+	};
+	ltdc_r0_pi15: ltdc_r0_pi15 {
+		pinmux = < 0x11ee >;
+	};
+	ltdc_r1_pj0: ltdc_r1_pj0 {
+		pinmux = < 0x120e >;
+	};
+	ltdc_r2_pj1: ltdc_r2_pj1 {
+		pinmux = < 0x122e >;
+	};
+	ltdc_r4_pj3: ltdc_r4_pj3 {
+		pinmux = < 0x126e >;
+	};
+	ltdc_r5_pj4: ltdc_r5_pj4 {
+		pinmux = < 0x128e >;
+	};
+	ltdc_r6_pj5: ltdc_r6_pj5 {
+		pinmux = < 0x12ae >;
+	};
+	ltdc_r7_pj6: ltdc_r7_pj6 {
+		pinmux = < 0x12ce >;
+	};
+	ltdc_g0_pj7: ltdc_g0_pj7 {
+		pinmux = < 0x12ee >;
+	};
+	ltdc_g1_pj8: ltdc_g1_pj8 {
+		pinmux = < 0x130e >;
+	};
+	ltdc_g2_pj9: ltdc_g2_pj9 {
+		pinmux = < 0x132e >;
+	};
+	ltdc_g3_pj10: ltdc_g3_pj10 {
+		pinmux = < 0x134e >;
+	};
+	ltdc_g4_pj11: ltdc_g4_pj11 {
+		pinmux = < 0x136e >;
+	};
+	ltdc_b0_pj12: ltdc_b0_pj12 {
+		pinmux = < 0x138e >;
+	};
+	ltdc_b1_pj13: ltdc_b1_pj13 {
+		pinmux = < 0x13ae >;
+	};
+	ltdc_b2_pj14: ltdc_b2_pj14 {
+		pinmux = < 0x13ce >;
+	};
+	ltdc_b3_pj15: ltdc_b3_pj15 {
+		pinmux = < 0x13ee >;
+	};
+	ltdc_g7_pk2: ltdc_g7_pk2 {
+		pinmux = < 0x144e >;
+	};
+	ltdc_b4_pk3: ltdc_b4_pk3 {
+		pinmux = < 0x146e >;
+	};
+	ltdc_b5_pk4: ltdc_b5_pk4 {
+		pinmux = < 0x148e >;
+	};
+	ltdc_b6_pk5: ltdc_b6_pk5 {
+		pinmux = < 0x14ae >;
+	};
+	ltdc_b7_pk6: ltdc_b7_pk6 {
+		pinmux = < 0x14ce >;
+	};
+	ltdc_de_pk7: ltdc_de_pk7 {
+		pinmux = < 0x14ee >;
 	};
 	quadspi_bk1_io0_pd11: quadspi_bk1_io0_pd11 {
 		pinmux = < 0x769 >;

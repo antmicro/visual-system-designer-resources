@@ -843,8 +843,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303_emul.c",
-            "drivers/sensor/f75303/f75303.c"
+            "drivers/sensor/f75303/f75303.c",
+            "drivers/sensor/f75303/f75303_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1816,7 +1816,8 @@
             "drivers/sensor/lm75/lm75.c"
         ],
         "interfaces": {
-            "i2c": "i2c"
+            "i2c": "i2c",
+            "int": "gpio"
         },
         "properties": {
             "address (i2c)": {
@@ -1844,6 +1845,21 @@
             }
         },
         "rdp-compat": "lm77"
+    },
+    "lm95234": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "national,lm95234"
+        ],
+        "description": "LM95234 Quad Remote Diode and Local Temperature Sensor with SMBus Interface",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        }
     },
     "lps22df": {
         "category": "Environmental",
@@ -2718,12 +2734,13 @@
         "rdp-compat": "sensirion,sht4x",
         "renode-model": "I2C.SHT45"
     },
-    "shtc3": {
+    "shtc1": {
         "category": "Environmental",
         "compatible": [
+            "sensirion,shtc1",
             "sensirion,shtcx"
         ],
-        "description": "Sensirion SHTCx humidity and temperature sensor",
+        "description": "Sensirion SHTCx humidity and temperature sensor\n\nAdditionally use \"sensirion,shtc1\" or \"sensirion,shtc3\" compatibles\nsuch that a generic driver can consider chip specific behaviour.\n\nExample device tree node describing a Sensirion SHTC3 Sensor on the i2c0 bus:\n\n &i2c0 {\n    status = \"okay\";\n    clock-frequency = <I2C_BITRATE_FAST>;\n    shtc3@70 {\n      compatible = \"sensirion,shtc3\", \"sensirion,shtcx\";\n      reg = <0x70>;\n      measure-mode = \"normal\";\n      clock-stretching;\n   };\n };\n",
         "interfaces": {
             "i2c": "i2c"
         },
@@ -2731,11 +2748,28 @@
             "address (i2c)": {
                 "type": "string"
             },
-            "chip": {
+            "measure-mode": {
                 "enum": [
-                    "shtc1",
-                    "shtc3"
+                    "normal",
+                    "low-power"
                 ],
+                "type": "string"
+            }
+        },
+        "rdp-compat": "sensirion,shtcx"
+    },
+    "shtc3": {
+        "category": "Environmental",
+        "compatible": [
+            "sensirion,shtc3",
+            "sensirion,shtcx"
+        ],
+        "description": "Sensirion SHTCx humidity and temperature sensor\n\nAdditionally use \"sensirion,shtc1\" or \"sensirion,shtc3\" compatibles\nsuch that a generic driver can consider chip specific behaviour.\n\nExample device tree node describing a Sensirion SHTC3 Sensor on the i2c0 bus:\n\n &i2c0 {\n    status = \"okay\";\n    clock-frequency = <I2C_BITRATE_FAST>;\n    shtc3@70 {\n      compatible = \"sensirion,shtc3\", \"sensirion,shtcx\";\n      reg = <0x70>;\n      measure-mode = \"normal\";\n      clock-stretching;\n   };\n };\n",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
                 "type": "string"
             },
             "measure-mode": {
@@ -2753,7 +2787,7 @@
         "compatible": [
             "silabs,si7006"
         ],
-        "description": "Si7006 temperature and humidity sensor",
+        "description": "Silicon Labs Si7006 Humidity and Temperature Sensor\n\nThis is compatible with a range of Silicon Labs sensors, such as the Si7013,\nSi7020, and Si7021.  This binding will use a slightly different (better)\ncommand to read temperature from the \"sensirion,sht21\" binding.\n",
         "interfaces": {
             "i2c": "i2c"
         },

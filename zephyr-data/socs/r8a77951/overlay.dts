@@ -12,6 +12,7 @@
 };
 &gpio5{
 	reg = < 0x0 0xe6055000 0x0 0x50 >;
+	status = "okay";
 };
 &gpio6{
 	status = "okay";
@@ -50,35 +51,101 @@
 	scif2_data_a_rx_default: scif2_data_a_rx_default {
 		pin = < 0xab 0x3440 >;
 	};
+	sd0_clk: sd0_clk {
+		pin = < 0x60 0x1cc0 >;
+		power-source = < 0x2 >;
+	};
+	sd0_cmd: sd0_cmd {
+		pin = < 0x61 0x1d00 >;
+		power-source = < 0x2 >;
+	};
+	sd0_data0: sd0_data0 {
+		pin = < 0x62 0x1d40 >;
+		power-source = < 0x2 >;
+	};
+	sd0_data1: sd0_data1 {
+		pin = < 0x63 0x1d80 >;
+		power-source = < 0x2 >;
+	};
+	sd0_data2: sd0_data2 {
+		pin = < 0x64 0x2000 >;
+		power-source = < 0x2 >;
+	};
+	sd0_data3: sd0_data3 {
+		pin = < 0x65 0x2040 >;
+		power-source = < 0x2 >;
+	};
+	sd0_clk_uhs: sd0_clk_uhs {
+		pin = < 0x60 0x1cc0 >;
+		power-source = < 0x1 >;
+	};
+	sd0_cmd_uhs: sd0_cmd_uhs {
+		pin = < 0x61 0x1d00 >;
+		power-source = < 0x1 >;
+	};
+	sd0_data0_uhs: sd0_data0_uhs {
+		pin = < 0x62 0x1d40 >;
+		power-source = < 0x1 >;
+	};
+	sd0_data1_uhs: sd0_data1_uhs {
+		pin = < 0x63 0x1d80 >;
+		power-source = < 0x1 >;
+	};
+	sd0_data2_uhs: sd0_data2_uhs {
+		pin = < 0x64 0x2000 >;
+		power-source = < 0x1 >;
+	};
+	sd0_data3_uhs: sd0_data3_uhs {
+		pin = < 0x65 0x2040 >;
+		power-source = < 0x1 >;
+	};
+	sd0_cd: sd0_cd {
+		pin = < 0x6c 0x2c80 >;
+		power-source = < 0x2 >;
+	};
+	sd0_wp: sd0_wp {
+		pin = < 0x6d 0x2cc0 >;
+		power-source = < 0x2 >;
+	};
 	emmc2_clk: emmc2_clk {
 		pin = < 0x80 0x2400 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_cmd: emmc2_cmd {
 		pin = < 0x81 0x2440 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data0: emmc2_data0 {
 		pin = < 0x82 0x2480 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data1: emmc2_data1 {
 		pin = < 0x83 0x24c0 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data2: emmc2_data2 {
 		pin = < 0x84 0x2500 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data3: emmc2_data3 {
 		pin = < 0x85 0x2540 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data4: emmc2_data4 {
 		pin = < 0x68 0x2101 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data5: emmc2_data5 {
 		pin = < 0x69 0x2141 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data6: emmc2_data6 {
 		pin = < 0x6a 0x2181 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_data7: emmc2_data7 {
 		pin = < 0x6b 0x21c1 >;
+		power-source = < 0x1 >;
 	};
 	emmc2_ds: emmc2_ds {
 		pin = < 0x86 0x2580 >;

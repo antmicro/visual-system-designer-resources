@@ -117,6 +117,11 @@
 			alarms-count = < 0x2 >;
 			alrm-exti-line = < 0x13 >;
 			status = "disabled";
+			bbram: backup_regs {
+				compatible = "st,stm32-bbram";
+				st,backup-regs = < 0x5 >;
+				status = "disabled";
+			};
 		};
 		iwdg: watchdog@40003000 {
 			compatible = "st,stm32-watchdog";

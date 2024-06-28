@@ -18,8 +18,7 @@
 		ranges;
 		sram0: memory@3fc88000 {
 			compatible = "mmio-sram";
-			reg = < 0x3fc88000 0x2800 >;
-			status = "okay";
+			reg = < 0x3fc88000 0x77fff >;
 		};
 		ipmmem0: memory@3fcbd000 {
 			compatible = "mmio-sram";
@@ -369,6 +368,10 @@
 	};
 	wifi: wifi {
 		compatible = "espressif,esp32-wifi";
+		status = "disabled";
+	};
+	esp32_bt_hci: esp32_bt_hci {
+		compatible = "espressif,esp32-bt-hci";
 		status = "disabled";
 	};
 	pinctrl: pin-controller {

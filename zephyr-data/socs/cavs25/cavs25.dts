@@ -128,18 +128,18 @@
 			compatible = "intel,cavs-l2lm";
 			reg = < 0x71d00 0x20 >;
 		};
-		adsp_host_ipc: cavs_host_ipc@71e00 {
-			compatible = "intel,adsp-host-ipc";
-			reg = < 0x71e00 0x30 >;
-			interrupts = < 0x7 0x0 0x0 >;
-			interrupt-parent = < &cavs_intc0 >;
-		};
 		core_intc: core_intc@0 {
 			compatible = "cdns,xtensa-core-intc";
 			reg = < 0x0 0x400 >;
 			interrupt-controller;
 			#interrupt-cells = < 0x3 >;
 			phandle = < 0x6 >;
+		};
+		adsp_host_ipc: cavs_host_ipc@71e00 {
+			compatible = "intel,adsp-host-ipc";
+			reg = < 0x71e00 0x30 >;
+			interrupts = < 0x7 0x0 0x0 >;
+			interrupt-parent = < &cavs_intc0 >;
 		};
 		cavs_intc0: cavs@78800 {
 			compatible = "intel,cavs-intc";
@@ -186,32 +186,6 @@
 			compatible = "intel,adsp-tlb";
 			reg = < 0x3000 0x1000 >;
 			paddr-size = < 0xb >;
-		};
-		dmic0: dmic0@10000 {
-			compatible = "intel,dai-dmic";
-			reg = < 0x10000 0x8000 >;
-			shim = < 0x71e80 >;
-			fifo = < 0x8 >;
-			interrupts = < 0x8 0x0 0x0 >;
-			interrupt-parent = < &cavs_intc3 >;
-		};
-		dmic1: dmic1@10000 {
-			compatible = "intel,dai-dmic";
-			reg = < 0x10000 0x8000 >;
-			shim = < 0x71e80 >;
-			fifo = < 0x108 >;
-			interrupts = < 0x9 0x0 0x0 >;
-			interrupt-parent = < &cavs_intc3 >;
-		};
-		alh0: alh0@71000 {
-			compatible = "intel,alh-dai";
-			reg = < 0x71000 0x71200 >;
-			status = "okay";
-		};
-		alh1: alh1@71000 {
-			compatible = "intel,alh-dai";
-			reg = < 0x71000 0x71200 >;
-			status = "okay";
 		};
 		ssp0: ssp@77000 {
 			compatible = "intel,ssp";
@@ -264,6 +238,153 @@
 				status = "okay";
 			};
 		};
+		ssp3: ssp@77600 {
+			compatible = "intel,ssp";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x77600 0x200 0x78c00 0x8 >;
+			interrupts = < 0x3 0x0 0x0 >;
+			interrupt-parent = < &cavs_intc3 >;
+			dmas = < &lpgpdma0 0x8 &lpgpdma0 0x9 >;
+			dma-names = "tx", "rx";
+			ssp-index = < 0x3 >;
+			status = "okay";
+			ssp30: ssp@30 {
+				compatible = "intel,ssp-dai";
+				reg = < 0x30 >;
+				status = "okay";
+			};
+		};
+		ssp4: ssp@77800 {
+			compatible = "intel,ssp";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x77800 0x200 0x78c00 0x8 >;
+			interrupts = < 0x3 0x0 0x0 >;
+			interrupt-parent = < &cavs_intc3 >;
+			dmas = < &lpgpdma0 0xa &lpgpdma0 0xb >;
+			dma-names = "tx", "rx";
+			ssp-index = < 0x4 >;
+			status = "okay";
+			ssp40: ssp@40 {
+				compatible = "intel,ssp-dai";
+				reg = < 0x40 >;
+				status = "okay";
+			};
+		};
+		ssp5: ssp@77a00 {
+			compatible = "intel,ssp";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x77a00 0x200 0x78c00 0x8 >;
+			interrupts = < 0x3 0x0 0x0 >;
+			interrupt-parent = < &cavs_intc3 >;
+			dmas = < &lpgpdma0 0xc &lpgpdma0 0xd >;
+			dma-names = "tx", "rx";
+			ssp-index = < 0x5 >;
+			status = "okay";
+			ssp50: ssp@50 {
+				compatible = "intel,ssp-dai";
+				reg = < 0x50 >;
+				status = "okay";
+			};
+		};
+		alh0: alh0@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh1: alh1@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh2: alh2@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh3: alh3@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh4: alh4@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh5: alh5@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh6: alh6@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh7: alh7@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh8: alh8@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh9: alh9@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh10: alh10@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh11: alh11@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh12: alh12@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh13: alh13@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh14: alh14@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		alh15: alh15@71000 {
+			compatible = "intel,alh-dai";
+			reg = < 0x71000 0x71200 >;
+			status = "okay";
+		};
+		dmic0: dmic0@10000 {
+			compatible = "intel,dai-dmic";
+			reg = < 0x10000 0x8000 >;
+			shim = < 0x71e80 >;
+			fifo = < 0x8 >;
+			interrupts = < 0x8 0x0 0x0 >;
+			interrupt-parent = < &cavs_intc3 >;
+		};
+		dmic1: dmic1@10000 {
+			compatible = "intel,dai-dmic";
+			reg = < 0x10000 0x8000 >;
+			shim = < 0x71e80 >;
+			fifo = < 0x108 >;
+			interrupts = < 0x9 0x0 0x0 >;
+			interrupt-parent = < &cavs_intc3 >;
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;
@@ -282,6 +403,18 @@
 			reg = < 0x1 >;
 			cpu-power-states = < &d3 >;
 		};
+		cpu2: cpu@2 {
+			device_type = "cpu";
+			compatible = "cdns,tensilica-xtensa-lx6";
+			reg = < 0x2 >;
+			cpu-power-states = < &d3 >;
+		};
+		cpu3: cpu@3 {
+			device_type = "cpu";
+			compatible = "cdns,tensilica-xtensa-lx6";
+			reg = < 0x3 >;
+			cpu-power-states = < &d3 >;
+		};
 		power-states {
 			d3: off {
 				compatible = "zephyr,power-state";
@@ -295,7 +428,7 @@
 	sram0: memory@be000000 {
 		device_type = "memory";
 		compatible = "mmio-sram";
-		reg = < 0xbe000000 0x1e0000 >;
+		reg = < 0xbe000000 0x2e0000 >;
 		phandle = < 0x3 >;
 	};
 	sram1: memory@be800000 {

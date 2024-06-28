@@ -12,12 +12,15 @@
 };
 &clk_hsi{
 	status = "okay";
-	hsi-div = < 0x8 >;
+	hsi-div = < 0x1 >;
 };
 &clk_hsi48{
 	status = "okay";
 };
 &clk_lse{
+	status = "okay";
+};
+&clk_lsi{
 	status = "okay";
 };
 &dac1{
@@ -57,8 +60,7 @@
 	pinctrl-names = "default";
 };
 &mac{
-	status = "okay";
-	pinctrl-0 = < &eth_ref_clk_pa1 &eth_crs_dv_pa7 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_tx_en_pg11 &eth_txd0_pg13 &eth_txd1_pg12 >;
+	pinctrl-0 = < &eth_ref_clk_pa1 &eth_mdio_pa2 &eth_crs_dv_pa7 &eth_mdc_pc1 &eth_rxd0_pc4 &eth_rxd1_pc5 &eth_tx_en_pg11 &eth_txd1_pg12 &eth_txd0_pg13 >;
 	pinctrl-names = "default";
 };
 &mdio{
@@ -146,11 +148,12 @@
 	pinctrl-names = "default";
 };
 &usbotg_hs{
+	num-bidir-endpoints = < 0x4 >;
 	maximum-speed = "high-speed";
 	clocks = < &rcc 0xd8 0x6000000 >, < &rcc 0x5 0x37454 >;
 	phys = < &otghs_ulpi_phy >;
 	status = "okay";
-	pinctrl-0 = < &usb_otg_hs_ulpi_ck_pa5 &usb_otg_hs_ulpi_d0_pa3 &usb_otg_hs_ulpi_d1_pb0 &usb_otg_hs_ulpi_d2_pb1 &usb_otg_hs_ulpi_d3_pb10 &usb_otg_hs_ulpi_d4_pb11 &usb_otg_hs_ulpi_d5_pb12 &usb_otg_hs_ulpi_d6_pb13 &usb_otg_hs_ulpi_d7_pb5 &usb_otg_hs_ulpi_stp_pc0 &usb_otg_hs_ulpi_dir_pi11 &usb_otg_hs_ulpi_nxt_ph4 >;
+	pinctrl-0 = < &usb_otg_hs_ulpi_d0_pa3 &usb_otg_hs_ulpi_ck_pa5 &usb_otg_hs_ulpi_d1_pb0 &usb_otg_hs_ulpi_d2_pb1 &usb_otg_hs_ulpi_d7_pb5 &usb_otg_hs_ulpi_d3_pb10 &usb_otg_hs_ulpi_d4_pb11 &usb_otg_hs_ulpi_d5_pb12 &usb_otg_hs_ulpi_d6_pb13 &usb_otg_hs_ulpi_stp_pc0 &usb_otg_hs_ulpi_nxt_ph4 &usb_otg_hs_ulpi_dir_pi11 >;
 	pinctrl-names = "default";
 };
 &pinctrl{

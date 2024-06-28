@@ -191,6 +191,7 @@
 			reg = < 0x50020700 0x100 >;
 			periph-clock-config = < 0x800 >;
 			interrupts = < 0x9 0x0 >;
+			status = "disabled";
 		};
 		lcdc: lcdc@30030000 {
 			compatible = "renesas,smartbond-display";
@@ -234,11 +235,15 @@
 			status = "disabled";
 			dma-channels = < 0x8 >;
 			block-count = < 0x1 >;
-			#dma-cells = < 0x0 >;
+			#dma-cells = < 0x2 >;
 		};
 		memc: qspic2@34000000 {
 			compatible = "renesas,smartbond-nor-psram";
 			reg = < 0x34000000 0x48 >;
+			status = "disabled";
+		};
+		bt_hci_da1469x: bt_hci_da1469x {
+			compatible = "renesas,bt-hci-da1469x";
 			status = "disabled";
 		};
 	};

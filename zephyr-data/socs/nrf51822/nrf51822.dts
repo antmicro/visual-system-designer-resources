@@ -4,6 +4,7 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x1 >;
 	chosen {
+		zephyr,bt-hci = &bt_hci_controller;
 		zephyr,entropy = &rng;
 		zephyr,flash-controller = &flash_controller;
 	};
@@ -70,6 +71,10 @@
 			reg = < 0x40001000 0x1000 >;
 			interrupts = < 0x1 0x1 >;
 			status = "okay";
+			bt_hci_controller: bt_hci_controller {
+				compatible = "zephyr,bt-hci-ll-sw-split";
+				status = "okay";
+			};
 		};
 		uart0: uart@40002000 {
 			compatible = "nordic,nrf-uart";

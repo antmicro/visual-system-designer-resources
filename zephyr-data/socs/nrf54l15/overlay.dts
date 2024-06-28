@@ -31,6 +31,12 @@
 	load-capacitors = "internal";
 	load-capacitance-femtofarad = < 0x3c8c >;
 };
+&pwm20{
+	status = "okay";
+	pinctrl-0 = < &pwm20_default >;
+	pinctrl-1 = < &pwm20_sleep >;
+	pinctrl-names = "default", "sleep";
+};
 &radio{
 	status = "okay";
 };
@@ -95,6 +101,17 @@
 	spi00_sleep: spi00_sleep {
 		group1 {
 			psels = < 0x80041 >, < 0xa0042 >, < 0xc0044 >;
+			low-power-enable;
+		};
+	};
+	pwm20_default: pwm20_default {
+		group1 {
+			psels = < 0x2c002a >;
+		};
+	};
+	pwm20_sleep: pwm20_sleep {
+		group1 {
+			psels = < 0x2c002a >;
 			low-power-enable;
 		};
 	};

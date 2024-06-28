@@ -7,6 +7,7 @@
 		zephyr,entropy = &rng;
 		zephyr,flash-controller = &flash;
 		st,lptim-stdby-timer = &rtc;
+		zephyr,bt-hci = &bt_hci_wba;
 	};
 	aliases {
 	};
@@ -458,6 +459,10 @@
 			compatible = "st,stm32wba-pll-clock";
 			status = "disabled";
 		};
+	};
+	bt_hci_wba: bt_hci_wba {
+		compatible = "st,hci-stm32wba";
+		status = "okay";
 	};
 	swj_port: swj_port {
 		compatible = "swj-connector";

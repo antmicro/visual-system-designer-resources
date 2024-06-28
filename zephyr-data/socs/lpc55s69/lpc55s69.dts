@@ -95,21 +95,25 @@
 					compatible = "nxp,lpc-iocon-pinctrl";
 				};
 			};
-			gpio0: gpio@0 {
+			gpio: gpio@8c000 {
 				compatible = "nxp,lpc-gpio";
 				reg = < 0x8c000 0x2488 >;
-				int-source = "pint";
-				gpio-controller;
-				#gpio-cells = < 0x2 >;
-				port = < 0x0 >;
-			};
-			gpio1: gpio@1 {
-				compatible = "nxp,lpc-gpio";
-				reg = < 0x8c000 0x2488 >;
-				int-source = "pint";
-				gpio-controller;
-				#gpio-cells = < 0x2 >;
-				port = < 0x1 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				gpio0: gpio@0 {
+					compatible = "nxp,lpc-gpio-port";
+					reg = < 0x0 >;
+					int-source = "pint";
+					gpio-controller;
+					#gpio-cells = < 0x2 >;
+				};
+				gpio1: gpio@1 {
+					compatible = "nxp,lpc-gpio-port";
+					reg = < 0x1 >;
+					int-source = "pint";
+					gpio-controller;
+					#gpio-cells = < 0x2 >;
+				};
 			};
 			pint: pint@4000 {
 				compatible = "nxp,pint";
@@ -290,6 +294,11 @@
 				reg = < 0x94000 0x1000 >;
 				interrupts = < 0x2f 0x1 >;
 				num-bidir-endpoints = < 0x6 >;
+				status = "disabled";
+			};
+			usbphy1: usbphy@38000 {
+				compatible = "nxp,usbphy";
+				reg = < 0x38000 0x1000 >;
 				status = "disabled";
 			};
 			ctimer0: ctimer@8000 {

@@ -677,6 +677,18 @@
 				status = "disabled";
 			};
 		};
+		flexio0: flexio@40324000 {
+			compatible = "nxp,flexio";
+			reg = < 0x40324000 0x4000 >;
+			interrupts = < 0x8b 0x0 >;
+			clocks = < &clock 0x57 >;
+			status = "disabled";
+			flexio0_pwm {
+				compatible = "nxp,flexio-pwm";
+				#pwm-cells = < 0x3 >;
+				status = "disabled";
+			};
+		};
 		lcu0: lcu@40098000 {
 			compatible = "nxp,s32-lcu";
 			reg = < 0x40098000 0x4000 >;

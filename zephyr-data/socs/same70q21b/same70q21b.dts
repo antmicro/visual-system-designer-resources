@@ -302,6 +302,10 @@
 			interrupts = < 0x17 0x0 0x18 0x0 0x19 0x0 >;
 			clocks = < &pmc 0x2 0x17 >, < &pmc 0x2 0x18 >, < &pmc 0x2 0x19 >;
 			status = "disabled";
+			qdec {
+				compatible = "atmel,sam-tc-qdec";
+				status = "disabled";
+			};
 		};
 		tc1: tc@40010000 {
 			compatible = "atmel,sam-tc";
@@ -309,6 +313,10 @@
 			interrupts = < 0x1a 0x0 0x1b 0x0 0x1c 0x0 >;
 			clocks = < &pmc 0x2 0x1a >, < &pmc 0x2 0x1b >, < &pmc 0x2 0x1c >;
 			status = "disabled";
+			qdec {
+				compatible = "atmel,sam-tc-qdec";
+				status = "disabled";
+			};
 		};
 		tc2: tc@40014000 {
 			compatible = "atmel,sam-tc";
@@ -316,6 +324,10 @@
 			interrupts = < 0x2f 0x0 0x30 0x0 0x31 0x0 >;
 			clocks = < &pmc 0x2 0x2f >, < &pmc 0x2 0x30 >, < &pmc 0x2 0x31 >;
 			status = "disabled";
+			qdec {
+				compatible = "atmel,sam-tc-qdec";
+				status = "disabled";
+			};
 		};
 		tc3: tc@40054000 {
 			compatible = "atmel,sam-tc";
@@ -323,6 +335,10 @@
 			interrupts = < 0x32 0x0 0x33 0x0 0x34 0x0 >;
 			clocks = < &pmc 0x2 0x32 >, < &pmc 0x2 0x33 >, < &pmc 0x2 0x34 >;
 			status = "disabled";
+			qdec {
+				compatible = "atmel,sam-tc-qdec";
+				status = "disabled";
+			};
 		};
 		trng: random@40070000 {
 			compatible = "atmel,sam-trng";

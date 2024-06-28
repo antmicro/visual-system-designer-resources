@@ -36,7 +36,7 @@
 	pinctrl-names = "default";
 };
 &fdcan1{
-	clocks = < &rcc 0xec 0x100 >, < &rcc 0x9 0x17c50 >;
+	clocks = < &rcc 0xec 0x100 >, < &rcc 0xc 0x27c50 >;
 	status = "okay";
 	pinctrl-0 = < &fdcan1_rx_pd0 &fdcan1_tx_pd1 >;
 	pinctrl-names = "default";
@@ -66,6 +66,15 @@
 	mul-n = < 0x60 >;
 	div-p = < 0x2 >;
 	div-q = < 0xa >;
+	div-r = < 0x2 >;
+	clocks = < &clk_hse >;
+};
+&pll2{
+	status = "okay";
+	div-m = < 0x4 >;
+	mul-n = < 0x78 >;
+	div-p = < 0x2 >;
+	div-q = < 0x3 >;
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
 };

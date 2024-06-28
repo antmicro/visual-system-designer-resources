@@ -32,6 +32,13 @@
 	pinctrl-0 = < &dac1_out2_pa5 >;
 	pinctrl-names = "default";
 };
+&fdcan1{
+	clocks = < &rcc 0xa0 0x200 >, < &rcc 0x9 0x168e8 >;
+	status = "okay";
+	pinctrl-0 = < &fdcan1_rx_pd0 &fdcan1_tx_pd1 >;
+	pinctrl-names = "default";
+	clk-divider = < 0x2 >;
+};
 &i2c1{
 	status = "okay";
 	pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
@@ -58,7 +65,7 @@
 	div-m = < 0x2 >;
 	mul-n = < 0x78 >;
 	div-p = < 0x2 >;
-	div-q = < 0x2 >;
+	div-q = < 0x3 >;
 	div-r = < 0x2 >;
 	clocks = < &clk_hse >;
 };
@@ -197,6 +204,12 @@
 	eth_tx_en_pg11: eth_tx_en_pg11 {
 		pinmux = < 0xd6b >;
 		slew-rate = "very-high-speed";
+	};
+	fdcan1_rx_pd0: fdcan1_rx_pd0 {
+		pinmux = < 0x609 >;
+	};
+	fdcan1_tx_pd1: fdcan1_tx_pd1 {
+		pinmux = < 0x629 >;
 	};
 	i2c1_scl_pb8: i2c1_scl_pb8 {
 		pinmux = < 0x304 >;
