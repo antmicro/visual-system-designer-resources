@@ -21,6 +21,13 @@
 &gpio32_63{
 	status = "okay";
 };
+&i2c2{
+	status = "okay";
+	compatible = "ambiq,i2c";
+	pinctrl-0 = < &i2c2_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0x186a0 >;
+};
 &i2c3{
 	status = "okay";
 	compatible = "ambiq,i2c";
@@ -34,6 +41,14 @@
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
 	clock-frequency = < 0xf4240 >;
+};
+&spi1{
+	status = "okay";
+	compatible = "ambiq,spi";
+	pinctrl-0 = < &spi1_default >;
+	pinctrl-names = "default";
+	clock-frequency = < 0xf4240 >;
+	cs-gpios = < &gpio0_31 0xb 0x1 >;
 };
 &uart0{
 	status = "okay";

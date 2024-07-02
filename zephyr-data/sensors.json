@@ -843,8 +843,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303.c",
-            "drivers/sensor/f75303/f75303_emul.c"
+            "drivers/sensor/f75303/f75303_emul.c",
+            "drivers/sensor/f75303/f75303.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1859,7 +1859,8 @@
             "address (i2c)": {
                 "type": "string"
             }
-        }
+        },
+        "rdp-compat": "national,lm95234"
     },
     "lps22df": {
         "category": "Environmental",
