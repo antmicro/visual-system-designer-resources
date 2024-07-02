@@ -18,15 +18,11 @@ from pipeline_manager.validator import validate
 from pipeline_manager.frontend_builder import build_prepare
 
 
-def check_categories_and_interfaces(
+def check_interfaces(
         specification_file: Path,
-        category_tree_file: Path,
         interfaces_file: Path) -> int:
     """
     Verifies categories and interfaces in the specification.
-
-    The components in the specification file should fall
-    only into categories specified in the ./category-tree.txt.
 
     All interfaces should be lower case and match one of
     the interfaces from ./interfaces.txt.
@@ -35,8 +31,6 @@ def check_categories_and_interfaces(
     ----------
     specification_file: Path
         Path to the specification file
-    category_tree_file: Path
-        Path to the tree of categories
     interfaces_file: Path
         Path to the list of available interfaces
 
@@ -46,22 +40,9 @@ def check_categories_and_interfaces(
         0 if categories and interfaces are valid
         Other value in case of an error.
     """
-    # Set of possible category paths
-    category_chains = set()
     # Set of possible interfaces
     interface_types = set()
 
-    curr_path = []
-    with open(category_tree_file, 'r') as category_fd:
-        for line in category_fd:
-            line = line.rstrip()
-            nest_level = (len(line) - len(line.lstrip())) // 4
-            if nest_level + 1 > len(curr_path):
-                curr_path.append(line.strip())
-            else:
-                curr_path[nest_level] = line.strip()
-                curr_path[nest_level + 1:] = []
-            category_chains.add('/'.join(curr_path))
     with open(interfaces_file, 'r') as interfaces_fd:
         for line in interfaces_fd:
             interface_types.add(line.strip())
@@ -71,13 +52,7 @@ def check_categories_and_interfaces(
 
     status = 0
     for node in spec["nodes"]:
-        if "category" in node and node["category"] not in category_chains:
-            print(
-                f'Category Error: Node "{node}" '
-                f'has invalid category "{node["category"]}"'
-            )
-            status = 1
-        if not "interfaces" in node:
+        if "interfaces" not in node:
             continue
         for interface in node["interfaces"]:
             if "isCategory" in node and node["isCategory"]:
@@ -107,7 +82,6 @@ def check_categories_and_interfaces(
 def validate_graphs(
         boards_directory: Path,
         specification_file: Path,
-        category_tree_file: Path,
         interfaces_file: Path,
         pipeline_manager_build_directory: Path) -> int:
     """
@@ -126,8 +100,6 @@ def validate_graphs(
     specification_file : Path
         Path to the JSON file with defined components
         to validate and compare with the boards
-    category_tree_file : Path
-        Path to the file with the category tree
     interfaces_file : Path
         Path to the file with available interfaces
     pipeline_manager_build_directory : Path
@@ -140,8 +112,8 @@ def validate_graphs(
         0 if categories and interfaces are valid
         Other value in case of an error.
     """
-    status = check_categories_and_interfaces(
-        specification_file, category_tree_file, interfaces_file
+    status = check_interfaces(
+        specification_file, interfaces_file
     )
     if status != 0:
         return status
@@ -183,12 +155,6 @@ if __name__ == '__main__':
         "--specification-file",
         help="Path to the specification file",
         default=Path('./components-specification.json'),
-        type=Path
-    )
-    parser.add_argument(
-        "--category-tree-file",
-        help="Path to the tree-like file with categories of node types",
-        default=Path("./category-tree.txt"),
         type=Path
     )
     parser.add_argument(
