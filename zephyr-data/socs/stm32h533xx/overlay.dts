@@ -6,6 +6,13 @@
 		zephyr,sram = &sram1;
 	};
 };
+&adc1{
+	status = "okay";
+	pinctrl-0 = < &adc1_inp0_pa0 >;
+	pinctrl-names = "default";
+	st,adc-clock-source = < 0x2 >;
+	st,adc-prescaler = < 0x8 >;
+};
 &clk_csi{
 	status = "okay";
 };
@@ -83,6 +90,9 @@
 		#gpio-cells = < 0x2 >;
 		reg = < 0x42021c00 0x400 >;
 		clocks = < &rcc 0x8c 0x80 >;
+	};
+	adc1_inp0_pa0: adc1_inp0_pa0 {
+		pinmux = < 0x10 >;
 	};
 	tim3_ch3_pb0: tim3_ch3_pb0 {
 		pinmux = < 0x202 >;

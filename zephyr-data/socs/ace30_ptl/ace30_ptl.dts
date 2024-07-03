@@ -67,16 +67,6 @@
 			reg = < 0x16000 0x2000 >;
 			status = "okay";
 		};
-		alh0: alh0@24400 {
-			compatible = "intel,alh-dai";
-			reg = < 0x24400 0x24600 >;
-			status = "okay";
-		};
-		alh1: alh1@24400 {
-			compatible = "intel,alh-dai";
-			reg = < 0x24400 0x24600 >;
-			status = "okay";
-		};
 		sspbase: ssp_base@28000 {
 			compatible = "intel,ssp-sspbase";
 			reg = < 0x28000 0x1000 >;
@@ -287,39 +277,27 @@
 				bit-position = < 0xf >;
 				phandle = < 0x2 >;
 			};
-			hub_hp_domain: hub_hpp_domain {
+			ml0_domain: ml0_domain {
 				compatible = "intel,adsp-power-domain";
-				bit-position = < 0x6 >;
+				bit-position = < 0xc >;
+			};
+			io1_domain: io1_domain {
+				compatible = "intel,adsp-power-domain";
+				bit-position = < 0x9 >;
 			};
 			io0_domain: io0_domain {
 				compatible = "intel,adsp-power-domain";
 				bit-position = < 0x8 >;
 				phandle = < 0x5 >;
 			};
-			io1_domain: io1_domain {
+			hub_hp_domain: hub_hpp_domain {
 				compatible = "intel,adsp-power-domain";
-				bit-position = < 0x9 >;
-			};
-			io2_domain: io2_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xa >;
-			};
-			io3_domain: io3_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xb >;
+				bit-position = < 0x6 >;
 			};
 			hst_domain: hst_domain {
 				compatible = "intel,adsp-power-domain";
 				bit-position = < 0x5 >;
 				phandle = < 0x7 >;
-			};
-			ml0_domain: ml0_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xc >;
-			};
-			ml1_domain: ml1_domain {
-				compatible = "intel,adsp-power-domain";
-				bit-position = < 0xd >;
 			};
 		};
 		shim: shim@71f00 {

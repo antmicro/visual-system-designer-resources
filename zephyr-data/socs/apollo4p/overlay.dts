@@ -6,6 +6,10 @@
 		zephyr,sram = &sram0;
 	};
 };
+&flash0{
+	erase-block-size = < 0x800 >;
+	write-block-size = < 0x10 >;
+};
 &gpio0_31{
 	status = "okay";
 };

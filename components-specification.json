@@ -36,7 +36,7 @@
             "zephyr": {
                 "icon": "icons_zephyr.svg",
                 "name": "Zephyr",
-                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/af57038bb053a6e60b0583af27b8ef7df3650ed2/"
+                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/bd2fc8009b988a47081e98e544fe0c01fecc429a/"
             }
         }
     },
@@ -280,6 +280,30 @@
             "icon": {
                 "designer-media-icon": "adlink_com-hpc-alt.webp"
             },
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Board to Board/AGX SoM Camera Connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c cam",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "array": [
+                        0,
+                        8
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mipi csi-2 x2",
+                    "side": "right",
+                    "type": "csi"
+                }
+            ],
             "isCategory": true
         },
         {
@@ -8934,6 +8958,21 @@
             "urls": {
                 "datasheet": "https://suddendocs.samtec.com/catalog_english/qsh_ra.pdf",
                 "hwp": "components/samtec-qsh-020-01-f-d-dp-a-k-tr"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Mezzanine Connector, Ground Plane, Header, 0.5 mm, 2 Rows, 120 Contacts, Surface Mount\n\n### Additional information\n\n*Datasheet*: [qsh-qth.pdf](https://suddendocs.samtec.com/productspecs/qsh-qth.pdf)",
+            "extends": [
+                "AGX SoM Camera Connector"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-plug-samtec-qth-2x60-qth-060-03-l-d-a/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Samtec QTH-060-03-L-D-A",
+            "urls": {
+                "datasheet": "https://suddendocs.samtec.com/productspecs/qsh-qth.pdf",
+                "hwp": "components/samtec-qth-060-03-l-d-a"
             }
         },
         {
@@ -20988,7 +21027,7 @@
                 ]
             },
             "category": "Sensor/Motion/icm426888",
-            "description": "ICM-42688 motion tracking device",
+            "description": "ICM-42688 motion tracking device\nWhen setting the accel-pm, accel-range, accel-odr, gyro-pm, gyro-range,\ngyro-odr properties in a .dts or .dtsi file you may include icm42688.h\nand use the macros defined there.\n\nExample:\n#include <zephyr/dt-bindings/sensor/icm42688.h>\n\nicm42688: icm42688@0 {\n  ...\n\n  accel-pwr-mode = <ICM42688_ACCEL_LN>;\n  accel-fs = <ICM42688_ACCEL_FS_16G>;\n  accel-odr = <ICM42688_ACCEL_ODR_2000>;\n  gyro-pwr-mode= <ICM42688_GYRO_LN>;\n  gyro-fs = <ICM42688_GYRO_FS_2000>;\n  gyro-odr = <ICM42688_GYRO_ODR_2000>;\n};\n",
             "interfaces": [
                 {
                     "direction": "inout",

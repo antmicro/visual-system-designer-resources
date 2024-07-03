@@ -69,3 +69,10 @@
 	pinctrl-1 = < &pinmux_lpuart1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&lpuart3{
+	status = "okay";
+	pinctrl-0 = < &pinmux_lpuart3_flowcontrol >;
+	pinctrl-1 = < &pinmux_lpuart3_sleep >;
+	pinctrl-names = "default", "sleep";
+	current-speed = < 0x1c200 >;
+};

@@ -220,8 +220,8 @@
 		usbd: usb@50040000 {
 			compatible = "renesas,smartbond-usbd";
 			reg = < 0x50040000 0x1b0 >;
-			dma-chan-rx = < 0x6 >;
-			dma-chan-tx = < 0x7 >;
+			dmas = < &dma 0x0 0x6 >, < &dma 0x1 0x6 >;
+			dma-names = "rx", "tx";
 			dma-min-transfer-size = < 0x41 >;
 			fifo-read-threshold = < 0x4 >;
 			ep-out-buf-size = < 0x8 0x40 0x40 0x40 >;
@@ -232,10 +232,11 @@
 			compatible = "renesas,smartbond-dma";
 			reg = < 0x50040800 0x110 >;
 			interrupts = < 0x1 0x0 >;
-			status = "disabled";
+			status = "okay";
 			dma-channels = < 0x8 >;
 			block-count = < 0x1 >;
 			#dma-cells = < 0x2 >;
+			phandle = < 0x4 >;
 		};
 		memc: qspic2@34000000 {
 			compatible = "renesas,smartbond-nor-psram";
@@ -265,7 +266,7 @@
 				power-state-name = "standby";
 				min-residency-us = < 0x1f4 >;
 				exit-latency-us = < 0x64 >;
-				phandle = < 0x4 >;
+				phandle = < 0x5 >;
 			};
 		};
 	};
@@ -289,14 +290,14 @@
 				clock-frequency = < 0x3a98 >;
 				#clock-cells = < 0x0 >;
 				status = "okay";
-				phandle = < 0x6 >;
+				phandle = < 0x7 >;
 			};
 			rc32m: rc32m {
 				compatible = "fixed-clock";
 				clock-frequency = < 0x1e84800 >;
 				#clock-cells = < 0x0 >;
 				status = "okay";
-				phandle = < 0x5 >;
+				phandle = < 0x6 >;
 			};
 			xtal32m: xtal32m {
 				compatible = "fixed-clock";
