@@ -561,74 +561,74 @@
 			interrupt-names = "rx_tx", "error";
 			clocks = < &clock 0xe7 >;
 		};
-		stm0: stm@76a00000 {
+		stm0: stm@76200000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76a00000 0x10000 >;
+			reg = < 0x76200000 0x10000 >;
 			interrupts = < 0x0 0xd 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		stm1: stm@76a10000 {
+		stm1: stm@76210000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76a10000 0x10000 >;
+			reg = < 0x76210000 0x10000 >;
 			interrupts = < 0x0 0xe 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		stm2: stm@76820000 {
+		stm2: stm@76020000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76820000 0x10000 >;
+			reg = < 0x76020000 0x10000 >;
 			interrupts = < 0x0 0xf 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		stm3: stm@76830000 {
+		stm3: stm@76030000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76830000 0x10000 >;
+			reg = < 0x76030000 0x10000 >;
 			interrupts = < 0x0 0x10 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		swt0: watchdog@76800000 {
+		swt0: watchdog@76000000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76800000 0x10000 >;
+			reg = < 0x76000000 0x10000 >;
 			interrupts = < 0x0 0x8 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			status = "disabled";
 		};
-		swt1: watchdog@76810000 {
+		swt1: watchdog@76010000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76810000 0x10000 >;
+			reg = < 0x76010000 0x10000 >;
 			interrupts = < 0x0 0x9 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			status = "disabled";
 		};
-		swt2: watchdog@76a20000 {
+		swt2: watchdog@76220000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76a20000 0x10000 >;
+			reg = < 0x76220000 0x10000 >;
 			interrupts = < 0x0 0xa 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			status = "disabled";
 		};
-		swt3: watchdog@76a30000 {
+		swt3: watchdog@76230000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76a30000 0x10000 >;
+			reg = < 0x76230000 0x10000 >;
 			interrupts = < 0x0 0xb 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			status = "disabled";
 		};
-		swt4: watchdog@76940000 {
+		swt4: watchdog@76140000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76940000 0x10000 >;
+			reg = < 0x76140000 0x10000 >;
 			interrupts = < 0x0 0xc 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			status = "disabled";
 		};
-		pit0: pit@76950000 {
+		pit0: pit@76150000 {
 			compatible = "nxp,pit";
-			reg = < 0x76950000 0x10000 >;
+			reg = < 0x76150000 0x10000 >;
 			interrupts = < 0x0 0x13 0x2 0xa0 >;
-			clocks = < &clock 0xc2 >;
+			clocks = < &clock 0xae >;
 			max-load-value = < 0xffffff >;
 			status = "disabled";
 			#address-cells = < 0x1 >;
@@ -668,25 +668,25 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@4 {
+		cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x4 >;
+			reg = < 0x0 >;
 		};
-		cpu@5 {
+		cpu@1 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x5 >;
+			reg = < 0x1 >;
 		};
-		cpu@6 {
+		cpu@2 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x6 >;
+			reg = < 0x2 >;
 		};
-		cpu@7 {
+		cpu@3 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x7 >;
+			reg = < 0x3 >;
 		};
 	};
 	arch_timer: timer {
