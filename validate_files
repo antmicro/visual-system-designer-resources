@@ -122,25 +122,13 @@ def validate_graphs(
 
     build_prepare(pipeline_manager_build_directory)
 
-    failed_boards = []
-    for board_dir in boards_directory.glob('*'):
-        board_name = board_dir.stem
-        print(f'\n\nChecking {board_dir.stem}...\n\n', flush=True)
-        board_file = board_dir / f"{board_name}.json"
-        status = validate(
-            specification_file,
-            board_file,
-            workspace_directory=pipeline_manager_build_directory
-        )
-        if status > 1:
-            failed_boards.append(board_file)
-    if failed_boards:
-        print("Invalid graphs:", flush=True)
-        for board in failed_boards:
-            print(board)
-    if failed_boards:
-        return 1
-    return 0
+    all_boards = [path / f"{path.stem}.json" for path in boards_directory.glob('*')]
+    status = validate(
+        specification_file,
+        all_boards,
+        workspace_directory=pipeline_manager_build_directory
+    )
+    return status
 
 
 if __name__ == '__main__':
