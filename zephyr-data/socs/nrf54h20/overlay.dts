@@ -3,8 +3,11 @@
 	chosen {
 		zephyr,console = &uart136;
 		zephyr,flash = &mram1x;
-		zephyr,sram = &cpurad_ram0;
 	};
+};
+&adc{
+	status = "okay";
+	memory-regions = < &cpuapp_dma_region >;
 };
 &can120{
 	status = "okay";
@@ -25,6 +28,13 @@
 };
 &gpio9{
 	status = "okay";
+};
+&pwm130{
+	status = "okay";
+	pinctrl-0 = < &pwm130_default >;
+	pinctrl-1 = < &pwm130_sleep >;
+	pinctrl-names = "default", "sleep";
+	memory-regions = < &cpuapp_dma_region >;
 };
 &uart135{
 	current-speed = < 0x1c200 >;
@@ -85,6 +95,17 @@
 	can120_default: can120_default {
 		group1 {
 			psels = < 0x5e0124 >, < 0x5c0125 >;
+		};
+	};
+	pwm130_default: pwm130_default {
+		group1 {
+			psels = < 0x2c0122 >;
+		};
+	};
+	pwm130_sleep: pwm130_sleep {
+		group1 {
+			psels = < 0x2c0122 >;
+			low-power-enable;
 		};
 	};
 };

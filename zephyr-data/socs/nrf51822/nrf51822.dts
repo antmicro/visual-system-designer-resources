@@ -13,7 +13,7 @@
 	soc {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x1 >;
-		compatible = "nordic,nrf51822-qfaa", "nordic,nrf51822", "nordic,nrf51", "simple-bus";
+		compatible = "nordic,nrf51822-qfac", "nordic,nrf51822", "nordic,nrf51", "simple-bus";
 		interrupt-parent = < &nvic >;
 		ranges;
 		nvic: interrupt-controller@e000e100 {
@@ -38,7 +38,7 @@
 		};
 		sram0: memory@20000000 {
 			compatible = "mmio-sram";
-			reg = < 0x20000000 0x4000 >;
+			reg = < 0x20000000 0x8000 >;
 		};
 		power: power@40000000 {
 			compatible = "nordic,nrf-power";

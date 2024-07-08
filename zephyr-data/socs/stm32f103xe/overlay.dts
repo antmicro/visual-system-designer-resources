@@ -22,6 +22,9 @@
 &clk_lsi{
 	status = "okay";
 };
+&flash0{
+	reg = < 0x8000000 0x40000 >;
+};
 &i2c1{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -53,6 +56,9 @@
 	status = "okay";
 	pinctrl-0 = < &spi2_nss_master_pb12 &spi2_sck_master_pb13 &spi2_miso_master_pb14 &spi2_mosi_master_pb15 >;
 	pinctrl-names = "default";
+};
+&sram0{
+	reg = < 0x20000000 0xc000 >;
 };
 &usart1{
 	status = "okay";

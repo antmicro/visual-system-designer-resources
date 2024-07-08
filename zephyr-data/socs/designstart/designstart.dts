@@ -15,7 +15,7 @@
 		ranges;
 		nvic: interrupt-controller@e000e100 {
 			#address-cells = < 0x1 >;
-			compatible = "arm,v7m-nvic";
+			compatible = "arm,v6m-nvic";
 			reg = < 0xe000e100 0xc00 >;
 			interrupt-controller;
 			#interrupt-cells = < 0x2 >;
@@ -23,7 +23,7 @@
 			phandle = < 0x1 >;
 		};
 		systick: timer@e000e010 {
-			compatible = "arm,armv7m-systick";
+			compatible = "arm,armv6m-systick";
 			reg = < 0xe000e010 0x10 >;
 		};
 	};
