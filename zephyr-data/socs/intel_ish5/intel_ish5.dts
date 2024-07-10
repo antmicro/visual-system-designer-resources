@@ -15,26 +15,19 @@
 			substate-id = < 0x1 >;
 			phandle = < 0x1 >;
 		};
-		d0i1: d0i1 {
-			compatible = "zephyr,power-state";
-			power-state-name = "suspend-to-idle";
-			min-residency-us = < 0x7d0 >;
-			substate-id = < 0x2 >;
-			phandle = < 0x2 >;
-		};
 		d0i2: d0i2 {
 			compatible = "zephyr,power-state";
 			power-state-name = "suspend-to-ram";
-			min-residency-us = < 0xfa0 >;
+			min-residency-us = < 0x2710 >;
 			substate-id = < 0x3 >;
-			phandle = < 0x3 >;
+			phandle = < 0x2 >;
 		};
 		d0i3: d0i3 {
 			compatible = "zephyr,power-state";
 			power-state-name = "suspend-to-disk";
 			min-residency-us = < 0x2dc6c0 >;
 			substate-id = < 0x4 >;
-			phandle = < 0x4 >;
+			phandle = < 0x3 >;
 		};
 	};
 	cpus {
@@ -44,7 +37,7 @@
 			device_type = "cpu";
 			compatible = "intel,ish";
 			reg = < 0x0 >;
-			cpu-power-states = < &d0i0 &d0i1 &d0i2 &d0i3 >;
+			cpu-power-states = < &d0i0 &d0i2 &d0i3 >;
 		};
 	};
 	intc: ioapic@fec00000 {
@@ -53,7 +46,7 @@
 		#interrupt-cells = < 0x3 >;
 		reg = < 0xfec00000 0x1000 >;
 		interrupt-controller;
-		phandle = < 0x5 >;
+		phandle = < 0x4 >;
 	};
 	intc_loapic: loapic@fee00000 {
 		compatible = "intel,loapic";
