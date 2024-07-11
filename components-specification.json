@@ -4394,40 +4394,6 @@
             }
         },
         {
-            "category": "Debugger/J-Link Debugger",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pti",
-                    "side": "right",
-                    "type": "pti"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "serial",
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "swd",
-                    "side": "left",
-                    "type": "swd"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usb",
-                    "side": "left",
-                    "type": "usb"
-                }
-            ],
-            "isCategory": true
-        },
-        {
             "abstract": false,
             "description": "USB-C (USB TYPE-C) USB 3.2 Gen 2 (USB 3.1 Gen 2, Superspeed + (USB 3.1)) Receptacle Connector 24 Position Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [id=66508](https://www.jae.com/en/connectors/series/detail/product/id=66508)",
             "extends": [
@@ -7097,7 +7063,7 @@
         },
         {
             "abstract": false,
-            "description": "LPDDR4 DRAM, 1GX32\n\n### Additional information\n\n*Datasheet*: [search-results?searchRequest=%7B%22term%22%3A%22MT53D512M32D2DS-053%20WT%3AD%20TR%22%7D](https://www.micron.com/search-results?searchRequest=%7B%22term%22%3A%22MT53D512M32D2DS-053%20WT%3AD%20TR%22%7D)",
+            "description": "LPDDR4 DRAM, 1GX32\n\n### Additional information\n\n*Datasheet*: [200b_z11m_non_auto_lpddr4_lpddr4x-3077547.pdf](https://eu.mouser.com/datasheet/2/671/200b_z11m_non_auto_lpddr4_lpddr4x-3077547.pdf)",
             "extends": [
                 "LPDDR4"
             ],
@@ -7106,7 +7072,7 @@
             },
             "name": "Micron Technology MT53D512M32D2DS-053 WT:D TR",
             "urls": {
-                "datasheet": "https://www.micron.com/search-results?searchRequest=%7B%22term%22%3A%22MT53D512M32D2DS-053%20WT%3AD%20TR%22%7D",
+                "datasheet": "https://eu.mouser.com/datasheet/2/671/200b_z11m_non_auto_lpddr4_lpddr4x-3077547.pdf",
                 "hwp": "components/micron-technology-mt53d512m32d2ds-053-wt-d-tr"
             }
         },
@@ -9395,7 +9361,7 @@
             "abstract": false,
             "description": "ARM MCU, EFM32 Family EFM32GG Series Microcontrollers, ARM Cortex-M4, 32 bit, 72 MHz, 1 MB\n\n### Additional information\n\n*Datasheet*: [efm32gg12_datasheet-1548213.pdf](https://www.mouser.com/datasheet/2/368/efm32gg12_datasheet-1548213.pdf)",
             "extends": [
-                "J-Link Debugger"
+                "efm32gg12b410f1024gl120"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-169-120-7x7mm-layout13x13-p0-5mm-silicon-labs-efm32gg12b410f1024gl120-ar/previews/isoF_thumbnail_64x64.webp"
@@ -12420,7 +12386,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -15127,6 +15093,165 @@
                 "rdp": "soc/efm32gg11b820f2048gm64",
                 "zephyr": "dts/arm/silabs/efm32gg11b820f2048gl192.dtsi"
             }
+        },
+        {
+            "category": "SoC/Silicon Labs/efm32gg12b410f1024gl120",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioa",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiob",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioc",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiod",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioe",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiof",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c0",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c1",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "leuart0",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "leuart1",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "msc",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pti",
+                    "side": "left",
+                    "type": "pti"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "swd",
+                    "side": "right",
+                    "type": "swd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart0",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart1",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart3",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart4",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "SoC/Silicon Labs/efm32gg12b810f1024gm64",
@@ -18624,7 +18749,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "drivers/sensor/f75303/f75303.c"
             }
         },
         {
