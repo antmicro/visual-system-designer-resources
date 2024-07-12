@@ -17,9 +17,9 @@
 				compatible = "mmio-sram";
 				reg = < 0x1b000 0x165000 >;
 			};
-			sram0: memory@20180000 {
+			sram0: memory@180000 {
 				compatible = "mmio-sram";
-				reg = < 0x20180000 0x300000 >;
+				reg = < 0x180000 0x300000 >;
 			};
 			sram1: memory@40140000 {
 				compatible = "zephyr,memory-region", "mmio-sram";
@@ -32,6 +32,15 @@
 			ranges = < 0x0 0x50000000 0x10000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
+			flexspi: spi@134000 {
+				reg = < 0x134000 0x1000 >, < 0x18000000 0x8000000 >;
+				compatible = "nxp,imx-flexspi";
+				interrupts = < 0x2a 0x0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				status = "disabled";
+				clocks = < &clkctl1 0xa00 >;
+			};
 			clkctl0: clkctl@1000 {
 				compatible = "nxp,lpc-syscon";
 				reg = < 0x1000 0x1000 >;
@@ -296,7 +305,7 @@
 				max-bus-freq = < 0xc65d400 >;
 				min-bus-freq = < 0x61a80 >;
 			};
-			lpadc0: lpadc@13A0000 {
+			lpadc0: lpadc@13a000 {
 				compatible = "nxp,lpc-lpadc";
 				reg = < 0x13a000 0x304 >;
 				interrupts = < 0x16 0x0 >;
@@ -409,15 +418,6 @@
 					status = "disabled";
 				};
 			};
-		};
-		flexspi: spi@134000 {
-			reg = < 0x50134000 0x1000 >, < 0x18000000 0x8000000 >;
-			compatible = "nxp,imx-flexspi";
-			interrupts = < 0x2a 0x0 >;
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x0 >;
-			status = "disabled";
-			clocks = < &clkctl1 0xa00 >;
 		};
 		nvic: interrupt-controller@e000e100 {
 			#address-cells = < 0x1 >;

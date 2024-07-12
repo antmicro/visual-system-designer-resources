@@ -251,7 +251,7 @@
 				#io-channel-cells = < 0x1 >;
 				dmas = < &dma0 0x15 >, < &dma0 0x16 >;
 				dma-names = "adc0-dma0", "adc0-dma1";
-				nxp,reference-supply = < &vref0 >;
+				nxp,references = < &vref0 0x708 >;
 				clocks = < &syscon 0xf00 >;
 			};
 			dac0: dac@b2000 {
@@ -410,6 +410,7 @@
 				regulator-name = "lpc55s36-vref";
 				reg = < 0xb5000 0x30 >;
 				status = "disabled";
+				#nxp,reference-cells = < 0x1 >;
 				nxp,buffer-startup-delay-us = < 0x190 >;
 				nxp,bandgap-startup-time-us = < 0x14 >;
 				phandle = < 0x5 >;

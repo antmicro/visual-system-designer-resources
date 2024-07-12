@@ -709,6 +709,7 @@
 				regulator-name = "mcxn94x-vref";
 				reg = < 0x111000 0x14 >;
 				status = "disabled";
+				#nxp,reference-cells = < 0x1 >;
 				nxp,buffer-startup-delay-us = < 0x190 >;
 				nxp,bandgap-startup-time-us = < 0x14 >;
 				regulator-min-microvolt = < 0xf4240 >;
@@ -729,7 +730,7 @@
 				offset-value-b = < 0x0 >;
 				#io-channel-cells = < 0x1 >;
 				clocks = < &syscon 0xf00 >;
-				nxp,reference-supply = < &vref >;
+				nxp,references = < &vref 0x708 >;
 			};
 			lpadc1: lpadc@10e000 {
 				compatible = "nxp,lpc-lpadc";

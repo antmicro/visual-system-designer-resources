@@ -32,9 +32,9 @@
 			ranges = < 0x20000000 0x30000000 0x130000 0x0 0x10000000 0x130000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			sram_data: memory@20000000 {
+			sram_data: memory@40000 {
 				compatible = "mmio-sram";
-				reg = < 0x20040000 0xf0000 >;
+				reg = < 0x40000 0xf0000 >;
 			};
 			sram_code: memory@0 {
 				compatible = "mmio-sram";
@@ -45,6 +45,15 @@
 			ranges = < 0x0 0x50000000 0x10000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
+			flexspi: spi@134000 {
+				reg = < 0x134000 0x1000 >, < 0x18000000 0x8000000 >;
+				compatible = "nxp,imx-flexspi";
+				status = "disabled";
+				interrupts = < 0x2a 0x0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				clocks = < &clkctl1 0xa00 >;
+			};
 			clkctl0: clkctl@1000 {
 				compatible = "nxp,lpc-syscon";
 				reg = < 0x1000 0x1000 >;
@@ -410,15 +419,6 @@
 					phandle = < 0x7 >;
 				};
 			};
-		};
-		flexspi: spi@134000 {
-			reg = < 0x50134000 0x1000 >, < 0x18000000 0x8000000 >;
-			compatible = "nxp,imx-flexspi";
-			status = "disabled";
-			interrupts = < 0x2a 0x0 >;
-			#address-cells = < 0x1 >;
-			#size-cells = < 0x0 >;
-			clocks = < &clkctl1 0xa00 >;
 		};
 	};
 	cpus {
