@@ -9,56 +9,47 @@
 	reg = < 0x0 0x80000000 >;
 };
 &i2c0{
-	device-id = < 0x7acc >;
-	dmas = < &i2c0_dma 0x0 >;
+	device-id = < 0x51e8 >;
 };
 &i2c1{
-	device-id = < 0x7acd >;
-	dmas = < &i2c1_dma 0x0 >;
+	device-id = < 0x51e9 >;
+	status = "okay";
 };
 &i2c2{
-	device-id = < 0x7ace >;
-	dmas = < &i2c2_dma 0x0 >;
+	device-id = < 0x51ea >;
 };
 &i2c3{
-	device-id = < 0x7acf >;
-	dmas = < &i2c3_dma 0x0 >;
+	device-id = < 0x51eb >;
 };
 &i2c4{
-	device-id = < 0x7afc >;
-	dmas = < &i2c4_dma 0x0 >;
+	device-id = < 0x51c5 >;
 };
 &i2c5{
-	device-id = < 0x7afd >;
-	dmas = < &i2c5_dma 0x0 >;
+	device-id = < 0x51c6 >;
 };
 &i2c6{
-	device-id = < 0x7ada >;
-	dmas = < &i2c6_dma 0x0 >;
+	device-id = < 0x51d8 >;
 };
 &i2c7{
-	device-id = < 0x7adb >;
-	dmas = < &i2c7_dma 0x0 >;
+	device-id = < 0x51d9 >;
 };
 &spi0{
-	device-id = < 0x7aaa >;
-	cs-gpios = < &gpio_0_i 0xf 0x1 >;
+	device-id = < 0x51aa >;
+	cs-gpios = < &gpio_4_e 0xa 0x1 >;
 };
 &spi1{
-	device-id = < 0x7aab >;
-	cs-gpios = < &gpio_0_i 0x13 0x1 >;
+	device-id = < 0x51ab >;
+	cs-gpios = < &gpio_4_f 0x10 0x1 >;
 };
 &spi2{
-	device-id = < 0x7afb >;
-	cs-gpios = < &gpio_0_r 0xc 0x1 >;
+	device-id = < 0x51fb >;
+	cs-gpios = < &gpio_1_d 0x9 0x1 >;
 };
 &uart0{
-	device-id = < 0x7aa8 >;
-	dmas = < &uart0_dma 0x0 >, < &uart0_dma 0x1 >;
-	dma-names = "tx", "rx";
+	device-id = < 0x51a8 >;
+	status = "okay";
 };
 &uart1{
-	device-id = < 0x7aa9 >;
-	dmas = < &uart1_dma 0x0 >, < &uart1_dma 0x1 >;
-	dma-names = "tx", "rx";
+	device-id = < 0x51a9 >;
+	status = "okay";
 };
