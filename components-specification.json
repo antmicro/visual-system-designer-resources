@@ -2637,18 +2637,7 @@
         },
         {
             "category": "Interfacing/Video/CVBS to MIPI CSI-2 bridge",
-            "description": "\n\nAn open source video bridge converting the analog composite video (CVBS) standard into MIPI CSI-2. The video conversion is handled with Analog Devices [ADV7828-M](https://www.analog.com/media/en/technical-documentation/data-sheets/ADV7282.pdf) 10-bit 4x Oversampled SDTV Video Decoder.\n\nThis video accessory is electrically compatible with several video processing platforms created by Antmicro, such as Jetson Baseboards, Google Coral Baseboard, Snapdragon Baseboards and the AMD-Xilinx Kria K26 DevBoard.\n\n",
-            "icon": {
-                "vsd-resources": "boards/cvbs-mipi-bridge/cvbs-mipi-bridge_small.webp"
-            },
             "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "Antmicro Dual Camera interface",
-                    "side": "right",
-                    "type": "ant-dual-camera"
-                },
                 {
                     "array": [
                         0,
@@ -2677,12 +2666,29 @@
                     "name": "mipi csi-2 x4",
                     "side": "right",
                     "type": "csi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/CVBS to MIPI CSI-2 converter board",
+            "description": "\n\nAn open source video bridge converting the analog composite video (CVBS) standard into MIPI CSI-2. The video conversion is handled with Analog Devices [ADV7828-M](https://www.analog.com/media/en/technical-documentation/data-sheets/ADV7282.pdf) 10-bit 4x Oversampled SDTV Video Decoder.\n\nThis video accessory is electrically compatible with several video processing platforms created by Antmicro, such as Jetson Baseboards, Google Coral Baseboard, Snapdragon Baseboards and the AMD-Xilinx Kria K26 DevBoard.\n\n",
+            "icon": {
+                "vsd-resources": "boards/cvbs-mipi-bridge/cvbs-mipi-bridge_small.webp"
+            },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Antmicro Dual Camera interface",
+                    "side": "left",
+                    "type": "ant-dual-camera"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "rca",
-                    "side": "left",
+                    "side": "right",
                     "type": "rca"
                 }
             ],
@@ -9311,7 +9317,7 @@
         },
         {
             "category": "Devices/M12 Adapter",
-            "description": "This board provide access to scanner’s debug consoles and GPIOs, alongside power supply in one cable assembly.",
+            "description": "This board provide access to the scanner’s debug consoles and GPIOs, alongside power supply in a one cable assembly.",
             "icon": {
                 "designer-media-icon": "m12_adapter.webp"
             },
@@ -14115,7 +14121,7 @@
         },
         {
             "category": "Devices/Stereo Sensor Unit",
-            "description": "This board manages the sensors, controls image acquisition and combines stereo-vision image data into HDMI stream",
+            "description": "This board manages the sensors, controls image acquisition and combines stereo-vision image data into an HDMI stream.",
             "icon": {
                 "designer-media-icon": "stereo_sensor_unit.webp"
             },
@@ -16107,7 +16113,7 @@
         },
         {
             "category": "Devices/X-Mine Scanner",
-            "description": "X-Mine Scanner - the image processing device for recognizing and sorting stones based on its features capable of detecting individual rocks on the conveyor belt. Every rock is described using a number of detected parameters. The parameters are: Object ID, X position of the object in the processing frame, Y position of the object in the processing frame, Height of the object (highest point of the object), Width in the X axis, Width in the Y axis and Colour",
+            "description": "X-Mine Scanner - the image processing device for recognizing and sorting stones based on its features capable of detecting individual rocks on the conveyor belt. Every rock is described using a number of detected parameters. The parameters are: Object ID, X position of the object in the processing frame, Y position of the object in the processing frame, Height of the object (highest point of the object), Width in the X axis, Width in the Y axis and Colour.",
             "icon": {
                 "designer-media-icon": "x-mine_scanner.webp"
             },
