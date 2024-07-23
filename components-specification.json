@@ -48,7 +48,7 @@
             "zephyr": {
                 "icon": "icons_zephyr.svg",
                 "name": "Zephyr",
-                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/80ce7d2315046e0852e6b95036baf29d62ac731b/"
+                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/f9e3b65d3a9794ee2233aa88172346f887b48d04/"
             }
         }
     },
@@ -501,6 +501,101 @@
                     "name": "USB 3.2 D",
                     "side": "left",
                     "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/AD-GMSLCAMRPI-ADP Adapter",
+            "description": "The AD-GMSLCAMRPI-ADP enables connecting GMSL serializer and deserializer evaluation kits to a wide range of cameras and processing platforms supporting industry standard ribbon cable connectors. The adapter consists of three sections that can be broken apart from each other.",
+            "icon": {
+                "designer-media-icon": "ad-gmslcamrpi-adp_adapter.webp"
+            },
+            "isCategory": true
+        },
+        {
+            "category": "Devices/AD-GMSLCAMRPI-ADP Deserializer Adapter",
+            "description": "The GMSL Deserializer EVK Adapter provides two 22-pin ribbon cable connectors that allow connecting to any processing platform supporting the 15-pin or 22-pin ribbon cable connectors.",
+            "icon": {
+                "designer-media-icon": "ad-gmslcamrpi-adp_deserializer_adapter.webp"
+            },
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gmsl deserializer ev kit connector",
+                    "side": "left",
+                    "type": "gmsl deserializer ev kit connector"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-a",
+                    "side": "left",
+                    "type": "usb a"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/AD-GMSLCAMRPI-ADP FFC Adapter",
+            "description": "The Ribbon Cable Adapter provides two pairs of 15-pin and 22-pin connectors routed to each other. The 15-pin connectors support 2 MIPI lanes, while the 22-pin connectors support 4 MIPI lanes.",
+            "icon": {
+                "designer-media-icon": "ad-gmslcamrpi-adp_ffc_adapter.webp"
+            },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "left",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rpi camera interface",
+                    "side": "right",
+                    "type": "rpi-csi"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/AD-GMSLCAMRPI-ADP Serializer Adapter",
+            "description": "The GMSL Serializer EVK Adapter provides two 22-pin ribbon cable connectors for connecting cameras to the GMSL serializers. A USB Type-A connector is available to supply 5V @ 4A to another system.",
+            "icon": {
+                "designer-media-icon": "ad-gmslcamrpi-adp_serializer_adapter.webp"
+            },
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gmsl serializer ev kit connector",
+                    "side": "left",
+                    "type": "gmsl serializer ev kit connector"
                 }
             ],
             "isCategory": true
@@ -1278,6 +1373,152 @@
                 "designer": "hardware/components/analog-devices-adxl362bccz-rl7",
                 "hwp": "components/analog-devices-adxl362bccz-rl7"
             }
+        },
+        {
+            "category": "Devices/Analog Devices GMSL camera system",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "40-pin gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi[1]",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "displayport",
+                    "side": "right",
+                    "type": "dp"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "left",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fakra[1]",
+                    "side": "right",
+                    "type": "fakra"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fakra[2]",
+                    "side": "left",
+                    "type": "fakra"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fakra[3]",
+                    "side": "right",
+                    "type": "fakra"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key e",
+                    "side": "right",
+                    "type": "m.2 key e"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key m[0]",
+                    "side": "right",
+                    "type": "m.2 key m"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key m[1]",
+                    "side": "left",
+                    "type": "m.2 key m"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "micro sd-card",
+                    "side": "right",
+                    "type": "micro sd-card"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb micro-b",
+                    "side": "right",
+                    "type": "usb micro"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-a",
+                    "side": "left",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-a[0]",
+                    "side": "left",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-a[1]",
+                    "side": "right",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-a[2]",
+                    "side": "left",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-a[3]",
+                    "side": "right",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "side": "left",
+                    "type": "usb-c"
+                }
+            ],
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -5713,6 +5954,11 @@
             }
         },
         {
+            "category": "Devices/GMSL camera system",
+            "description": "The GMSL camera system enables connecting off-the-shelf GMSL (Gigabit Multimedia Serial Link) serializer and deserializer evaluation kits for reliable high-speed data transmission.",
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/Video/GMSL to MIPI CSI-2",
             "interfaces": [
                 {
@@ -9324,6 +9570,100 @@
             "isCategory": true
         },
         {
+            "category": "Devices/MAX96717 GMSL Serializer Evaluation Kit",
+            "description": "The MAX96717 DPHY evaluation kit offers an easy way to start development with the MAX96717 high-bandwidth gigabit multimedia serial link (GMSL) serializer providing spread spectrum and full-duplex control channel using a standard FAKRA coaxial (Coax) or HMTD cable.",
+            "icon": {
+                "designer-media-icon": "max96717_gmsl_serializer_evaluation_kit.webp"
+            },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fakra",
+                    "side": "right",
+                    "type": "fakra"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gmsl serializer ev kit connector",
+                    "side": "left",
+                    "type": "gmsl serializer ev kit connector"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "right",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb micro-b",
+                    "side": "left",
+                    "type": "usb micro"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/MAX96724 GMSL Deserializer Evaluation Kit",
+            "description": "The MAX96724 DPHY evaluation kit enables evaluation of the MAX96724, MAX96724F, and MAX96724R devices using standard FAKRA coaxial cables or a MATE-AX cable.",
+            "icon": {
+                "designer-media-icon": "max96724_gmsl_deserializer_evaluation_kit.webp"
+            },
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fakra",
+                    "side": "right",
+                    "type": "fakra"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gmsl deserializer ev kit connector",
+                    "side": "left",
+                    "type": "gmsl deserializer ev kit connector"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "right",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb micro-b",
+                    "side": "left",
+                    "type": "usb micro"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Sensor/Accelerometer/MC3635",
             "extends": [
                 "i2c-device"
@@ -11338,6 +11678,7 @@
         },
         {
             "category": "Devices/Nvidia Jetson Orin Nano 4GB",
+            "description": "The Jetson Orin Nano 4GB SoM delivers up to 20 TOPS of AI performance in the smallest NVIDIA Jetson form-factor (69.6mm x 45mm), with power options between 7W and 10W.",
             "icon": {
                 "designer-media-icon": "nvidia_jetson_orin_nano_4gb.webp"
             },
@@ -11345,9 +11686,107 @@
         },
         {
             "category": "Devices/Nvidia Jetson Orin Nano 8GB",
+            "description": "The Jetson Orin Nano 8GB SoM delivers up to 40 TOPS of AI performance in the smallest NVIDIA Jetson form-factor (69.6mm x 45mm), with power options between 7W and 15W.",
             "icon": {
                 "designer-media-icon": "nvidia_jetson_orin_nano_8gb.webp"
             },
+            "isCategory": true
+        },
+        {
+            "category": "Devices/Nvidia Jetson Orin Nano Developer Kit",
+            "description": "The Jetson Orin Nano Developer Kit offers a straightforward way for getting started with the Jetson Orin Nano series to create entry-level AI-powered robots, smart drones, and intelligent cameras.",
+            "icon": {
+                "designer-media-icon": "nvidia_jetson_orin_nano_developer_kit.webp"
+            },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "40-pin gpio",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "csi",
+                    "side": "right",
+                    "type": "csi"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "displayport",
+                    "side": "left",
+                    "type": "dp"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "left",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key e",
+                    "side": "right",
+                    "type": "m.2 key e"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key m",
+                    "side": "left",
+                    "type": "m.2 key m"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "micro sd-card",
+                    "side": "left",
+                    "type": "micro sd-card"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "right",
+                    "type": "power"
+                },
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-a",
+                    "side": "left",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "side": "right",
+                    "type": "usb-c"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/Nvidia Jetson Orin Nano Developer Kit Carrier Board",
+            "description": "The Jetson Orin Nano Developer Kit Carrier Board, in combination with Jetson Orin Nano or Jetson Orin NX modules, can be used to prototype, test and develop edge AI solutions.",
             "isCategory": true
         },
         {
@@ -12262,6 +12701,23 @@
                     "name": "usb",
                     "side": "left",
                     "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/Raspberry Pi IMX219 Camera Module 2",
+            "description": "The Raspberry Pi Camera Module 2 provides a Sony IMX219 8-megapixel sensor, supporting 1080p30, 720p60 and VGA90 video modes, as well as still capture. It attaches via a 15cm ribbon cable to the CSI port on the Raspberry Pi.",
+            "icon": {
+                "designer-media-icon": "raspberry_pi_imx219_camera_module_2.webp"
+            },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rpi camera interface",
+                    "side": "left",
+                    "type": "rpi-csi"
                 }
             ],
             "isCategory": true
@@ -15843,7 +16299,7 @@
                 "QSPI Flash"
             ],
             "icon": {
-                "hw-icon": "/blender-models/soic-8-5-3x5-3x2mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+                "hw-icon": "/blender-models/soic-8-5-3x5-3x2mm-p1-27mm-winbond-w25q32jvssiq/previews/isoF_thumbnail_64x64.webp"
             },
             "name": "Winbond W25Q32JVSSIQ",
             "urls": {
@@ -18246,31 +18702,6 @@
                 "designer": "hardware/socs/bcm58400",
                 "rdp": "soc/bcm58400",
                 "zephyr": "dts/arm/broadcom/valkyrie.dtsi"
-            }
-        },
-        {
-            "category": "SoC/Broadcom/bcm58402",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart0",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart1",
-                    "side": "right",
-                    "type": "serial"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "designer": "hardware/socs/bcm58402",
-                "rdp": "soc/bcm58402",
-                "zephyr": "dts/arm/broadcom/viper-m7.dtsi"
             }
         },
         {
@@ -22445,7 +22876,7 @@
             "urls": {
                 "designer": "hardware/socs/emsdp_em7d",
                 "rdp": "soc/emsdp_em7d",
-                "zephyr": "dts/arc/synopsys/emsdp-sec.dtsi"
+                "zephyr": "dts/arc/synopsys/emsdp.dtsi"
             }
         },
         {
@@ -22924,7 +23355,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32",
                 "rdp": "soc/esp32",
-                "zephyr": "dts/xtensa/espressif/esp32/esp32_appcpu.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32/esp32_d0wd_v3.dtsi"
             }
         },
         {
@@ -23075,7 +23506,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32-wrover",
                 "rdp": "soc/esp32-wrover",
-                "zephyr": "dts/xtensa/espressif/esp32/esp32_wrover_e_n16r4.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32/esp32_appcpu.dtsi"
             }
         },
         {
@@ -23388,7 +23819,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32s3",
                 "rdp": "soc/esp32s3",
-                "zephyr": "dts/xtensa/espressif/esp32s3/esp32s3_mini_n8.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32s3/esp32s3_appcpu.dtsi"
             }
         },
         {
@@ -23440,7 +23871,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "drivers/sensor/f75303/f75303.c"
             }
         },
         {
@@ -28653,7 +29084,7 @@
             "urls": {
                 "designer": "hardware/socs/lpc55s69",
                 "rdp": "soc/lpc55s69",
-                "zephyr": "dts/arm/nxp/nxp_lpc55S6x_ns.dtsi"
+                "zephyr": "dts/arm/nxp/nxp_lpc55S6x.dtsi"
             }
         },
         {
@@ -39355,7 +39786,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf51822",
                 "rdp": "soc/nrf51822",
-                "zephyr": "dts/arm/nordic/nrf51822_qfaa.dtsi"
+                "zephyr": "dts/arm/nordic/nrf51822_qfac.dtsi"
             }
         },
         {
@@ -40446,148 +40877,141 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "radio",
-                    "side": "left",
-                    "type": "rf"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
                     "name": "spi120",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi121",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi130",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi131",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi132",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi133",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi134",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi135",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi136",
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi137",
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart120",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart130",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart131",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart132",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart133",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart134",
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart135",
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart136",
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart137",
                     "side": "right",
                     "type": "serial"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "usbhs",
+                    "name": "uart137",
                     "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usbhs",
+                    "side": "right",
                     "type": "usb"
                 }
             ],
@@ -40595,7 +41019,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf54h20",
                 "rdp": "soc/nrf54h20",
-                "zephyr": "dts/arm/nordic/nrf54h20_cpurad.dtsi"
+                "zephyr": "dts/arm/nordic/nrf54h20_cpuapp.dtsi"
             }
         },
         {
@@ -40760,7 +41184,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf9131",
                 "rdp": "soc/nrf9131",
-                "zephyr": "dts/arm/nordic/nrf9131_laca.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9131ns_laca.dtsi"
             }
         },
         {
@@ -40925,7 +41349,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf9151",
                 "rdp": "soc/nrf9151",
-                "zephyr": "dts/arm/nordic/nrf9151ns_laca.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9151_laca.dtsi"
             }
         },
         {
@@ -41090,7 +41514,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf9160",
                 "rdp": "soc/nrf9160",
-                "zephyr": "dts/arm/nordic/nrf9160_sica.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9160ns_sica.dtsi"
             }
         },
         {
@@ -43261,7 +43685,7 @@
             "urls": {
                 "designer": "hardware/socs/s32z270",
                 "rdp": "soc/s32z270",
-                "zephyr": "dts/arm/nxp/nxp_s32z27x_rtu0_r52.dtsi"
+                "zephyr": "dts/arm/nxp/nxp_s32z27x_rtu1_r52.dtsi"
             }
         },
         {
@@ -45560,7 +45984,7 @@
             "urls": {
                 "designer": "hardware/socs/same70q21",
                 "rdp": "soc/same70q21",
-                "zephyr": "dts/arm/atmel/same70q21b.dtsi"
+                "zephyr": "dts/arm/atmel/same70q21.dtsi"
             }
         },
         {
@@ -49029,7 +49453,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32f103xb",
                 "rdp": "soc/stm32f103xb",
-                "zephyr": "dts/arm/st/f1/stm32f103X8.dtsi"
+                "zephyr": "dts/arm/st/f1/stm32f103Xb.dtsi"
             }
         },
         {
@@ -49257,7 +49681,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32f103xe",
                 "rdp": "soc/stm32f103xe",
-                "zephyr": "dts/arm/st/f1/stm32f103Xc.dtsi"
+                "zephyr": "dts/arm/st/f1/stm32f103Xe.dtsi"
             }
         },
         {
@@ -65371,7 +65795,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32h745xx",
                 "rdp": "soc/stm32h745xx",
-                "zephyr": "dts/arm/st/h7/stm32h745Xi_m4.dtsi"
+                "zephyr": "dts/arm/st/h7/stm32h745Xi_m7.dtsi"
             }
         },
         {
@@ -65802,7 +66226,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32h747xx",
                 "rdp": "soc/stm32h747xx",
-                "zephyr": "dts/arm/st/h7/stm32h747Xi_m4.dtsi"
+                "zephyr": "dts/arm/st/h7/stm32h747Xi_m7.dtsi"
             }
         },
         {
@@ -68951,6 +69375,192 @@
                 "designer": "hardware/socs/stm32l072xx",
                 "rdp": "soc/stm32l072xx",
                 "zephyr": "dts/arm/st/l0/stm32l072Xz.dtsi"
+            }
+        },
+        {
+            "category": "SoC/STMicroelectronics/l0/stm32l073xx",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc1",
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac1",
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "flash",
+                    "side": "left",
+                    "type": "mtd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioa",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiob",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioc",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiod",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioe",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioh",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c1",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c3",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpuart1",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-1",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-2",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-3",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi1",
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi2",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart1",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart4",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart5",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/stm32l073xx",
+                "rdp": "soc/stm32l073xx",
+                "zephyr": "dts/arm/st/l0/stm32l073Xz.dtsi"
             }
         },
         {
