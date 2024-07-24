@@ -15,7 +15,7 @@ PIPELINE_MANAGER_REPO="${PIPELINE_MANAGER_REPO:-https://github.com/antmicro/kenn
 
 if [ ! -d "./kenning-pipeline-manager" ]
 then
-    git clone $PIPELINE_MANAGER_REPO ./kenning-pipeline-manager
+    git clone $PIPELINE_MANAGER_REPO -b v0.0.2 ./kenning-pipeline-manager
     pip3 install -e ./kenning-pipeline-manager
 fi
 
