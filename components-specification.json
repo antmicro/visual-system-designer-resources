@@ -4489,7 +4489,7 @@
         {
             "category": "Devices/EFR32BG22 Thunderboard Kit",
             "icon": {
-                "renodepedia": "sltb010a_0.webp"
+                "renodepedia": "sltb010a_2.webp"
             },
             "interfaces": [
                 {
@@ -4635,9 +4635,9 @@
             ],
             "isCategory": true,
             "urls": {
-                "designer": "hardware/devices/sltb010a_0",
-                "designer-graph": "sltb010a_0",
-                "rdp": "boards/sltb010a_0"
+                "designer": "hardware/devices/sltb010a_2",
+                "designer-graph": "sltb010a_2",
+                "rdp": "boards/sltb010a_2"
             }
         },
         {
@@ -5288,6 +5288,50 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "category": "RTL interface/External Input",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "external",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "External Name",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "category": "RTL interface/External Output",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "external",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "",
+                    "name": "External Name",
+                    "type": "text"
+                }
+            ]
         },
         {
             "category": "Connector/GMSL/FAKRA",
@@ -17375,6 +17419,925 @@
             }
         },
         {
+            "category": "RTL core/ahb_lite_2to1_mux",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb0",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb0_hready_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb1",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb1_hready_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "force_bus_idle",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hclk",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hreset_n",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_LITE_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_LITE_DATA_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "0",
+                    "name": "AHB_NO_OPT",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "category": "RTL core/ahb_lite_bus",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_initiator",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_0",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_0_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_0_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_0_end_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_0_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_1",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_10",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_10_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_10_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_10_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_10_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_11",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_11_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_11_disable_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_11_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_11_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_12",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_12_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_12_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_12_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_12_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_13",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_13_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_13_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_13_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_13_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_14",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_14_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_14_disable_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_14_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_14_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_15",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_15_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_15_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_15_end_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_15_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_16",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_16_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_16_disable_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_16_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_16_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_1_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_1_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_1_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_1_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_2",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_2_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_2_disable_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_2_end_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_2_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_3",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_3_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_3_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_3_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_3_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_4",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_4_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_4_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_4_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_4_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_5",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_5_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_5_disable_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_5_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_5_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_6",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_6_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_6_disable_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_6_end_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_6_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_7",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_7_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_7_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_7_end_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_7_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_8",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_8_access_blocked_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_8_disable_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_8_end_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_8_start_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_9",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_9_access_blocked_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_9_disable_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_9_end_addr_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb_lite_resp_9_start_addr_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "force_bus_idle",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hclk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hreset_n",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_LITE_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_LITE_DATA_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "8",
+                    "name": "NUM_RESPONDERS",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "additionalData": {
                 "compats": [
                     "asahi-kasei,ak8975"
@@ -19473,6 +20436,83 @@
             }
         },
         {
+            "category": "RTL core/caliptra_ahb_srom",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "addr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cs",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hclk",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "hreset_n",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rdata",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "64",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "CLIENT_ADDR_WIDTH",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "additionalData": {
                 "compats": [
                     "ams,ccs811"
@@ -19521,6 +20561,348 @@
             "urls": {
                 "rdp": "soc_components/ams_ccs811"
             }
+        },
+        {
+            "category": "RTL core/clk_gate",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_cg",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_gate_en",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_dmi_reg_en_preQ",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_error_fatal",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_in_debug_scan_mode",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_rst_b",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cpu_halt_status",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "generic_input_wires",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "psel",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "rdc_clk_cg",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rdc_clk_dis",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rdc_clk_dis_uc",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "soc_ifc_clk_cg",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "uc_clk_cg",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "RTL core/csrng",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_rx_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_tx_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cs_aes_halt_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cs_aes_halt_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "csrng_cmd_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "csrng_cmd_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_hw_if_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_hw_if_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_cs_cmd_req_done_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_cs_entropy_req_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_cs_fatal_err_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_cs_hw_inst_exc_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "lc_hw_debug_en_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "otp_en_csrng_sw_app_read_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_ni",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHBAddrWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "64",
+                    "name": "AHBDataWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "2'h3",
+                    "name": "AlertAsyncOn",
+                    "type": "text"
+                },
+                {
+                    "default": "2",
+                    "name": "NHwApps",
+                    "type": "text"
+                },
+                {
+                    "default": "384'h0",
+                    "name": "RndCnstCsKeymgrDivNonProduction",
+                    "type": "text"
+                },
+                {
+                    "default": "384'h0",
+                    "name": "RndCnstCsKeymgrDivProduction",
+                    "type": "text"
+                },
+                {
+                    "default": "32'h1",
+                    "name": "SBoxImpl",
+                    "type": "text"
+                },
+                {
+                    "default": "2",
+                    "name": "csrng_reg_pkg_NumAlerts",
+                    "type": "text"
+                }
+            ]
         },
         {
             "category": "SoC/Intel/cyclonev-hps",
@@ -19882,6 +21264,150 @@
             "isCategory": true
         },
         {
+            "category": "RTL core/doe_ctrl",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "busy_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "clear_obf_secrets",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_obf_key",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "debugUnlock_or_scan_mode_switch",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "error_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "kv_wr_resp",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "kv_write",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "notif_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "obf_field_entropy",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "obf_uds_seed",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "reset_n",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "additionalData": {
                 "compats": [
                     "infineon,dps310"
@@ -19933,6 +21459,69 @@
                     "default": 0,
                     "name": "resolution",
                     "type": "integer"
+                }
+            ]
+        },
+        {
+            "category": "RTL core/dv",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "core_only_rst_b",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_b",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "dv_defines_pkg_DV_ADDR_W",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
                 }
             ]
         },
@@ -20085,6 +21674,119 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "category": "RTL core/ecc_top",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "busy_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "debugUnlock_or_scan_mode_switch",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "error_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "kv",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "notif_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "pcr_signing_data",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "reset_n",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "CLIENT_DATA_WIDTH",
+                    "type": "text"
+                }
+            ]
         },
         {
             "category": "SoC/Efinix/efinix_sapphire",
@@ -22545,6 +24247,460 @@
             }
         },
         {
+            "category": "RTL core/el2_veer_wrapper",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "core_id",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_dccm_ecc_double_error",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_dccm_ecc_single_error",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_dmi_reg_en_preQ",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_iccm_ecc_double_error",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_iccm_ecc_single_error",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_security_state_Latched",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_uncore_dmi_reg_addr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_uncore_dmi_reg_en",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_uncore_dmi_reg_rdata",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_uncore_dmi_reg_wdata",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_uncore_dmi_reg_wr_en",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dbg_bus_clk_en",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dbg_rst_l",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "debug_brkpt_status",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "dec_tlu_perfcnt0",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "dec_tlu_perfcnt1",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "dec_tlu_perfcnt2",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "dec_tlu_perfcnt3",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dma",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "dma_bus_clk_en",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "extintsrc_req",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "i_cpu_halt_req",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "i_cpu_run_req",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ifu_bus_clk_en",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "lsu",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "lsu_bus_clk_en",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "mbist_mode",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "mpc_debug_halt_ack",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "mpc_debug_halt_req",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "mpc_debug_run_ack",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "mpc_debug_run_req",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "mpc_reset_run_req",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "nmi_int",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "nmi_vec",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "o_cpu_halt_ack",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "o_cpu_halt_status",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "o_cpu_run_ack",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "o_debug_mode_status",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_l",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_vec",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "sb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "scan_mode",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "soft_int",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "timer_int",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "trace_rv_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "2271'h4840400010040010840000020908200002840004808220a0c848200060410c00000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffc3fffffffc3fffffffc3fffffffc3fffffffc3fffffffc3fffffffc3fffffffc104420401c21386810141400000000800820428042010840830c2010281840200081002008e0c0801004040800c01002100400606810104100c0811080340810404000000002002101800000000000000000000000000000000000000000000000000000000000000000000000000000000007fffffff87fffffff87fffffff87fffffff87fffffff87fffffff87fffffff87fffffff8001080c080822080003000000003c041804003e02008084021",
+                    "name": "pt",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "category": "SoC/Intel/elkhart_lake",
             "interfaces": [
                 {
@@ -23474,6 +25630,224 @@
             "urls": {
                 "rdp": "soc_components/ams_ens210"
             }
+        },
+        {
+            "category": "RTL core/entropy_src",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_rx_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_tx_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cs_aes_halt_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cs_aes_halt_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_hw_if_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_hw_if_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_rng_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_rng_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_xht_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "entropy_src_xht_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_es_entropy_valid_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_es_fatal_err_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_es_health_test_failed_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_es_observe_fifo_ready_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "otp_en_entropy_src_fw_over_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "otp_en_entropy_src_fw_read_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "rng_fips_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_ni",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHBAddrWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "64",
+                    "name": "AHBDataWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "2'h3",
+                    "name": "AlertAsyncOn",
+                    "type": "text"
+                },
+                {
+                    "default": "4",
+                    "name": "EsFifoDepth",
+                    "type": "text"
+                },
+                {
+                    "default": "1'h0",
+                    "name": "Stub",
+                    "type": "text"
+                },
+                {
+                    "default": "2",
+                    "name": "entropy_src_reg_pkg_NumAlerts",
+                    "type": "text"
+                }
+            ]
         },
         {
             "additionalData": {
@@ -26757,6 +29131,105 @@
             }
         },
         {
+            "category": "RTL core/hmac_ctrl",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "busy_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "debugUnlock_or_scan_mode_switch",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "error_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "kv",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "notif_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "reset_n",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "additionalData": {
                 "compats": [
                     "honeywell,hmc5883l"
@@ -28211,6 +30684,114 @@
                 "rdp": "soc/kb1200",
                 "zephyr": "dts/arm/ene/kb1200.dtsi"
             }
+        },
+        {
+            "category": "RTL core/kv",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "core_only_rst_b",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_in_debug_scan_mode",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "debugUnlock_or_scan_mode_switch",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "fw_update_rst_window",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "kv",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "pcr_signing_key",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_b",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "kv_defines_pkg_KV_ADDR_W",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                }
+            ]
         },
         {
             "category": "SoC/Frontgrade/leon3",
@@ -41815,6 +44396,87 @@
             }
         },
         {
+            "category": "RTL core/pv",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "core_only_rst_b",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "fw_update_rst_window",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "pv",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_b",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "pv_defines_pkg_PV_ADDR_W",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "category": "SoC/QuickLogic/quicklogic_eos_s3",
             "interfaces": [
                 {
@@ -46749,6 +49411,195 @@
             }
         },
         {
+            "category": "RTL core/sha256_ctrl",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "debugUnlock_or_scan_mode_switch",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "error_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "notif_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "reset_n",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "category": "RTL core/sha512_ctrl",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "debugUnlock_or_scan_mode_switch",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "error_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "kv",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "notif_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "pcr_signing_hash",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "pv",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "reset_n",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "additionalData": {
                 "compats": [
                     "sensirion,sht3xd"
@@ -47023,6 +49874,444 @@
             "isCategory": true
         },
         {
+            "category": "RTL core/soc_ifc_top",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "BootFSM_BrkPoint",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "apb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clear_obf_secrets",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_cg",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_gating_en",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_error_fatal",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_error_non_fatal",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_noncore_rst_b",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_obf_key",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_obf_key_reg",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_pwrgood",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_rst_b",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_uc_rst_b",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cptra_uncore_dmi_reg",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "crypto_error",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "fw_update_rst_window",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "generic_input_wires",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "generic_output_wires",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "iccm_axs_blocked",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "iccm_lock",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "mailbox_data_avail",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "mailbox_flow_done",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "mbox_sram_req",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "mbox_sram_resp",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "nmi_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "nmi_vector",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "obf_field_entropy",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "obf_uds_seed",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rdc_clk_cg",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "rdc_clk_dis",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ready_for_fuses",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ready_for_fw_push",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "ready_for_runtime",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rv_ecc_sts",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "scan_mode",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "security_state",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "sha_error_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "sha_notif_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "soc_ifc_clk_cg",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "soc_ifc_error_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "soc_ifc_notif_intr",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "timer_intr",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "trng_req",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "18",
+                    "name": "AHB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "AHB_DATA_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "18",
+                    "name": "APB_ADDR_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "APB_DATA_WIDTH",
+                    "type": "text"
+                },
+                {
+                    "default": "32",
+                    "name": "APB_USER_WIDTH",
+                    "type": "text"
+                }
+            ]
+        },
+        {
             "category": "Sensor/ADC/spi-adc",
             "interfaces": [
                 {
@@ -47054,6 +50343,160 @@
                 }
             ],
             "name": "spi-device"
+        },
+        {
+            "category": "RTL core/spi_host",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_rx_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_tx_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_csb_en_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_csb_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_sck_en_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_sck_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_sd_en_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_sd_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_sd_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_error_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_spi_event_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_ni",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHBAddrWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "64",
+                    "name": "AHBDataWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "1'h1",
+                    "name": "AlertAsyncOn",
+                    "type": "text"
+                },
+                {
+                    "default": "1",
+                    "name": "spi_host_reg_pkg_NumAlerts",
+                    "type": "text"
+                }
+            ]
         },
         {
             "category": "SoC/STMicroelectronics/c0/stm32c011xx",
@@ -76454,6 +79897,178 @@
             "urls": {
                 "rdp": "soc_components/ams_tsl2561"
             }
+        },
+        {
+            "category": "RTL core/uart",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "ahb",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_rx_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "alert_tx_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_rx_i",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_tx_en_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "cio_tx_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "clk_i",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_rx_break_err_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_rx_frame_err_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_rx_overflow_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_rx_parity_err_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_rx_timeout_o",
+                    "side": "right",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_rx_watermark_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_tx_empty_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "intr_tx_watermark_o",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "rst_ni",
+                    "side": "left",
+                    "type": [
+                        "port"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "properties": [
+                {
+                    "default": "32",
+                    "name": "AHBAddrWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "64",
+                    "name": "AHBDataWidth",
+                    "type": "text"
+                },
+                {
+                    "default": "1'h1",
+                    "name": "AlertAsyncOn",
+                    "type": "text"
+                },
+                {
+                    "default": "1",
+                    "name": "uart_reg_pkg_NumAlerts",
+                    "type": "text"
+                }
+            ]
         },
         {
             "additionalData": {
