@@ -1,592 +1,594 @@
 {
-    "graph": {
-        "id": "d8f27daa-82b1-4298-aa26-80c2dabb5ffd",
-        "name": "Arty MPW Tester",
-        "nodes": [
-            {
-                "id": "4eef1b03-283a-4864-be37-3c426a7ac165",
-                "position": {
-                    "x": 250,
-                    "y": 300
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "spi",
-                        "id": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Winbond W25Q32FVSSIG",
-                "instanceName": "SPI Flash"
-            },
-            {
-                "id": "b0b8a564-99ca-4964-b297-4374989a5334",
-                "position": {
-                    "x": -900,
-                    "y": 250
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "usb",
-                        "id": "91eacfcc-7832-4604-b8a8-76722ef240b4",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "usb-c",
-                        "id": "04f998da-a48c-43ad-9b53-846ed8658802",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "GCT USB4105-GF-A",
-                "instanceName": "USB-C Connector"
-            },
-            {
-                "id": "d521863f-51b7-4fbd-8c40-e0b5498ca84f",
-                "position": {
-                    "x": -900,
-                    "y": 500
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "gpio",
-                        "id": "351f5a8d-b0dc-41cd-b1d8-d6dbb8914e34",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [
-                    {
-                        "name": "address (gpio)",
-                        "id": "32cd719d-a765-4f0f-b389-a3f178f1f3b9",
-                        "value": "0x0"
-                    }
-                ],
-                "enabledInterfaceGroups": [],
-                "name": "Kingbright KP-1608ZGC",
-                "instanceName": "User LED"
-            },
-            {
-                "id": "42b68076-8e8f-4221-9001-8180aae50c7a",
-                "position": {
-                    "x": 1250,
-                    "y": 1135
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "power",
-                        "id": "9c6240da-e7a2-4349-9d6d-503b30f0cf35",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Board power distribution",
-                "instanceName": "Board power distribution"
-            },
-            {
-                "id": "a4bb3580-c12b-4b9d-848d-8044db0187d4",
-                "position": {
-                    "x": 750,
-                    "y": 1000
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "i2c high",
-                        "id": "f4187866-3355-4474-85ca-a92e226b6fa0",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "i2c low",
-                        "id": "990ee6e9-f13b-43a3-a293-9cc585dc4f37",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "NXP NTS0102DP",
-                "instanceName": "I2C Level Converter"
-            },
-            {
-                "id": "86732fb9-ea69-482f-95ab-18c3ed046ea9",
-                "position": {
-                    "x": 200,
-                    "y": 1000
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "power",
-                        "id": "f1f8fbf3-848b-4838-bde2-9f90da0a202a",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "i2c",
-                        "id": "33da2781-d740-4a2d-a1a3-541116d44833",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Microchip Technology MCP4661103E/ML",
-                "instanceName": "I2C Digital Pot"
-            },
-            {
-                "id": "816c0588-c541-442b-9ee5-1474d94477ec",
-                "position": {
-                    "x": -350,
-                    "y": 1100
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "control",
-                        "id": "2a76b571-22de-4120-9cff-6b36a7859a27",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "power",
-                        "id": "bde28da7-c992-4388-a5db-3aea177aed2a",
-                        "direction": "input",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "power",
-                        "id": "05f5de56-bfa4-46ce-a40b-ed7871576c17",
-                        "direction": "output",
-                        "side": "right",
-                        "sidePosition": 1
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Microchip Technology MIC2211-AAYML-TR",
-                "instanceName": "Configurable LDO"
-            },
-            {
-                "id": "8ce7dd40-3feb-44eb-b6c2-f94f6bf824d4",
-                "position": {
-                    "x": -900,
-                    "y": 1100
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "io",
-                        "id": "c17c1ec2-619d-4d8e-a517-67cf65840207",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "C&K JS202011JCQN",
-                "instanceName": "User Switch"
-            },
-            {
-                "id": "1e1be829-d62d-40c2-b151-192e7769157d",
-                "position": {
-                    "x": -900,
-                    "y": 850
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "io",
-                        "id": "09697258-a8dc-4017-9504-e25aa530897b",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "C&K JS202011JCQN",
-                "instanceName": "User Switch"
-            },
-            {
-                "id": "eb1d99d2-11d9-49ce-8a97-0eab72951809",
-                "position": {
-                    "x": 800,
-                    "y": 50
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "gpio",
-                        "id": "6ad96f2e-c6de-4d95-8ebb-7c0bd61816ce",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "wire to board",
-                        "id": "a7e5234f-6dd8-4047-99c6-499dc6793589",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Wire to Board",
-                "instanceName": "SPI Header"
-            },
-            {
-                "id": "74fc4ba9-5efe-49b9-9d7d-275125515891",
-                "position": {
-                    "x": 1250,
-                    "y": 400
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "gpio",
-                        "id": "e04048c5-c1c8-41c9-b818-07f929c0f9fb",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "wire to board",
-                        "id": "8975ea45-8e49-4d07-bf15-4da18862048f",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "wurth-elektronik-61300711121",
-                "instanceName": "GPIO Header"
-            },
-            {
-                "id": "771573f0-02af-4815-ac01-348515a6651f",
-                "position": {
-                    "x": 800,
-                    "y": 250
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "gpio",
-                        "id": "1c526c36-453f-4ab6-8b08-52c95f3519db",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [
-                    {
-                        "name": "address (gpio)",
-                        "id": "1c5c111e-9331-44de-a286-d1d8b5d3e4e4",
-                        "value": "0x0"
-                    }
-                ],
-                "enabledInterfaceGroups": [],
-                "name": "Kingbright KP-1608ZGC",
-                "instanceName": "User LED"
-            },
-            {
-                "id": "125718da-7b67-4d8d-9949-3ec3c5edf2a6",
-                "position": {
-                    "x": 1300,
-                    "y": 650
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "artix io",
-                        "id": "35fb880b-1193-4e13-b205-9470adc01c75",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 2
-                    },
-                    {
-                        "name": "arty a7 interface",
-                        "id": "9c3bc347-f6a2-4a96-b524-f51ef358476e",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "spi[0]",
-                        "id": "41f0ecda-4fac-4711-873a-ef5b6b66af5e",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 4
-                    },
-                    {
-                        "name": "spi[1]",
-                        "id": "b0547619-426a-4423-aa3f-f9fd68f9c147",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "gpio",
-                        "id": "707a3524-f4de-43b6-90e2-0d85a9d47b2a",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "i2c",
-                        "id": "6e1fdc4b-d259-4d52-8069-3237959208d8",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 7
-                    },
-                    {
-                        "name": "uart",
-                        "id": "a441f807-09e2-46b5-8c9a-8c1056a77869",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 5
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "TE Connectivity 9-146281-0",
-                "instanceName": "Arty A7 Connector"
-            },
-            {
-                "id": "5f7332ab-6363-4b11-870a-672551730cde",
-                "position": {
-                    "x": -400,
-                    "y": 500
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "uart/mpsse",
-                        "id": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 3
-                    },
-                    {
-                        "name": "usb",
-                        "id": "ccbd2f65-f673-4676-8163-44599d12b30f",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "gpio",
-                        "id": "29dbf7f8-78fd-4835-bf2a-3aa3d584ee51",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 2
-                    },
-                    {
-                        "name": "uart",
-                        "id": "bf08a5fb-0089-49d5-a410-fef63984f813",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "FTDI Chip FT232HQ-TRAY",
-                "instanceName": "USB to UART MPSSE Bridge"
-            },
-            {
-                "id": "2a9a6dd5-c1f6-4990-b6af-ce9f6ba76d82",
-                "position": {
-                    "x": 200,
-                    "y": 500
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "gpio",
-                        "id": "b1ea9366-7f63-4ddd-9788-64ce0a49d750",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "uart",
-                        "id": "26e69675-f1de-413e-ba41-bc3789be5d76",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 2
-                    },
-                    {
-                        "name": "caravel io",
-                        "id": "c5ce8a2d-98d0-4aed-bac6-52de1213b718",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 2
-                    },
-                    {
-                        "name": "spi[0]",
-                        "id": "994e8c5c-26ab-4aa2-9dc8-02c73b1ca5cd",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "spi[1]",
-                        "id": "0304ad2c-0b1f-4e7a-8af4-349326656de7",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Efabless Flexypin",
-                "instanceName": "Caravel MPW Tester"
-            }
-        ],
-        "connections": [
-            {
-                "id": "3286103d-a720-42d8-9d43-62d5e3df34cb",
-                "from": "f4187866-3355-4474-85ca-a92e226b6fa0",
-                "to": "33da2781-d740-4a2d-a1a3-541116d44833"
-            },
-            {
-                "id": "fcad2a7a-a415-4a85-876a-92caf5cb6f7b",
-                "from": "f1f8fbf3-848b-4838-bde2-9f90da0a202a",
-                "to": "bde28da7-c992-4388-a5db-3aea177aed2a"
-            },
-            {
-                "id": "6619676e-e21b-4009-bb0b-c455cfe472f1",
-                "from": "05f5de56-bfa4-46ce-a40b-ed7871576c17",
-                "to": "9c6240da-e7a2-4349-9d6d-503b30f0cf35"
-            },
-            {
-                "id": "c7e15eb1-95c7-4fae-a098-75d1f29376ec",
-                "from": "c17c1ec2-619d-4d8e-a517-67cf65840207",
-                "to": "2a76b571-22de-4120-9cff-6b36a7859a27"
-            },
-            {
-                "id": "e1dbfaf5-8ca4-4105-8be4-c5220bc647f7",
-                "from": "6ad96f2e-c6de-4d95-8ebb-7c0bd61816ce",
-                "to": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8"
-            },
-            {
-                "id": "7e224f49-14c6-4ce5-bb93-6d577392b598",
-                "from": "1c526c36-453f-4ab6-8b08-52c95f3519db",
-                "to": "e04048c5-c1c8-41c9-b818-07f929c0f9fb"
-            },
-            {
-                "id": "a7c6cb17-011d-42de-945c-44bccd4d8ba3",
-                "from": "b0547619-426a-4423-aa3f-f9fd68f9c147",
-                "to": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8"
-            },
-            {
-                "id": "42275a39-516a-4601-a122-9121a80d6b29",
-                "from": "707a3524-f4de-43b6-90e2-0d85a9d47b2a",
-                "to": "e04048c5-c1c8-41c9-b818-07f929c0f9fb"
-            },
-            {
-                "id": "053efb2f-d5c3-4534-b5dd-1befed3230c6",
-                "from": "41f0ecda-4fac-4711-873a-ef5b6b66af5e",
-                "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
-            },
-            {
-                "id": "d6a72c76-7d9c-4709-bc35-38edcb08d9f7",
-                "from": "a441f807-09e2-46b5-8c9a-8c1056a77869",
-                "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
-            },
-            {
-                "id": "065b1c70-c05d-4e3f-a144-135959d86947",
-                "from": "ccbd2f65-f673-4676-8163-44599d12b30f",
-                "to": "91eacfcc-7832-4604-b8a8-76722ef240b4"
-            },
-            {
-                "id": "4ce69fe9-8ce1-4a97-b91a-d704283d2c75",
-                "from": "09697258-a8dc-4017-9504-e25aa530897b",
-                "to": "29dbf7f8-78fd-4835-bf2a-3aa3d584ee51"
-            },
-            {
-                "id": "efe8af91-c673-4edd-aa8d-bc18ea65dab2",
-                "from": "29dbf7f8-78fd-4835-bf2a-3aa3d584ee51",
-                "to": "351f5a8d-b0dc-41cd-b1d8-d6dbb8914e34"
-            },
-            {
-                "id": "dfa8ef67-1eaa-40ad-9e74-8cba675770cd",
-                "from": "990ee6e9-f13b-43a3-a293-9cc585dc4f37",
-                "to": "6e1fdc4b-d259-4d52-8069-3237959208d8"
-            },
-            {
-                "id": "d3472b5b-fba9-4082-830a-8965b8653804",
-                "from": "26e69675-f1de-413e-ba41-bc3789be5d76",
-                "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
-            },
-            {
-                "id": "64026d3a-f44c-47c3-98d4-844cda26582c",
-                "from": "994e8c5c-26ab-4aa2-9dc8-02c73b1ca5cd",
-                "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
-            },
-            {
-                "id": "0da2aaf8-5621-42cc-b90f-e971bc32bd90",
-                "from": "c5ce8a2d-98d0-4aed-bac6-52de1213b718",
-                "to": "35fb880b-1193-4e13-b205-9470adc01c75"
-            },
-            {
-                "id": "d0c5756b-8ea6-4deb-adb6-3d38676cd5de",
-                "from": "b1ea9366-7f63-4ddd-9788-64ce0a49d750",
-                "to": "e04048c5-c1c8-41c9-b818-07f929c0f9fb"
-            },
-            {
-                "id": "98c5a6c4-cb7e-44a5-8430-347199b1c1cb",
-                "from": "0304ad2c-0b1f-4e7a-8af4-349326656de7",
-                "to": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8"
-            }
-        ]
-    },
-    "version": "20230830.11",
+    "version": "20240723.13",
     "metadata": {
         "connectionStyle": "curved",
         "movementStep": 5
-    }
+    },
+    "graphs": [
+        {
+            "id": "d8f27daa-82b1-4298-aa26-80c2dabb5ffd",
+            "name": "Arty MPW Tester",
+            "nodes": [
+                {
+                    "id": "4eef1b03-283a-4864-be37-3c426a7ac165",
+                    "position": {
+                        "x": 250,
+                        "y": 300
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "spi",
+                            "id": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Winbond W25Q32FVSSIG",
+                    "instanceName": "SPI Flash"
+                },
+                {
+                    "id": "b0b8a564-99ca-4964-b297-4374989a5334",
+                    "position": {
+                        "x": -900,
+                        "y": 250
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "usb",
+                            "id": "91eacfcc-7832-4604-b8a8-76722ef240b4",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "usb-c",
+                            "id": "04f998da-a48c-43ad-9b53-846ed8658802",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "GCT USB4105-GF-A",
+                    "instanceName": "USB-C Connector"
+                },
+                {
+                    "id": "d521863f-51b7-4fbd-8c40-e0b5498ca84f",
+                    "position": {
+                        "x": -900,
+                        "y": 500
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "351f5a8d-b0dc-41cd-b1d8-d6dbb8914e34",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [
+                        {
+                            "name": "address (gpio)",
+                            "id": "32cd719d-a765-4f0f-b389-a3f178f1f3b9",
+                            "value": "0x0"
+                        }
+                    ],
+                    "enabledInterfaceGroups": [],
+                    "name": "Kingbright KP-1608ZGC",
+                    "instanceName": "User LED"
+                },
+                {
+                    "id": "42b68076-8e8f-4221-9001-8180aae50c7a",
+                    "position": {
+                        "x": 1250,
+                        "y": 1135
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "power",
+                            "id": "9c6240da-e7a2-4349-9d6d-503b30f0cf35",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Board power distribution",
+                    "instanceName": "Board power distribution"
+                },
+                {
+                    "id": "a4bb3580-c12b-4b9d-848d-8044db0187d4",
+                    "position": {
+                        "x": 750,
+                        "y": 1000
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "i2c high",
+                            "id": "f4187866-3355-4474-85ca-a92e226b6fa0",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "i2c low",
+                            "id": "990ee6e9-f13b-43a3-a293-9cc585dc4f37",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "NXP NTS0102DP",
+                    "instanceName": "I2C Level Converter"
+                },
+                {
+                    "id": "86732fb9-ea69-482f-95ab-18c3ed046ea9",
+                    "position": {
+                        "x": 200,
+                        "y": 1000
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "power",
+                            "id": "f1f8fbf3-848b-4838-bde2-9f90da0a202a",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "i2c",
+                            "id": "33da2781-d740-4a2d-a1a3-541116d44833",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Microchip Technology MCP4661103E/ML",
+                    "instanceName": "I2C Digital Pot"
+                },
+                {
+                    "id": "816c0588-c541-442b-9ee5-1474d94477ec",
+                    "position": {
+                        "x": -350,
+                        "y": 1100
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "control",
+                            "id": "2a76b571-22de-4120-9cff-6b36a7859a27",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "power",
+                            "id": "bde28da7-c992-4388-a5db-3aea177aed2a",
+                            "direction": "input",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "power",
+                            "id": "05f5de56-bfa4-46ce-a40b-ed7871576c17",
+                            "direction": "output",
+                            "side": "right",
+                            "sidePosition": 1
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Microchip Technology MIC2211-AAYML-TR",
+                    "instanceName": "Configurable LDO"
+                },
+                {
+                    "id": "8ce7dd40-3feb-44eb-b6c2-f94f6bf824d4",
+                    "position": {
+                        "x": -900,
+                        "y": 1100
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "io",
+                            "id": "c17c1ec2-619d-4d8e-a517-67cf65840207",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "C&K JS202011JCQN",
+                    "instanceName": "User Switch"
+                },
+                {
+                    "id": "1e1be829-d62d-40c2-b151-192e7769157d",
+                    "position": {
+                        "x": -900,
+                        "y": 850
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "io",
+                            "id": "09697258-a8dc-4017-9504-e25aa530897b",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "C&K JS202011JCQN",
+                    "instanceName": "User Switch"
+                },
+                {
+                    "id": "eb1d99d2-11d9-49ce-8a97-0eab72951809",
+                    "position": {
+                        "x": 800,
+                        "y": 50
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "6ad96f2e-c6de-4d95-8ebb-7c0bd61816ce",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "wire to board",
+                            "id": "a7e5234f-6dd8-4047-99c6-499dc6793589",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Wire to Board",
+                    "instanceName": "SPI Header"
+                },
+                {
+                    "id": "74fc4ba9-5efe-49b9-9d7d-275125515891",
+                    "position": {
+                        "x": 1250,
+                        "y": 400
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "e04048c5-c1c8-41c9-b818-07f929c0f9fb",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "wire to board",
+                            "id": "8975ea45-8e49-4d07-bf15-4da18862048f",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "wurth-elektronik-61300711121",
+                    "instanceName": "GPIO Header"
+                },
+                {
+                    "id": "771573f0-02af-4815-ac01-348515a6651f",
+                    "position": {
+                        "x": 800,
+                        "y": 250
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "1c526c36-453f-4ab6-8b08-52c95f3519db",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [
+                        {
+                            "name": "address (gpio)",
+                            "id": "1c5c111e-9331-44de-a286-d1d8b5d3e4e4",
+                            "value": "0x0"
+                        }
+                    ],
+                    "enabledInterfaceGroups": [],
+                    "name": "Kingbright KP-1608ZGC",
+                    "instanceName": "User LED"
+                },
+                {
+                    "id": "125718da-7b67-4d8d-9949-3ec3c5edf2a6",
+                    "position": {
+                        "x": 1300,
+                        "y": 650
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "artix io",
+                            "id": "35fb880b-1193-4e13-b205-9470adc01c75",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 2
+                        },
+                        {
+                            "name": "arty a7 interface",
+                            "id": "9c3bc347-f6a2-4a96-b524-f51ef358476e",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "spi[0]",
+                            "id": "41f0ecda-4fac-4711-873a-ef5b6b66af5e",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 4
+                        },
+                        {
+                            "name": "spi[1]",
+                            "id": "b0547619-426a-4423-aa3f-f9fd68f9c147",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "gpio",
+                            "id": "707a3524-f4de-43b6-90e2-0d85a9d47b2a",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "i2c",
+                            "id": "6e1fdc4b-d259-4d52-8069-3237959208d8",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 7
+                        },
+                        {
+                            "name": "uart",
+                            "id": "a441f807-09e2-46b5-8c9a-8c1056a77869",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 5
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "TE Connectivity 9-146281-0",
+                    "instanceName": "Arty A7 Connector"
+                },
+                {
+                    "id": "5f7332ab-6363-4b11-870a-672551730cde",
+                    "position": {
+                        "x": -400,
+                        "y": 500
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "uart/mpsse",
+                            "id": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 3
+                        },
+                        {
+                            "name": "usb",
+                            "id": "ccbd2f65-f673-4676-8163-44599d12b30f",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "gpio",
+                            "id": "29dbf7f8-78fd-4835-bf2a-3aa3d584ee51",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 2
+                        },
+                        {
+                            "name": "uart",
+                            "id": "bf08a5fb-0089-49d5-a410-fef63984f813",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "FTDI Chip FT232HQ-TRAY",
+                    "instanceName": "USB to UART MPSSE Bridge"
+                },
+                {
+                    "id": "2a9a6dd5-c1f6-4990-b6af-ce9f6ba76d82",
+                    "position": {
+                        "x": 200,
+                        "y": 500
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "b1ea9366-7f63-4ddd-9788-64ce0a49d750",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "uart",
+                            "id": "26e69675-f1de-413e-ba41-bc3789be5d76",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 2
+                        },
+                        {
+                            "name": "caravel io",
+                            "id": "c5ce8a2d-98d0-4aed-bac6-52de1213b718",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 2
+                        },
+                        {
+                            "name": "spi[0]",
+                            "id": "994e8c5c-26ab-4aa2-9dc8-02c73b1ca5cd",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "spi[1]",
+                            "id": "0304ad2c-0b1f-4e7a-8af4-349326656de7",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Efabless Flexypin",
+                    "instanceName": "Caravel MPW Tester"
+                }
+            ],
+            "connections": [
+                {
+                    "id": "3286103d-a720-42d8-9d43-62d5e3df34cb",
+                    "from": "f4187866-3355-4474-85ca-a92e226b6fa0",
+                    "to": "33da2781-d740-4a2d-a1a3-541116d44833"
+                },
+                {
+                    "id": "fcad2a7a-a415-4a85-876a-92caf5cb6f7b",
+                    "from": "f1f8fbf3-848b-4838-bde2-9f90da0a202a",
+                    "to": "bde28da7-c992-4388-a5db-3aea177aed2a"
+                },
+                {
+                    "id": "6619676e-e21b-4009-bb0b-c455cfe472f1",
+                    "from": "05f5de56-bfa4-46ce-a40b-ed7871576c17",
+                    "to": "9c6240da-e7a2-4349-9d6d-503b30f0cf35"
+                },
+                {
+                    "id": "c7e15eb1-95c7-4fae-a098-75d1f29376ec",
+                    "from": "c17c1ec2-619d-4d8e-a517-67cf65840207",
+                    "to": "2a76b571-22de-4120-9cff-6b36a7859a27"
+                },
+                {
+                    "id": "e1dbfaf5-8ca4-4105-8be4-c5220bc647f7",
+                    "from": "6ad96f2e-c6de-4d95-8ebb-7c0bd61816ce",
+                    "to": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8"
+                },
+                {
+                    "id": "7e224f49-14c6-4ce5-bb93-6d577392b598",
+                    "from": "1c526c36-453f-4ab6-8b08-52c95f3519db",
+                    "to": "e04048c5-c1c8-41c9-b818-07f929c0f9fb"
+                },
+                {
+                    "id": "a7c6cb17-011d-42de-945c-44bccd4d8ba3",
+                    "from": "b0547619-426a-4423-aa3f-f9fd68f9c147",
+                    "to": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8"
+                },
+                {
+                    "id": "42275a39-516a-4601-a122-9121a80d6b29",
+                    "from": "707a3524-f4de-43b6-90e2-0d85a9d47b2a",
+                    "to": "e04048c5-c1c8-41c9-b818-07f929c0f9fb"
+                },
+                {
+                    "id": "053efb2f-d5c3-4534-b5dd-1befed3230c6",
+                    "from": "41f0ecda-4fac-4711-873a-ef5b6b66af5e",
+                    "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
+                },
+                {
+                    "id": "d6a72c76-7d9c-4709-bc35-38edcb08d9f7",
+                    "from": "a441f807-09e2-46b5-8c9a-8c1056a77869",
+                    "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
+                },
+                {
+                    "id": "065b1c70-c05d-4e3f-a144-135959d86947",
+                    "from": "ccbd2f65-f673-4676-8163-44599d12b30f",
+                    "to": "91eacfcc-7832-4604-b8a8-76722ef240b4"
+                },
+                {
+                    "id": "4ce69fe9-8ce1-4a97-b91a-d704283d2c75",
+                    "from": "09697258-a8dc-4017-9504-e25aa530897b",
+                    "to": "29dbf7f8-78fd-4835-bf2a-3aa3d584ee51"
+                },
+                {
+                    "id": "efe8af91-c673-4edd-aa8d-bc18ea65dab2",
+                    "from": "29dbf7f8-78fd-4835-bf2a-3aa3d584ee51",
+                    "to": "351f5a8d-b0dc-41cd-b1d8-d6dbb8914e34"
+                },
+                {
+                    "id": "dfa8ef67-1eaa-40ad-9e74-8cba675770cd",
+                    "from": "990ee6e9-f13b-43a3-a293-9cc585dc4f37",
+                    "to": "6e1fdc4b-d259-4d52-8069-3237959208d8"
+                },
+                {
+                    "id": "d3472b5b-fba9-4082-830a-8965b8653804",
+                    "from": "26e69675-f1de-413e-ba41-bc3789be5d76",
+                    "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
+                },
+                {
+                    "id": "64026d3a-f44c-47c3-98d4-844cda26582c",
+                    "from": "994e8c5c-26ab-4aa2-9dc8-02c73b1ca5cd",
+                    "to": "70f4d3b1-5a11-4ad4-8bcd-2a3393053496"
+                },
+                {
+                    "id": "0da2aaf8-5621-42cc-b90f-e971bc32bd90",
+                    "from": "c5ce8a2d-98d0-4aed-bac6-52de1213b718",
+                    "to": "35fb880b-1193-4e13-b205-9470adc01c75"
+                },
+                {
+                    "id": "d0c5756b-8ea6-4deb-adb6-3d38676cd5de",
+                    "from": "b1ea9366-7f63-4ddd-9788-64ce0a49d750",
+                    "to": "e04048c5-c1c8-41c9-b818-07f929c0f9fb"
+                },
+                {
+                    "id": "98c5a6c4-cb7e-44a5-8430-347199b1c1cb",
+                    "from": "0304ad2c-0b1f-4e7a-8af4-349326656de7",
+                    "to": "4d1fd6c7-5923-4ff2-8089-e60c513f85a8"
+                }
+            ]
+        }
+    ]
 }

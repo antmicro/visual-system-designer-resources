@@ -1,172 +1,174 @@
 {
-    "graph": {
-        "id": "005d3dae-fbf9-45b7-a254-5ce87c71d84a",
-        "name": "LPDDR4 Testbed",
-        "nodes": [
-            {
-                "id": "11d873bd-1522-4472-bb84-0bf44ce4163a",
-                "position": {
-                    "x": 2200,
-                    "y": 500
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "gpio",
-                        "id": "c0e9ba7a-f5bf-4ccb-a5d2-67ee77111747",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [
-                    {
-                        "name": "address (gpio)",
-                        "id": "0da693a6-3836-48c5-b563-70648ca9cf99",
-                        "value": "0x0"
-                    }
-                ],
-                "enabledInterfaceGroups": [],
-                "name": "Kingbright KP-1608CGCK",
-                "instanceName": "LED"
-            },
-            {
-                "id": "924c0a7f-e21c-49cc-952f-2f939d47252d",
-                "position": {
-                    "x": 1800,
-                    "y": 550
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "i2c",
-                        "id": "3203ce5a-9c59-439c-9b1f-b1b8ad3e827c",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "gpio",
-                        "id": "d04a4b01-da81-4c7e-bc19-649196ba362f",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "NXP PCA6408APW",
-                "instanceName": "IO Expander I2C"
-            },
-            {
-                "id": "626c067b-5e49-4310-8e87-e9581c50a253",
-                "position": {
-                    "x": 1800,
-                    "y": 350
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "i2c",
-                        "id": "faba7471-6ab3-4edc-90aa-20b4132f869b",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Atmel AT24CS01-ST",
-                "instanceName": "I2C EEPROM"
-            },
-            {
-                "id": "00f0b79f-8ab3-40b8-a1d3-0ab9d33955fd",
-                "position": {
-                    "x": 1250,
-                    "y": 350
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "LPDDR4 testbed SODIMM interface",
-                        "id": "77d74a0b-858e-47d4-becf-16040ea9be70",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "i2c",
-                        "id": "f1e283bc-d817-462c-9642-5c30d007f159",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "ddr",
-                        "id": "08c180f7-2860-490c-afe6-192460d2d3a4",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "LPDDR4 tester edge connector",
-                "instanceName": "LPDDR4 tester edge connector"
-            },
-            {
-                "id": "debc4719-ef22-48d9-b0fe-a819106a02c1",
-                "position": {
-                    "x": 1800,
-                    "y": 150
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "lpddr",
-                        "id": "fb1f0435-cbe3-4887-a2ed-1282110ff3f0",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Micron Technology MT53E1G32D2NP-046 WT:A",
-                "instanceName": "LPDDR"
-            }
-        ],
-        "connections": [
-            {
-                "id": "1b641e5e-d670-4be0-b639-f59fa1abd33e",
-                "from": "d04a4b01-da81-4c7e-bc19-649196ba362f",
-                "to": "c0e9ba7a-f5bf-4ccb-a5d2-67ee77111747"
-            },
-            {
-                "id": "d14f655c-9444-4bb2-a080-fc89d463dbe3",
-                "from": "f1e283bc-d817-462c-9642-5c30d007f159",
-                "to": "faba7471-6ab3-4edc-90aa-20b4132f869b"
-            },
-            {
-                "id": "61336f48-9f7d-4e71-8271-95eb6d1b188d",
-                "from": "f1e283bc-d817-462c-9642-5c30d007f159",
-                "to": "3203ce5a-9c59-439c-9b1f-b1b8ad3e827c"
-            },
-            {
-                "id": "a7453f7b-82fe-49b3-9380-2452c9e8de21",
-                "from": "fb1f0435-cbe3-4887-a2ed-1282110ff3f0",
-                "to": "08c180f7-2860-490c-afe6-192460d2d3a4"
-            }
-        ]
-    },
-    "version": "20230830.11",
+    "version": "20240723.13",
     "metadata": {
         "connectionStyle": "curved",
         "movementStep": 50
-    }
+    },
+    "graphs": [
+        {
+            "id": "005d3dae-fbf9-45b7-a254-5ce87c71d84a",
+            "name": "LPDDR4 Testbed",
+            "nodes": [
+                {
+                    "id": "11d873bd-1522-4472-bb84-0bf44ce4163a",
+                    "position": {
+                        "x": 2200,
+                        "y": 500
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "c0e9ba7a-f5bf-4ccb-a5d2-67ee77111747",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [
+                        {
+                            "name": "address (gpio)",
+                            "id": "0da693a6-3836-48c5-b563-70648ca9cf99",
+                            "value": "0x0"
+                        }
+                    ],
+                    "enabledInterfaceGroups": [],
+                    "name": "Kingbright KP-1608CGCK",
+                    "instanceName": "LED"
+                },
+                {
+                    "id": "924c0a7f-e21c-49cc-952f-2f939d47252d",
+                    "position": {
+                        "x": 1800,
+                        "y": 550
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "i2c",
+                            "id": "3203ce5a-9c59-439c-9b1f-b1b8ad3e827c",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "gpio",
+                            "id": "d04a4b01-da81-4c7e-bc19-649196ba362f",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "NXP PCA6408APW",
+                    "instanceName": "IO Expander I2C"
+                },
+                {
+                    "id": "626c067b-5e49-4310-8e87-e9581c50a253",
+                    "position": {
+                        "x": 1800,
+                        "y": 350
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "i2c",
+                            "id": "faba7471-6ab3-4edc-90aa-20b4132f869b",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Atmel AT24CS01-ST",
+                    "instanceName": "I2C EEPROM"
+                },
+                {
+                    "id": "00f0b79f-8ab3-40b8-a1d3-0ab9d33955fd",
+                    "position": {
+                        "x": 1250,
+                        "y": 350
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "LPDDR4 testbed SODIMM interface",
+                            "id": "77d74a0b-858e-47d4-becf-16040ea9be70",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "i2c",
+                            "id": "f1e283bc-d817-462c-9642-5c30d007f159",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "ddr",
+                            "id": "08c180f7-2860-490c-afe6-192460d2d3a4",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "LPDDR4 tester edge connector",
+                    "instanceName": "LPDDR4 tester edge connector"
+                },
+                {
+                    "id": "debc4719-ef22-48d9-b0fe-a819106a02c1",
+                    "position": {
+                        "x": 1800,
+                        "y": 150
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "lpddr",
+                            "id": "fb1f0435-cbe3-4887-a2ed-1282110ff3f0",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Micron Technology MT53E1G32D2NP-046 WT:A",
+                    "instanceName": "LPDDR"
+                }
+            ],
+            "connections": [
+                {
+                    "id": "1b641e5e-d670-4be0-b639-f59fa1abd33e",
+                    "from": "d04a4b01-da81-4c7e-bc19-649196ba362f",
+                    "to": "c0e9ba7a-f5bf-4ccb-a5d2-67ee77111747"
+                },
+                {
+                    "id": "d14f655c-9444-4bb2-a080-fc89d463dbe3",
+                    "from": "f1e283bc-d817-462c-9642-5c30d007f159",
+                    "to": "faba7471-6ab3-4edc-90aa-20b4132f869b"
+                },
+                {
+                    "id": "61336f48-9f7d-4e71-8271-95eb6d1b188d",
+                    "from": "f1e283bc-d817-462c-9642-5c30d007f159",
+                    "to": "3203ce5a-9c59-439c-9b1f-b1b8ad3e827c"
+                },
+                {
+                    "id": "a7453f7b-82fe-49b3-9380-2452c9e8de21",
+                    "from": "fb1f0435-cbe3-4887-a2ed-1282110ff3f0",
+                    "to": "08c180f7-2860-490c-afe6-192460d2d3a4"
+                }
+            ]
+        }
+    ]
 }

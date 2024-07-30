@@ -1,173 +1,175 @@
 {
-    "graph": {
-        "id": "7e5be374-c860-4682-bffb-6505a218f10f",
-        "name": " CM4 Baseboard- LVDS adapter",
-        "nodes": [
-            {
-                "id": "5410bb9e-fb15-46a8-852d-a0939959b366",
-                "position": {
-                    "x": 1000,
-                    "y": -250
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "CM4 Baseboard DSI adapter",
-                        "id": "081a0405-367d-4a94-be92-99367f757573",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "dsi",
-                        "id": "2adcbc53-2f98-4f5f-9efd-4eee04e5bacf",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "i2c",
-                        "id": "2e2f3343-1453-41e7-9615-620dce5e6f9a",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 1
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Molex 556500488",
-                "instanceName": "DSI adapter connector"
-            },
-            {
-                "id": "78146122-86f6-40f3-8a67-d92e33b922ab",
-                "position": {
-                    "x": 2000,
-                    "y": -250
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "smartscreen-lvds-interface",
-                        "id": "5f51b7a2-1a05-4cc3-a5c3-e40283d6568e",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "lvds",
-                        "id": "56d9d876-6608-4c21-9b28-8b9868cefcdb",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Amphenol 62684-401100AHLF",
-                "instanceName": "Video(LVDS) connector"
-            },
-            {
-                "id": "de2462c9-e826-4391-a4eb-92cf7120e16a",
-                "position": {
-                    "x": 2000,
-                    "y": 0
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "smartscreen-touchscreen-interface",
-                        "id": "313ac9a1-ceec-423d-8e2d-882d6f73663f",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "i2c",
-                        "id": "aeb40a86-6b9a-41c8-839c-a67f1417db84",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "JST Automotive Connectors SM10B-SURS-TF",
-                "instanceName": "Touchscreen connector"
-            },
-            {
-                "id": "8c548859-9c2a-435d-98f5-f9acc4568419",
-                "position": {
-                    "x": 1500,
-                    "y": -250
-                },
-                "width": 200,
-                "twoColumn": true,
-                "interfaces": [
-                    {
-                        "name": "dsi",
-                        "id": "ec028a61-aa96-49dc-a970-141eb1e7b591",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "lvds[0]",
-                        "id": "696db6d4-a5f9-45c3-993f-7413ce0cde26",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 0
-                    },
-                    {
-                        "name": "lvds[1]",
-                        "id": "04984080-8f9d-4dbf-8222-e4e98c03cc9d",
-                        "direction": "inout",
-                        "side": "right",
-                        "sidePosition": 1
-                    },
-                    {
-                        "name": "i2c",
-                        "id": "84a48bef-f2b8-4ec2-a6f6-bb64246bf144",
-                        "direction": "inout",
-                        "side": "left",
-                        "sidePosition": 1
-                    }
-                ],
-                "properties": [],
-                "enabledInterfaceGroups": [],
-                "name": "Texas Instruments SN65DSI84TPAPRQ1",
-                "instanceName": "DSI -> LVDS converter"
-            }
-        ],
-        "connections": [
-            {
-                "id": "d52ab4d7-4bd4-4ebf-856a-e736801d6586",
-                "from": "aeb40a86-6b9a-41c8-839c-a67f1417db84",
-                "to": "2e2f3343-1453-41e7-9615-620dce5e6f9a"
-            },
-            {
-                "id": "81f26eb8-5ecf-4316-ac82-82950316f9f8",
-                "from": "2e2f3343-1453-41e7-9615-620dce5e6f9a",
-                "to": "84a48bef-f2b8-4ec2-a6f6-bb64246bf144"
-            },
-            {
-                "id": "7a0a89f1-2ea3-4e0e-87c3-59d878e9bdb8",
-                "from": "2adcbc53-2f98-4f5f-9efd-4eee04e5bacf",
-                "to": "ec028a61-aa96-49dc-a970-141eb1e7b591"
-            },
-            {
-                "id": "8498e69e-df15-46c4-a683-e44be78ebc7b",
-                "from": "56d9d876-6608-4c21-9b28-8b9868cefcdb",
-                "to": "696db6d4-a5f9-45c3-993f-7413ce0cde26"
-            }
-        ]
-    },
-    "version": "20230830.11",
+    "version": "20240723.13",
     "metadata": {
         "connectionStyle": "curved",
         "movementStep": 50,
         "backgroundSize": 50
-    }
+    },
+    "graphs": [
+        {
+            "id": "7e5be374-c860-4682-bffb-6505a218f10f",
+            "name": " CM4 Baseboard- LVDS adapter",
+            "nodes": [
+                {
+                    "id": "5410bb9e-fb15-46a8-852d-a0939959b366",
+                    "position": {
+                        "x": 1000,
+                        "y": -250
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "CM4 Baseboard DSI adapter",
+                            "id": "081a0405-367d-4a94-be92-99367f757573",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "dsi",
+                            "id": "2adcbc53-2f98-4f5f-9efd-4eee04e5bacf",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "i2c",
+                            "id": "2e2f3343-1453-41e7-9615-620dce5e6f9a",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 1
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Molex 556500488",
+                    "instanceName": "DSI adapter connector"
+                },
+                {
+                    "id": "78146122-86f6-40f3-8a67-d92e33b922ab",
+                    "position": {
+                        "x": 2000,
+                        "y": -250
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "smartscreen-lvds-interface",
+                            "id": "5f51b7a2-1a05-4cc3-a5c3-e40283d6568e",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "lvds",
+                            "id": "56d9d876-6608-4c21-9b28-8b9868cefcdb",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Amphenol 62684-401100AHLF",
+                    "instanceName": "Video(LVDS) connector"
+                },
+                {
+                    "id": "de2462c9-e826-4391-a4eb-92cf7120e16a",
+                    "position": {
+                        "x": 2000,
+                        "y": 0
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "smartscreen-touchscreen-interface",
+                            "id": "313ac9a1-ceec-423d-8e2d-882d6f73663f",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "i2c",
+                            "id": "aeb40a86-6b9a-41c8-839c-a67f1417db84",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "JST Automotive Connectors SM10B-SURS-TF",
+                    "instanceName": "Touchscreen connector"
+                },
+                {
+                    "id": "8c548859-9c2a-435d-98f5-f9acc4568419",
+                    "position": {
+                        "x": 1500,
+                        "y": -250
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "dsi",
+                            "id": "ec028a61-aa96-49dc-a970-141eb1e7b591",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "lvds[0]",
+                            "id": "696db6d4-a5f9-45c3-993f-7413ce0cde26",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "lvds[1]",
+                            "id": "04984080-8f9d-4dbf-8222-e4e98c03cc9d",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "i2c",
+                            "id": "84a48bef-f2b8-4ec2-a6f6-bb64246bf144",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Texas Instruments SN65DSI84TPAPRQ1",
+                    "instanceName": "DSI -> LVDS converter"
+                }
+            ],
+            "connections": [
+                {
+                    "id": "d52ab4d7-4bd4-4ebf-856a-e736801d6586",
+                    "from": "aeb40a86-6b9a-41c8-839c-a67f1417db84",
+                    "to": "2e2f3343-1453-41e7-9615-620dce5e6f9a"
+                },
+                {
+                    "id": "81f26eb8-5ecf-4316-ac82-82950316f9f8",
+                    "from": "2e2f3343-1453-41e7-9615-620dce5e6f9a",
+                    "to": "84a48bef-f2b8-4ec2-a6f6-bb64246bf144"
+                },
+                {
+                    "id": "7a0a89f1-2ea3-4e0e-87c3-59d878e9bdb8",
+                    "from": "2adcbc53-2f98-4f5f-9efd-4eee04e5bacf",
+                    "to": "ec028a61-aa96-49dc-a970-141eb1e7b591"
+                },
+                {
+                    "id": "8498e69e-df15-46c4-a683-e44be78ebc7b",
+                    "from": "56d9d876-6608-4c21-9b28-8b9868cefcdb",
+                    "to": "696db6d4-a5f9-45c3-993f-7413ce0cde26"
+                }
+            ]
+        }
+    ]
 }
