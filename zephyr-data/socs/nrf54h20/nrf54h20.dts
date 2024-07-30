@@ -13,11 +13,11 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpuapp: cpu: cpu@2 {
+		cpurad: cpu: cpu@3 {
 			compatible = "arm,cortex-m33";
-			reg = < 0x2 >;
+			reg = < 0x3 >;
 			device_type = "cpu";
-			clock-frequency = < 0x1312d000 >;
+			clock-frequency = < 0xf424000 >;
 		};
 	};
 	reserved-memory {
@@ -53,7 +53,7 @@
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x1 >;
 		compatible = "simple-bus";
-		interrupt-parent = < &cpuapp_nvic >;
+		interrupt-parent = < &cpurad_nvic >;
 		ranges;
 		mram1x: mram@e000000 {
 			compatible = "nordic,mram";
@@ -79,52 +79,136 @@
 			#nordic,ficr-cells = < 0x1 >;
 			phandle = < 0x5 >;
 		};
-		cpuapp_ram0: sram@22000000 {
+		cpurad_ram0: sram@23000000 {
 			compatible = "mmio-sram";
-			reg = < 0x22000000 0x8000 >;
+			reg = < 0x23000000 0x30000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			ranges = < 0x0 0x22000000 0x8000 >;
+			ranges = < 0x0 0x23000000 0x30000 >;
 		};
-		cpuapp_peripherals: peripheral@52000000 {
+		cpurad_peripherals: peripheral@53000000 {
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			ranges = < 0x0 0x52000000 0x1000000 >;
-			cpuapp_hsfll: clock@d000 {
+			ranges = < 0x0 0x53000000 0x1000000 >;
+			cpurad_hsfll: clock@d000 {
 				compatible = "nordic,nrf-hsfll";
 				#clock-cells = < 0x0 >;
 				reg = < 0xd000 0x1000 >;
 				clocks = < &fll16m >;
-				clock-frequency = < 0x1312d000 >;
-				nordic,ficrs = < &ficr 0x3c8 >, < &ficr 0x3cc >, < &ficr 0x3e4 >;
+				clock-frequency = < 0xf424000 >;
+				nordic,ficrs = < &ficr 0x410 >, < &ficr 0x418 >, < &ficr 0x430 >;
 				nordic,ficr-names = "vsup", "coarse", "fine";
 			};
-			cpuapp_ipct: ipct@13000 {
-				compatible = "nordic,nrf-ipct-local";
+			cpurad_wdt010: wdt010: watchdog@13000 {
+				compatible = "nordic,nrf-wdt";
 				reg = < 0x13000 0x1000 >;
 				status = "disabled";
-				channels = < 0x4 >;
-				interrupts = < 0x40 0x1 >, < 0x41 0x1 >;
+				interrupts = < 0x13 0x1 >;
 			};
-			cpuapp_wdt010: wdt010: watchdog@14000 {
+			cpurad_wdt011: wdt011: watchdog@14000 {
 				compatible = "nordic,nrf-wdt";
 				reg = < 0x14000 0x1000 >;
 				status = "disabled";
 				interrupts = < 0x14 0x1 >;
 			};
-			cpuapp_wdt011: wdt011: watchdog@15000 {
-				compatible = "nordic,nrf-wdt";
-				reg = < 0x15000 0x1000 >;
-				status = "disabled";
-				interrupts = < 0x15 0x1 >;
-			};
-			cpuapp_resetinfo: resetinfo@1e000 {
+			cpurad_resetinfo: resetinfo@1e000 {
 				compatible = "nordic,nrf-resetinfo";
 				reg = < 0x1e000 0x1000 >;
 			};
-			cpuapp_ieee802154: ieee802154 {
-				compatible = "nordic,nrf-ieee802154";
+			dppic020: dppic@22000 {
+				compatible = "nordic,nrf-dppic-local";
+				reg = < 0x22000 0x1000 >;
 				status = "disabled";
+			};
+			cpurad_ipct: ipct@24000 {
+				compatible = "nordic,nrf-ipct-local";
+				reg = < 0x24000 0x1000 >;
+				status = "disabled";
+				channels = < 0x8 >;
+				interrupts = < 0x40 0x1 >, < 0x41 0x1 >;
+			};
+			egu020: egu@25000 {
+				compatible = "nordic,nrf-egu";
+				reg = < 0x25000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x25 0x1 >;
+			};
+			timer020: timer@28000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x28000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x8 >;
+				interrupts = < 0x28 0x1 >;
+				max-bit-width = < 0x20 >;
+				max-frequency = < 0x1e84800 >;
+				prescaler = < 0x0 >;
+			};
+			timer021: timer@29000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x29000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x8 >;
+				interrupts = < 0x29 0x1 >;
+				max-bit-width = < 0x20 >;
+				max-frequency = < 0x1e84800 >;
+				prescaler = < 0x0 >;
+			};
+			timer022: timer@2a000 {
+				compatible = "nordic,nrf-timer";
+				reg = < 0x2a000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x8 >;
+				interrupts = < 0x2a 0x1 >;
+				max-bit-width = < 0x20 >;
+				max-frequency = < 0x1e84800 >;
+				prescaler = < 0x0 >;
+			};
+			rtc: rtc@2b000 {
+				compatible = "nordic,nrf-rtc";
+				reg = < 0x2b000 0x1000 >;
+				status = "disabled";
+				cc-num = < 0x4 >;
+				clock-frequency = < 0x8000 >;
+				interrupts = < 0x2b 0x1 >;
+				prescaler = < 0x1 >;
+			};
+			radio: radio@2c000 {
+				compatible = "nordic,nrf-radio";
+				reg = < 0x2c000 0x1000 >;
+				status = "disabled";
+				ble-2mbps-supported;
+				ble-coded-phy-supported;
+				dfe-supported;
+				ieee802154-supported;
+				interrupts = < 0x2c 0x1 >;
+				cpurad_ieee802154: ieee802154 {
+					compatible = "nordic,nrf-ieee802154";
+					status = "disabled";
+				};
+			};
+			ccm030: ccm@3a000 {
+				compatible = "nordic,nrf-ccm";
+				reg = < 0x3a000 0x1000 >;
+				interrupts = < 0x3a 0x1 >;
+				status = "disabled";
+			};
+			ecb030: ecb@3b000 {
+				compatible = "nordic,nrf-ecb";
+				reg = < 0x3b000 0x1000 >;
+				interrupts = < 0x3b 0x1 >;
+				status = "disabled";
+			};
+			ccm031: ccm@3c000 {
+				compatible = "nordic,nrf-ccm";
+				reg = < 0x3c000 0x1000 >;
+				interrupts = < 0x3c 0x1 >;
+				status = "disabled";
+			};
+			ecb031: ecb@3d000 {
+				compatible = "nordic,nrf-ecb";
+				reg = < 0x3d000 0x1000 >;
+				status = "disabled";
+				interrupts = < 0x3d 0x1 >;
 			};
 		};
 		global_peripherals: peripheral@5f000000 {
@@ -165,13 +249,13 @@
 				reg = < 0x9a000 0x1000 >;
 				status = "disabled";
 				#mbox-cells = < 0x1 >;
-				compatible = "nordic,nrf-bellboard-rx";
+				compatible = "nordic,nrf-bellboard-tx";
 			};
 			cpurad_bellboard: mailbox@9b000 {
 				reg = < 0x9b000 0x1000 >;
 				status = "disabled";
 				#mbox-cells = < 0x1 >;
-				compatible = "nordic,nrf-bellboard-tx";
+				compatible = "nordic,nrf-bellboard-rx";
 			};
 			canpll: clock-controller@8c2000 {
 				compatible = "nordic,nrf-auxpll";
@@ -303,14 +387,19 @@
 			ipct130: ipct@921000 {
 				compatible = "nordic,nrf-ipct-global";
 				reg = < 0x921000 0x1000 >;
-				status = "disabled";
+				status = "okay";
 				channels = < 0x8 >;
 				global-domain-id = < 0xd >;
+				owned-channels = < 0x0 >;
+				source-channel-links = < 0x0 0x3 0x0 >;
 			};
 			dppic130: dppic@922000 {
 				compatible = "nordic,nrf-dppic-global";
 				reg = < 0x922000 0x1000 >;
-				status = "disabled";
+				status = "okay";
+				owned-channels = < 0x0 >;
+				sink-channels = < 0x0 >;
+				nonsecure-channels = < 0x0 >;
 			};
 			rtc130: rtc@928000 {
 				compatible = "nordic,nrf-rtc";
@@ -442,7 +531,10 @@
 			dppic132: dppic@991000 {
 				compatible = "nordic,nrf-dppic-global";
 				reg = < 0x991000 0x1000 >;
-				status = "disabled";
+				status = "okay";
+				owned-channels = < 0x0 >;
+				source-channels = < 0x0 >;
+				nonsecure-channels = < 0x0 >;
 			};
 			qdec130: qdec@994000 {
 				compatible = "nordic,nrf-qdec";
@@ -461,7 +553,10 @@
 				reg = < 0x99c000 0x1000 >;
 				status = "disabled";
 				cc-num = < 0x10 >;
-				interrupts = < 0x6d 0x1 >;
+				owned-channels = < 0x7 0x8 0x9 0xa 0xb 0xc 0xd 0xe 0xf >;
+				child-owned-channels = < 0x8 0x9 0xa 0xb 0xc >;
+				nonsecure-channels = < 0x8 0x9 0xa 0xb 0xc >;
+				interrupts = < 0x6d 0x1 >, < 0x6d 0x1 >, < 0x6e 0x1 >;
 			};
 			dppic133: dppic@9a1000 {
 				compatible = "nordic,nrf-dppic-global";
@@ -801,17 +896,17 @@
 			};
 		};
 	};
-	cpuapp_ppb: cpuapp-ppb-bus {
+	cpurad_ppb: cpurad-ppb-bus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x1 >;
 		compatible = "simple-bus";
 		ranges;
-		cpuapp_systick: systick: timer@e000e010 {
+		cpurad_systick: systick: timer@e000e010 {
 			compatible = "arm,armv8m-systick";
 			reg = < 0xe000e010 0x10 >;
 			status = "disabled";
 		};
-		cpuapp_nvic: nvic: interrupt-controller@e000e100 {
+		cpurad_nvic: nvic: interrupt-controller@e000e100 {
 			compatible = "arm,v8m-nvic";
 			reg = < 0xe000e100 0xc00 >;
 			arm,num-irq-priority-bits = < 0x3 >;
