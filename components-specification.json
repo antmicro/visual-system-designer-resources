@@ -539,6 +539,13 @@
             "isCategory": true
         },
         {
+            "category": "Clock Generator/8MHz",
+            "extends": [
+                "Clock Generator"
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Devices/AD-GMSLCAMRPI-ADP Adapter",
             "description": "The AD-GMSLCAMRPI-ADP enables connecting GMSL serializer and deserializer evaluation kits to a wide range of cameras and processing platforms supporting industry standard ribbon cable connectors. The adapter consists of three sections that can be broken apart from each other.",
             "icon": {
@@ -6656,6 +6663,22 @@
             "isCategory": true
         },
         {
+            "abstract": false,
+            "description": "8 MHz XO (Standard) CMOS Oscillator 1.6V ~ 3.63V Standby 4-SMD, 25ppm; 1.6x1.2x0.6mm\n\n### Additional information\n\n*Datasheet*: [ECS-1612MV.pdf](https://ecsxtal.com/store/pdf/ECS-1612MV.pdf)",
+            "extends": [
+                "8MHz"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/oscillator-smd-ecs-1612mv-1-6x1-2x0-6mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "ECS Inc. International ECS-1612MV-080-CN-TR",
+            "urls": {
+                "datasheet": "https://ecsxtal.com/store/pdf/ECS-1612MV.pdf",
+                "designer": "hardware/components/ecs-inc-international-ecs-1612mv-080-cn-tr",
+                "hwp": "components/ecs-inc-international-ecs-1612mv-080-cn-tr"
+            }
+        },
+        {
             "category": "SoC/Silicon Labs/EFR32BG22",
             "interfaces": [
                 {
@@ -7648,6 +7671,388 @@
             }
         },
         {
+            "category": "Devices/Environment Sensor MYRA Baseboard",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc1",
+                    "override": false,
+                    "side": "right",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc2",
+                    "override": false,
+                    "side": "right",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc3",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc4",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc5",
+                    "override": false,
+                    "side": "right",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "cr-battery",
+                    "override": false,
+                    "side": "right",
+                    "type": "cr-battery"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac1",
+                    "override": false,
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac2",
+                    "override": false,
+                    "side": "left",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac3",
+                    "override": false,
+                    "side": "left",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac4",
+                    "override": false,
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan1",
+                    "override": false,
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan2",
+                    "override": false,
+                    "side": "left",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan3",
+                    "override": false,
+                    "side": "left",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "flash",
+                    "override": false,
+                    "side": "right",
+                    "type": "mtd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiob",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioc",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiod",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioe",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiof",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiog",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c3",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c4",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpuart1",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-1",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-2",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-3",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-4",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-5",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-6",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-7",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-8",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-9",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi2",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi3",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi4",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart4",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart5",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart3",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb-c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "wire to board",
+                    "override": false,
+                    "side": "right",
+                    "type": "wire to board"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Devices/Environment Sensor with enclosure",
             "description": "An open source board equipped with temperature, humidity and pressure sensors, designed to help monitor conditions in server rooms.\nThe sensors are placed on a separate island that is detachable from the main PCB and can be installed directly in the required place.\nIt provides local storage for data logging and battery backup for protection against data loss.\nThe board can be used as a building block for PoC solutions for monitoring environmental parameters.\n",
             "icon": {
@@ -7785,6 +8190,13 @@
             "isCategory": true
         },
         {
+            "category": "Memory/FRAM/FRAM-SPI",
+            "extends": [
+                "spi-device"
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/USB/FTDI UART+JTAG/FT2232D",
             "interfaces": [
                 {
@@ -7857,6 +8269,22 @@
                 "datasheet": "https://ftdichip.com/wp-content/uploads/2021/10/DS_FT230X.pdf",
                 "designer": "hardware/components/ftdi-chip-ft230xq-r",
                 "hwp": "components/ftdi-chip-ft230xq-r"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "USB Interface, USB-UART Converter, USB 2.0, 2.97 V, 5.5 V, SSOP, 20 Pins\n\n### Additional information\n\n*Datasheet*: [DS_FT231X.pdf](https://ftdichip.com/wp-content/uploads/2021/10/DS_FT231X.pdf)",
+            "extends": [
+                "USB to UART MPSSE bridge"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-20-1ep-4x4mm-p0-5mm-ep2-45x2-45mm-ftdi-chip-ft231xq-r/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "FTDI Chip FT231XQ-R",
+            "urls": {
+                "datasheet": "https://ftdichip.com/wp-content/uploads/2021/10/DS_FT231X.pdf",
+                "designer": "hardware/components/ftdi-chip-ft231xq-r",
+                "hwp": "components/ftdi-chip-ft231xq-r"
             }
         },
         {
@@ -8305,6 +8733,22 @@
                 "datasheet": "https://www.fujitsu.com/jp/group/fsm/en/documents/products/feram/lineup/MB85RC1MT-DS501-00027-5v0-E.pdf",
                 "designer": "hardware/components/fujitsu-mb85rc1mtpnf-g-jnere1",
                 "hwp": "components/fujitsu-mb85rc1mtpnf-g-jnere1"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "1Mbit FRAM (Ferroelectric RAM) Memory; SPI 30 MHz; WLP-8 2.3x3.1mm\n\n### Additional information\n\n*Datasheet*: [MB85RS1MT.pdf](https://www.fujitsu.com/uk/Images/MB85RS1MT.pdf)",
+            "extends": [
+                "FRAM-SPI"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/fujitsu-wlp-8-2-28x3-092mm-p0-5mm-fujitsu-mb85rs1mtpw-g-apewe1/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Fujitsu MB85RS1MTPW-G-APEWE1",
+            "urls": {
+                "datasheet": "https://www.fujitsu.com/uk/Images/MB85RS1MT.pdf",
+                "designer": "hardware/components/fujitsu-mb85rs1mtpw-g-apewe1",
+                "hwp": "components/fujitsu-mb85rs1mtpw-g-apewe1"
             }
         },
         {
@@ -16324,6 +16768,22 @@
         },
         {
             "abstract": false,
+            "description": "ARM MCU, STM32 Family STM32G4 Series Microcontrollers, ARM Cortex-M4F, 32 bit, 170 MHz, 512 KB\n\n### Additional information\n\n*Datasheet*: [stm32g491RE.pdf](https://www.st.com/resource/en/datasheet/stm32g491RE.pdf)",
+            "extends": [
+                "stm32g491rei"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-64-5x5mm-layout8x8-p0-5mm-ball0-255mm-stmicroelectronics-stm32g491rei6/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "STMicroelectronics STM32G491REI6",
+            "urls": {
+                "datasheet": "https://www.st.com/resource/en/datasheet/stm32g491RE.pdf",
+                "designer": "hardware/components/stmicroelectronics-stm32g491rei6",
+                "hwp": "components/stmicroelectronics-stm32g491rei6"
+            }
+        },
+        {
+            "abstract": false,
             "description": "USB Controller USB 2.0 I2C Interface 24-QFN (4x4)\n\n### Additional information\n\n*Datasheet*: [dm00489312-1799262.pdf](https://www.mouser.com/datasheet/2/389/dm00489312-1799262.pdf)",
             "extends": [
                 "USB PD controller"
@@ -22611,33 +23071,6 @@
             }
         },
         {
-            "category": "SoC/Broadcom/bcm58402",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart0",
-                    "override": false,
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart1",
-                    "override": false,
-                    "side": "right",
-                    "type": "serial"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "designer": "hardware/socs/bcm58402",
-                "rdp": "soc/bcm58402",
-                "zephyr": "dts/arm/broadcom/viper-m7.dtsi"
-            }
-        },
-        {
             "additionalData": {
                 "compats": [
                     "rohm,bh1750"
@@ -28076,6 +28509,345 @@
             ]
         },
         {
+            "category": "SoC/Intel/elkhart_lake",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_0_b",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_0_g",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_0_t",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_1_d",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_1_h",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_1_u",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_1_v",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_1_vG",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_3_a",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_3_s",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_3_vG",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_4_c",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_4_e",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_4_f",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_5_r",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c0",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c1",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c3",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c4",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c5",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c6",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c7",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c_pse_0",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c_pse_1",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c_pse_2",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c_pse_3",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c_pse_4",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c_pse_5",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c_pse_6",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1_fixed",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart2",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart2_fixed",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart_pse_0",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart_pse_1",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart_pse_2",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart_pse_3",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart_pse_4",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart_pse_5",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/elkhart_lake",
+                "rdp": "soc/elkhart_lake",
+                "zephyr": "dts/x86/intel/elkhart_lake.dtsi"
+            }
+        },
+        {
             "category": "SoC/Synopsys/emsdp_em11d",
             "interfaces": [
                 {
@@ -28447,7 +29219,7 @@
             "urls": {
                 "designer": "hardware/socs/emsdp_em7d",
                 "rdp": "soc/emsdp_em7d",
-                "zephyr": "dts/arc/synopsys/emsdp.dtsi"
+                "zephyr": "dts/arc/synopsys/emsdp-sec.dtsi"
             }
         },
         {
@@ -29197,7 +29969,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32",
                 "rdp": "soc/esp32",
-                "zephyr": "dts/xtensa/espressif/esp32/esp32_pico_d4.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32/esp32_appcpu.dtsi"
             }
         },
         {
@@ -29368,7 +30140,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32-wrover",
                 "rdp": "soc/esp32-wrover",
-                "zephyr": "dts/xtensa/espressif/esp32/esp32_wrover_e_n16r4.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32/esp32_appcpu.dtsi"
             }
         },
         {
@@ -29467,7 +30239,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32c3",
                 "rdp": "soc/esp32c3",
-                "zephyr": "dts/riscv/espressif/esp32c3/esp32c3_mini_n4.dtsi"
+                "zephyr": "dts/riscv/espressif/esp32c3/esp32c3_fx4.dtsi"
             }
         },
         {
@@ -29590,7 +30362,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32s2",
                 "rdp": "soc/esp32s2",
-                "zephyr": "dts/xtensa/espressif/esp32s2/esp32s2.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32s2/esp32s2_wrover_n4r2.dtsi"
             }
         },
         {
@@ -29721,7 +30493,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32s3",
                 "rdp": "soc/esp32s3",
-                "zephyr": "dts/xtensa/espressif/esp32s3/esp32s3_wroom_n8r8.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32s3/esp32s3_appcpu.dtsi"
             }
         },
         {
@@ -29775,7 +30547,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "drivers/sensor/f75303/f75303.c"
             }
         },
         {
@@ -35720,7 +36492,7 @@
             "urls": {
                 "designer": "hardware/socs/lpc55s69",
                 "rdp": "soc/lpc55s69",
-                "zephyr": "dts/arm/nxp/nxp_lpc55S6x.dtsi"
+                "zephyr": "dts/arm/nxp/nxp_lpc55S6x_ns.dtsi"
             }
         },
         {
@@ -38732,14 +39504,38 @@
             }
         },
         {
-            "category": "SoC/NXP Semiconductors/mimx8mm6",
+            "category": "SoC/NXP Semiconductors/mimx8ml8",
             "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ecspi1",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ecspi2",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ecspi3",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio1",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "gpio"
                 },
                 {
@@ -38747,7 +39543,7 @@
                     "maxConnectionsCount": -1,
                     "name": "gpio2",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "gpio"
                 },
                 {
@@ -38755,7 +39551,7 @@
                     "maxConnectionsCount": -1,
                     "name": "gpio3",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "gpio"
                 },
                 {
@@ -38763,7 +39559,7 @@
                     "maxConnectionsCount": -1,
                     "name": "gpio4",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "gpio"
                 },
                 {
@@ -38771,7 +39567,7 @@
                     "maxConnectionsCount": -1,
                     "name": "gpio5",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "gpio"
                 },
                 {
@@ -38779,7 +39575,7 @@
                     "maxConnectionsCount": -1,
                     "name": "pinctrl",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "pinctrl"
                 },
                 {
@@ -38787,23 +39583,7 @@
                     "maxConnectionsCount": -1,
                     "name": "uart1",
                     "override": false,
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart2",
-                    "override": false,
                     "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart3",
-                    "override": false,
-                    "side": "left",
                     "type": "serial"
                 },
                 {
@@ -38811,15 +39591,15 @@
                     "maxConnectionsCount": -1,
                     "name": "uart4",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "serial"
                 }
             ],
             "isCategory": true,
             "urls": {
-                "designer": "hardware/socs/mimx8mm6",
-                "rdp": "soc/mimx8mm6",
-                "zephyr": "dts/arm/nxp/nxp_imx8mm_m4.dtsi"
+                "designer": "hardware/socs/mimx8ml8",
+                "rdp": "soc/mimx8ml8",
+                "zephyr": "dts/arm/nxp/nxp_imx8ml_m7.dtsi"
             }
         },
         {
@@ -48280,7 +49060,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf52832",
                 "rdp": "soc/nrf52832",
-                "zephyr": "dts/arm/nordic/nrf52832_qfaa.dtsi"
+                "zephyr": "dts/arm/nordic/nrf52832_ciaa.dtsi"
             }
         },
         {
@@ -48289,31 +49069,15 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "adc",
-                    "override": false,
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
                     "name": "flash_controller",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "mtd"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio0",
-                    "override": false,
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio1",
                     "override": false,
                     "side": "right",
                     "type": "gpio"
@@ -48337,73 +49101,17 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2s0",
-                    "override": false,
-                    "side": "left",
-                    "type": "i2s"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "nfct",
-                    "override": false,
-                    "side": "right",
-                    "type": "wireless"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pdm0",
-                    "override": false,
-                    "side": "left",
-                    "type": "audio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
                     "name": "pinctrl",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm0",
-                    "override": false,
-                    "side": "left",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm1",
-                    "override": false,
-                    "side": "right",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm2",
-                    "override": false,
-                    "side": "left",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm3",
-                    "override": false,
-                    "side": "right",
-                    "type": "pwm"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "qdec",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "qdec"
                 },
                 {
@@ -48411,7 +49119,7 @@
                     "maxConnectionsCount": -1,
                     "name": "radio",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "rf"
                 },
                 {
@@ -48419,7 +49127,7 @@
                     "maxConnectionsCount": -1,
                     "name": "spi0",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
@@ -48427,37 +49135,13 @@
                     "maxConnectionsCount": -1,
                     "name": "spi1",
                     "override": false,
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi2",
-                    "override": false,
                     "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi3",
-                    "override": false,
-                    "side": "right",
                     "type": "spi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "uart0",
-                    "override": false,
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart1",
                     "override": false,
                     "side": "right",
                     "type": "serial"
@@ -48475,7 +49159,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf52833",
                 "rdp": "soc/nrf52833",
-                "zephyr": "dts/arm/nordic/nrf52833_qiaa.dtsi"
+                "zephyr": "dts/arm/nordic/nrf52820_qdaa.dtsi"
             }
         },
         {
@@ -48687,81 +49371,6 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "flash_controller",
-                    "override": false,
-                    "side": "left",
-                    "type": "mtd"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio0",
-                    "override": false,
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio1",
-                    "override": false,
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c0",
-                    "override": false,
-                    "side": "right",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "override": false,
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "radio",
-                    "override": false,
-                    "side": "right",
-                    "type": "rf"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi0",
-                    "override": false,
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart0",
-                    "override": false,
-                    "side": "right",
-                    "type": "serial"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "designer": "hardware/socs/nrf5340",
-                "rdp": "soc/nrf5340",
-                "zephyr": "dts/arm/nordic/nrf5340_cpunet_qkaa.dtsi"
-            }
-        },
-        {
-            "category": "SoC/Nordic Semiconductor/nrf54h20",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
                     "name": "adc",
                     "override": false,
                     "side": "left",
@@ -48770,25 +49379,17 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "can120",
+                    "name": "flash_controller",
                     "override": false,
                     "side": "right",
-                    "type": "can"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "exmif",
-                    "override": false,
-                    "side": "left",
-                    "type": "spi"
+                    "type": "mtd"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio0",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "gpio"
                 },
                 {
@@ -48796,45 +49397,21 @@
                     "maxConnectionsCount": -1,
                     "name": "gpio1",
                     "override": false,
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio2",
-                    "override": false,
                     "side": "right",
                     "type": "gpio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio6",
+                    "name": "i2c0",
                     "override": false,
                     "side": "left",
-                    "type": "gpio"
+                    "type": "i2c"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio7",
-                    "override": false,
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio9",
-                    "override": false,
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c130",
+                    "name": "i2c1",
                     "override": false,
                     "side": "right",
                     "type": "i2c"
@@ -48842,7 +49419,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c131",
+                    "name": "i2c2",
                     "override": false,
                     "side": "left",
                     "type": "i2c"
@@ -48850,7 +49427,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c132",
+                    "name": "i2c3",
                     "override": false,
                     "side": "right",
                     "type": "i2c"
@@ -48858,42 +49435,10 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c133",
+                    "name": "i2s0",
                     "override": false,
                     "side": "left",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c134",
-                    "override": false,
-                    "side": "right",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c135",
-                    "override": false,
-                    "side": "left",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c136",
-                    "override": false,
-                    "side": "right",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c137",
-                    "override": false,
-                    "side": "left",
-                    "type": "i2c"
+                    "type": "i2s"
                 },
                 {
                     "direction": "inout",
@@ -48906,23 +49451,23 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pinctrl",
+                    "name": "pdm0",
                     "override": false,
                     "side": "left",
+                    "type": "audio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "right",
                     "type": "pinctrl"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm120",
-                    "override": false,
-                    "side": "right",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm130",
+                    "name": "pwm0",
                     "override": false,
                     "side": "left",
                     "type": "pwm"
@@ -48930,7 +49475,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm131",
+                    "name": "pwm1",
                     "override": false,
                     "side": "right",
                     "type": "pwm"
@@ -48938,7 +49483,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm132",
+                    "name": "pwm2",
                     "override": false,
                     "side": "left",
                     "type": "pwm"
@@ -48946,7 +49491,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pwm133",
+                    "name": "pwm3",
                     "override": false,
                     "side": "right",
                     "type": "pwm"
@@ -48954,7 +49499,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "qdec130",
+                    "name": "qdec0",
                     "override": false,
                     "side": "left",
                     "type": "qdec"
@@ -48962,7 +49507,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "qdec131",
+                    "name": "qdec1",
                     "override": false,
                     "side": "right",
                     "type": "qdec"
@@ -48970,15 +49515,15 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "radio",
+                    "name": "qspi",
                     "override": false,
                     "side": "left",
-                    "type": "rf"
+                    "type": "qspi"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi120",
+                    "name": "spi0",
                     "override": false,
                     "side": "right",
                     "type": "spi"
@@ -48986,7 +49531,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi121",
+                    "name": "spi1",
                     "override": false,
                     "side": "left",
                     "type": "spi"
@@ -48994,7 +49539,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi130",
+                    "name": "spi2",
                     "override": false,
                     "side": "right",
                     "type": "spi"
@@ -49002,7 +49547,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi131",
+                    "name": "spi3",
                     "override": false,
                     "side": "left",
                     "type": "spi"
@@ -49010,7 +49555,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi132",
+                    "name": "spi4",
                     "override": false,
                     "side": "right",
                     "type": "spi"
@@ -49018,55 +49563,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi133",
-                    "override": false,
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi134",
-                    "override": false,
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi135",
-                    "override": false,
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi136",
-                    "override": false,
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi137",
-                    "override": false,
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart120",
-                    "override": false,
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart130",
+                    "name": "uart0",
                     "override": false,
                     "side": "left",
                     "type": "serial"
@@ -49074,7 +49571,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart131",
+                    "name": "uart1",
                     "override": false,
                     "side": "right",
                     "type": "serial"
@@ -49082,7 +49579,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart132",
+                    "name": "uart2",
                     "override": false,
                     "side": "left",
                     "type": "serial"
@@ -49090,7 +49587,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart133",
+                    "name": "uart3",
                     "override": false,
                     "side": "right",
                     "type": "serial"
@@ -49098,39 +49595,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart134",
-                    "override": false,
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart135",
-                    "override": false,
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart136",
-                    "override": false,
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "uart137",
-                    "override": false,
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usbhs",
+                    "name": "usbd",
                     "override": false,
                     "side": "left",
                     "type": "usb"
@@ -49138,9 +49603,9 @@
             ],
             "isCategory": true,
             "urls": {
-                "designer": "hardware/socs/nrf54h20",
-                "rdp": "soc/nrf54h20",
-                "zephyr": "dts/arm/nordic/nrf54h20_cpurad.dtsi"
+                "designer": "hardware/socs/nrf5340",
+                "rdp": "soc/nrf5340",
+                "zephyr": "dts/arm/nordic/nrf5340_cpuappns_qkaa.dtsi"
             }
         },
         {
@@ -49701,7 +50166,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf9160",
                 "rdp": "soc/nrf9160",
-                "zephyr": "dts/arm/nordic/nrf9160_sica.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9160ns_sica.dtsi"
             }
         },
         {
@@ -52177,7 +52642,7 @@
             "urls": {
                 "designer": "hardware/socs/s32z270",
                 "rdp": "soc/s32z270",
-                "zephyr": "dts/arm/nxp/nxp_s32z27x_rtu1_r52.dtsi"
+                "zephyr": "dts/arm/nxp/nxp_s32z27x_rtu0_r52.dtsi"
             }
         },
         {
@@ -55729,7 +56194,7 @@
             "urls": {
                 "designer": "hardware/socs/samv71q21",
                 "rdp": "soc/samv71q21",
-                "zephyr": "dts/arm/atmel/samv71q21b.dtsi"
+                "zephyr": "dts/arm/atmel/samv71q21.dtsi"
             }
         },
         {
@@ -59411,7 +59876,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32f103xb",
                 "rdp": "soc/stm32f103xb",
-                "zephyr": "dts/arm/st/f1/stm32f103Xb.dtsi"
+                "zephyr": "dts/arm/st/f1/stm32f103X8.dtsi"
             }
         },
         {
@@ -74510,6 +74975,406 @@
             }
         },
         {
+            "category": "SoC/STMicroelectronics/g4/stm32g491rei",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc1",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc2",
+                    "override": false,
+                    "side": "right",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc3",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc4",
+                    "override": false,
+                    "side": "right",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc5",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "left",
+                    "type": "clk"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac1",
+                    "override": false,
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac2",
+                    "override": false,
+                    "side": "left",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac3",
+                    "override": false,
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac4",
+                    "override": false,
+                    "side": "left",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan1",
+                    "override": false,
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan2",
+                    "override": false,
+                    "side": "left",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan3",
+                    "override": false,
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "flash",
+                    "override": false,
+                    "side": "left",
+                    "type": "mtd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioa",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiob",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioc",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiod",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioe",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiof",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiog",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c1",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c3",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c4",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "left",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpuart1",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-1",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-2",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-3",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-4",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-5",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-6",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-7",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-8",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-9",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi1",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi2",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi3",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi4",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart4",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart5",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart1",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart3",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "override": false,
+                    "side": "right",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "vbat",
+                    "side": "right",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/stm32g474xx",
+                "rdp": "soc/stm32g474xx",
+                "zephyr": "dts/arm/st/g4/stm32g474Xe.dtsi"
+            }
+        },
+        {
             "category": "SoC/STMicroelectronics/h5/stm32h563xx",
             "interfaces": [
                 {
@@ -78007,7 +78872,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32h745xx",
                 "rdp": "soc/stm32h745xx",
-                "zephyr": "dts/arm/st/h7/stm32h745Xi_m7.dtsi"
+                "zephyr": "dts/arm/st/h7/stm32h745Xi_m4.dtsi"
             }
         },
         {
@@ -84366,7 +85231,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32l475xx",
                 "rdp": "soc/stm32l475xx",
-                "zephyr": "dts/arm/st/l4/stm32l475Xe.dtsi"
+                "zephyr": "dts/arm/st/l4/stm32l475Xg.dtsi"
             }
         },
         {
@@ -89597,6 +90462,193 @@
                 "designer": "hardware/socs/stm32wl55xx",
                 "rdp": "soc/stm32wl55xx",
                 "zephyr": "dts/arm/st/wl/stm32wl55Xc.dtsi"
+            }
+        },
+        {
+            "category": "SoC/Olimex Ltd./stm32wle5xx",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc1",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac1",
+                    "override": false,
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "flash",
+                    "override": false,
+                    "side": "left",
+                    "type": "mtd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioa",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiob",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioc",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioh",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c1",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c3",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lora",
+                    "override": false,
+                    "side": "left",
+                    "type": "rf"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lpuart1",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-1",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-2",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-3",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi1",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi2",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "subghzspi",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart1",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/stm32wle5xx",
+                "rdp": "soc/stm32wle5xx",
+                "zephyr": "dts/arm/olimex/bb-stm32wl.dtsi"
             }
         },
         {

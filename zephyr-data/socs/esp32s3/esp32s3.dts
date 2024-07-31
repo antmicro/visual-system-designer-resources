@@ -18,7 +18,8 @@
 		ranges;
 		sram0: memory@3fc88000 {
 			compatible = "mmio-sram";
-			reg = < 0x3fc88000 0x77fff >;
+			reg = < 0x3fc88000 0x2800 >;
+			status = "okay";
 		};
 		ipmmem0: memory@3fcbd000 {
 			compatible = "mmio-sram";
@@ -77,8 +78,8 @@
 		psram0: psram@3c000000 {
 			device_type = "memory";
 			compatible = "mmio-sram";
-			reg = < 0x3c000000 0x800000 >;
-			status = "okay";
+			reg = < 0x3c000000 0x200000 >;
+			status = "disabled";
 		};
 		ipm0: ipm@3fcc1400 {
 			compatible = "espressif,esp32-ipm";
