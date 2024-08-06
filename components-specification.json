@@ -834,6 +834,13 @@
         },
         {
             "abstract": false,
+            "extends": [
+                "PCIe Switch"
+            ],
+            "name": "ASMedia ASM2824"
+        },
+        {
+            "abstract": false,
             "description": "MEMS Oscillator, 100 MHz, SMD, 5mm x 3.2mm, 10 ppm, 2.5 V, ASFLMB, CMOS\n\n### Additional information\n\n*Datasheet*: [ASFLMB.pdf](https://abracon.com/Oscillators/ASFLMB.pdf)",
             "extends": [
                 "100MHz"
@@ -1314,6 +1321,22 @@
         },
         {
             "abstract": false,
+            "description": "PCB Receptacle, Board-to-Board, 2 mm, 2 Rows, 20 Contacts, Surface Mount, Tiger Beam TLE\n\n### Additional information\n\n*Datasheet*: [55510.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/55510.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinsocket-2x10-p2mm-smd/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol 55510-120LF",
+            "urls": {
+                "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/55510.pdf",
+                "designer": "hardware/components/amphenol-55510-120lf",
+                "hwp": "components/amphenol-55510-120lf"
+            }
+        },
+        {
+            "abstract": false,
             "description": "FFC & FPC Connectors, 40 pin, 0.5mm, SMD/SMT, Right Angle, Bottom Concact\n\n### Additional information\n\n*Datasheet*: [62684.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/62684.pdf)",
             "extends": [
                 "SmartScreen LVDS connector"
@@ -1377,24 +1400,20 @@
             }
         },
         {
-            "category": "Connector/USB/Amphenol GSB4112312HR",
-            "interfaces": [
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 port A",
-                    "side": "left",
-                    "type": "usb"
-                },
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "USB 3.2 port B",
-                    "side": "right",
-                    "type": "usb"
-                }
+            "abstract": false,
+            "description": "USB 3.2 GEN 2, Type A, Receptacle, Right Angle Stacked, 18 Pins, Shell with Nickel Plating, 30μin Gold, Dip 2.4mm, Blue High Temperature Housing, Tray Packaging\n\n### Additional information\n\n*Datasheet*: [io_usb_3_1_gen2_gsb4x.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/inputoutput/io_usb_3_1_gen2_gsb4x.pdf)",
+            "extends": [
+                "2x USB A 3.2"
             ],
-            "isCategory": true
+            "icon": {
+                "hw-icon": "/blender-models/usb-a-amphenol-gsb4112312hr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol GSB4112312HR",
+            "urls": {
+                "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/inputoutput/io_usb_3_1_gen2_gsb4x.pdf",
+                "designer": "hardware/components/amphenol-gsb4112312hr",
+                "hwp": "components/amphenol-gsb4112312hr"
+            }
         },
         {
             "abstract": false,
@@ -2937,6 +2956,22 @@
                 "datasheet": "https://eu.mouser.com/datasheet/2/240/ksc4-3050359.pdf",
                 "designer": "hardware/components/c-k-ksc441j70shlfs",
                 "hwp": "components/c-k-ksc441j70shlfs"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Tactile Switch, PTS645 Series, Top Actuated, Surface Mount, Round Button, 160 gf, 50mA at 12VDC\n\n### Additional information\n\n*Datasheet*: [pts645.pdf](https://www.ckswitches.com/media/1471/pts645.pdf)",
+            "extends": [
+                "Button"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sw-pts645sm43smtr92lfs-smd/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "C&K PTS645SM43SMTR92LFS",
+            "urls": {
+                "datasheet": "https://www.ckswitches.com/media/1471/pts645.pdf",
+                "designer": "hardware/components/c-k-pts645sm43smtr92lfs",
+                "hwp": "components/c-k-pts645sm43smtr92lfs"
             }
         },
         {
@@ -5251,6 +5286,34 @@
             "isCategory": true
         },
         {
+            "category": "Connector/Board to Board/ChipLink",
+            "description": "Microchip ChipLink FMC Mezzanine Connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "chiplink",
+                    "side": "left",
+                    "type": "chiplink"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "chiplink fmc",
+                    "side": "left",
+                    "type": "chiplink"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Clock Generator",
             "interfaces": [
                 {
@@ -6814,7 +6877,7 @@
         {
             "category": "Devices/EFR32BG22 Thunderboard Kit",
             "icon": {
-                "renodepedia": "sltb010a_2.webp"
+                "renodepedia": "sltb010a_0.webp"
             },
             "interfaces": [
                 {
@@ -6980,9 +7043,9 @@
             ],
             "isCategory": true,
             "urls": {
-                "designer": "hardware/devices/sltb010a_2",
-                "designer-graph": "sltb010a_2",
-                "rdp": "boards/sltb010a_2"
+                "designer": "hardware/devices/sltb010a_0",
+                "designer-graph": "sltb010a_0",
+                "rdp": "boards/sltb010a_0"
             }
         },
         {
@@ -9600,40 +9663,45 @@
         },
         {
             "category": "Devices/HiFive Unleashed",
-            "icon": {
-                "vsd-resources": "boards/hifive_unleashed/hifive_unleashed_small.webp"
-            },
             "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "chiplink fmc",
+                    "override": false,
+                    "side": "left",
+                    "type": "chiplink"
+                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "gpio header",
                     "override": false,
-                    "side": "right",
-                    "type": "gpio header"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "qspi1",
-                    "override": false,
                     "side": "left",
-                    "type": "qspi"
+                    "type": "gpio header"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "rj45",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "rj45"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sd-card",
+                    "override": false,
+                    "side": "right",
+                    "type": "sd-card"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
                     "name": "spi1",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
@@ -9641,7 +9709,7 @@
                     "maxConnectionsCount": -1,
                     "name": "spi2",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
@@ -9649,22 +9717,14 @@
                     "maxConnectionsCount": -1,
                     "name": "usb micro",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "usb micro"
                 }
             ],
-            "isCategory": true,
-            "urls": {
-                "designer": "hardware/devices/hifive_unleashed",
-                "designer-graph": "hifive_unleashed",
-                "rdp": "boards/hifive_unleashed"
-            }
+            "isCategory": true
         },
         {
             "category": "Devices/HiFive Unmatched",
-            "icon": {
-                "vsd-resources": "boards/hifive_unmatched/hifive_unmatched_small.webp"
-            },
             "interfaces": [
                 {
                     "direction": "inout",
@@ -9685,10 +9745,66 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2s",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2s"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key e",
+                    "override": false,
+                    "side": "left",
+                    "type": "m.2 key e"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key m",
+                    "override": false,
+                    "side": "left",
+                    "type": "m.2 key m"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie1 x1",
+                    "override": false,
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcm",
+                    "override": false,
+                    "side": "right",
+                    "type": "pcm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "rj45",
                     "override": false,
                     "side": "right",
                     "type": "rj45"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sd-card",
+                    "override": false,
+                    "side": "left",
+                    "type": "sd-card"
                 },
                 {
                     "direction": "inout",
@@ -9709,18 +9825,29 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "usb a[0]",
+                    "override": false,
+                    "side": "right",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb a[1]",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "usb micro",
                     "override": false,
                     "side": "left",
                     "type": "usb micro"
                 }
             ],
-            "isCategory": true,
-            "urls": {
-                "designer": "hardware/devices/hifive_unmatched",
-                "designer-graph": "hifive_unmatched",
-                "rdp": "boards/hifive_unmatched"
-            }
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -13308,13 +13435,6 @@
             "isCategory": true
         },
         {
-            "abstract": false,
-            "extends": [
-                "QSPI Flash"
-            ],
-            "name": "MX25L1006EMI-10G"
-        },
-        {
             "category": "Memory/Flash/MX25R8035",
             "extends": [
                 "spi-device"
@@ -13541,6 +13661,22 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "FLASH - NOR Memory IC 1Mbit SPI 104 MHz 8-SOP\n\n### Additional information\n\n*Datasheet*: [MX25L1006E,%203V,%201Mb,%20v1.4.pdf](https://www.macronix.com/Lists/Datasheet/Attachments/8623/MX25L1006E,%203V,%201Mb,%20v1.4.pdf)",
+            "extends": [
+                "QSPI Flash"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sop-8-3-9x5-05mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Macronix MX25L1006EMI-10G",
+            "urls": {
+                "datasheet": "https://www.macronix.com/Lists/Datasheet/Attachments/8623/MX25L1006E,%203V,%201Mb,%20v1.4.pdf",
+                "designer": "hardware/components/macronix-mx25l1006emi-10g",
+                "hwp": "components/macronix-mx25l1006emi-10g"
+            }
         },
         {
             "abstract": false,
@@ -14355,6 +14491,22 @@
                 "datasheet": "https://www.molex.com/en-us/products/part-detail/556500488?display=pdf",
                 "designer": "hardware/components/molex-556500488",
                 "hwp": "components/molex-556500488"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "2.00mm Pitch Milli-Grid Receptacle, Surface Mount, Top Entry, 0.76µm Gold (Au) Plating, with Cover, without Locating Pegs, 40 Circuits, Lead-Free\n\n### Additional information\n\n*Datasheet*: [873814063_sd.pdf?inline](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/873/87381/873814063_sd.pdf?inline)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinsocket-2x20-p2mm-smd/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 873814063",
+            "urls": {
+                "datasheet": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/873/87381/873814063_sd.pdf?inline",
+                "designer": "hardware/components/molex-873814063",
+                "hwp": "components/molex-873814063"
             }
         },
         {
@@ -16862,6 +17014,22 @@
         },
         {
             "abstract": false,
+            "description": "Mezzanine Connector, Array, 1.27 mm, 10 Rows, 400 Contacts, Surface Mount\n\n### Additional information\n\n*Datasheet*: [asp-134602-01-mkt.pdf](https://suddendocs.samtec.com/prints/asp-134602-01-mkt.pdf)",
+            "extends": [
+                "ChipLink"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-fmc-samtec-asp-134602-01/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Samtec ASP-134602-01",
+            "urls": {
+                "datasheet": "https://suddendocs.samtec.com/prints/asp-134602-01-mkt.pdf",
+                "designer": "hardware/components/samtec-asp-134602-01",
+                "hwp": "components/samtec-asp-134602-01"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Mezzanine Connector, Array, Female, 1.27 mm, 14 Rows, 560 Contacts, Surface Mount\n\n### Additional information\n\n*Datasheet*: [asp_184329_01_mkt-2854128.pdf](https://www.mouser.com/datasheet/2/527/asp_184329_01_mkt-2854128.pdf)",
             "extends": [
                 "FMC+"
@@ -16954,6 +17122,22 @@
                 "datasheet": "https://suddendocs.samtec.com/catalog_english/lshm_dh.pdf",
                 "designer": "hardware/components/samtec-lshm-130-01-l-rh-a-s-k-tr",
                 "hwp": "components/samtec-lshm-130-01-l-rh-a-s-k-tr"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "164 Position Female Connector PCI Express™ Gold 0.039\" (1.00mm) Black\n\n### Additional information\n\n*Datasheet*: [pcie.pdf](https://suddendocs.samtec.com/catalog_english/pcie.pdf)",
+            "extends": [
+                "PCIe x16"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/samtec-pcie-164-02-x-d-th/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Samtec PCIE-164-02-F-D-TH",
+            "urls": {
+                "datasheet": "https://suddendocs.samtec.com/catalog_english/pcie.pdf",
+                "designer": "hardware/components/samtec-pcie-164-02-f-d-th",
+                "hwp": "components/samtec-pcie-164-02-f-d-th"
             }
         },
         {
@@ -22002,7 +22186,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -22929,27 +23113,6 @@
             "urls": {
                 "rdp": "soc_components/ams_as5600"
             }
-        },
-        {
-            "category": "Connector/asp-134602-01",
-            "description": "Samtec ASP-134602-01i Mezzanine Connector",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "chiplink",
-                    "side": "left",
-                    "type": "chiplink"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio",
-                    "side": "right",
-                    "type": "gpio"
-                }
-            ],
-            "isCategory": true
         },
         {
             "category": "SoC/ASPEED Technology/ast1030",
