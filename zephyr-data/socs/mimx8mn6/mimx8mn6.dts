@@ -113,4 +113,35 @@
 		compatible = "nxp,rdc";
 		reg = < 0x303d0000 0x10000 >;
 	};
+	enet: enet@30be0000 {
+		compatible = "nxp,enet1g";
+		reg = < 0x30be0000 0x10000 >;
+		clocks = < &ccm 0xe00 0x0 0x0 >;
+		rdc = < 0x3 >;
+		status = "disabled";
+		enet_mac: ethernet {
+			compatible = "nxp,enet-mac";
+			interrupts = < 0x0 0x78 0x2 0xa0 >;
+			interrupt-names = "COMMON";
+			interrupt-parent = < &gic >;
+			nxp,mdio = < &enet_mdio >;
+			nxp,ptp-clock = < &enet_ptp_clock >;
+			status = "disabled";
+		};
+		enet_mdio: mdio {
+			compatible = "nxp,enet-mdio";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			phandle = < 0x3 >;
+		};
+		enet_ptp_clock: ptp_clock {
+			compatible = "nxp,enet-ptp-clock";
+			interrupts = < 0x0 0x79 0x2 0xa0 >;
+			interrupt-parent = < &gic >;
+			clocks = < &ccm 0xe01 0x0 0x0 >;
+			status = "disabled";
+			phandle = < 0x4 >;
+		};
+	};
 };

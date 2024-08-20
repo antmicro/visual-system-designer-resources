@@ -92,7 +92,7 @@
 			clocks = < &uartclk >;
 			ambiq,pwrcfg = < &pwrcfg 0x4 0x1000 >;
 		};
-		iom0: iom@40050000 {
+		spi0: spi@40050000 {
 			reg = < 0x40050000 0x1000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -100,7 +100,7 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x4 0x2 >;
 		};
-		iom1: iom@40051000 {
+		spi1: spi@40051000 {
 			reg = < 0x40051000 0x1000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -108,7 +108,7 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x4 0x4 >;
 		};
-		iom2: iom@40052000 {
+		spi2: spi@40052000 {
 			reg = < 0x40052000 0x1000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -116,7 +116,7 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x4 0x8 >;
 		};
-		iom3: iom@40053000 {
+		spi3: spi@40053000 {
 			reg = < 0x40053000 0x1000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -124,7 +124,7 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x4 0x10 >;
 		};
-		iom4: spi@40054000 {
+		spi4: spi@40054000 {
 			compatible = "ambiq,spi";
 			reg = < 0x40054000 0x1000 >;
 			#address-cells = < 0x1 >;
@@ -137,12 +137,13 @@
 			bt_hci_apollo: bt-hci@0 {
 				compatible = "ambiq,bt-hci-spi";
 				reg = < 0x0 >;
+				spi-max-frequency = < 0x16e3600 >;
 				irq-gpios = < &gpio32_63 0x15 0x0 >;
 				reset-gpios = < &gpio32_63 0x17 0x1 >;
 				clkreq-gpios = < &gpio32_63 0x14 0x0 >;
 			};
 		};
-		iom5: iom@40055000 {
+		spi5: spi@40055000 {
 			reg = < 0x40055000 0x1000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -150,7 +151,7 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x4 0x40 >;
 		};
-		iom6: iom@40056000 {
+		spi6: spi@40056000 {
 			reg = < 0x40056000 0x1000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -158,7 +159,71 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x4 0x80 >;
 		};
-		iom7: iom@40057000 {
+		spi7: spi@40057000 {
+			reg = < 0x40057000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0xd 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x100 >;
+		};
+		i2c0: i2c@40050000 {
+			reg = < 0x40050000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x6 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x2 >;
+		};
+		i2c1: i2c@40051000 {
+			reg = < 0x40051000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x7 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x4 >;
+		};
+		i2c2: i2c@40052000 {
+			reg = < 0x40052000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x8 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x8 >;
+		};
+		i2c3: i2c@40053000 {
+			reg = < 0x40053000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0x9 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x10 >;
+		};
+		i2c4: i2c@40054000 {
+			reg = < 0x40054000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0xa 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x20 >;
+		};
+		i2c5: i2c@40055000 {
+			reg = < 0x40055000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0xb 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x40 >;
+		};
+		i2c6: i2c@40056000 {
+			reg = < 0x40056000 0x1000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			interrupts = < 0xc 0x0 >;
+			status = "disabled";
+			ambiq,pwrcfg = < &pwrcfg 0x4 0x80 >;
+		};
+		i2c7: i2c@40057000 {
 			reg = < 0x40057000 0x1000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
@@ -314,80 +379,40 @@
 				group1 {
 					pinmux = < 0x51 >, < 0x70 >, < 0x61 >;
 				};
-				group2 {
-					pinmux = < 0x487 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0x0 >;
-				};
 			};
 			spi1_default: spi1_default {
 				group1 {
 					pinmux = < 0x85 >, < 0xa4 >, < 0x95 >;
-				};
-				group2 {
-					pinmux = < 0xb7 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0x4 >;
 				};
 			};
 			spi2_default: spi2_default {
 				group1 {
 					pinmux = < 0x191 >, < 0x1b0 >, < 0x1a1 >;
 				};
-				group2 {
-					pinmux = < 0x257 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0x8 >;
-				};
 			};
 			spi3_default: spi3_default {
 				group1 {
 					pinmux = < 0x1f1 >, < 0x210 >, < 0x201 >;
-				};
-				group2 {
-					pinmux = < 0x557 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0xc >;
 				};
 			};
 			spi4_default: spi4_default {
 				group1 {
 					pinmux = < 0x221 >, < 0x240 >, < 0x231 >;
 				};
-				group2 {
-					pinmux = < 0x367 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0x10 >;
-				};
 			};
 			spi5_default: spi5_default {
 				group1 {
 					pinmux = < 0x2f1 >, < 0x310 >, < 0x301 >;
-				};
-				group2 {
-					pinmux = < 0x3c7 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0x14 >;
 				};
 			};
 			spi6_default: spi6_default {
 				group1 {
 					pinmux = < 0x3d1 >, < 0x3f0 >, < 0x3e1 >;
 				};
-				group2 {
-					pinmux = < 0x1e7 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0x18 >;
-				};
 			};
 			spi7_default: spi7_default {
 				group1 {
 					pinmux = < 0x161 >, < 0x180 >, < 0x171 >;
-				};
-				group2 {
-					pinmux = < 0x587 >;
-					drive-push-pull;
-					ambiq,iom-nce-module = < 0x1c >;
 				};
 			};
 			mspi0_default: mspi0_default {

@@ -1020,6 +1020,19 @@
 				compatible = "sensirion,sht21";
 				reg = < 0x90 >;
 			};
+			test_i2c_lsm9ds1: lsm9ds1@91 {
+				compatible = "st,lsm9ds1";
+				reg = < 0x8e >;
+			};
+			test_i2c_icm42670: icm42670@92 {
+				compatible = "invensense,icm42670";
+				reg = < 0x92 >;
+				int-gpios = < &test_gpio 0x0 0x0 >;
+				accel-hz = < 0x320 >;
+				accel-fs = < 0x10 >;
+				gyro-hz = < 0x320 >;
+				gyro-fs = < 0x7d0 >;
+			};
 		};
 		test_pwm: pwm@12341234 {
 			compatible = "vnd,pwm";

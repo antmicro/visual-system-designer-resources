@@ -18,8 +18,7 @@
 		ranges;
 		sram0: memory@3fc88000 {
 			compatible = "mmio-sram";
-			reg = < 0x3fc88000 0x2800 >;
-			status = "okay";
+			reg = < 0x3fc88000 0x77fff >;
 		};
 		ipmmem0: memory@3fcbd000 {
 			compatible = "mmio-sram";
@@ -89,6 +88,16 @@
 			shared-memory-size = < 0x400 >;
 			interrupts = < 0x4f 0x50 >;
 			interrupt-parent = < &intc >;
+		};
+		mbox0: mbox@3fcc1408 {
+			compatible = "espressif,mbox-esp32";
+			reg = < 0x3fcc1408 0x8 >;
+			status = "disabled";
+			shared-memory = < &ipmmem0 >;
+			shared-memory-size = < 0x400 >;
+			interrupts = < 0x4f 0x50 >;
+			interrupt-parent = < &intc >;
+			#mbox-cells = < 0x1 >;
 		};
 		uart0: uart@60000000 {
 			compatible = "espressif,esp32-uart";

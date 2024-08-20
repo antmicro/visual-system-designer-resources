@@ -120,8 +120,7 @@
 			#size-cells = < 0x1 >;
 			eirq0: eirq0@40520010 {
 				compatible = "nxp,s32-siul2-eirq";
-				reg = < 0x40520010 0x4 >, < 0x40520018 0x4 >;
-				reg-names = "disr0", "direr0";
+				reg = < 0x40520010 0xb4 >;
 				interrupts = < 0x0 0x202 0x2 0xa0 >;
 				interrupt-controller;
 				#interrupt-cells = < 0x2 >;
@@ -167,8 +166,7 @@
 			#size-cells = < 0x1 >;
 			eirq1: eirq1@40d20010 {
 				compatible = "nxp,s32-siul2-eirq";
-				reg = < 0x40d20010 0x4 >, < 0x40d20018 0x4 >;
-				reg-names = "disr0", "direr0";
+				reg = < 0x40d20010 0xb4 >;
 				interrupts = < 0x0 0x203 0x2 0xa0 >;
 				interrupt-controller;
 				#interrupt-cells = < 0x2 >;
@@ -235,8 +233,7 @@
 			#size-cells = < 0x1 >;
 			eirq4: eirq4@42520010 {
 				compatible = "nxp,s32-siul2-eirq";
-				reg = < 0x42520010 0x4 >, < 0x42520018 0x4 >;
-				reg-names = "disr0", "direr0";
+				reg = < 0x42520010 0xb4 >;
 				interrupts = < 0x0 0x204 0x2 0xa0 >;
 				interrupt-controller;
 				#interrupt-cells = < 0x2 >;
@@ -302,8 +299,7 @@
 			#size-cells = < 0x1 >;
 			eirq5: eirq5@42d20010 {
 				compatible = "nxp,s32-siul2-eirq";
-				reg = < 0x42d20010 0x4 >, < 0x42d20018 0x4 >;
-				reg-names = "disr0", "direr0";
+				reg = < 0x42d20010 0xb4 >;
 				interrupts = < 0x0 0x205 0x2 0xa0 >;
 				interrupt-controller;
 				#interrupt-cells = < 0x2 >;
@@ -594,6 +590,7 @@
 			reg = < 0x76800000 0x10000 >;
 			interrupts = < 0x0 0x8 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
+			service-mode = "fixed";
 			status = "disabled";
 		};
 		swt1: watchdog@76810000 {
@@ -601,6 +598,7 @@
 			reg = < 0x76810000 0x10000 >;
 			interrupts = < 0x0 0x9 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
+			service-mode = "fixed";
 			status = "disabled";
 		};
 		swt2: watchdog@76a20000 {
@@ -608,6 +606,7 @@
 			reg = < 0x76a20000 0x10000 >;
 			interrupts = < 0x0 0xa 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
+			service-mode = "fixed";
 			status = "disabled";
 		};
 		swt3: watchdog@76a30000 {
@@ -615,6 +614,7 @@
 			reg = < 0x76a30000 0x10000 >;
 			interrupts = < 0x0 0xb 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
+			service-mode = "fixed";
 			status = "disabled";
 		};
 		swt4: watchdog@76940000 {
@@ -622,6 +622,7 @@
 			reg = < 0x76940000 0x10000 >;
 			interrupts = < 0x0 0xc 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
+			service-mode = "fixed";
 			status = "disabled";
 		};
 		pit0: pit@76950000 {

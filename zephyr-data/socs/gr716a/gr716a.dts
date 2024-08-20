@@ -92,5 +92,21 @@
 			#size-cells = < 0x0 >;
 			status = "disabled";
 		};
+		gpio0: gpio@8030c000 {
+			interrupts = < 0x11 >;
+			reg = < 0x8030c000 0x1000 >;
+			compatible = "gaisler,grgpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			status = "disabled";
+		};
+		gpio1: gpio@8030d000 {
+			interrupts = < 0x10 >;
+			reg = < 0x8030d000 0x1000 >;
+			compatible = "gaisler,grgpio";
+			gpio-controller;
+			#gpio-cells = < 0x2 >;
+			status = "disabled";
+		};
 	};
 };

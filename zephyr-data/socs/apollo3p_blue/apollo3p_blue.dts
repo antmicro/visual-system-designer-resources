@@ -226,6 +226,16 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x8 0x40 >;
 		};
+		adc0: adc@50010000 {
+			reg = < 0x50010000 0x400 >;
+			interrupts = < 0x12 0x0 >;
+			interrupt-names = "ADC";
+			channel-count = < 0xa >;
+			internal-vref-mv = < 0x5dc >;
+			status = "disabled";
+			#io-channel-cells = < 0x1 >;
+			ambiq,pwrcfg = < &pwrcfg 0x8 0x200 >;
+		};
 		mspi0: mspi@50014000 {
 			compatible = "ambiq,mspi-controller";
 			reg = < 0x50014000 0x400 >, < 0x52000000 0x2000000 >;
@@ -256,7 +266,7 @@
 			status = "disabled";
 			ambiq,pwrcfg = < &pwrcfg 0x8 0x2000 >;
 		};
-		bleif: bleif@5000c000 {
+		bleif: spi@5000c000 {
 			compatible = "ambiq,spi-bleif";
 			reg = < 0x5000c000 0x414 >;
 			interrupts = < 0xc 0x1 >;
@@ -266,6 +276,7 @@
 			ambiq,pwrcfg = < &pwrcfg 0x8 0x8000 >;
 			bt_hci_apollo: bt-hci@0 {
 				compatible = "ambiq,bt-hci-spi";
+				spi-max-frequency = < 0x5b8d80 >;
 				reg = < 0x0 >;
 			};
 		};

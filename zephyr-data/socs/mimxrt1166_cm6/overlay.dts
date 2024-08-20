@@ -107,6 +107,9 @@
 	pinctrl-1 = < &pinmux_lpuart2_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&mipi_dsi{
+	dphy-ref-frequency = < 0x16e3600 >;
+};
 &usb1{
 	status = "okay";
 };

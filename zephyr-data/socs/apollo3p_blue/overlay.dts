@@ -6,6 +6,11 @@
 		zephyr,sram = &sram0;
 	};
 };
+&adc0{
+	compatible = "ambiq,adc";
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
 &bleif{
 	status = "okay";
 	pinctrl-0 = < &bleif_default >;
@@ -36,6 +41,7 @@
 	compatible = "ambiq,spi";
 	pinctrl-0 = < &spi0_default >;
 	pinctrl-names = "default";
+	cs-gpios = < &gpio0_31 0xb 0x1 >;
 	clock-frequency = < 0xf4240 >;
 };
 &uart0{
@@ -66,7 +72,7 @@
 			reg = < 0x0 >;
 			interrupts = < 0xd 0x0 >;
 			status = "okay";
-			phandle = < 0x8 >;
+			phandle = < 0x6 >;
 		};
 		gpio32_63: gpio32_63@20 {
 			compatible = "ambiq,gpio-bank";
@@ -75,7 +81,7 @@
 			reg = < 0x20 >;
 			interrupts = < 0xd 0x0 >;
 			status = "okay";
-			phandle = < 0x9 >;
+			phandle = < 0xa >;
 		};
 		gpio64_95: gpio64_95@40 {
 			compatible = "ambiq,gpio-bank";
@@ -85,7 +91,7 @@
 			interrupts = < 0xd 0x0 >;
 			status = "okay";
 			ngpios = < 0xa >;
-			phandle = < 0xa >;
+			phandle = < 0xb >;
 		};
 	};
 	uart0_default: uart0_default {
@@ -149,72 +155,36 @@
 		group1 {
 			pinmux = < 0x51 >, < 0x61 >, < 0x71 >;
 		};
-		group2 {
-			pinmux = < 0xb1 >;
-			drive-push-pull;
-			ambiq,iom-mspi = < 0x1 >;
-			ambiq,iom-nce-module = < 0x0 >;
-			ambiq,iom-num = < 0x0 >;
-		};
 	};
 	spi1_default: spi1_default {
 		group1 {
 			pinmux = < 0x81 >, < 0x91 >, < 0xa1 >;
-		};
-		group2 {
-			pinmux = < 0x221 >;
-			drive-push-pull;
-			ambiq,iom-mspi = < 0x1 >;
-			ambiq,iom-nce-module = < 0x1 >;
-			ambiq,iom-num = < 0x1 >;
 		};
 	};
 	spi2_default: spi2_default {
 		group1 {
 			pinmux = < 0x1b5 >, < 0x195 >, < 0x1c5 >;
 		};
-		group2 {
-			pinmux = < 0xf1 >;
-			drive-push-pull;
-			ambiq,iom-mspi = < 0x1 >;
-			ambiq,iom-nce-module = < 0x3 >;
-			ambiq,iom-num = < 0x2 >;
-		};
 	};
 	spi3_default: spi3_default {
 		group1 {
 			pinmux = < 0x2a5 >, < 0x2b5 >, < 0x265 >;
-		};
-		group2 {
-			pinmux = < 0x1d1 >;
-			drive-push-pull;
-			ambiq,iom-mspi = < 0x1 >;
-			ambiq,iom-nce-module = < 0x0 >;
-			ambiq,iom-num = < 0x3 >;
 		};
 	};
 	spi4_default: spi4_default {
 		group1 {
 			pinmux = < 0x275 >, < 0x285 >, < 0x2c5 >;
 		};
-		group2 {
-			pinmux = < 0xd1 >;
-			drive-push-pull;
-			ambiq,iom-mspi = < 0x1 >;
-			ambiq,iom-nce-module = < 0x1 >;
-			ambiq,iom-num = < 0x4 >;
-		};
 	};
 	spi5_default: spi5_default {
 		group1 {
 			pinmux = < 0x305 >, < 0x315 >, < 0x2f5 >;
 		};
-		group2 {
-			pinmux = < 0x101 >;
-			drive-push-pull;
-			ambiq,iom-mspi = < 0x1 >;
-			ambiq,iom-nce-module = < 0x0 >;
-			ambiq,iom-num = < 0x5 >;
+	};
+	adc0_default: adc0_default {
+		group1 {
+			pinmux = < 0x200 >, < 0x230 >;
+			drive-strength = "0.1";
 		};
 	};
 	mspi0_default: mspi0_default {

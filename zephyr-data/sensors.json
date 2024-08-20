@@ -1149,6 +1149,7 @@
         ],
         "description": "ICM-42670 motion tracking device",
         "interfaces": {
+            "i2c": "i2c",
             "int": "gpio",
             "spi": "spi"
         },
@@ -1177,6 +1178,9 @@
                     1600
                 ],
                 "type": "int"
+            },
+            "address (i2c)": {
+                "type": "string"
             },
             "gyro-fs": {
                 "enum": [
@@ -2146,6 +2150,22 @@
         },
         "rdp-compat": "st,lsm9ds0-mfd"
     },
+    "lsm9ds1": {
+        "category": "Motion/Inertial measurement unit",
+        "compatible": [
+            "st,lsm9ds1"
+        ],
+        "description": "STMicroelectronics LSM9DS1 9-axis IMU (Inertial Measurement Unit) sensor\naccessed through I2C bus.\n\nThis binding describe only the inertial part : accelerometer and gyroscope.\n\nWhen setting the accel-range, gyro-range, imu-odr properties in\na .dts or .dtsi file you may include lsm9ds1.h and use the macros\ndefined there.\n\nExample:\n#include <zephyr/dt-bindings/sensor/lsm9ds1.h>\n\nlsm9ds1: lsm9ds1@0 {\n  ...\n\n  accel-range = <LSM9DS1_DT_FS_4G>;\n  imu-odr   =  <LSM9DS1_IMU_14Hz9>;\n  gyro-range = <LSM9DS1_DT_FS_2000DPS>;\n};\n",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "st,lsm9ds1"
+    },
     "ltrf216a0": {
         "category": "Environmental/Light",
         "compatible": [
@@ -3013,7 +3033,7 @@
         "compatible": [
             "ti,tmag5273"
         ],
-        "description": "Texas Instruments TMAG5273 Low-Power Linear 3D Hall-Effect Sensor with an I2C interface.\n\nSee the specification for the default I2C address.\n\nThe specification of the sensor can be found at:\n  https://www.ti.com/lit/ds/symlink/tmag5273.pdf\n\n  When setting the enum properties in a .dts or .dtsi file you may\n  include tmag5273.h and use the macros defined there.\n\n  Example:\n  #include <zephyr/dt-bindings/sensor/tmag5273.h>\n\n  tmag5273: tmag5273@0 {\n    ...\n    axis = <TMAG5273_DT_AXIS_XYZ>;\n    range = <TMAG5273_DT_AXIS_RANGE_HIGH>;\n  };\n",
+        "description": "Texas Instruments Low-Power Linear 3D Hall-Effect Sensor with an I2C interface.\n\nSee the specification for the default I2C address.\n\nThe specification of the sensor can be found at:\n  https://www.ti.com/lit/ds/symlink/tmag5273.pdf\n  https://www.ti.com/lit/ds/symlink/tmag3001.pdf\n\n  When setting the enum properties in a .dts or .dtsi file you may\n  include tmag5273.h and use the macros defined there.\n\n  Example:\n  #include <zephyr/dt-bindings/sensor/tmag5273.h>\n\n  tmag5273: tmag5273@0 {\n    ...\n    axis = <TMAG5273_DT_AXIS_XYZ>;\n    range = <TMAG5273_DT_AXIS_RANGE_HIGH>;\n  };\n",
         "interfaces": {
             "i2c": "i2c",
             "int": "gpio"

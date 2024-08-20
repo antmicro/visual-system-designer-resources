@@ -2,9 +2,11 @@
 	compatible = "ezurio,bl5340-dvk-cpuapp";
 	chosen {
 		zephyr,console = &uart0;
-		zephyr,flash = &flash1;
-		zephyr,sram = &sram1;
+		zephyr,flash = &flash0;
 	};
+};
+&adc{
+	status = "okay";
 };
 &gpio0{
 	status = "okay";
@@ -12,18 +14,55 @@
 &gpio1{
 	status = "okay";
 };
-&i2c0{
-	pinctrl-0 = < &i2c0_default >;
-	pinctrl-1 = < &i2c0_sleep >;
+&i2c1{
+	status = "okay";
+	pinctrl-0 = < &i2c1_default >;
+	pinctrl-1 = < &i2c1_sleep >;
 	pinctrl-names = "default", "sleep";
 };
-&radio{
-	fem = < &nrf_radio_fem >;
+&i2s0{
+	status = "okay";
+	pinctrl-0 = < &i2s0_default >;
+	pinctrl-1 = < &i2s0_sleep >;
+	pinctrl-names = "default", "sleep";
 };
-&spi0{
-	cs-gpios = < &arduino_header 0x10 0x1 >;
-	pinctrl-0 = < &spi0_default >;
-	pinctrl-1 = < &spi0_sleep >;
+&pwm0{
+	status = "okay";
+	pinctrl-0 = < &pwm0_default >;
+	pinctrl-1 = < &pwm0_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pwm1{
+	status = "okay";
+	pinctrl-0 = < &pwm1_default >;
+	pinctrl-1 = < &pwm1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&qspi{
+	status = "okay";
+	pinctrl-0 = < &qspi_default >;
+	pinctrl-1 = < &qspi_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi2{
+	status = "okay";
+	cs-gpios = < &gpio0 0x19 0x1 >;
+	pinctrl-0 = < &spi2_default >;
+	pinctrl-1 = < &spi2_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi3{
+	status = "okay";
+	cs-gpios = < &gpio1 0xc 0x1 >;
+	pinctrl-0 = < &spi3_default >;
+	pinctrl-1 = < &spi3_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&spi4{
+	status = "okay";
+	cs-gpios = < &gpio0 0xb 0x1 >;
+	pinctrl-0 = < &spi4_default >;
+	pinctrl-1 = < &spi4_sleep >;
 	pinctrl-names = "default", "sleep";
 };
 &uart0{
@@ -33,93 +72,102 @@
 	pinctrl-1 = < &uart0_sleep >;
 	pinctrl-names = "default", "sleep";
 };
+&uart1{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-1 = < &uart1_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&usbd{
+	status = "okay";
+};
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
 	i2c1_default: i2c1_default {
 		group1 {
-			psels = < 0x180022 >, < 0x160023 >;
+			psels = < 0x300022 >, < 0x2c0023 >;
 		};
 	};
 	i2c1_sleep: i2c1_sleep {
 		group1 {
-			psels = < 0x180022 >, < 0x160023 >;
+			psels = < 0x300022 >, < 0x2c0023 >;
 			low-power-enable;
 		};
 	};
 	spi2_default: spi2_default {
 		group1 {
-			psels = < 0xc001a >, < 0xa001b >, < 0x8001c >;
+			psels = < 0x18001a >, < 0x14001b >, < 0x10001c >;
 		};
 	};
 	spi2_sleep: spi2_sleep {
 		group1 {
-			psels = < 0xc001a >, < 0xa001b >, < 0x8001c >;
+			psels = < 0x18001a >, < 0x14001b >, < 0x10001c >;
 			low-power-enable;
 		};
 	};
 	spi3_default: spi3_default {
 		group1 {
-			psels = < 0x8002e >, < 0xc002f >, < 0xa002d >;
+			psels = < 0x10002e >, < 0x18002f >, < 0x14002d >;
 		};
 	};
 	spi3_sleep: spi3_sleep {
 		group1 {
-			psels = < 0x8002e >, < 0xc002f >, < 0xa002d >;
+			psels = < 0x10002e >, < 0x18002f >, < 0x14002d >;
 			low-power-enable;
 		};
 	};
 	spi4_default: spi4_default {
 		group1 {
-			psels = < 0xc000a >, < 0xa0009 >, < 0x80008 >;
+			psels = < 0x18000a >, < 0x140009 >, < 0x100008 >;
 		};
 	};
 	spi4_sleep: spi4_sleep {
 		group1 {
-			psels = < 0xc000a >, < 0xa0009 >, < 0x80008 >;
+			psels = < 0x18000a >, < 0x140009 >, < 0x100008 >;
 			low-power-enable;
 		};
 	};
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x14 >, < 0x20016 >, < 0x40013 >, < 0x60015 >;
+			psels = < 0x14 >, < 0x40016 >, < 0x80013 >, < 0xc0015 >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x14 >, < 0x20016 >, < 0x40013 >, < 0x60015 >;
+			psels = < 0x14 >, < 0x40016 >, < 0x80013 >, < 0xc0015 >;
 			low-power-enable;
 		};
 	};
 	uart1_default: uart1_default {
 		group1 {
-			psels = < 0x28 >, < 0x2002a >, < 0x40027 >, < 0x60029 >;
+			psels = < 0x28 >, < 0x4002a >, < 0x80027 >, < 0xc0029 >;
 		};
 	};
 	uart1_sleep: uart1_sleep {
 		group1 {
-			psels = < 0x28 >, < 0x2002a >, < 0x40027 >, < 0x60029 >;
+			psels = < 0x28 >, < 0x4002a >, < 0x80027 >, < 0xc0029 >;
 			low-power-enable;
 		};
 	};
 	pwm0_default: pwm0_default {
 		group1 {
-			psels = < 0x2c001c >;
+			psels = < 0x58001c >;
 		};
 	};
 	pwm0_sleep: pwm0_sleep {
 		group1 {
-			psels = < 0x2c001c >;
+			psels = < 0x58001c >;
 			low-power-enable;
 		};
 	};
 	qspi_default: qspi_default {
 		group1 {
-			psels = < 0x3a0011 >, < 0x3e000d >, < 0x40000e >, < 0x42000f >, < 0x440010 >, < 0x3c0012 >;
+			psels = < 0x740011 >, < 0x7c000d >, < 0x80000e >, < 0x84000f >, < 0x880010 >, < 0x780012 >;
 		};
 	};
 	qspi_sleep: qspi_sleep {
 		group1 {
-			psels = < 0x3a0011 >, < 0x3e000d >, < 0x40000e >, < 0x42000f >, < 0x440010 >, < 0x3c0012 >;
+			psels = < 0x740011 >, < 0x7c000d >, < 0x80000e >, < 0x84000f >, < 0x880010 >, < 0x780012 >;
 			low-power-enable;
 		};
 	};

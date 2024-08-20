@@ -4,6 +4,19 @@
 		zephyr,console = &uart4;
 	};
 };
+&enet_mac{
+	status = "okay";
+	pinctrl-0 = < &pinmux_enet >;
+	pinctrl-names = "default";
+	phy-handle = < &phy >;
+	zephyr,random-mac-address;
+	phy-connection-type = "rgmii";
+};
+&enet_mdio{
+	status = "okay";
+	pinctrl-0 = < &pinmux_mdio >;
+	pinctrl-names = "default";
+};
 &uart4{
 	status = "okay";
 	current-speed = < 0x1c200 >;

@@ -1,5 +1,5 @@
 / {
-	compatible = "adafruit,feather-nrf52840";
+	compatible = "adafruit,feather_nrf52840-express";
 	chosen {
 		zephyr,console = &uart0;
 		zephyr,flash = &flash0;
@@ -111,45 +111,45 @@
 	compatible = "nordic,nrf-pinctrl";
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x19 >, < 0x20018 >;
+			psels = < 0x19 >, < 0x40018 >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x19 >, < 0x20018 >;
+			psels = < 0x19 >, < 0x40018 >;
 			low-power-enable;
 		};
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			psels = < 0x18000c >, < 0x16000b >;
+			psels = < 0x30000c >, < 0x2c000b >;
 		};
 	};
 	i2c0_sleep: i2c0_sleep {
 		group1 {
-			psels = < 0x18000c >, < 0x16000b >;
+			psels = < 0x30000c >, < 0x2c000b >;
 			low-power-enable;
 		};
 	};
 	spi1_default: spi1_default {
 		group1 {
-			psels = < 0x8000e >, < 0xa000d >, < 0xc000f >;
+			psels = < 0x10000e >, < 0x14000d >, < 0x18000f >;
 		};
 	};
 	spi1_sleep: spi1_sleep {
 		group1 {
-			psels = < 0x8000e >, < 0xa000d >, < 0xc000f >;
+			psels = < 0x10000e >, < 0x14000d >, < 0x18000f >;
 			low-power-enable;
 		};
 	};
 	qspi_default: qspi_default {
 		group1 {
-			psels = < 0x3a0013 >, < 0x3e0011 >, < 0x400016 >, < 0x420017 >, < 0x440015 >, < 0x3c0014 >;
+			psels = < 0x740013 >, < 0x7c0011 >, < 0x800016 >, < 0x840017 >, < 0x880015 >, < 0x780014 >;
 		};
 	};
 	qspi_sleep: qspi_sleep {
 		group1 {
-			psels = < 0x3a0013 >, < 0x3e0011 >, < 0x400016 >, < 0x420017 >, < 0x440015 >, < 0x3c0014 >;
+			psels = < 0x740013 >, < 0x7c0011 >, < 0x800016 >, < 0x840017 >, < 0x880015 >, < 0x780014 >;
 			low-power-enable;
 		};
 	};

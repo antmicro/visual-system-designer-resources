@@ -1,13 +1,10 @@
 / {
 	compatible = "espressif,esp32c3";
 	chosen {
-		zephyr,console = &uart0;
+		zephyr,console = &usb_serial;
 		zephyr,flash = &flash0;
 		zephyr,sram = &sram0;
 	};
-};
-&flash0{
-	status = "okay";
 };
 &gpio0{
 	status = "okay";
@@ -35,25 +32,30 @@
 	pinctrl-0 = < &uart0_default >;
 	pinctrl-names = "default";
 };
+&uart1{
+	status = "okay";
+	pinctrl-0 = < &uart1_default >;
+	pinctrl-names = "default";
+};
 &usb_serial{
 	status = "okay";
 };
 &pinctrl{
 	compatible = "espressif,esp32-pinctrl";
 	status = "okay";
-	uart0_default: uart0_default {
+	uart1_default: uart1_default {
 		group1 {
-			pinmux = < 0x37fd5 >;
+			pinmux = < 0x4ffd5 >;
 			output-high;
 		};
 		group2 {
-			pinmux = < 0xff8194 >;
+			pinmux = < 0xff8254 >;
 			bias-pull-up;
 		};
 	};
 	spim2_default: spim2_default {
 		group1 {
-			pinmux = < 0xff9002 >, < 0x1fffc6 >, < 0x227fca >;
+			pinmux = < 0xff9008 >, < 0x1fffca >;
 		};
 		group2 {
 			pinmux = < 0x20ffc7 >;
@@ -62,15 +64,10 @@
 	};
 	i2c0_default: i2c0_default {
 		group1 {
-			pinmux = < 0x1b0d81 >, < 0x1a8d43 >;
+			pinmux = < 0x1b0d85 >, < 0x1a8d46 >;
 			bias-pull-up;
 			drive-open-drain;
 			output-high;
-		};
-	};
-	twai_default: twai_default {
-		group1 {
-			pinmux = < 0x257fc4 >, < 0xff9285 >;
 		};
 	};
 };

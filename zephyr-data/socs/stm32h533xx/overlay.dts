@@ -23,6 +23,9 @@
 &clk_hsi{
 	status = "okay";
 };
+&clk_hsi48{
+	status = "okay";
+};
 &clk_lse{
 	status = "okay";
 };
@@ -50,6 +53,11 @@
 	pinctrl-0 = < &usart2_tx_pa2 &usart2_rx_pa3 >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;
+};
+&usb{
+	status = "okay";
+	pinctrl-0 = < &usb_dm_pa11 &usb_dp_pa12 >;
+	pinctrl-names = "default";
 };
 &pinctrl{
 	compatible = "st,stm32-pinctrl";
@@ -110,5 +118,11 @@
 	usart2_tx_pa2: usart2_tx_pa2 {
 		pinmux = < 0x47 >;
 		bias-pull-up;
+	};
+	usb_dm_pa11: usb_dm_pa11 {
+		pinmux = < 0x16a >;
+	};
+	usb_dp_pa12: usb_dp_pa12 {
+		pinmux = < 0x18a >;
 	};
 };

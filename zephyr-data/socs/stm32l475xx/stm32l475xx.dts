@@ -40,7 +40,7 @@
 				write-block-size = < 0x8 >;
 				erase-block-size = < 0x800 >;
 				max-erase-time = < 0x19 >;
-				reg = < 0x8000000 0x80000 >;
+				reg = < 0x8000000 0x100000 >;
 			};
 		};
 		rcc: rcc@40021000 {
@@ -728,8 +728,5 @@
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
 		phandle = < 0x4 >;
-	};
-	sram1: memory@10000000 {
-		reg = < 0x10000000 0x8000 >;
 	};
 };

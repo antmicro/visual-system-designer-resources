@@ -35,9 +35,6 @@
 	pinctrl-0 = < &spi1_default >;
 	pinctrl-names = "default";
 };
-&sram0{
-	reg = < 0x20000000 0x8000 >;
-};
 &uart0{
 	status = "okay";
 	current-speed = < 0x1c200 >;
@@ -49,29 +46,29 @@
 	compatible = "nordic,nrf-pinctrl";
 	i2c0_default: i2c0_default {
 		group1 {
-			psels = < 0x18001c >, < 0x160002 >;
+			psels = < 0x30001c >, < 0x2c0002 >;
 		};
 	};
 	i2c0_sleep: i2c0_sleep {
 		group1 {
-			psels = < 0x18001c >, < 0x160002 >;
+			psels = < 0x30001c >, < 0x2c0002 >;
 			low-power-enable;
 		};
 	};
 	uart0_default: uart0_default {
 		group1 {
-			psels = < 0x1d >, < 0x2000b >;
+			psels = < 0x1d >, < 0x4000b >;
 		};
 	};
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = < 0x1d >, < 0x2000b >;
+			psels = < 0x1d >, < 0x4000b >;
 			low-power-enable;
 		};
 	};
 	spi1_default: spi1_default {
 		group1 {
-			psels = < 0xe0007 >, < 0x100000 >, < 0x12001e >, < 0x140019 >;
+			psels = < 0x1c0007 >, < 0x200000 >, < 0x24001e >, < 0x280019 >;
 		};
 	};
 };

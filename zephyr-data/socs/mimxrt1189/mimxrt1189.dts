@@ -1,0 +1,107 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		itcm: itcm@1FFE0000 {
+			compatible = "nxp,imx-itcm";
+			reg = < 0x1ffe0000 0x20000 >;
+		};
+		dtcm: dtcm@30000000 {
+			compatible = "nxp,imx-dtcm";
+			reg = < 0x30000000 0x20000 >;
+		};
+		peripheral: peripheral@50000000 {
+			ranges = < 0x0 0x50000000 0x10000000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			iomuxc: iomuxc@2A10000 {
+				compatible = "nxp,imx-iomuxc";
+				reg = < 0x2a10000 0x4000 >;
+				pinctrl: pinctrl {
+					status = "okay";
+					compatible = "nxp,mcux-rt11xx-pinctrl";
+				};
+			};
+			iomuxc_aon: iomuxc@43C0000 {
+				compatible = "nxp,mcux-rt-pinctrl";
+				reg = < 0x43c0000 0x4000 >;
+				status = "okay";
+			};
+			ccm: ccm@4450000 {
+				compatible = "nxp,imx-ccm-rev2";
+				reg = < 0x4450000 0x4000 >;
+				#clock-cells = < 0x3 >;
+				phandle = < 0x2 >;
+			};
+			lpuart1: uart@4380000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x4380000 0x4000 >;
+				interrupts = < 0x13 0x0 >;
+				clocks = < &ccm 0x300 0x7c 0x18 >;
+				status = "disabled";
+			};
+			gpio1: gpio@7400000 {
+				compatible = "nxp,imx-rgpio";
+				reg = < 0x7400000 0x4000 >;
+				interrupts = < 0xa 0x0 >, < 0xb 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio4: gpio@3830000 {
+				compatible = "nxp,imx-rgpio";
+				reg = < 0x3830000 0x4000 >;
+				interrupts = < 0xe8 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+			};
+		};
+		flexspi1: spi@525e0000 {
+			reg = < 0x525e0000 0x4000 >, < 0x38000000 0x8000000 >;
+			compatible = "nxp,imx-flexspi";
+			interrupts = < 0x37 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			clocks = < &ccm 0x1300 0x0 0x0 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m33f";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv8m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+			};
+		};
+	};
+};

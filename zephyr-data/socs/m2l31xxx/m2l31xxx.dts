@@ -35,6 +35,7 @@
 			lxt = "enable";
 			clk-pclkdiv = < 0x11 >;
 			core-clock = < 0x44aa200 >;
+			powerdown-mode = < 0xc >;
 			pcc: peripheral-clock-controller {
 				compatible = "nuvoton,numaker-pcc";
 				#clock-cells = < 0x3 >;
@@ -334,6 +335,26 @@
 			interrupts = < 0x9 0x0 >;
 			clocks = < &pcc 0x4578000b 0xc0000000 0x0 >;
 			status = "disabled";
+		};
+		tcpc0: utcpd@400c6000 {
+			compatible = "nuvoton,numaker-tcpc";
+			reg = < 0x400c6000 0x1000 >, < 0x40043000 0x1000 >, < 0x40050000 0x1000 >;
+			reg-names = "utcpd", "eadc", "timer";
+			interrupts = < 0x6c 0x0 >;
+			interrupt-names = "utcpd";
+			resets = < &rst 0x1800000f >, < &rst 0x4000002 >;
+			reset-names = "utcpd", "timer";
+			clocks = < &pcc 0x6000000f 0x0 0x0 >, < &pcc 0x25a00002 0x700 0x0 >;
+			clock-names = "utcpd", "timer";
+			status = "disabled";
+			vbus0: vbus0 {
+				compatible = "nuvoton,numaker-vbus";
+				status = "disabled";
+			};
+			ppc0: ppc0 {
+				compatible = "nuvoton,numaker-ppc";
+				status = "disabled";
+			};
 		};
 	};
 	cpus {

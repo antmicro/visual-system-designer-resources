@@ -51,16 +51,14 @@
 			status = "okay";
 			phandle = < 0x4 >;
 		};
-		siul2: siul2@40290000 {
+		siul2_0: siul2@40290000 {
 			reg = < 0x40290000 0x10000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			eirq0: eirq@40290010 {
 				compatible = "nxp,s32-siul2-eirq";
-				reg = < 0x40290010 0x4 >, < 0x40290018 0x4 >;
-				reg-names = "disr0", "direr0";
+				reg = < 0x40290010 0xb4 >;
 				interrupts = < 0x35 0x0 >, < 0x36 0x0 >, < 0x37 0x0 >, < 0x38 0x0 >;
-				interrupt-names = "0_7", "8_15", "16_23", "24_31";
 				interrupt-controller;
 				#interrupt-cells = < 0x2 >;
 				status = "disabled";
@@ -702,6 +700,42 @@
 		trgmux: trgmux@40080000 {
 			compatible = "nxp,s32-trgmux";
 			reg = < 0x40080000 0x4000 >;
+			status = "disabled";
+		};
+		pmc: pmc@402e8000 {
+			compatible = "nxp,s32k3-pmc";
+			reg = < 0x402e8000 0x4000 >;
+		};
+		mc_me: mc_me@402dc000 {
+			compatible = "nxp,s32-mc-me";
+			reg = < 0x402dc000 0x4000 >;
+		};
+		mc_rgm: mc_rgm@4028c000 {
+			compatible = "nxp,s32-mc-rgm";
+			reg = < 0x4028c000 0x4000 >;
+			func-reset-threshold = < 0x0 >;
+			dest-reset-threshold = < 0x0 >;
+		};
+		swt0: watchdog@40270000 {
+			compatible = "nxp,s32-swt";
+			reg = < 0x40270000 0x4000 >;
+			interrupts = < 0x2a 0x0 >;
+			clocks = < &clock 0x3 >;
+			service-mode = "fixed";
+			status = "okay";
+		};
+		stm0: stm@40274000 {
+			compatible = "nxp,s32-sys-timer";
+			reg = < 0x40274000 0x10000 >;
+			interrupts = < 0x27 0x0 >;
+			clocks = < &clock 0x85 >;
+			status = "disabled";
+		};
+		stm1: stm@40474000 {
+			compatible = "nxp,s32-sys-timer";
+			reg = < 0x40474000 0x10000 >;
+			interrupts = < 0x28 0x0 >;
+			clocks = < &clock 0x87 >;
 			status = "disabled";
 		};
 	};

@@ -6,6 +6,12 @@
 		zephyr,sram = &sram_u;
 	};
 };
+&adc0{
+	status = "okay";
+	sample-time = < 0xc >;
+	pinctrl-0 = < &adc0_default >;
+	pinctrl-names = "default";
+};
 &gpiod{
 	status = "okay";
 };
@@ -22,8 +28,17 @@
 	pinctrl-0 = < &lpi2c1_default >;
 	pinctrl-names = "default";
 };
+&lpspi0{
+	status = "okay";
+	dmas = < &edma 0x0 0xe >, < &edma 0x1 0xf >;
+	dma-names = "rx", "tx";
+	pinctrl-0 = < &lpspi0_default >;
+	pinctrl-names = "default";
+};
 &lpuart2{
 	status = "okay";
+	dmas = < &edma 0x5 0x6 >, < &edma 0x6 0x7 >;
+	dma-names = "rx", "tx";
 	pinctrl-0 = < &lpuart2_default >;
 	pinctrl-names = "default";
 	current-speed = < 0x1c200 >;

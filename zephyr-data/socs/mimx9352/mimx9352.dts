@@ -301,6 +301,36 @@
 		dma-names = "tx", "rx";
 		status = "disabled";
 	};
+	enet: enet@42890000 {
+		compatible = "nxp,enet1g";
+		reg = < 0x42890000 0x10000 >;
+		clocks = < &ccm 0x1200 0x0 0x0 >;
+		status = "disabled";
+		enet_mac: ethernet {
+			compatible = "nxp,enet-mac";
+			interrupts = < 0x0 0xb5 0x2 0xa0 >;
+			interrupt-names = "COMMON";
+			interrupt-parent = < &gic >;
+			nxp,mdio = < &enet_mdio >;
+			nxp,ptp-clock = < &enet_ptp_clock >;
+			status = "disabled";
+		};
+		enet_mdio: mdio {
+			compatible = "nxp,enet-mdio";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			status = "disabled";
+			phandle = < 0x4 >;
+		};
+		enet_ptp_clock: ptp_clock {
+			compatible = "nxp,enet-ptp-clock";
+			interrupts = < 0x0 0xb6 0x2 0xa0 >;
+			interrupt-parent = < &gic >;
+			clocks = < &ccm 0x1201 0x0 0x0 >;
+			status = "disabled";
+			phandle = < 0x5 >;
+		};
+	};
 	tpm1: tpm@44310000 {
 		compatible = "nxp,tpm-timer";
 		reg = < 0x44310000 0x10000 >;

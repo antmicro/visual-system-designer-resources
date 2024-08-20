@@ -152,43 +152,43 @@
 			};
 			analog_pa13: analog_pa13 {
 				pinmux = < 0x1b0 >;
-				phandle = < 0x11 >;
+				phandle = < 0x12 >;
 			};
 			analog_pa14: analog_pa14 {
 				pinmux = < 0x1d0 >;
-				phandle = < 0x12 >;
+				phandle = < 0x13 >;
 			};
 			analog_pa15: analog_pa15 {
 				pinmux = < 0x1f0 >;
-				phandle = < 0x13 >;
+				phandle = < 0x14 >;
 			};
 			analog_pb3: analog_pb3 {
 				pinmux = < 0x270 >;
-				phandle = < 0x14 >;
+				phandle = < 0x15 >;
 			};
 			analog_pb4: analog_pb4 {
 				pinmux = < 0x290 >;
-				phandle = < 0x15 >;
+				phandle = < 0x16 >;
 			};
 			debug_jtms_swdio_pa13: debug_jtms_swdio_pa13 {
 				pinmux = < 0x1a0 >;
-				phandle = < 0xc >;
+				phandle = < 0xd >;
 			};
 			debug_jtck_swclk_pa14: debug_jtck_swclk_pa14 {
 				pinmux = < 0x1c0 >;
-				phandle = < 0xd >;
+				phandle = < 0xe >;
 			};
 			debug_jtdi_pa15: debug_jtdi_pa15 {
 				pinmux = < 0x1e0 >;
-				phandle = < 0xe >;
+				phandle = < 0xf >;
 			};
 			debug_jtdo_swo_pb3: debug_jtdo_swo_pb3 {
 				pinmux = < 0x260 >;
-				phandle = < 0xf >;
+				phandle = < 0x10 >;
 			};
 			debug_jtrst_pb4: debug_jtrst_pb4 {
 				pinmux = < 0x280 >;
-				phandle = < 0x10 >;
+				phandle = < 0x11 >;
 			};
 		};
 		iwdg: watchdog@40003000 {
@@ -295,7 +295,7 @@
 			interrupts = < 0x37 0x0 >, < 0x38 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x18 >;
+			phandle = < 0x19 >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -307,7 +307,7 @@
 			interrupts = < 0x39 0x0 >, < 0x3a 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x19 >;
+			phandle = < 0x1a >;
 		};
 		i2c3: i2c@46002800 {
 			compatible = "st,stm32-i2c-v2";
@@ -319,7 +319,7 @@
 			interrupts = < 0x58 0x0 >, < 0x59 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x1a >;
+			phandle = < 0x1b >;
 		};
 		i2c4: i2c@40008400 {
 			compatible = "st,stm32-i2c-v2";
@@ -331,7 +331,7 @@
 			interrupts = < 0x65 0x0 >, < 0x64 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x1b >;
+			phandle = < 0x1c >;
 		};
 		lptim1: timers@46004400 {
 			compatible = "st,stm32-lptim";
@@ -580,6 +580,7 @@
 			compatible = "st,stm32-aes";
 			reg = < 0x420c0000 0x400 >;
 			clocks = < &rcc 0x8c 0x10000 >;
+			resets = < &rctl 0xc90 >;
 			interrupts = < 0x5d 0x0 >;
 			status = "disabled";
 		};
@@ -626,7 +627,7 @@
 			sampling-times = < 0x5 0x6 0xc 0x14 0x24 0x44 0x187 0x32e >;
 			st,adc-clock-source = < 0x2 >;
 			st,adc-sequencer = < 0x1 >;
-			phandle = < 0x16 >;
+			phandle = < 0x17 >;
 		};
 		adc4: adc@46021000 {
 			compatible = "st,stm32-adc";
@@ -640,7 +641,7 @@
 			num-sampling-time-common-channels = < 0x2 >;
 			st,adc-clock-source = < 0x2 >;
 			st,adc-sequencer = < 0x0 >;
-			phandle = < 0x17 >;
+			phandle = < 0x18 >;
 		};
 		fdcan1: can@4000a400 {
 			compatible = "st,stm32-fdcan";
@@ -743,7 +744,7 @@
 			interrupts = < 0x80 0x0 >, < 0x7f 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x1c >;
+			phandle = < 0x1d >;
 		};
 		i2c6: i2c@40009c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -755,7 +756,7 @@
 			interrupts = < 0x82 0x0 >, < 0x81 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x1d >;
+			phandle = < 0x1e >;
 		};
 		adc2: adc@42028100 {
 			compatible = "st,stm32-adc";
@@ -781,6 +782,18 @@
 			st,adc-clock-source = < 0x2 >;
 			st,adc-sequencer = < 0x1 >;
 		};
+		usbotg_hs: otghs@42040000 {
+			compatible = "st,stm32-otghs";
+			reg = < 0x42040000 0x20000 >;
+			interrupts = < 0x49 0x0 >;
+			interrupt-names = "otghs";
+			num-bidir-endpoints = < 0x9 >;
+			ram-size = < 0x1000 >;
+			maximum-speed = "high-speed";
+			clocks = < &rcc 0x8c 0xc000 >, < &rcc 0x6 0x7ae0 >;
+			phys = < &otghs_phy >;
+			status = "disabled";
+		};
 	};
 	cpus {
 		#address-cells = < 0x1 >;
@@ -803,21 +816,21 @@
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x1 >;
 				min-residency-us = < 0x64 >;
-				phandle = < 0x9 >;
+				phandle = < 0xa >;
 			};
 			stop1: state1 {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x2 >;
 				min-residency-us = < 0x1f4 >;
-				phandle = < 0xa >;
+				phandle = < 0xb >;
 			};
 			stop2: state2 {
 				compatible = "zephyr,power-state";
 				power-state-name = "suspend-to-idle";
 				substate-id = < 0x3 >;
 				min-residency-us = < 0x384 >;
-				phandle = < 0xb >;
+				phandle = < 0xc >;
 			};
 		};
 	};
@@ -954,6 +967,11 @@
 		#size-cells = < 0x0 >;
 		i2c = < &i2c4 >;
 		status = "disabled";
+	};
+	otghs_phy: otghs_phy {
+		compatible = "usb-nop-xceiv";
+		#phy-cells = < 0x0 >;
+		phandle = < 0x9 >;
 	};
 	smbus5: smbus5 {
 		compatible = "st,stm32-smbus";
