@@ -787,6 +787,9 @@
         },
         {
             "category": "Memory/SRAM/AS6C8008-55BIN",
+            "extends": [
+                "SRAM"
+            ],
             "interfaces": [
                 {
                     "direction": "inout",
@@ -5218,6 +5221,30 @@
             "isCategory": true
         },
         {
+            "category": "Power/Cell Monitor",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bleed",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "temperature",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "voltage",
+                    "side": "left"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "FPGA/Lattice Semiconductor/Certus-NX/Certus-NX lfd2nx-40",
             "interfaces": [
                 {
@@ -6171,6 +6198,22 @@
         },
         {
             "abstract": false,
+            "description": "4-Mbit (256 K × 16) Static RAM\n\n### Additional information\n\n*Datasheet*: [Infineon-CY7C1041CV33_Automotive_4-Mbit_(256_K_16)_Static_RAM_Datasheet-AdditionalTechnicalInformation-v04_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ecb80544500](https://www.infineon.com/dgdl/Infineon-CY7C1041CV33_Automotive_4-Mbit_(256_K_16)_Static_RAM_Datasheet-AdditionalTechnicalInformation-v04_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ecb80544500)",
+            "extends": [
+                "SRAM"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tsop-ii-44-10-16x18-41mm-p0-8mm-cypress-semiconductor-cy7c1041cv33-10zsxa/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Cypress Semiconductor CY7C1041CV33-10ZSXA",
+            "urls": {
+                "datasheet": "https://www.infineon.com/dgdl/Infineon-CY7C1041CV33_Automotive_4-Mbit_(256_K_16)_Static_RAM_Datasheet-AdditionalTechnicalInformation-v04_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ecb80544500",
+                "designer": "hardware/components/cypress-semiconductor-cy7c1041cv33-10zsxa",
+                "hwp": "components/cypress-semiconductor-cy7c1041cv33-10zsxa"
+            }
+        },
+        {
+            "abstract": false,
             "description": "FLASH - NOR Memory IC 128Mbit SPI - Quad I/O, QPI 133 MHz 8-WSON (5x6)\n\n### Additional information\n\n*Datasheet*: [Infineon-S25FL256L_S25FL128L_256-MB_(32-MB)_128-MB_(16-MB)_3.0_V_FL-L_FLASH_MEMORY-DataSheet-v09_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ed40e335224](https://www.infineon.com/dgdl/Infineon-S25FL256L_S25FL128L_256-MB_(32-MB)_128-MB_(16-MB)_3.0_V_FL-L_FLASH_MEMORY-DataSheet-v09_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ed40e335224)",
             "extends": [
                 "QSPI Flash"
@@ -6424,6 +6467,24 @@
                 "designer": "hardware/devices/data-center-rdimm-ddr5-tester",
                 "designer-graph": "data-center-rdimm-ddr5-tester"
             }
+        },
+        {
+            "category": "Interfacing/GPIO/Decoder",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "input",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "output",
+                    "side": "right"
+                }
+            ],
+            "isCategory": true
         },
         {
             "abstract": false,
@@ -6885,7 +6946,7 @@
         {
             "category": "Devices/EFR32BG22 Thunderboard Kit",
             "icon": {
-                "renodepedia": "sltb010a_0.webp"
+                "renodepedia": "sltb010a_2.webp"
             },
             "interfaces": [
                 {
@@ -7051,9 +7112,9 @@
             ],
             "isCategory": true,
             "urls": {
-                "designer": "hardware/devices/sltb010a_0",
-                "designer-graph": "sltb010a_0",
-                "rdp": "boards/sltb010a_0"
+                "designer": "hardware/devices/sltb010a_2",
+                "designer-graph": "sltb010a_2",
+                "rdp": "boards/sltb010a_2"
             }
         },
         {
@@ -8229,6 +8290,26 @@
                     "name": "gmsl",
                     "side": "left",
                     "type": "gmsl"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/FFC",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ffc",
+                    "side": "right",
+                    "type": "ffc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
                 }
             ],
             "isCategory": true
@@ -13993,6 +14074,22 @@
         },
         {
             "abstract": false,
+            "description": "MCU 48K Flash 3328 RAM ECAN TQFP80\n\n### Additional information\n\n*Datasheet*: [30491D.pdf](http://ww1.microchip.com/downloads/en/DeviceDoc/30491D.pdf)",
+            "extends": [
+                "pic18f8585"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tqfp-80-12x12mm-p0-5mm-microchip-technology-pic18f8585-i-pt/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Microchip Technology PIC18F8585-I/PT",
+            "urls": {
+                "datasheet": "http://ww1.microchip.com/downloads/en/DeviceDoc/30491D.pdf",
+                "designer": "hardware/components/microchip-technology-pic18f8585-i-pt",
+                "hwp": "components/microchip-technology-pic18f8585-i-pt"
+            }
+        },
+        {
+            "abstract": false,
             "description": "USB Interface, USB Hub Controller, USB 2.0, 3 V, 3.6 V, SQFN, 24 Pins\n\n### Additional information\n\n*Datasheet*: [2412-1064136.pdf](https://www.mouser.com/datasheet/2/268/2412-1064136.pdf)",
             "extends": [
                 "USB mux"
@@ -14133,6 +14230,22 @@
                 "datasheet": "https://www.mouser.com/datasheet/2/268/MCHP_S_A0008366719_1-2513824.pdf",
                 "designer": "hardware/components/microchip-technology-vsc8662xic",
                 "hwp": "components/microchip-technology-vsc8662xic"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "FLASH - NOR Memory IC 32Mbit Parallel 75 ns 56-TSOP\n\n### Additional information\n\n*Datasheet*: [JS28F320J3D75A-Micron-datasheet-11735774.pdf](https://datasheet.octopart.com/JS28F320J3D75A-Micron-datasheet-11735774.pdf)",
+            "extends": [
+                "Parallel Flash"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tsop-i-56-18-4x14mm-p0-5mm-micron-technology-js28f320j3d75a/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Micron Technology JS28F320J3D75A",
+            "urls": {
+                "datasheet": "https://datasheet.octopart.com/JS28F320J3D75A-Micron-datasheet-11735774.pdf",
+                "designer": "hardware/components/micron-technology-js28f320j3d75a",
+                "hwp": "components/micron-technology-js28f320j3d75a"
             }
         },
         {
@@ -14333,6 +14446,22 @@
         },
         {
             "abstract": false,
+            "description": "50 Position FFC, FPC Connector Contacts, Top 0.020\" (0.50mm) Surface Mount, Right Angle\n\n### Additional information\n\n*Datasheet*: [541045031_sd.pdf](https://tools.molex.com/pdm_docs/sd/541045031_sd.pdf)",
+            "extends": [
+                "FFC"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-molex-54104-1x50-0541045031/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 0541045031",
+            "urls": {
+                "datasheet": "https://tools.molex.com/pdm_docs/sd/541045031_sd.pdf",
+                "designer": "hardware/components/molex-0541045031",
+                "hwp": "components/molex-0541045031"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Pin Header, Wire-to-Board, 2 mm, 2 Rows, 14 Contacts, Surface Mount Straight, Milli-Grid 87832\n\n### Additional information\n\n*Datasheet*: [878322620_sd.pdf](https://www.molex.com/pdm_docs/sd/878322620_sd.pdf)",
             "extends": [
                 "ARM JTAG 14 Header"
@@ -14377,6 +14506,22 @@
                 "datasheet": "https://tools.molex.com/pdm_docs/sd/1054500101_sd.pdf",
                 "designer": "hardware/components/molex-1054500101",
                 "hwp": "components/molex-1054500101"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Wire-to-Board, 3 mm, 2 Rows, 12 Contacts, Through Hole Straight, Micro-Fit 3.0 43045\n\n### Additional information\n\n*Datasheet*: [430451201_sd.pdf](https://tools.molex.com/pdm_docs/sd/430451201_sd.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-molex-micro-fit-2x6-430451201/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 43045-1201",
+            "urls": {
+                "datasheet": "https://tools.molex.com/pdm_docs/sd/430451201_sd.pdf",
+                "designer": "hardware/components/molex-43045-1201",
+                "hwp": "components/molex-43045-1201"
             }
         },
         {
@@ -14700,6 +14845,22 @@
         },
         {
             "abstract": false,
+            "description": "ARM7® BlueStreak; LH7 Microcontroller IC 32-Bit Single-Core 84MHz ROMless 144-LQFP (20x20)\n\n### Additional information\n\n*Datasheet*: [LH75%28401%2C411%29.pdf](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/844/LH75%28401%2C411%29.pdf)",
+            "extends": [
+                "lh754x1"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/lqfp-144-20x20mm-p0-5mm-nxp-lh75401n0q100c0/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "NXP LH75401N0Q100C0",
+            "urls": {
+                "datasheet": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/844/LH75%28401%2C411%29.pdf",
+                "designer": "hardware/components/nxp-lh75401n0q100c0",
+                "hwp": "components/nxp-lh75401n0q100c0"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Transceiver, 1.65 V to 3.6 V, TSSOP-8\n\n### Additional information\n\n*Datasheet*: [NTS0102-1127324.pdf](https://www.mouser.com/datasheet/2/302/NTS0102-1127324.pdf)",
             "extends": [
                 "I2C Level Converter"
@@ -14808,6 +14969,22 @@
                 "datasheet": "https://www.nxp.com/docs/en/data-sheet/SC18IS602B.pdf",
                 "designer": "hardware/components/nxp-sc18is602bipw",
                 "hwp": "components/nxp-sc18is602bipw"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "1/1 Transceiver Half CANbus 8-SO\n\n### Additional information\n\n*Datasheet*: [TJA1050.pdf](https://www.nxp.com/docs/en/data-sheet/TJA1050.pdf)",
+            "extends": [
+                "CAN Transceiver"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/soic-8-3-9x4-9x1-75mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "NXP TJA1050T/CM,118",
+            "urls": {
+                "datasheet": "https://www.nxp.com/docs/en/data-sheet/TJA1050.pdf",
+                "designer": "hardware/components/nxp-tja1050t-cm-118",
+                "hwp": "components/nxp-tja1050t-cm-118"
             }
         },
         {
@@ -15134,6 +15311,22 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Dual Low-Voltage CMOS 2-to-4 Decoder/Demultiplexer\n\n### Additional information\n\n*Datasheet*: [mc74lcx139-d.pdf](https://www.onsemi.com/download/data-sheet/pdf/mc74lcx139-d.pdf)",
+            "extends": [
+                "Decoder"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tssop-16-4-4x5mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Onsemi MC74LCX139DTG",
+            "urls": {
+                "datasheet": "https://www.onsemi.com/download/data-sheet/pdf/mc74lcx139-d.pdf",
+                "designer": "hardware/components/onsemi-mc74lcx139dtg",
+                "hwp": "components/onsemi-mc74lcx139dtg"
+            }
+        },
+        {
             "category": "Memory/PCIe NVME",
             "interfaces": [
                 {
@@ -15264,6 +15457,18 @@
                     "name": "power",
                     "side": "left",
                     "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Memory/Flash/Parallel Flash",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "parallel",
+                    "side": "left"
                 }
             ],
             "isCategory": true
@@ -16921,6 +17126,24 @@
             "isCategory": true
         },
         {
+            "category": "Memory/SRAM",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "parallel",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "select",
+                    "side": "right"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "Wire to Board Connector pitch 0.5mm \n\n### Additional information\n\n*Datasheet*: [PE-MSAK24025P30~MSAK24025P50_R.pdf](http://www.stm.com.tw/EEPPulish/files/PE/PE-MSAK24025P30~MSAK24025P50_R.pdf)",
             "extends": [
@@ -17231,6 +17454,22 @@
                 "datasheet": "https://suddendocs.samtec.com/prints/ssw-1xx-xx-xxx-x-xx-xxx-xx-mkt.pdf",
                 "designer": "hardware/components/samtec-ssw-106-02-g-d-ra",
                 "hwp": "components/samtec-ssw-106-02-g-d-ra"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Rectangular header connector \n\n### Additional information\n\n*Datasheet*: [tsw_th-2854687.pdf](https://eu.mouser.com/datasheet/2/527/tsw_th-2854687.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinheader-2x10-p2-54mm-drill1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Samtec TSW-110-14-L-D",
+            "urls": {
+                "datasheet": "https://eu.mouser.com/datasheet/2/527/tsw_th-2854687.pdf",
+                "designer": "hardware/components/samtec-tsw-110-14-l-d",
+                "hwp": "components/samtec-tsw-110-14-l-d"
             }
         },
         {
@@ -18107,6 +18346,22 @@
         },
         {
             "abstract": false,
+            "description": "Automotive Connectors 070MLC CAP ASY V 6P\n\n### Additional information\n\n*Datasheet*: [PN_CD_174954_E4-606622.pdf](https://eu.mouser.com/datasheet/2/418/5/PN_CD_174954_E4-606622.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-te-multilock-174971-2/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TE Connectivity 1-174954-2",
+            "urls": {
+                "datasheet": "https://eu.mouser.com/datasheet/2/418/5/PN_CD_174954_E4-606622.pdf",
+                "designer": "hardware/components/te-connectivity-1-174954-2",
+                "hwp": "components/te-connectivity-1-174954-2"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Tactile Switch, Side Actuated, Through Hole, Round Button, 160 gf, 50mA at 24VDC\n\n### Additional information\n\n*Datasheet*: [DDEController?Action=showdoc&DocId=Customer+Drawing%7F1825027%7FH1%7Fpdf%7FEnglish%7FENG_CD_1825027_H1.pdf%7F1-1825027-1](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F1825027%7FH1%7Fpdf%7FEnglish%7FENG_CD_1825027_H1.pdf%7F1-1825027-1)",
             "extends": [
                 "Button"
@@ -18509,6 +18764,105 @@
             "icon": {
                 "designer-media-icon": "tesla_roadster.webp"
             },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can[2]",
+                    "override": false,
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can[3]",
+                    "override": false,
+                    "side": "left",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "icsp",
+                    "override": false,
+                    "side": "left",
+                    "type": "icsp"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "override": false,
+                    "side": "right",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lcd ffc",
+                    "override": false,
+                    "side": "left",
+                    "type": "ffc"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/Tesla Roadster BMS",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio header",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio header"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rb",
+                    "override": false,
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rc",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rg",
+                    "override": false,
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rh",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rj",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "wire to board",
+                    "override": false,
+                    "side": "right",
+                    "type": "wire to board"
+                }
+            ],
             "isCategory": true
         },
         {
@@ -18517,6 +18871,97 @@
             "icon": {
                 "designer-media-icon": "tesla_roadster_battery_management_board.webp"
             },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "side": "left",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "icsp",
+                    "side": "right",
+                    "type": "icsp"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/Tesla Roadster Display System Controller",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ffc",
+                    "override": false,
+                    "side": "left",
+                    "type": "ffc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio header",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio header"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pd",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pf",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "reset",
+                    "override": false,
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart[0]",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart[1]",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "wire to board",
+                    "override": false,
+                    "side": "right",
+                    "type": "wire to board"
+                }
+            ],
             "isCategory": true
         },
         {
@@ -18525,11 +18970,47 @@
             "icon": {
                 "designer-media-icon": "tesla_roadster_vehicle_display_system_board.webp"
             },
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "side": "left",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "left",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lcd ffc",
+                    "side": "right",
+                    "type": "ffc"
+                }
+            ],
             "isCategory": true
         },
         {
             "category": "Devices/Tesla Roadster Vehicle Management System",
             "description": "The Vehicle Management System (VMS) in the Tesla Roadster is a sophisticated system designed to monitor, control, and optimize the vehicle's performance and safety. It manages and communicates with the Battery Management System (BMS) for managing the lithium-ion battery pack, the Power Electronics Module (PEM) for controlling power flow between the battery and motor, the Vehicle Display System (VDS) for managing the digital displays, and the Motor Control System for torque and speed management. Additionally, the VMS provides telemetry and diagnostics for real-time data and remote support, a user interface for driver interaction, and safety systems for collision detection and airbag deployment. The VMS firmware is supported in the Renode simulation framework.",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "side": "left",
+                    "type": "can"
+                }
+            ],
             "isCategory": true
         },
         {
@@ -19443,6 +19924,23 @@
             "isCategory": true
         },
         {
+            "category": "Vehicle Management System",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "side": "left",
+                    "type": "can"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Interfacing/Video/Video switch",
             "interfaces": [
                 {
@@ -19822,6 +20320,22 @@
                 "datasheet": "https://katalog.we-online.de/em/datasheet/6130xx11121.pdf",
                 "designer": "hardware/components/wurth-elektronik-61300311121",
                 "hwp": "components/wurth-elektronik-61300311121"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Vertical, Board-to-Board, 2.54 mm, 1 Rows, 8 Contacts, Through Hole Straight, WR-PHD\n\n### Additional information\n\n*Datasheet*: [61300811121.pdf](https://www.we-online.com/components/products/datasheet/61300811121.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/pinheader-1x8-p2-54mm-drill1-1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Würth Elektronik 61300811121",
+            "urls": {
+                "datasheet": "https://www.we-online.com/components/products/datasheet/61300811121.pdf",
+                "designer": "hardware/components/wurth-elektronik-61300811121",
+                "hwp": "components/wurth-elektronik-61300811121"
             }
         },
         {
@@ -22213,7 +22727,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
             }
         },
         {
@@ -35559,6 +36073,86 @@
                 "GMSL Camera"
             ],
             "name": "leopard-imaging-li-ox03a10-gmsl2-077h"
+        },
+        {
+            "category": "SoC/NXP Semiconductors/lh754x1",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can phy",
+                    "side": "left",
+                    "type": "can phy"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "right",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "lcd",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "parallel",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pb",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pd",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pe",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pf",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "reset",
+                    "side": "right"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "right",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true
         },
         {
             "additionalData": {
@@ -50853,6 +51447,85 @@
             "urls": {
                 "ren": "Sensors/PAC1934.cs"
             }
+        },
+        {
+            "category": "MCU/microchip/pic18f8585",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can",
+                    "side": "right",
+                    "type": "can phy"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "icsp",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ra",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rb",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rc",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rd",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "re",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rf",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rg",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rh",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rj",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "side": "right"
+                }
+            ],
+            "isCategory": true
         },
         {
             "additionalData": {

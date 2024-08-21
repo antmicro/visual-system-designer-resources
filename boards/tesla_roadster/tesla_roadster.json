@@ -1,0 +1,135 @@
+{
+    "version": "20240723.13",
+    "metadata": {
+        "connectionStyle": "curved",
+        "backgroundSize": 50
+    },
+    "graphs": [
+        {
+            "id": "833ec747-9957-4117-b584-a3c18fdf2f01",
+            "name": "Tesla Roadster",
+            "nodes": [
+                {
+                    "id": "9fee4046-3c85-464d-8a40-9795c3aefd49",
+                    "position": {
+                        "x": 1550,
+                        "y": -50
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "can",
+                            "id": "f9826b70-a2af-4246-b9b3-bb63b2d48dc9",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "icsp",
+                            "id": "2fec8136-87d7-45a9-84f8-d0cd19821bb3",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Tesla Roadster Battery Management board",
+                    "instanceName": "Tesla Roadster Battery Management board"
+                },
+                {
+                    "id": "288a44fd-0c08-4880-8d76-287f61b8e56e",
+                    "position": {
+                        "x": 1550,
+                        "y": 200
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "can",
+                            "id": "e985638c-7656-465d-b84d-43882cc50ca1",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "jtag",
+                            "id": "ece89c2e-b9fc-4f31-a963-a836dfd552d7",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "lcd ffc",
+                            "id": "85a1b967-761c-458c-8bf2-83c92cc01fa8",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Tesla Roadster Vehicle Display System board",
+                    "instanceName": "Tesla Roadster Vehicle Display System board"
+                },
+                {
+                    "id": "57c7598e-bcbc-4c3a-bc87-d88da349eee2",
+                    "position": {
+                        "x": 949,
+                        "y": 69
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "can[0]",
+                            "id": "4caf7cd2-a994-47d1-97bb-f53954fdd22e",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "can[1]",
+                            "id": "6a7a97b7-7b82-45f1-9d42-b537bae1b7f3",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "can[2]",
+                            "id": "d266a144-c06a-4621-9471-83af553244ec",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "can[3]",
+                            "id": "cb28f530-4a52-4447-a5d7-ac76ee3fffca",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Tesla Roadster Vehicle Management System",
+                    "instanceName": "Tesla Roadster Vehicle Management System"
+                }
+            ],
+            "connections": [
+                {
+                    "id": "c1ce099f-15d1-41c6-8423-665d4153e279",
+                    "from": "4caf7cd2-a994-47d1-97bb-f53954fdd22e",
+                    "to": "f9826b70-a2af-4246-b9b3-bb63b2d48dc9"
+                },
+                {
+                    "id": "4bca1d78-71d0-41e8-ba00-4576a4609348",
+                    "from": "e985638c-7656-465d-b84d-43882cc50ca1",
+                    "to": "6a7a97b7-7b82-45f1-9d42-b537bae1b7f3"
+                }
+            ]
+        }
+    ]
+}

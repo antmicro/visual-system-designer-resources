@@ -1,0 +1,536 @@
+{
+    "version": "20240723.13",
+    "metadata": {
+        "movementStep": 50,
+        "backgroundSize": 50
+    },
+    "graphs": [
+        {
+            "id": "f0675eb3-a9a4-41ce-a3f6-af8f87f48b2a",
+            "name": "Tesla Roadster Display System Controller",
+            "nodes": [
+                {
+                    "id": "8cfdeb78-71c9-471a-a573-999626e0d9ef",
+                    "position": {
+                        "x": 500,
+                        "y": 400
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "can phy",
+                            "id": "a52a893b-2e89-4d10-a23a-331c10c118fa",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "lcd",
+                            "id": "586c5c04-40d9-451a-9858-06b9a0935282",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 6
+                        },
+                        {
+                            "name": "parallel",
+                            "id": "4988e1a9-f2b0-4210-a785-7d32aefd8983",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 27
+                        },
+                        {
+                            "name": "pe",
+                            "id": "a0f85186-863f-4e20-8597-4c6cb0a4d187",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 13
+                        },
+                        {
+                            "name": "pf",
+                            "id": "f7b9e2d1-5bad-46dd-94a9-d2ea61424995",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 4
+                        },
+                        {
+                            "name": "pwm",
+                            "id": "c4c3f7db-22bb-450f-bab2-340f402aae8b",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 5
+                        },
+                        {
+                            "name": "jtag",
+                            "id": "2d77b06b-3fce-4dd1-9889-554c80f1fd95",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 12
+                        },
+                        {
+                            "name": "pb",
+                            "id": "83a13aa8-5262-4aab-bb05-b507cf95c5b4",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "pd",
+                            "id": "43699bbb-030c-4e03-9b9d-21be85616172",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 2
+                        },
+                        {
+                            "name": "reset",
+                            "id": "b1cd0645-efac-46fc-9841-34e6f9bcee96",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 7
+                        },
+                        {
+                            "name": "uart[0]",
+                            "id": "11e1e1ab-cee8-468a-a4d3-e57a32d6d531",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 6
+                        },
+                        {
+                            "name": "uart[1]",
+                            "id": "8bfaa8c0-ee08-4e6f-b05b-6254c3306ebb",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 1
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "NXP LH75401N0Q100C0",
+                    "instanceName": "Vehicle Display System MCU"
+                },
+                {
+                    "id": "d0f5ae89-183c-4e84-8191-e996f7dee4b3",
+                    "position": {
+                        "x": -200,
+                        "y": 400
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "uCAN",
+                            "id": "792a8d30-e4bf-4671-85db-c92176345588",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "can",
+                            "id": "650c9c14-728f-4a82-927e-ec3e87ede3e8",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "NXP TJA1050T/CM,118",
+                    "instanceName": "CAN Transceiver"
+                },
+                {
+                    "id": "5a889ee4-772a-4c3f-955e-6d7edc4f7958",
+                    "position": {
+                        "x": 850,
+                        "y": 400
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "input",
+                            "id": "4751dfb9-8eac-4956-b0c4-25a0b32f2d89",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "output",
+                            "id": "2822112b-eaf3-4837-a663-32a1a6baf933",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Onsemi MC74LCX139DTG",
+                    "instanceName": "Decoder"
+                },
+                {
+                    "id": "5094ae9c-43f5-49c3-9fef-ea42f293f225",
+                    "position": {
+                        "x": 1400,
+                        "y": 1300
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "parallel",
+                            "id": "e34f4897-e731-4629-92e3-a0f8179d8047",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Micron Technology JS28F320J3D75A",
+                    "instanceName": "Flash Memory"
+                },
+                {
+                    "id": "f92a0a71-c2d7-423a-b55c-81885c979b75",
+                    "position": {
+                        "x": 1400,
+                        "y": 1000
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "parallel",
+                            "id": "8739478d-7331-46cf-9408-0d0e6ffbc094",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "select",
+                            "id": "3c8ef73e-93d3-4a2e-9701-aec52c992339",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Cypress Semiconductor CY7C1041CV33-10ZSXA",
+                    "instanceName": "SRAM"
+                },
+                {
+                    "id": "60abfb9a-f49f-4ed9-8416-d19d01b148f5",
+                    "position": {
+                        "x": 1400,
+                        "y": 400
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "parallel",
+                            "id": "de5b9871-cf42-45f6-a08a-470bde3afe1a",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "select",
+                            "id": "8c0fe1f3-546c-436d-a196-38f762b69b51",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Cypress Semiconductor CY7C1041CV33-10ZSXA",
+                    "instanceName": "SRAM"
+                },
+                {
+                    "id": "e558af64-0e96-4e38-ae9d-d4bbaa55166d",
+                    "position": {
+                        "x": 1400,
+                        "y": 600
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "parallel",
+                            "id": "799358d5-c9a5-4eb4-8a2b-c8e64053fe1d",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "select",
+                            "id": "e3bf06f7-b99b-4a0d-9066-15312dd26a19",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Cypress Semiconductor CY7C1041CV33-10ZSXA",
+                    "instanceName": "SRAM"
+                },
+                {
+                    "id": "45ebea23-fc5a-4561-9187-823f5508d397",
+                    "position": {
+                        "x": 1400,
+                        "y": 800
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "parallel",
+                            "id": "45d08ceb-b136-4f18-ad4a-202cbd315f3d",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 1
+                        },
+                        {
+                            "name": "select",
+                            "id": "2a7087d6-c20f-477c-8028-8e6d08fd6637",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Cypress Semiconductor CY7C1041CV33-10ZSXA",
+                    "instanceName": "SRAM"
+                },
+                {
+                    "id": "3e788365-8f06-4371-985c-10f3554bf11e",
+                    "position": {
+                        "x": -200,
+                        "y": 600
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "54eb839e-fa43-4117-b57f-35abf28fd962",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "ffc",
+                            "id": "f199036a-81e5-4dac-bf32-dba7aafe2a02",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Molex 0541045031",
+                    "instanceName": "LCD Connector"
+                },
+                {
+                    "id": "f5eb47f6-6ecb-4083-ab1d-9ef82c070745",
+                    "position": {
+                        "x": -600,
+                        "y": 400
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "ba82152e-9492-4b8d-975f-7c8c9f316485",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "wire to board",
+                            "id": "6673f61e-58a9-4d3c-b549-74fea5897305",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "TE Connectivity 1-174954-2",
+                    "instanceName": "CAN Connector"
+                },
+                {
+                    "id": "01fb02c7-2a85-4db7-951a-a3ca8bc2cd01",
+                    "position": {
+                        "x": -200,
+                        "y": 800
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "59de6eb3-68cc-4a3d-baf5-a7c5dd48ffa9",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        },
+                        {
+                            "name": "gpio header",
+                            "id": "239d0e8b-14d9-47e1-b83c-741fe0ab1a73",
+                            "direction": "inout",
+                            "side": "left",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [],
+                    "enabledInterfaceGroups": [],
+                    "name": "Samtec TSW-110-14-L-D",
+                    "instanceName": "JTAG"
+                },
+                {
+                    "id": "e0624258-8b47-471b-bdc2-16289d3da80e",
+                    "position": {
+                        "x": -200,
+                        "y": 1000
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "8bacc09f-921b-41f8-9474-672d2d40526c",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [
+                        {
+                            "name": "address (gpio)",
+                            "id": "d841464b-3396-4186-9c07-182bf62bdea0",
+                            "value": "0x01"
+                        }
+                    ],
+                    "enabledInterfaceGroups": [],
+                    "name": "Kingbright KP-1608CGCK",
+                    "instanceName": "LED"
+                },
+                {
+                    "id": "08f33cd7-c2a6-4f26-9036-75e1a74fb008",
+                    "position": {
+                        "x": -200,
+                        "y": 1200
+                    },
+                    "width": 200,
+                    "twoColumn": true,
+                    "interfaces": [
+                        {
+                            "name": "gpio",
+                            "id": "2d14c26b-ba3e-4213-9c27-c9675e7c98a0",
+                            "direction": "inout",
+                            "side": "right",
+                            "sidePosition": 0
+                        }
+                    ],
+                    "properties": [
+                        {
+                            "name": "address (gpio)",
+                            "id": "a93928c4-d7d0-4c14-9c9a-2671b944975c",
+                            "value": "0x00"
+                        }
+                    ],
+                    "enabledInterfaceGroups": [],
+                    "name": "Kingbright KP-1608CGCK",
+                    "instanceName": "LED"
+                }
+            ],
+            "connections": [
+                {
+                    "id": "537e8cf4-3ddf-4fce-bcf2-4466fc9a0169",
+                    "from": "792a8d30-e4bf-4671-85db-c92176345588",
+                    "to": "a52a893b-2e89-4d10-a23a-331c10c118fa"
+                },
+                {
+                    "id": "bf97a110-780f-4058-9663-f344a935e179",
+                    "from": "83a13aa8-5262-4aab-bb05-b507cf95c5b4",
+                    "to": "4751dfb9-8eac-4956-b0c4-25a0b32f2d89",
+                    "anchors": []
+                },
+                {
+                    "id": "74aa9d8e-be87-4f69-b878-fd1d5965ef8d",
+                    "from": "ba82152e-9492-4b8d-975f-7c8c9f316485",
+                    "to": "650c9c14-728f-4a82-927e-ec3e87ede3e8"
+                },
+                {
+                    "id": "1c2f9da5-edea-4218-a1be-c88ea5ece8a1",
+                    "from": "de5b9871-cf42-45f6-a08a-470bde3afe1a",
+                    "to": "4988e1a9-f2b0-4210-a785-7d32aefd8983"
+                },
+                {
+                    "id": "ddc8e478-d323-4d80-ab85-9ab6521c94c4",
+                    "from": "54eb839e-fa43-4117-b57f-35abf28fd962",
+                    "to": "586c5c04-40d9-451a-9858-06b9a0935282"
+                },
+                {
+                    "id": "41c44c3f-db5d-4918-880a-0f23dd57da8c",
+                    "from": "2d77b06b-3fce-4dd1-9889-554c80f1fd95",
+                    "to": "59de6eb3-68cc-4a3d-baf5-a7c5dd48ffa9"
+                },
+                {
+                    "id": "b7018a1a-7092-4163-8c0c-3924f271d7f2",
+                    "from": "a0f85186-863f-4e20-8597-4c6cb0a4d187",
+                    "to": "2d14c26b-ba3e-4213-9c27-c9675e7c98a0"
+                },
+                {
+                    "id": "5d368963-8ab2-4f78-a170-e4dd3120e2e9",
+                    "from": "8bacc09f-921b-41f8-9474-672d2d40526c",
+                    "to": "a0f85186-863f-4e20-8597-4c6cb0a4d187"
+                },
+                {
+                    "id": "0c7923f3-2481-4e63-949b-6f79a8bdc118",
+                    "from": "4988e1a9-f2b0-4210-a785-7d32aefd8983",
+                    "to": "799358d5-c9a5-4eb4-8a2b-c8e64053fe1d"
+                },
+                {
+                    "id": "c3a04331-9e46-4a94-9a7e-ffafb8d1d19c",
+                    "from": "4988e1a9-f2b0-4210-a785-7d32aefd8983",
+                    "to": "e34f4897-e731-4629-92e3-a0f8179d8047"
+                },
+                {
+                    "id": "cf094cde-7195-472e-af2c-7b7331deedb2",
+                    "from": "8739478d-7331-46cf-9408-0d0e6ffbc094",
+                    "to": "4988e1a9-f2b0-4210-a785-7d32aefd8983"
+                },
+                {
+                    "id": "cc60cd3b-44cd-4472-94b7-0d84760ccd83",
+                    "from": "45d08ceb-b136-4f18-ad4a-202cbd315f3d",
+                    "to": "4988e1a9-f2b0-4210-a785-7d32aefd8983"
+                },
+                {
+                    "id": "f8e7e309-fd4b-48b6-94da-a723eb52cbfe",
+                    "from": "8c0fe1f3-546c-436d-a196-38f762b69b51",
+                    "to": "2822112b-eaf3-4837-a663-32a1a6baf933"
+                },
+                {
+                    "id": "0d941945-82a4-4942-917b-bb59987e29ec",
+                    "from": "e3bf06f7-b99b-4a0d-9066-15312dd26a19",
+                    "to": "2822112b-eaf3-4837-a663-32a1a6baf933"
+                },
+                {
+                    "id": "b07e5458-c420-4a20-8abd-3e40cdc7a3dc",
+                    "from": "2a7087d6-c20f-477c-8028-8e6d08fd6637",
+                    "to": "2822112b-eaf3-4837-a663-32a1a6baf933"
+                },
+                {
+                    "id": "ff242801-7b6b-418f-8709-e0a30da5f60e",
+                    "from": "3c8ef73e-93d3-4a2e-9701-aec52c992339",
+                    "to": "2822112b-eaf3-4837-a663-32a1a6baf933"
+                }
+            ]
+        }
+    ]
+}
