@@ -539,7 +539,7 @@
 				status = "disabled";
 			};
 		};
-		can0: can@4741b000 {
+		canxl0: can@4741b000 {
 			compatible = "nxp,s32-canxl";
 			reg = < 0x4741b000 0x1000 >, < 0x47423000 0x1000 >, < 0x47425000 0x1000 >, < 0x47427000 0x1000 >;
 			reg-names = "sic", "rx_fifo", "rx_fifo_ctrl", "mru";
@@ -548,7 +548,7 @@
 			interrupt-names = "rx_tx_mru", "error";
 			clocks = < &clock 0xe7 >;
 		};
-		can1: can@4751b000 {
+		canxl1: can@4751b000 {
 			compatible = "nxp,s32-canxl";
 			reg = < 0x4751b000 0x1000 >, < 0x47523000 0x1000 >, < 0x47525000 0x1000 >, < 0x47527000 0x1000 >;
 			reg-names = "sic", "rx_fifo", "rx_fifo_ctrl", "mru";
@@ -557,79 +557,295 @@
 			interrupt-names = "rx_tx_mru", "error";
 			clocks = < &clock 0xe7 >;
 		};
-		stm0: stm@76a00000 {
+		flexcan0: can@449a0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			reg = < 0x449a0000 0x4000 >;
+			clk-source = < 0x0 >;
+			interrupts = < 0x0 0x245 0x2 0xa0 >, < 0x0 0x247 0x2 0xa0 >, < 0x0 0x248 0x2 0xa0 >, < 0x0 0x249 0x2 0xa0 >, < 0x0 0x24a 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan1: can@449b0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			reg = < 0x449b0000 0x4000 >;
+			clk-source = < 0x0 >;
+			interrupts = < 0x0 0x24b 0x2 0xa0 >, < 0x0 0x24d 0x2 0xa0 >, < 0x0 0x24e 0x2 0xa0 >, < 0x0 0x24f 0x2 0xa0 >, < 0x0 0x250 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan2: can@449c0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x449c0000 0x4000 >;
+			interrupts = < 0x0 0x251 0x2 0xa0 >, < 0x0 0x253 0x2 0xa0 >, < 0x0 0x254 0x2 0xa0 >, < 0x0 0x255 0x2 0xa0 >, < 0x0 0x256 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan3: can@449d0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x449d0000 0x4000 >;
+			interrupts = < 0x0 0x257 0x2 0xa0 >, < 0x0 0x259 0x2 0xa0 >, < 0x0 0x25a 0x2 0xa0 >, < 0x0 0x25b 0x2 0xa0 >, < 0x0 0x25c 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan4: can@449e0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x449e0000 0x4000 >;
+			interrupts = < 0x0 0x25d 0x2 0xa0 >, < 0x0 0x25f 0x2 0xa0 >, < 0x0 0x260 0x2 0xa0 >, < 0x0 0x261 0x2 0xa0 >, < 0x0 0x262 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan5: can@449f0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x449f0000 0x4000 >;
+			interrupts = < 0x0 0x263 0x2 0xa0 >, < 0x0 0x265 0x2 0xa0 >, < 0x0 0x266 0x2 0xa0 >, < 0x0 0x267 0x2 0xa0 >, < 0x0 0x268 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan6: can@44ba0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44ba0000 0x4000 >;
+			interrupts = < 0x0 0x269 0x2 0xa0 >, < 0x0 0x26b 0x2 0xa0 >, < 0x0 0x26c 0x2 0xa0 >, < 0x0 0x26d 0x2 0xa0 >, < 0x0 0x26e 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan7: can@44bb0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44bb0000 0x4000 >;
+			interrupts = < 0x0 0x26f 0x2 0xa0 >, < 0x0 0x271 0x2 0xa0 >, < 0x0 0x272 0x2 0xa0 >, < 0x0 0x273 0x2 0xa0 >, < 0x0 0x274 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan8: can@44bc0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44bc0000 0x4000 >;
+			interrupts = < 0x0 0x275 0x2 0xa0 >, < 0x0 0x277 0x2 0xa0 >, < 0x0 0x278 0x2 0xa0 >, < 0x0 0x279 0x2 0xa0 >, < 0x0 0x27a 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan9: can@44bd0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44bd0000 0x4000 >;
+			interrupts = < 0x0 0x27b 0x2 0xa0 >, < 0x0 0x27d 0x2 0xa0 >, < 0x0 0x27e 0x2 0xa0 >, < 0x0 0x27f 0x2 0xa0 >, < 0x0 0x280 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan10: can@44be0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44be0000 0x4000 >;
+			interrupts = < 0x0 0x281 0x2 0xa0 >, < 0x0 0x283 0x2 0xa0 >, < 0x0 0x284 0x2 0xa0 >, < 0x0 0x285 0x2 0xa0 >, < 0x0 0x286 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan11: can@44bf0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44bf0000 0x4000 >;
+			interrupts = < 0x0 0x287 0x2 0xa0 >, < 0x0 0x289 0x2 0xa0 >, < 0x0 0x28a 0x2 0xa0 >, < 0x0 0x28b 0x2 0xa0 >, < 0x0 0x28c 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan12: can@44da0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44da0000 0x4000 >;
+			interrupts = < 0x0 0x28d 0x2 0xa0 >, < 0x0 0x28f 0x2 0xa0 >, < 0x0 0x290 0x2 0xa0 >, < 0x0 0x291 0x2 0xa0 >, < 0x0 0x292 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan13: can@44db0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44db0000 0x4000 >;
+			interrupts = < 0x0 0x293 0x2 0xa0 >, < 0x0 0x295 0x2 0xa0 >, < 0x0 0x296 0x2 0xa0 >, < 0x0 0x297 0x2 0xa0 >, < 0x0 0x298 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan14: can@44dc0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44dc0000 0x4000 >;
+			interrupts = < 0x0 0x299 0x2 0xa0 >, < 0x0 0x29b 0x2 0xa0 >, < 0x0 0x29c 0x2 0xa0 >, < 0x0 0x29d 0x2 0xa0 >, < 0x0 0x29e 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan15: can@44dd0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44dd0000 0x4000 >;
+			interrupts = < 0x0 0x29f 0x2 0xa0 >, < 0x0 0x2a1 0x2 0xa0 >, < 0x0 0x2a2 0x2 0xa0 >, < 0x0 0x2a3 0x2 0xa0 >, < 0x0 0x2a4 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan16: can@44de0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44de0000 0x4000 >;
+			interrupts = < 0x0 0x2a5 0x2 0xa0 >, < 0x0 0x2a7 0x2 0xa0 >, < 0x0 0x2a8 0x2 0xa0 >, < 0x0 0x2a9 0x2 0xa0 >, < 0x0 0x2aa 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan17: can@44df0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44df0000 0x4000 >;
+			interrupts = < 0x0 0x2ab 0x2 0xa0 >, < 0x0 0x2ad 0x2 0xa0 >, < 0x0 0x2ae 0x2 0xa0 >, < 0x0 0x2af 0x2 0xa0 >, < 0x0 0x2b0 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan18: can@44fa0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44fa0000 0x4000 >;
+			interrupts = < 0x0 0x2b1 0x2 0xa0 >, < 0x0 0x2b3 0x2 0xa0 >, < 0x0 0x2b4 0x2 0xa0 >, < 0x0 0x2b5 0x2 0xa0 >, < 0x0 0x2b6 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan19: can@44fb0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44fb0000 0x4000 >;
+			interrupts = < 0x0 0x2b7 0x2 0xa0 >, < 0x0 0x2b9 0x2 0xa0 >, < 0x0 0x2ba 0x2 0xa0 >, < 0x0 0x2bb 0x2 0xa0 >, < 0x0 0x2bc 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan20: can@44fc0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44fc0000 0x4000 >;
+			interrupts = < 0x0 0x2bd 0x2 0xa0 >, < 0x0 0x2bf 0x2 0xa0 >, < 0x0 0x2c0 0x2 0xa0 >, < 0x0 0x2c1 0x2 0xa0 >, < 0x0 0x2c2 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan21: can@44fd0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44fd0000 0x4000 >;
+			interrupts = < 0x0 0x2c3 0x2 0xa0 >, < 0x0 0x2c5 0x2 0xa0 >, < 0x0 0x2c6 0x2 0xa0 >, < 0x0 0x2c7 0x2 0xa0 >, < 0x0 0x2c8 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan22: can@44fe0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44fe0000 0x4000 >;
+			interrupts = < 0x0 0x2c9 0x2 0xa0 >, < 0x0 0x2cb 0x2 0xa0 >, < 0x0 0x2cc 0x2 0xa0 >, < 0x0 0x2cd 0x2 0xa0 >, < 0x0 0x2ce 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		flexcan23: can@44ff0000 {
+			compatible = "nxp,flexcan-fd", "nxp,flexcan";
+			clk-source = < 0x0 >;
+			reg = < 0x44ff0000 0x4000 >;
+			interrupts = < 0x0 0x2cf 0x2 0xa0 >, < 0x0 0x2d1 0x2 0xa0 >, < 0x0 0x2d2 0x2 0xa0 >, < 0x0 0x2d3 0x2 0xa0 >, < 0x0 0x2d4 0x2 0xa0 >;
+			interrupt-names = "ored", "ored_0_31_mb", "ored_32_63_mb", "ored_64_95_mb", "ored_96_127_mb";
+			clocks = < &clock 0x64 >;
+			status = "disabled";
+		};
+		stm0: stm@76200000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76a00000 0x10000 >;
+			reg = < 0x76200000 0x10000 >;
 			interrupts = < 0x0 0xd 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		stm1: stm@76a10000 {
+		stm1: stm@76210000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76a10000 0x10000 >;
+			reg = < 0x76210000 0x10000 >;
 			interrupts = < 0x0 0xe 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		stm2: stm@76820000 {
+		stm2: stm@76020000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76820000 0x10000 >;
+			reg = < 0x76020000 0x10000 >;
 			interrupts = < 0x0 0xf 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		stm3: stm@76830000 {
+		stm3: stm@76030000 {
 			compatible = "nxp,s32-sys-timer";
-			reg = < 0x76830000 0x10000 >;
+			reg = < 0x76030000 0x10000 >;
 			interrupts = < 0x0 0x10 0x2 0xa0 >;
-			clocks = < &clock 0x104 >;
+			clocks = < &clock 0xfe >;
 			status = "disabled";
 		};
-		swt0: watchdog@76800000 {
+		swt0: watchdog@76000000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76800000 0x10000 >;
+			reg = < 0x76000000 0x10000 >;
 			interrupts = < 0x0 0x8 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			service-mode = "fixed";
 			status = "disabled";
 		};
-		swt1: watchdog@76810000 {
+		swt1: watchdog@76010000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76810000 0x10000 >;
+			reg = < 0x76010000 0x10000 >;
 			interrupts = < 0x0 0x9 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			service-mode = "fixed";
 			status = "disabled";
 		};
-		swt2: watchdog@76a20000 {
+		swt2: watchdog@76220000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76a20000 0x10000 >;
+			reg = < 0x76220000 0x10000 >;
 			interrupts = < 0x0 0xa 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			service-mode = "fixed";
 			status = "disabled";
 		};
-		swt3: watchdog@76a30000 {
+		swt3: watchdog@76230000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76a30000 0x10000 >;
+			reg = < 0x76230000 0x10000 >;
 			interrupts = < 0x0 0xb 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			service-mode = "fixed";
 			status = "disabled";
 		};
-		swt4: watchdog@76940000 {
+		swt4: watchdog@76140000 {
 			compatible = "nxp,s32-swt";
-			reg = < 0x76940000 0x10000 >;
+			reg = < 0x76140000 0x10000 >;
 			interrupts = < 0x0 0xc 0x2 0xa0 >;
 			clocks = < &clock 0x1 >;
 			service-mode = "fixed";
 			status = "disabled";
 		};
-		pit0: pit@76950000 {
+		pit0: pit@76150000 {
 			compatible = "nxp,pit";
-			reg = < 0x76950000 0x10000 >;
+			reg = < 0x76150000 0x10000 >;
 			interrupts = < 0x0 0x13 0x2 0xa0 >;
-			clocks = < &clock 0xc2 >;
+			clocks = < &clock 0xae >;
 			max-load-value = < 0xffffff >;
 			status = "disabled";
 			#address-cells = < 0x1 >;
@@ -669,25 +885,25 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@4 {
+		cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x4 >;
+			reg = < 0x0 >;
 		};
-		cpu@5 {
+		cpu@1 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x5 >;
+			reg = < 0x1 >;
 		};
-		cpu@6 {
+		cpu@2 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x6 >;
+			reg = < 0x2 >;
 		};
-		cpu@7 {
+		cpu@3 {
 			device_type = "cpu";
 			compatible = "arm,cortex-r52";
-			reg = < 0x7 >;
+			reg = < 0x3 >;
 		};
 	};
 	arch_timer: timer {

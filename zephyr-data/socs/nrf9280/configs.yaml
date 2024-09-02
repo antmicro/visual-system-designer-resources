@@ -1,0 +1,10 @@
+architecture: arm
+board_socs:
+- name: nrf9280
+  variants:
+  - cpucluster: cpuppr
+    name: xip
+defconfig_file: boards/nordic/nrf9280pdk/nrf9280pdk_nrf9280_cpuapp_defconfig
+remove_defconfig_flags:
+- CONFIG_BOARD_NRF9280PDK_NRF9280_CPUAPP
+vendor: nordic

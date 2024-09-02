@@ -412,14 +412,6 @@
 				wkup-gpios = < &gpioc 0x5 0x0 >;
 			};
 		};
-		clocks {
-			clk_hsi48: clk-hsi48 {
-				#clock-cells = < 0x0 >;
-				compatible = "fixed-clock";
-				clock-frequency = < 0x2dc6c00 >;
-				status = "disabled";
-			};
-		};
 		usart3: serial@40004800 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40004800 0x400 >;
@@ -743,6 +735,12 @@
 		pll: pll {
 			#clock-cells = < 0x0 >;
 			compatible = "st,stm32l4-pll-clock";
+			status = "disabled";
+		};
+		clk_hsi48: clk-hsi48 {
+			#clock-cells = < 0x0 >;
+			compatible = "fixed-clock";
+			clock-frequency = < 0x2dc6c00 >;
 			status = "disabled";
 		};
 	};

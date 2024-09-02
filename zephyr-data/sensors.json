@@ -917,6 +917,25 @@
         },
         "rdp-compat": "nxp,fxas21002"
     },
+    "fxls8974": {
+        "category": "Motion/Accelerometer",
+        "compatible": [
+            "nxp,fxls8974"
+        ],
+        "description": "FXLS8974 3-axis accelerometer sensor",
+        "interfaces": {
+            "i2c": "i2c",
+            "int1": "gpio",
+            "int2": "gpio",
+            "reset": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "nxp,fxls8974"
+    },
     "fxos8700": {
         "category": "Motion/Inertial measurement unit",
         "compatible": [
@@ -2383,7 +2402,7 @@
         "compatible": [
             "memsic,mc3419"
         ],
-        "description": "MC3419 3-axis accel sensor",
+        "description": "MC3419 3-axis accel sensor\n\nExample:\n#include <zephyr/dt-bindings/sensor/mc3419.h>\n\nmc3419: mc3419@0 {\n  ...\n\n  lpf-fc-sel = <MC3419_LPF_DISABLE>;\n  decimation-rate = <MC3419_DECIMATE_IDR_BY_1>;\n};\n",
         "driver": [
             "drivers/sensor/mc3419/mc3419.c"
         ],

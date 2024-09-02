@@ -404,14 +404,6 @@
 				reg = < 0x5 >;
 			};
 		};
-		clocks {
-			clk_hsi48: clk-hsi48 {
-				#clock-cells = < 0x0 >;
-				compatible = "fixed-clock";
-				clock-frequency = < 0x2dc6c00 >;
-				status = "disabled";
-			};
-		};
 		usart3: serial@40004800 {
 			compatible = "st,stm32-usart", "st,stm32-uart";
 			reg = < 0x40004800 0x400 >;
@@ -668,7 +660,8 @@
 			reg = < 0x40016800 0x200 >;
 			interrupts = < 0x5b 0x0 >, < 0x5c 0x0 >;
 			interrupt-names = "ltdc", "ltdc_er";
-			clocks = < &rcc 0x60 0x40000000 >;
+			clocks = < &rcc 0x60 0x4000000 >;
+			resets = < &rctl 0x81a >;
 			status = "disabled";
 		};
 	};
@@ -743,6 +736,12 @@
 		pll: pll {
 			#clock-cells = < 0x0 >;
 			compatible = "st,stm32l4-pll-clock";
+			status = "disabled";
+		};
+		clk_hsi48: clk-hsi48 {
+			#clock-cells = < 0x0 >;
+			compatible = "fixed-clock";
+			clock-frequency = < 0x2dc6c00 >;
 			status = "disabled";
 		};
 	};

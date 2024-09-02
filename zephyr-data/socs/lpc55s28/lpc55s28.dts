@@ -219,6 +219,15 @@
 				resets = < &reset 0x10012 >;
 				status = "disabled";
 			};
+			sc_timer: pwm@85000 {
+				compatible = "nxp,sctimer-pwm";
+				reg = < 0x85000 0x1000 >;
+				interrupts = < 0xc 0x0 >;
+				status = "disabled";
+				clocks = < &syscon 0x900 >;
+				prescaler = < 0x2 >;
+				#pwm-cells = < 0x3 >;
+			};
 			hs_lspi: spi@9f000 {
 				compatible = "nxp,lpc-spi";
 				reg = < 0x9f000 0x1000 >;

@@ -15,27 +15,42 @@
 		ranges;
 		nvic: interrupt-controller@e000e100 {
 			#address-cells = < 0x1 >;
-			compatible = "arm,v8m-nvic";
+			compatible = "arm,v7m-nvic";
 			reg = < 0xe000e100 0xc00 >;
 			interrupt-controller;
 			#interrupt-cells = < 0x2 >;
-			arm,num-irq-priority-bits = < 0x3 >;
+			arm,num-irq-priority-bits = < 0x4 >;
 			phandle = < 0x1 >;
 		};
 		systick: timer@e000e010 {
-			compatible = "arm,armv8m-systick";
+			compatible = "arm,armv7m-systick";
 			reg = < 0xe000e010 0x10 >;
 		};
-		itcm: itcm@1FFE0000 {
+		itcm: itcm@0 {
 			compatible = "nxp,imx-itcm";
-			reg = < 0x1ffe0000 0x20000 >;
+			reg = < 0x0 0x40000 >;
 		};
-		dtcm: dtcm@30000000 {
+		dtcm: dtcm@20000000 {
 			compatible = "nxp,imx-dtcm";
-			reg = < 0x30000000 0x20000 >;
+			reg = < 0x20000000 0x40000 >;
 		};
-		peripheral: peripheral@50000000 {
-			ranges = < 0x0 0x50000000 0x10000000 >;
+		memory: memory@20000000 {
+			ranges = < 0x0 0x20000000 0x10000000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ocram1: ocram@484000 {
+				compatible = "zephyr,memory-region", "mmio-sram";
+				zephyr,memory-region = "OCRAM1";
+				reg = < 0x484000 0x7c000 >;
+			};
+			ocram2: ocram@500000 {
+				compatible = "zephyr,memory-region", "mmio-sram";
+				zephyr,memory-region = "OCRAM2";
+				reg = < 0x500000 0x40000 >;
+			};
+		};
+		peripheral: peripheral@40000000 {
+			ranges = < 0x0 0x40000000 0x10000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			iomuxc: iomuxc@2A10000 {
@@ -64,10 +79,101 @@
 				clocks = < &ccm 0x300 0x7c 0x18 >;
 				status = "disabled";
 			};
+			lpuart2: uart@4390000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x4390000 0x4000 >;
+				interrupts = < 0x14 0x0 >;
+				clocks = < &ccm 0x300 0x68 0x1c >;
+				status = "disabled";
+			};
+			lpuart3: uart@2570000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x2570000 0x4000 >;
+				interrupts = < 0x44 0x0 >;
+				clocks = < &ccm 0x301 0x68 0xc >;
+				status = "disabled";
+			};
+			lpuart4: uart@2580000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x2580000 0x4000 >;
+				interrupts = < 0x45 0x0 >;
+				clocks = < &ccm 0x301 0x6c 0x18 >;
+				status = "disabled";
+			};
+			lpuart5: uart@2590000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x2590000 0x4000 >;
+				interrupts = < 0x46 0x0 >;
+				clocks = < &ccm 0x302 0x74 0x2 >;
+				status = "disabled";
+			};
+			lpuart6: uart@25A0000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x25a0000 0x4000 >;
+				interrupts = < 0x47 0x0 >;
+				clocks = < &ccm 0x302 0x74 0x6 >;
+				status = "disabled";
+			};
+			lpuart7: uart@4570000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x4570000 0x4000 >;
+				interrupts = < 0xc4 0x0 >;
+				clocks = < &ccm 0x303 0x7c 0x1a >;
+				status = "disabled";
+			};
+			lpuart8: uart@2DA0000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x2da0000 0x4000 >;
+				interrupts = < 0xc5 0x0 >;
+				clocks = < &ccm 0x303 0x80 0xe >;
+				status = "disabled";
+			};
+			lpuart9: uart@2D70000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x2d70000 0x4000 >;
+				interrupts = < 0x9c 0x0 >;
+				clocks = < &ccm 0x304 0x80 0xe >;
+				status = "disabled";
+			};
+			lpuart10: uart@2D80000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x2d80000 0x4000 >;
+				interrupts = < 0x9d 0x0 >;
+				clocks = < &ccm 0x304 0x80 0xe >;
+				status = "disabled";
+			};
+			lpuart11: uart@2D90000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x2d90000 0x4000 >;
+				interrupts = < 0x9e 0x0 >;
+				clocks = < &ccm 0x305 0x80 0xe >;
+				status = "disabled";
+			};
+			lpuart12: uart@4580000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x4580000 0x4000 >;
+				interrupts = < 0x9f 0x0 >;
+				clocks = < &ccm 0x305 0x80 0xe >;
+				status = "disabled";
+			};
 			gpio1: gpio@7400000 {
 				compatible = "nxp,imx-rgpio";
 				reg = < 0x7400000 0x4000 >;
 				interrupts = < 0xa 0x0 >, < 0xb 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio2: gpio@3810000 {
+				compatible = "nxp,imx-rgpio";
+				reg = < 0x3810000 0x4000 >;
+				interrupts = < 0x39 0x0 >, < 0x3a 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio3: gpio@3820000 {
+				compatible = "nxp,imx-rgpio";
+				reg = < 0x3820000 0x4000 >;
+				interrupts = < 0x3b 0x0 >, < 0x3c 0x0 >;
 				gpio-controller;
 				#gpio-cells = < 0x2 >;
 			};
@@ -78,9 +184,83 @@
 				gpio-controller;
 				#gpio-cells = < 0x2 >;
 			};
+			gpio5: gpio@3840000 {
+				compatible = "nxp,imx-rgpio";
+				reg = < 0x3840000 0x4000 >;
+				interrupts = < 0xea 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+			};
+			gpio6: gpio@3850000 {
+				compatible = "nxp,imx-rgpio";
+				reg = < 0x3850000 0x4000 >;
+				interrupts = < 0xec 0x0 >;
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+			};
+			lpi2c1: i2c@4340000 {
+				compatible = "nxp,imx-lpi2c";
+				clock-frequency = < 0x186a0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				reg = < 0x4340000 0x4000 >;
+				interrupts = < 0xd 0x0 >;
+				clocks = < &ccm 0x400 0x70 0x6 >;
+				status = "disabled";
+			};
+			lpi2c2: i2c@4350000 {
+				compatible = "nxp,imx-lpi2c";
+				clock-frequency = < 0x186a0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				reg = < 0x4350000 0x4000 >;
+				interrupts = < 0xe 0x0 >;
+				clocks = < &ccm 0x400 0x70 0x8 >;
+				status = "disabled";
+			};
+			lpi2c3: i2c@2530000 {
+				compatible = "nxp,imx-lpi2c";
+				clock-frequency = < 0x186a0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				reg = < 0x2530000 0x4000 >;
+				interrupts = < 0x3e 0x0 >;
+				clocks = < &ccm 0x401 0x70 0xa >;
+				status = "disabled";
+			};
+			lpi2c4: i2c@2540000 {
+				compatible = "nxp,imx-lpi2c";
+				clock-frequency = < 0x186a0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				reg = < 0x2540000 0x4000 >;
+				interrupts = < 0x3f 0x0 >;
+				clocks = < &ccm 0x401 0x80 0x18 >;
+				status = "disabled";
+			};
+			lpi2c5: i2c@2d30000 {
+				compatible = "nxp,imx-lpi2c";
+				clock-frequency = < 0x186a0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				reg = < 0x2d30000 0x4000 >;
+				interrupts = < 0x98 0x0 >;
+				clocks = < &ccm 0x402 0x80 0x18 >;
+				status = "disabled";
+			};
+			lpi2c6: i2c@2d40000 {
+				compatible = "nxp,imx-lpi2c";
+				clock-frequency = < 0x186a0 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				reg = < 0x2d40000 0x4000 >;
+				interrupts = < 0x99 0x0 >;
+				clocks = < &ccm 0x402 0x80 0x18 >;
+				status = "disabled";
+			};
 		};
-		flexspi1: spi@525e0000 {
-			reg = < 0x525e0000 0x4000 >, < 0x38000000 0x8000000 >;
+		flexspi1: spi@425e0000 {
+			reg = < 0x425e0000 0x4000 >, < 0x28000000 0x8000000 >;
 			compatible = "nxp,imx-flexspi";
 			interrupts = < 0x37 0x0 >;
 			#address-cells = < 0x1 >;
@@ -92,16 +272,12 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@0 {
+		cpu@1 {
 			device_type = "cpu";
-			compatible = "arm,cortex-m33f";
-			reg = < 0x0 >;
+			compatible = "arm,cortex-m7";
+			reg = < 0x1 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			mpu: mpu@e000ed90 {
-				compatible = "arm,armv8m-mpu";
-				reg = < 0xe000ed90 0x40 >;
-			};
 		};
 	};
 };

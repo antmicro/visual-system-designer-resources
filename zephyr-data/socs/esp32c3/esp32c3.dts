@@ -66,7 +66,7 @@
 		intc: interrupt-controller@600c2000 {
 			compatible = "espressif,esp32-intc";
 			#address-cells = < 0x0 >;
-			#interrupt-cells = < 0x1 >;
+			#interrupt-cells = < 0x3 >;
 			interrupt-controller;
 			reg = < 0x600c2000 0x198 >;
 			status = "okay";
@@ -75,7 +75,7 @@
 		systimer0: systimer@60023000 {
 			compatible = "espressif,esp32-systimer";
 			reg = < 0x60023000 0x80 >;
-			interrupts = < 0x25 >;
+			interrupts = < 0x25 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "okay";
 		};
@@ -92,7 +92,7 @@
 			compatible = "espressif,esp32-xt-wdt";
 			reg = < 0x60008004 0x4 >;
 			clocks = < &rtc 0x1b >;
-			interrupts = < 0x1b >;
+			interrupts = < 0x1b 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
@@ -100,7 +100,7 @@
 			reg = < 0x60008004 0xc >;
 			compatible = "espressif,esp32-rtc-timer";
 			clocks = < &rtc 0x1b >;
-			interrupts = < 0x1b >;
+			interrupts = < 0x1b 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "okay";
 		};
@@ -121,7 +121,7 @@
 			gpio-controller;
 			#gpio-cells = < 0x2 >;
 			reg = < 0x60004000 0x800 >;
-			interrupts = < 0x10 >;
+			interrupts = < 0x10 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			ngpios = < 0x1a >;
 		};
@@ -130,7 +130,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x60013000 0x1000 >;
-			interrupts = < 0x1d >;
+			interrupts = < 0x1d 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x4 >;
 			status = "disabled";
@@ -139,7 +139,7 @@
 			compatible = "espressif,esp32-uart";
 			reg = < 0x60000000 0x400 >;
 			status = "disabled";
-			interrupts = < 0x15 >;
+			interrupts = < 0x15 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x1 >;
 		};
@@ -147,7 +147,7 @@
 			compatible = "espressif,esp32-uart";
 			reg = < 0x60010000 0x400 >;
 			status = "disabled";
-			interrupts = < 0x16 >;
+			interrupts = < 0x16 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x2 >;
 			current-speed = < 0x1c200 >;
@@ -164,7 +164,7 @@
 			compatible = "espressif,esp32-usb-serial";
 			reg = < 0x60043000 0x400 >;
 			status = "disabled";
-			interrupts = < 0x1a >;
+			interrupts = < 0x1a 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x3 >;
 		};
@@ -173,7 +173,7 @@
 			reg = < 0x6001f000 0x1000 >;
 			group = < 0x0 >;
 			index = < 0x0 >;
-			interrupts = < 0x20 >;
+			interrupts = < 0x20 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
@@ -182,7 +182,7 @@
 			reg = < 0x60020000 0x1000 >;
 			group = < 0x1 >;
 			index = < 0x0 >;
-			interrupts = < 0x22 >;
+			interrupts = < 0x22 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
@@ -194,7 +194,7 @@
 		twai: can@6002b000 {
 			compatible = "espressif,esp32-twai";
 			reg = < 0x6002b000 0x1000 >;
-			interrupts = < 0x19 >;
+			interrupts = < 0x19 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0xc >;
 			status = "disabled";
@@ -202,7 +202,7 @@
 		spi2: spi@60024000 {
 			compatible = "espressif,esp32-spi";
 			reg = < 0x60024000 0x1000 >;
-			interrupts = < 0x13 >;
+			interrupts = < 0x13 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0xb >;
 			dma-clk = < 0x18 >;
@@ -212,7 +212,7 @@
 		wdt0: watchdog@6001f048 {
 			compatible = "espressif,esp32-watchdog";
 			reg = < 0x6001f048 0x20 >;
-			interrupts = < 0x21 >;
+			interrupts = < 0x21 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x6 >;
 			status = "disabled";
@@ -220,7 +220,7 @@
 		wdt1: watchdog@60020048 {
 			compatible = "espressif,esp32-watchdog";
 			reg = < 0x60020048 0x20 >;
-			interrupts = < 0x23 >;
+			interrupts = < 0x23 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x7 >;
 			status = "disabled";
@@ -251,7 +251,7 @@
 			compatible = "espressif,esp32-gdma";
 			reg = < 0x6003f000 0x1000 >;
 			#dma-cells = < 0x1 >;
-			interrupts = < 0x2c 0x2d 0x2e >;
+			interrupts = < 0x2c 0x3 0x0 >, < 0x2d 0x3 0x0 >, < 0x2e 0x3 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x18 >;
 			dma-channels = < 0x6 >;

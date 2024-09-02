@@ -32,7 +32,7 @@
 			compatible = "nxp,kinetis-scg";
 			reg = < 0x40064000 0x1000 >;
 			#clock-cells = < 0x1 >;
-			phandle = < 0xb >;
+			phandle = < 0xc >;
 			sirc_clk: sirc_clk {
 				compatible = "fixed-clock";
 				clock-frequency = < 0x7a1200 >;
@@ -122,35 +122,62 @@
 			clocks = < &pcc 0x1b0 0x3 >;
 			status = "disabled";
 		};
+		lptmr0: lptmr@40040000 {
+			compatible = "nxp,lptmr";
+			reg = < 0x40040000 0x1000 >;
+			interrupts = < 0x1d 0x0 >;
+			clock-frequency = < 0x1f400 >;
+			prescaler = < 0x1 >;
+			clk-source = < 0x1 >;
+			resolution = < 0x10 >;
+		};
 		porta: pinmux@40049000 {
 			compatible = "nxp,kinetis-pinmux";
 			reg = < 0x40049000 0x1000 >;
 			clocks = < &pcc 0x124 0x0 >;
-			phandle = < 0x6 >;
+			phandle = < 0x7 >;
 		};
 		portb: pinmux@4004a000 {
 			compatible = "nxp,kinetis-pinmux";
 			reg = < 0x4004a000 0x1000 >;
 			clocks = < &pcc 0x128 0x0 >;
-			phandle = < 0x8 >;
+			phandle = < 0x9 >;
 		};
 		portc: pinmux@4004b000 {
 			compatible = "nxp,kinetis-pinmux";
 			reg = < 0x4004b000 0x1000 >;
 			clocks = < &pcc 0x12c 0x0 >;
-			phandle = < 0x9 >;
+			phandle = < 0xa >;
 		};
 		portd: pinmux@4004c000 {
 			compatible = "nxp,kinetis-pinmux";
 			reg = < 0x4004c000 0x1000 >;
 			clocks = < &pcc 0x130 0x0 >;
-			phandle = < 0xa >;
+			phandle = < 0xb >;
 		};
 		porte: pinmux@4004d000 {
 			compatible = "nxp,kinetis-pinmux";
 			reg = < 0x4004d000 0x1000 >;
 			clocks = < &pcc 0x134 0x0 >;
-			phandle = < 0x7 >;
+			phandle = < 0x8 >;
+		};
+		pmc: pmc@4007d000 {
+			reg = < 0x4007d000 0x1000 >;
+			lpo: lpo128k {
+				compatible = "fixed-clock";
+				clock-frequency = < 0x1f400 >;
+				#clock-cells = < 0x0 >;
+				phandle = < 0x6 >;
+			};
+		};
+		wdog: watchdog@40052000 {
+			compatible = "nxp,kinetis-wdog32";
+			reg = < 0x40052000 0x1000 >;
+			interrupts = < 0x1c 0x0 >;
+			clocks = < &lpo >;
+			clk-source = < 0x1 >;
+			clk-divider = < 0x100 >;
+			status = "disabled";
 		};
 		gpios0: gpios0@400ff000 {
 			compatible = "nxp,gpio-cluster";
@@ -346,6 +373,32 @@
 			compatible = "arm,cortex-m0+";
 			clock-frequency = < 0x2dc6c00 >;
 			reg = < 0x0 >;
+			cpu-power-states = < &idle &stop &pstop1 &pstop2 >;
+		};
+		power-states {
+			idle: idle {
+				compatible = "zephyr,power-state";
+				power-state-name = "runtime-idle";
+				phandle = < 0xd >;
+			};
+			stop: stop {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x0 >;
+				phandle = < 0xe >;
+			};
+			pstop1: pstop1 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x1 >;
+				phandle = < 0xf >;
+			};
+			pstop2: pstop2 {
+				compatible = "zephyr,power-state";
+				power-state-name = "suspend-to-idle";
+				substate-id = < 0x2 >;
+				phandle = < 0x10 >;
+			};
 		};
 	};
 	pinctrl: pinctrl {

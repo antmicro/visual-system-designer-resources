@@ -5,13 +5,13 @@
 		zephyr,sram = &sram0;
 	};
 };
-&can0{
+&canxl0{
 	status = "okay";
-	pinctrl-0 = < &can0_default >;
+	pinctrl-0 = < &canxl0_default >;
 	pinctrl-names = "default";
 };
-&can1{
-	pinctrl-0 = < &can1_default >;
+&canxl1{
+	pinctrl-0 = < &canxl1_default >;
 	pinctrl-names = "default";
 };
 &emdio{
@@ -28,6 +28,14 @@
 	phy-handle = < &phy0 >;
 	mboxes = < &mru0 0x0 >;
 	mbox-names = "rx";
+};
+&flexcan0{
+	pinctrl-0 = < &flexcan0_default >;
+	pinctrl-names = "default";
+};
+&flexcan1{
+	pinctrl-0 = < &flexcan1_default >;
+	pinctrl-names = "default";
 };
 &uart0{
 	status = "okay";

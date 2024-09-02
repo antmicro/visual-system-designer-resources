@@ -1,0 +1,35 @@
+/ {
+	compatible = "gardena,sim3u1xx-dk", "silabs,sim3u", "silabs,sim3u167";
+	chosen {
+		zephyr,console = &usart0;
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0;
+	};
+};
+&clk_ahb{
+	status = "okay";
+	clocks = < &pll0 >;
+};
+&clk_apb{
+	divider = < 0x2 >;
+	status = "okay";
+};
+&flash0{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
+&pll0{
+	status = "okay";
+};
+&usart0{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &usart0_default >;
+	pinctrl-names = "default";
+	hw-flow-control;
+};

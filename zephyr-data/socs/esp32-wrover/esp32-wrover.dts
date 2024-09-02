@@ -30,7 +30,7 @@
 			reg = < 0x3ffe5630 0x3c00 >;
 		};
 		intc: interrupt-controller@3ff00104 {
-			#interrupt-cells = < 0x1 >;
+			#interrupt-cells = < 0x3 >;
 			compatible = "espressif,esp32-intc";
 			interrupt-controller;
 			reg = < 0x3ff00104 0x114 >;
@@ -50,7 +50,7 @@
 			reg = < 0x3ff48004 0xc >;
 			compatible = "espressif,esp32-rtc-timer";
 			clocks = < &rtc 0x22 >;
-			interrupts = < 0x2e >;
+			interrupts = < 0x2e 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "okay";
 		};
@@ -63,14 +63,14 @@
 				compatible = "soc-nv-flash";
 				erase-block-size = < 0x1000 >;
 				write-block-size = < 0x4 >;
-				reg = < 0x0 0x1000000 >;
+				reg = < 0x0 0x400000 >;
 			};
 		};
 		psram0: psram@3f800000 {
 			device_type = "memory";
 			compatible = "mmio-sram";
-			reg = < 0x3f800000 0x400000 >;
-			status = "okay";
+			reg = < 0x3f800000 0x200000 >;
+			status = "disabled";
 		};
 		ipm0: ipm@3ffed238 {
 			compatible = "espressif,esp32-ipm";
@@ -78,7 +78,7 @@
 			status = "disabled";
 			shared-memory = < &ipmmem0 >;
 			shared-memory-size = < 0x400 >;
-			interrupts = < 0x18 0x19 >;
+			interrupts = < 0x18 0x0 0x0 >, < 0x19 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 		};
 		mbox0: mbox@3ffed240 {
@@ -87,26 +87,26 @@
 			status = "disabled";
 			shared-memory = < &ipmmem0 >;
 			shared-memory-size = < 0x400 >;
-			interrupts = < 0x18 0x19 >;
+			interrupts = < 0x18 0x0 0x0 >, < 0x19 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			#mbox-cells = < 0x1 >;
 		};
 		ipi0: ipi@3f4c0058 {
 			compatible = "espressif,crosscore-interrupt";
 			reg = < 0x3f4c0058 0x4 >;
-			interrupts = < 0x18 >;
+			interrupts = < 0x18 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 		};
 		ipi1: ipi@3f4c005c {
 			compatible = "espressif,crosscore-interrupt";
 			reg = < 0x3f4c005c 0x4 >;
-			interrupts = < 0x19 >;
+			interrupts = < 0x19 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 		};
 		uart0: uart@3ff40000 {
 			compatible = "espressif,esp32-uart";
 			reg = < 0x3ff40000 0x400 >;
-			interrupts = < 0x22 >;
+			interrupts = < 0x22 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x1 >;
 			status = "disabled";
@@ -114,7 +114,7 @@
 		uart1: uart@3ff50000 {
 			compatible = "espressif,esp32-uart";
 			reg = < 0x3ff50000 0x400 >;
-			interrupts = < 0x23 >;
+			interrupts = < 0x23 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x2 >;
 			status = "disabled";
@@ -122,7 +122,7 @@
 		uart2: uart@3ff6e000 {
 			compatible = "espressif,esp32-uart";
 			reg = < 0x3ff6e000 0x400 >;
-			interrupts = < 0x24 >;
+			interrupts = < 0x24 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x3 >;
 			status = "disabled";
@@ -130,7 +130,7 @@
 		pcnt: pcnt@3ff57000 {
 			compatible = "espressif,esp32-pcnt";
 			reg = < 0x3ff57000 0x1000 >;
-			interrupts = < 0x30 >;
+			interrupts = < 0x30 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0xf >;
 			status = "disabled";
@@ -145,7 +145,7 @@
 		mcpwm0: mcpwm@3ff5e000 {
 			compatible = "espressif,esp32-mcpwm";
 			reg = < 0x3ff5e000 0x1000 >;
-			interrupts = < 0x27 >;
+			interrupts = < 0x27 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0xa >;
 			#pwm-cells = < 0x3 >;
@@ -154,7 +154,7 @@
 		mcpwm1: mcpwm@3ff6c000 {
 			compatible = "espressif,esp32-mcpwm";
 			reg = < 0x3ff6c000 0x1000 >;
-			interrupts = < 0x28 >;
+			interrupts = < 0x28 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0xb >;
 			#pwm-cells = < 0x3 >;
@@ -174,10 +174,10 @@
 				gpio-controller;
 				#gpio-cells = < 0x2 >;
 				reg = < 0x3ff44000 0x800 >;
-				interrupts = < 0x16 >;
+				interrupts = < 0x16 0x0 0x0 >;
 				interrupt-parent = < &intc >;
 				ngpios = < 0x20 >;
-				gpio-reserved-ranges = < 0x6 0x6 >, < 0x10 0x2 >, < 0x14 0x1 >, < 0x18 0x1 >, < 0x1c 0x4 >;
+				gpio-reserved-ranges = < 0x14 0x1 >, < 0x18 0x1 >, < 0x1c 0x4 >;
 				phandle = < 0x4 >;
 			};
 			gpio1: gpio@3ff44800 {
@@ -185,17 +185,16 @@
 				gpio-controller;
 				#gpio-cells = < 0x2 >;
 				reg = < 0x3ff44800 0x800 >;
-				interrupts = < 0x16 >;
+				interrupts = < 0x16 0x0 0x0 >;
 				interrupt-parent = < &intc >;
 				ngpios = < 0x8 >;
-				gpio-reserved-ranges = < 0x6 0x2 >;
 				phandle = < 0x5 >;
 			};
 		};
 		touch: touch@3ff48858 {
 			compatible = "espressif,esp32-touch";
 			reg = < 0x3ff48858 0x38 >;
-			interrupts = < 0x2e >;
+			interrupts = < 0x2e 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
@@ -204,7 +203,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x3ff53000 0x1000 >;
-			interrupts = < 0x31 >;
+			interrupts = < 0x31 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x4 >;
 			status = "disabled";
@@ -214,7 +213,7 @@
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x3ff67000 0x1000 >;
-			interrupts = < 0x32 >;
+			interrupts = < 0x32 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x5 >;
 			status = "disabled";
@@ -227,7 +226,7 @@
 		wdt0: watchdog@3ff5f048 {
 			compatible = "espressif,esp32-watchdog";
 			reg = < 0x3ff5f048 0x20 >;
-			interrupts = < 0x10 >;
+			interrupts = < 0x10 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x8 >;
 			status = "okay";
@@ -235,7 +234,7 @@
 		wdt1: watchdog@3ff60048 {
 			compatible = "espressif,esp32-watchdog";
 			reg = < 0x3ff60048 0x20 >;
-			interrupts = < 0x14 >;
+			interrupts = < 0x14 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x9 >;
 			status = "disabled";
@@ -243,7 +242,7 @@
 		spi2: spi@3ff64000 {
 			compatible = "espressif,esp32-spi";
 			reg = < 0x3ff64000 0x1000 >;
-			interrupts = < 0x1e >;
+			interrupts = < 0x1e 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x11 >;
 			dma-clk = < 0x13 >;
@@ -253,7 +252,7 @@
 		spi3: spi@3ff65000 {
 			compatible = "espressif,esp32-spi";
 			reg = < 0x3ff65000 0x1000 >;
-			interrupts = < 0x1f >;
+			interrupts = < 0x1f 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x12 >;
 			dma-clk = < 0x13 >;
@@ -263,7 +262,7 @@
 		twai: can@3ff6b000 {
 			compatible = "espressif,esp32-twai";
 			reg = < 0x3ff6b000 0x1000 >;
-			interrupts = < 0x2d >;
+			interrupts = < 0x2d 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x16 >;
 			status = "disabled";
@@ -273,7 +272,7 @@
 			reg = < 0x3ff5f000 0x1000 >;
 			group = < 0x0 >;
 			index = < 0x0 >;
-			interrupts = < 0xe >;
+			interrupts = < 0xe 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
@@ -282,7 +281,7 @@
 			reg = < 0x3ff5f024 0x1000 >;
 			group = < 0x0 >;
 			index = < 0x1 >;
-			interrupts = < 0xf >;
+			interrupts = < 0xf 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
@@ -291,7 +290,7 @@
 			reg = < 0x3ff60000 0x1000 >;
 			group = < 0x1 >;
 			index = < 0x0 >;
-			interrupts = < 0x12 >;
+			interrupts = < 0x12 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
@@ -300,14 +299,14 @@
 			reg = < 0x3ff60024 0x1000 >;
 			group = < 0x1 >;
 			index = < 0x1 >;
-			interrupts = < 0x13 >;
+			interrupts = < 0x13 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			status = "disabled";
 		};
 		dac: dac@3ff48800 {
 			compatible = "espressif,esp32-dac";
 			reg = < 0x3ff48800 0x100 >;
-			interrupts = < 0x2e >;
+			interrupts = < 0x2e 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x21 >;
 			#io-channel-cells = < 0x1 >;
@@ -332,7 +331,7 @@
 		sdhc: sdhc@3ff68000 {
 			compatible = "espressif,esp32-sdhc";
 			reg = < 0x3ff68000 0x1000 >;
-			interrupts = < 0x25 >;
+			interrupts = < 0x25 0x0 0x0 >;
 			interrupt-parent = < &intc >;
 			clocks = < &rtc 0x14 >;
 			#address-cells = < 0x1 >;
@@ -396,7 +395,7 @@
 	};
 	eth: eth {
 		compatible = "espressif,esp32-eth";
-		interrupts = < 0x26 >;
+		interrupts = < 0x26 0x0 0x0 >;
 		interrupt-parent = < &intc >;
 		clocks = < &rtc 0x17 >;
 		status = "disabled";

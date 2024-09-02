@@ -370,14 +370,6 @@
 				reg = < 0x5 >;
 			};
 		};
-		clocks {
-			clk_hsi48: clk-hsi48 {
-				#clock-cells = < 0x0 >;
-				compatible = "fixed-clock";
-				clock-frequency = < 0x2dc6c00 >;
-				status = "disabled";
-			};
-		};
 		usb: usb@40006800 {
 			compatible = "st,stm32-usb";
 			reg = < 0x40006800 0x40000 >;
@@ -491,6 +483,12 @@
 		pll: pll {
 			#clock-cells = < 0x0 >;
 			compatible = "st,stm32l4-pll-clock";
+			status = "disabled";
+		};
+		clk_hsi48: clk-hsi48 {
+			#clock-cells = < 0x0 >;
+			compatible = "fixed-clock";
+			clock-frequency = < 0x2dc6c00 >;
 			status = "disabled";
 		};
 	};
