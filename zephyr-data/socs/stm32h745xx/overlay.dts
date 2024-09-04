@@ -86,6 +86,12 @@
 	d3ppre = < 0x2 >;
 	clock-frequency = < 0xe4e1c00 >;
 };
+&spi1{
+	status = "okay";
+	pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pb5 >;
+	pinctrl-names = "default";
+	cs-gpios = < &gpiod 0xe 0x11 >;
+};
 &spi2{
 	status = "okay";
 	pinctrl-0 = < &spi2_nss_pb4 &spi2_mosi_pb15 &spi2_miso_pi2 &spi2_sck_pd3 >;
@@ -201,6 +207,19 @@
 		#gpio-cells = < 0x2 >;
 		reg = < 0x58022800 0x400 >;
 		clocks = < &rcc 0xe0 0x400 >;
+	};
+	spi1_miso_pa6: spi1_miso_pa6 {
+		pinmux = < 0xc5 >;
+		bias-pull-down;
+	};
+	spi1_mosi_pb5: spi1_mosi_pb5 {
+		pinmux = < 0x2a5 >;
+		bias-pull-down;
+	};
+	spi1_sck_pa5: spi1_sck_pa5 {
+		pinmux = < 0xa5 >;
+		bias-pull-down;
+		slew-rate = "very-high-speed";
 	};
 	uart8_rx_pe0: uart8_rx_pe0 {
 		pinmux = < 0x808 >;

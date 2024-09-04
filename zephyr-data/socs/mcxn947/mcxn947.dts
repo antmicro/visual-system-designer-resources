@@ -803,6 +803,15 @@
 				clk-source = < 0x1 >;
 				resolution = < 0x20 >;
 			};
+			lptmr1: lptmr@4b000 {
+				compatible = "nxp,lptmr";
+				reg = < 0x4b000 0x1000 >;
+				interrupts = < 0x90 0x0 >;
+				clock-frequency = < 0x3e80 >;
+				prescaler = < 0x1 >;
+				clk-source = < 0x1 >;
+				resolution = < 0x20 >;
+			};
 			flexio0: flexio@105000 {
 				compatible = "nxp,flexio";
 				reg = < 0x105000 0x1000 >;

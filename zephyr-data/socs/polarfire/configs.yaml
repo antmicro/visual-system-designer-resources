@@ -1,9 +1,12 @@
 architecture: riscv
 board_socs:
 - name: polarfire
-defconfig_file: boards/beagle/beaglev_fire/beaglev_fire_defconfig
+  variants:
+  - cpucluster: u54
+    name: smp
+defconfig_file: boards/beagle/beaglev_fire/beaglev_fire_polarfire_e51_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_BEAGLEV_FIRE
+- CONFIG_BOARD_BEAGLEV_FIRE_POLARFIRE_E51
 select:
 - 64BIT
 - SCHED_IPI_SUPPORTED

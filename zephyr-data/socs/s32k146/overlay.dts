@@ -6,6 +6,16 @@
 		zephyr,sram = &sram_l;
 	};
 };
+&adc0{
+	status = "okay";
+	sample-time = < 0x41 >;
+	vref-mv = < 0xce4 >;
+};
+&adc1{
+	status = "okay";
+	sample-time = < 0x41 >;
+	vref-mv = < 0xce4 >;
+};
 &flexcan0{
 	status = "okay";
 	pinctrl-0 = < &flexcan0_default >;

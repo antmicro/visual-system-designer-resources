@@ -623,6 +623,20 @@
 				status = "disabled";
 			};
 		};
+		flexio1: flexio@400ac000 {
+			compatible = "nxp,flexio";
+			reg = < 0x400ac000 0x4000 >;
+			interrupts = < 0x6e 0x0 >;
+			clocks = < &ccm 0x1700 0x0 0x0 >;
+			status = "disabled";
+		};
+		flexio2: flexio@400b0000 {
+			compatible = "nxp,flexio";
+			reg = < 0x400b0000 0x4000 >;
+			interrupts = < 0x6f 0x0 >;
+			clocks = < &ccm 0x1701 0x0 0x0 >;
+			status = "disabled";
+		};
 		enet: ethernet@40424000 {
 			compatible = "nxp,enet";
 			reg = < 0x40424000 0x628 >;

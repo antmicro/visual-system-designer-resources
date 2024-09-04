@@ -596,6 +596,31 @@
         },
         "rdp-compat": "bosch,bmm150"
     },
+    "bmp180": {
+        "category": "Pressure",
+        "compatible": [
+            "bosch,bmp180"
+        ],
+        "description": "Bosch BMP180 pressure sensor accessed through I2C bus\n",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "osr-press": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "type": "int"
+            }
+        },
+        "rdp-compat": "bosch,bmp180"
+    },
     "bmp388": {
         "category": "Pressure",
         "compatible": [
@@ -843,8 +868,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303.c",
-            "drivers/sensor/f75303/f75303_emul.c"
+            "drivers/sensor/f75303/f75303_emul.c",
+            "drivers/sensor/f75303/f75303.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -1626,6 +1651,23 @@
             }
         },
         "rdp-compat": "we,wsen-itds"
+    },
+    "jc42": {
+        "category": "Environmental/Temperature",
+        "compatible": [
+            "jedec,jc-42.4-temp"
+        ],
+        "description": "JEDEC JC42.4 compliant temperature sensor. See\nhttp://www.jedec.org/sites/default/files/docs/4_01_04R19.pdf.\nDriver based on the Microchip MCP9808 Digital Temperature Sensor. See\nhttp://ww1.microchip.com/downloads/en/DeviceDoc/25095A.pdf.\n",
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "jedec,jc-42.4-temp"
     },
     "lis2de12": {
         "category": "Other",
@@ -2454,23 +2496,6 @@
                 "type": "phandle-array"
             }
         }
-    },
-    "mcp9808": {
-        "category": "Environmental/Temperature",
-        "compatible": [
-            "microchip,mcp9808"
-        ],
-        "description": "Microchip MCP9808 Digital Temperature Sensor. See\nhttp://ww1.microchip.com/downloads/en/DeviceDoc/25095A.pdf.\n",
-        "interfaces": {
-            "i2c": "i2c",
-            "int": "gpio"
-        },
-        "properties": {
-            "address (i2c)": {
-                "type": "string"
-            }
-        },
-        "rdp-compat": "microchip,mcp9808"
     },
     "mhz19b": {
         "category": "Gas/CO2",

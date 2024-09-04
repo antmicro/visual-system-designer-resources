@@ -1,5 +1,5 @@
 / {
-	compatible = "nordic,nrf54l15pdk_nrf54l15-cpuapp";
+	compatible = "nordic,nrf54l15dk_nrf54l15-cpuapp";
 	chosen {
 		zephyr,console = &uart20;
 		zephyr,flash = &cpuflpr_rram;
@@ -53,7 +53,6 @@
 	pinctrl-0 = < &uart20_default >;
 	pinctrl-1 = < &uart20_sleep >;
 	pinctrl-names = "default", "sleep";
-	hw-flow-control;
 };
 &uart30{
 	current-speed = < 0x1c200 >;

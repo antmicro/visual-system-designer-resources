@@ -20,6 +20,12 @@
 &clk_lsi{
 	status = "okay";
 };
+&fdcan1{
+	clocks = < &rcc 0xec 0x100 >, < &rcc 0xc 0x27c50 >;
+	status = "okay";
+	pinctrl-0 = < &fdcan1_rx_pd0 &fdcan1_tx_pd1 >;
+	pinctrl-names = "default";
+};
 &i2c1{
 	clock-frequency = < 0x61a80 >;
 	status = "okay";
@@ -43,6 +49,15 @@
 	div-p = < 0x1 >;
 	div-q = < 0x4 >;
 	div-r = < 0x2 >;
+	clocks = < &clk_hse >;
+};
+&pll2{
+	status = "okay";
+	div-m = < 0x1 >;
+	mul-n = < 0xa >;
+	div-p = < 0x1 >;
+	div-q = < 0x1 >;
+	div-r = < 0x1 >;
 	clocks = < &clk_hse >;
 };
 &rcc{
@@ -194,6 +209,12 @@
 	eth_tx_en_pg11: eth_tx_en_pg11 {
 		pinmux = < 0xd6b >;
 		slew-rate = "very-high-speed";
+	};
+	fdcan1_rx_pd0: fdcan1_rx_pd0 {
+		pinmux = < 0x609 >;
+	};
+	fdcan1_tx_pd1: fdcan1_tx_pd1 {
+		pinmux = < 0x629 >;
 	};
 	i2c1_scl_pb8: i2c1_scl_pb8 {
 		pinmux = < 0x304 >;

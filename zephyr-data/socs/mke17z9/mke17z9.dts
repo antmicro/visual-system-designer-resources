@@ -373,6 +373,13 @@
 			#dma-cells = < 0x2 >;
 			irq-shared-offset = < 0x4 >;
 		};
+		flexio: flexio@4005a000 {
+			compatible = "nxp,flexio";
+			reg = < 0x4005a000 0x1000 >;
+			status = "disabled";
+			interrupts = < 0x17 0x0 >;
+			clocks = < &pcc 0x168 0x3 >;
+		};
 		uart0: uart@4006d000 {
 			compatible = "nxp,kinetis-uart";
 			reg = < 0x4006d000 0x1000 >;

@@ -18,7 +18,8 @@
 		ranges;
 		sram0: memory@3fc88000 {
 			compatible = "mmio-sram";
-			reg = < 0x3fc88000 0x77fff >;
+			reg = < 0x3fc88000 0x2800 >;
+			status = "okay";
 		};
 		ipmmem0: memory@3fcbd000 {
 			compatible = "mmio-sram";
@@ -180,6 +181,32 @@
 			clocks = < &rtc 0x6 >;
 			status = "disabled";
 		};
+		i2s0: i2s@6000f000 {
+			compatible = "espressif,esp32-i2s";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x6000f000 0x1000 >;
+			interrupts = < 0x19 0x0 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x7 >;
+			dmas = < &dma 0x2 >, < &dma 0x3 >;
+			dma-names = "rx", "tx";
+			unit = < 0x0 >;
+			status = "disabled";
+		};
+		i2s1: i2s@6002d000 {
+			compatible = "espressif,esp32-i2s";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x6002d000 0x1000 >;
+			interrupts = < 0x1a 0x0 0x0 >;
+			interrupt-parent = < &intc >;
+			clocks = < &rtc 0x8 >;
+			dmas = < &dma 0x4 >, < &dma 0x5 >;
+			dma-names = "rx", "tx";
+			unit = < 0x1 >;
+			status = "disabled";
+		};
 		spi2: spi@60024000 {
 			compatible = "espressif,esp32-spi";
 			reg = < 0x60024000 0x1000 >;
@@ -337,6 +364,7 @@
 			dma-channels = < 0xa >;
 			dma-buf-addr-alignment = < 0x4 >;
 			status = "disabled";
+			phandle = < 0x6 >;
 		};
 		sdhc: sdhc@60028000 {
 			compatible = "espressif,esp32-sdhc";
@@ -384,14 +412,14 @@
 				power-state-name = "standby";
 				min-residency-us = < 0xc8 >;
 				exit-latency-us = < 0x85 >;
-				phandle = < 0x6 >;
+				phandle = < 0x7 >;
 			};
 			deep_sleep: deep_sleep {
 				compatible = "zephyr,power-state";
 				power-state-name = "soft-off";
 				min-residency-us = < 0x7d0 >;
 				exit-latency-us = < 0x17e >;
-				phandle = < 0x7 >;
+				phandle = < 0x8 >;
 			};
 		};
 	};

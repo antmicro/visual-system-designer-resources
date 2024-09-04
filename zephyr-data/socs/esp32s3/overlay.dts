@@ -28,6 +28,14 @@
 	pinctrl-0 = < &i2c1_default >;
 	pinctrl-names = "default";
 };
+&i2s0{
+	pinctrl-0 = < &i2s0_default >;
+	pinctrl-names = "default";
+};
+&i2s1{
+	pinctrl-0 = < &i2s1_default >;
+	pinctrl-names = "default";
+};
 &spi2{
 	status = "okay";
 	#address-cells = < 0x1 >;
@@ -41,10 +49,6 @@
 	#size-cells = < 0x0 >;
 	pinctrl-0 = < &spim3_default >;
 	pinctrl-names = "default";
-};
-&sram0{
-	reg = < 0x3fc88000 0x2800 >;
-	status = "okay";
 };
 &twai{
 	pinctrl-0 = < &twai_default >;
