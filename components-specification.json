@@ -1308,6 +1308,22 @@
         },
         {
             "abstract": false,
+            "description": "164 Position Female Connector PCI Express™ Gold 0.039\" (1.00mm) Black\n\n### Additional information\n\n*Datasheet*: [3212936.pdf](https://www.farnell.com/datasheets/3212936.pdf)",
+            "extends": [
+                "PCIe x16"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/amphenol-10146070-113y0lf/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol 10146070-113Y0LF",
+            "urls": {
+                "datasheet": "https://www.farnell.com/datasheets/3212936.pdf",
+                "designer": "hardware/components/amphenol-10146070-113y0lf",
+                "hwp": "components/amphenol-10146070-113y0lf"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Memory Card Connector, MicroSD, Push-Pull, 8 Contacts, Copper Alloy, Gold Plated Contacts\n\n### Additional information\n\n*Datasheet*: [io_micro_sdcard.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/inputoutput/io_micro_sdcard.pdf)",
             "extends": [
                 "Micro SD Card socket"
@@ -1662,6 +1678,22 @@
                 "datasheet": "https://www.mouser.com/datasheet/2/609/4417f-1271526.pdf",
                 "designer": "hardware/components/analog-devices-ltc4417iuf-trpbf",
                 "hwp": "components/analog-devices-ltc4417iuf-trpbf"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "PWM Controller, Overtemperature Output, 3V to 5.5V Supply, 32Hz, QSOP-16\n\n### Additional information\n\n*Datasheet*: [MAX6643-MAX6645.pdf](https://www.analog.com/media/en/technical-documentation/data-sheets/MAX6643-MAX6645.pdf)",
+            "extends": [
+                "Fan Controller"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qsop-16-3x4-75x0-75mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Analog Devices MAX6643LBBAEE+",
+            "urls": {
+                "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX6643-MAX6645.pdf",
+                "designer": "hardware/components/analog-devices-max6643lbbaee",
+                "hwp": "components/analog-devices-max6643lbbaee"
             }
         },
         {
@@ -6503,6 +6535,41 @@
         },
         {
             "abstract": false,
+            "description": "Dell PE 1600W 80 Plus Platinum HS Power Supply for Dell PowerEdge FX2, T630, R740, R830, R940 servers\n\n### Additional information\n\n*Datasheet*: [manual35934307-poweredge-c6520-information-update-tech-sheet.pdf?language=en-us](https://dl.dell.com/content/manual35934307-poweredge-c6520-information-update-tech-sheet.pdf?language=en-us)",
+            "extends": [
+                "Dell_D1600e_PSU"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/dell-psu-1600w/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Dell 95HR5",
+            "urls": {
+                "datasheet": "https://dl.dell.com/content/manual35934307-poweredge-c6520-information-update-tech-sheet.pdf?language=en-us",
+                "designer": "hardware/components/dell-95hr5",
+                "hwp": "components/dell-95hr5"
+            }
+        },
+        {
+            "category": "Connector/Edge/Dell_D1600e_PSU",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Dell D1600E PSU",
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left",
+                    "type": "power"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "abstract": false,
             "description": "Video ICs Active HDMI TQFN-30 \n\n### Additional information\n\n*Datasheet*: [diodes_inc_diod-s-a0004145302-1-1749206.pdf](https://eu.mouser.com/datasheet/2/115/diodes_inc_diod-s-a0004145302-1-1749206.pdf)",
             "extends": [
                 "LVDS to HDMI bridge"
@@ -6515,6 +6582,22 @@
                 "datasheet": "https://eu.mouser.com/datasheet/2/115/diodes_inc_diod-s-a0004145302-1-1749206.pdf",
                 "designer": "hardware/components/diodes-incorporated-pi3hdx511dzle",
                 "hwp": "components/diodes-incorporated-pi3hdx511dzle"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Slide switch\n\n### Additional information\n\n*Datasheet*: [605_MSS34-1571494.pdf](https://mouser.com/datasheet/2/910/605_MSS34-1571494.pdf)",
+            "extends": [
+                "Slide Switch"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/switch-slide-mss3/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Diptronics MSS3-V-T/R",
+            "urls": {
+                "datasheet": "https://mouser.com/datasheet/2/910/605_MSS34-1571494.pdf",
+                "designer": "hardware/components/diptronics-mss3-v-t-r",
+                "hwp": "components/diptronics-mss3-v-t-r"
             }
         },
         {
@@ -8569,6 +8652,46 @@
             }
         },
         {
+            "category": "Power/Fan Controller",
+            "interfaces": [
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "fan fail",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "fan in",
+                    "side": "left",
+                    "type": "tach"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "out",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "over temp",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "sense",
+                    "side": "left"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "Key E, PCI connector\n\n### Additional information\n\n*Datasheet*: [983as0bc56-r15bb-7h.pdf](https://static6.arrow.com/aropdfconversion/f30f9b693fdee64942678de08e7e8764d3a2aa68/983as0bc56-r15bb-7h.pdf)",
             "extends": [
@@ -8953,6 +9076,22 @@
             }
         },
         {
+            "abstract": false,
+            "description": "USB-C (USB TYPE-C) USB 2.0 Receptacle Connector 24 (16+8 Dummy) Postion  Surface Mount, Vertical\n\n### Additional information\n\n*Datasheet*: [usb4145.pdf](https://gct.co/files/drawings/usb4145.pdf)",
+            "extends": [
+                "USB-C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-c-receptacle-gct-usb4145-03-0070-c/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "GCT USB4145-03-0070-C",
+            "urls": {
+                "datasheet": "https://gct.co/files/drawings/usb4145.pdf",
+                "designer": "hardware/components/gct-usb4145-03-0070-c",
+                "hwp": "components/gct-usb4145-03-0070-c"
+            }
+        },
+        {
             "category": "Sensor/Camera/GMSL Camera",
             "interfaces": [
                 {
@@ -9111,6 +9250,452 @@
                 "designer-media-icon": "gpu_cluster.webp"
             },
             "isCategory": true
+        },
+        {
+            "category": "Devices/GPU Cluster Backplane",
+            "description": "\n\nCompute Cluster Backplane board allowing for connection up to 8 [Thunderbolt GPU adapters](https://openhardware.antmicro.com/boards/thunderbolt-gpu-adapter/?tab=features).\nPCB is compatible with [Dell D1599E-S0 PSU](https://www.dell.com/en-us/work/shop/dell-power-supply-ac-1600-watt-psu-io/apd/450-ahuc/computer-chassis-components). \n\n\n",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Dell D1600E PSU",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Thunderbolt to GPU module interface",
+                    "override": false,
+                    "side": "right"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc1",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc2",
+                    "override": false,
+                    "side": "right",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc3",
+                    "override": false,
+                    "side": "right",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc4",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc5",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "cr-battery",
+                    "override": false,
+                    "side": "right",
+                    "type": "cr-battery"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac1",
+                    "override": false,
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac2",
+                    "override": false,
+                    "side": "right",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac3",
+                    "override": false,
+                    "side": "left",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac4",
+                    "override": false,
+                    "side": "left",
+                    "type": "dac"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "fan fail",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan1",
+                    "override": false,
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan2",
+                    "override": false,
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fdcan3",
+                    "override": false,
+                    "side": "left",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "flash",
+                    "override": false,
+                    "side": "left",
+                    "type": "mtd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiob",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioc",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiod",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpioe",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiof",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpiog",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c3",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c4",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "over temp",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-1",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-2",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-3",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-4",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-5",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-6",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-7",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-8",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm-9",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi1",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi2",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi3",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi4",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart/mpsse[0]",
+                    "override": false,
+                    "side": "left",
+                    "type": [
+                        "i2c",
+                        "jtag",
+                        "serial",
+                        "spi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart4",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart5",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart[2]",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart[3]",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart1",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart2",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart3",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb-c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "wire to board",
+                    "override": false,
+                    "side": "left",
+                    "type": "wire to board"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/devices/gpu-cluster-backplane",
+                "designer-graph": "gpu-cluster-backplane"
+            }
         },
         {
             "category": "FPGA/GOWIN/GW1N/GW1N gw1n-1",
@@ -10496,6 +11081,38 @@
         },
         {
             "abstract": false,
+            "description": "Rectangular connector, header\n\n### Additional information\n\n*Datasheet*: [eXH.pdf](http://www.jst-mfg.com/product/pdf/eng/eXH.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-xh-1x2-b2b-xh-a-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors B2B-XH-A(LF)(SN)",
+            "urls": {
+                "datasheet": "http://www.jst-mfg.com/product/pdf/eng/eXH.pdf",
+                "designer": "hardware/components/jst-automotive-connectors-b2b-xh-a-lf-sn",
+                "hwp": "components/jst-automotive-connectors-b2b-xh-a-lf-sn"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Top Entry, Wire-to-Board, 1 mm, 1 Rows, 2 Contacts, Surface Mount, SR\n\n### Additional information\n\n*Datasheet*: [eSH.pdf](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-sh-1x2-bm02b-srss-tb-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors BM02B-SRSS-TB(LF)(SN)",
+            "urls": {
+                "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+                "designer": "hardware/components/jst-automotive-connectors-bm02b-srss-tb-lf-sn",
+                "hwp": "components/jst-automotive-connectors-bm02b-srss-tb-lf-sn"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Pin Header, Top Entry, Wire-to-Board, 1 mm, 1 Rows, 4 Contacts, Surface Mount, SR\n\n### Additional information\n\n*Datasheet*: [eSH.pdf](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf)",
             "extends": [
                 "Wire to Board"
@@ -10524,6 +11141,54 @@
                 "datasheet": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
                 "designer": "hardware/components/jst-automotive-connectors-s2b-ph-sm4-tb-lf-sn",
                 "hwp": "components/jst-automotive-connectors-s2b-ph-sm4-tb-lf-sn"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Connector Header Through Hole, Right Angle 2 position 0.098\" (2.50mm)\n\n### Additional information\n\n*Datasheet*: [XH.pdf](https://www.tme.eu/Document/0a99312bb6c67d3f0f7869fe9a023cea/XH.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-xh-1x2-s2b-xh-a-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors S2B-XH-A(LF)(SN)",
+            "urls": {
+                "datasheet": "https://www.tme.eu/Document/0a99312bb6c67d3f0f7869fe9a023cea/XH.pdf",
+                "designer": "hardware/components/jst-automotive-connectors-s2b-xh-a-lf-sn",
+                "hwp": "components/jst-automotive-connectors-s2b-xh-a-lf-sn"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Pin Header, Right Angle, Wire-to-Board, 1 Rows, 4 Contacts, Surface Mount Right Angle, Pitch 2.5mm\n\n### Additional information\n\n*Datasheet*: [XH.pdf](https://www.tme.eu/Document/0a99312bb6c67d3f0f7869fe9a023cea/XH.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-xh-1x4-s4b-xh-a-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors S4B-XH-A (LF)(SN)",
+            "urls": {
+                "datasheet": "https://www.tme.eu/Document/0a99312bb6c67d3f0f7869fe9a023cea/XH.pdf",
+                "designer": "hardware/components/jst-automotive-connectors-s4b-xh-a-lf-sn",
+                "hwp": "components/jst-automotive-connectors-s4b-xh-a-lf-sn"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Rectangular connector, header\n\n### Additional information\n\n*Datasheet*: [eSH.pdf](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-jst-sh-1x2-sm02b-srss-tb-lf-sn/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "JST Automotive Connectors SM02B-SRSS-TB(LF)(SN)",
+            "urls": {
+                "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+                "designer": "hardware/components/jst-automotive-connectors-sm02b-srss-tb-lf-sn",
+                "hwp": "components/jst-automotive-connectors-sm02b-srss-tb-lf-sn"
             }
         },
         {
@@ -14493,6 +15158,22 @@
         },
         {
             "abstract": false,
+            "description": "Rectangular connector, header\n\n### Additional information\n\n*Datasheet*: [PS-105300-100-001.pdf](https://tools.molex.com/pdm_docs/ps/PS-105300-100-001.pdf)",
+            "extends": [
+                "Auxiliary Power Connector"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-molex-nano-fit-1x2-1053131102/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 1053131102",
+            "urls": {
+                "datasheet": "https://tools.molex.com/pdm_docs/ps/PS-105300-100-001.pdf",
+                "designer": "hardware/components/molex-1053131102",
+                "hwp": "components/molex-1053131102"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Pin Header, Pitch 2.5 mm, 1 Row, 2 Contacts, Nano-Fit\n\n### Additional information\n\n*Datasheet*: [3578051.pdf](https://www.farnell.com/cad/3578051.pdf)",
             "extends": [
                 "Power"
@@ -14521,6 +15202,22 @@
                 "datasheet": "https://tools.molex.com/pdm_docs/sd/1054500101_sd.pdf",
                 "designer": "hardware/components/molex-1054500101",
                 "hwp": "components/molex-1054500101"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Rectangular connector (header, female pins)\n\n### Additional information\n\n*Datasheet*: [022232041_sd.pdf](https://www.molex.com/pdm_docs/sd/022232041_sd.pdf)",
+            "extends": [
+                "Wire to Board"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-molex-kk-1x4-22-23-2041/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 22-23-2041",
+            "urls": {
+                "datasheet": "https://www.molex.com/pdm_docs/sd/022232041_sd.pdf",
+                "designer": "hardware/components/molex-22-23-2041",
+                "hwp": "components/molex-22-23-2041"
             }
         },
         {
@@ -15435,11 +16132,25 @@
             "category": "Connector/PCIe/PCIe x16",
             "interfaces": [
                 {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": "clk"
+                },
+                {
                     "direction": "input",
                     "maxConnectionsCount": -1,
                     "name": "pcie",
                     "side": "left",
                     "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie x16",
+                    "side": "left",
+                    "type": "pcie x16"
                 }
             ],
             "isCategory": true
@@ -15448,10 +16159,13 @@
             "category": "Connector/PCIe/PCIe x4",
             "interfaces": [
                 {
-                    "array": [
-                        0,
-                        4
-                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": "clk"
+                },
+                {
                     "direction": "input",
                     "maxConnectionsCount": -1,
                     "name": "pcie",
@@ -15459,15 +16173,11 @@
                     "type": "pcie"
                 },
                 {
-                    "array": [
-                        0,
-                        4
-                    ],
-                    "direction": "output",
+                    "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pcie",
-                    "side": "right",
-                    "type": "pcie"
+                    "name": "pcie x4",
+                    "side": "left",
+                    "type": "pcie x4"
                 }
             ],
             "isCategory": true
@@ -17922,6 +18632,22 @@
             }
         },
         {
+            "abstract": false,
+            "description": "Clock Generator, 100MHz, 2.97V to 3.63V, 2 Outputs, TSSOP-8\n\n### Additional information\n\n*Datasheet*: [Si52112-B5-B6.pdf](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si52112-B5-B6.pdf)",
+            "extends": [
+                "100MHz"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tssop-8-3x4-4mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Skyworks Solutions SI52112-B6-GT",
+            "urls": {
+                "datasheet": "https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si52112-B5-B6.pdf",
+                "designer": "hardware/components/skyworks-solutions-si52112-b6-gt",
+                "hwp": "components/skyworks-solutions-si52112-b6-gt"
+            }
+        },
+        {
             "category": "IO/Slide Switch",
             "interfaces": [
                 {
@@ -18360,6 +19086,56 @@
             }
         },
         {
+            "category": "Interfacing/Switch",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Ctrl",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "IN",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "OUT",
+                    "side": "right"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Sensor/Current/TCMS1100",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "PWR IN",
+                    "side": "left",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "PWR OUT",
+                    "side": "right",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Sens.",
+                    "side": "left"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "MEMS Module, MotionTracking Series, 3-Axis Gyroscope/Accelerometer, ±16g, 1.71 V to 3.6 V, QFN-24\n\n### Additional information\n\n*Datasheet*: [ds-000179-icm-20648-v1.2-typ.pdf](https://product.tdk.com/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000179-icm-20648-v1.2-typ.pdf)",
             "extends": [
@@ -18421,6 +19197,22 @@
                 "datasheet": "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=2199230&DocType=Customer+Drawing&DocLang=English",
                 "designer": "hardware/components/te-connectivity-1-2199230-6",
                 "hwp": "components/te-connectivity-1-2199230-6"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Card Edge Power Connectors, Board-to-Board, 10 Position, 7.26mm\n\n### Additional information\n\n*Datasheet*: [product-1-2212115-4.datasheet.pdf](https://www.te.com/usa-en/product-1-2212115-4.datasheet.pdf)",
+            "extends": [
+                "thunderbolt-to-gpu-connector"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/socket-te-multi-beam-2x5-1-2212115-4/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "TE Connectivity 1-2212115-4",
+            "urls": {
+                "datasheet": "https://www.te.com/usa-en/product-1-2212115-4.datasheet.pdf",
+                "designer": "hardware/components/te-connectivity-1-2212115-4",
+                "hwp": "components/te-connectivity-1-2212115-4"
             }
         },
         {
@@ -19046,6 +19838,22 @@
         },
         {
             "abstract": false,
+            "description": "8 channel12-bit ADC with I2C, 2V7-5V\n\n### Additional information\n\n*Datasheet*: [ads7828.pdf](http://www.ti.com/lit/ds/symlink/ads7828.pdf)",
+            "extends": [
+                "i2c-adc"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tssop-16-4-4x5mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments ADS7828E/250",
+            "urls": {
+                "datasheet": "http://www.ti.com/lit/ds/symlink/ads7828.pdf",
+                "designer": "hardware/components/texas-instruments-ads7828e-250",
+                "hwp": "components/texas-instruments-ads7828e-250"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Robust, High Immunity 10/100/1000 Ethernet Physical Layer Transceiver\n\n### Additional information\n\n*Datasheet*: [dp83867ir.pdf?ts=1647232328899&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDP83867IR](https://www.ti.com/lit/ds/symlink/dp83867ir.pdf?ts=1647232328899&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDP83867IR)",
             "extends": [
                 "GbE Phy"
@@ -19106,6 +19914,38 @@
                 "datasheet": "https://www.ti.com/lit/ds/symlink/sn65dsi84-q1.pdf?ts=1705413548625&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FSN65DSI84-Q1",
                 "designer": "hardware/components/texas-instruments-sn65dsi84tpaprq1",
                 "hwp": "components/texas-instruments-sn65dsi84tpaprq1"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Low Voltage 8-Bit I2C and SMBUS Low-Power I/O Expander with Interrupt Output and Configuration Registers\n\n### Additional information\n\n*Datasheet*: [tca9534.pdf](http://www.ti.com/lit/ds/symlink/tca9534.pdf)",
+            "extends": [
+                "IO Expander I2C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/tssop-16-4-4x5mm-p0-65mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments TCA9534PWR",
+            "urls": {
+                "datasheet": "http://www.ti.com/lit/ds/symlink/tca9534.pdf",
+                "designer": "hardware/components/texas-instruments-tca9534pwr",
+                "hwp": "components/texas-instruments-tca9534pwr"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Hall current Sensor/transducer\n\n### Additional information\n\n*Datasheet*: [tmcs1100-q1.pdf?ts=1647195769204&ref_url=https%253A%252F%252Fwww.mouser.de%252F](https://www.ti.com/lit/ds/symlink/tmcs1100-q1.pdf?ts=1647195769204&ref_url=https%253A%252F%252Fwww.mouser.de%252F)",
+            "extends": [
+                "TCMS1100"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/soic-8-3-9x4-9x1-75mm-p1-27mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments TMCS1100A2QDRQ1",
+            "urls": {
+                "datasheet": "https://www.ti.com/lit/ds/symlink/tmcs1100-q1.pdf?ts=1647195769204&ref_url=https%253A%252F%252Fwww.mouser.de%252F",
+                "designer": "hardware/components/texas-instruments-tmcs1100a2qdrq1",
+                "hwp": "components/texas-instruments-tmcs1100a2qdrq1"
             }
         },
         {
@@ -19288,6 +20128,13 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
+                    "name": "clk",
+                    "side": "right",
+                    "type": "clk"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
                     "name": "gpio",
                     "side": "left",
                     "type": [
@@ -19296,10 +20143,6 @@
                     ]
                 },
                 {
-                    "array": [
-                        0,
-                        4
-                    ],
                     "direction": "output",
                     "maxConnectionsCount": -1,
                     "name": "pcie",
@@ -19310,11 +20153,69 @@
             "isCategory": true
         },
         {
+            "category": "Devices/Thunderbolt to GPU adapter",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "TBT[1]",
+                    "override": false,
+                    "side": "right",
+                    "type": "usb"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Thunderbolt to GPU module interface",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie x16",
+                    "override": false,
+                    "side": "left",
+                    "type": "pcie x16"
+                },
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "override": false,
+                    "side": "right",
+                    "type": "power"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "override": false,
+                    "side": "right",
+                    "type": "usb-c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "wire to board",
+                    "override": false,
+                    "side": "left",
+                    "type": "wire to board"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Devices/Thunderbolt to PCIe Adapter",
             "description": "\n\nOpen source adapter exposing PCIe over Thunderbolt. Offers high throughput and low latency and allows for range extension. It is based on the Intel/JHL6340SLLSQ Thunderbolt controller. Compatible with NVIDIA Jetson Orin SoMs through the Jetson Orin Baseboard.\n\n",
-            "icon": {
-                "vsd-resources": "boards/thunderbolt-pcie-adapter/thunderbolt-pcie-adapter_small.webp"
-            },
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19325,36 +20226,12 @@
                     "type": "usb"
                 },
                 {
-                    "direction": "input",
+                    "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "pcie[0]",
-                    "override": false,
-                    "side": "left",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "pcie[1]",
+                    "name": "pcie x4",
                     "override": false,
                     "side": "right",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "pcie[2]",
-                    "override": false,
-                    "side": "left",
-                    "type": "pcie"
-                },
-                {
-                    "direction": "input",
-                    "maxConnectionsCount": -1,
-                    "name": "pcie[3]",
-                    "override": false,
-                    "side": "right",
-                    "type": "pcie"
+                    "type": "pcie x4"
                 },
                 {
                     "direction": "output",
@@ -20336,6 +21213,22 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "LED, RGB, SMD, 0606, R 20 mA, G 20 mA, B 20 mA, R 2 V, G 3.3 V, B 3.3 V, Common Anode\n\n### Additional information\n\n*Datasheet*: [150066M153000.pdf](https://www.we-online.com/components/products/datasheet/150066M153000.pdf)",
+            "extends": [
+                "LED"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/led-dual0603/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Würth Elektronik 150066M153000",
+            "urls": {
+                "datasheet": "https://www.we-online.com/components/products/datasheet/150066M153000.pdf",
+                "designer": "hardware/components/wurth-elektronik-150066m153000",
+                "hwp": "components/wurth-elektronik-150066m153000"
+            }
         },
         {
             "abstract": false,
@@ -31546,7 +32439,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "drivers/sensor/f75303/f75303.c"
             }
         },
         {
@@ -34728,6 +35621,22 @@
             "extends": [
                 "spi-device",
                 "i2c-device"
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Sensor/ADC/i2c-adc",
+            "extends": [
+                "i2c-device"
+            ],
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc",
+                    "side": "left",
+                    "type": "adc"
+                }
             ],
             "isCategory": true
         },
@@ -91553,6 +92462,140 @@
                 "rdp": "soc_components/hoperf_th02",
                 "zephyr": "drivers/sensor/th02/th02.c"
             }
+        },
+        {
+            "category": "Connector/Edge/thunderbolt-to-gpu-connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Thunderbolt to GPU module interface",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "card present",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fan fail",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fan pwm",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fan tach",
+                    "side": "left",
+                    "type": "tach"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "over temp",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie power present",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb power present",
+                    "side": "left",
+                    "type": "gpio"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Edge/thunderbolt-to-gpu-connector-edge",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "Thunderbolt to GPU module interface",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "card present",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fan fail",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fan pwm",
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "fan tach",
+                    "side": "left",
+                    "type": "tach"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "over temp",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie power present",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "power",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb power present",
+                    "side": "left",
+                    "type": "gpio"
+                }
+            ],
+            "isCategory": true
         },
         {
             "category": "SoC/Telink/tlsr9518",
