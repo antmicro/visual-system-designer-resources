@@ -325,6 +325,44 @@
             ]
         },
         {
+            "category": "Interfacing/Ethernet/10GbE Phy XAUI",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "10gbase-kr",
+                    "side": "left",
+                    "type": [
+                        "10gbase-kr",
+                        "sfi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mdio",
+                    "side": "left",
+                    "type": "mdio"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "xaui",
+                    "side": "right",
+                    "type": "xaui"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Devices/10GbE SFP+",
             "interfaces": [
                 {
@@ -1420,6 +1458,22 @@
         },
         {
             "abstract": false,
+            "description": "I/O Connectors OCulink, Receptacle, 0.5mm pitch, 4X, R/A SMT with shell leg SMT type, 30U\" gold plating, LCP, black, T&R packing\n\n### Additional information\n\n*Datasheet*: [g14a421x1bxxxhr.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/g14a421x1bxxxhr.pdf)",
+            "extends": [
+                "OCuLink x4"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/amphenol-g14a421211112hr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol G14A421211112HR",
+            "urls": {
+                "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/g14a421x1bxxxhr.pdf",
+                "designer": "hardware/components/amphenol-g14a421211112hr",
+                "hwp": "components/amphenol-g14a421211112hr"
+            }
+        },
+        {
+            "abstract": false,
             "description": "USB-A (USB TYPE-A) USB 3.2 Gen 1 (USB 3.1 Gen 1, Superspeed (USB 3.0)) Receptacle Connector 5 Position Through Hole, Right Angle\n\n### Additional information\n\n*Datasheet*: [gsb311231hr.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/gsb311231hr.pdf)",
             "extends": [
                 "2x USB A 3.2"
@@ -1464,6 +1518,22 @@
                 "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/gs-12-1248.pdf",
                 "designer": "hardware/components/amphenol-mdt580m01001",
                 "hwp": "components/amphenol-mdt580m01001"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Modular Connectors / Ethernet Connectors MODULAR JACK\n\n### Additional information\n\n*Datasheet*: [p-rje36-188-2xx5.pdf](https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/p-rje36-188-2xx5.pdf)",
+            "extends": [
+                "RJ45 Ethernet + 2xUSB-A"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/rj45-rje361882415/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Amphenol RJE361882415",
+            "urls": {
+                "datasheet": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/p-rje36-188-2xx5.pdf",
+                "designer": "hardware/components/amphenol-rje361882415",
+                "hwp": "components/amphenol-rje361882415"
             }
         },
         {
@@ -2895,6 +2965,22 @@
         },
         {
             "abstract": false,
+            "description": "40 Position SFP+ Receptacle with Cage, Ganged (2x1) Connector Press-Fit Through Hole, Right Angle\n\n### Additional information\n\n*Datasheet*: [ds-STW-SFP-cages.pdf](https://www.belfuse.com/resources/datasheets/stewartconnector/ds-STW-SFP-cages.pdf)",
+            "extends": [
+                "SFP+"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-bel-fuse-sfp-2x20-ss-79100-010/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Bel Fuse SS-79100-010",
+            "urls": {
+                "datasheet": "https://www.belfuse.com/resources/datasheets/stewartconnector/ds-STW-SFP-cages.pdf",
+                "designer": "hardware/components/bel-fuse-ss-79100-010",
+                "hwp": "components/bel-fuse-ss-79100-010"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Jack Modular Connector 8p8c (RJ45, Ethernet) 90° Angle (Right) Shielded, EMI Finger Cat5e\n\n### Additional information\n\n*Datasheet*: [dr-STW-SS-74800-144.pdf](https://www.belfuse.com/resources/drawings/stewartconnector/dr-STW-SS-74800-144.pdf)",
             "extends": [
                 "RJ45 Ethernet"
@@ -3053,6 +3139,46 @@
             "isCategory": true
         },
         {
+            "category": "Connector/Edge/CE7 Baseboard docking connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ce7-baseboard-docking",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie",
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "serial",
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Devices/CECS Leon3 Coprocessor",
             "description": "Coprocessor board responsible for managing solar panels",
             "icon": {
@@ -3119,6 +3245,379 @@
                     "name": "gpio",
                     "side": "left",
                     "type": "gpio"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Devices/COM Express 7 Baseboard",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "10gbase-kr[2]",
+                    "override": false,
+                    "side": "left",
+                    "type": "10gbase-kr"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "10gbase-kr[3]",
+                    "override": false,
+                    "side": "right",
+                    "type": "10gbase-kr"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "COM express type 7 SoM connector",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ce7-baseboard-docking",
+                    "override": false,
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "espi/lpc",
+                    "override": false,
+                    "side": "right",
+                    "type": [
+                        "espi",
+                        "lpc"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio header",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio header"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2s",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2s"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key e",
+                    "override": false,
+                    "side": "right",
+                    "type": "m.2 key e"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "m.2 key m",
+                    "override": false,
+                    "side": "left",
+                    "type": "m.2 key m"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "micro sd-card",
+                    "override": false,
+                    "side": "right",
+                    "type": "micro sd-card"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ncsi",
+                    "override": false,
+                    "side": "left",
+                    "type": "ncsi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "oculink",
+                    "override": false,
+                    "side": "right",
+                    "type": "oculink"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie b[4]",
+                    "override": false,
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie1 x1",
+                    "override": false,
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcm",
+                    "override": false,
+                    "side": "right",
+                    "type": "pcm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rj45",
+                    "override": false,
+                    "side": "left",
+                    "type": "rj45"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sata[0]",
+                    "override": false,
+                    "side": "left",
+                    "type": "sata"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sata[1]",
+                    "override": false,
+                    "side": "right",
+                    "type": "sata"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sfp+",
+                    "override": false,
+                    "side": "right",
+                    "type": "sfp+"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb a[0]",
+                    "override": false,
+                    "side": "right",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb a[1]",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb a"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb-c",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb-c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "xaui[0]",
+                    "override": false,
+                    "side": "right",
+                    "type": "xaui"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "xaui[1]",
+                    "override": false,
+                    "side": "left",
+                    "type": "xaui"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Board to Board/COM Express Type 7 connector",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "10g led i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "10g phy i2c/mdio",
+                    "side": "left",
+                    "type": [
+                        "i2c",
+                        "mdio"
+                    ]
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "10g sfp i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "10gbase-kr",
+                    "side": "left",
+                    "type": "10gbase-kr"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "COM express type 7 SoM connector",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "espi/lpc",
+                    "side": "left",
+                    "type": [
+                        "espi",
+                        "lpc"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gbe0",
+                    "side": "right",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ncsi",
+                    "side": "left",
+                    "type": "ncsi"
+                },
+                {
+                    "array": [
+                        1,
+                        5
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie b",
+                    "side": "right",
+                    "type": "pcie"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sata",
+                    "side": "right",
+                    "type": "sata"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sdio",
+                    "side": "right",
+                    "type": "sdio"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "serial",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "smbus",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "array": [
+                        0,
+                        4
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
                 }
             ],
             "isCategory": true
@@ -6567,6 +7066,22 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "16Gbps 4-Channel ReDriver with Linear Equalization\n\n### Additional information\n\n*Datasheet*: [PI3EQX16904GL](https://www.diodes.com/part/view/PI3EQX16904GL)",
+            "extends": [
+                "PCIe Redriver"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/wqfn-42-1ep-3-5x9mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Diodes Incorporated PI3EQX16904GLZHEX",
+            "urls": {
+                "datasheet": "https://www.diodes.com/part/view/PI3EQX16904GL",
+                "designer": "hardware/components/diodes-incorporated-pi3eqx16904glzhex",
+                "hwp": "components/diodes-incorporated-pi3eqx16904glzhex"
+            }
         },
         {
             "abstract": false,
@@ -12730,6 +13245,22 @@
             }
         },
         {
+            "abstract": false,
+            "description": "USB-C (USB TYPE-C) USB 3.2 Gen 2 (USB 3.1 Gen 2, Superspeed + (USB 3.1)) USB PD Receptacle Connector 24 Position Surface Mount\n\n### Additional information\n\n*Datasheet*: [KUSBX-SL2-CS1N24-B-TR.pdf](https://www.kycon.com/Pub_Eng_Draw/KUSBX-SL2-CS1N24-B-TR.pdf)",
+            "extends": [
+                "USB-C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/usb-c-receptacle-kycon-kusbx-sl2-cs1n24-b-tr/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Kycon KUSBX-SL2-CS1N24-B-TR",
+            "urls": {
+                "datasheet": "https://www.kycon.com/Pub_Eng_Draw/KUSBX-SL2-CS1N24-B-TR.pdf",
+                "designer": "hardware/components/kycon-kusbx-sl2-cs1n24-b-tr",
+                "hwp": "components/kycon-kusbx-sl2-cs1n24-b-tr"
+            }
+        },
+        {
             "category": "IO/LED",
             "interfaces": [
                 {
@@ -15068,6 +15599,22 @@
         },
         {
             "abstract": false,
+            "description": "Connector Header, THT,  4x1\n\n### Additional information\n\n*Datasheet*: [470531000_sd.pdf](https://tools.molex.com/pdm_docs/sd/470531000_sd.pdf)",
+            "extends": [
+                "IO Header"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/conn-molex-kk-1x4-0470531000/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Molex 0470531000",
+            "urls": {
+                "datasheet": "https://tools.molex.com/pdm_docs/sd/470531000_sd.pdf",
+                "designer": "hardware/components/molex-0470531000",
+                "hwp": "components/molex-0470531000"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Pin Header, Vertical, Signal, 1.25 mm, 1 Rows, 4 Contacts, Surface Mount Straight\n\n### Additional information\n\n*Datasheet*: [0533980471](https://www.molex.com/molex/products/part-detail/pcb_headers/0533980471)",
             "extends": [
                 "Wire to Board"
@@ -15595,6 +16142,22 @@
         },
         {
             "abstract": false,
+            "description": "I/O Expanders 16bit I2C IO Port\n\n### Additional information\n\n*Datasheet*: [PCA9539A.pdf](https://www.nxp.com/docs/en/data-sheet/PCA9539A.pdf)",
+            "extends": [
+                "IO Expander I2C"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qfn-24-1ep-4x4mm-p0-5-ep2-1x2-1mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "NXP PCA9539AHF,128",
+            "urls": {
+                "datasheet": "https://www.nxp.com/docs/en/data-sheet/PCA9539A.pdf",
+                "designer": "hardware/components/nxp-pca9539ahf-128",
+                "hwp": "components/nxp-pca9539ahf-128"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Specialized Interface, I2C, I2C-Bus System, 2.3 V, 5.5 V, HVQFN, 24 Pins\n\n### Additional information\n\n*Datasheet*: [PCA9547.pdf](https://www.nxp.com/docs/en/data-sheet/PCA9547.pdf)",
             "extends": [
                 "I2C 8-ch mulitplexer"
@@ -15965,6 +16528,33 @@
             "isCategory": true
         },
         {
+            "category": "Connector/OCuLink/OCuLink x4",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "oculink",
+                    "side": "left",
+                    "type": "oculink"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie x4",
+                    "side": "left",
+                    "type": "pcie"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "abstract": false,
             "description": "Special purpose interface switch\n\n### Additional information\n\n*Datasheet*: [fsusb30-d.pdf](https://www.onsemi.com/download/data-sheet/pdf/fsusb30-d.pdf)",
             "extends": [
@@ -15998,6 +16588,22 @@
         },
         {
             "abstract": false,
+            "description": "Remote Thermal Monitor, Fan Controller and Voltage Monitor\n\n### Additional information\n\n*Datasheet*: [adt7476a-d.pdf](https://www.onsemi.com/pdf/datasheet/adt7476a-d.pdf)",
+            "extends": [
+                "adt7476"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/qsop-24-8-65x6mm-p0-635mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Onsemi ADT7476AARQZ",
+            "urls": {
+                "datasheet": "https://www.onsemi.com/pdf/datasheet/adt7476a-d.pdf",
+                "designer": "hardware/components/onsemi-adt7476aarqz",
+                "hwp": "components/onsemi-adt7476aarqz"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Dual Low-Voltage CMOS 2-to-4 Decoder/Demultiplexer\n\n### Additional information\n\n*Datasheet*: [mc74lcx139-d.pdf](https://www.onsemi.com/download/data-sheet/pdf/mc74lcx139-d.pdf)",
             "extends": [
                 "Decoder"
@@ -16020,6 +16626,26 @@
                     "maxConnectionsCount": -1,
                     "name": "pcie",
                     "side": "left",
+                    "type": "pcie"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Interfacing/PCIe/PCIe Redriver",
+            "interfaces": [
+                {
+                    "direction": "input",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie in",
+                    "side": "left",
+                    "type": "pcie"
+                },
+                {
+                    "direction": "output",
+                    "maxConnectionsCount": -1,
+                    "name": "pcie out",
+                    "side": "right",
                     "type": "pcie"
                 }
             ],
@@ -16793,6 +17419,48 @@
                     "name": "rj45",
                     "side": "left",
                     "type": "rj45"
+                }
+            ],
+            "isCategory": true
+        },
+        {
+            "category": "Connector/Ethernet/RJ45 Ethernet + 2xUSB-A",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ethernet",
+                    "side": "left",
+                    "type": "ethernet"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "rj45",
+                    "side": "left",
+                    "type": "rj45"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "right",
+                    "type": "usb"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb a",
+                    "side": "right",
+                    "type": "usb a"
                 }
             ],
             "isCategory": true
@@ -17798,6 +18466,33 @@
             }
         },
         {
+            "category": "Connector/SFP/SFP+",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sfi",
+                    "side": "left",
+                    "type": "sfi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "sfp+",
+                    "side": "left",
+                    "type": "sfp+"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "category": "Connector/SIM Card socket",
             "interfaces": [
                 {
@@ -17841,6 +18536,22 @@
                 }
             ],
             "isCategory": true
+        },
+        {
+            "abstract": false,
+            "description": "EEPROM, 8K x 8bit, Serial I2C (2-Wire), 1 MHz, UFDFPN, 8 Pins\n\n### Additional information\n\n*Datasheet*: [cd00259166-1797197.pdf](https://eu.mouser.com/datasheet/2/389/cd00259166-1797197.pdf)",
+            "extends": [
+                "I2C EEPROM"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/dfn-8-1ep-3x2mm-p0-5mm-ep1-36x1-46mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "STMicroelectronics M24C64-FMC6TG",
+            "urls": {
+                "datasheet": "https://eu.mouser.com/datasheet/2/389/cd00259166-1797197.pdf",
+                "designer": "hardware/components/stmicroelectronics-m24c64-fmc6tg",
+                "hwp": "components/stmicroelectronics-m24c64-fmc6tg"
+            }
         },
         {
             "abstract": false,
@@ -17888,6 +18599,22 @@
                 "datasheet": "https://www.st.com/resource/en/datasheet/stm32g491RE.pdf",
                 "designer": "hardware/components/stmicroelectronics-stm32g491rei6",
                 "hwp": "components/stmicroelectronics-stm32g491rei6"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "ARM MCU, STM32 Family STM32L1 Series Microcontrollers, ARM Cortex-M3, 32 bit, 16 MHz, 128 KB\n\n### Additional information\n\n*Datasheet*: [stm32l100rb.html](https://www.st.com/en/microcontrollers-microprocessors/stm32l100rb.html)",
+            "extends": [
+                "stm32l100xb"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/lqfp-64-10x10mm-p0-5mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "STMicroelectronics STM32L100RBT6",
+            "urls": {
+                "datasheet": "https://www.st.com/en/microcontrollers-microprocessors/stm32l100rb.html",
+                "designer": "hardware/components/stmicroelectronics-stm32l100rbt6",
+                "hwp": "components/stmicroelectronics-stm32l100rbt6"
             }
         },
         {
@@ -19860,6 +20587,22 @@
         },
         {
             "abstract": false,
+            "description": " Zerø-Drift, Bidirectional Current/Power Monitor With I2C Interface\n\n### Additional information\n\n*Datasheet*: [ina219.pdf?ts=1713856455637&ref_url=https%253A%252F%252Fwww.mouser.es%252F](https://www.ti.com/lit/ds/symlink/ina219.pdf?ts=1713856455637&ref_url=https%253A%252F%252Fwww.mouser.es%252F)",
+            "extends": [
+                "ina219"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/sot-23-8/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments INA219AIDCNR",
+            "urls": {
+                "datasheet": "https://www.ti.com/lit/ds/symlink/ina219.pdf?ts=1713856455637&ref_url=https%253A%252F%252Fwww.mouser.es%252F",
+                "designer": "hardware/components/texas-instruments-ina219aidcnr",
+                "hwp": "components/texas-instruments-ina219aidcnr"
+            }
+        },
+        {
+            "abstract": false,
             "description": "Automotive Single-Channel MIPI® DSI to Dual-Link LVDS Bridge\n\n### Additional information\n\n*Datasheet*: [sn65dsi84-q1.pdf?ts=1705413548625&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FSN65DSI84-Q1](https://www.ti.com/lit/ds/symlink/sn65dsi84-q1.pdf?ts=1705413548625&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FSN65DSI84-Q1)",
             "extends": [
                 "MIPI DSI to 2x LVDS converter"
@@ -19888,6 +20631,22 @@
                 "datasheet": "http://www.ti.com/lit/ds/symlink/tca9534.pdf",
                 "designer": "hardware/components/texas-instruments-tca9534pwr",
                 "hwp": "components/texas-instruments-tca9534pwr"
+            }
+        },
+        {
+            "abstract": false,
+            "description": "Dual channel XAUI-to-10GBASE-KR backplane transceiver with crosspoint switch\n\n### Additional information\n\n*Datasheet*: [tlk10232.pdf?ts=1712150848075&ref_url=https%253A%252F%252Fwww.mouser.pl%252F](https://www.ti.com/lit/ds/symlink/tlk10232.pdf?ts=1712150848075&ref_url=https%253A%252F%252Fwww.mouser.pl%252F)",
+            "extends": [
+                "10GbE Phy XAUI"
+            ],
+            "icon": {
+                "hw-icon": "/blender-models/bga-144-12x12-13-05x13-05mm-p1-0mm/previews/isoF_thumbnail_64x64.webp"
+            },
+            "name": "Texas Instruments TLK10232CTR",
+            "urls": {
+                "datasheet": "https://www.ti.com/lit/ds/symlink/tlk10232.pdf?ts=1712150848075&ref_url=https%253A%252F%252Fwww.mouser.pl%252F",
+                "designer": "hardware/components/texas-instruments-tlk10232ctr",
+                "hwp": "components/texas-instruments-tlk10232ctr"
             }
         },
         {
@@ -21998,6 +22757,22 @@
             }
         },
         {
+            "category": "Sensor/Environmental/Temperature/adt7476",
+            "extends": [
+                "i2c-device"
+            ],
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "left",
+                    "type": "gpio"
+                }
+            ],
+            "isCategory": true
+        },
+        {
             "additionalData": {
                 "compats": [
                     "adi,adxl345"
@@ -23576,7 +24351,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/amd_sb-tsi",
-                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+                "zephyr": "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
             }
         },
         {
@@ -32397,7 +33172,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
+                "zephyr": "drivers/sensor/f75303/f75303.c"
             }
         },
         {
@@ -84828,9 +85603,77 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "io",
-                    "override": false,
-                    "side": "left"
+                    "name": "adc",
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "dac",
+                    "side": "left",
+                    "type": "dac"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio",
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "jtag",
+                    "side": "left",
+                    "type": "jtag"
+                },
+                {
+                    "array": [
+                        0,
+                        2
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "swd",
+                    "side": "right",
+                    "type": "swd"
+                },
+                {
+                    "array": [
+                        0,
+                        3
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usart",
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usb",
+                    "side": "left",
+                    "type": "usb"
                 }
             ],
             "isCategory": true
