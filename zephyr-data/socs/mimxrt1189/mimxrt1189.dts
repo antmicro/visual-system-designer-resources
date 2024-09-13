@@ -15,29 +15,27 @@
 		ranges;
 		nvic: interrupt-controller@e000e100 {
 			#address-cells = < 0x1 >;
-			compatible = "arm,v8m-nvic";
+			compatible = "arm,v7m-nvic";
 			reg = < 0xe000e100 0xc00 >;
 			interrupt-controller;
 			#interrupt-cells = < 0x2 >;
-			arm,num-irq-priority-bits = < 0x3 >;
+			arm,num-irq-priority-bits = < 0x4 >;
 			phandle = < 0x1 >;
 		};
 		systick: timer@e000e010 {
-			compatible = "arm,armv8m-systick";
+			compatible = "arm,armv7m-systick";
 			reg = < 0xe000e010 0x10 >;
 		};
-		itcm: itcm@1FFE0000 {
-			compatible = "zephyr,memory-region", "nxp,imx-itcm";
-			reg = < 0x1ffe0000 0x20000 >;
-			zephyr,memory-region = "ITCM";
+		itcm: itcm@0 {
+			compatible = "nxp,imx-itcm";
+			reg = < 0x0 0x40000 >;
 		};
-		dtcm: dtcm@30000000 {
-			compatible = "zephyr,memory-region", "nxp,imx-dtcm";
-			reg = < 0x30000000 0x20000 >;
-			zephyr,memory-region = "DTCM";
+		dtcm: dtcm@20000000 {
+			compatible = "nxp,imx-dtcm";
+			reg = < 0x20000000 0x40000 >;
 		};
-		memory: memory@30000000 {
-			ranges = < 0x0 0x30000000 0x10000000 >;
+		memory: memory@20000000 {
+			ranges = < 0x0 0x20000000 0x10000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			ocram1: ocram@484000 {
@@ -51,8 +49,8 @@
 				reg = < 0x500000 0x40000 >;
 			};
 		};
-		peripheral: peripheral@50000000 {
-			ranges = < 0x0 0x50000000 0x10000000 >;
+		peripheral: peripheral@40000000 {
+			ranges = < 0x0 0x40000000 0x10000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
 			iomuxc: iomuxc@2A10000 {
@@ -275,9 +273,37 @@
 				gptfreq = < 0xe4e1c00 >;
 				clocks = < &ccm 0x1001 0x41 0x0 >;
 			};
+			acmp1: cmp@2dc0000 {
+				compatible = "nxp,kinetis-acmp";
+				reg = < 0x2dc0000 0x4000 >;
+				interrupts = < 0xc8 0x0 >;
+				status = "disabled";
+				#io-channel-cells = < 0x2 >;
+			};
+			acmp2: cmp@2dd0000 {
+				compatible = "nxp,kinetis-acmp";
+				reg = < 0x2dd0000 0x4000 >;
+				interrupts = < 0xc9 0x0 >;
+				status = "disabled";
+				#io-channel-cells = < 0x2 >;
+			};
+			acmp3: cmp@2de0000 {
+				compatible = "nxp,kinetis-acmp";
+				reg = < 0x2de0000 0x4000 >;
+				interrupts = < 0xca 0x0 >;
+				status = "disabled";
+				#io-channel-cells = < 0x2 >;
+			};
+			acmp4: cmp@2df0000 {
+				compatible = "nxp,kinetis-acmp";
+				reg = < 0x2df0000 0x4000 >;
+				interrupts = < 0xcb 0x0 >;
+				status = "disabled";
+				#io-channel-cells = < 0x2 >;
+			};
 		};
-		flexspi1: spi@525e0000 {
-			reg = < 0x525e0000 0x4000 >, < 0x38000000 0x8000000 >;
+		flexspi1: spi@425e0000 {
+			reg = < 0x425e0000 0x4000 >, < 0x28000000 0x8000000 >;
 			compatible = "nxp,imx-flexspi";
 			interrupts = < 0x37 0x0 >;
 			#address-cells = < 0x1 >;
@@ -289,16 +315,12 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu@0 {
+		cpu@1 {
 			device_type = "cpu";
-			compatible = "arm,cortex-m33f";
-			reg = < 0x0 >;
+			compatible = "arm,cortex-m7";
+			reg = < 0x1 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			mpu: mpu@e000ed90 {
-				compatible = "arm,armv8m-mpu";
-				reg = < 0xe000ed90 0x40 >;
-			};
 		};
 	};
 };

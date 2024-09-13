@@ -241,6 +241,62 @@
         },
         "rdp-compat": "panasonic,amg88xx"
     },
+    "apds9253": {
+        "category": "Environmental/Light",
+        "compatible": [
+            "avago,apds9253"
+        ],
+        "description": "APDS9253 ambient light, RGB",
+        "driver": [
+            "drivers/sensor/apds9253/apds9253.c"
+        ],
+        "interfaces": {
+            "i2c": "i2c",
+            "int": "gpio"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            },
+            "gain": {
+                "default": 1,
+                "enum": [
+                    4,
+                    3,
+                    2,
+                    1,
+                    0
+                ],
+                "type": "int"
+            },
+            "rate": {
+                "default": 2,
+                "enum": [
+                    6,
+                    5,
+                    4,
+                    3,
+                    2,
+                    1,
+                    0
+                ],
+                "type": "int"
+            },
+            "resolution": {
+                "default": 32,
+                "enum": [
+                    0,
+                    16,
+                    32,
+                    48,
+                    64,
+                    80
+                ],
+                "type": "int"
+            }
+        },
+        "rdp-compat": "avago,apds9253"
+    },
     "apds9960": {
         "category": "Position/Distance",
         "compatible": [
@@ -868,8 +924,8 @@
         ],
         "description": "F75303 temperature sensor IC. This device has three temperature\nchannels - one local (on-chip), and two remote.\n",
         "driver": [
-            "drivers/sensor/f75303/f75303.c",
-            "drivers/sensor/f75303/f75303_emul.c"
+            "drivers/sensor/f75303/f75303_emul.c",
+            "drivers/sensor/f75303/f75303.c"
         ],
         "interfaces": {
             "i2c": "i2c"

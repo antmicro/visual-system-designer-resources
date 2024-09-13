@@ -1056,6 +1056,14 @@
 				reg = < 0x94 >;
 				osr-press = < 0x1 >;
 			};
+			test_i2c_apds9253: apds9253@91 {
+				compatible = "avago,apds9253";
+				reg = < 0x91 >;
+				int-gpios = < &test_gpio 0x0 0x0 >;
+				gain = < 0x0 >;
+				rate = < 0x1 >;
+				resolution = < 0x40 >;
+			};
 		};
 		test_pwm: pwm@12341234 {
 			compatible = "vnd,pwm";

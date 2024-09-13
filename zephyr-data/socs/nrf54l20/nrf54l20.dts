@@ -13,21 +13,17 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpuflpr: cpu: cpu@1 {
-			compatible = "nordic,vpr";
-			reg = < 0x1 >;
+		cpuapp: cpu: cpu@0 {
+			compatible = "arm,cortex-m33f";
+			reg = < 0x0 >;
 			device_type = "cpu";
 			clock-frequency = < 0x7a12000 >;
-			riscv,isa = "rv32emc";
-			nordic,bus-width = < 0x20 >;
-			cpuflpr_vevif_rx: mailbox {
-				compatible = "nordic,nrf-vevif-task-rx";
-				status = "disabled";
-				interrupt-parent = < &cpuflpr_clic >;
-				interrupts = < 0xb 0x1 >, < 0xc 0x1 >, < 0xd 0x1 >, < 0xe 0x1 >, < 0xf 0x1 >, < 0x10 0x1 >, < 0x11 0x1 >;
-				#mbox-cells = < 0x1 >;
-				nordic,tasks = < 0x7 >;
-				nordic,tasks-mask = < 0x3f800 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			itm: itm@e0000000 {
+				compatible = "arm,armv8m-itm";
+				reg = < 0xe0000000 0x1000 >;
+				swo-ref-frequency = < 0x7a12000 >;
 			};
 		};
 	};
@@ -47,74 +43,50 @@
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x1 >;
 		compatible = "simple-bus";
-		interrupt-parent = < &cpuflpr_clic >;
+		interrupt-parent = < &cpuapp_nvic >;
 		ranges;
-		uicr: uicr@ffd000 {
-			compatible = "nordic,nrf-uicr";
-			reg = < 0xffd000 0x1000 >;
-		};
 		ficr: ficr@ffc000 {
 			compatible = "nordic,nrf-ficr";
 			reg = < 0xffc000 0x1000 >;
 			#nordic,ficr-cells = < 0x1 >;
 		};
-		cpuflpr_sram: memory@2002f000 {
+		uicr: uicr@ffd000 {
+			compatible = "nordic,nrf-uicr";
+			reg = < 0xffd000 0x1000 >;
+		};
+		cpuapp_sram: memory@20000000 {
 			compatible = "mmio-sram";
-			reg = < 0x2002f000 0x11000 >;
+			reg = < 0x20000000 0x80000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			ranges = < 0x0 0x2002f000 0x11000 >;
+			ranges = < 0x0 0x20000000 0x2f000 >;
 		};
 		global_peripherals: peripheral@50000000 {
+			ranges = < 0x0 0x50000000 0x10000000 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			ranges = < 0x0 0x50000000 0x10000000 >;
 			dppic00: dppic@42000 {
 				compatible = "nordic,nrf-dppic";
 				reg = < 0x42000 0x808 >;
 				status = "disabled";
 			};
-			spi00: spi@4a000 {
+			spi00: spi@4d000 {
 				compatible = "nordic,nrf-spim";
 				#address-cells = < 0x1 >;
 				#size-cells = < 0x0 >;
-				reg = < 0x4a000 0x1000 >;
-				interrupts = < 0x4a 0x1 >;
+				reg = < 0x4d000 0x1000 >;
+				interrupts = < 0x4d 0x1 >;
 				max-frequency = < 0x1e84800 >;
 				easydma-maxcnt-bits = < 0x10 >;
 				rx-delay-supported;
 				rx-delay = < 0x1 >;
 				status = "disabled";
 			};
-			uart00: uart@4a000 {
+			uart00: uart@4d000 {
 				compatible = "nordic,nrf-uarte";
-				reg = < 0x4a000 0x1000 >;
-				interrupts = < 0x4a 0x1 >;
+				reg = < 0x4d000 0x1000 >;
+				interrupts = < 0x4d 0x1 >;
 				status = "disabled";
-			};
-			cpuflpr_vpr: vpr@4c000 {
-				compatible = "nordic,nrf-vpr-coprocessor";
-				reg = < 0x4c000 0x1000 >;
-				ranges = < 0x0 0x4c000 0x1000 >;
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x1 >;
-				status = "disabled";
-				cpuflpr_clic: clic: interrupt-controller@f0000000 {
-					compatible = "nordic,nrf-clic";
-					reg = < 0xf0000000 0x1780 >;
-					interrupt-controller;
-					#interrupt-cells = < 0x2 >;
-					#address-cells = < 0x1 >;
-					status = "okay";
-					phandle = < 0x1 >;
-				};
-				cpuflpr_vevif_tx: mailbox {
-					compatible = "nordic,nrf-vevif-event-tx";
-					#mbox-cells = < 0x1 >;
-					nordic,events = < 0x1 >;
-					nordic,events-mask = < 0x8000 >;
-					status = "disabled";
-				};
 			};
 			gpio2: gpio@50400 {
 				compatible = "nordic,nrf-gpio";
@@ -314,6 +286,18 @@
 				interrupts = < 0xce 0x1 >;
 				prescaler = < 0x0 >;
 			};
+			pdm20: pdm@d0000 {
+				compatible = "nordic,nrf-pdm";
+				status = "disabled";
+				reg = < 0xd0000 0x1000 >;
+				interrupts = < 0xd0 0x1 >;
+			};
+			pdm21: pdm@d1000 {
+				compatible = "nordic,nrf-pdm";
+				status = "disabled";
+				reg = < 0xd1000 0x1000 >;
+				interrupts = < 0xd1 0x1 >;
+			};
 			pwm20: pwm@d2000 {
 				compatible = "nordic,nrf-pwm";
 				status = "disabled";
@@ -369,16 +353,8 @@
 				reg = < 0xda000 0x1000 >;
 				status = "disabled";
 				instance = < 0x14 >;
-				interrupts = < 0xda 0x1 >;
+				interrupts = < 0xdb 0x1 >;
 				phandle = < 0x2 >;
-			};
-			i2s20: i2s@dd000 {
-				compatible = "nordic,nrf-i2s";
-				#address-cells = < 0x1 >;
-				#size-cells = < 0x0 >;
-				reg = < 0xdd000 0x1000 >;
-				interrupts = < 0xdd 0x1 >;
-				status = "disabled";
 			};
 			qdec20: qdec@e0000 {
 				compatible = "nordic,nrf-qdec";
@@ -397,7 +373,7 @@
 				reg = < 0xe2000 0x1000 >;
 				cc-num = < 0xc >;
 				status = "disabled";
-				interrupts = < 0xe2 0x1 >;
+				interrupts = < 0xe4 0x1 >, < 0xe5 0x1 >;
 			};
 			dppic30: dppic@102000 {
 				compatible = "nordic,nrf-dppic";
@@ -459,7 +435,7 @@
 				reg = < 0x10c000 0x1000 >;
 				status = "disabled";
 				instance = < 0x1e >;
-				interrupts = < 0x10c 0x1 >;
+				interrupts = < 0x10d 0x1 >;
 				phandle = < 0x3 >;
 			};
 			clock: clock@10e000 {
@@ -483,18 +459,42 @@
 				};
 			};
 		};
-		rram_controller: rram-controller@5004b000 {
+		rram_controller: rram-controller@5004e000 {
 			compatible = "nordic,rram-controller";
-			reg = < 0x5004b000 0x1000 >;
+			reg = < 0x5004e000 0x1000 >;
+			interrupts = < 0x4e 0x1 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			interrupts = < 0x4b 0x1 >;
-			cpuflpr_rram: rram@165000 {
+			cpuapp_rram: rram@0 {
 				compatible = "soc-nv-flash";
-				reg = < 0x165000 0x18000 >;
+				reg = < 0x0 0x1fb000 >;
 				erase-block-size = < 0x1000 >;
 				write-block-size = < 0x10 >;
 			};
 		};
+		cpuapp_ppb: cpuapp-ppb-bus {
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			compatible = "simple-bus";
+			ranges;
+			cpuapp_nvic: nvic: interrupt-controller@e000e100 {
+				#address-cells = < 0x1 >;
+				compatible = "arm,v8m-nvic";
+				reg = < 0xe000e100 0xc00 >;
+				arm,num-irq-priority-bits = < 0x3 >;
+				interrupt-controller;
+				#interrupt-cells = < 0x2 >;
+				phandle = < 0x1 >;
+			};
+			cpuapp_systick: systick: timer@e000e010 {
+				compatible = "arm,armv8m-systick";
+				reg = < 0xe000e010 0x10 >;
+				status = "disabled";
+			};
+		};
+	};
+	psa_rng: psa-rng {
+		compatible = "zephyr,psa-crypto-rng";
+		status = "disabled";
 	};
 };

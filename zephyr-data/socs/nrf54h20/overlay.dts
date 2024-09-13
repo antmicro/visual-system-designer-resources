@@ -3,7 +3,6 @@
 	chosen {
 		zephyr,console = &uart136;
 		zephyr,flash = &mram1x;
-		zephyr,sram = &cpurad_ram0;
 	};
 };
 &adc{
@@ -30,12 +29,30 @@
 &gpio9{
 	status = "okay";
 };
+&hfxo{
+	status = "okay";
+	accuracy-ppm = < 0x1e >;
+	startup-time-us = < 0x352 >;
+	mode = "crystal";
+};
+&lfxo{
+	status = "okay";
+	accuracy-ppm = < 0x14 >;
+	startup-time-us = < 0x927c0 >;
+	mode = "crystal";
+};
 &pwm130{
 	status = "okay";
 	pinctrl-0 = < &pwm130_default >;
 	pinctrl-1 = < &pwm130_sleep >;
 	pinctrl-names = "default", "sleep";
 	memory-regions = < &cpuapp_dma_region >;
+};
+&uart120{
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart120_default >;
+	pinctrl-1 = < &uart120_sleep >;
+	pinctrl-names = "default", "sleep";
 };
 &uart135{
 	current-speed = < 0x1c200 >;
@@ -57,55 +74,70 @@
 };
 &pinctrl{
 	compatible = "nordic,nrf-pinctrl";
-	uart135_default: uart135_default {
+	uart120_default: uart120_default {
 		group1 {
-			psels = < 0x2b >, < 0x40029 >;
+			psels = < 0xe7 >;
 		};
 		group2 {
 			bias-pull-up;
-			psels = < 0x2002a >, < 0x60027 >;
+			psels = < 0x400e4 >;
+		};
+	};
+	uart120_sleep: uart120_sleep {
+		group1 {
+			low-power-enable;
+			psels = < 0xe7 >, < 0x400e4 >;
+		};
+	};
+	uart135_default: uart135_default {
+		group1 {
+			psels = < 0x2b >, < 0x80029 >;
+		};
+		group3 {
+			bias-pull-up;
+			psels = < 0x4002a >, < 0xc0027 >;
 		};
 	};
 	uart135_sleep: uart135_sleep {
 		group1 {
 			low-power-enable;
-			psels = < 0x2b >, < 0x2002a >, < 0x40029 >, < 0x60027 >;
+			psels = < 0x2b >, < 0x4002a >, < 0x80029 >, < 0xc0027 >;
 		};
 	};
 	uart136_default: uart136_default {
 		group1 {
-			psels = < 0x46 >, < 0x40047 >;
+			psels = < 0x46 >, < 0x80047 >;
 		};
-		group2 {
+		group3 {
 			bias-pull-up;
-			psels = < 0x20044 >, < 0x60045 >;
+			psels = < 0x40044 >, < 0xc0045 >;
 		};
 	};
 	uart136_sleep: uart136_sleep {
 		group1 {
 			low-power-enable;
-			psels = < 0x46 >, < 0x20044 >, < 0x40047 >, < 0x60045 >;
+			psels = < 0x46 >, < 0x40044 >, < 0x80047 >, < 0xc0045 >;
 		};
 	};
 	exmif_default: exmif_default {
 		group1 {
-			psels = < 0x4600c0 >, < 0x4800c7 >, < 0x4a00c5 >;
+			psels = < 0x8c00c0 >, < 0x9000c7 >, < 0x9400c5 >;
 			nordic,drive-mode = < 0x3 >;
 		};
 	};
 	can120_default: can120_default {
 		group1 {
-			psels = < 0x5e0124 >, < 0x5c0125 >;
+			psels = < 0xbc0124 >, < 0xb80125 >;
 		};
 	};
 	pwm130_default: pwm130_default {
 		group1 {
-			psels = < 0x2c0122 >;
+			psels = < 0x580122 >;
 		};
 	};
 	pwm130_sleep: pwm130_sleep {
 		group1 {
-			psels = < 0x2c0122 >;
+			psels = < 0x580122 >;
 			low-power-enable;
 		};
 	};

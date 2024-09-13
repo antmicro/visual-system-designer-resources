@@ -1,0 +1,14 @@
+/ {
+	compatible = "fsl,mimx95";
+	chosen {
+		zephyr,console = &lpuart3;
+		zephyr,flash = &itcm;
+		zephyr,sram = &dtcm;
+	};
+};
+&lpuart3{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &lpuart3_default >;
+	pinctrl-names = "default";
+};

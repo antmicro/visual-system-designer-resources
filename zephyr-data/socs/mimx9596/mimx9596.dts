@@ -1,0 +1,148 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x4 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		itcm: itcm@0 {
+			compatible = "nxp,imx-itcm";
+			reg = < 0x0 0x40000 >;
+		};
+		dtcm: dtcm@20000000 {
+			compatible = "nxp,imx-dtcm";
+			reg = < 0x20000000 0x40000 >;
+		};
+		lpuart3: serial@42570000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x42570000 0x10000 >;
+			interrupts = < 0x40 0x3 >;
+			clocks = < &scmi_clk 0x8e >;
+			status = "disabled";
+		};
+		lpuart4: serial@42580000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x42580000 0x10000 >;
+			interrupts = < 0x41 0x3 >;
+			clocks = < &scmi_clk 0x8f >;
+			status = "disabled";
+		};
+		lpuart5: serial@42590000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x42590000 0x10000 >;
+			interrupts = < 0x42 0x3 >;
+			clocks = < &scmi_clk 0x90 >;
+			status = "disabled";
+		};
+		lpuart6: serial@425a0000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x425a0000 0x10000 >;
+			interrupts = < 0x43 0x3 >;
+			clocks = < &scmi_clk 0x91 >;
+			status = "disabled";
+		};
+		lpuart7: serial@42690000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x42690000 0x10000 >;
+			interrupts = < 0x44 0x3 >;
+			clocks = < &scmi_clk 0x92 >;
+			status = "disabled";
+		};
+		lpuart8: serial@426a0000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x426a0000 0x10000 >;
+			interrupts = < 0x45 0x3 >;
+			clocks = < &scmi_clk 0x93 >;
+			status = "disabled";
+		};
+		lpuart1: serial@44380000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x44380000 0x10000 >;
+			interrupts = < 0x13 0x3 >;
+			clocks = < &scmi_clk 0x34 >;
+			status = "disabled";
+		};
+		lpuart2: serial@44390000 {
+			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
+			reg = < 0x44390000 0x10000 >;
+			interrupts = < 0x14 0x3 >;
+			clocks = < &scmi_clk 0x35 >;
+			status = "disabled";
+		};
+		mu5: mailbox@44610000 {
+			compatible = "nxp,mbox-imx-mu";
+			reg = < 0x44610000 0x1000 >;
+			interrupts = < 0xcd 0x0 >;
+			#mbox-cells = < 0x1 >;
+			phandle = < 0x4 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m7";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv7m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+			};
+		};
+	};
+	reserved-memory {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		scmi_shmem0: memory@44611000 {
+			compatible = "arm,scmi-shmem";
+			reg = < 0x44611000 0x80 >;
+			phandle = < 0x3 >;
+		};
+	};
+	firmware {
+		scmi {
+			compatible = "arm,scmi";
+			shmem = < &scmi_shmem0 >;
+			mboxes = < &mu5 0x0 >;
+			mbox-names = "tx";
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			scmi_clk: protocol@14 {
+				compatible = "arm,scmi-clock";
+				reg = < 0x14 >;
+				#clock-cells = < 0x1 >;
+				phandle = < 0x2 >;
+			};
+			scmi_iomuxc: protocol@19 {
+				compatible = "arm,scmi-pinctrl";
+				reg = < 0x19 >;
+				pinctrl: pinctrl {
+					compatible = "nxp,imx95-pinctrl", "nxp,imx93-pinctrl";
+				};
+			};
+		};
+	};
+};

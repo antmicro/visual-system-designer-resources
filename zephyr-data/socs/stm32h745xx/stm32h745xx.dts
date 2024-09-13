@@ -5,6 +5,7 @@
 	#size-cells = < 0x1 >;
 	chosen {
 		zephyr,entropy = &rng;
+		zephyr,flash-controller = &flash;
 	};
 	aliases {
 	};
@@ -40,6 +41,7 @@
 				erase-block-size = < 0x20000 >;
 				max-erase-time = < 0xfa0 >;
 				reg = < 0x8100000 0x100000 >;
+				bank2-flash-size = < 0x400 >;
 			};
 		};
 		rcc: rcc@58024400 {

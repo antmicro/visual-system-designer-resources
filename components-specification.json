@@ -58,7 +58,7 @@
             "zephyr": {
                 "icon": "icons_zephyr.svg",
                 "name": "Zephyr",
-                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/0237d375de5fe8912b9e4134f45f7774a155b977/"
+                "url": "https://github.com/zephyrproject-rtos/zephyr/blob/594bef84f84e84b0410ea76e663d26dbbc89c2ba/"
             }
         }
     },
@@ -735,7 +735,7 @@
             "abstract": false,
             "description": "Artix-7 Field Programmable Gate Array IC 210 324-LFBGA, CSPBGA\n\n### Additional information\n\n*Datasheet*: [ds181_Artix_7_Data_Sheet](https://docs.xilinx.com/v/u/en-US/ds181_Artix_7_Data_Sheet)",
             "extends": [
-                "XC7A100T-FGG484"
+                "Artix 7 xc7a100t"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-484-23x23mm-layout22x22-p1mm-fgg484/previews/isoF_thumbnail_64x64.webp"
@@ -751,7 +751,7 @@
             "abstract": false,
             "description": "Kintex®-7 Field Programmable Gate Array (FPGA) IC 300 4976640 65600 676-BBGA, FCBGA\n\n### Additional information\n\n*Datasheet*: [ds180_7Series_Overview](https://docs.xilinx.com/v/u/en-US/ds180_7Series_Overview)",
             "extends": [
-                "XC7K160T-FFG676"
+                "Kintex 7 xc7k160t"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-676-27x27mm-layout26x26-p1x1mm-ffg676-amd-xilinx-xc7k160t-ffg676/previews/isoF_thumbnail_64x64.webp"
@@ -767,7 +767,7 @@
             "abstract": false,
             "description": "FPGA, Kintex-7, MMCM, PLL, 350 I/O's, 710 MHz, 406720 Cells, 970 mV to 1.03 V, FCBGA-900\n\n### Additional information\n\n*Datasheet*: [ds180_7Series_Overview-1591537.pdf](https://eu.mouser.com/datasheet/2/903/ds180_7Series_Overview-1591537.pdf)",
             "extends": [
-                "Kintex-7 K410T"
+                "Kintex 7 xc7k410t"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-900-31x31mm-layout30x30-p1x1mm-ffg900-amd-xilinx-xc7k410t-2ffg900i/previews/isoF_thumbnail_64x64.webp"
@@ -783,7 +783,7 @@
             "abstract": false,
             "description": "Kintex®-7 Field Programmable Gate Array (FPGA) IC 285 484-BBGA, FCBGA\n\n### Additional information\n\n*Datasheet*: [ds182_Kintex_7_Data_Sheet](https://docs.xilinx.com/v/u/en-US/ds182_Kintex_7_Data_Sheet)",
             "extends": [
-                "Kintex-7 70T"
+                "Kintex 7 xc7k70t"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-484-23x23mm-layout22x22-p1mm-fbg484/previews/isoF_thumbnail_64x64.webp"
@@ -1820,6 +1820,9 @@
         },
         {
             "category": "Devices/Antmicro ADI MAX96724 GMSL Grabber",
+            "icon": {
+                "designer-media-icon": "antmicro_adi_max96724_gmsl_grabber.webp"
+            },
             "interfaces": [
                 {
                     "direction": "input",
@@ -2387,20 +2390,53 @@
             }
         },
         {
-            "category": "FPGA/AMD/Artix 7/Artix 7 xc7a100t",
+            "category": "SoC/AMD/Artix 7/Artix 7 xc7a100t",
             "interfaces": [
+                {
+                    "array": [
+                        14,
+                        17
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "left"
+                },
+                {
+                    "array": [
+                        34,
+                        36
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "right"
+                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "io",
-                    "override": false,
-                    "side": "left"
+                    "name": "jtag",
+                    "side": "right",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mgtx",
+                    "side": "left",
+                    "type": [
+                        "mgtx",
+                        "pcie"
+                    ]
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7a100t"
+            }
         },
         {
-            "category": "FPGA/AMD/Artix 7/Artix 7 xc7a200t",
+            "category": "SoC/AMD/Artix 7/Artix 7 xc7a200t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2410,10 +2446,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7a200t"
+            }
         },
         {
-            "category": "FPGA/AMD/Artix 7/Artix 7 xc7a25t",
+            "category": "SoC/AMD/Artix 7/Artix 7 xc7a25t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2423,10 +2462,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7a25t"
+            }
         },
         {
-            "category": "FPGA/AMD/Artix 7/Artix 7 xc7a35ti",
+            "category": "SoC/AMD/Artix 7/Artix 7 xc7a35ti",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2436,10 +2478,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7a35ti"
+            }
         },
         {
-            "category": "FPGA/AMD/Artix 7/Artix 7 xc7a50t",
+            "category": "SoC/AMD/Artix 7/Artix 7 xc7a50t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2449,10 +2494,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7a50t"
+            }
         },
         {
-            "category": "FPGA/AMD/Artix 7/Artix 7 xc7a75t",
+            "category": "SoC/AMD/Artix 7/Artix 7 xc7a75t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2462,7 +2510,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7a75t"
+            }
         },
         {
             "category": "Devices/Artix DC-SCM",
@@ -2526,7 +2577,7 @@
             }
         },
         {
-            "category": "FPGA/AMD/Artix UltraScale+/Artix UltraScale+ xcau15p",
+            "category": "SoC/AMD/Artix UltraScale+/Artix UltraScale+ xcau15p",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2536,10 +2587,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcau15p"
+            }
         },
         {
-            "category": "FPGA/AMD/Artix UltraScale+/Artix UltraScale+ xcau25p",
+            "category": "SoC/AMD/Artix UltraScale+/Artix UltraScale+ xcau25p",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -2549,7 +2603,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcau25p"
+            }
         },
         {
             "category": "Devices/Arty MPW Tester",
@@ -5791,7 +5848,7 @@
             "isCategory": true
         },
         {
-            "category": "FPGA/Lattice Semiconductor/Certus-NX/Certus-NX lfd2nx-40",
+            "category": "SoC/Lattice Semiconductor/Certus-NX/Certus-NX lfd2nx-40",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -5801,10 +5858,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfd2nx-40"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/CertusPro-NX/CertusPro-NX lfcpnx-100",
+            "category": "SoC/Lattice Semiconductor/CertusPro-NX/CertusPro-NX lfcpnx-100",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -5814,7 +5874,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfcpnx-100"
+            }
         },
         {
             "category": "Connector/Board to Board/ChipKit Shield connector",
@@ -5958,7 +6021,46 @@
             }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/Crosslink/CrossLink NX",
+            "category": "SoC/Lattice Semiconductor/CrossLink/CrossLink lif-md6000",
+            "interfaces": [
+                {
+                    "array": [
+                        0,
+                        3
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "left"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "hard d-phy 0",
+                    "side": "right",
+                    "type": [
+                        "csi",
+                        "dsi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "hard d-phy 1",
+                    "side": "left",
+                    "type": [
+                        "csi",
+                        "dsi"
+                    ]
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lif-md6000"
+            }
+        },
+        {
+            "category": "SoC/Lattice Semiconductor/CrossLink-NX/CrossLink-NX lifcl-40",
             "interfaces": [
                 {
                     "direction": "output",
@@ -6002,56 +6104,10 @@
                     "type": "csi"
                 }
             ],
-            "isCategory": true
-        },
-        {
-            "category": "FPGA/Lattice Semiconductor/CrossLink-NX/CrossLink-NX lifcl-40",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "io",
-                    "override": false,
-                    "side": "left"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "FPGA/Lattice Semiconductor/Crosslink/Crosslink",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "Hard D-PHY 0",
-                    "side": "right",
-                    "type": [
-                        "csi",
-                        "dsi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "Hard D-PHY 1",
-                    "side": "left",
-                    "type": [
-                        "csi",
-                        "dsi"
-                    ]
-                },
-                {
-                    "array": [
-                        0,
-                        3
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank",
-                    "side": "left"
-                }
-            ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lifcl-40"
+            }
         },
         {
             "category": "Devices/CubeSat Edge Computing System",
@@ -6587,7 +6643,7 @@
             "isCategory": true
         },
         {
-            "category": "FPGA/Intel/Cyclone 10 LP/Cyclone 10 LP 10cl025",
+            "category": "SoC/Intel/Cyclone 10 LP/Cyclone 10 LP 10cl025",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6597,10 +6653,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/10cl025"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone III/Cyclone III ep3c16",
+            "category": "SoC/Intel/Cyclone III/Cyclone III ep3c16",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6610,10 +6669,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ep3c16"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone IV CE/Cyclone IV CE ep4ce115",
+            "category": "SoC/Intel/Cyclone IV CE/Cyclone IV CE ep4ce115",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6623,10 +6685,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ep4ce115"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone IV CE/Cyclone IV CE ep4ce22",
+            "category": "SoC/Intel/Cyclone IV CE/Cyclone IV CE ep4ce22",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6636,10 +6701,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ep4ce22"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone IV GX/Cyclone IV GX ep4cgx150",
+            "category": "SoC/Intel/Cyclone IV GX/Cyclone IV GX ep4cgx150",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6649,10 +6717,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ep4cgx150"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone V E/Cyclone V E 5cea2",
+            "category": "SoC/Intel/Cyclone V E/Cyclone V E 5cea2",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6662,10 +6733,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/5cea2"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone V E/Cyclone V E 5cea5",
+            "category": "SoC/Intel/Cyclone V E/Cyclone V E 5cea5",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6675,10 +6749,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/5cea5"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone V E/Cyclone V E 5ceba4",
+            "category": "SoC/Intel/Cyclone V E/Cyclone V E 5ceba4",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6688,10 +6765,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/5ceba4"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone V E/Cyclone V E 5ceba9",
+            "category": "SoC/Intel/Cyclone V E/Cyclone V E 5ceba9",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6701,10 +6781,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/5ceba9"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone V SE SoC/Cyclone V SE SoC 5cseba6",
+            "category": "SoC/Intel/Cyclone V SE SoC/Cyclone V SE SoC 5cseba6",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6714,10 +6797,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/5cseba6"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone V SE SoC/Cyclone V SE SoC 5csema4",
+            "category": "SoC/Intel/Cyclone V SE SoC/Cyclone V SE SoC 5csema4",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6727,10 +6813,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/5csema4"
+            }
         },
         {
-            "category": "FPGA/Intel/Cyclone V SE SoC/Cyclone V SE SoC 5csema5",
+            "category": "SoC/Intel/Cyclone V SE SoC/Cyclone V SE SoC 5csema5",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -6740,7 +6829,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/5csema5"
+            }
         },
         {
             "abstract": false,
@@ -6957,7 +7049,8 @@
                     "maxConnectionsCount": -1,
                     "name": "mgtx",
                     "override": false,
-                    "side": "left"
+                    "side": "left",
+                    "type": "mgtx"
                 },
                 {
                     "direction": "inout",
@@ -7283,7 +7376,7 @@
             }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5u-12",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5u-12",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7293,10 +7386,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5u-12"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5u-25",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5u-25",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7306,10 +7402,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5u-25"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5u-45",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5u-45",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7319,10 +7418,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5u-45"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5u-85",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5u-85",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7332,10 +7434,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5u-85"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5um-25",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5um-25",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7345,10 +7450,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5um-25"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5um-45",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5um-45",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7358,10 +7466,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5um-45"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5um-85",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5um-85",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7371,10 +7482,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5um-85"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5um5g-25",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5um5g-25",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7384,10 +7498,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5um5g-25"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5um5g-45",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5um5g-45",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7397,10 +7514,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5um5g-45"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/ECP5/ECP5 lfe5um5g-85",
+            "category": "SoC/Lattice Semiconductor/ECP5/ECP5 lfe5um5g-85",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7410,7 +7530,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/lfe5um5g-85"
+            }
         },
         {
             "abstract": false,
@@ -7886,7 +8009,7 @@
             }
         },
         {
-            "category": "FPGA/Anlogic/EG4/EG4 s20",
+            "category": "SoC/Anlogic/EG4/EG4 s20",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -7896,7 +8019,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/s20"
+            }
         },
         {
             "category": "SoC/ESWIN/EIC7700",
@@ -10005,7 +10131,7 @@
             }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw1n-1",
+            "category": "SoC/GOWIN/GW1N/GW1N gw1n-1",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10015,10 +10141,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw1n-1"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw1n-4",
+            "category": "SoC/GOWIN/GW1N/GW1N gw1n-4",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10028,10 +10157,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw1n-4"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw1nr-9",
+            "category": "SoC/GOWIN/GW1N/GW1N gw1nr-9",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10041,10 +10173,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw1nr-9"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw1nr-9c",
+            "category": "SoC/GOWIN/GW1N/GW1N gw1nr-9c",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10054,10 +10189,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw1nr-9c"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw1ns-2c",
+            "category": "SoC/GOWIN/GW1N/GW1N gw1ns-2c",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10067,10 +10205,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw1ns-2c"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw1nsr-4c",
+            "category": "SoC/GOWIN/GW1N/GW1N gw1nsr-4c",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10080,10 +10221,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw1nsr-4c"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw1nz-1",
+            "category": "SoC/GOWIN/GW1N/GW1N gw1nz-1",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10093,10 +10237,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw1nz-1"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw2a-18c",
+            "category": "SoC/GOWIN/GW1N/GW1N gw2a-18c",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10106,10 +10253,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw2a-18c"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw5a-25",
+            "category": "SoC/GOWIN/GW1N/GW1N gw5a-25",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10119,10 +10269,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw5a-25"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw5ast-138",
+            "category": "SoC/GOWIN/GW1N/GW1N gw5ast-138",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10132,10 +10285,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw5ast-138"
+            }
         },
         {
-            "category": "FPGA/GOWIN/GW1N/GW1N gw5at-138",
+            "category": "SoC/GOWIN/GW1N/GW1N gw5at-138",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10145,10 +10301,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/gw5at-138"
+            }
         },
         {
-            "category": "FPGA/Cologne Chip/GateMate Series/GateMate Series ccgm1a1",
+            "category": "SoC/Cologne Chip/GateMate Series/GateMate Series ccgm1a1",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10158,10 +10317,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ccgm1a1"
+            }
         },
         {
-            "category": "FPGA/Cologne Chip/GateMate Series/GateMate Series ccgm1a16",
+            "category": "SoC/Cologne Chip/GateMate Series/GateMate Series ccgm1a16",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10171,10 +10333,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ccgm1a16"
+            }
         },
         {
-            "category": "FPGA/Cologne Chip/GateMate Series/GateMate Series ccgm1a2",
+            "category": "SoC/Cologne Chip/GateMate Series/GateMate Series ccgm1a2",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10184,10 +10349,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ccgm1a2"
+            }
         },
         {
-            "category": "FPGA/Cologne Chip/GateMate Series/GateMate Series ccgm1a25",
+            "category": "SoC/Cologne Chip/GateMate Series/GateMate Series ccgm1a25",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10197,10 +10365,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ccgm1a25"
+            }
         },
         {
-            "category": "FPGA/Cologne Chip/GateMate Series/GateMate Series ccgm1a4",
+            "category": "SoC/Cologne Chip/GateMate Series/GateMate Series ccgm1a4",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10210,10 +10381,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ccgm1a4"
+            }
         },
         {
-            "category": "FPGA/Cologne Chip/GateMate Series/GateMate Series ccgm1a9",
+            "category": "SoC/Cologne Chip/GateMate Series/GateMate Series ccgm1a9",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -10223,7 +10397,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ccgm1a9"
+            }
         },
         {
             "category": "Interfacing/Ethernet/GbE Phy",
@@ -12707,20 +12884,50 @@
             }
         },
         {
-            "category": "FPGA/AMD/Kintex 7/Kintex 7 xc7k160t",
+            "category": "SoC/AMD/Kintex 7/Kintex 7 xc7k160t",
             "interfaces": [
+                {
+                    "array": [
+                        12,
+                        17
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "left"
+                },
+                {
+                    "array": [
+                        32,
+                        35
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "right"
+                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "io",
-                    "override": false,
-                    "side": "left"
+                    "name": "jtag",
+                    "side": "right",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mgtx",
+                    "side": "left",
+                    "type": "mgtx"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7k160t"
+            }
         },
         {
-            "category": "FPGA/AMD/Kintex 7/Kintex 7 xc7k325t",
+            "category": "SoC/AMD/Kintex 7/Kintex 7 xc7k325t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -12730,23 +12937,63 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7k325t"
+            }
         },
         {
-            "category": "FPGA/AMD/Kintex 7/Kintex 7 xc7k410t",
+            "category": "SoC/AMD/Kintex 7/Kintex 7 xc7k410t",
             "interfaces": [
+                {
+                    "array": [
+                        12,
+                        19
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "left"
+                },
+                {
+                    "array": [
+                        32,
+                        35
+                    ],
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank",
+                    "side": "right"
+                },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "io",
-                    "override": false,
-                    "side": "left"
+                    "name": "jtag",
+                    "side": "right",
+                    "type": "jtag"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mgtx",
+                    "side": "left",
+                    "type": "mgtx"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi",
+                    "side": "left",
+                    "type": "spi"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7k410t"
+            }
         },
         {
-            "category": "FPGA/AMD/Kintex 7/Kintex 7 xc7k420t",
+            "category": "SoC/AMD/Kintex 7/Kintex 7 xc7k420t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -12756,20 +13003,79 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7k420t"
+            }
         },
         {
-            "category": "FPGA/AMD/Kintex 7/Kintex 7 xc7k70t",
+            "category": "SoC/AMD/Kintex 7/Kintex 7 xc7k70t",
             "interfaces": [
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "io",
-                    "override": false,
-                    "side": "left"
+                    "name": "bank 0",
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 13",
+                    "side": "right",
+                    "type": [
+                        "gpio",
+                        "hyperbus",
+                        "serial"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 14",
+                    "side": "left",
+                    "type": [
+                        "gpio",
+                        "hdmi",
+                        "qspi"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 15",
+                    "side": "right",
+                    "type": [
+                        "gbe phy",
+                        "gpio",
+                        "sdio"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 33",
+                    "side": "left",
+                    "type": [
+                        "gpio",
+                        "i2c"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "bank 34",
+                    "side": "right",
+                    "type": [
+                        "gpio",
+                        "lpddr"
+                    ]
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7k70t"
+            }
         },
         {
             "category": "Devices/Kintex K410T Devboard",
@@ -12842,7 +13148,7 @@
             }
         },
         {
-            "category": "FPGA/AMD/Kintex UltraScale/Kintex UltraScale xcku035",
+            "category": "SoC/AMD/Kintex UltraScale/Kintex UltraScale xcku035",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -12852,10 +13158,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcku035"
+            }
         },
         {
-            "category": "FPGA/AMD/Kintex UltraScale/Kintex UltraScale xcku040",
+            "category": "SoC/AMD/Kintex UltraScale/Kintex UltraScale xcku040",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -12865,10 +13174,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcku040"
+            }
         },
         {
-            "category": "FPGA/AMD/Kintex UltraScale/Kintex UltraScale xcku060",
+            "category": "SoC/AMD/Kintex UltraScale/Kintex UltraScale xcku060",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -12878,10 +13190,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcku060"
+            }
         },
         {
-            "category": "FPGA/AMD/Kintex UltraScale/Kintex UltraScale xcku115",
+            "category": "SoC/AMD/Kintex UltraScale/Kintex UltraScale xcku115",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -12891,120 +13206,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
-        },
-        {
-            "category": "FPGA/AMD/Kintex-7 70T",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank 0",
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank 13",
-                    "side": "right",
-                    "type": [
-                        "gpio",
-                        "hyperbus",
-                        "serial"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank 14",
-                    "side": "left",
-                    "type": [
-                        "gpio",
-                        "hdmi",
-                        "qspi"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank 15",
-                    "side": "right",
-                    "type": [
-                        "gbe phy",
-                        "gpio",
-                        "sdio"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank 33",
-                    "side": "left",
-                    "type": [
-                        "gpio",
-                        "i2c"
-                    ]
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank 34",
-                    "side": "right",
-                    "type": [
-                        "gpio",
-                        "lpddr"
-                    ]
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "FPGA/AMD/Kintex-7 K410T",
-            "interfaces": [
-                {
-                    "array": [
-                        12,
-                        19
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank",
-                    "side": "left"
-                },
-                {
-                    "array": [
-                        32,
-                        35
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank",
-                    "side": "right"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "jtag",
-                    "side": "right",
-                    "type": "jtag"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "mgtx",
-                    "side": "left",
-                    "type": "mgtx"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi",
-                    "side": "left",
-                    "type": "spi"
-                }
-            ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcku115"
+            }
         },
         {
             "category": "SoM/AMD/Kria K26",
@@ -13599,7 +13804,7 @@
             "abstract": false,
             "description": "FPGA, CrossLink, PLL37 I/O, 400 MHz, 5936 Cells, 1.14 V to 1.26 V, CTFBGA-80\n\n### Additional information\n\n*Datasheet*: [view_document?document_id=51662](https://www.latticesemi.com/view_document?document_id=51662)",
             "extends": [
-                "Crosslink"
+                "CrossLink lif-md6000"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-80-7x7mm-layout10x10-p0-65mm-lattice-semiconductor-lif-md6000-6jmg80i/previews/isoF_thumbnail_64x64.webp"
@@ -13615,7 +13820,7 @@
             "abstract": false,
             "description": "CrossLink-NX™ Field Programmable Gate Array 256-LFBGA\n\n### Additional information\n\n*Datasheet*: [FPGA-DS-02007-2-1-CrossLink-Family-Data-Sheet.ashx?document_id=51662](https://www.latticesemi.com/-/media/LatticeSemi/Documents/DataSheets/CrossLink/FPGA-DS-02007-2-1-CrossLink-Family-Data-Sheet.ashx?document_id=51662)",
             "extends": [
-                "CrossLink NX"
+                "CrossLink-NX lifcl-40"
             ],
             "icon": {
                 "hw-icon": "/blender-models/bga-256-14x14mm-layout16x16-p0-8x0-8mm-lattice/previews/isoF_thumbnail_64x64.webp"
@@ -14713,7 +14918,7 @@
             "isCategory": true
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 1200",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 1200",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14723,10 +14928,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/1200"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 1200u",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 1200u",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14736,10 +14944,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/1200u"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 2000",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 2000",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14749,10 +14960,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/2000"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 2000u",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 2000u",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14762,10 +14976,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/2000u"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 256",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 256",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14775,10 +14992,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/256"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 4000",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 4000",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14788,10 +15008,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/4000"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 640",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 640",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14801,10 +15024,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/640"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 640u",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 640u",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14814,10 +15040,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/640u"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO2/MachXO2 7000",
+            "category": "SoC/Lattice Semiconductor/MachXO2/MachXO2 7000",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14827,10 +15056,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/7000"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3D/MachXO3D 4300",
+            "category": "SoC/Lattice Semiconductor/MachXO3D/MachXO3D 4300",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14840,10 +15072,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/4300"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3D/MachXO3D 9400",
+            "category": "SoC/Lattice Semiconductor/MachXO3D/MachXO3D 9400",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14853,10 +15088,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/9400"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3LF/MachXO3LF 1300",
+            "category": "SoC/Lattice Semiconductor/MachXO3LF/MachXO3LF 1300",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14866,10 +15104,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/1300"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3LF/MachXO3LF 2100",
+            "category": "SoC/Lattice Semiconductor/MachXO3LF/MachXO3LF 2100",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14879,10 +15120,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/2100"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3LF/MachXO3LF 4300",
+            "category": "SoC/Lattice Semiconductor/MachXO3LF/MachXO3LF 4300",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14892,10 +15136,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/4300"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3LF/MachXO3LF 640",
+            "category": "SoC/Lattice Semiconductor/MachXO3LF/MachXO3LF 640",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14905,10 +15152,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/640"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3LF/MachXO3LF 6900",
+            "category": "SoC/Lattice Semiconductor/MachXO3LF/MachXO3LF 6900",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14918,10 +15168,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/6900"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/MachXO3LF/MachXO3LF 9400",
+            "category": "SoC/Lattice Semiconductor/MachXO3LF/MachXO3LF 9400",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14931,7 +15184,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/9400"
+            }
         },
         {
             "abstract": false,
@@ -14982,7 +15238,7 @@
             }
         },
         {
-            "category": "FPGA/Intel/Max 10/Max 10 10m08",
+            "category": "SoC/Intel/Max 10/Max 10 10m08",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -14992,7 +15248,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/10m08"
+            }
         },
         {
             "abstract": false,
@@ -17818,7 +18077,7 @@
             "isCategory": true
         },
         {
-            "category": "FPGA/Anlogic/SALELF 2/SALELF 2 ef2m45",
+            "category": "SoC/Anlogic/SALELF 2/SALELF 2 ef2m45",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -17828,7 +18087,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ef2m45"
+            }
         },
         {
             "category": "SoM/Quectel/SC606T",
@@ -19567,7 +19829,7 @@
             "isCategory": true
         },
         {
-            "category": "FPGA/AMD/Spartan 3/Spartan 3 xc3s200",
+            "category": "SoC/AMD/Spartan 3/Spartan 3 xc3s200",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19577,10 +19839,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc3s200"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 3/Spartan 3 xc3s500e",
+            "category": "SoC/AMD/Spartan 3/Spartan 3 xc3s500e",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19590,10 +19855,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc3s500e"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 6/Spartan 6 xc6slx150t",
+            "category": "SoC/AMD/Spartan 6/Spartan 6 xc6slx150t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19603,10 +19871,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc6slx150t"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 6/Spartan 6 xc6slx16",
+            "category": "SoC/AMD/Spartan 6/Spartan 6 xc6slx16",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19616,10 +19887,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc6slx16"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 6/Spartan 6 xc6slx25",
+            "category": "SoC/AMD/Spartan 6/Spartan 6 xc6slx25",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19629,10 +19903,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc6slx25"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 6/Spartan 6 xc6slx45",
+            "category": "SoC/AMD/Spartan 6/Spartan 6 xc6slx45",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19642,10 +19919,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc6slx45"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 6/Spartan 6 xc6slx45t",
+            "category": "SoC/AMD/Spartan 6/Spartan 6 xc6slx45t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19655,10 +19935,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc6slx45t"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 6/Spartan 6 xc6slx9",
+            "category": "SoC/AMD/Spartan 6/Spartan 6 xc6slx9",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19668,10 +19951,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc6slx9"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 7/Spartan 7 xc7s15",
+            "category": "SoC/AMD/Spartan 7/Spartan 7 xc7s15",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19681,10 +19967,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7s15"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 7/Spartan 7 xc7s25",
+            "category": "SoC/AMD/Spartan 7/Spartan 7 xc7s25",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19694,10 +19983,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7s25"
+            }
         },
         {
-            "category": "FPGA/AMD/Spartan 7/Spartan 7 xc7s50",
+            "category": "SoC/AMD/Spartan 7/Spartan 7 xc7s50",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -19707,7 +19999,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7s50"
+            }
         },
         {
             "category": "Devices/Stereo Sensor Unit",
@@ -20974,7 +21269,7 @@
             }
         },
         {
-            "category": "FPGA/Efinix/Titanium/Titanium ti60",
+            "category": "SoC/Efinix/Titanium/Titanium ti60",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -20984,7 +21279,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/ti60"
+            }
         },
         {
             "abstract": false,
@@ -21003,7 +21301,7 @@
             }
         },
         {
-            "category": "FPGA/Efinix/Trion/Trion t8",
+            "category": "SoC/Efinix/Trion/Trion t8",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21013,7 +21311,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/t8"
+            }
         },
         {
             "category": "Connector/U.FL",
@@ -21596,7 +21897,7 @@
             "isCategory": true
         },
         {
-            "category": "FPGA/AMD/Virtex 6/Virtex 6 xc6vlx130t",
+            "category": "SoC/AMD/Virtex 6/Virtex 6 xc6vlx130t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21606,10 +21907,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc6vlx130t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7v2000t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7v2000t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21619,10 +21923,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7v2000t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7v585t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7v585t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21632,10 +21939,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7v585t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vh580t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vh580t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21645,10 +21955,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vh580t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vh870t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vh870t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21658,10 +21971,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vh870t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vx1140t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vx1140t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21671,10 +21987,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vx1140t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vx330t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vx330t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21684,10 +22003,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vx330t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vx415t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vx415t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21697,10 +22019,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vx415t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vx485t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vx485t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21710,10 +22035,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vx485t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vx550t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vx550t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21723,10 +22051,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vx550t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vx690t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vx690t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21736,10 +22067,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vx690t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex 7/Virtex 7 xc7vx980t",
+            "category": "SoC/AMD/Virtex 7/Virtex 7 xc7vx980t",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21749,10 +22083,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7vx980t"
+            }
         },
         {
-            "category": "FPGA/AMD/Virtex UltraScale+/Virtex UltraScale+ xcvu9p",
+            "category": "SoC/AMD/Virtex UltraScale+/Virtex UltraScale+ xcvu9p",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -21762,7 +22099,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcvu9p"
+            }
         },
         {
             "abstract": false,
@@ -22369,7 +22709,7 @@
             "isCategory": true
         },
         {
-            "category": "FPGA/AMD/XC2C XA2C (coolrunner II)/XC2C XA2C (coolrunner II) xa2c64a",
+            "category": "SoC/AMD/XC2C XA2C (coolrunner II)/XC2C XA2C (coolrunner II) xa2c64a",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22379,10 +22719,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xa2c64a"
+            }
         },
         {
-            "category": "FPGA/AMD/XC2C XA2C (coolrunner II)/XC2C XA2C (coolrunner II) xc2c32a",
+            "category": "SoC/AMD/XC2C XA2C (coolrunner II)/XC2C XA2C (coolrunner II) xc2c32a",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22392,88 +22735,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc2c32a"
+            }
         },
         {
-            "category": "FPGA/AMD/XC7A100T-FGG484",
-            "interfaces": [
-                {
-                    "array": [
-                        14,
-                        17
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank",
-                    "side": "left"
-                },
-                {
-                    "array": [
-                        34,
-                        36
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank",
-                    "side": "right"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "jtag",
-                    "side": "right",
-                    "type": "jtag"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "mgtx",
-                    "side": "left"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "FPGA/AMD/XC7K160T-FFG676",
-            "interfaces": [
-                {
-                    "array": [
-                        12,
-                        17
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank",
-                    "side": "left"
-                },
-                {
-                    "array": [
-                        32,
-                        35
-                    ],
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "bank",
-                    "side": "right"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "jtag",
-                    "side": "right",
-                    "type": "jtag"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "mgtx",
-                    "side": "left"
-                }
-            ],
-            "isCategory": true
-        },
-        {
-            "category": "FPGA/AMD/XC9500XL/XC9500XL xc95144xl",
+            "category": "SoC/AMD/XC9500XL/XC9500XL xc95144xl",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22483,10 +22751,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc95144xl"
+            }
         },
         {
-            "category": "FPGA/AMD/XC9500XL/XC9500XL xc95188xl",
+            "category": "SoC/AMD/XC9500XL/XC9500XL xc95188xl",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22496,10 +22767,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc95188xl"
+            }
         },
         {
-            "category": "FPGA/AMD/XC9500XL/XC9500XL xc9536xl",
+            "category": "SoC/AMD/XC9500XL/XC9500XL xc9536xl",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22509,10 +22783,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc9536xl"
+            }
         },
         {
-            "category": "FPGA/AMD/XC9500XL/XC9500XL xc9572xl",
+            "category": "SoC/AMD/XC9500XL/XC9500XL xc9572xl",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22522,10 +22799,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc9572xl"
+            }
         },
         {
-            "category": "FPGA/AMD/XCF/XCF xcf01s",
+            "category": "SoC/AMD/XCF/XCF xcf01s",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22535,10 +22815,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcf01s"
+            }
         },
         {
-            "category": "FPGA/AMD/XCF/XCF xcf02s",
+            "category": "SoC/AMD/XCF/XCF xcf02s",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22548,10 +22831,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcf02s"
+            }
         },
         {
-            "category": "FPGA/AMD/XCF/XCF xcf04s",
+            "category": "SoC/AMD/XCF/XCF xcf04s",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22561,7 +22847,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xcf04s"
+            }
         },
         {
             "abstract": false,
@@ -22580,7 +22869,7 @@
             }
         },
         {
-            "category": "FPGA/AMD/Zynq7000/Zynq7000 xc7z010",
+            "category": "SoC/AMD/Zynq7000/Zynq7000 xc7z010",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22590,10 +22879,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7z010"
+            }
         },
         {
-            "category": "FPGA/AMD/Zynq7000/Zynq7000 xc7z020",
+            "category": "SoC/AMD/Zynq7000/Zynq7000 xc7z020",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22603,10 +22895,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xc7z020"
+            }
         },
         {
-            "category": "FPGA/AMD/ZynqMPSoC/ZynqMPSoC xczu11eg",
+            "category": "SoC/AMD/ZynqMPSoC/ZynqMPSoC xczu11eg",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22616,10 +22911,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xczu11eg"
+            }
         },
         {
-            "category": "FPGA/AMD/ZynqMPSoC/ZynqMPSoC xczu17eg",
+            "category": "SoC/AMD/ZynqMPSoC/ZynqMPSoC xczu17eg",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22629,10 +22927,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xczu17eg"
+            }
         },
         {
-            "category": "FPGA/AMD/ZynqMPSoC/ZynqMPSoC xczu2cg",
+            "category": "SoC/AMD/ZynqMPSoC/ZynqMPSoC xczu2cg",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22642,10 +22943,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xczu2cg"
+            }
         },
         {
-            "category": "FPGA/AMD/ZynqMPSoC/ZynqMPSoC xczu9eg",
+            "category": "SoC/AMD/ZynqMPSoC/ZynqMPSoC xczu9eg",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -22655,7 +22959,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/xczu9eg"
+            }
         },
         {
             "additionalData": {
@@ -23042,9 +23349,33 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart0",
+                    "name": "mdio0",
                     "override": false,
                     "side": "left",
+                    "type": "mdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mdio1",
+                    "override": false,
+                    "side": "right",
+                    "type": "mdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "mdio2",
+                    "override": false,
+                    "side": "left",
+                    "type": "mdio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "override": false,
+                    "side": "right",
                     "type": "serial"
                 }
             ],
@@ -24324,6 +24655,41 @@
             }
         },
         {
+            "category": "SoC/Texas Instruments/am6234",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio0",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/am6234",
+                "rdp": "soc/am6234",
+                "zephyr": "dts/arm/ti/am62x_m4.dtsi"
+            }
+        },
+        {
             "additionalData": {
                 "compats": [
                     "amd,sb-tsi"
@@ -25453,6 +25819,33 @@
                 "designer": "hardware/socs/bcm58400",
                 "rdp": "soc/bcm58400",
                 "zephyr": "dts/arm/broadcom/valkyrie.dtsi"
+            }
+        },
+        {
+            "category": "SoC/Broadcom/bcm58402",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/bcm58402",
+                "rdp": "soc/bcm58402",
+                "zephyr": "dts/arm/broadcom/viper-m7.dtsi"
             }
         },
         {
@@ -31793,7 +32186,7 @@
             "urls": {
                 "designer": "hardware/socs/emsdp_em7d",
                 "rdp": "soc/emsdp_em7d",
-                "zephyr": "dts/arc/synopsys/emsdp-sec.dtsi"
+                "zephyr": "dts/arc/synopsys/emsdp.dtsi"
             }
         },
         {
@@ -32546,7 +32939,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32",
                 "rdp": "soc/esp32",
-                "zephyr": "dts/xtensa/espressif/esp32/esp32_appcpu.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32/esp32_wrover_e_n4r8.dtsi"
             }
         },
         {
@@ -32717,7 +33110,7 @@
             "urls": {
                 "designer": "hardware/socs/esp32-wrover",
                 "rdp": "soc/esp32-wrover",
-                "zephyr": "dts/xtensa/espressif/esp32/esp32_wrover_e_n16r4.dtsi"
+                "zephyr": "dts/xtensa/espressif/esp32/esp32_appcpu.dtsi"
             }
         },
         {
@@ -33172,7 +33565,7 @@
             ],
             "urls": {
                 "rdp": "soc_components/fintek_f75303",
-                "zephyr": "drivers/sensor/f75303/f75303.c"
+                "zephyr": "drivers/sensor/f75303/f75303_emul.c"
             }
         },
         {
@@ -36424,7 +36817,7 @@
             }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/iCE40/iCE40 hx1k",
+            "category": "SoC/Lattice Semiconductor/iCE40/iCE40 hx1k",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -36434,10 +36827,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/hx1k"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/iCE40/iCE40 hx4k",
+            "category": "SoC/Lattice Semiconductor/iCE40/iCE40 hx4k",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -36447,10 +36843,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/hx4k"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/iCE40/iCE40 hx8k",
+            "category": "SoC/Lattice Semiconductor/iCE40/iCE40 hx8k",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -36460,10 +36859,13 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/hx8k"
+            }
         },
         {
-            "category": "FPGA/Lattice Semiconductor/iCE40/iCE40 up5k",
+            "category": "SoC/Lattice Semiconductor/iCE40/iCE40 up5k",
             "interfaces": [
                 {
                     "direction": "inout",
@@ -36473,7 +36875,10 @@
                     "side": "left"
                 }
             ],
-            "isCategory": true
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/up5k"
+            }
         },
         {
             "additionalData": {
@@ -39278,7 +39683,7 @@
             "urls": {
                 "designer": "hardware/socs/lpc55s69",
                 "rdp": "soc/lpc55s69",
-                "zephyr": "dts/arm/nxp/nxp_lpc55S6x.dtsi"
+                "zephyr": "dts/arm/nxp/nxp_lpc55S6x_ns.dtsi"
             }
         },
         {
@@ -42249,6 +42654,196 @@
             ],
             "urls": {
                 "zephyr": "drivers/sensor/mhz19b/mhz19b.c"
+            }
+        },
+        {
+            "category": "SoC/NXP Semiconductors/mimx8ml8",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ecspi1",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ecspi2",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "ecspi3",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio1",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio2",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio3",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio4",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio5",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "left",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart4",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/mimx8ml8",
+                "rdp": "soc/mimx8ml8",
+                "zephyr": "dts/arm/nxp/nxp_imx8ml_m7.dtsi"
+            }
+        },
+        {
+            "category": "SoC/NXP Semiconductors/mimx8mm6",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio1",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio2",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio3",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio4",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio5",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart2",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart3",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart4",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/mimx8mm6",
+                "rdp": "soc/mimx8mm6",
+                "zephyr": "dts/arm/nxp/nxp_imx8mm_m4.dtsi"
             }
         },
         {
@@ -51988,10 +52583,269 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "flash_controller",
+                    "name": "adc",
                     "override": false,
                     "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "flash_controller",
+                    "override": false,
+                    "side": "right",
                     "type": "mtd"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio0",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio1",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c0",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c1",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c2",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c3",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2s0",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2s"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "nfct",
+                    "override": false,
+                    "side": "right",
+                    "type": "wireless"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pdm0",
+                    "override": false,
+                    "side": "left",
+                    "type": "audio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pinctrl",
+                    "override": false,
+                    "side": "right",
+                    "type": "pinctrl"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm0",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm1",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm2",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm3",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qdec0",
+                    "override": false,
+                    "side": "left",
+                    "type": "qdec"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qdec1",
+                    "override": false,
+                    "side": "right",
+                    "type": "qdec"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qspi",
+                    "override": false,
+                    "side": "left",
+                    "type": "qspi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi0",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi1",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi2",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi3",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi4",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart0",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart1",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart2",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart3",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usbd",
+                    "override": false,
+                    "side": "left",
+                    "type": "usb"
+                }
+            ],
+            "isCategory": true,
+            "urls": {
+                "designer": "hardware/socs/nrf5340",
+                "rdp": "soc/nrf5340",
+                "zephyr": "dts/arm/nordic/nrf5340_cpuappns_qkaa.dtsi"
+            }
+        },
+        {
+            "category": "SoC/Nordic Semiconductor/nrf54h20",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc",
+                    "override": false,
+                    "side": "left",
+                    "type": "adc"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "can120",
+                    "override": false,
+                    "side": "right",
+                    "type": "can"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "exmif",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
                 },
                 {
                     "direction": "inout",
@@ -52012,10 +52866,106 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "i2c0",
+                    "name": "gpio2",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio6",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio7",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio9",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c130",
                     "override": false,
                     "side": "right",
                     "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c131",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c132",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c133",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c134",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c135",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c136",
+                    "override": false,
+                    "side": "right",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c137",
+                    "override": false,
+                    "side": "left",
+                    "type": "i2c"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "nfct",
+                    "override": false,
+                    "side": "right",
+                    "type": "wireless"
                 },
                 {
                     "direction": "inout",
@@ -52028,15 +52978,63 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "radio",
+                    "name": "pwm120",
                     "override": false,
                     "side": "right",
-                    "type": "rf"
+                    "type": "pwm"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi0",
+                    "name": "pwm130",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm131",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm132",
+                    "override": false,
+                    "side": "left",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "pwm133",
+                    "override": false,
+                    "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qdec130",
+                    "override": false,
+                    "side": "left",
+                    "type": "qdec"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "qdec131",
+                    "override": false,
+                    "side": "right",
+                    "type": "qdec"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi120",
                     "override": false,
                     "side": "left",
                     "type": "spi"
@@ -52044,17 +53042,161 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "uart0",
+                    "name": "spi121",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi130",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi131",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi132",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi133",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi134",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi135",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi136",
+                    "override": false,
+                    "side": "left",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi137",
+                    "override": false,
+                    "side": "right",
+                    "type": "spi"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart120",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart130",
                     "override": false,
                     "side": "right",
                     "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart131",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart132",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart133",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart134",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart135",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart136",
+                    "override": false,
+                    "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart137",
+                    "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "usbhs",
+                    "override": false,
+                    "side": "right",
+                    "type": "usb"
                 }
             ],
             "isCategory": true,
             "urls": {
-                "designer": "hardware/socs/nrf5340",
-                "rdp": "soc/nrf5340",
-                "zephyr": "dts/arm/nordic/nrf5340_cpunet_qkaa.dtsi"
+                "designer": "hardware/socs/nrf54h20",
+                "rdp": "soc/nrf54h20",
+                "zephyr": "dts/arm/nordic/nrf54h20_cpuapp.dtsi"
             }
         },
         {
@@ -52241,7 +53383,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf9131",
                 "rdp": "soc/nrf9131",
-                "zephyr": "dts/arm/nordic/nrf9131_laca.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9131ns_laca.dtsi"
             }
         },
         {
@@ -52428,7 +53570,7 @@
             "urls": {
                 "designer": "hardware/socs/nrf9151",
                 "rdp": "soc/nrf9151",
-                "zephyr": "dts/arm/nordic/nrf9151_laca.dtsi"
+                "zephyr": "dts/arm/nordic/nrf9151ns_laca.dtsi"
             }
         },
         {
@@ -53611,7 +54753,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio_0_a",
+                    "name": "gpio_0_i",
                     "override": false,
                     "side": "left",
                     "type": "gpio"
@@ -53619,7 +54761,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio_0_b",
+                    "name": "gpio_0_j",
                     "override": false,
                     "side": "right",
                     "type": "gpio"
@@ -53627,7 +54769,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio_0_t",
+                    "name": "gpio_0_r",
                     "override": false,
                     "side": "left",
                     "type": "gpio"
@@ -53635,9 +54777,17 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio_1_d",
+                    "name": "gpio_1_b",
                     "override": false,
                     "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_1_g",
+                    "override": false,
+                    "side": "left",
                     "type": "gpio"
                 },
                 {
@@ -53645,21 +54795,13 @@
                     "maxConnectionsCount": -1,
                     "name": "gpio_1_h",
                     "override": false,
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpio_1_s",
-                    "override": false,
                     "side": "right",
                     "type": "gpio"
                 },
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio_2_gpd",
+                    "name": "gpio_3_a",
                     "override": false,
                     "side": "left",
                     "type": "gpio"
@@ -53667,7 +54809,7 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio_4_c",
+                    "name": "gpio_3_c",
                     "override": false,
                     "side": "right",
                     "type": "gpio"
@@ -53691,7 +54833,23 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "gpio_5_r",
+                    "name": "gpio_4_k",
+                    "override": false,
+                    "side": "left",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_4_s",
+                    "override": false,
+                    "side": "right",
+                    "type": "gpio"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "gpio_5_d",
                     "override": false,
                     "side": "left",
                     "type": "gpio"
@@ -53763,9 +54921,17 @@
                 {
                     "direction": "inout",
                     "maxConnectionsCount": -1,
-                    "name": "spi0",
+                    "name": "pwm0",
                     "override": false,
                     "side": "right",
+                    "type": "pwm"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "spi0",
+                    "override": false,
+                    "side": "left",
                     "type": "spi"
                 },
                 {
@@ -53773,7 +54939,7 @@
                     "maxConnectionsCount": -1,
                     "name": "spi1",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "spi"
                 },
                 {
@@ -53781,7 +54947,7 @@
                     "maxConnectionsCount": -1,
                     "name": "spi2",
                     "override": false,
-                    "side": "right",
+                    "side": "left",
                     "type": "spi"
                 },
                 {
@@ -53789,7 +54955,7 @@
                     "maxConnectionsCount": -1,
                     "name": "uart0",
                     "override": false,
-                    "side": "left",
+                    "side": "right",
                     "type": "serial"
                 },
                 {
@@ -53797,7 +54963,23 @@
                     "maxConnectionsCount": -1,
                     "name": "uart1",
                     "override": false,
+                    "side": "left",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart2",
+                    "override": false,
                     "side": "right",
+                    "type": "serial"
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "uart_ec_0",
+                    "override": false,
+                    "side": "left",
                     "type": "serial"
                 }
             ],
@@ -53805,7 +54987,7 @@
             "urls": {
                 "designer": "hardware/socs/raptor_lake",
                 "rdp": "soc/raptor_lake",
-                "zephyr": "dts/x86/intel/raptor_lake_p.dtsi"
+                "zephyr": "dts/x86/intel/raptor_lake_s.dtsi"
             }
         },
         {
@@ -62671,7 +63853,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32f103xe",
                 "rdp": "soc/stm32f103xe",
-                "zephyr": "dts/arm/st/f1/stm32f103Xc.dtsi"
+                "zephyr": "dts/arm/st/f1/stm32f103Xe.dtsi"
             }
         },
         {
@@ -66873,7 +68055,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32f407xx",
                 "rdp": "soc/stm32f407xx",
-                "zephyr": "dts/arm/st/f4/stm32f407Xe.dtsi"
+                "zephyr": "dts/arm/st/f4/stm32f407Xg.dtsi"
             }
         },
         {
@@ -75552,7 +76734,7 @@
             "urls": {
                 "designer": "hardware/socs/stm32g031xx",
                 "rdp": "soc/stm32g031xx",
-                "zephyr": "dts/arm/st/g0/stm32g031X8.dtsi"
+                "zephyr": "dts/arm/st/g0/stm32g031X6.dtsi"
             }
         },
         {
@@ -92997,193 +94179,6 @@
                 "designer": "hardware/socs/stm32wl55xx",
                 "rdp": "soc/stm32wl55xx",
                 "zephyr": "dts/arm/st/wl/stm32wl55Xc.dtsi"
-            }
-        },
-        {
-            "category": "SoC/Olimex Ltd./stm32wle5xx",
-            "interfaces": [
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "adc1",
-                    "override": false,
-                    "side": "left",
-                    "type": "adc"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "dac1",
-                    "override": false,
-                    "side": "right",
-                    "type": "dac"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "flash",
-                    "override": false,
-                    "side": "left",
-                    "type": "mtd"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioa",
-                    "override": false,
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpiob",
-                    "override": false,
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioc",
-                    "override": false,
-                    "side": "right",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "gpioh",
-                    "override": false,
-                    "side": "left",
-                    "type": "gpio"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c1",
-                    "override": false,
-                    "side": "right",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c2",
-                    "override": false,
-                    "side": "left",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "i2c3",
-                    "override": false,
-                    "side": "right",
-                    "type": "i2c"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "lora",
-                    "override": false,
-                    "side": "left",
-                    "type": "rf"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "lpuart1",
-                    "override": false,
-                    "side": "right",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pinctrl",
-                    "override": false,
-                    "side": "left",
-                    "type": "pinctrl"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm",
-                    "override": false,
-                    "side": "right",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm-1",
-                    "override": false,
-                    "side": "left",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm-2",
-                    "override": false,
-                    "side": "right",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "pwm-3",
-                    "override": false,
-                    "side": "left",
-                    "type": "pwm"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi1",
-                    "override": false,
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "spi2",
-                    "override": false,
-                    "side": "left",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "subghzspi",
-                    "override": false,
-                    "side": "right",
-                    "type": "spi"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usart1",
-                    "override": false,
-                    "side": "left",
-                    "type": "serial"
-                },
-                {
-                    "direction": "inout",
-                    "maxConnectionsCount": -1,
-                    "name": "usart2",
-                    "override": false,
-                    "side": "right",
-                    "type": "serial"
-                }
-            ],
-            "isCategory": true,
-            "urls": {
-                "designer": "hardware/socs/stm32wle5xx",
-                "rdp": "soc/stm32wle5xx",
-                "zephyr": "dts/arm/olimex/bb-stm32wl.dtsi"
             }
         },
         {

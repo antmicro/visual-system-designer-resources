@@ -1,7 +1,12 @@
 architecture: arm
 board_socs:
 - name: nrf52840
-defconfig_file: boards/adafruit/feather_nrf52840/adafruit_feather_nrf52840_express_defconfig
+  variants:
+  - name: uf2
+  - name: sense
+    variants:
+    - name: uf2
+defconfig_file: boards/adafruit/feather_nrf52840/adafruit_feather_nrf52840_nrf52840_uf2_defconfig
 remove_defconfig_flags:
-- CONFIG_BOARD_ADAFRUIT_FEATHER_NRF52840_EXPRESS
+- CONFIG_BOARD_ADAFRUIT_FEATHER_NRF52840_NRF52840
 vendor: adafruit

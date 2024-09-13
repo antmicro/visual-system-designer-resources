@@ -257,6 +257,14 @@
 			clocks = < &rtc 0x18 >;
 			status = "disabled";
 		};
+		lcd_cam: lcd_cam@60041000 {
+			compatible = "espressif,esp32-lcd-cam";
+			reg = < 0x60041000 0x1000 >;
+			clocks = < &rtc 0x9 >;
+			interrupts = < 0x18 0x0 0x0 >;
+			interrupt-parent = < &intc >;
+			status = "disabled";
+		};
 		usb_serial: uart@60038000 {
 			compatible = "espressif,esp32-usb-serial";
 			reg = < 0x60038000 0x1000 >;

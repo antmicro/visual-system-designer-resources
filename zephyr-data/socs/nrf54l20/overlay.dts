@@ -1,0 +1,56 @@
+/ {
+	compatible = "nordic,nrf54l20pdk_nrf54l20-cpuapp";
+	chosen {
+		zephyr,console = &uart20;
+		zephyr,flash = &cpuapp_rram;
+		zephyr,sram = &cpuapp_sram;
+	};
+};
+&cpuapp_sram{
+	status = "okay";
+};
+&gpio0{
+	status = "okay";
+};
+&gpio1{
+	status = "okay";
+};
+&gpio2{
+	status = "okay";
+};
+&hfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3a98 >;
+};
+&lfxo{
+	load-capacitors = "internal";
+	load-capacitance-femtofarad = < 0x3c8c >;
+};
+&radio{
+	status = "okay";
+};
+&uart20{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &uart20_default >;
+	pinctrl-1 = < &uart20_sleep >;
+	pinctrl-names = "default", "sleep";
+};
+&pinctrl{
+	compatible = "nordic,nrf-pinctrl";
+	uart20_default: uart20_default {
+		group1 {
+			psels = < 0x24 >;
+		};
+		group2 {
+			psels = < 0x40025 >;
+			bias-pull-up;
+		};
+	};
+	uart20_sleep: uart20_sleep {
+		group1 {
+			psels = < 0x24 >, < 0x40025 >;
+			low-power-enable;
+		};
+	};
+};

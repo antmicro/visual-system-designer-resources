@@ -2,6 +2,8 @@
 	compatible = "nxp,mimxrt1189";
 	chosen {
 		zephyr,console = &lpuart1;
+		zephyr,flash = &itcm;
+		zephyr,sram = &dtcm;
 	};
 };
 &flexspi1{
