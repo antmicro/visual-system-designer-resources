@@ -354,8 +354,9 @@
 			phandle = < 0x10 >;
 		};
 		xosc: xosc {
-			compatible = "raspberrypi,pico-clock";
+			compatible = "raspberrypi,pico-xosc";
 			clock-frequency = < 0xb71b00 >;
+			startup-delay-multiplier = < 0x40 >;
 			#clock-cells = < 0x0 >;
 			phandle = < 0xe >;
 		};

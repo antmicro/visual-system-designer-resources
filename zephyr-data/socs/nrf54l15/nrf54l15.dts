@@ -24,10 +24,10 @@
 				compatible = "nordic,nrf-vevif-task-rx";
 				status = "disabled";
 				interrupt-parent = < &cpuflpr_clic >;
-				interrupts = < 0xb 0x1 >, < 0xc 0x1 >, < 0xd 0x1 >, < 0xe 0x1 >, < 0xf 0x1 >, < 0x10 0x1 >, < 0x11 0x1 >;
+				interrupts = < 0x10 0x1 >, < 0x11 0x1 >, < 0x12 0x1 >, < 0x13 0x1 >, < 0x14 0x1 >, < 0x15 0x1 >, < 0x16 0x1 >;
 				#mbox-cells = < 0x1 >;
 				nordic,tasks = < 0x7 >;
-				nordic,tasks-mask = < 0x3f800 >;
+				nordic,tasks-mask = < 0x7f0000 >;
 			};
 		};
 	};
@@ -91,6 +91,8 @@
 				reg = < 0x4a000 0x1000 >;
 				interrupts = < 0x4a 0x1 >;
 				status = "disabled";
+				endtx-stoptx-supported;
+				frame-timeout-supported;
 			};
 			cpuflpr_vpr: vpr@4c000 {
 				compatible = "nordic,nrf-vpr-coprocessor";
@@ -112,7 +114,7 @@
 					compatible = "nordic,nrf-vevif-event-tx";
 					#mbox-cells = < 0x1 >;
 					nordic,events = < 0x1 >;
-					nordic,events-mask = < 0x8000 >;
+					nordic,events-mask = < 0x100000 >;
 					status = "disabled";
 				};
 			};
@@ -206,6 +208,8 @@
 				reg = < 0xc6000 0x1000 >;
 				interrupts = < 0xc6 0x1 >;
 				status = "disabled";
+				endtx-stoptx-supported;
+				frame-timeout-supported;
 			};
 			i2c21: i2c@c7000 {
 				compatible = "nordic,nrf-twim";
@@ -234,6 +238,8 @@
 				reg = < 0xc7000 0x1000 >;
 				interrupts = < 0xc7 0x1 >;
 				status = "disabled";
+				endtx-stoptx-supported;
+				frame-timeout-supported;
 			};
 			i2c22: i2c@c8000 {
 				compatible = "nordic,nrf-twim";
@@ -262,6 +268,8 @@
 				reg = < 0xc8000 0x1000 >;
 				interrupts = < 0xc8 0x1 >;
 				status = "disabled";
+				endtx-stoptx-supported;
+				frame-timeout-supported;
 			};
 			egu20: egu@c9000 {
 				compatible = "nordic,nrf-egu";
@@ -313,6 +321,18 @@
 				max-bit-width = < 0x20 >;
 				interrupts = < 0xce 0x1 >;
 				prescaler = < 0x0 >;
+			};
+			pdm20: pdm@d0000 {
+				compatible = "nordic,nrf-pdm";
+				status = "disabled";
+				reg = < 0xd0000 0x1000 >;
+				interrupts = < 0xd0 0x1 >;
+			};
+			pdm21: pdm@d1000 {
+				compatible = "nordic,nrf-pdm";
+				status = "disabled";
+				reg = < 0xd1000 0x1000 >;
+				interrupts = < 0xd1 0x1 >;
 			};
 			pwm20: pwm@d2000 {
 				compatible = "nordic,nrf-pwm";
@@ -431,6 +451,8 @@
 				reg = < 0x104000 0x1000 >;
 				interrupts = < 0x104 0x1 >;
 				status = "disabled";
+				endtx-stoptx-supported;
+				frame-timeout-supported;
 			};
 			wdt30: watchdog@108000 {
 				compatible = "nordic,nrf-wdt";

@@ -8,7 +8,7 @@
 };
 &adc1{
 	status = "okay";
-	pinctrl-0 = < &adc_in5_pb1 >;
+	pinctrl-0 = < &adc_in5_pb1 &adc_in0_pb13 >;
 	pinctrl-names = "default";
 	st,adc-clock-source = < 0x1 >;
 	st,adc-prescaler = < 0x4 >;
@@ -94,6 +94,9 @@
 	};
 	adc_in5_pb1: adc_in5_pb1 {
 		pinmux = < 0x230 >;
+	};
+	adc_in0_pb13: adc_in0_pb13 {
+		pinmux = < 0x3b0 >;
 	};
 	dac_out1_pa10: dac_out1_pa10 {
 		pinmux = < 0x150 >;

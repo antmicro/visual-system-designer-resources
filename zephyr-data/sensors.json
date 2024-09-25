@@ -208,8 +208,8 @@
         ],
         "description": "AMD SB Temperature Sensor Interface.",
         "driver": [
-            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c",
-            "drivers/sensor/amd_sb_tsi/sb_tsi.c"
+            "drivers/sensor/amd_sb_tsi/sb_tsi.c",
+            "drivers/sensor/amd_sb_tsi/sb_tsi_emul.c"
         ],
         "interfaces": {
             "i2c": "i2c"
@@ -2812,6 +2812,22 @@
             }
         },
         "rdp-compat": "sensirion,sgp40"
+    },
+    "sht21": {
+        "category": "Environmental",
+        "compatible": [
+            "sensirion,sht21"
+        ],
+        "description": "Sensirion SHT21 Humidity and Temperature Sensor\n\nThis is compatible with the Measurement Specialties HUT21D, \"meas,htu21d\".\n\nFor the Silicon Labs Si7006/13/20/21 series, use the \"silabs,si7006\"\ncompatible for slightly altered operation.\n",
+        "interfaces": {
+            "i2c": "i2c"
+        },
+        "properties": {
+            "address (i2c)": {
+                "type": "string"
+            }
+        },
+        "rdp-compat": "sensirion,sht21"
     },
     "sht3xd": {
         "category": "Environmental",

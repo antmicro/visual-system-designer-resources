@@ -35,13 +35,12 @@
 			clocks = < &rcc 0xd4 0x100 >;
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			flash1: flash@8100000 {
+			flash0: flash@8000000 {
 				compatible = "st,stm32-nv-flash", "soc-nv-flash";
 				write-block-size = < 0x20 >;
 				erase-block-size = < 0x20000 >;
 				max-erase-time = < 0xfa0 >;
-				reg = < 0x8100000 0x100000 >;
-				bank2-flash-size = < 0x400 >;
+				reg = < 0x8000000 0x100000 >;
 			};
 		};
 		rcc: rcc@58024400 {
@@ -855,7 +854,7 @@
 			clocks = < &rcc 0xe0 0x2000000 >;
 			#mbox-cells = < 0x1 >;
 			status = "disabled";
-			interrupts = < 0x7e 0x0 >;
+			interrupts = < 0x7d 0x0 >;
 		};
 		ltdc: display-controller@50001000 {
 			compatible = "st,stm32-ltdc";
@@ -894,10 +893,16 @@
 	cpus {
 		#address-cells = < 0x1 >;
 		#size-cells = < 0x0 >;
-		cpu1: cpu@1 {
+		cpu0: cpu@0 {
 			device_type = "cpu";
-			compatible = "arm,cortex-m4f";
-			reg = < 0x1 >;
+			compatible = "arm,cortex-m7";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv7m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+			};
 		};
 	};
 	ext_memory: memory@90000000 {
@@ -966,6 +971,16 @@
 		perck: perck {
 			#clock-cells = < 0x0 >;
 			compatible = "st,stm32-clock-mux";
+			status = "disabled";
+		};
+	};
+	mcos {
+		mco1: mco1 {
+			compatible = "st,stm32-clock-mco";
+			status = "disabled";
+		};
+		mco2: mco2 {
+			compatible = "st,stm32-clock-mco";
 			status = "disabled";
 		};
 	};
@@ -1049,5 +1064,10 @@
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
 		phandle = < 0x5 >;
+	};
+	dtcm: memory@20000000 {
+		compatible = "zephyr,memory-region", "arm,dtcm";
+		reg = < 0x20000000 0x20000 >;
+		zephyr,memory-region = "DTCM";
 	};
 };

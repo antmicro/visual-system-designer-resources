@@ -954,6 +954,16 @@
 			status = "disabled";
 		};
 	};
+	mcos {
+		mco1: mco1 {
+			compatible = "st,stm32-clock-mco";
+			status = "disabled";
+		};
+		mco2: mco2 {
+			compatible = "st,stm32-clock-mco";
+			status = "disabled";
+		};
+	};
 	die_temp: dietemp {
 		compatible = "st,stm32-temp-cal";
 		ts-cal1-addr = < 0x1ff1e820 >;
@@ -1034,6 +1044,11 @@
 		compatible = "zephyr,memory-region", "arm,dtcm";
 		reg = < 0x20000000 0x20000 >;
 		zephyr,memory-region = "DTCM";
+	};
+	itcm: memory@0 {
+		compatible = "zephyr,memory-region", "arm,itcm";
+		reg = < 0x0 0x10000 >;
+		zephyr,memory-region = "ITCM";
 	};
 	otghs_fs_phy: otghs_fs_phy {
 		compatible = "usb-nop-xceiv";

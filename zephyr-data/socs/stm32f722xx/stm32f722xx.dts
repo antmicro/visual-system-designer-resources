@@ -569,7 +569,7 @@
 			ram-size = < 0x500 >;
 			maximum-speed = "full-speed";
 			phys = < &otgfs_phy >;
-			clocks = < &rcc 0x34 0x80 >, < &rcc 0x6 0x3b90 >;
+			clocks = < &rcc 0x34 0x80 >, < &rcc 0x7 0x3b90 >;
 			status = "disabled";
 		};
 		usbotg_hs: usb@40040000 {
@@ -580,7 +580,7 @@
 			num-bidir-endpoints = < 0x9 >;
 			ram-size = < 0x1000 >;
 			maximum-speed = "full-speed";
-			clocks = < &rcc 0x30 0x20000000 >, < &rcc 0x6 0x3b90 >;
+			clocks = < &rcc 0x30 0x20000000 >, < &rcc 0x7 0x3b90 >;
 			phys = < &otghs_fs_phy >;
 			status = "disabled";
 		};
@@ -664,13 +664,13 @@
 			compatible = "st,stm32-rng";
 			reg = < 0x50060800 0x400 >;
 			interrupts = < 0x50 0x0 >;
-			clocks = < &rcc 0x34 0x40 >, < &rcc 0x6 0x3b90 >;
+			clocks = < &rcc 0x34 0x40 >, < &rcc 0x7 0x3b90 >;
 			status = "disabled";
 		};
 		sdmmc1: sdmmc@40012c00 {
 			compatible = "st,stm32-sdmmc";
 			reg = < 0x40012c00 0x400 >;
-			clocks = < &rcc 0x44 0x800 >, < &rcc 0x6 0x3c90 >;
+			clocks = < &rcc 0x44 0x800 >, < &rcc 0x7 0x3c90 >;
 			resets = < &rctl 0x48b >;
 			interrupts = < 0x31 0x0 >;
 			status = "disabled";
@@ -694,7 +694,7 @@
 		sdmmc2: sdmmc@40011c00 {
 			compatible = "st,stm32-sdmmc";
 			reg = < 0x40011c00 0x400 >;
-			clocks = < &rcc 0x44 0x80 >, < &rcc 0x6 0x3d90 >;
+			clocks = < &rcc 0x44 0x80 >, < &rcc 0x7 0x3d90 >;
 			resets = < &rctl 0x487 >;
 			interrupts = < 0x67 0x0 >;
 			status = "disabled";
@@ -749,6 +749,16 @@
 		pll: pll {
 			#clock-cells = < 0x0 >;
 			compatible = "st,stm32f7-pll-clock";
+			status = "disabled";
+		};
+	};
+	mcos {
+		mco1: mco1 {
+			compatible = "st,stm32-clock-mco";
+			status = "disabled";
+		};
+		mco2: mco2 {
+			compatible = "st,stm32-clock-mco";
 			status = "disabled";
 		};
 	};

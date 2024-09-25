@@ -125,6 +125,14 @@
 				pulldown-ohm = < 0x2710 >;
 				connected-positive;
 			};
+			test_seeed_grove_light: seeed-grove-light {
+				compatible = "seeed,grove-light";
+				io-channels = < &test_adc 0x0 >;
+			};
+			test_seeed_grove_temperature: seeed-grove-temperature {
+				compatible = "seeed,grove-temperature";
+				io-channels = < &test_adc 0x0 >;
+			};
 		};
 		test_gpio: gpio@deadbeef {
 			compatible = "vnd,gpio";
@@ -1027,7 +1035,7 @@
 				reg = < 0x90 >;
 				status = "okay";
 			};
-			test_i2c_sht21@91 {
+			test_i2c_sht21: sht21@91 {
 				compatible = "sensirion,sht21";
 				reg = < 0x91 >;
 			};
@@ -1035,30 +1043,30 @@
 				compatible = "st,lsm9ds1";
 				reg = < 0x92 >;
 			};
-			test_i2c_icm42670: icm42670@92 {
+			test_i2c_icm42670: icm42670@93 {
 				compatible = "invensense,icm42670";
-				reg = < 0x92 >;
+				reg = < 0x93 >;
 				int-gpios = < &test_gpio 0x0 0x0 >;
 				accel-hz = < 0x320 >;
 				accel-fs = < 0x10 >;
 				gyro-hz = < 0x320 >;
 				gyro-fs = < 0x7d0 >;
 			};
-			test_i2c_fxls8974: fxls8974@93 {
+			test_i2c_fxls8974: fxls8974@94 {
 				compatible = "nxp,fxls8974";
-				reg = < 0x93 >;
+				reg = < 0x94 >;
 				reset-gpios = < &test_gpio 0x0 0x0 >;
 				int1-gpios = < &test_gpio 0x0 0x0 >;
 				int2-gpios = < &test_gpio 0x0 0x0 >;
 			};
-			test_i2c_bmp180: bmp180@94 {
+			test_i2c_bmp180: bmp180@95 {
 				compatible = "bosch,bmp180";
-				reg = < 0x94 >;
+				reg = < 0x95 >;
 				osr-press = < 0x1 >;
 			};
-			test_i2c_apds9253: apds9253@91 {
+			test_i2c_apds9253: apds9253@96 {
 				compatible = "avago,apds9253";
-				reg = < 0x91 >;
+				reg = < 0x96 >;
 				int-gpios = < &test_gpio 0x0 0x0 >;
 				gain = < 0x0 >;
 				rate = < 0x1 >;

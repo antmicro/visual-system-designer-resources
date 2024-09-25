@@ -301,6 +301,36 @@
 				status = "disabled";
 				#io-channel-cells = < 0x2 >;
 			};
+			lpadc1: lpadc@2600000 {
+				compatible = "nxp,lpc-lpadc";
+				reg = < 0x2600000 0x304 >;
+				interrupts = < 0x5d 0x0 >;
+				status = "disabled";
+				clk-divider = < 0x7 >;
+				clk-source = < 0x1 >;
+				voltage-ref = < 0x1 >;
+				calibration-average = < 0x80 >;
+				no-power-level;
+				offset-value-a = < 0xa >;
+				offset-value-b = < 0xa >;
+				#io-channel-cells = < 0x1 >;
+				clocks = < &ccm 0x1500 0x0 0x0 >;
+			};
+			lpadc2: lpadc@2e00000 {
+				compatible = "nxp,lpc-lpadc";
+				reg = < 0x2e00000 0x304 >;
+				interrupts = < 0xbd 0x0 >;
+				status = "disabled";
+				clk-divider = < 0x8 >;
+				clk-source = < 0x0 >;
+				voltage-ref = < 0x1 >;
+				calibration-average = < 0x80 >;
+				no-power-level;
+				offset-value-a = < 0xa >;
+				offset-value-b = < 0xa >;
+				#io-channel-cells = < 0x1 >;
+				clocks = < &ccm 0x1501 0x0 0x0 >;
+			};
 		};
 		flexspi1: spi@425e0000 {
 			reg = < 0x425e0000 0x4000 >, < 0x28000000 0x8000000 >;

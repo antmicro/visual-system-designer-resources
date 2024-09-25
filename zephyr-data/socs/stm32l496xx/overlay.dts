@@ -81,7 +81,7 @@
 };
 &usbotg_fs{
 	status = "okay";
-	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 &usb_otg_fs_id_pa10 >;
+	pinctrl-0 = < &usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12 >;
 	pinctrl-names = "default";
 };
 &pinctrl{
@@ -211,5 +211,11 @@
 	usart3_tx_pd8: usart3_tx_pd8 {
 		pinmux = < 0x707 >;
 		bias-pull-up;
+	};
+	usb_otg_fs_dm_pa11: usb_otg_fs_dm_pa11 {
+		pinmux = < 0x16a >;
+	};
+	usb_otg_fs_dp_pa12: usb_otg_fs_dp_pa12 {
+		pinmux = < 0x18a >;
 	};
 };
