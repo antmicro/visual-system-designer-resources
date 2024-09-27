@@ -34,6 +34,26 @@
 			compatible = "nxp,imx-dtcm";
 			reg = < 0x20000000 0x40000 >;
 		};
+		lpi2c3: i2c@42530000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x42530000 0x4000 >;
+			interrupts = < 0x3a 0x0 >;
+			clocks = < &scmi_clk 0x81 >;
+			status = "disabled";
+		};
+		lpi2c4: i2c@42540000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x42540000 0x4000 >;
+			interrupts = < 0x3b 0x0 >;
+			clocks = < &scmi_clk 0x82 >;
+			status = "disabled";
+		};
 		lpuart3: serial@42570000 {
 			compatible = "nxp,imx-lpuart", "nxp,kinetis-lpuart";
 			reg = < 0x42570000 0x10000 >;
@@ -74,6 +94,66 @@
 			reg = < 0x426a0000 0x10000 >;
 			interrupts = < 0x45 0x3 >;
 			clocks = < &scmi_clk 0x93 >;
+			status = "disabled";
+		};
+		lpi2c5: i2c@426b0000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x426b0000 0x4000 >;
+			interrupts = < 0xb5 0x0 >;
+			clocks = < &scmi_clk 0x83 >;
+			status = "disabled";
+		};
+		lpi2c6: i2c@426c0000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x426c0000 0x4000 >;
+			interrupts = < 0xb6 0x0 >;
+			clocks = < &scmi_clk 0x84 >;
+			status = "disabled";
+		};
+		lpi2c7: i2c@426d0000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x426d0000 0x4000 >;
+			interrupts = < 0xb7 0x0 >;
+			clocks = < &scmi_clk 0x85 >;
+			status = "disabled";
+		};
+		lpi2c8: i2c@426e0000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x426e0000 0x4000 >;
+			interrupts = < 0xb8 0x0 >;
+			clocks = < &scmi_clk 0x86 >;
+			status = "disabled";
+		};
+		lpi2c1: i2c@44340000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x44340000 0x4000 >;
+			interrupts = < 0xd 0x0 >;
+			clocks = < &scmi_clk 0x2f >;
+			status = "disabled";
+		};
+		lpi2c2: i2c@44350000 {
+			compatible = "nxp,imx-lpi2c";
+			clock-frequency = < 0x186a0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x0 >;
+			reg = < 0x44350000 0x4000 >;
+			interrupts = < 0xe 0x0 >;
+			clocks = < &scmi_clk 0x30 >;
 			status = "disabled";
 		};
 		lpuart1: serial@44380000 {

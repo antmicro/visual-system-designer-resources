@@ -1,0 +1,16 @@
+/ {
+	chosen {
+		zephyr,console = &lpuart1;
+		zephyr,flash = &flash;
+		zephyr,sram = &stcm0;
+	};
+};
+&gpioc{
+	status = "okay";
+};
+&lpuart1{
+	status = "okay";
+	current-speed = < 0x1c200 >;
+	pinctrl-0 = < &pinmux_lpuart1 >;
+	pinctrl-names = "default";
+};

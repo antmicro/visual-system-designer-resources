@@ -69,8 +69,8 @@
 		psram0: psram@3f800000 {
 			device_type = "memory";
 			compatible = "mmio-sram";
-			reg = < 0x3f800000 0x800000 >;
-			status = "okay";
+			reg = < 0x3f800000 0x200000 >;
+			status = "disabled";
 		};
 		ipm0: ipm@3ffed238 {
 			compatible = "espressif,esp32-ipm";
@@ -177,7 +177,7 @@
 				interrupts = < 0x16 0x0 0x0 >;
 				interrupt-parent = < &intc >;
 				ngpios = < 0x20 >;
-				gpio-reserved-ranges = < 0x6 0x6 >, < 0x10 0x2 >, < 0x14 0x1 >, < 0x18 0x1 >, < 0x1c 0x4 >;
+				gpio-reserved-ranges = < 0x14 0x1 >, < 0x18 0x1 >, < 0x1c 0x4 >;
 				phandle = < 0x4 >;
 			};
 			gpio1: gpio@3ff44800 {
@@ -188,7 +188,6 @@
 				interrupts = < 0x16 0x0 0x0 >;
 				interrupt-parent = < &intc >;
 				ngpios = < 0x8 >;
-				gpio-reserved-ranges = < 0x6 0x1 >, < 0x7 0x1 >;
 				phandle = < 0x5 >;
 			};
 		};

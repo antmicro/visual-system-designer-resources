@@ -4,7 +4,6 @@
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x1 >;
 	chosen {
-		zephyr,entropy = &psa_rng;
 		zephyr,flash-controller = &flash_controller;
 	};
 	aliases {
@@ -33,10 +32,10 @@
 			compatible = "mmio-sram";
 			reg = < 0x20000000 0x40000 >;
 		};
-		peripheral@40000000 {
+		peripheral@50000000 {
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x1 >;
-			ranges = < 0x0 0x40000000 0x10000000 >;
+			ranges = < 0x0 0x50000000 0x10000000 >;
 			flash_controller: flash-controller@39000 {
 				compatible = "nordic,nrf91-flash-controller";
 				reg = < 0x39000 0x1000 >;
@@ -357,13 +356,49 @@
 				prescaler = < 0x0 >;
 			};
 		};
-		gpiote: gpiote1: gpiote@40031000 {
+		cryptocell: crypto@50840000 {
+			compatible = "nordic,cryptocell", "arm,cryptocell-310";
+			reg = < 0x50840000 0x1000 >, < 0x50841000 0x1000 >;
+			reg-names = "wrapper", "core";
+			interrupts = < 0x40 0x1 >;
+			status = "disabled";
+		};
+		ctrlap: ctrlap@50006000 {
+			compatible = "nordic,nrf-ctrlapperi";
+			reg = < 0x50006000 0x1000 >;
+			status = "okay";
+		};
+		gpiote: gpiote0: gpiote@5000d000 {
+			compatible = "nordic,nrf-gpiote";
+			reg = < 0x5000d000 0x1000 >;
+			interrupts = < 0xd 0x5 >;
+			status = "disabled";
+			instance = < 0x0 >;
+			phandle = < 0x2 >;
+		};
+		gpiote1: gpiote@40031000 {
 			compatible = "nordic,nrf-gpiote";
 			reg = < 0x40031000 0x1000 >;
 			interrupts = < 0x31 0x5 >;
 			status = "disabled";
 			instance = < 0x1 >;
-			phandle = < 0x2 >;
+		};
+		spu: spu@50003000 {
+			compatible = "nordic,nrf-spu";
+			reg = < 0x50003000 0x1000 >;
+			interrupts = < 0x3 0x1 >;
+			status = "okay";
+		};
+		ficr: ficr@ff0000 {
+			compatible = "nordic,nrf-ficr";
+			reg = < 0xff0000 0x1000 >;
+			#nordic,ficr-cells = < 0x1 >;
+			status = "okay";
+		};
+		uicr: uicr@ff8000 {
+			compatible = "nordic,nrf-uicr";
+			reg = < 0xff8000 0x1000 >;
+			status = "okay";
 		};
 	};
 	pinctrl: pin-controller {
@@ -394,9 +429,5 @@
 				reg = < 0xe000ed90 0x40 >;
 			};
 		};
-	};
-	psa_rng: psa-rng {
-		compatible = "zephyr,psa-crypto-rng";
-		status = "okay";
 	};
 };

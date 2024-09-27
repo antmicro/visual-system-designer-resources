@@ -1,0 +1,179 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	chosen {
+	};
+	aliases {
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+		ctcm: sram@14000000 {
+			ranges = < 0x0 0x14000000 0x4000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			ctcm0: code_memory@0 {
+				compatible = "mmio-sram";
+				reg = < 0x0 0x4000 >;
+			};
+		};
+		stcm: sram@30000000 {
+			ranges = < 0x0 0x30000000 0x1c000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			stcm0: system_memory@0 {
+				compatible = "mmio-sram";
+				reg = < 0x0 0x10000 >;
+			};
+			stcm1: system_memory@1a000 {
+				compatible = "zephyr,memory-region", "mmio-sram";
+				reg = < 0x1a000 0x2000 >;
+				zephyr,memory-region = "RetainedMem";
+			};
+		};
+		smu2: sram@489c0000 {
+			ranges = < 0x0 0x489c0000 0xa000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+		};
+		peripheral: peripheral@50000000 {
+			ranges = < 0x0 0x50000000 0x10000000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			fmu: memory-controller@20000 {
+				ranges = < 0x0 0x10000000 0x100000 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x1 >;
+				compatible = "nxp,iap-msf1";
+				reg = < 0x20000 0x1000 >;
+				interrupts = < 0x1b 0x0 >;
+				status = "disabled";
+				flash: flash@0 {
+					reg = < 0x0 0x100000 >;
+					compatible = "soc-nv-flash";
+					write-block-size = < 0x10 >;
+					erase-block-size = < 0x2000 >;
+				};
+			};
+			scg: scg@1e000 {
+				compatible = "nxp,scg-k4";
+				reg = < 0x1e000 0x404 >;
+				#clock-cells = < 0x2 >;
+				phandle = < 0x2 >;
+			};
+			porta: pinmux@42000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x42000 0xe0 >;
+				clocks = < &scg 0x1 0x108 >;
+				phandle = < 0x3 >;
+			};
+			portb: pinmux@43000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x43000 0xe0 >;
+				clocks = < &scg 0x1 0x10c >;
+				phandle = < 0x4 >;
+			};
+			portc: pinmux@44000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x44000 0xe0 >;
+				clocks = < &scg 0x1 0x110 >;
+				phandle = < 0x5 >;
+			};
+			portd: pinmux@45000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x45000 0xe0 >;
+				clocks = < &scg 0x1 0x0 >;
+				phandle = < 0x6 >;
+			};
+			lpuart0: lpuart@38000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x38000 0x34 >;
+				interrupts = < 0x2c 0x0 >;
+				clocks = < &scg 0x7 0xe0 >;
+				status = "disabled";
+			};
+			lpuart1: lpuart@39000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x39000 0x34 >;
+				interrupts = < 0x2d 0x0 >;
+				clocks = < &scg 0x7 0xe4 >;
+				status = "disabled";
+			};
+			gpioa: gpio@10000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &porta >;
+				reg = < 0x10000 0x128 >;
+				interrupts = < 0x3b 0x0 >, < 0x3c 0x0 >;
+			};
+			gpiob: gpio@20000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portb >;
+				reg = < 0x20000 0x128 >;
+				interrupts = < 0x3d 0x0 >, < 0x3e 0x0 >;
+			};
+			gpioc: gpio@30000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portc >;
+				reg = < 0x30000 0x128 >;
+				interrupts = < 0x3f 0x0 >, < 0x40 0x0 >;
+			};
+			gpiod: gpio@46000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portd >;
+				reg = < 0x46000 0x128 >;
+				interrupts = < 0x41 0x0 >, < 0x42 0x0 >;
+			};
+			vbat: vbat@2b000 {
+				reg = < 0x2b000 0x400 >;
+				interrupts = < 0x4a 0x0 >;
+			};
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu0: cpu@0 {
+			compatible = "arm,cortex-m33f";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv8m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+			};
+		};
+	};
+	pinctrl: pinctrl {
+		compatible = "nxp,kinetis-pinctrl";
+	};
+};

@@ -6,6 +6,16 @@
 		zephyr,sram = &dtcm;
 	};
 };
+&lpi2c5{
+	status = "okay";
+	pinctrl-0 = < &lpi2c5_default >;
+	pinctrl-names = "default";
+};
+&lpi2c7{
+	status = "okay";
+	pinctrl-0 = < &lpi2c7_default >;
+	pinctrl-names = "default";
+};
 &lpuart3{
 	status = "okay";
 	current-speed = < 0x1c200 >;
